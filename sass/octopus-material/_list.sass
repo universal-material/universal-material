@@ -1,0 +1,68 @@
+.list
+  +vertical-padding($list-vertical-padding)
+  .divider
+    margin-top: $list-vertical-padding
+    margin-bottom: $list-vertical-padding
+
+  &.has-divider
+    .list-item
+      position: relative
+      & + .list-item::after
+        content: ''
+        position: absolute
+        background: rgba(0,0,0,.2)
+        height: 1px
+        top: -1px
+        left: 0
+        right: 0
+
+.list-item
+  display: block
+  +horizontal-padding($list-item-horizontal-padding)
+  text-decoration: none
+  height: $list-item-min-height
+  color: $text-high-contrast
+
+  &:hover,
+  &:focus,
+  &.focus
+    color: $text-high-contrast
+    text-decoration: none
+    outline: 0
+
+  .list-item-text
+    +vertical-center()
+    overflow-x: hidden
+    font-size: $list-font-size
+    font-weight: $font-regular
+    line-height: $line-height-base
+
+
+  .list-item-icon
+    @extend .avatar
+    display: inline-block
+    vertical-align: middle
+    margin-top: $list-avatar-padding-top
+
+    + .list-item-text
+      padding-left: $list-item-horizontal-padding
+
+  &.has-icon
+    height: $list-item-with-icon-height
+  &.two-lines
+    height: $list-item-two-lines-height
+    .list-item-icon
+      margin-top: $list-two-lines-avatar-padding-top
+
+  &.three-lines
+    height: $list-item-three-lines-height
+    .list-item-icon
+      margin-top: $list-two-lines-avatar-padding-top
+
+  &.list-item-dynamic
+    height: auto
+    > .list-item-text
+      +vertical-padding($list-item-dynamic-text-padding)
+
+    .list-item-icon
+      margin-top: $list-two-lines-avatar-padding-top

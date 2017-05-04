@@ -1,0 +1,85 @@
+//
+// Tables
+// --------------------------------------------------
+
+
+table
+  background-color: $table-bg
+  border-collapse: collapse
+  border-spacing: 0
+
+caption
+  padding-top: $table-cell-padding
+  padding-bottom: $table-cell-padding
+  color: $text-muted
+  text-align: left
+th
+  text-align: left
+
+.data-table
+  width: 100%
+  max-width: 100%
+  > thead > tr > th
+    height: 56px
+    color: rgba(0, 0, 0, .54)
+    font-size: $data-table-header-font-size
+    font-weight: $data-table-header-font-weight
+    border-bottom: $data-table-border
+
+  > tbody > tr > td
+    height: 48px
+    font-size: $data-table-content-font-size
+    font-weight: $data-table-content-font-weight
+    border-top: $data-table-border
+
+  > thead,
+  > tbody,
+  > tfoot
+    > tr
+      > th,
+      > td
+        +horizontal-padding($data-table-horizontal-padding)
+        font-weight: 500
+        vertical-align: middle
+
+.data-table-selectable >tbody > tr
+  cursor: pointer
+  &:hover
+    background-color: $base-hover-background-color
+
+  &:active
+    background-color: $base-active-background-color
+
+.data-table-header
+  height: $data-table-card-header-height
+  +horizontal-padding($data-table-horizontal-padding)
+  @extend .toolbar
+
+
+.data-table-title
+  height: $data-table-card-header-height
+  line-height: $data-table-card-header-height
+  @extend .toolbar-title
+
+.data-table-actions
+  @extend .toolbar-actions
+
+.data-table-action
+  color: $data-table-action-text-color
+  @extend .toolbar-action
+
+
+.data-table-footer
+  height: $data-table-card-footer-height
+  border-top: $data-table-border
+  color: $data-table-card-footer-font-color
+  font-size: $data-table-card-footer-font-size
+  font-weight: $data-table-card-footer-font-weight
+  +horizontal-padding($data-table-horizontal-padding)
+  @extend .toolbar
+
+  .data-table-actions
+    margin-left: 32px
+
+    .data-table-action:first-child
+      margin-left: -$toolbar-action-padding

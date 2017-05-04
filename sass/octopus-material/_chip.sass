@@ -1,0 +1,51 @@
+.chip
+  display: inline-block
+  height: $chip-height
+  line-height: $chip-height
+  border-radius: $chip-height / 2
+  background-color: $chip-background-color
+  font-size: $chip-font-size
+  margin-right: 8px
+  label
+    +horizontal-padding($chip-label-padding)
+    font-weight: $chip-font-weight
+
+  .chip-close
+    float: right
+    +square($chip-close-size)
+    line-height: $chip-close-size
+    margin: ($chip-height - $chip-close-size) / 2 $chip-close-horizontal-padding
+    font-size: $chip-close-size
+    text-align: center
+    color: $chip-close-color
+
+    &:hover
+      color: $chip-close-hover-color
+
+    + label
+      padding-right: 0
+
+  .chip-icon
+    float: left
+    +square($chip-height)
+    border-radius: $chip-height / 2
+    background-color: $chip-icon-placeholder-color
+    margin-right: $chip-icon-margin
+
+    + label, + .chip-close + label
+      padding-left: 0
+
+.chip-input
+  min-height: $chip-height
+  height: auto
+  @extend .clearfix
+  .chip
+    float: left
+
+  .text-input
+    float: left
+    width: auto
+    height: $chip-height
+    padding: 0
+    &, &:focus
+      border: none

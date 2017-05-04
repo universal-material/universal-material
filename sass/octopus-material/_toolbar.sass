@@ -1,0 +1,47 @@
+.toolbar
+  width: 100%
+  height: $toolbar-height
+  padding-left: $toolbar-horizontal-padding
+  padding-right: $toolbar-horizontal-padding
+
+  &.toolbar-fixed
+    position: absolute
+    z-index: $zindex-toolbar-fixed
+
+.toolbar-icon
+  float: left
+  width: $toolbar-icon-width - $toolbar-horizontal-padding + $toolbar-action-padding
+  height: 100%
+  line-height: $toolbar-height
+  margin-left: -$toolbar-action-padding
+
+.toolbar-title
+  height: $toolbar-height
+  font-size: $toolbar-title-font-size
+  line-height: $toolbar-height
+  +text-overflow
+
+.toolbar-actions
+  float: right
+  +vertical-center
+
+.toolbar-action
+  @extend .btn-borderless
+  cursor: pointer
+  display: inline-block
+  position: relative
+  width: $toolbar-action-icon-size
+  font-size: $toolbar-action-icon-size
+  text-align: center
+  +horizontal-padding($toolbar-action-padding)
+  +box-sizing(content-box)
+
+  &:last-child
+    margin-right: -$toolbar-action-padding
+
+.toolbar-more
+  width: auto !important
+
+.app-bar
+  @extend .toolbar
+  +toolbar-variant($bg-appbar)

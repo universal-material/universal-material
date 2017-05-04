@@ -1,0 +1,48 @@
+$breakpoints: (xs: null, sm: $screen-sm, md: $screen-md, lg: $screen-lg)
+
+=apply-breakpoints($name, $nest-to-parent: false, $create-original-name: false)
+  @if $nest-to-parent
+    @if $create-original-name
+      &.#{$name}
+        @content
+    &.#{$name}-xs
+      @content
+
+    @media (min-width: $screen-sm)
+      &.#{$name}-sm
+        @content
+
+    @media (min-width: $screen-md)
+      &.#{$name}-md
+        @content
+
+    @media (min-width: $screen-lg)
+      &.#{$name}-lg
+        @content
+  @else
+    @if $create-original-name
+      .#{$name}
+        @content
+
+    .#{$name}-xs
+      @content
+
+    @media (min-width: $screen-sm)
+      .#{$name}-sm
+        @content
+
+    @media (min-width: $screen-md)
+      .#{$name}-md
+        @content
+
+    @media (min-width: $screen-lg)
+      .#{$name}-lg
+        @content
+
+=media($size)
+  @if $size == xs
+    @content
+  @else
+    @media (min-width: map_get($breakpoints, $size))
+      @content
+

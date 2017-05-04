@@ -1,0 +1,5 @@
+=elevate($size)
+  @if $size == 0
+    +box-shadow(none)
+  @else
+    +box-shadow(nth($shadows, $size))

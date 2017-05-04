@@ -1,0 +1,18 @@
+.floating-action-area
+  position: fixed
+  right: $floating-content-padding
+  bottom: $floating-content-padding
+
+.btn-floating
+  +square($floating-button-size)
+  border-radius: 50%
+  font-size: $floating-button-icon-size
+  line-height: $floating-button-size
+  @extend .btn-raised
+  @extend .btn-raised.btn-accent
+
+  &.button-small
+    +square($floating-button-small-size)
+    line-height: $floating-button-small-size
+
+

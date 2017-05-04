@@ -1,0 +1,47 @@
+$margins: (no-margin: 0, margin-default: $container-default-margin, margin-8: $margin-gutter-8dp, margin-16: $margin-gutter-16dp, margin-24: $margin-gutter-24dp, margin-40: $margin-gutter-40dp)
+$gutters: (no-gutter: 0, gutter-default: $container-default-margin, gutter-8: $margin-gutter-8dp, gutter-16: $margin-gutter-16dp, gutter-24: $margin-gutter-24dp, gutter-40: $margin-gutter-40dp)
+
+.container
+  margin-right: auto
+  margin-left: auto
+  @include clearfix
+
+  +horizontal-padding($container-default-margin)
+
+  @each $size, $width in $breakpoints
+    +media($size)
+      @each $name, $margin in $margins
+        &.#{$name}-#{$size}
+          +horizontal-padding($margin)
+
+.row
+  $gutter-size: $container-default-margin / 2
+  +horizontal-margin(-$gutter-size)
+  +column-classes
+    +horizontal-padding($gutter-size)
+    position: relative
+    // Prevent columns from collapsing when empty
+    min-height: 1px
+
+  @each $size, $width in $breakpoints
+    +media($size)
+      @each $name, $gutter in $gutters
+        $gutter-size: $gutter / 2
+        &.#{$name}-#{$size}
+          +horizontal-margin(-$gutter-size)
+          +column-classes
+            +horizontal-padding($gutter-size)
+
++make-grid(xs, $grid-xsmall-columns)
+
+@media (min-width: $screen-sm)
+  +make-grid(sm, $grid-small-columns)
+
+@media (min-width: $screen-md)
+  +make-grid(md, $grid-medium-columns)
+
+
+
+
+
+

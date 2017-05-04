@@ -1,0 +1,11 @@
+@each $size, $width in $breakpoints
+  @if $size == xs
+    @for $i from 0 through length($shadows)
+      .elevate-#{$i}
+        +elevate($i)
+
+
+  +media($size)
+    @for $i from 0 through length($shadows)
+      .elevate-#{$i}-#{$size}
+        +elevate($i)

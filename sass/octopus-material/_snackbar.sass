@@ -1,0 +1,79 @@
+.snackbar
+  position: fixed
+  left: 0
+  bottom: 0
+  +size(100%, $snackbar-height)
+  +horizontal-padding($snackbar-horizontal-padding)
+  background-color: $snackbar-background-color
+  font-size: $snackbar-font-size
+  z-index: $zindex-snackbar
+  +animation-name(snackbar-fade-in)
+  +animation-duration(350ms)
+  +animation-fill-mode(forwards)
+  +animation-timing-function($awesome-cubic-bezier)
+  &.dismiss
+    animation-name: snackbar-fade-out
+
+.snackbar-text
+  +vertical-center()
+  font-weight: $snackbar-font-weight
+  color: $snackbar-text-color
+  overflow: hidden
+
+.snackbar-button
+  float: right
+  @extend .btn-flat
+  height: 100%
+  border-radius: 0
+  +horizontal-padding($snackbar-button-horizontal-padding)
+  margin-right: -$snackbar-button-horizontal-padding
+
+  &, &:hover
+    color: $accent-color
+
+
+@media screen and (min-width: $screen-md)
+  .snackbar
+    left: 50%
+    width: auto
+    min-width: $snackbar-tablet-min-width
+    max-width: $snackbar-tablet-max-width
+    border-radius: $snackbar-tablet-border-radius
+    +animation-name(snackbar-centered-fade-in)
+    &.dismiss
+      +animation-name(snackbar-centered-fade-out)
+    &.snackbar-left
+      bottom: $floating-content-padding
+      left: $floating-content-padding
+      +animation-name(snackbar-fade-in)
+      &.dismiss
+        +animation-name(snackbar-fade-out)
+
+  .snackbar-button
+    margin-left: $snackbar-button-tablet-left-margin
+
+
+
++keyframes(snackbar-fade-in)
+  0%
+    +translate(0, 100%)
+  100%
+    +translate(0, 0)
+
++keyframes(snackbar-centered-fade-in)
+  0%
+    +translate(-50%, 100%)
+  100%
+    +translate(-50%, 0)
+
++keyframes(snackbar-fade-out)
+  0%
+    +translate(0, 0)
+  100%
+    +translate(0, 100%)
+
++keyframes(snackbar-centered-fade-out)
+  0%
+    +translate(-50%, 0)
+  100%
+    +translate(-50%, 100%)

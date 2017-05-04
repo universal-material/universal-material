@@ -1,0 +1,34 @@
+.card
+  border-radius: $card-border-radius
+  background: #fff
+  overflow: hidden
+  +elevate(2)
+
+  &.selectable-background::before
+    border-radius: $card-border-radius
+
+.card-header
+  +horizontal-padding($card-side-padding)
+  +vertical-padding($card-base-small-vertical-padding)
+
+  .avatar
+    margin-right: $card-side-padding
+  .title
+    font-size: $card-small-title-font-size
+    &.title-large
+      font-size: $card-large-title-font-size
+      margin-top: $card-base-large-vertical-padding - $card-base-small-vertical-padding
+  .subtitle
+    font-size: $card-small-title-font-size
+    color: $text-low-contrast
+
+.card-body
+  +horizontal-padding($card-side-padding)
+  +vertical-padding($card-base-small-vertical-padding)
+
+.card-header + .card-body
+  padding-top: 0
+
+.card-header:last-child,
+.card-body:last-child
+  padding-bottom: $card-base-large-vertical-padding
