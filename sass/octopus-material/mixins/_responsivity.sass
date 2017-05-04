@@ -1,4 +1,4 @@
-$breakpoints: (xs: null, sm: $screen-sm, md: $screen-md, lg: $screen-lg)
+$breakpoints: (xs: null, sm: $screen-sm-min, md: $screen-md-min, lg: $screen-lg-min)
 
 =apply-breakpoints($name, $nest-to-parent: false, $create-original-name: false)
   @if $nest-to-parent
@@ -8,15 +8,15 @@ $breakpoints: (xs: null, sm: $screen-sm, md: $screen-md, lg: $screen-lg)
     &.#{$name}-xs
       @content
 
-    @media (min-width: $screen-sm)
+    @media (min-width: $screen-sm-min)
       &.#{$name}-sm
         @content
 
-    @media (min-width: $screen-md)
+    @media (min-width: $screen-md-min)
       &.#{$name}-md
         @content
 
-    @media (min-width: $screen-lg)
+    @media (min-width: $screen-lg-min)
       &.#{$name}-lg
         @content
   @else
@@ -27,15 +27,15 @@ $breakpoints: (xs: null, sm: $screen-sm, md: $screen-md, lg: $screen-lg)
     .#{$name}-xs
       @content
 
-    @media (min-width: $screen-sm)
+    @media (min-width: $screen-sm-min)
       .#{$name}-sm
         @content
 
-    @media (min-width: $screen-md)
+    @media (min-width: $screen-md-min)
       .#{$name}-md
         @content
 
-    @media (min-width: $screen-lg)
+    @media (min-width: $screen-lg-min)
       .#{$name}-lg
         @content
 

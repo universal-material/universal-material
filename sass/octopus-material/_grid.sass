@@ -34,10 +34,10 @@ $gutters: (no-gutter: 0, gutter-default: $container-default-margin, gutter-8: $m
 
 +make-grid(xs, $grid-xsmall-columns)
 
-@media (min-width: $screen-sm)
+@media (min-width: $screen-sm-min)
   +make-grid(sm, $grid-small-columns)
 
-@media (min-width: $screen-md)
+@media (min-width: $screen-md-min)
   +make-grid(md, $grid-medium-columns)
 
 
