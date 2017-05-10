@@ -1696,6 +1696,10 @@ th {
   .list-item.list-item-dynamic {
     height: auto; }
     .list-item.list-item-dynamic > .list-item-text {
+      top: 0;
+      -webkit-transform: translate3d(0, 0, 0);
+      -o-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
       padding-top: 20px;
       padding-bottom: 20px; }
     .list-item.list-item-dynamic .list-item-icon {
@@ -2243,11 +2247,11 @@ th {
     .text-field.focus > .error-text {
       padding-top: 3px;
       margin-bottom: -6px; }
-  .text-field.invalid .text-input {
+  .text-field.invalid .text-input, .text-field.focus.invalid .text-input {
     border-color: #d50000; }
-  .text-field.invalid > label {
+  .text-field.invalid > label, .text-field.focus.invalid > label {
     color: #d50000; }
-  .text-field.invalid > .error-text {
+  .text-field.invalid > .error-text, .text-field.focus.invalid > .error-text {
     display: block; }
 
 .typeahead-menu {

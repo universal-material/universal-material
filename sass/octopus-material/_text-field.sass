@@ -51,13 +51,10 @@
       padding-top: $error-text-vertical-padding - $text-field-divider-width
       margin-bottom: -$text-field-focus-bottom-padding
 
-  &.invalid
+  &.invalid, &.focus.invalid
     .text-input
       border-color: $text-field-invalid-color
     > label
       color: $text-field-invalid-color
     > .error-text
       display: block
-
-
-

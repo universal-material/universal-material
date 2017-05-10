@@ -41,7 +41,7 @@ module.exports = function (grunt) {
     });
 
     grunt.loadNpmTasks("grunt-contrib-sass");
+    grunt.loadNpmTasks("grunt-contrib-watch");
 
-    grunt.registerTask("increment-buildnumber", ["buildnumber", "update-build-config"]);
     grunt.registerTask("default", ["watch"]);
 };
