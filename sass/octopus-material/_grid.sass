@@ -15,6 +15,7 @@ $gutters: (no-gutter: 0, gutter-default: $container-default-margin, gutter-8: $m
           +horizontal-padding($margin)
 
 .row
+  @extend .clearfix
   $gutter-size: $container-default-margin / 2
   +horizontal-margin(-$gutter-size)
   +column-classes
