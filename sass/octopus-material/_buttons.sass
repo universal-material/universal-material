@@ -86,7 +86,9 @@
   &.disabled
     color: rgba(0,0,0,.30)
 
-  &:hover:enabled
+  &:hover:enabled,
+  &:focus:enabled,
+  &.focus:enabled
     color: $text-low-contrast
 
   &::before
