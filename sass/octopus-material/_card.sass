@@ -32,3 +32,12 @@
 .card-header:last-child,
 .card-body:last-child
   padding-bottom: $card-base-large-vertical-padding
+
+.card-actions
+  +vertical-padding($card-actions-padding)
+
+  [class^="btn-"]
+    +horizontal-margin($card-actions-padding)
+
+    & + [class^="btn-"]
+      margin-left: 0

@@ -1444,6 +1444,15 @@ h6, .title, .dialog-title {
 .card-body:last-child {
   padding-bottom: 24px; }
 
+.card-actions {
+  padding-top: 8px;
+  padding-bottom: 8px; }
+  .card-actions [class^="btn-"] {
+    margin-left: 8px;
+    margin-right: 8px; }
+    .card-actions [class^="btn-"] + [class^="btn-"] {
+      margin-left: 0; }
+
 .dialog-open {
   overflow: hidden; }
 
@@ -1515,7 +1524,7 @@ h6, .title, .dialog-title {
   -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
   overflow: auto;
-  transition: margin 150ms linear; }
+  transition: margin 150ms ease-out; }
   .expansion-panel + .expansion-panel::after {
     position: absolute;
     content: "";
@@ -1532,18 +1541,20 @@ h6, .title, .dialog-title {
     border-bottom-right-radius: 2px; }
   .expansion-panel .expansion-panel-content {
     padding: 0 24px;
-    margin-bottom: 16px;
+    margin-bottom: 0;
     clear: both;
     overflow: hidden;
     max-height: 0;
-    transition: max-height 200ms linear; }
+    transition: max-height 200ms ease; }
   .expansion-panel.open {
-    margin-top: 16px;
     margin-bottom: 16px; }
     .expansion-panel.open::before, .expansion-panel.open + .expansion-panel::before {
       content: initial; }
     .expansion-panel.open .expansion-panel-content {
-      max-height: 120vh; }
+      max-height: 120vh;
+      margin-bottom: 16px; }
+  .expansion-panel:not(:first-of-type).open {
+    margin-top: 16px; }
   .expansion-panel .expansion-panel-header {
     padding: 0 24px; }
   .expansion-panel .expansion-panel-label {
@@ -2291,7 +2302,14 @@ th {
     padding-bottom: 8px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.12); }
     .text-field .text-input:focus {
-      border-bottom: 2px solid #3f51b5; }
+      border-bottom: 2px solid #3f51b5;
+      margin-bottom: -1px; }
+    .text-field .text-input:hover {
+      border-bottom: 2px solid rgba(0, 0, 0, 0.87);
+      margin-bottom: -1px; }
+    .text-field .text-input:disabled {
+      border-bottom: 1px dashed rgba(0, 0, 0, 0.12);
+      margin-bottom: 0; }
   .text-field > label {
     display: inline-block;
     padding-top: 8px;
@@ -2299,21 +2317,19 @@ th {
     color: rgba(0, 0, 0, 0.54);
     font-size: 12px;
     font-weight: 400; }
-  .text-field.focus {
-    padding-bottom: 6px; }
-    .text-field.focus .text-input {
-      border-bottom: 2px solid #3f51b5; }
-    .text-field.focus > label {
-      color: #3f51b5; }
-    .text-field.focus > .error-text {
-      padding-top: 3px;
-      margin-bottom: -6px; }
+  .text-field.focus .text-input {
+    border-bottom: 2px solid #3f51b5;
+    margin-bottom: -1px; }
+  .text-field.focus > label {
+    color: #3f51b5; }
   .text-field.invalid .text-input, .text-field.focus.invalid .text-input {
     border-color: #d50000; }
   .text-field.invalid > label, .text-field.focus.invalid > label {
     color: #d50000; }
   .text-field.invalid > .error-text, .text-field.focus.invalid > .error-text {
     display: block; }
+  .text-field.disabled .text-input {
+    border-bottom-style: dashed; }
 
 .typeahead-menu {
   top: 100%;

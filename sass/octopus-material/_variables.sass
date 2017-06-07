@@ -15,6 +15,7 @@ $base-semi-transparent-color: rgba(0,0,0,.12) !default
 
 $base-hover-background-color: $base-semi-transparent-color !default
 $base-active-background-color: rgba(0,0,0,.2) !default
+$base-dense-color: rgba(0,0,0,.87) !default
 
 //Avatar
 $avatar-size: 40px !default
@@ -35,7 +36,7 @@ $font-medium:  500
 $font-bold:    700
 $font-black:   900
 
-$text-high-contrast: rgba(0,0,0,.87) !default
+$text-high-contrast: $base-dense-color !default
 $text-low-contrast: rgba(0,0,0,.54) !default
 $text-lower-contrast: rgba(0,0,0,.40) !default
 $text-super-low-contrast: rgba(0,0,0,.2) !default
@@ -59,6 +60,8 @@ $card-body-top-padding: $card-base-small-vertical-padding !default
 $card-body-bottom-padding: $card-base-bottom-padding !default
 
 $card-border-radius: 2px !default
+
+$card-actions-padding: 8px !default
 
 // 20/14
 $line-height-base:     1.428571429 !default
@@ -231,12 +234,16 @@ $error-text-font-size: 12px !default
 $error-text-vertical-padding: 4px !default
 
 $text-field-divider-width: 1px !default
-$text-field-divider-focus-width: 2px !default
+$text-field-divider-focus-hover-width: 2px !default
+
+$text-field-focus-hover-margin: $text-field-divider-width - $text-field-divider-focus-hover-width !default
+
+$text-field-divider-color: $base-hover-background-color !default
+$text-field-divider-hover-color: $base-dense-color !default
 
 $text-field-item-height: 16px !default
 $text-field-item-vertical-padding: 8px !default
 $text-field-bottom-padding: $text-field-item-vertical-padding - $text-field-divider-width
-$text-field-focus-bottom-padding: $text-field-item-vertical-padding - $text-field-divider-focus-width
 $text-field-focus-color: $primary-color !default
 $text-field-invalid-color: $danger-color !default
 

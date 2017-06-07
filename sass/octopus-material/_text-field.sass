@@ -29,9 +29,16 @@
   .text-input
     padding-top: $text-field-item-vertical-padding
     padding-bottom: $text-field-item-vertical-padding
-    border-bottom: $text-field-divider-width solid $base-hover-background-color
+    border-bottom: $text-field-divider-width solid $text-field-divider-color
     &:focus
-      border-bottom: $text-field-divider-focus-width solid $text-field-focus-color
+      border-bottom: $text-field-divider-focus-hover-width solid $text-field-focus-color
+      margin-bottom: $text-field-focus-hover-margin
+    &:hover
+      border-bottom: $text-field-divider-focus-hover-width solid $text-field-divider-hover-color
+      margin-bottom: $text-field-focus-hover-margin
+    &:disabled
+      border-bottom: $text-field-divider-width dashed $text-field-divider-color
+      margin-bottom: 0
 
   > label
     display: inline-block
@@ -42,14 +49,11 @@
     font-weight: $text-field-label-font-weight
 
   &.focus
-    padding-bottom: $text-field-focus-bottom-padding
     .text-input
-      border-bottom: $text-field-divider-focus-width solid $text-field-focus-color
+      border-bottom: $text-field-divider-focus-hover-width solid $text-field-focus-color
+      margin-bottom: $text-field-focus-hover-margin
     > label
       color: $text-field-focus-color
-    > .error-text
-      padding-top: $error-text-vertical-padding - $text-field-divider-width
-      margin-bottom: -$text-field-focus-bottom-padding
 
   &.invalid, &.focus.invalid
     .text-input
@@ -58,3 +62,6 @@
       color: $text-field-invalid-color
     > .error-text
       display: block
+
+  &.disabled .text-input
+    border-bottom-style: dashed

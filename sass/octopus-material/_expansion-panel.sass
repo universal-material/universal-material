@@ -5,7 +5,7 @@
   width: 100%
   +elevate(2)
   overflow: auto
-  transition: margin 150ms linear
+  transition: margin 150ms ease-out
 
   + .expansion-panel::after
     position: absolute
@@ -26,20 +26,24 @@
 
   .expansion-panel-content
     padding: 0 $expansion-panel-horizontal-padding
-    margin-bottom: $expansion-panel-content-margin
+    margin-bottom: 0
     clear: both
     overflow: hidden
     max-height: 0
-    transition: max-height 200ms linear
+    transition: max-height 200ms ease
 
   &.open
-    margin-top: $expansion-panel-content-margin
     margin-bottom: $expansion-panel-content-margin
+
     &::before, & + .expansion-panel::before
       content: initial
 
     .expansion-panel-content
       max-height: 120vh
+      margin-bottom: $expansion-panel-content-margin
+
+  &:not(:first-of-type).open
+    margin-top: $expansion-panel-content-margin
 
   .expansion-panel-header
     @extend .clearfix
