@@ -12,7 +12,7 @@
 
   .chip-close
     float: right
-    +square($chip-close-size)
+    +size($chip-close-size)
     line-height: $chip-close-size
     margin: ($chip-height - $chip-close-size) / 2 $chip-close-horizontal-padding
     font-size: $chip-close-size
@@ -27,7 +27,7 @@
 
   .chip-icon
     float: left
-    +square($chip-height)
+    +size($chip-height)
     border-radius: $chip-height / 2
     background-color: $chip-icon-placeholder-color
     margin-right: $chip-icon-margin
@@ -47,5 +47,5 @@
     width: auto
     height: $chip-height
     padding: 0
-    &, &:focus
+    &, &:focus, &:hover
       border: none

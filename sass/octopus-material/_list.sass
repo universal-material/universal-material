@@ -1,10 +1,10 @@
 .list
-  +vertical-padding($list-vertical-padding)
+  padding: $list-vertical-padding 0
+  margin: 0
   .divider
-    margin-top: $list-vertical-padding
-    margin-bottom: $list-vertical-padding
+    +vertical-margin($list-vertical-padding)
 
-  &.has-divider
+  &.has-dividers
     .list-item
       position: relative
       & + .list-item::after
@@ -17,11 +17,14 @@
         right: 0
 
 .list-item
-  display: block
-  +horizontal-padding($list-item-horizontal-padding)
+  display: flex
+  min-height: $list-item-min-height
+  flex-direction: row
+  flex-wrap: nowrap
+  align-items: center
   text-decoration: none
-  height: $list-item-min-height
   color: $text-high-contrast
+  padding: $list-item-padding
 
   &:hover,
   &:focus,
@@ -30,41 +33,55 @@
     text-decoration: none
     outline: 0
 
-  .list-item-text
-    +vertical-center()
-    overflow-x: hidden
-    font-size: $list-font-size
-    font-weight: $font-regular
-    line-height: $line-height-base
-
-
-  .list-item-icon
-    @extend .avatar
-    display: inline-block
-    vertical-align: middle
-    margin-top: $list-avatar-padding-top
-
-    + .list-item-text
-      padding-left: $list-item-horizontal-padding
-
-  &.has-icon
-    height: $list-item-with-icon-height
-  &.two-lines
-    height: $list-item-two-lines-height
-    .list-item-icon
-      margin-top: $list-two-lines-avatar-padding-top
-
-  &.three-lines
-    height: $list-item-three-lines-height
-    .list-item-icon
-      margin-top: $list-two-lines-avatar-padding-top
-
+  &.list-item-two-lines,
+  &.list-item-three-lines,
   &.list-item-dynamic
-    height: auto
-    > .list-item-text
-      top: 0
-      +translate(0,0)
-      +vertical-padding($list-item-dynamic-text-padding)
+    .list-item-primary-content
+      //padding-left: $list-icon-avatar-text-left-distance - $list-item-padding
+      position: relative
+      display: block
+      line-height: 20px
 
-    .list-item-icon
-      margin-top: $list-two-lines-avatar-padding-top
+
+  &.list-item-three-lines,
+  &.list-item-dynamic
+    .list-item-icon,
+    .list-item-avatar,
+    .list-item-secondary-content
+      align-self: baseline
+
+
+.list-item-icon,
+.list-item-avatar
+  font-size: $list-icon-size
+
+
+.list-item-avatar
+  +size($list-avatar-size)
+
+.list-item-icon
+  +size($list-icon-size)
+  color: $text-low-contrast
+  line-height: $list-item-font-size
+
+.list-item-icon + .list-item-primary-content
+  margin-left: $list-icon-avatar-text-left-distance - $list-icon-size - $list-item-padding
+.list-item-avatar + .list-item-primary-content
+  margin-left: $list-icon-avatar-text-left-distance - $list-avatar-size - $list-item-padding
+
+.list-item-primary-content
+  display: flex
+  align-items: center
+  flex-grow: 1
+  font-size: $list-item-font-size
+  font-weight: $font-regular
+  line-height: $list-item-font-size
+
+  .secondary-text
+    font-size: 14px
+
+
+.list-item-secondary-content
+  margin-left: $list-item-padding
+  .list-item-icon
+    text-align: center

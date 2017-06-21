@@ -5,6 +5,15 @@
 module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON("package.json"),
+
+        autoprefixer:{
+            dist:{
+                files:{
+                    "dist/css/octopus-material.css":"dist/css/octopus-material.css",
+                    "dist/css/octopus-material.min.css":"dist/css/octopus-material.min.css"
+                }
+            }
+        },
         sass: {
             compressed: {
                 options: {
@@ -32,16 +41,42 @@ module.exports = function (grunt) {
                 ]
             }
         },
+        pug: {
+            docs: {
+                options: {
+                    data: {
+                        debug: true,
+                        version: "<%= pkg.version + '.' + pkg.build %>"
+                    },
+                    pretty: true
+                },
+                files: [
+                    {
+                        cwd: "docs",
+                        src: ["**/*.pug"],
+                        dest: "docs",
+                        expand: true,
+                        ext: ".html"
+                    }
+                ]
+            }
+        },
         watch: {
             sass: {
                 files: ["sass/**/*.sass", "sass/**/*.scss"],
-                tasks: ["sass"]
+                tasks: ["sass", "autoprefixer"]
+            },
+            "pug": {
+                files: ["docs/**/*.pug"],
+                tasks: ["pug:docs"]
             }
         }
     });
 
     grunt.loadNpmTasks("grunt-contrib-sass");
+    grunt.loadNpmTasks("grunt-contrib-pug");
     grunt.loadNpmTasks("grunt-contrib-watch");
+    grunt.loadNpmTasks('grunt-autoprefixer');
 
     grunt.registerTask("default", ["watch"]);
 };

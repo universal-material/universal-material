@@ -17,7 +17,7 @@
       content: ''
       +vertical-center(absolute)
       left: -14px
-      +square(48px)
+      +size(48px)
       border-radius: 24px
       opacity: 0
       background-color: #000
@@ -26,7 +26,7 @@
       content: ''
       +vertical-center(absolute)
       left: -2px
-      +square(24px)
+      +size(24px)
       border-radius: 12px
       background-color: #fff
       +box-shadow(0 1px 3px 0 rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 2px 1px -1px rgba(0,0,0,.12))
@@ -54,6 +54,17 @@
     .selection-control::before
       content: none
 
+  input:disabled + .selection-control,
+  &.disabled .selection-control,
+  input:checked:disabled + .selection-control,
+  &.checked.disabled .selection-control
+    background-color: #d5d5d5
+    &::before
+      background-color: transparent
+    &::after
+      background-color: #bdbdbd
+
+
 .radio, .checkbox
   position: relative
   cursor: pointer
@@ -67,7 +78,7 @@
     &::before
       content: ""
       position: absolute
-      +square(48px)
+      +size(48px)
       top: 50%
       left: 50%
       transform: translate3d(-50%, -50%, 0)
@@ -96,12 +107,12 @@
 
 .radio
   .selection-control
-    +square($radio-size)
+    +size($radio-size)
     border-radius: 50%
     &::after
       content: ""
       position: absolute
-      +square($radio-size /2)
+      +size($radio-size /2)
       background-color: $checked-radio-color
       border-radius: 50%
       top: 50%
@@ -121,7 +132,7 @@
 
 .checkbox
   .selection-control
-    +square($checkbox-size)
+    +size($checkbox-size)
     border-radius: 2px
 
   input:checked + .selection-control,

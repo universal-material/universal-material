@@ -37,6 +37,7 @@
       border-bottom: $text-field-divider-focus-hover-width solid $text-field-divider-hover-color
       margin-bottom: $text-field-focus-hover-margin
     &:disabled
+      color: $text-lower-contrast
       border-bottom: $text-field-divider-width dashed $text-field-divider-color
       margin-bottom: 0
 
@@ -63,5 +64,11 @@
     > .error-text
       display: block
 
-  &.disabled .text-input
-    border-bottom-style: dashed
+  &.disabled
+    label
+      color: $text-lower-contrast
+
+    .text-input
+      color: $text-lower-contrast
+      border-bottom: $text-field-divider-width dashed $text-field-divider-color
+      margin-bottom: 0
