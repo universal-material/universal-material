@@ -1,0 +1,27 @@
+.content-area {
+    padding-top: 64px;
+    padding-left: 320px;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+.content-area > .app-bar {
+    position: fixed;
+    width: auto;
+    top: 0;
+    right: 0;
+    left: 320px;
+}
+
+.sidebar {
+    position: fixed;
+    border-right: 1px solid rgba(0, 0, 0, 0.12)
+}
+
+.sidebar .toolbar {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12)
+}
+
+.container {
+    max-width: 1000px;
+}

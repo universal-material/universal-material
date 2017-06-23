@@ -1,0 +1,57 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='mobile-web-app-capable', content='yes')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='description', content='')
+    meta(name='author', content='')
+
+    base(href="/docs/")
+
+    title Octopus Material
+
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i")
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css")
+    link(rel="stylesheet" href="../dist/css/octopus-material.min.css")
+    link(rel="stylesheet" href="css/styles.css")
+
+    body
+      nav.sidebar.sidebar-left.sidebar-collapsible-xs.sidebar-fixed-lg.elevate-2-xs.elevate-0-lg
+        .toolbar
+          .toolbar-title Material Design
+        .list
+          a.list-item.selectable-background(href="/docs")
+            .list-item-icon
+              i.zmdi.zmdi-home
+            .list-item-primary-content
+              | Introduction
+          a.list-item.selectable-background(href="components/buttons.html")
+            .list-item-icon
+              i.zmdi.zmdi-arrow-right
+            .list-item-primary-content
+              span Buttons
+
+          a.list-item.selectable-background(href="components/lists.html")
+            .list-item-icon
+              i.zmdi.zmdi-view-list-alt
+            .list-item-primary-content
+              span Lists
+
+          a.list-item.selectable-background(href="components/text-fields.html")
+            .list-item-icon
+              i.zmdi.zmdi-text-format
+            .list-item-primary-content
+              span Text fields
+
+      .content-area
+        .app-bar.toolbar-fixed.elevate-1
+          .toolbar-icon.hidden-lg
+            button.toolbar-action((click)="showNavigation = !showNavigation")
+              i.zmdi.zmdi-menu
+          .toolbar-title
+            | Material
+
+        .container
+          block content

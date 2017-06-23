@@ -1,14 +1,58 @@
-.text-input
-  display: block
-  width: 100%
-  height: $text-input-height
+input.text-input, .text-input input
   background: transparent
+  padding: 0
   border: none
   outline: 0
-  font-size: $text-input-font-size
-  font-weight: $text-input-font-weight
-  padding: 0
-  +box-sizing(content-box)
+
+.text-input
+  display: flex
+  flex-direction: row
+  align-items: flex-end
+
+  &, input
+    box-sizing: content-box
+    font-size: $text-input-font-size
+    font-weight: $text-input-font-weight
+
+  input
+    +vertical-margin($text-field-item-margin)
+    flex-grow: 1
+    + .text-input-icon
+      margin-left: $text-field-item-margin
+
+  .text-input-icon
+    margin-bottom: $text-field-item-margin
+
+input.text-input
+  +vertical-padding($text-field-item-margin)
+
+
+.text-input-group
+  display: flex
+  flex-direction: row
+  align-items: center
+  .text-input
+    flex-grow: 1
+
+.text-input-icon
+  +size($base-icon-size)
+  font-size: $base-icon-size
+  color: $text-low-contrast
+  text-align: center
+
+  & + .text-input
+    margin-left: 16px
+
+.text-input-prefix, .text-input-suffix
+  color: $text-lower-contrast
+  margin-bottom: $text-field-item-margin
+
+.text-input-prefix
+  margin-right: $text-field-item-margin
+
+.text-input-suffix
+  margin-left: $text-field-item-margin
+
 
 .error-text
   color: $text-field-invalid-color
@@ -18,50 +62,72 @@
   font-style: normal
 
 .text-field
-  position: relative
-  padding-top: $text-field-item-vertical-padding
+  display: flex
+  flex-direction: column-reverse
+  padding-top: $text-field-item-margin
   padding-bottom: $text-field-bottom-padding
 
-  > .error-text
+  .error-text
     display: none
     margin-bottom: -$text-field-bottom-padding
 
   .text-input
-    padding-top: $text-field-item-vertical-padding
-    padding-bottom: $text-field-item-vertical-padding
     border-bottom: $text-field-divider-width solid $text-field-divider-color
-    &:focus
-      border-bottom: $text-field-divider-focus-hover-width solid $text-field-focus-color
-      margin-bottom: $text-field-focus-hover-margin
     &:hover
       border-bottom: $text-field-divider-focus-hover-width solid $text-field-divider-hover-color
       margin-bottom: $text-field-focus-hover-margin
+    &:focus
+      border-bottom: $text-field-divider-focus-hover-width solid $text-field-focus-color
+      margin-bottom: $text-field-focus-hover-margin
+      & + label
+        color: $text-field-focus-color
     &:disabled
       color: $text-lower-contrast
       border-bottom: $text-field-divider-width dashed $text-field-divider-color
       margin-bottom: 0
 
-  > label
-    display: inline-block
-    padding-top: $text-field-item-vertical-padding
+  label
+    padding-top: $text-field-item-margin
     line-height: $text-field-item-height
     color: $text-field-label-font-color
     font-size: $text-field-label-font-size
     font-weight: $text-field-label-font-weight
 
+  &.floating-label
+    label
+      font-size: $text-input-font-size
+      transform: translate3d(0, 24px, 0)
+      transition: transform 150ms, font-size 150ms
+    .text-field, input
+      z-index: 5
+
+    &.focus label,
+    &.not-empty label,
+    .text-input:focus + label
+      font-size: $text-field-label-font-size
+      transform: none
+
+    input::placeholder
+      color: rgba(0,0,0,0)
+      transition: color 150ms
+      transition-timing-function: ease-out
+    &.focus input::placeholder, input:focus::placeholder
+      color: rgba(0,0,0,.54)
+      transition-timing-function: ease-in
+
   &.focus
     .text-input
       border-bottom: $text-field-divider-focus-hover-width solid $text-field-focus-color
       margin-bottom: $text-field-focus-hover-margin
-    > label
+    label
       color: $text-field-focus-color
 
   &.invalid, &.focus.invalid
     .text-input
       border-color: $text-field-invalid-color
-    > label
+    label
       color: $text-field-invalid-color
-    > .error-text
+    .error-text
       display: block
 
   &.disabled

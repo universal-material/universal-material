@@ -53,7 +53,7 @@ module.exports = function (grunt) {
                 files: [
                     {
                         cwd: "docs",
-                        src: ["**/*.pug"],
+                        src: ["**/*.pug", "!layout.pug"],
                         dest: "docs",
                         expand: true,
                         ext: ".html"

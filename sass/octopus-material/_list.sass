@@ -37,8 +37,6 @@
   &.list-item-three-lines,
   &.list-item-dynamic
     .list-item-primary-content
-      //padding-left: $list-icon-avatar-text-left-distance - $list-item-padding
-      position: relative
       display: block
       line-height: 20px
 
@@ -58,9 +56,13 @@
 
 .list-item-avatar
   +size($list-avatar-size)
+  min-width: $list-avatar-size
+  line-height: $list-avatar-size
+  border-radius: 50%
 
 .list-item-icon
   +size($list-icon-size)
+  min-width: $list-icon-size
   color: $text-low-contrast
   line-height: $list-item-font-size
 

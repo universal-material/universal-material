@@ -1,0 +1,53 @@
+extends ../layout
+
+block content
+  h4 Text fields
+
+  .text-field
+    input.text-input(type="text" placeholder="Placeholder")
+    label Normal
+
+  .text-field.focus
+    input.text-input(type="text" placeholder="Placeholder")
+    label Normal focused
+
+  .text-field.floating-label
+    input.text-input(type="text" placeholder="Placeholder")
+    label Floating label
+
+  .text-field.floating-label.not-empty
+    input.text-input(type="text" placeholder="Placeholder" value="some value")
+    label Floating label not empty
+
+  .text-field.floating-label.focus
+    input.text-input(type="text" placeholder="Placeholder")
+    label Floating label focus
+
+  .text-field
+    .text-input-group
+      .text-input-icon
+        i.zmdi.zmdi-calendar
+      input.text-input(type="text" placeholder="Placeholder")
+    label Icon signifier
+
+  .text-field
+    .text-input-group
+      .text-input
+        input(type="text" placeholder="Placeholder")
+        .text-input-icon
+          i.zmdi.zmdi-caret-down
+    label Action icon
+
+  .text-field
+    .text-input-group
+      .text-input
+        .text-input-prefix $
+        input(type="text" placeholder="Placeholder")
+    label Input prefix
+
+  .text-field
+    .text-input-group
+      .text-input
+        input(type="text" placeholder="Placeholder")
+        .text-input-suffix kg
+    label Input suffix
