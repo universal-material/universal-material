@@ -2432,9 +2432,16 @@ input.text-input {
 
 .chip-input {
   min-height: 32px;
-  height: auto; }
+  height: auto;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
   .chip-input .chip {
-    float: left; }
+    float: left;
+    margin-top: 4px;
+    margin-bottom: 4px; }
   .chip-input .text-input {
     float: left;
     width: auto;
@@ -2442,6 +2449,9 @@ input.text-input {
     padding: 0; }
     .chip-input .text-input, .chip-input .text-input:focus, .chip-input .text-input:hover {
       border: none; }
+
+.text-field.focus .chip label {
+  color: rgba(0, 0, 0, 0.87); }
 
 @media (max-width: 599px) {
   .hidden-xs {

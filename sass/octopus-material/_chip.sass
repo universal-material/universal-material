@@ -38,9 +38,13 @@
 .chip-input
   min-height: $chip-height
   height: auto
+  flex-wrap: wrap
+  align-items: center
+
   @extend .clearfix
   .chip
     float: left
+    +vertical-margin($text-field-item-margin / 2)
 
   .text-input
     float: left
@@ -49,3 +53,6 @@
     padding: 0
     &, &:focus, &:hover
       border: none
+
+.text-field.focus .chip label
+  color: $text-color
