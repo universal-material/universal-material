@@ -1,6 +1,6 @@
 {
   "name": "octopus-material",
-  "version": "0.20.3",
+  "version": "0.22.0",
   "keywords": [
     "css",
     "sass",
@@ -14,7 +14,7 @@
     "design"
   ],
   "scripts": {
-    "docs": "http-server -a localhost -p 8081 -o ./"
+    "docs": "http-server -a localhost -p 8081 -o http://localhost:8081/docs"
   },
   "devDependencies": {
     "grunt": "^1.0.1",

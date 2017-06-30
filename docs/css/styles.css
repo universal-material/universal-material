@@ -25,3 +25,13 @@
 .container {
     max-width: 1000px;
 }
+
+.example-box {
+    background: #fff;
+    min-height: 300px;
+    border: 1px solid #ddd;
+}
+
+.example-box .toolbar {
+    background: #fafafa;
+}

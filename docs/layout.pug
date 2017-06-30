@@ -20,7 +20,8 @@ html
     body
       nav.sidebar.sidebar-left.sidebar-collapsible-xs.sidebar-fixed-lg.elevate-2-xs.elevate-0-lg
         .toolbar
-          .toolbar-title Material Design
+          .toolbar-row
+            .toolbar-title Material Design
         .list
           a.list-item.selectable-background(href="/docs")
             .list-item-icon
@@ -39,6 +40,12 @@ html
             .list-item-primary-content
               span Lists
 
+          a.list-item.selectable-background(href="components/tabs.html")
+            .list-item-icon
+              i.zmdi.zmdi-tab
+            .list-item-primary-content
+              span Tabs
+
           a.list-item.selectable-background(href="components/text-fields.html")
             .list-item-icon
               i.zmdi.zmdi-text-format
@@ -47,11 +54,22 @@ html
 
       .content-area
         .app-bar.toolbar-fixed.elevate-1
-          .toolbar-icon.hidden-lg
-            button.toolbar-action((click)="showNavigation = !showNavigation")
-              i.zmdi.zmdi-menu
-          .toolbar-title
-            | Material
+          .toolbar-row
+            .toolbar-icon
+                i.zmdi.zmdi-menu
+
+
+            .toolbar-title
+              | Material
+
+            .toolbar-action
+              i.zmdi.zmdi-search
+
+            .toolbar-action
+              i.zmdi.zmdi-phone
+
+            .toolbar-action.toolbar-vertical-menu
+              i.zmdi.zmdi-more-vert
 
         .container
           block content

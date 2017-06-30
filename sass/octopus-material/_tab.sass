@@ -1,0 +1,53 @@
+.tab-bar
+  width: 100%
+  text-align: center
+
+.tab-container
+  display: flex
+  flex-direction: row
+
+.tab
+  @extend .selectable-background
+  display: flex
+  flex-direction: row
+  align-items: center
+  min-width: $tab-min-width-sm
+  max-width: $tab-max-width
+  height: $tab-height
+  +horizontal-padding($tab-horizontal-padding-sm)
+  flex-grow: 1
+
+  .tab-text
+    opacity: $tab-unfocused-opacity
+
+  &.active
+    &::after
+      content: ''
+      position: absolute
+      left: 0
+      bottom: 0
+      width: 100%
+      height: $tab-indicator-height
+      background: $accent-color
+
+    .tab-text
+      opacity: 1
+
+.tab-text
+  width: 100%
+  font-size: $tab-font-size
+  text-transform: uppercase
+  text-align: center
+  font-weight: $tab-font-weight
+
+@media (min-width: $screen-md-min)
+  .tab-bar-left-keyline
+    padding-left: $toolbar-icon-width - $tab-horizontal-padding-lg
+    text-align: start
+
+  .tab-container
+    display: inline-flex
+
+  .tab
+    max-width: $tab-min-width-lg
+    +horizontal-padding($tab-horizontal-padding-lg)
