@@ -1,34 +1,39 @@
 .tab-bar
   width: 100%
-  text-align: center
 
 .tab-container
   display: flex
   flex-direction: row
+
+.tab-indicator
+  content: ''
+  position: absolute
+  left: 0
+  bottom: 0
+  height: $tab-indicator-height
+  background: $accent-color
 
 .tab
   @extend .selectable-background
   display: flex
   flex-direction: row
   align-items: center
+  flex: 1
   min-width: $tab-min-width-sm
   max-width: $tab-max-width
   height: $tab-height
   +horizontal-padding($tab-horizontal-padding-sm)
-  flex-grow: 1
 
   .tab-text
     opacity: $tab-unfocused-opacity
 
+  .tab-indicator
+    opacity: 0
+
   &.active
-    &::after
-      content: ''
-      position: absolute
-      left: 0
-      bottom: 0
+    .tab-indicator
       width: 100%
-      height: $tab-indicator-height
-      background: $accent-color
+      opacity: 1
 
     .tab-text
       opacity: 1
@@ -41,13 +46,10 @@
   font-weight: $tab-font-weight
 
 @media (min-width: $screen-md-min)
-  .tab-bar-left-keyline
+  .tab-bar.toolbar-icon-padding
     padding-left: $toolbar-icon-width - $tab-horizontal-padding-lg
-    text-align: start
-
-  .tab-container
-    display: inline-flex
 
   .tab
-    max-width: $tab-min-width-lg
+    min-width: $tab-min-width-lg
+    flex: initial
     +horizontal-padding($tab-horizontal-padding-lg)

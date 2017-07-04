@@ -1568,6 +1568,83 @@ h6, .title, .dialog-title {
     opacity: 1;
     transition: opacity 300ms 150ms; }
 
+.step-indicator {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+
+.step-circle {
+  width: 24px;
+  height: 24px;
+  font-size: 12px;
+  background: #3f51b5;
+  line-height: 24px;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center; }
+
+.step-label {
+  line-height: 24px; }
+
+.step-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+
+.step {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+  .step.active .step-label {
+    font-weight: 500; }
+  .step .step-content {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1; }
+
+.step-actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 48px; }
+  .step-actions [class^="btn-"] + [class^="btn-"] {
+    margin-left: 8px; }
+
+.vertical-stepper {
+  padding: 24px; }
+  .vertical-stepper .step-content {
+    padding-bottom: 48px; }
+  .vertical-stepper .step:last-child .step-content {
+    padding-bottom: 0; }
+  .vertical-stepper .step-indicator {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column; }
+  .vertical-stepper .step-line {
+    width: 1px;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    background: rgba(0, 0, 0, 0.12);
+    margin-top: 8px;
+    margin-bottom: 8px; }
+  .vertical-stepper .step-content {
+    margin-left: 12px;
+    margin-right: 24px; }
+  .vertical-stepper .step-label {
+    margin-bottom: 16px; }
+
 .toolbar, .app-bar, .data-table-header, .data-table-footer {
   width: 100%; }
   .toolbar.toolbar-fixed, .toolbar-fixed.app-bar, .toolbar-fixed.data-table-header, .toolbar-fixed.data-table-footer {
@@ -1622,7 +1699,7 @@ h6, .title, .dialog-title {
   .toolbar-action:last-child, .data-table-action:last-child {
     margin-right: -12px; }
 
-.toolbar-vertical-menu {
+.toolbar-vertical-action {
   width: 12px;
   min-width: 12px; }
 
@@ -1635,8 +1712,7 @@ h6, .title, .dialog-title {
     color: #fff; }
 
 .tab-bar {
-  width: 100%;
-  text-align: center; }
+  width: 100%; }
 
 .tab-container {
   display: -webkit-box;
@@ -1646,6 +1722,14 @@ h6, .title, .dialog-title {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row; }
+
+.tab-indicator {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  background: #f50057; }
 
 .tab {
   display: -webkit-box;
@@ -1658,24 +1742,21 @@ h6, .title, .dialog-title {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   min-width: 72px;
   max-width: 264px;
   height: 48px;
   padding-left: 12px;
-  padding-right: 12px;
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1; }
+  padding-right: 12px; }
   .tab .tab-text {
     opacity: 0.7; }
-  .tab.active::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
+  .tab .tab-indicator {
+    opacity: 0; }
+  .tab.active .tab-indicator {
     width: 100%;
-    height: 2px;
-    background: #f50057; }
+    opacity: 1; }
   .tab.active .tab-text {
     opacity: 1; }
 
@@ -1687,17 +1768,14 @@ h6, .title, .dialog-title {
   font-weight: 500; }
 
 @media (min-width: 960px) {
-  .tab-bar-left-keyline {
-    padding-left: 56px;
-    text-align: start; }
-
-  .tab-container {
-    display: -webkit-inline-box;
-    display: -ms-inline-flexbox;
-    display: inline-flex; }
+  .tab-bar.toolbar-icon-padding {
+    padding-left: 56px; }
 
   .tab {
-    max-width: 160px;
+    min-width: 160px;
+    -webkit-box-flex: initial;
+        -ms-flex: initial;
+            flex: initial;
     padding-left: 24px;
     padding-right: 24px; } }
 table {

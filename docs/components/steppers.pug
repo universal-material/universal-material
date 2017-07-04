@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+  h4 Steppers
+
+  .card
+    .vertical-stepper
+      .step.active
+        .step-indicator
+          .step-circle 1
+          .step-line
+        .step-content
+          .step-label Step 1
+          .example-step-content
+          .step-actions
+            button.btn-solid.btn-primary Continue
+            button.btn-flat Cancel
+      .step
+        .step-indicator
+          .step-circle 2
+        .step-content
+          .step-label Step 2
+

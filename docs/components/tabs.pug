@@ -3,30 +3,30 @@ extends ../layout
 block content
   h4 Tabs
 
-  .row
-    .col-md-6
-      .example-box
-        .toolbar.example-toolbar
-          .toolbar-row
-            .toolbar-icon
-              i.zmdi.zmdi-menu
+  .example-box
+    .toolbar.example-toolbar
+      .toolbar-row
+        .toolbar-icon
+          i.zmdi.zmdi-menu
 
+        .toolbar-title Page title
 
-            .toolbar-title Page title
+        .toolbar-action
+          i.zmdi.zmdi-search
 
-            .toolbar-action
-              i.zmdi.zmdi-search
+        .toolbar-action
+          i.zmdi.zmdi-phone
 
-            .toolbar-action
-              i.zmdi.zmdi-phone
-
-            .toolbar-action.toolbar-vertical-menu
-              i.zmdi.zmdi-more-vert
-          .tab-bar.tab-bar-left-keyline
-            .tab-container
-              .tab.active
-                .tab-text Item one
-              .tab
-                .tab-text Item two
-              .tab
-                .tab-text Item three
+        .toolbar-action.toolbar-vertical-action
+          i.zmdi.zmdi-more-vert
+      .tab-bar.toolbar-icon-padding
+        .tab-container
+          .tab.active
+            .tab-text Item one
+            .tab-indicator
+          .tab
+            .tab-text Item two
+            .tab-indicator
+          .tab
+            .tab-text Item three
+            .tab-indicator

@@ -1,6 +1,5 @@
 .content-area {
     padding-top: 64px;
-    padding-left: 320px;
     height: 100%;
     overflow-x: hidden;
 }
@@ -10,7 +9,17 @@
     width: auto;
     top: 0;
     right: 0;
-    left: 320px;
+    left: 0;
+}
+
+@media screen and (min-width: 1280px) {
+    .content-area {
+        padding-left: 320px;
+    }
+
+    .content-area > .app-bar {
+        left: 320px;
+    }
 }
 
 .sidebar {
@@ -34,4 +43,10 @@
 
 .example-box .toolbar {
     background: #fafafa;
+}
+
+.example-step-content {
+    width: 100%;
+    height: 300px;
+    background: #ccc;
 }
