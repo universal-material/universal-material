@@ -46,7 +46,9 @@ $font-size-base:       14px !default
 //Card
 $card-small-title-font-size: $font-size-base !default
 $card-large-title-font-size: 24px !default
+
 $card-subtitle-font-size: $font-size-base !default
+$card-subtitle-margin: 12px !default
 
 $card-side-padding: 16px !default
 $card-base-small-vertical-padding: 16px !default
@@ -286,17 +288,25 @@ $bg-appbar: $primary-color !default
 
 //Steppers
 $stepper-padding: 24px !default
-$step-circle-size: $base-icon-size !default
 $step-number-font-size: 12px !default
 
+$step-circle-size: $base-icon-size !default
+$step-circle-default-background: rgba(0,0,0,.38) !default
+$step-circle-default-text-color: #fff !default
+$step-circle-active-background: $primary-color !default
+$step-circle-active-text-color: get-text-color-by-background-color($step-circle-active-background, $text-low-contrast) !default
+
 $step-label-margin: 16px !default
+$step-label-disabled-color: $text-low-contrast !default
+
 $step-line-margin: 8px !default
 $step-content-margin: 12px !default
 
 $step-actions-height: 48px !default
-$step-actions-margin: 8px !default
+$step-actions-buttons-margin: 8px !default
+$step-actions-margin: 16px !default
 
-$active-step-weight: $font-medium
+$active-step-weight: $font-medium !default
 
 $vertical-step-space: 48px !default
 

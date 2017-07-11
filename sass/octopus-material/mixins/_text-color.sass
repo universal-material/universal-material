@@ -1,5 +1,4 @@
-@function get-text-color-by-background-color($background-color, $light-text-color: $text-color)
-
+@function is-dark-background($background-color)
   //http://stackoverflow.com/questions/11867545/change-text-color-based-on-brightness-of-the-covered-background-area
   $r: red($background-color)
   $g: green($background-color)
@@ -8,10 +7,18 @@
   $o: round((($r * 299) + ($g * 587) + ($b * 114)) / 1000)
 
   @if ($o > 125)
-    @return $light-text-color
+    @return false
   @else
+    @return true
+
+@function get-text-color-by-background-color($background-color, $light-text-color: $text-color)
+  @if (is-dark-background($background-color))
     @return #fff
+  @else
+    @return $light-text-color
+
 
 =background-and-text-color($background-color)
   background-color: $background-color
   color: get-text-color-by-background-color($background-color)
+

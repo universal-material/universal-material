@@ -4,5 +4,8 @@
     color: get-text-color-by-background-color($background-color, $text-low-contrast)
 
   .toolbar-action
-    &, &:hover, &:focus
-      color: get-text-color-by-background-color($background-color, $text-low-contrast)
+    @if (is-dark-background($background-color))
+      &, &:hover, &:focus
+        color: #fff
+      &:disabled
+        color: rgba(#fff, .3)

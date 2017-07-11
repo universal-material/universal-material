@@ -7,6 +7,9 @@
   &.selectable-background::before
     border-radius: $card-border-radius
 
+.title + .subtitle
+  margin-top: $card-subtitle-margin
+
 .card-header
   +horizontal-padding($card-side-padding)
   +vertical-padding($card-base-small-vertical-padding)
@@ -22,6 +25,24 @@
     font-size: $card-small-title-font-size
     color: $text-low-contrast
 
+.card-media
+  position: relative
+  padding-bottom: 100%
+
+.card-media-wide
+  padding-bottom: 56.25%
+
+.card-media-content
+  position: absolute
+  bottom: 0
+  left: 0
+  width: 100%
+  .title, .subtitle, .btn-flat
+    color: #fff
+
+.card.card-media .card-media-content
+  background-color: rgba(0,0,0,.54)
+
 .card-body
   +horizontal-padding($card-side-padding)
   +vertical-padding($card-base-small-vertical-padding)
@@ -29,9 +50,11 @@
 .card-header + .card-body
   padding-top: 0
 
-.card-header:last-child,
-.card-body:last-child
-  padding-bottom: $card-base-large-vertical-padding
+.card,
+.card.card-media .card-media-content
+  > .card-header:last-child,
+  > .card-body:last-child
+    padding-bottom: $card-base-large-vertical-padding
 
 .card-actions
   +vertical-padding($card-actions-padding)

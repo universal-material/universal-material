@@ -50,3 +50,13 @@
     height: 300px;
     background: #ccc;
 }
+
+.card {
+    margin-bottom: 8px;
+}
+
+.card-media,
+.card-media-wide {
+    background: url(http://www.grayscale-wallpapers.com/grayscale/lake-house.jpg);
+    background-size: cover;
+}

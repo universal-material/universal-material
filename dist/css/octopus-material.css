@@ -1376,6 +1376,9 @@ h6, .title, .dialog-title {
   .card.selectable-background::before, .card.btn-flat::before, .card.btn-solid::before, .card.btn-raised::before, .card.btn-floating::before, .btn-floating.menu::before, .btn-floating.dropdown-menu::before, .btn-raised.menu::before, .btn-raised.dropdown-menu::before, .btn-solid.menu::before, .btn-solid.dropdown-menu::before, .btn-flat.menu::before, .btn-flat.dropdown-menu::before, .dropdown-menu.snackbar-button::before, .menu.snackbar-button::before, .card.snackbar-button::before, .card.btn-borderless::before, .btn-borderless.menu::before, .btn-borderless.dropdown-menu::before, .dropdown-menu.toolbar-action::before, .dropdown-menu.data-table-action::before, .menu.toolbar-action::before, .menu.data-table-action::before, .card.toolbar-action::before, .card.data-table-action::before, .selectable-background.menu::before, .selectable-background.dropdown-menu::before, .dropdown-menu.tab::before, .menu.tab::before, .card.tab::before {
     border-radius: 2px; }
 
+.title + .subtitle, .dialog-title + .subtitle {
+  margin-top: 12px; }
+
 .card-header {
   padding-left: 16px;
   padding-right: 16px;
@@ -1392,6 +1395,24 @@ h6, .title, .dialog-title {
     font-size: 14px;
     color: rgba(0, 0, 0, 0.54); }
 
+.card-media {
+  position: relative;
+  padding-bottom: 100%; }
+
+.card-media-wide {
+  padding-bottom: 56.25%; }
+
+.card-media-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%; }
+  .card-media-content .title, .card-media-content .dialog-title, .card-media-content .subtitle, .card-media-content .btn-flat, .card-media-content .btn-solid, .card-media-content .btn-raised, .card-media-content .btn-floating, .card-media-content .snackbar-button {
+    color: #fff; }
+
+.card.card-media .card-media-content, .card-media.menu .card-media-content, .card-media.dropdown-menu .card-media-content {
+  background-color: rgba(0, 0, 0, 0.54); }
+
 .card-body {
   padding-left: 16px;
   padding-right: 16px;
@@ -1401,8 +1422,16 @@ h6, .title, .dialog-title {
 .card-header + .card-body {
   padding-top: 0; }
 
-.card-header:last-child,
-.card-body:last-child {
+.card > .card-header:last-child, .menu > .card-header:last-child, .dropdown-menu > .card-header:last-child,
+.card > .card-body:last-child,
+.menu > .card-body:last-child,
+.dropdown-menu > .card-body:last-child,
+.card.card-media .card-media-content > .card-header:last-child,
+.card-media.menu .card-media-content > .card-header:last-child,
+.card-media.dropdown-menu .card-media-content > .card-header:last-child,
+.card.card-media .card-media-content > .card-body:last-child,
+.card-media.menu .card-media-content > .card-body:last-child,
+.card-media.dropdown-menu .card-media-content > .card-body:last-child {
   padding-bottom: 24px; }
 
 .card-actions {
@@ -1548,6 +1577,7 @@ h6, .title, .dialog-title {
 
 .dropdown-menu {
   top: 0;
+  left: 0;
   -webkit-transform: scale3d(0, 0, 1);
           transform: scale3d(0, 0, 1);
   transition: -webkit-transform 350ms cubic-bezier(.19, 1, .22, 1);
@@ -1580,7 +1610,7 @@ h6, .title, .dialog-title {
   width: 24px;
   height: 24px;
   font-size: 12px;
-  background: #3f51b5;
+  background: rgba(0, 0, 0, 0.38);
   line-height: 24px;
   color: #fff;
   border-radius: 50%;
@@ -1604,6 +1634,11 @@ h6, .title, .dialog-title {
   display: flex; }
   .step.active .step-label {
     font-weight: 500; }
+  .step.active .step-circle, .step.completed .step-circle {
+    background: #3f51b5;
+    color: get-text-color-by-background-color(#3f51b5, rgba(0, 0, 0, 0.54)); }
+  .step.disabled .step-label {
+    color: rgba(0, 0, 0, 0.54); }
   .step .step-content {
     -webkit-box-flex: 1;
         -ms-flex-positive: 1;
@@ -1616,7 +1651,8 @@ h6, .title, .dialog-title {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 48px; }
+  height: 48px;
+  margin-top: 16px; }
   .step-actions [class^="btn-"] + [class^="btn-"] {
     margin-left: 8px; }
 
@@ -1710,6 +1746,8 @@ h6, .title, .dialog-title {
     color: #fff; }
   .app-bar .toolbar-action, .app-bar .data-table-action, .app-bar .toolbar-action:hover, .app-bar .data-table-action:hover, .app-bar .toolbar-action:focus, .app-bar .data-table-action:focus {
     color: #fff; }
+  .app-bar .toolbar-action:disabled, .app-bar .data-table-action:disabled {
+    color: rgba(255, 255, 255, 0.3); }
 
 .tab-bar {
   width: 100%; }

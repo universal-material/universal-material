@@ -5,9 +5,9 @@
 .step-circle
   +size($step-circle-size)
   font-size: $step-number-font-size
-  background: $primary-color
+  background: $step-circle-default-background
   line-height: $step-circle-size
-  color: get-text-color-by-background-color($primary-color, $text-low-contrast)
+  color: $step-circle-default-text-color
   border-radius: 50%
   text-align: center
 
@@ -24,6 +24,14 @@
     .step-label
       font-weight: $active-step-weight
 
+  &.active, &.completed
+    .step-circle
+      background: $step-circle-active-background
+      color: $step-circle-active-text-color
+  &.disabled
+    .step-label
+      color: $step-label-disabled-color
+
   .step-content
     flex-grow: 1
 
@@ -31,8 +39,9 @@
   display: flex
   align-items: center
   height: $step-actions-height
+  margin-top: $step-actions-margin
   [class^="btn-"] + [class^="btn-"]
-    margin-left: $step-actions-margin
+    margin-left: $step-actions-buttons-margin
 
 
 .vertical-stepper
