@@ -7,8 +7,6 @@
   &.selectable-background::before
     border-radius: $card-border-radius
 
-.title + .subtitle
-  margin-top: $card-subtitle-margin
 
 .card-header
   +horizontal-padding($card-side-padding)
@@ -17,13 +15,16 @@
   .avatar
     margin-right: $card-side-padding
   .title
-    font-size: $card-small-title-font-size
+    +material-align($card-small-title-font-size)
     &.title-large
-      font-size: $card-large-title-font-size
-      margin-top: $card-base-large-vertical-padding - $card-base-small-vertical-padding
+      +material-align($card-large-title-font-size)
   .subtitle
-    font-size: $card-small-title-font-size
-    color: $text-low-contrast
+    +material-align($card-small-title-font-size)
+    font-weight: $card-subtitle-font-weight
+    color: $card-subtitle-color
+
+  .title + .subtitle
+    margin-top: $card-subtitle-margin
 
 .card-media
   position: relative

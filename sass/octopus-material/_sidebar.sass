@@ -24,8 +24,9 @@
         opacity: .54
         z-index: $zindex-sidebar - 1
 
-  +apply-breakpoints(sidebar-fixed, true)
-    +translateX(0)
+  &, &.sidebar-right
+    +apply-breakpoints(sidebar-fixed, true)
+      +translateX(0)
 
 
 .sidebar-backdrop

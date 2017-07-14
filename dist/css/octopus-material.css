@@ -1376,9 +1376,6 @@ h6, .title, .dialog-title {
   .card.selectable-background::before, .card.btn-flat::before, .card.btn-solid::before, .card.btn-raised::before, .card.btn-floating::before, .btn-floating.menu::before, .btn-floating.dropdown-menu::before, .btn-raised.menu::before, .btn-raised.dropdown-menu::before, .btn-solid.menu::before, .btn-solid.dropdown-menu::before, .btn-flat.menu::before, .btn-flat.dropdown-menu::before, .dropdown-menu.snackbar-button::before, .menu.snackbar-button::before, .card.snackbar-button::before, .card.btn-borderless::before, .btn-borderless.menu::before, .btn-borderless.dropdown-menu::before, .dropdown-menu.toolbar-action::before, .dropdown-menu.data-table-action::before, .menu.toolbar-action::before, .menu.data-table-action::before, .card.toolbar-action::before, .card.data-table-action::before, .selectable-background.menu::before, .selectable-background.dropdown-menu::before, .dropdown-menu.tab::before, .menu.tab::before, .card.tab::before {
     border-radius: 2px; }
 
-.title + .subtitle, .dialog-title + .subtitle {
-  margin-top: 12px; }
-
 .card-header {
   padding-left: 16px;
   padding-right: 16px;
@@ -1387,13 +1384,21 @@ h6, .title, .dialog-title {
   .card-header .avatar {
     margin-right: 16px; }
   .card-header .title, .card-header .dialog-title {
-    font-size: 14px; }
+    font-size: 14px;
+    line-height: 10.5px;
+    padding-top: 3.5px; }
     .card-header .title.title-large, .card-header .title-large.dialog-title {
       font-size: 24px;
-      margin-top: 8px; }
+      line-height: 18px;
+      padding-top: 6px; }
   .card-header .subtitle {
     font-size: 14px;
+    line-height: 10.5px;
+    padding-top: 3.5px;
+    font-weight: 500;
     color: rgba(0, 0, 0, 0.54); }
+  .card-header .title + .subtitle, .card-header .dialog-title + .subtitle {
+    margin-top: 12px; }
 
 .card-media {
   position: relative;
@@ -1949,7 +1954,6 @@ th {
 
 .list-item-icon {
   width: 24px;
-  height: 24px;
   min-width: 24px;
   color: rgba(0, 0, 0, 0.54);
   line-height: 16px; }
@@ -2290,19 +2294,19 @@ th {
         .sidebar.sidebar-collapsible-lg.open + .sidebar-backdrop {
           opacity: .54;
           z-index: 1039; } }
-  .sidebar.sidebar-fixed-xs {
+  .sidebar.sidebar-fixed-xs, .sidebar.sidebar-right.sidebar-fixed-xs {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0); }
   @media (min-width: 600px) {
-    .sidebar.sidebar-fixed-sm {
+    .sidebar.sidebar-fixed-sm, .sidebar.sidebar-right.sidebar-fixed-sm {
       -webkit-transform: translate3d(0, 0, 0);
       transform: translate3d(0, 0, 0); } }
   @media (min-width: 960px) {
-    .sidebar.sidebar-fixed-md {
+    .sidebar.sidebar-fixed-md, .sidebar.sidebar-right.sidebar-fixed-md {
       -webkit-transform: translate3d(0, 0, 0);
       transform: translate3d(0, 0, 0); } }
   @media (min-width: 1280px) {
-    .sidebar.sidebar-fixed-lg {
+    .sidebar.sidebar-fixed-lg, .sidebar.sidebar-right.sidebar-fixed-lg {
       -webkit-transform: translate3d(0, 0, 0);
       transform: translate3d(0, 0, 0); } }
 
@@ -2457,8 +2461,14 @@ input.text-input, .text-input input {
           align-items: flex-end; }
   .text-input, .text-input input {
     box-sizing: content-box;
+    border: 0;
+    outline: 0;
+    padding: 0;
+    resize: none;
+    background: transparent;
     font-size: 16px;
-    font-weight: 400; }
+    font-weight: 400;
+    text-align: left; }
   .text-input input, .text-input .placeholder, .text-input .text-input-value {
     margin-top: 8px;
     margin-bottom: 8px;
@@ -2611,6 +2621,21 @@ input.text-input {
     color: rgba(0, 0, 0, 0.42);
     border-bottom: 1px dashed rgba(0, 0, 0, 0.42);
     margin-bottom: 0; }
+
+.text-area {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.42);
+  border-radius: 4px;
+  outline: 0;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.42857; }
+  .text-area.focus, .text-area:focus, .text-area:hover {
+    border-width: 2px;
+    padding: 14px; }
+  .text-area.focus, .text-area:focus {
+    border-color: #3f51b5; }
 
 .typeahead-menu {
   top: 100%;
