@@ -4,10 +4,10 @@
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%); }
 
-.clearfix:before, .row:before, .expansion-panel:before, .expansion-panel .expansion-panel-header:before, .chip-input:before, .clearfix:after, .row:after, .expansion-panel:after, .expansion-panel .expansion-panel-header:after, .chip-input:after {
+.clearfix:before, .row:before, .expansion-panel:before, .expansion-panel .expansion-panel-header:before, .clearfix:after, .row:after, .expansion-panel:after, .expansion-panel .expansion-panel-header:after {
   content: " ";
   display: table; }
-.clearfix:after, .row:after, .expansion-panel:after, .expansion-panel .expansion-panel-header:after, .chip-input:after {
+.clearfix:after, .row:after, .expansion-panel:after, .expansion-panel .expansion-panel-header:after {
   clear: both; }
 
 .center-block {
@@ -2644,62 +2644,54 @@ input.text-input {
     margin: 20px; }
 
 .chip {
-  display: inline-block;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   height: 32px;
-  line-height: 32px;
   border-radius: 16px;
   background-color: rgba(0, 0, 0, 0.12);
   font-size: 13px;
+  margin-top: 4px;
+  margin-bottom: 4px;
   margin-right: 8px; }
-  .chip label {
-    padding-left: 12px;
-    padding-right: 12px;
-    font-weight: 400; }
-  .chip .chip-close {
-    float: right;
-    width: 24px;
-    height: 24px;
-    line-height: 24px;
-    margin: 4px 4px;
-    font-size: 24px;
-    text-align: center;
-    color: rgba(0, 0, 0, 0.54); }
-    .chip .chip-close:hover {
-      color: #d50000; }
-    .chip .chip-close + label {
-      padding-right: 0; }
-  .chip .chip-icon {
-    float: left;
-    width: 32px;
-    height: 32px;
-    border-radius: 16px;
-    background-color: rgba(0, 0, 0, 0.2);
-    margin-right: 8px; }
-    .chip .chip-icon + label, .chip .chip-icon + .chip-close + label {
-      padding-left: 0; }
+
+.chip-label:first-child {
+  margin-left: 12px; }
+.chip-label:last-child {
+  margin-right: 12px; }
+
+.chip-avatar {
+  width: 32px;
+  height: 32px;
+  margin-right: 8px;
+  border-radius: 50%; }
+
+.chip-remove {
+  cursor: pointer;
+  text-align: center;
+  width: 24px;
+  height: 24px;
+  font-size: 24px;
+  line-height: 24px;
+  margin: 0 4px;
+  color: rgba(0, 0, 0, 0.54); }
+  .chip-remove:hover {
+    color: #f44336; }
 
 .chip-input {
-  min-height: 32px;
-  height: auto;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  min-height: 40px;
   -webkit-box-align: center;
       -ms-flex-align: center;
-          align-items: center; }
-  .chip-input .chip {
-    float: left;
-    margin-top: 4px;
-    margin-bottom: 4px; }
-  .chip-input .text-input {
-    float: left;
-    width: auto;
-    height: 32px;
-    padding: 0; }
-    .chip-input .text-input, .chip-input .text-input:focus, .chip-input .text-input:hover {
-      border: none; }
-
-.text-field.focus .chip label {
-  color: rgba(0, 0, 0, 0.87); }
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
 
 @media (max-width: 599px) {
   .hidden-xs {

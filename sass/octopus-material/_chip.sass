@@ -1,58 +1,39 @@
 .chip
-  display: inline-block
+  display: inline-flex
+  align-items: center
+  flex-direction: row
   height: $chip-height
-  line-height: $chip-height
   border-radius: $chip-height / 2
   background-color: $chip-background-color
   font-size: $chip-font-size
-  margin-right: 8px
-  label
-    +horizontal-padding($chip-label-padding)
-    font-weight: $chip-font-weight
+  +vertical-margin($chip-margin-vertical)
+  margin-right: $chip-margin
 
-  .chip-close
-    float: right
-    +size($chip-close-size)
-    line-height: $chip-close-size
-    margin: ($chip-height - $chip-close-size) / 2 $chip-close-horizontal-padding
-    font-size: $chip-close-size
-    text-align: center
-    color: $chip-close-color
+.chip-label
+  &:first-child
+    margin-left: $chip-label-margin
+  &:last-child
+    margin-right: $chip-label-margin
 
-    &:hover
-      color: $chip-close-hover-color
+.chip-avatar
+  +size($chip-avatar-size)
+  margin-right: $chip-avatar-margin
+  border-radius: 50%
 
-    + label
-      padding-right: 0
+.chip-remove
+  cursor: pointer
+  text-align: center
 
-  .chip-icon
-    float: left
-    +size($chip-height)
-    border-radius: $chip-height / 2
-    background-color: $chip-icon-placeholder-color
-    margin-right: $chip-icon-margin
+  +size($chip-remove-size)
+  font-size: $chip-remove-size
+  line-height: $chip-remove-size
+  margin: 0 $chip-remove-margin
+  color: rgba(0,0,0,.54)
 
-    + label, + .chip-close + label
-      padding-left: 0
+  &:hover
+    color: $chip-remove-hover-color
 
 .chip-input
-  min-height: $chip-height
-  height: auto
-  flex-wrap: wrap
+  min-height: $chip-height + ($chip-margin-vertical * 2)
   align-items: center
-
-  @extend .clearfix
-  .chip
-    float: left
-    +vertical-margin($text-field-item-margin / 2)
-
-  .text-input
-    float: left
-    width: auto
-    height: $chip-height
-    padding: 0
-    &, &:focus, &:hover
-      border: none
-
-.text-field.focus .chip label
-  color: $text-color
+  flex-wrap: wrap
