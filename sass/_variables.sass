@@ -91,6 +91,8 @@ $screen-sm-min: 600px !default
 $screen-md-min: 960px !default
 $screen-lg-min: 1280px !default
 
+$grid-breakpoints: (xs: 0, sm: $screen-sm-min, md: $screen-md-min, lg: $screen-lg-min) !default
+
 // So media queries don't overlap when required, provide a maximum
 $screen-xs-max:              ($screen-sm-min - 1) !default
 $screen-sm-max:              ($screen-md-min - 1) !default
@@ -140,7 +142,7 @@ $container-default-margin: $margin-gutter-8dp !default
 $chip-height: 32px !default
 $chip-margin: 8px !default
 $chip-margin-vertical: 4px !default
-$chip-background-color: $base-semi-transparent-color !default
+$chip-background-color: #e0e0e0 !default
 
 $chip-remove-color: rgba(0,0,0,.54) !default
 $chip-remove-hover-color: #f44336 !default
@@ -359,8 +361,10 @@ $shadows: append($shadows, (0 2px 4px -1px rgba(0,0,0,.2),0 4px 5px 0 rgba(0,0,0
 $shadows: append($shadows, 0 27px 55px 0 rgba(0, 0, 0, 0.3))
 
 //Z-index
-$zindex-toolbar-fixed: 1030 !default
-$zindex-sidebar: 1040 !default
+$zindex-fixed:             1030 !default
+$zindex-sticky:            1030 !default
+$zindex-toolbar-fixed:     1030 !default
+$zindex-sidebar:           1040 !default
 $zindex-dialog-background: 1050 !default
-$zindex-dialog: 1060 !default
-$zindex-snackbar: 1070 !default
+$zindex-dialog:            1060 !default
+$zindex-snackbar:          1070 !default
