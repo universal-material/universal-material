@@ -4,7 +4,7 @@
   .divider
     +vertical-margin($list-vertical-padding)
 
-  &.has-dividers
+  &.list-dividers
     .list-item
       position: relative
       & + .list-item::after
@@ -15,6 +15,9 @@
         top: -1px
         left: 0
         right: 0
+  &.list-hover
+    .list-item
+      +selectable-background
 
 .list-item
   display: flex
