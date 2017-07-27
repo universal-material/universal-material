@@ -17,9 +17,6 @@
   flex-grow: 1
   +text-overflow
 
-.toolbar-actions
-  float: right
-
 .toolbar-icon, .toolbar-action
   font-size: $toolbar-action-icon-size
 
@@ -43,9 +40,8 @@
   &:last-child
     margin-right: -$toolbar-action-padding
 
-.toolbar-vertical-action
-  width: $toolbar-action-icon-size / 2
-  min-width: $toolbar-action-icon-size / 2
+.toolbar-actions
+  display: flex
 
 .app-bar
   @extend .toolbar

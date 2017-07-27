@@ -82,6 +82,7 @@
   border: none
   background: transparent
   outline: 0
+  padding: 0
   &:disabled,
   &.disabled
     color: rgba(0,0,0,.30)
@@ -109,10 +110,10 @@
       color: $accent-color
 
 
-.btn-borderless-set
+.btn-borderless-group
+  display: inline-flex
   .btn-borderless
     +horizontal-padding($toolbar-action-padding)
-
 
     &:last-child
       margin-right: -$toolbar-action-padding

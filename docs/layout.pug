@@ -13,7 +13,7 @@ html
     title Octopus Material
 
     link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i")
-    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css")
+    link(rel="stylesheet" href="https://cdn.materialdesignicons.com/2.0.46/css/materialdesignicons.min.css")
     link(rel="stylesheet" href="../dist/css/octopus-material.min.css")
     link(rel="stylesheet" href="css/styles.css")
 
@@ -25,68 +25,71 @@ html
         .list.list-hover
           a.list-item(href="/docs")
             .list-item-icon
-              i.zmdi.zmdi-home
+              i.mdi.mdi-home
             .list-item-primary-content
               | Introduction
           a.list-item(href="components/buttons.html")
             .list-item-icon
-              i.zmdi.zmdi-arrow-right
+              i.mdi.mdi-arrow-right
             .list-item-primary-content
               span Buttons
 
           a.list-item(href="components/cards.html")
             .list-item-icon
-              i.zmdi.zmdi-picture-in-picture
+              i.mdi.mdi-page-layout-body
             .list-item-primary-content
               span Cards
 
           a.list-item(href="components/chips.html")
             .list-item-icon
-              i.zmdi.zmdi-label-alt
+              i.mdi.mdi-label
             .list-item-primary-content
               span Chips
 
           a.list-item(href="components/lists.html")
             .list-item-icon
-              i.zmdi.zmdi-view-list-alt
+              i.mdi.mdi-format-list-bulleted
             .list-item-primary-content
               span Lists
 
+          a.list-item(href="components/menus.html")
+            .list-item-icon
+              i.mdi.mdi-menu
+            .list-item-primary-content
+              span Menus
+
           a.list-item(href="components/steppers.html")
             .list-item-icon
-              i.zmdi.zmdi-format-list-numbered
+              i.mdi.mdi-format-list-numbers
             .list-item-primary-content
               span Steppers
 
           a.list-item(href="components/tabs.html")
             .list-item-icon
-              i.zmdi.zmdi-tab
+              i.mdi.mdi-tab
             .list-item-primary-content
               span Tabs
 
           a.list-item(href="components/text-fields.html")
             .list-item-icon
-              i.zmdi.zmdi-text-format
+              i.mdi.mdi-textbox
             .list-item-primary-content
               span Text fields
+
+          a.list-item(href="components/toolbars.html")
+            .list-item-icon
+              i.mdi.mdi-page-layout-header
+            .list-item-primary-content
+              span Toolbars
 
       .content-area
         .app-bar.toolbar-fixed.elevate-1
           .toolbar-row
             .toolbar-icon
-                i.zmdi.zmdi-menu
+                i.mdi.mdi-menu
 
             .toolbar-title
               | Material
-
-            .toolbar-action
-              i.zmdi.zmdi-search
-
-            .toolbar-action
-              i.zmdi.zmdi-phone
-
-            .toolbar-action.toolbar-vertical-action
-              i.zmdi.zmdi-more-vert
 
         .container
           block content
