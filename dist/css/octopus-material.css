@@ -1053,6 +1053,34 @@ h6, .title, .dialog-title {
 
   .elevate-5-lg {
     box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3); } }
+.badge {
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  background-color: #f50057;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: center; }
+
+.badge-top-left {
+  top: -10px;
+  left: -10px; }
+
+.badge-top-right {
+  top: -10px;
+  right: -10px; }
+
+.badge-bottom-left {
+  bottom: -10px;
+  left: -10px; }
+
+.badge-bottom-right {
+  bottom: -10px;
+  right: -10px; }
+
 .btn-flat, .btn-solid, .btn-raised, .btn-floating, .snackbar-button {
   display: inline-block;
   position: relative;
@@ -1331,7 +1359,6 @@ h6, .title, .dialog-title {
 .card, .menu, .dropdown-menu {
   border-radius: 2px;
   background: #fff;
-  overflow: hidden;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12); }
   .card.selectable-background::before, .card.btn-flat::before, .card.btn-solid::before, .card.btn-raised::before, .card.btn-floating::before, .btn-floating.menu::before, .btn-floating.dropdown-menu::before, .btn-raised.menu::before, .btn-raised.dropdown-menu::before, .btn-solid.menu::before, .btn-solid.dropdown-menu::before, .btn-flat.menu::before, .btn-flat.dropdown-menu::before, .dropdown-menu.snackbar-button::before, .menu.snackbar-button::before, .card.snackbar-button::before, .card.btn-borderless::before, .btn-borderless.menu::before, .btn-borderless.dropdown-menu::before, .dropdown-menu.toolbar-action::before, .dropdown-menu.data-table-action::before, .menu.toolbar-action::before, .menu.data-table-action::before, .card.toolbar-action::before, .card.data-table-action::before, .selectable-background.menu::before, .selectable-background.dropdown-menu::before, .dropdown-menu.tab::before, .menu.tab::before, .card.tab::before {
     border-radius: 2px; }
@@ -1543,7 +1570,8 @@ h6, .title, .dialog-title {
   transition: -webkit-transform 350ms cubic-bezier(.19, 1, .22, 1);
   transition: transform 350ms cubic-bezier(.19, 1, .22, 1);
   -webkit-transform-origin: top left;
-          transform-origin: top left; }
+          transform-origin: top left;
+  z-index: 1000; }
   .dropdown-menu.bottom-left {
     top: 0;
     left: 0;
@@ -1924,6 +1952,7 @@ th {
 
 .list-item-icon,
 .list-item-avatar {
+  position: relative;
   font-size: 24px; }
 
 .list-item-avatar {
