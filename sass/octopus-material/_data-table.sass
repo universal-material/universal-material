@@ -19,36 +19,30 @@ th
 .data-table
   width: 100%
   max-width: 100%
-  > thead > tr > th
+  th
     height: 56px
     color: rgba(0, 0, 0, .54)
     font-size: $data-table-header-font-size
     font-weight: $data-table-header-font-weight
     border-bottom: $data-table-border
 
-  > tbody > tr > td
+  td
     height: 48px
     font-size: $data-table-content-font-size
     font-weight: $data-table-content-font-weight
     border-top: $data-table-border
 
-  > thead,
-  > tbody,
-  > tfoot
-    > tr
-      > th,
-      > td
-        +horizontal-padding($data-table-horizontal-padding)
-        font-weight: 500
-        vertical-align: middle
+  th,
+  td
+    +horizontal-padding($data-table-horizontal-padding)
+    vertical-align: middle
 
-.data-table-selectable >tbody > tr
-  cursor: pointer
+.data-table-hover tbody tr
   &:hover
-    background-color: $base-hover-background-color
+    background-color: $data-table-row-hover-background-color
 
-  &:active
-    background-color: $base-active-background-color
+tr.selected
+  background-color: $data-table-row-selected-background-color
 
 .data-table-header
   height: $data-table-card-header-height

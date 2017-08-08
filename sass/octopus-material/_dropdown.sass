@@ -22,10 +22,24 @@
     bottom: 0
     right: 0
     transform-origin: bottom right
+  &.fit-width
+    right: 0
+    left: 0
 
 .dropdown-content
   opacity: 0
   transition: opacity 100ms 0ms
+
+.dropdown-toggle
+  display: flex
+  align-items: center
+
+.dropdown-toggle-label
+  flex-grow: 1
+
+.dropdown-toggle-icon
+  font-size: $base-icon-size
+  color: $text-low-contrast
 
 .dropdown
   cursor: pointer
@@ -38,3 +52,15 @@
     .dropdown-content
       opacity: 1
       transition: opacity 300ms 150ms
+
+.data-table
+  .dropdown-menu
+    background-color: $dropdown-in-data-table-background-color
+
+  .dropdown-toggle-icon
+    font-size: $dropdown-in-data-table-toggle-icon-size
+
+  .dropdown
+    .list-item-primary-content
+      font-size: $data-table-content-font-size
+      font-weight: $data-table-content-font-weight
