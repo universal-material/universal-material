@@ -19,13 +19,11 @@
   flex-direction: row
   align-items: center
   flex: 1
-  min-width: $tab-min-width-sm
-  max-width: $tab-max-width
   height: $tab-height
   +horizontal-padding($tab-horizontal-padding-sm)
 
   .tab-text
-    opacity: $tab-unfocused-opacity
+    color: $tab-text-color
 
   .tab-indicator
     opacity: 0
@@ -36,13 +34,17 @@
       opacity: 1
 
     .tab-text
-      opacity: 1
+      color: $tab-active-text-color
+
+.tab-content
+  text-align: center
+  width: 100%
 
 .tab-text
-  width: 100%
+  position: relative
+  display: inline-block
   font-size: $tab-font-size
   text-transform: uppercase
-  text-align: center
   font-weight: $tab-font-weight
 
 @media (min-width: $screen-md-min)
@@ -50,6 +52,13 @@
     padding-left: $toolbar-icon-width - $tab-horizontal-padding-lg
 
   .tab
-    min-width: $tab-min-width-lg
     flex: initial
     +horizontal-padding($tab-horizontal-padding-lg)
+
+.tab-bar-primary
+  background-color: $primary-color
+  @if (is-dark-background($primary-color))
+    .tab-text
+      color: rgba(#fff, .54)
+    .tab.active .tab-text
+      color: #fff

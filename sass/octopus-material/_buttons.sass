@@ -83,14 +83,18 @@
   background: transparent
   outline: 0
   padding: 0
+
+  &:hover,
+  &:focus,
+  &.focus
+    color: $text-low-contrast
+    text-decoration: none
+
   &:disabled,
   &.disabled
     color: rgba(0,0,0,.30)
-
-  &:hover:enabled,
-  &:focus:enabled,
-  &.focus:enabled
-    color: $text-low-contrast
+    &::before
+      content: none
 
   &::before
     width: $borderless-hover-size
@@ -113,7 +117,9 @@
 .btn-borderless-group
   display: inline-flex
   .btn-borderless
-    +horizontal-padding($toolbar-action-padding)
+    +horizontal-margin($toolbar-action-padding)
 
     &:last-child
-      margin-right: -$toolbar-action-padding
+      margin-right: 0
+
+
