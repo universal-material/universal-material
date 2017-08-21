@@ -20,20 +20,22 @@ input.text-input, .text-input input
     font-weight: $text-input-font-weight
     text-align: left
 
+  .text-input-icon
+    margin-bottom: $text-field-item-margin
+
   input, .placeholder, .text-input-value
-    +vertical-margin($text-field-item-margin)
     flex-grow: 1
     + .text-input-icon
       margin-left: $text-field-item-margin
 
-  .text-input-icon
-    margin-bottom: $text-field-item-margin
 
 .placeholder
   color: $text-low-contrast
 
 input.text-input
   +vertical-padding($text-field-item-margin)
+
+
 
 
 .text-input-group
@@ -54,7 +56,6 @@ input.text-input
 
 .text-input-prefix, .text-input-suffix
   color: $text-lower-contrast
-  margin-bottom: $text-field-item-margin
 
 .text-input-prefix
   margin-right: $text-field-item-margin
@@ -94,6 +95,12 @@ input.text-input
       color: $text-lower-contrast
       border-bottom: $text-field-divider-width dashed $text-field-divider-color
       margin-bottom: 0
+
+    input, .placeholder, .text-input-value
+      +vertical-margin($text-field-item-margin)
+
+  .text-input-prefix, .text-input-suffix
+    margin-bottom: $text-field-item-margin
 
   label
     padding-top: $text-field-item-margin
@@ -165,3 +172,11 @@ input.text-input
   &.focus, &:focus
     border-color: $text-field-focus-color
 
+.text-field-elevated
+  @extend .card
+  +horizontal-padding(16px)
+  display: flex
+  align-items: center
+  height: $text-field-elevated-height
+  .text-input, .text-input-group
+    flex-grow: 1

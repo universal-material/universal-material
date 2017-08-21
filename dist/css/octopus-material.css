@@ -1353,11 +1353,11 @@ h6, .title, .dialog-title {
     height: 40px;
     line-height: 40px; }
 
-.card, .menu, .dropdown-menu {
+.card, .menu, .dropdown-menu, .text-field-elevated {
   border-radius: 2px;
   background: #fff;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12); }
-  .card.selectable-background::before, .card.btn-flat::before, .card.btn-solid::before, .card.btn-raised::before, .card.btn-floating::before, .btn-floating.menu::before, .btn-floating.dropdown-menu::before, .btn-raised.menu::before, .btn-raised.dropdown-menu::before, .btn-solid.menu::before, .btn-solid.dropdown-menu::before, .btn-flat.menu::before, .btn-flat.dropdown-menu::before, .dropdown-menu.snackbar-button::before, .menu.snackbar-button::before, .card.snackbar-button::before, .card.btn-borderless::before, .btn-borderless.menu::before, .btn-borderless.dropdown-menu::before, .dropdown-menu.toolbar-action::before, .dropdown-menu.data-table-action::before, .menu.toolbar-action::before, .menu.data-table-action::before, .card.toolbar-action::before, .card.data-table-action::before, .selectable-background.menu::before, .selectable-background.dropdown-menu::before, .dropdown-menu.tab::before, .menu.tab::before, .card.tab::before {
+  .card.selectable-background::before, .card.btn-flat::before, .card.btn-solid::before, .card.btn-raised::before, .card.btn-floating::before, .btn-floating.menu::before, .btn-floating.dropdown-menu::before, .btn-floating.text-field-elevated::before, .btn-raised.menu::before, .btn-raised.dropdown-menu::before, .btn-raised.text-field-elevated::before, .btn-solid.menu::before, .btn-solid.dropdown-menu::before, .btn-solid.text-field-elevated::before, .btn-flat.menu::before, .btn-flat.dropdown-menu::before, .dropdown-menu.snackbar-button::before, .menu.snackbar-button::before, .card.snackbar-button::before, .snackbar-button.text-field-elevated::before, .btn-flat.text-field-elevated::before, .card.btn-borderless::before, .btn-borderless.menu::before, .btn-borderless.dropdown-menu::before, .dropdown-menu.toolbar-action::before, .dropdown-menu.data-table-action::before, .menu.toolbar-action::before, .menu.data-table-action::before, .card.toolbar-action::before, .card.data-table-action::before, .data-table-action.text-field-elevated::before, .toolbar-action.text-field-elevated::before, .btn-borderless.text-field-elevated::before, .selectable-background.menu::before, .selectable-background.dropdown-menu::before, .dropdown-menu.tab::before, .menu.tab::before, .card.tab::before, .tab.text-field-elevated::before, .selectable-background.text-field-elevated::before {
     border-radius: 2px; }
 
 .card-header {
@@ -1399,7 +1399,7 @@ h6, .title, .dialog-title {
   .card-media-content .title, .card-media-content .dialog-title, .card-media-content .subtitle, .card-media-content .btn-flat, .card-media-content .btn-solid, .card-media-content .btn-raised, .card-media-content .btn-floating, .card-media-content .snackbar-button {
     color: #fff; }
 
-.card.card-media .card-media-content, .card-media.menu .card-media-content, .card-media.dropdown-menu .card-media-content {
+.card.card-media .card-media-content, .card-media.menu .card-media-content, .card-media.dropdown-menu .card-media-content, .card-media.text-field-elevated .card-media-content {
   background-color: rgba(0, 0, 0, 0.54); }
 
 .card-body {
@@ -1411,16 +1411,19 @@ h6, .title, .dialog-title {
 .card-header + .card-body {
   padding-top: 0; }
 
-.card > .card-header:last-child, .menu > .card-header:last-child, .dropdown-menu > .card-header:last-child,
+.card > .card-header:last-child, .menu > .card-header:last-child, .dropdown-menu > .card-header:last-child, .text-field-elevated > .card-header:last-child,
 .card > .card-body:last-child,
 .menu > .card-body:last-child,
 .dropdown-menu > .card-body:last-child,
+.text-field-elevated > .card-body:last-child,
 .card.card-media .card-media-content > .card-header:last-child,
 .card-media.menu .card-media-content > .card-header:last-child,
 .card-media.dropdown-menu .card-media-content > .card-header:last-child,
+.card-media.text-field-elevated .card-media-content > .card-header:last-child,
 .card.card-media .card-media-content > .card-body:last-child,
 .card-media.menu .card-media-content > .card-body:last-child,
-.card-media.dropdown-menu .card-media-content > .card-body:last-child {
+.card-media.dropdown-menu .card-media-content > .card-body:last-child,
+.card-media.text-field-elevated .card-media-content > .card-body:last-child {
   padding-bottom: 24px; }
 
 .card-actions {
@@ -2506,16 +2509,14 @@ input.text-input, .text-input input {
     font-size: 16px;
     font-weight: 400;
     text-align: left; }
+  .text-input .text-input-icon {
+    margin-bottom: 8px; }
   .text-input input, .text-input .placeholder, .text-input .text-input-value {
-    margin-top: 8px;
-    margin-bottom: 8px;
     -webkit-box-flex: 1;
         -ms-flex-positive: 1;
             flex-grow: 1; }
     .text-input input + .text-input-icon, .text-input .placeholder + .text-input-icon, .text-input .text-input-value + .text-input-icon {
       margin-left: 8px; }
-  .text-input .text-input-icon {
-    margin-bottom: 8px; }
 
 .placeholder {
   color: rgba(0, 0, 0, 0.54); }
@@ -2550,8 +2551,7 @@ input.text-input {
     margin-left: 16px; }
 
 .text-input-prefix, .text-input-suffix {
-  color: rgba(0, 0, 0, 0.42);
-  margin-bottom: 8px; }
+  color: rgba(0, 0, 0, 0.42); }
 
 .text-input-prefix {
   margin-right: 8px; }
@@ -2594,6 +2594,11 @@ input.text-input {
       color: rgba(0, 0, 0, 0.42);
       border-bottom: 1px dashed rgba(0, 0, 0, 0.42);
       margin-bottom: 0; }
+    .text-field .text-input input, .text-field .text-input .placeholder, .text-field .text-input .text-input-value {
+      margin-top: 8px;
+      margin-bottom: 8px; }
+  .text-field .text-input-prefix, .text-field .text-input-suffix {
+    margin-bottom: 8px; }
   .text-field label {
     padding-top: 8px;
     line-height: 16px;
@@ -2673,6 +2678,21 @@ input.text-input {
     padding: 14px; }
   .text-area.focus, .text-area:focus {
     border-color: #3f51b5; }
+
+.text-field-elevated {
+  padding-left: 16px;
+  padding-right: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 48px; }
+  .text-field-elevated .text-input, .text-field-elevated .text-input-group {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1; }
 
 .typeahead-menu {
   top: 100%;
