@@ -1952,6 +1952,7 @@ tr.selected {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  position: relative;
   min-height: 48px;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
@@ -2004,6 +2005,9 @@ tr.selected {
 .list-item-avatar + .list-item-primary-content {
   margin-left: 16px; }
 
+.list-item-primary-content ~ .list-item-icon {
+  margin-left: 16px; }
+
 .list-item-primary-content {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2016,7 +2020,8 @@ tr.selected {
           flex-grow: 1;
   font-size: 16px;
   font-weight: 400;
-  line-height: 16px; }
+  line-height: 16px;
+  overflow: hidden; }
   .list-item-primary-content .secondary-text {
     font-size: 14px; }
 
@@ -2024,6 +2029,48 @@ tr.selected {
   margin-left: 16px; }
   .list-item-secondary-content .list-item-icon {
     text-align: center; }
+
+.list-item-hover {
+  cursor: pointer;
+  transition: background-color 150ms linear;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0; }
+  .list-item-hover:hover {
+    background-color: rgba(0, 0, 0, 0.12); }
+  .list-item-hover:active {
+    background-color: rgba(0, 0, 0, 0.2); }
+
+.list-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+.list-group-items {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  overflow: hidden; }
+
+.list-index {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  width: 56px;
+  min-width: 56px;
+  height: 48px;
+  padding: 16px;
+  color: rgba(0, 0, 0, 0.54);
+  font-weight: 500;
+  font-size: 20px; }
 
 .progress {
   overflow: hidden;
@@ -2605,47 +2652,6 @@ input.text-input {
     color: rgba(0, 0, 0, 0.54);
     font-size: 12px;
     font-weight: 400; }
-  .text-field.floating-label label {
-    font-size: 16px;
-    -webkit-transform: translate3d(0, 24px, 0);
-            transform: translate3d(0, 24px, 0);
-    transition: -webkit-transform 150ms, font-size 150ms;
-    transition: transform 150ms, font-size 150ms; }
-  .text-field.floating-label .text-field, .text-field.floating-label input {
-    z-index: 5; }
-  .text-field.floating-label.focus label, .text-field.floating-label.not-empty label,
-  .text-field.floating-label .text-input:focus + label {
-    font-size: 12px;
-    -webkit-transform: none;
-            transform: none; }
-  .text-field.floating-label input::-webkit-input-placeholder {
-    color: transparent;
-    transition: color 150ms;
-    transition-timing-function: ease-out; }
-  .text-field.floating-label input::-moz-placeholder {
-    color: transparent;
-    transition: color 150ms;
-    transition-timing-function: ease-out; }
-  .text-field.floating-label input:-ms-input-placeholder {
-    color: transparent;
-    transition: color 150ms;
-    transition-timing-function: ease-out; }
-  .text-field.floating-label input::placeholder {
-    color: transparent;
-    transition: color 150ms;
-    transition-timing-function: ease-out; }
-  .text-field.floating-label.focus input::-webkit-input-placeholder, .text-field.floating-label input:focus::-webkit-input-placeholder {
-    color: rgba(0, 0, 0, 0.54);
-    transition-timing-function: ease-in; }
-  .text-field.floating-label.focus input::-moz-placeholder, .text-field.floating-label input:focus::-moz-placeholder {
-    color: rgba(0, 0, 0, 0.54);
-    transition-timing-function: ease-in; }
-  .text-field.floating-label.focus input:-ms-input-placeholder, .text-field.floating-label input:focus:-ms-input-placeholder {
-    color: rgba(0, 0, 0, 0.54);
-    transition-timing-function: ease-in; }
-  .text-field.floating-label.focus input::placeholder, .text-field.floating-label input:focus::placeholder {
-    color: rgba(0, 0, 0, 0.54);
-    transition-timing-function: ease-in; }
   .text-field.focus .text-input {
     border-bottom: 2px solid #3f51b5;
     margin-bottom: -1px; }
@@ -2663,6 +2669,66 @@ input.text-input {
     color: rgba(0, 0, 0, 0.42);
     border-bottom: 1px dashed rgba(0, 0, 0, 0.42);
     margin-bottom: 0; }
+
+.floating-label label, .text-field-box label {
+  font-size: 16px;
+  -webkit-transform: translate3d(0, 24px, 0);
+          transform: translate3d(0, 24px, 0);
+  transition: -webkit-transform 150ms, font-size 150ms;
+  transition: transform 150ms, font-size 150ms; }
+.floating-label .text-field, .text-field-box .text-field, .floating-label input, .text-field-box input {
+  z-index: 5; }
+.floating-label.focus label, .focus.text-field-box label, .floating-label.not-empty label, .not-empty.text-field-box label,
+.floating-label .text-input:focus + label,
+.text-field-box .text-input:focus + label,
+.floating-label .text-input:not(:placeholder-shown) + label,
+.text-field-box .text-input:not(:placeholder-shown) + label,
+.floating-label input:focus + label,
+.text-field-box input:focus + label,
+.floating-label input:not(:placeholder-shown) + label,
+.text-field-box input:not(:placeholder-shown) + label {
+  font-size: 12px;
+  -webkit-transform: none;
+          transform: none; }
+.floating-label input::-webkit-input-placeholder, .text-field-box input::-webkit-input-placeholder {
+  color: transparent;
+  transition: color 150ms;
+  transition-timing-function: ease-out; }
+.floating-label input::-moz-placeholder, .text-field-box input::-moz-placeholder {
+  color: transparent;
+  transition: color 150ms;
+  transition-timing-function: ease-out; }
+.floating-label input:-ms-input-placeholder, .text-field-box input:-ms-input-placeholder {
+  color: transparent;
+  transition: color 150ms;
+  transition-timing-function: ease-out; }
+.floating-label input::placeholder, .text-field-box input::placeholder {
+  color: transparent;
+  transition: color 150ms;
+  transition-timing-function: ease-out; }
+.floating-label.focus input::-webkit-input-placeholder, .focus.text-field-box input::-webkit-input-placeholder, .floating-label input:focus::-webkit-input-placeholder, .text-field-box input:focus::-webkit-input-placeholder {
+  color: rgba(0, 0, 0, 0.54);
+  transition-timing-function: ease-in; }
+.floating-label.focus input::-moz-placeholder, .focus.text-field-box input::-moz-placeholder, .floating-label input:focus::-moz-placeholder, .text-field-box input:focus::-moz-placeholder {
+  color: rgba(0, 0, 0, 0.54);
+  transition-timing-function: ease-in; }
+.floating-label.focus input:-ms-input-placeholder, .focus.text-field-box input:-ms-input-placeholder, .floating-label input:focus:-ms-input-placeholder, .text-field-box input:focus:-ms-input-placeholder {
+  color: rgba(0, 0, 0, 0.54);
+  transition-timing-function: ease-in; }
+.floating-label.focus input::placeholder, .focus.text-field-box input::placeholder, .floating-label input:focus::placeholder, .text-field-box input:focus::placeholder {
+  color: rgba(0, 0, 0, 0.54);
+  transition-timing-function: ease-in; }
+
+.text-field.focus label, .text-field.not-empty label {
+  font-size: 12px;
+  -webkit-transform: none;
+          transform: none; }
+
+input:not(:placeholder-shown) + label,
+input:focus + label {
+  font-size: 12px;
+  -webkit-transform: none;
+          transform: none; }
 
 .text-area {
   background: transparent;
@@ -2693,6 +2759,63 @@ input.text-input {
     -webkit-box-flex: 1;
         -ms-flex-positive: 1;
             flex-grow: 1; }
+
+.text-field-box {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+  background: rgba(0, 0, 0, 0.06);
+  padding: 0;
+  border-radius: 4px;
+  overflow: hidden; }
+  .text-field-box label {
+    line-height: 15px;
+    font-weight: 500;
+    -webkit-transform: translate3d(0, 12px, 0);
+            transform: translate3d(0, 12px, 0);
+    padding-left: 16px;
+    padding-right: 16px; }
+  .text-field-box input::-webkit-input-placeholder {
+    color: transparent;
+    transition: color 150ms;
+    transition-timing-function: ease-out; }
+  .text-field-box input::-moz-placeholder {
+    color: transparent;
+    transition: color 150ms;
+    transition-timing-function: ease-out; }
+  .text-field-box input:-ms-input-placeholder {
+    color: transparent;
+    transition: color 150ms;
+    transition-timing-function: ease-out; }
+  .text-field-box input::placeholder {
+    color: transparent;
+    transition: color 150ms;
+    transition-timing-function: ease-out; }
+  .text-field-box.focus input::-webkit-input-placeholder, .text-field-box input:focus::-webkit-input-placeholder {
+    color: rgba(0, 0, 0, 0.54);
+    transition-timing-function: ease-in; }
+  .text-field-box.focus input::-moz-placeholder, .text-field-box input:focus::-moz-placeholder {
+    color: rgba(0, 0, 0, 0.54);
+    transition-timing-function: ease-in; }
+  .text-field-box.focus input:-ms-input-placeholder, .text-field-box input:focus:-ms-input-placeholder {
+    color: rgba(0, 0, 0, 0.54);
+    transition-timing-function: ease-in; }
+  .text-field-box.focus input::placeholder, .text-field-box input:focus::placeholder {
+    color: rgba(0, 0, 0, 0.54);
+    transition-timing-function: ease-in; }
+  .text-field-box.focus ~ label, .text-field-box input:focus ~ label {
+    font-weight: 400; }
+  .text-field-box .text-input {
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.42);
+    margin-bottom: 0 !important; }
 
 .typeahead-menu {
   top: 100%;
@@ -2727,6 +2850,8 @@ input.text-input {
 .chip-avatar {
   width: 32px;
   height: 32px;
+  line-height: 32px;
+  font-size: 16px;
   margin-right: 8px;
   border-radius: 50%; }
 

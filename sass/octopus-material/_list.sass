@@ -21,6 +21,7 @@
 
 .list-item
   display: flex
+  position: relative
   min-height: $list-item-min-height
   flex-direction: row
   flex-wrap: nowrap
@@ -75,6 +76,9 @@
 .list-item-avatar + .list-item-primary-content
   margin-left: $list-icon-avatar-text-left-distance - $list-avatar-size - $list-item-padding
 
+.list-item-primary-content ~ .list-item-icon
+  margin-left: $list-item-padding
+
 .list-item-primary-content
   display: flex
   align-items: center
@@ -82,6 +86,7 @@
   font-size: $list-item-font-size
   font-weight: $font-regular
   line-height: $list-item-font-size
+  overflow: hidden
 
   .secondary-text
     font-size: 14px
@@ -91,3 +96,31 @@
   margin-left: $list-item-padding
   .list-item-icon
     text-align: center
+
+.list-item-hover
+  +selectable-background
+  position: absolute
+  top: 0
+  left: 0
+  bottom: 0
+  right: 0
+
+.list-group
+  display: flex
+
+.list-group-items
+  flex-grow: 1
+  overflow: hidden
+
+.list-index
+  display: flex
+  align-items: center
+  position: sticky
+  top: 0
+  width: $list-index-width
+  min-width: $list-index-width
+  height: $list-item-min-height
+  padding: $list-item-padding
+  color: $text-low-contrast
+  font-weight: $font-medium
+  font-size: $list-index-font-size
