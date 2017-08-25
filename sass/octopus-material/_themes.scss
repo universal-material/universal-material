@@ -1,0 +1,23 @@
+.light-theme {
+  color: $body-color-light-theme;
+}
+
+body.light-theme {
+  background-color: $bg-light;
+}
+
+.dark-theme {
+  color: $body-color-dark-theme;
+}
+
+body.dark-theme {
+  background-color: $bg-dark;
+}
+
+.dark-theme .light-theme {
+  color: $body-color-light-theme;
+}
+
+body {
+  @include create-theme($theme-colors, false)
+}

@@ -1,0 +1,17 @@
+@mixin create-backgrounds($theme-colors) {
+  @each $color, $value in $theme-colors {
+    @include bg-variant('.bg-#{$color}', $value);
+  }
+}
+
+.bg-white { background-color: $white !important; }
+.bg-transparent { background-color: transparent !important; }
+.bg-light {
+  background-color: $bg-light;
+  color: $body-color-light-theme
+}
+.bg-dark {
+  background-color: $bg-dark;
+  color: $body-color-dark-theme
+}
+

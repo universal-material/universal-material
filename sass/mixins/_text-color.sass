@@ -11,7 +11,7 @@
   @else
     @return true
 
-@function get-text-color-by-background-color($background-color, $light-text-color: $text-color)
+@function get-text-color-by-background-color($background-color, $light-text-color: $body-color)
   @if (is-dark-background($background-color))
     @return #fff
   @else

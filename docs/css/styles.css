@@ -12,7 +12,7 @@
     left: 0;
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 80rem) {
     .content-area {
         padding-left: 320px;
     }
@@ -32,11 +32,11 @@
 }
 
 .container {
-    max-width: 1000px;
+    /* max-width: 1000px; */
 }
 
 .example-box {
-    background: #fff;
+    /* background: #fff; */
     min-height: 300px;
     max-height: 300px;
     border: 1px solid #ddd;
@@ -44,7 +44,7 @@
 }
 
 .example-box .toolbar {
-    background: #fafafa;
+    /* background: #fafafa; */
 }
 
 .example-box .chip-avatar {
@@ -65,4 +65,16 @@
 .card-media-wide {
     background: url(http://www.grayscale-wallpapers.com/grayscale/lake-house.jpg);
     background-size: cover;
+}
+
+.example-row {
+    padding: 20px;
+}
+
+.example-row .row>.col,
+.example-row .row>[class^=col-] {
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    background-color: rgba(86, 61, 124, .15);
+    border: 1px solid rgba(86, 61, 124, .2);
 }

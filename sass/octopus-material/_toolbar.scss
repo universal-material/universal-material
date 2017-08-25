@@ -1,0 +1,49 @@
+.toolbar {
+  width: 100%;
+
+  &.toolbar-fixed {
+    position: absolute;
+    z-index: $zindex-toolbar-fixed;
+  }
+}
+
+.toolbar-row {
+  height: $toolbar-height;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  @include horizontal-padding($toolbar-horizontal-padding);
+}
+
+.toolbar-title {
+  font-size: $toolbar-title-font-size;
+  flex-grow: 1;
+
+  @include text-truncate;
+}
+
+.toolbar-icon, .toolbar-action {
+  font-size: $toolbar-action-icon-size;
+}
+
+.toolbar-icon {
+  width: $toolbar-icon-width;
+  min-width: $toolbar-icon-width;
+}
+
+.toolbar-actions {
+  display: flex;
+}
+
+.light-theme, .bg-light {
+  .toolbar .toolbar-icon {
+    color: $toolbar-icon-color-light-theme;
+  }
+}
+
+.dark-theme, .bg-dark {
+  .toolbar .toolbar-icon {
+    color: $toolbar-icon-color-dark-theme;
+  }
+}

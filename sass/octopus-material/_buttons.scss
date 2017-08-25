@@ -1,0 +1,202 @@
+// scss-lint:disable QualifyingElement
+
+//
+// Base styles
+//
+
+.btn {
+  position: relative; //Octocus custom code
+  display: inline-block;
+  font-weight: $btn-font-weight;
+  font-size: $btn-font-size;
+  padding: 0 $btn-side-padding; //Octopus custom code
+  height: $btn-height; //Octopus custom code
+  border-radius: $btn-border-radius; //Octopus custom code
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: none; //Octopus custom code
+  //@include button-size($input-btn-padding-y, $input-btn-padding-x, $font-size-base, $input-btn-line-height, $btn-border-radius);
+  //@include transition($btn-transition);
+  background: transparent; //Octopus custom code
+  text-transform: uppercase; //Octopus custom code
+  z-index: 1; //Octopus custom code
+
+  // Share hover and focus styles
+  @include hover-focus {
+    text-decoration: none;
+  }
+
+
+  &:focus,
+  &.focus {
+    outline: 0;
+    //box-shadow: $btn-focus-box-shadow;
+  }
+
+  &:active,
+  &.active {
+    background-image: none;
+    //@include box-shadow($btn-focus-box-shadow, $btn-active-box-shadow);
+  }
+}
+
+
+// Disabled comes first so active can properly restyle
+
+
+//
+//// Future-proof disabling of clicks on `<a>` elements
+//a.btn.disabled,
+//fieldset[disabled] a.btn {
+//  pointer-events: none;
+//}
+//
+////
+//// Block button
+////
+//
+//.btn-block {
+//  display: block;
+//  width: 100%;
+//}
+//
+//// Vertically space out multiple block buttons
+//.btn-block + .btn-block {
+//  margin-top: $btn-block-spacing-y;
+//}
+//
+//// Specificity overrides
+//input[type="submit"],
+//input[type="reset"],
+//input[type="button"] {
+//  &.btn-block {
+//    width: 100%;
+//  }
+//}
+
+
+//
+
+
+.btn-borderless {
+  @extend .btn;
+  position: relative;
+  font-size: $base-icon-size;
+  padding: 0;
+
+  @include hover-focus {
+    color: $btn-borderless-color-light-theme;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: $button-borderless-hover-size;
+    height: $button-borderless-hover-size;
+    left: 50% !important;
+    top: 50% !important;
+    margin-left: -$button-borderless-hover-size / 2;
+    margin-top: -$button-borderless-hover-size / 2;
+    border-radius: 50% !important;
+  }
+
+
+  + .btn-borderless {
+    margin-left: $button-borderless-margin
+  }
+}
+
+.light-theme, .bg-light {
+  .btn {
+    @include selectable-background(false, true, $btn-border-radius);
+
+    &.disabled,
+    &:disabled {
+      //opacity: .65;
+      color: $btn-disabled-color-light-theme !important;
+      //@include box-shadow(none);
+      background-color: $btn-disabled-background-light-theme;
+      &::before {
+        background-color: transparent;
+      }
+    }
+  }
+
+  .btn-borderless {
+    color: $btn-borderless-color-light-theme;
+
+    &:disabled,
+    &.disabled {
+      background-color: transparent;
+    }
+  }
+
+  .btn-flat-default {
+    @include button-flat-variant($gray-900);
+  }
+}
+
+.dark-theme, .bg-dark {
+  .btn {
+    @include selectable-background(true, true, $btn-border-radius);
+    &.disabled,
+    &:disabled {
+      //opacity: .65;
+      color: $btn-disabled-color-dark-theme !important;
+      //@include box-shadow(none);
+      background-color: $btn-disabled-background-dark-theme;
+      &::before {
+        background-color: transparent;
+      }
+    }
+  }
+
+  .btn-borderless {
+    color: $btn-borderless-color-dark-theme;
+
+    &:disabled,
+    &.disabled {
+      background-color: transparent;
+    }
+  }
+
+  .btn-flat-default {
+    @include button-flat-variant($white);
+  }
+}
+
+//
+// Alternate buttons
+//
+
+
+//.btn-solid-default {
+//  $btn-default-background-light
+//}
+
+.btn-raised {
+  @extend .btn;
+
+  @include elevate(2);
+
+  &:active {
+    @include elevate(4);
+  }
+
+  transition: box-shadow 150ms;
+}
+
+
+//.btn-borderless-group {
+//  display: inline-flex;
+//
+//  .btn-borderless {
+//    @include horizontal-margin($toolbar-action-padding);
+//
+//    &:last-child {
+//      margin-right: 0;
+//    }
+//  }
+//}

@@ -1,0 +1,49 @@
+@mixin selectable-background($dark-theme, $background-color-on-before: false, $border-radius: 0) {
+  cursor: pointer;
+  transition: background-color 150ms linear;
+
+  $hover-background: $hover-background-light-theme;
+  $focus-background: $focus-background-light-theme;
+  
+  @if($dark-theme) {
+    $hover-background: $hover-background-dark-theme;
+    $focus-background: $focus-background-dark-theme;
+  }
+
+  @if ($background-color-on-before) {
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: $border-radius;
+      z-index: -1;
+    }
+
+    &:hover::before {
+      background-color: $hover-background;
+    }
+
+    &:active::before {
+      background-color: $focus-background;
+    }
+
+    &.active::before {
+      background-color: $focus-background;
+    }
+  } @else {
+    &:hover {
+      background-color: $hover-background;
+    }
+
+    &:active {
+      background-color: $focus-background;
+    }
+
+    &.active {
+      background-color: $focus-background;
+    }
+  }
+}

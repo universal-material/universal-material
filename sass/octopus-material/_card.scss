@@ -1,0 +1,91 @@
+.card {
+  border-radius: $card-border-radius;
+  background: $white;
+  overflow: hidden;
+
+  @include elevate(2);
+
+  &.selectable-background::before {
+    border-radius: $card-border-radius;
+  }
+}
+
+.card-header {
+  @include horizontal-padding($card-side-padding);
+
+  @include vertical-padding($card-base-small-vertical-padding);
+
+  .avatar {
+    margin-right: $card-side-padding;
+  }
+
+  .title {
+    @include material-align($card-small-title-font-size);
+
+    &.title-large {
+      @include material-align($card-large-title-font-size);
+    }
+  }
+
+  .subtitle {
+    @include material-align($card-small-title-font-size);
+
+    font-weight: $card-subtitle-font-weight;
+    color: $card-subtitle-color;
+  }
+
+  .title + .subtitle {
+    margin-top: $card-subtitle-margin;
+  }
+}
+
+.card-media {
+  position: relative;
+  padding-bottom: 100%;
+}
+
+.card-media-wide {
+  padding-bottom: 56.25%;
+}
+
+.card-media-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  .subtitle {
+    color: $white;
+  }
+}
+
+.card.card-media .card-media-content {
+  @extend .bg-dark;
+
+  background-color: rgba(0, 0, 0, 0.54) !important;
+}
+
+.card-body {
+  @include horizontal-padding($card-side-padding);
+  @include vertical-padding($card-base-small-vertical-padding);
+}
+
+.card-header + .card-body {
+  padding-top: 0;
+}
+
+.card,
+.card.card-media .card-media-content {
+  > .card-header:last-child,
+  > .card-body:last-child {
+    padding-bottom: $card-base-large-vertical-padding;
+  }
+}
+
+.card-actions {
+  padding: $card-actions-padding;
+
+  .btn + .btn {
+    margin-left: $card-actions-padding;
+  }
+}

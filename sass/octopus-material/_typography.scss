@@ -1,0 +1,128 @@
+//
+// Headings
+//
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  margin-bottom: $headings-margin-bottom;
+  font-family: $headings-font-family;
+  font-weight: $headings-font-weight;
+  line-height: $headings-line-height;
+  color: $headings-color;
+}
+
+h1, .h1 { font-size: $h1-font-size; }
+h2, .h2 { font-size: $h2-font-size; }
+h3, .h3 { font-size: $h3-font-size; }
+h4, .h4 { font-size: $h4-font-size; }
+h5, .h5 { font-size: $h5-font-size; }
+h6, .h6 { font-size: $h6-font-size; }
+
+.lead {
+  font-size: $lead-font-size;
+  font-weight: $lead-font-weight;
+}
+
+// Type display classes
+.display-4 {
+  font-size: $display4-size;
+  font-weight: $display4-weight;
+  line-height: $display-line-height;
+}
+.display-3 {
+  font-size: $display3-size;
+  font-weight: $display3-weight;
+  line-height: $display-line-height;
+}
+.display-2 {
+  font-size: $display2-size;
+  font-weight: $display2-weight;
+  line-height: $display-line-height;
+}
+.display-1 {
+  font-size: $display1-size;
+  font-weight: $display1-weight;
+  line-height: $display-line-height;
+}
+
+
+.headline {
+  font-size: $headline-size;
+  font-weight: $headline-weight;
+  line-height: 1;
+}
+.title {
+  font-size: $title-size;
+  font-weight: $title-weight;
+  line-height: 1;
+}
+
+.subheading {
+  font-size: $subheading-size;
+  font-weight: $subheading-weight;
+  line-height: 1;
+}
+
+.body-2 {
+  font-size: $body-2-size;
+  font-weight: $body-2-weight;
+}
+
+.body-1 {
+  font-size: $body-1-size;
+  font-weight: $body-1-weight;
+}
+
+.caption {
+  font-size: $caption-size;
+  font-weight: $caption-weight;
+}
+
+//
+// Horizontal rules
+//
+
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: $hr-border-width solid $hr-border-color;
+}
+
+
+//
+// Emphasis
+//
+
+small,
+.small {
+  font-size: $small-font-size;
+  font-weight: $font-weight-normal;
+}
+
+mark,
+.mark {
+  padding: $mark-padding;
+  background-color: $mark-bg;
+}
+
+//.button {
+//  font-size: $font-size-button;
+//  font-weight: $font-medium;
+//}
+//
+//.high-contrast {
+//  color: $text-high-contrast;
+//}
+//
+//.low-contrast {
+//  color: $text-low-contrast;
+//}
+//
+//.lower-contrast {
+//  color: $text-lower-contrast;
+//}
+//
+//.secondary-text {
+//  color: $text-low-contrast;
+//}

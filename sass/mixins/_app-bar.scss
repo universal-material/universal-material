@@ -1,0 +1,7 @@
+@mixin create-app-bar($theme-colors, $dark-theme) {
+  $primary-color: map-get($theme-colors, 'primary');
+
+  .app-bar {
+    @include toolbar-variant($primary-color);
+  }
+}
