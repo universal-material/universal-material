@@ -18,3 +18,17 @@
     @include create-backgrounds($theme-colors)
   }
 }
+
+@mixin light-theme-style() {
+  .light-theme,
+  .bg-light {
+    @content;
+  }
+}
+
+@mixin dark-theme-style() {
+  .dark-theme,
+  .bg-dark {
+    @content;
+  }
+}

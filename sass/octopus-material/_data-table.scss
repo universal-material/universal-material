@@ -1,0 +1,114 @@
+//
+// Tables
+// --------------------------------------------------
+
+//table
+//  background-color: $table-bg
+//  border-spacing: 0
+//
+//caption
+//  padding-top: $table-cell-padding
+//  padding-bottom: $table-cell-padding
+//  color: $text-muted
+//  text-align: left
+//th
+//  text-align: left
+
+.data-table {
+  width: 100%;
+  max-width: 100%;
+
+  th {
+    height: $data-table-column-header-height;
+    font-size: $data-table-column-header-font-size;
+    font-weight: $data-table-column-header-font-weight;
+    border-bottom: $data-table-border;
+  }
+
+  td {
+    height: $data-table-column-height;
+    font-size: $data-table-content-font-size;
+    font-weight: $data-table-content-font-weight;
+    border-top: $data-table-border;
+  }
+
+  th,
+  td {
+    @include horizontal-padding($data-table-horizontal-padding);
+
+    vertical-align: middle;
+  }
+
+}
+
+.data-table-header {
+  display: flex;
+  align-items: center;
+  height: $data-table-card-header-height;
+
+  @include horizontal-padding($data-table-horizontal-padding);
+}
+
+.data-table-title {
+  font-size: $data-table-card-header-title-font-size;
+}
+
+.data-table-actions {
+  display: flex;
+}
+
+.data-table-footer {
+  height: $data-table-card-footer-height;
+  border-top: $data-table-border;
+  color: $data-table-card-footer-font-color;
+  font-size: $data-table-card-footer-font-size;
+  font-weight: $data-table-card-footer-font-weight;
+
+  @include horizontal-padding($data-table-horizontal-padding);
+
+  @extend .toolbar;
+
+  .data-table-actions {
+    margin-left: 32px;
+
+    .data-table-action:first-child {
+      margin-left: -$toolbar-action-padding;
+    }
+  }
+}
+
+@include light-theme-style {
+  .data-table {
+    th {
+      color: $data-table-column-header-color-light-theme;
+    }
+
+    tr.selected {
+      background-color: $data-table-row-selected-bg-light-theme;
+    }
+  }
+
+  .data-table-hover tbody tr {
+    &:hover {
+      background-color: $data-table-row-hover-background-color-light-theme
+    }
+  }
+}
+
+@include dark-theme-style {
+  .data-table {
+    th {
+      color: $data-table-column-header-color-dark-theme;
+    }
+
+    tr.selected {
+      background-color: $data-table-row-selected-bg-dark-theme;
+    }
+  }
+
+  .data-table-hover tbody tr {
+    &:hover {
+      background-color: $data-table-row-hover-background-color-dark-theme
+    }
+  }
+}

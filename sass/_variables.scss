@@ -74,6 +74,8 @@ $theme-colors: (
   //danger: $red,
 ) !default;
 
+$default-theme-dark: false !default;
+
 // Set a specific jump point for requesting color jumps
 $theme-color-interval: 8% !default;
 
@@ -96,15 +98,15 @@ $enable-print-styles:       true !default;
 // You can add more entries to the $spacers map, should you need more variation.
 
 $spacer: 1rem !default;
-//$spacers: (
-//        0: 0,
-//        1: ($spacer * .25),
-//        2: ($spacer * .5),
-//        3: $spacer,
-//        4: ($spacer * 1.5),
-//        5: ($spacer * 3)
-//) !default;
-//
+$spacers: (
+        0: 0,
+        1: ($spacer * .25),
+        2: ($spacer * .5),
+        3: $spacer,
+        4: ($spacer * 1.5),
+        5: ($spacer * 3)
+) !default;
+
 //// This variable affects the `.h-*` and `.w-*` classes.
 //$sizes: (
 //        25: 25%,
@@ -335,7 +337,7 @@ $base-hover-background-color: $base-semi-transparent-color !default;
 $base-active-background-color: rgba(0, 0, 0, .2) !default;
 
 $hover-background-light-theme: rgba(0, 0, 0, .12) !default;
-$hover-background-dark-theme: rgba(204, 204, 204,.12) !default;
+$hover-background-dark-theme: rgba(204, 204, 204,.1) !default;
 
 $focus-background-light-theme: rgba(0, 0, 0, .2) !default;
 $focus-background-dark-theme: rgba(204, 204, 204,.25) !default;
@@ -344,8 +346,8 @@ $focus-background-dark-theme: rgba(204, 204, 204,.25) !default;
 //
 //$enable-hover-media-query: false !default;
 //
-////Avatar
-//$avatar-size: 40px !default;
+//Avatar
+$avatar-size: 2.5rem !default;
 //
 ////Checkbox
 //$checkbox-size: 18px !default;
@@ -365,7 +367,7 @@ $focus-background-dark-theme: rgba(204, 204, 204,.25) !default;
 //$font-weight-normal: normal !default;
 //$font-weight-bold: bold !default;
 //
-//$text-high-contrast: $base-dense-color !default;
+$text-high-contrast: $body-color !default;//$base-dense-color !default;
 $text-low-contrast: rgba(0, 0, 0, 0.54) !default;
 $text-low-contrast-dark-theme: rgba(255, 255, 255, .6) !default;
 //$text-lower-contrast: rgba(0, 0, 0, 0.42) !default;
@@ -384,7 +386,9 @@ $text-low-contrast-dark-theme: rgba(255, 255, 255, .6) !default;
 $card-small-title-font-size: $font-size-base !default;
 $card-large-title-font-size: 1.5rem !default;
 
-$card-subtitle-color: $text-low-contrast !default;
+$card-subtitle-color-light-theme: $text-low-contrast !default;
+$card-subtitle-color-dark-theme: $white !default;
+
 $card-subtitle-font-size: $font-size-base !default;
 $card-subtitle-font-weight: $font-medium !default;
 $card-subtitle-margin: 0.75rem !default;
@@ -402,6 +406,11 @@ $card-body-bottom-padding: $card-base-bottom-padding !default;
 $card-border-radius: .125rem !default;
 
 $card-actions-padding: .5rem !default;
+
+$card-bg-light-theme: #fff !default;
+$card-bg-dark-theme: #424242 !default;
+
+
 //
 //// 20/14
 //$line-height-base: 1.42857 !default;
@@ -505,29 +514,38 @@ $font-size-button: $font-size-base !default;
 //$table-bg: transparent !default;
 //$table-cell-padding: 8px !default;
 //
-////Data table
-//$data-table-divider-color: $base-semi-transparent-color !default;
-//$data-table-divider-width: 1px !default;
-//$data-table-border: $data-table-divider-width solid $data-table-divider-color !default;
-//
-//$data-table-horizontal-padding: $row-horizontal-padding !default;
-//
-//$data-table-card-header-height: 64px !default;
-//$data-table-action-text-color: $text-low-contrast !default;
-//
-//$data-table-header-font-size: 12px !default;
-//$data-table-header-font-weight: $font-medium !default;
-//
-//$data-table-row-hover-background-color: #eee !default;
-//$data-table-row-selected-background-color: #f5f5f5 !default;
-//
-//$data-table-card-footer-height: $data-table-card-header-height !default;
-//$data-table-card-footer-font-color: $text-low-contrast !default;
-//$data-table-card-footer-font-size: 12px !default;
-//$data-table-card-footer-font-weight: $font-medium !default;
-//
-//$data-table-content-font-size: 13px !default;
-//$data-table-content-font-weight: $font-medium !default;
+//Data table
+$data-table-divider-color: $base-semi-transparent-color !default;
+$data-table-divider-width: .0625rem !default;
+$data-table-border: $data-table-divider-width solid $data-table-divider-color !default;
+
+$data-table-horizontal-padding: $row-horizontal-padding !default;
+
+$data-table-card-header-height: 4rem !default;
+$data-table-card-header-title-font-size: 1.25rem !default;
+
+$data-table-column-height: 3rem !default;
+
+$data-table-column-header-height: 3.5rem !default;
+$data-table-column-header-font-size: .75rem !default;
+$data-table-column-header-font-weight: $font-medium !default;
+
+$data-table-column-header-color-light-theme: $text-low-contrast;
+$data-table-column-header-color-dark-theme: $text-low-contrast-dark-theme;
+
+$data-table-row-hover-background-color-light-theme: #eee !default;
+$data-table-row-hover-background-color-dark-theme: #626262 !default;
+
+$data-table-row-selected-bg-light-theme: #f5f5f5 !default;
+$data-table-row-selected-bg-dark-theme: #525252 !default;
+
+$data-table-card-footer-height: $data-table-card-header-height !default;
+$data-table-card-footer-font-color: $text-low-contrast !default;
+$data-table-card-footer-font-size: .75rem !default;
+$data-table-card-footer-font-weight: $font-medium !default;
+
+$data-table-content-font-size: .8125rem !default;
+$data-table-content-font-weight: $font-medium !default;
 //
 ////Divider
 //$divider-color: $base-semi-transparent-color !default;
@@ -561,31 +579,36 @@ $btn-font-size: $font-size-base !default;
 $button-borderless-margin: 1.5rem !default;
 
 $button-borderless-hover-size: 2.5rem !default;
-//
-////List
-//$list-vertical-padding: 8px !default;
-//
-//$list-icon-size: $base-icon-size !default;
-//$list-avatar-size: $avatar-size !default;
-//$list-icon-avatar-text-left-distance: 72px !default;
-//
-//$list-item-font-size: 16px !default;
-//$list-item-line-height: 20px !default;
-//
-//$list-item-min-height: 48px !default;
-//$list-item-with-icon-height: 56px !default;
-//$list-item-two-lines-height: 72px !default;
-//$list-item-three-lines-height: 88px !default;
-//
-//$list-item-hover-color: $base-semi-transparent-color;
-//$list-icon-size: $base-icon-size !default;
-//$list-avatar-padding-top: 8px !default;
-//
-//$list-item-padding: 16px !default;
-//
-//$list-index-width: 56px !default;
-//$list-index-font-size: 20px !default;
-//
+
+//List
+$list-vertical-padding: .5rem !default;
+
+$list-icon-size: $base-icon-size !default;
+$list-icon-color-light-theme: $text-low-contrast !default;
+$list-icon-color-dark-theme: $text-low-contrast-dark-theme !default;
+
+$list-avatar-size: $avatar-size !default;
+$list-icon-avatar-text-left-distance: 4.5rem !default;
+
+$list-item-font-size: 1rem !default;
+$list-item-line-height: 1.25rem !default;
+
+$list-item-min-height: 3rem !default;
+$list-item-with-icon-height: 3.5rem !default;
+$list-item-two-lines-height: 4.5rem !default;
+$list-item-three-lines-height: 5.5rem !default;
+
+$list-item-color-light-theme: $text-high-contrast;
+$list-item-color-dark-theme: $white;
+
+$list-item-hover-color: $base-semi-transparent-color;
+$list-avatar-padding-top: .5rem !default;
+
+$list-item-padding: 1rem !default;
+
+$list-index-width: 3.5rem !default;
+$list-index-font-size: 1.25rem !default;
+
 ////Progress
 //$progress-height: 5px !default;
 //$progress-border-radius: 1px !default;
@@ -660,20 +683,23 @@ $toolbar-action-icon-size: $base-icon-size !default;
 
 $toolbar-icon-color-light-theme: $text-low-contrast !default;
 $toolbar-icon-color-dark-theme: $white !default;
-//
-////Tabs
-//$tab-height: 48px !default;
-//$tab-indicator-height: 2px !default;
-//$tab-font-size: $font-size-base !default;
-//$tab-font-weight: $font-medium !default;
-//
-//$tab-horizontal-padding-sm: 12px !default;
-//$tab-horizontal-padding-lg: 24px !default;
-//
-//$tab-text-color: $text-low-contrast !default;
-//$tab-active-text-color: $text-color !default;
-//
+
 $bg-appbar: $primary-color !default;
+
+//Tabs
+$tab-height: 3rem !default;
+$tab-indicator-height: .125rem !default;
+$tab-font-size: $font-size-base !default;
+$tab-font-weight: $font-medium !default;
+
+$tab-horizontal-padding-sm: .75rem !default;
+$tab-horizontal-padding-lg: 1.5rem !default;
+
+$tab-text-color-light-theme: $text-low-contrast !default;
+$tab-active-text-color-light-theme: $body-color-light-theme !default;
+
+$tab-text-color-dark-theme: $text-low-contrast-dark-theme !default;
+$tab-active-text-color-dark-theme: $body-color-dark-theme !default;
 //
 ////Steppers
 //$stepper-padding: 24px !default;
