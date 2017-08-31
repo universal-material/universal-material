@@ -30,6 +30,9 @@ module.exports = function (grunt) {
                 ]
             },
             normal: {
+                options: {
+                    sourcemap: 'auto'
+                },
                 files: [
                     {
                         cwd: "sass",
