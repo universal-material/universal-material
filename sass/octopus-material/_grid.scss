@@ -52,7 +52,14 @@
   @include make-grid-columns($grid-columns, $margin-gutter-default);
 }
 
-@include make-margins();
+
+@if $enable-grid-classes {
+  @include make-margins();
+}
+
+@if $enable-grid-classes {
+  @include make-gutters();
+}
 
 
 //

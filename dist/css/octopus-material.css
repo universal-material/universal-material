@@ -1177,85 +1177,285 @@ mark,
     -webkit-box-ordinal-group: 13;
         -ms-flex-order: 12;
             order: 12; } }
-.container .margin-margin + {
+.container.margin-default {
   padding-left: 0.5rem;
   padding-right: 0.5rem; }
-.container .margin-margin + {
+.container.margin-0 {
+  padding-left: 0;
+  padding-right: 0; }
+.container.margin-8 {
   padding-left: 0.5rem;
   padding-right: 0.5rem; }
-.container .margin-margin + {
+.container.margin-16 {
   padding-left: 1rem;
   padding-right: 1rem; }
-.container .margin-margin + {
+.container.margin-24 {
   padding-left: 1.5rem;
   padding-right: 1.5rem; }
-.container .margin-margin + {
+.container.margin-40 {
   padding-left: 2.5rem;
   padding-right: 2.5rem; }
 @media (min-width: 576px) {
-  .container .margin-margin + -sm {
+  .container.margin-default-sm {
     padding-left: 0.5rem;
     padding-right: 0.5rem; }
-  .container .margin-margin + -sm {
+  .container.margin-0-sm {
+    padding-left: 0;
+    padding-right: 0; }
+  .container.margin-8-sm {
     padding-left: 0.5rem;
     padding-right: 0.5rem; }
-  .container .margin-margin + -sm {
+  .container.margin-16-sm {
     padding-left: 1rem;
     padding-right: 1rem; }
-  .container .margin-margin + -sm {
+  .container.margin-24-sm {
     padding-left: 1.5rem;
     padding-right: 1.5rem; }
-  .container .margin-margin + -sm {
+  .container.margin-40-sm {
     padding-left: 2.5rem;
     padding-right: 2.5rem; } }
 @media (min-width: 768px) {
-  .container .margin-margin + -md {
+  .container.margin-default-md {
     padding-left: 0.5rem;
     padding-right: 0.5rem; }
-  .container .margin-margin + -md {
+  .container.margin-0-md {
+    padding-left: 0;
+    padding-right: 0; }
+  .container.margin-8-md {
     padding-left: 0.5rem;
     padding-right: 0.5rem; }
-  .container .margin-margin + -md {
+  .container.margin-16-md {
     padding-left: 1rem;
     padding-right: 1rem; }
-  .container .margin-margin + -md {
+  .container.margin-24-md {
     padding-left: 1.5rem;
     padding-right: 1.5rem; }
-  .container .margin-margin + -md {
+  .container.margin-40-md {
     padding-left: 2.5rem;
     padding-right: 2.5rem; } }
 @media (min-width: 992px) {
-  .container .margin-margin + -lg {
+  .container.margin-default-lg {
     padding-left: 0.5rem;
     padding-right: 0.5rem; }
-  .container .margin-margin + -lg {
+  .container.margin-0-lg {
+    padding-left: 0;
+    padding-right: 0; }
+  .container.margin-8-lg {
     padding-left: 0.5rem;
     padding-right: 0.5rem; }
-  .container .margin-margin + -lg {
+  .container.margin-16-lg {
     padding-left: 1rem;
     padding-right: 1rem; }
-  .container .margin-margin + -lg {
+  .container.margin-24-lg {
     padding-left: 1.5rem;
     padding-right: 1.5rem; }
-  .container .margin-margin + -lg {
+  .container.margin-40-lg {
     padding-left: 2.5rem;
     padding-right: 2.5rem; } }
 @media (min-width: 1200px) {
-  .container .margin-margin + -xl {
+  .container.margin-default-xl {
     padding-left: 0.5rem;
     padding-right: 0.5rem; }
-  .container .margin-margin + -xl {
+  .container.margin-0-xl {
+    padding-left: 0;
+    padding-right: 0; }
+  .container.margin-8-xl {
     padding-left: 0.5rem;
     padding-right: 0.5rem; }
-  .container .margin-margin + -xl {
+  .container.margin-16-xl {
     padding-left: 1rem;
     padding-right: 1rem; }
-  .container .margin-margin + -xl {
+  .container.margin-24-xl {
     padding-left: 1.5rem;
     padding-right: 1.5rem; }
-  .container .margin-margin + -xl {
+  .container.margin-40-xl {
     padding-left: 2.5rem;
     padding-right: 2.5rem; } }
+
+.row.gutter-default {
+  margin-right: -0.25rem;
+  margin-left: -0.25rem; }
+  .row.gutter-default > .col, .row.gutter-default > [class^=col-] {
+    padding-right: 0.25rem;
+    padding-left: 0.25rem; }
+.row.gutter-0 {
+  margin-right: 0;
+  margin-left: 0; }
+  .row.gutter-0 > .col, .row.gutter-0 > [class^=col-] {
+    padding-right: 0;
+    padding-left: 0; }
+.row.gutter-8 {
+  margin-right: -0.25rem;
+  margin-left: -0.25rem; }
+  .row.gutter-8 > .col, .row.gutter-8 > [class^=col-] {
+    padding-right: 0.25rem;
+    padding-left: 0.25rem; }
+.row.gutter-16 {
+  margin-right: -0.5rem;
+  margin-left: -0.5rem; }
+  .row.gutter-16 > .col, .row.gutter-16 > [class^=col-] {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem; }
+.row.gutter-24 {
+  margin-right: -0.75rem;
+  margin-left: -0.75rem; }
+  .row.gutter-24 > .col, .row.gutter-24 > [class^=col-] {
+    padding-right: 0.75rem;
+    padding-left: 0.75rem; }
+.row.gutter-40 {
+  margin-right: -1.25rem;
+  margin-left: -1.25rem; }
+  .row.gutter-40 > .col, .row.gutter-40 > [class^=col-] {
+    padding-right: 1.25rem;
+    padding-left: 1.25rem; }
+@media (min-width: 576px) {
+  .row.gutter-default-sm {
+    margin-right: -0.25rem;
+    margin-left: -0.25rem; }
+    .row.gutter-default-sm > .col, .row.gutter-default-sm > [class^=col-] {
+      padding-right: 0.25rem;
+      padding-left: 0.25rem; }
+  .row.gutter-0-sm {
+    margin-right: 0;
+    margin-left: 0; }
+    .row.gutter-0-sm > .col, .row.gutter-0-sm > [class^=col-] {
+      padding-right: 0;
+      padding-left: 0; }
+  .row.gutter-8-sm {
+    margin-right: -0.25rem;
+    margin-left: -0.25rem; }
+    .row.gutter-8-sm > .col, .row.gutter-8-sm > [class^=col-] {
+      padding-right: 0.25rem;
+      padding-left: 0.25rem; }
+  .row.gutter-16-sm {
+    margin-right: -0.5rem;
+    margin-left: -0.5rem; }
+    .row.gutter-16-sm > .col, .row.gutter-16-sm > [class^=col-] {
+      padding-right: 0.5rem;
+      padding-left: 0.5rem; }
+  .row.gutter-24-sm {
+    margin-right: -0.75rem;
+    margin-left: -0.75rem; }
+    .row.gutter-24-sm > .col, .row.gutter-24-sm > [class^=col-] {
+      padding-right: 0.75rem;
+      padding-left: 0.75rem; }
+  .row.gutter-40-sm {
+    margin-right: -1.25rem;
+    margin-left: -1.25rem; }
+    .row.gutter-40-sm > .col, .row.gutter-40-sm > [class^=col-] {
+      padding-right: 1.25rem;
+      padding-left: 1.25rem; } }
+@media (min-width: 768px) {
+  .row.gutter-default-md {
+    margin-right: -0.25rem;
+    margin-left: -0.25rem; }
+    .row.gutter-default-md > .col, .row.gutter-default-md > [class^=col-] {
+      padding-right: 0.25rem;
+      padding-left: 0.25rem; }
+  .row.gutter-0-md {
+    margin-right: 0;
+    margin-left: 0; }
+    .row.gutter-0-md > .col, .row.gutter-0-md > [class^=col-] {
+      padding-right: 0;
+      padding-left: 0; }
+  .row.gutter-8-md {
+    margin-right: -0.25rem;
+    margin-left: -0.25rem; }
+    .row.gutter-8-md > .col, .row.gutter-8-md > [class^=col-] {
+      padding-right: 0.25rem;
+      padding-left: 0.25rem; }
+  .row.gutter-16-md {
+    margin-right: -0.5rem;
+    margin-left: -0.5rem; }
+    .row.gutter-16-md > .col, .row.gutter-16-md > [class^=col-] {
+      padding-right: 0.5rem;
+      padding-left: 0.5rem; }
+  .row.gutter-24-md {
+    margin-right: -0.75rem;
+    margin-left: -0.75rem; }
+    .row.gutter-24-md > .col, .row.gutter-24-md > [class^=col-] {
+      padding-right: 0.75rem;
+      padding-left: 0.75rem; }
+  .row.gutter-40-md {
+    margin-right: -1.25rem;
+    margin-left: -1.25rem; }
+    .row.gutter-40-md > .col, .row.gutter-40-md > [class^=col-] {
+      padding-right: 1.25rem;
+      padding-left: 1.25rem; } }
+@media (min-width: 992px) {
+  .row.gutter-default-lg {
+    margin-right: -0.25rem;
+    margin-left: -0.25rem; }
+    .row.gutter-default-lg > .col, .row.gutter-default-lg > [class^=col-] {
+      padding-right: 0.25rem;
+      padding-left: 0.25rem; }
+  .row.gutter-0-lg {
+    margin-right: 0;
+    margin-left: 0; }
+    .row.gutter-0-lg > .col, .row.gutter-0-lg > [class^=col-] {
+      padding-right: 0;
+      padding-left: 0; }
+  .row.gutter-8-lg {
+    margin-right: -0.25rem;
+    margin-left: -0.25rem; }
+    .row.gutter-8-lg > .col, .row.gutter-8-lg > [class^=col-] {
+      padding-right: 0.25rem;
+      padding-left: 0.25rem; }
+  .row.gutter-16-lg {
+    margin-right: -0.5rem;
+    margin-left: -0.5rem; }
+    .row.gutter-16-lg > .col, .row.gutter-16-lg > [class^=col-] {
+      padding-right: 0.5rem;
+      padding-left: 0.5rem; }
+  .row.gutter-24-lg {
+    margin-right: -0.75rem;
+    margin-left: -0.75rem; }
+    .row.gutter-24-lg > .col, .row.gutter-24-lg > [class^=col-] {
+      padding-right: 0.75rem;
+      padding-left: 0.75rem; }
+  .row.gutter-40-lg {
+    margin-right: -1.25rem;
+    margin-left: -1.25rem; }
+    .row.gutter-40-lg > .col, .row.gutter-40-lg > [class^=col-] {
+      padding-right: 1.25rem;
+      padding-left: 1.25rem; } }
+@media (min-width: 1200px) {
+  .row.gutter-default-xl {
+    margin-right: -0.25rem;
+    margin-left: -0.25rem; }
+    .row.gutter-default-xl > .col, .row.gutter-default-xl > [class^=col-] {
+      padding-right: 0.25rem;
+      padding-left: 0.25rem; }
+  .row.gutter-0-xl {
+    margin-right: 0;
+    margin-left: 0; }
+    .row.gutter-0-xl > .col, .row.gutter-0-xl > [class^=col-] {
+      padding-right: 0;
+      padding-left: 0; }
+  .row.gutter-8-xl {
+    margin-right: -0.25rem;
+    margin-left: -0.25rem; }
+    .row.gutter-8-xl > .col, .row.gutter-8-xl > [class^=col-] {
+      padding-right: 0.25rem;
+      padding-left: 0.25rem; }
+  .row.gutter-16-xl {
+    margin-right: -0.5rem;
+    margin-left: -0.5rem; }
+    .row.gutter-16-xl > .col, .row.gutter-16-xl > [class^=col-] {
+      padding-right: 0.5rem;
+      padding-left: 0.5rem; }
+  .row.gutter-24-xl {
+    margin-right: -0.75rem;
+    margin-left: -0.75rem; }
+    .row.gutter-24-xl > .col, .row.gutter-24-xl > [class^=col-] {
+      padding-right: 0.75rem;
+      padding-left: 0.75rem; }
+  .row.gutter-40-xl {
+    margin-right: -1.25rem;
+    margin-left: -1.25rem; }
+    .row.gutter-40-xl > .col, .row.gutter-40-xl > [class^=col-] {
+      padding-right: 1.25rem;
+      padding-left: 1.25rem; } }
 
 .btn, .btn-borderless, .btn-raised {
   position: relative;
@@ -1442,6 +1642,16 @@ mark,
   .card-actions .btn + .btn, .card-actions .btn-borderless + .btn, .card-actions .btn-raised + .btn, .card-actions .btn + .btn-borderless, .card-actions .btn-borderless + .btn-borderless, .card-actions .btn-raised + .btn-borderless, .card-actions .btn + .btn-raised, .card-actions .btn-borderless + .btn-raised, .card-actions .btn-raised + .btn-raised {
     margin-left: 0.5rem; }
 
+.layout {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+.layout-content {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1; }
+
 .toolbar {
   width: 100%; }
   .toolbar.toolbar-fixed {
@@ -1489,6 +1699,14 @@ mark,
 
 .dark-theme .toolbar .toolbar-icon, .custom-theme .toolbar .toolbar-icon, .bg-dark .toolbar .toolbar-icon, .card.card-media .card-media-content .toolbar .toolbar-icon, body .app-bar .toolbar .toolbar-icon, .custom-theme .app-bar .toolbar .toolbar-icon {
   color: #fff; }
+
+.sidebar-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 20rem;
+  min-width: 20rem;
+  max-width: 40%; }
 
 .center-block {
   display: block;

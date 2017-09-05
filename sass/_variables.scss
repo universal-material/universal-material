@@ -169,6 +169,7 @@ $margin-gutter-default: $margin-gutter-8dp !default;
 
 $margins-and-gutters: (
         default: $margin-gutter-default,
+        0: 0,
         8: $margin-gutter-8dp,
         16: $margin-gutter-16dp,
         24: $margin-gutter-24dp,
@@ -402,6 +403,10 @@ $card-body-bottom-padding: $card-base-bottom-padding !default;
 $card-border-radius: .125rem !default;
 
 $card-actions-padding: .5rem !default;
+
+//Sidebar
+$sidebar-width: 20rem;
+
 //
 //// 20/14
 //$line-height-base: 1.42857 !default;
