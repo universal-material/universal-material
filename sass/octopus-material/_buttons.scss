@@ -83,12 +83,9 @@
 .btn-borderless {
   @extend .btn;
   position: relative;
-  font-size: $base-icon-size;
+  height: auto;
   padding: 0;
-
-  @include hover-focus {
-    color: $btn-borderless-color-light-theme;
-  }
+  font-size: $base-icon-size;
 
   &::before {
     content: '';
@@ -108,7 +105,7 @@
   }
 }
 
-.light-theme, .bg-light {
+@include light-theme-style {
   .btn {
     @include selectable-background(false, true, $btn-border-radius);
 
@@ -127,6 +124,10 @@
   .btn-borderless {
     color: $btn-borderless-color-light-theme;
 
+    @include hover-focus {
+      color: $btn-borderless-color-light-theme;
+    }
+
     &:disabled,
     &.disabled {
       background-color: transparent;
@@ -138,7 +139,7 @@
   }
 }
 
-.dark-theme, .bg-dark {
+@include dark-theme-style {
   .btn {
     @include selectable-background(true, true, $btn-border-radius);
     &.disabled,
@@ -155,6 +156,10 @@
 
   .btn-borderless {
     color: $btn-borderless-color-dark-theme;
+
+    @include hover-focus {
+      color: $btn-borderless-color-dark-theme;
+    }
 
     &:disabled,
     &.disabled {

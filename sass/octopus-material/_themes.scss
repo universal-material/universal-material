@@ -1,5 +1,9 @@
 .light-theme {
   color: $body-color-light-theme;
+
+  .selectable-background {
+    @include selectable-background(false, true)
+  }
 }
 
 body.light-theme {
@@ -8,6 +12,10 @@ body.light-theme {
 
 .dark-theme {
   color: $body-color-dark-theme;
+
+  .selectable-background {
+    @include selectable-background(true, true)
+  }
 }
 
 body.dark-theme {
@@ -19,5 +27,5 @@ body.dark-theme {
 }
 
 body {
-  @include create-theme($theme-colors, false)
+  @include create-theme($theme-colors, $default-theme-dark)
 }

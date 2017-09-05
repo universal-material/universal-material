@@ -1,6 +1,5 @@
 .card {
   border-radius: $card-border-radius;
-  background: $white;
   overflow: hidden;
 
   @include elevate(2);
@@ -31,7 +30,6 @@
     @include material-align($card-small-title-font-size);
 
     font-weight: $card-subtitle-font-weight;
-    color: $card-subtitle-color;
   }
 
   .title + .subtitle {
@@ -87,5 +85,33 @@
 
   .btn + .btn {
     margin-left: $card-actions-padding;
+  }
+}
+
+.light-theme,
+.bg-light {
+  &.card,
+  .card {
+    background-color: $card-bg-light-theme
+  }
+
+  .card-header {
+    .subtitle {
+      color: $card-subtitle-color-light-theme;
+    }
+  }
+}
+
+.dark-theme,
+.bg-dark {
+  &.card,
+  .card {
+    background-color: $card-bg-dark-theme
+  }
+
+  .card-header {
+    .subtitle {
+      color: $card-subtitle-color-dark-theme;
+    }
   }
 }

@@ -4,30 +4,38 @@ block content
   h4 Text fields
 
   .text-field
-    input.text-input(type="text" placeholder="Placeholder")
-    label Normal
+    input.text-input(type="text" placeholder="Placeholder" id="text-field-1")
+    label(for="text-field-1") Normal
+    .text-field-border
+
 
   .text-field.focus
     input.text-input(type="text" placeholder="Placeholder")
     label Normal focused
+    .text-field-border
 
   .text-field.floating-label
     input.text-input(type="text" placeholder="Placeholder")
     label Floating label
+    .text-field-border
 
   .text-field.floating-label.not-empty
     input.text-input(type="text" placeholder="Placeholder" value="some value")
     label Floating label not empty
+    .text-field-border
 
   .text-field.floating-label.focus
     input.text-input(type="text" placeholder="Placeholder")
     label Floating label focus
+    .text-field-border
 
   .text-field
     .text-input-group
       .text-input-icon
         i.mdi.mdi-calendar
-      input.text-input(type="text" placeholder="Placeholder")
+      .text-input
+        input(type="text" placeholder="Placeholder")
+        .text-field-border
     label Icon signifier
 
   .text-field
@@ -37,6 +45,7 @@ block content
         .text-input-icon
           i.mdi.mdi-menu-down
     label Action icon
+    .text-field-border
 
   .text-field
     .text-input-group
@@ -44,20 +53,21 @@ block content
         .text-input-prefix $
         input(type="text" placeholder="Placeholder")
     label Input prefix
+    .text-field-border
 
   .text-field
     .text-input-group
       .text-input
         input(type="text" placeholder="Placeholder")
         .text-input-suffix kg
+        .text-field-border
     label Input suffix
 
   .text-field-elevated
     .text-input-group
       .text-input-icon
         i.mdi.mdi-magnify
-      .text-input
-        input(placeholder="Search")
+      input.text-input(placeholder="Search")
       .text-input-icon
         i.mdi.mdi-microphone
 
@@ -65,11 +75,19 @@ block content
     .text-field-box
       input.text-input(placeholder="Placeholder")
       label Label
+      .text-field-border
+
+  .text-field
+    .text-field-box
+      textarea(rows=5).text-input
+      label Label
+      .text-field-border
 
   .text-field
     textarea(rows=5).text-input
     label.floating-label Multi-line text field
 
-  .text-field
-    textarea(rows=5).text-area
+  .text-field.text-area
+    textarea(rows=5).text-input
     label.floating-label Text area
+    .text-field-border
