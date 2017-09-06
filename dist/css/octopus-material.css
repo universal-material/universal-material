@@ -1307,7 +1307,6 @@ mark,
 .bg-light .btn-raised {
   position: relative;
   cursor: pointer;
-  transition: background-color 150ms linear;
   position: relative;
   z-index: 1; }
   .light-theme .btn::before, body .btn::before, .light-theme .btn-borderless::before, body .btn-borderless::before, .light-theme .btn-raised::before, body .btn-raised::before,
@@ -1321,11 +1320,18 @@ mark,
     right: 0;
     bottom: 0;
     border-radius: 0.125rem;
-    z-index: -1; }
-  .light-theme .btn:hover::before, body .btn:hover::before, .light-theme .btn-borderless:hover::before, body .btn-borderless:hover::before, .light-theme .btn-raised:hover::before, body .btn-raised:hover::before,
-  .bg-light .btn:hover::before,
-  .bg-light .btn-borderless:hover::before,
-  .bg-light .btn-raised:hover::before {
+    z-index: -1;
+    transition: background-color 250ms linear; }
+  @media (hover: hover) {
+    .light-theme .btn:hover::before, body .btn:hover::before, .light-theme .btn-borderless:hover::before, body .btn-borderless:hover::before, .light-theme .btn-raised:hover::before, body .btn-raised:hover::before,
+    .bg-light .btn:hover::before,
+    .bg-light .btn-borderless:hover::before,
+    .bg-light .btn-raised:hover::before {
+      background-color: rgba(0, 0, 0, 0.12); } }
+  .light-theme .btn:active::before, body .btn:active::before, .light-theme .btn-borderless:active::before, body .btn-borderless:active::before, .light-theme .btn-raised:active::before, body .btn-raised:active::before,
+  .bg-light .btn:active::before,
+  .bg-light .btn-borderless:active::before,
+  .bg-light .btn-raised:active::before {
     background-color: rgba(0, 0, 0, 0.12); }
   .light-theme .btn.disabled, body .btn.disabled, .light-theme .disabled.btn-borderless, body .disabled.btn-borderless, .light-theme .disabled.btn-raised, body .disabled.btn-raised, .light-theme .btn:disabled, body .btn:disabled, .light-theme .btn-borderless:disabled, body .btn-borderless:disabled, .light-theme .btn-raised:disabled, body .btn-raised:disabled,
   .bg-light .btn.disabled,
@@ -1381,7 +1387,6 @@ body .app-bar .btn-raised,
 .custom-theme .app-bar .btn-raised {
   position: relative;
   cursor: pointer;
-  transition: background-color 150ms linear;
   position: relative;
   z-index: 1; }
   .dark-theme .btn::before, .custom-theme .btn::before, .dark-theme .btn-borderless::before, .custom-theme .btn-borderless::before, .dark-theme .btn-raised::before, .custom-theme .btn-raised::before,
@@ -1407,23 +1412,42 @@ body .app-bar .btn-raised,
     right: 0;
     bottom: 0;
     border-radius: 0.125rem;
-    z-index: -1; }
-  .dark-theme .btn:hover::before, .custom-theme .btn:hover::before, .dark-theme .btn-borderless:hover::before, .custom-theme .btn-borderless:hover::before, .dark-theme .btn-raised:hover::before, .custom-theme .btn-raised:hover::before,
-  .bg-dark .btn:hover::before,
-  .card.card-media .card-media-content .btn:hover::before,
-  .card-media.text-field-elevated .card-media-content .btn:hover::before,
-  body .app-bar .btn:hover::before,
-  .custom-theme .app-bar .btn:hover::before,
-  .bg-dark .btn-borderless:hover::before,
-  .card.card-media .card-media-content .btn-borderless:hover::before,
-  .card-media.text-field-elevated .card-media-content .btn-borderless:hover::before,
-  body .app-bar .btn-borderless:hover::before,
-  .custom-theme .app-bar .btn-borderless:hover::before,
-  .bg-dark .btn-raised:hover::before,
-  .card.card-media .card-media-content .btn-raised:hover::before,
-  .card-media.text-field-elevated .card-media-content .btn-raised:hover::before,
-  body .app-bar .btn-raised:hover::before,
-  .custom-theme .app-bar .btn-raised:hover::before {
+    z-index: -1;
+    transition: background-color 250ms linear; }
+  @media (hover: hover) {
+    .dark-theme .btn:hover::before, .custom-theme .btn:hover::before, .dark-theme .btn-borderless:hover::before, .custom-theme .btn-borderless:hover::before, .dark-theme .btn-raised:hover::before, .custom-theme .btn-raised:hover::before,
+    .bg-dark .btn:hover::before,
+    .card.card-media .card-media-content .btn:hover::before,
+    .card-media.text-field-elevated .card-media-content .btn:hover::before,
+    body .app-bar .btn:hover::before,
+    .custom-theme .app-bar .btn:hover::before,
+    .bg-dark .btn-borderless:hover::before,
+    .card.card-media .card-media-content .btn-borderless:hover::before,
+    .card-media.text-field-elevated .card-media-content .btn-borderless:hover::before,
+    body .app-bar .btn-borderless:hover::before,
+    .custom-theme .app-bar .btn-borderless:hover::before,
+    .bg-dark .btn-raised:hover::before,
+    .card.card-media .card-media-content .btn-raised:hover::before,
+    .card-media.text-field-elevated .card-media-content .btn-raised:hover::before,
+    body .app-bar .btn-raised:hover::before,
+    .custom-theme .app-bar .btn-raised:hover::before {
+      background-color: rgba(204, 204, 204, 0.1); } }
+  .dark-theme .btn:active::before, .custom-theme .btn:active::before, .dark-theme .btn-borderless:active::before, .custom-theme .btn-borderless:active::before, .dark-theme .btn-raised:active::before, .custom-theme .btn-raised:active::before,
+  .bg-dark .btn:active::before,
+  .card.card-media .card-media-content .btn:active::before,
+  .card-media.text-field-elevated .card-media-content .btn:active::before,
+  body .app-bar .btn:active::before,
+  .custom-theme .app-bar .btn:active::before,
+  .bg-dark .btn-borderless:active::before,
+  .card.card-media .card-media-content .btn-borderless:active::before,
+  .card-media.text-field-elevated .card-media-content .btn-borderless:active::before,
+  body .app-bar .btn-borderless:active::before,
+  .custom-theme .app-bar .btn-borderless:active::before,
+  .bg-dark .btn-raised:active::before,
+  .card.card-media .card-media-content .btn-raised:active::before,
+  .card-media.text-field-elevated .card-media-content .btn-raised:active::before,
+  body .app-bar .btn-raised:active::before,
+  .custom-theme .app-bar .btn-raised:active::before {
     background-color: rgba(204, 204, 204, 0.1); }
   .dark-theme .btn.disabled, .custom-theme .btn.disabled, .dark-theme .disabled.btn-borderless, .custom-theme .disabled.btn-borderless, .dark-theme .disabled.btn-raised, .custom-theme .disabled.btn-raised, .dark-theme .btn:disabled, .custom-theme .btn:disabled, .dark-theme .btn-borderless:disabled, .custom-theme .btn-borderless:disabled, .dark-theme .btn-raised:disabled, .custom-theme .btn-raised:disabled,
   .bg-dark .btn.disabled,
@@ -1737,7 +1761,7 @@ body .app-bar .card-header .subtitle,
 .tab {
   position: relative;
   cursor: pointer;
-  transition: background-color 150ms linear;
+  transition: background-color 250ms linear;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1755,7 +1779,10 @@ body .app-bar .card-header .subtitle,
   height: 3rem;
   padding-left: 0.75rem;
   padding-right: 0.75rem; }
-  .tab:hover {
+  @media (hover: hover) {
+    .tab:hover {
+      background-color: rgba(0, 0, 0, 0.12); } }
+  .tab:active {
     background-color: rgba(0, 0, 0, 0.12); }
   .tab .tab-indicator {
     opacity: 0; }
@@ -1915,8 +1942,11 @@ body .app-bar .data-table-hover tbody tr:hover,
   .list.list-hover .list-item {
     position: relative;
     cursor: pointer;
-    transition: background-color 150ms linear; }
-    .list.list-hover .list-item:hover {
+    transition: background-color 250ms linear; }
+    @media (hover: hover) {
+      .list.list-hover .list-item:hover {
+        background-color: rgba(0, 0, 0, 0.12); } }
+    .list.list-hover .list-item:active {
       background-color: rgba(0, 0, 0, 0.12); }
 
 .list-item {
@@ -2002,13 +2032,16 @@ body .app-bar .data-table-hover tbody tr:hover,
 .list-item-hover {
   position: relative;
   cursor: pointer;
-  transition: background-color 150ms linear;
+  transition: background-color 250ms linear;
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0; }
-  .list-item-hover:hover {
+  @media (hover: hover) {
+    .list-item-hover:hover {
+      background-color: rgba(0, 0, 0, 0.12); } }
+  .list-item-hover:active {
     background-color: rgba(0, 0, 0, 0.12); }
 
 .list-group {
@@ -2036,7 +2069,6 @@ body .app-bar .data-table-hover tbody tr:hover,
   min-width: 3.5rem;
   height: 3rem;
   padding: 1rem;
-  color: rgba(0, 0, 0, 0.54);
   font-weight: 500;
   font-size: 1.25rem; }
 
@@ -2049,6 +2081,9 @@ body .app-bar .data-table-hover tbody tr:hover,
     color: #212121; }
 .light-theme .list-item-icon, body .list-item-icon,
 .bg-light .list-item-icon {
+  color: rgba(0, 0, 0, 0.54); }
+.light-theme .list-index, body .list-index,
+.bg-light .list-index {
   color: rgba(0, 0, 0, 0.54); }
 
 .dark-theme .list-item, .custom-theme .list-item,
@@ -2076,6 +2111,13 @@ body .app-bar .list-item,
 .card-media.text-field-elevated .card-media-content .list-item-icon,
 body .app-bar .list-item-icon,
 .custom-theme .app-bar .list-item-icon {
+  color: rgba(255, 255, 255, 0.7); }
+.dark-theme .list-index, .custom-theme .list-index,
+.bg-dark .list-index,
+.card.card-media .card-media-content .list-index,
+.card-media.text-field-elevated .card-media-content .list-index,
+body .app-bar .list-index,
+.custom-theme .app-bar .list-index {
   color: rgba(255, 255, 255, 0.7); }
 
 .text-field-border {
@@ -4151,7 +4193,6 @@ body .app-bar .text-area,
   .light-theme .selectable-background, body .selectable-background {
     position: relative;
     cursor: pointer;
-    transition: background-color 150ms linear;
     position: relative;
     z-index: 1; }
     .light-theme .selectable-background::before, body .selectable-background::before {
@@ -4162,8 +4203,12 @@ body .app-bar .text-area,
       right: 0;
       bottom: 0;
       border-radius: 0;
-      z-index: -1; }
-    .light-theme .selectable-background:hover::before, body .selectable-background:hover::before {
+      z-index: -1;
+      transition: background-color 250ms linear; }
+    @media (hover: hover) {
+      .light-theme .selectable-background:hover::before, body .selectable-background:hover::before {
+        background-color: rgba(0, 0, 0, 0.12); } }
+    .light-theme .selectable-background:active::before, body .selectable-background:active::before {
       background-color: rgba(0, 0, 0, 0.12); }
 
 body.light-theme, body {
@@ -4174,7 +4219,6 @@ body.light-theme, body {
   .dark-theme .selectable-background, .custom-theme .selectable-background {
     position: relative;
     cursor: pointer;
-    transition: background-color 150ms linear;
     position: relative;
     z-index: 1; }
     .dark-theme .selectable-background::before, .custom-theme .selectable-background::before {
@@ -4185,8 +4229,12 @@ body.light-theme, body {
       right: 0;
       bottom: 0;
       border-radius: 0;
-      z-index: -1; }
-    .dark-theme .selectable-background:hover::before, .custom-theme .selectable-background:hover::before {
+      z-index: -1;
+      transition: background-color 250ms linear; }
+    @media (hover: hover) {
+      .dark-theme .selectable-background:hover::before, .custom-theme .selectable-background:hover::before {
+        background-color: rgba(204, 204, 204, 0.1); } }
+    .dark-theme .selectable-background:active::before, .custom-theme .selectable-background:active::before {
       background-color: rgba(204, 204, 204, 0.1); }
 
 body.dark-theme, body.custom-theme {
