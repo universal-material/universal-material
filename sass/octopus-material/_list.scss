@@ -148,7 +148,6 @@
   min-width: $list-index-width;
   height: $list-item-min-height;
   padding: $list-item-padding;
-  color: $text-low-contrast;
   font-weight: $font-medium;
   font-size: $list-index-font-size;
 }
@@ -165,6 +164,10 @@
   .list-item-icon {
     color: $list-icon-color-light-theme;
   }
+
+  .list-index {
+    color: $list-index-color-light-theme;
+  }
 }
 
 @include dark-theme-style {
@@ -178,5 +181,9 @@
 
   .list-item-icon {
     color: $list-icon-color-dark-theme;
+  }
+
+  .list-index {
+    color: $list-index-color-dark-theme;
   }
 }
