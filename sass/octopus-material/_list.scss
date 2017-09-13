@@ -21,12 +21,6 @@
       }
     }
   }
-
-  &.list-hover {
-    .list-item {
-      @include selectable-background(false);
-    }
-  }
 }
 
 .list-item {
@@ -153,6 +147,12 @@
 }
 
 @include light-theme-style {
+  .list.list-hover {
+    .list-item {
+      @include selectable-background(false);
+    }
+  }
+
   .list-item {
     color: $list-item-color-light-theme;
 
@@ -171,6 +171,13 @@
 }
 
 @include dark-theme-style {
+
+  .list.list-hover {
+    .list-item {
+      @include selectable-background(true);
+    }
+  }
+
   .list-item {
     color: $list-item-color-dark-theme;
 

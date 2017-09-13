@@ -1,12 +1,11 @@
 .content-area {
     padding-top: 64px;
-    height: 100%;
     overflow-x: hidden;
 }
 
 .content-area > .app-bar {
-    position: fixed;
-    width: auto;
+    /* position: fixed; */
+    /* width: auto; */
     top: 0;
     right: 0;
     left: 0;
@@ -24,7 +23,7 @@
 
 .sidebar {
     /* position: fixed; */
-    /* border-right: 1px solid rgba(0, 0, 0, 0.12); */
+    border-right: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 .sidebar .toolbar {

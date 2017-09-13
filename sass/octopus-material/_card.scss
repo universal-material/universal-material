@@ -1,6 +1,5 @@
 .card {
   border-radius: $card-border-radius;
-  overflow: hidden;
 
   @include elevate(2);
 
@@ -88,8 +87,7 @@
   }
 }
 
-.light-theme,
-.bg-light {
+@include light-theme-style {
   &.card,
   .card {
     background-color: $card-bg-light-theme
@@ -102,8 +100,7 @@
   }
 }
 
-.dark-theme,
-.bg-dark {
+@include dark-theme-style {
   &.card,
   .card {
     background-color: $card-bg-dark-theme

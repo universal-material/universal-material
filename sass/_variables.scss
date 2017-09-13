@@ -480,9 +480,23 @@ $font-size-button: $font-size-base !default;
 //
 //$dialog-background: #fff !default;
 //
-////Dropdown
-//$dropdown-in-data-table-background-color: $bg-body !default;
-//$dropdown-in-data-table-toggle-icon-size: 22px !default;
+//Dropdown
+$dropdown-menu-border-radius: .125rem !default;
+$dropdown-menu-padding: .5rem !default;
+$dropdown-menu-bg-light-theme: #fff !default;
+$dropdown-menu-bg-dark-theme: #424242 !default;
+
+$dropdown-item-height: 3rem;
+$dropdown-item-padding: 1rem;
+$dropdown-item-font-size: 1rem;
+
+$dropdown-item-color-light-theme: $body-color-light-theme;
+$dropdown-item-color-dark-theme: $body-color-dark-theme;
+
+$dropdown-in-data-table-bg-light-theme: #fafafa !default;
+$dropdown-in-data-table-bg-dark-theme: $gray-900 !default;
+
+$dropdown-in-data-table-toggle-icon-size: 22px !default;
 //
 ////Margin and guttters
 //$margin-gutter-8dp: 8px !default;
@@ -633,9 +647,9 @@ $list-index-color-dark-theme: $text-low-contrast-dark-theme !default;
 ////Menus
 //$menu-horizontal-padding: 16px;
 //
-////Sidebar
-//$sidebar-width: 320px;
-//$sidebar-background-color: #fff !default;
+//Sidebar
+$sidebar-width: 20rem;
+$sidebar-background-color: #fff !default;
 //
 ////Spinner
 //$spinner-color: $primary-color;
@@ -774,8 +788,8 @@ $shadows: append($shadows, 0 13px 25px 0 rgba(0, 0, 0, 0.3));
 $shadows: append($shadows, (0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12)));
 $shadows: append($shadows, 0 27px 55px 0 rgba(0, 0, 0, 0.3));
 //
-////Z-index
-//$zindex-dropdown: 1000 !default;
+//Z-index
+$zindex-dropdown: 1000 !default;
 //$zindex-fixed: 1030 !default;
 //$zindex-sticky: 1030 !default;
 $zindex-toolbar-fixed: 1030 !default;

@@ -17,7 +17,6 @@
 }
 
 .tab {
-  @include selectable-background(false);
 
   position: relative;
   display: flex;
@@ -80,6 +79,9 @@
 }
 
 @include light-theme-style {
+  .tab {
+    @include selectable-background(false);
+  }
   .tab-text {
     color: $tab-text-color-light-theme;
   }
@@ -93,6 +95,9 @@
 }
 
 @include dark-theme-style {
+  .tab {
+    @include selectable-background(true);
+  }
   .tab-text {
     color: $tab-text-color-dark-theme;
   }

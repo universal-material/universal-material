@@ -1,10 +1,5 @@
 .toolbar {
   width: 100%;
-
-  &.toolbar-fixed {
-    position: absolute;
-    z-index: $zindex-toolbar-fixed;
-  }
 }
 
 .toolbar-row {
@@ -36,13 +31,27 @@
   display: flex;
 }
 
-.light-theme, .bg-light {
+.toolbar-fixed {
+  position: fixed;
+  z-index: $zindex-toolbar-fixed;
+}
+
+.app-bar {
+  @extend .toolbar;
+}
+
+.toolbar-layout {
+  display: flex;
+  flex-direction: column;
+}
+
+@include light-theme-style {
   .toolbar .toolbar-icon {
     color: $toolbar-icon-color-light-theme;
   }
 }
 
-.dark-theme, .bg-dark {
+@include dark-theme-style {
   .toolbar .toolbar-icon {
     color: $toolbar-icon-color-dark-theme;
   }

@@ -17,99 +17,98 @@ html
     link(rel="stylesheet" href="../dist/css/octopus-material.css")
     link(rel="stylesheet" href="css/styles.css")
 
-    body.layout
-      .sidebar-container
-        nav.sidebar.sidebar-left.sidebar-collapsible-xs.sidebar-fixed-lg.elevate-2-xs.elevate-0-lg
-          .toolbar
-            .toolbar-row
-              .toolbar-title Material Design
-          .list.list-hover
-            a.list-item(href="/docs")
-              .list-item-icon
-                i.mdi.mdi-home
-              .list-item-primary-content
-                | Introduction
+    body.sidebar-layout
+      nav.sidebar.sidebar-left.sidebar-collapsible-xs.sidebar-fixed-lg.elevate-2-xs.elevate-0-lg
+        .toolbar
+          .toolbar-row
+            .toolbar-title Material Design
+        .list.list-hover
+          a.list-item(href="/docs")
+            .list-item-icon
+              i.mdi.mdi-home
+            .list-item-primary-content
+              | Introduction
 
-            a.list-item(href="layout/grid.html")
-              .list-item-icon
-                i.mdi.mdi-view-grid
-              .list-item-primary-content
-                span Grid
+          a.list-item(href="layout/grid.html")
+            .list-item-icon
+              i.mdi.mdi-view-grid
+            .list-item-primary-content
+              span Grid
 
-            a.list-item(href="content/typography.html")
-              .list-item-icon
-                i.mdi.mdi-page-layout-header
-              .list-item-primary-content
-                span Typography
+          a.list-item(href="content/typography.html")
+            .list-item-icon
+              i.mdi.mdi-page-layout-header
+            .list-item-primary-content
+              span Typography
 
-            a.list-item(href="components/buttons.html")
-              .list-item-icon
-                i.mdi.mdi-arrow-right
-              .list-item-primary-content
-                span Buttons
+          a.list-item(href="components/buttons.html")
+            .list-item-icon
+              i.mdi.mdi-arrow-right
+            .list-item-primary-content
+              span Buttons
 
-            a.list-item(href="components/cards.html")
-              .list-item-icon
-                i.mdi.mdi-page-layout-body
-              .list-item-primary-content
-                span Cards
+          a.list-item(href="components/cards.html")
+            .list-item-icon
+              i.mdi.mdi-page-layout-body
+            .list-item-primary-content
+              span Cards
 
-            a.list-item(href="components/chips.html")
-              .list-item-icon
-                i.mdi.mdi-label
-              .list-item-primary-content
-                span Chips
+          a.list-item(href="components/chips.html")
+            .list-item-icon
+              i.mdi.mdi-label
+            .list-item-primary-content
+              span Chips
 
-            a.list-item(href="components/data-tables.html")
-              .list-item-icon
-                i.mdi.mdi-table
-              .list-item-primary-content
-                span Data tables
+          a.list-item(href="components/data-tables.html")
+            .list-item-icon
+              i.mdi.mdi-table
+            .list-item-primary-content
+              span Data tables
 
-            a.list-item(href="components/lists.html")
-              .list-item-icon
-                i.mdi.mdi-format-list-bulleted
-              .list-item-primary-content
-                span Lists
+          a.list-item(href="components/lists.html")
+            .list-item-icon
+              i.mdi.mdi-format-list-bulleted
+            .list-item-primary-content
+              span Lists
 
-            a.list-item(href="components/menus.html")
-              .list-item-icon
-                i.mdi.mdi-menu
-              .list-item-primary-content
-                span Menus
+          a.list-item(href="components/menus.html")
+            .list-item-icon
+              i.mdi.mdi-menu
+            .list-item-primary-content
+              span Menus
 
-            a.list-item(href="components/steppers.html")
-              .list-item-icon
-                i.mdi.mdi-format-list-numbers
-              .list-item-primary-content
-                span Steppers
+          a.list-item(href="components/steppers.html")
+            .list-item-icon
+              i.mdi.mdi-format-list-numbers
+            .list-item-primary-content
+              span Steppers
 
-            a.list-item(href="components/tabs.html")
-              .list-item-icon
-                i.mdi.mdi-tab
-              .list-item-primary-content
-                span Tabs
+          a.list-item(href="components/tabs.html")
+            .list-item-icon
+              i.mdi.mdi-tab
+            .list-item-primary-content
+              span Tabs
 
-            a.list-item(href="components/text-fields.html")
-              .list-item-icon
-                i.mdi.mdi-textbox
-              .list-item-primary-content
-                span Text fields
+          a.list-item(href="components/text-fields.html")
+            .list-item-icon
+              i.mdi.mdi-textbox
+            .list-item-primary-content
+              span Text fields
 
-            a.list-item(href="components/toolbars.html")
-              .list-item-icon
-                i.mdi.mdi-page-layout-header
-              .list-item-primary-content
-                span Toolbars
+          a.list-item(href="components/toolbars.html")
+            .list-item-icon
+              i.mdi.mdi-page-layout-header
+            .list-item-primary-content
+              span Toolbars
 
-      .layout-content.content-area
-        .app-bar.toolbar-fixed.elevate-1
+      .layout-content.toolbar-layout
+        .app-bar.elevate-1
           .toolbar-row
             .toolbar-icon
                 i.mdi.mdi-menu
 
             .toolbar-title
               | Material
-
-        .container
-          block content
+        .layout-content
+          .container
+            block content

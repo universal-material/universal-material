@@ -27,9 +27,9 @@
     }
 
     @media (hover: hover) {
-      &:hover::before {
-        background-color: $hover-background;
-      }
+    &:hover::before {
+      background-color: $hover-background;
+    }
     }
 
     &:active::before {
@@ -50,9 +50,9 @@
     transition: background-color 250ms linear;
 
     @media (hover: hover) {
-      &:hover {
-        background-color: $hover-background;
-      }
+    &:hover {
+      background-color: $hover-background;
+    }
     }
 
     &:active {

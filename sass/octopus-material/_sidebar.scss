@@ -1,10 +1,6 @@
-.sidebar-container {
-  display: flex;
+.sidebar {
   width: $sidebar-width;
-  min-width: $sidebar-width;
-  max-width: 40%;
 }
-
 
 //.sidebar {
 //  position: absolute;
@@ -64,3 +60,10 @@
 //  opacity: 0;
 //  z-index: -1;
 //}
+
+.sidebar-layout {
+  display: flex;
+  //width: $sidebar-width;
+  //min-width: $sidebar-width;
+  //max-width: 40%;
+}
