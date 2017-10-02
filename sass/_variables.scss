@@ -514,28 +514,24 @@ $dropdown-in-data-table-toggle-icon-size: 22px !default;
 ////Floating content
 //$floating-content-padding: 20px !default;
 //
-////Chip
-//$chip-height: 32px !default;
-//$chip-margin: 8px !default;
-//$chip-margin-vertical: 4px !default;
-//$chip-background-color: #e0e0e0 !default;
-//
-//$chip-remove-color: rgba(0, 0, 0, 0.54) !default;
-//$chip-remove-hover-color: #f44336 !default;
-//$chip-remove-size: 24px !default;
-//$chip-remove-margin: 4px !default;
-//
-//$chip-avatar-size: $chip-height !default;
-//$chip-avatar-font-size: 16px !default;
-//$chip-avatar-margin: 8px !default;
-//
-////
-////$chip-icon-placeholder-color: rgba(0,0,0,.2)
-////$chip-icon-margin: 8px !default
-//
-//$chip-font-size: 13px !default;
-//$chip-font-weight: $font-regular !default;
-//$chip-label-margin: 12px !default;
+//Chip
+$chip-height: 2rem !default;
+$chip-margin: .5rem !default;
+$chip-margin-vertical: .25rem !default;
+$chip-background-color: #e0e0e0 !default;
+
+$chip-remove-color: rgba(0, 0, 0, 0.54) !default;
+$chip-remove-hover-color: #f44336 !default;
+$chip-remove-size: 1.5rem !default;
+$chip-remove-margin: .25rem !default;
+
+$chip-avatar-size: $chip-height !default;
+$chip-avatar-font-size: 1rem !default;
+$chip-avatar-margin: .5rem !default;
+
+$chip-font-size: 0.8125rem !default;
+$chip-font-weight: $font-regular !default;
+$chip-label-margin: 0.75rem !default;
 //
 ////Table
 //$table-bg: transparent !default;
