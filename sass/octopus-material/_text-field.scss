@@ -112,19 +112,10 @@ input.text-input {
   }
 
   .text-input {
-    //border-bottom: $text-field-divider-width solid $text-field-divider-color;
     padding-top: $text-field-item-margin;
     padding-bottom: $text-field-item-margin;
 
-    &:hover {
-      //border-bottom: $text-field-divider-focus-hover-width solid $text-field-divider-hover-color;
-      //padding-bottom: $text-field-focus-hover-margin;
-    }
-
     &:focus {
-      //border-bottom: $text-field-divider-focus-hover-width solid $text-field-focus-color;
-      //padding-bottom: $text-field-focus-hover-margin;
-
       & ~ label {
         color: $text-field-focus-color;
       }
@@ -132,7 +123,13 @@ input.text-input {
 
     &:disabled {
       color: $text-lower-contrast;
-      border-bottom: $text-field-divider-width dashed $text-field-divider-color-light-theme;
+      ~ .text-field-border {
+        border-bottom: $text-field-divider-width dashed $text-field-divider-color-light-theme !important;
+
+        &::after {
+          content: none;
+        }
+      }
     }
   }
 
@@ -145,10 +142,6 @@ input.text-input {
   }
 
   &.focus {
-    .text-input {
-      border-bottom: $text-field-divider-focus-hover-width solid $text-field-focus-color;
-      padding-bottom: $text-field-focus-hover-margin;
-    }
 
     label {
       color: $text-field-focus-color;
@@ -166,18 +159,6 @@ input.text-input {
 
     .error-text {
       display: block;
-    }
-  }
-
-  &.disabled {
-    label {
-      color: $text-lower-contrast;
-    }
-
-    .text-input {
-      color: $text-lower-contrast;
-      border-bottom: $text-field-divider-width dashed $text-field-divider-color-light-theme;
-      margin-bottom: 0;
     }
   }
 
@@ -199,6 +180,24 @@ input.text-input {
       bottom: -$text-field-divider-focus-hover-width;
       transform: scale3d(1, 1, 1);
       transition: transform 350ms $awesome-cubic-bezier;
+    }
+  }
+
+  &.disabled {
+    label {
+      color: $text-lower-contrast;
+    }
+
+    .text-input {
+      color: $text-lower-contrast;
+    }
+
+    .text-field-border {
+      border-bottom: $text-field-divider-width dashed $text-field-divider-color-light-theme !important;
+
+      &::after {
+        content: none;
+      }
     }
   }
 }

@@ -1,0 +1,28 @@
+extends ../layout
+
+block content
+  h4 Selection controls
+
+  div
+    label.checkbox
+      input(type="checkbox")
+      .selection-control
+      .selection-control-label Checkbox
+  div
+    label.radio
+      input(type="radio", name="radio")
+      .selection-control
+      .selection-control-label Radio A
+    label.radio
+      input(type="radio", name="radio")
+      .selection-control
+      .selection-control-label Radio B
+    label.radio
+      input(type="radio", name="radio")
+      .selection-control
+      .selection-control-label Radio C
+  div
+    label.switch
+      input(type="checkbox")
+      .selection-control
+      .selection-control-label Switch
