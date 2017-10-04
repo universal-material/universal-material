@@ -18,7 +18,7 @@ html
     link(rel="stylesheet" href="css/styles.css")
 
     body.sidebar-layout
-      nav.sidebar.sidebar-left.sidebar-collapsible-xs.sidebar-fixed-lg.elevate-2-xs.elevate-0-lg
+      nav.sidebar.sidebar-left.sidebar-lg-fixed
         .toolbar
           .toolbar-row
             .toolbar-title Material Design
@@ -65,6 +65,12 @@ html
             .list-item-primary-content
               span Data tables
 
+          a.list-item(href="components/dialogs.html")
+            .list-item-icon
+              i.mdi.mdi-window-maximize
+            .list-item-primary-content
+              span Dialogs
+
           a.list-item(href="components/lists.html")
             .list-item-icon
               i.mdi.mdi-format-list-bulleted
@@ -77,11 +83,19 @@ html
             .list-item-primary-content
               span Menus
 
-          a.list-item(href="components/steppers.html")
+          a.list-item(href="components/selection-controls.html")
             .list-item-icon
-              i.mdi.mdi-format-list-numbers
+              i.mdi.mdi-toggle-switch
             .list-item-primary-content
-              span Steppers
+              span Selection controls
+
+
+
+          a.list-item(href="components/snackbars.html")
+            .list-item-icon
+              i.mdi.mdi-page-layout-footer
+            .list-item-primary-content
+              span Snackbars
 
           a.list-item(href="components/tabs.html")
             .list-item-icon
@@ -101,10 +115,12 @@ html
             .list-item-primary-content
               span Toolbars
 
+      .sidebar-backdrop
       .layout-content.toolbar-layout
         .app-bar.elevate-1
           .toolbar-row
             .toolbar-icon
+              .btn-borderless(id="menu-toggle")
                 i.mdi.mdi-menu
 
             .toolbar-title
@@ -112,3 +128,18 @@ html
         .layout-content
           .container
             block content
+
+    script.
+      (function () {
+        var sidebar = document.querySelector(".sidebar");
+
+        function toggleSidebar() {
+          if (sidebar.classList.contains("open")) {
+            sidebar.classList.remove("open");
+          } else {
+            sidebar.classList.add("open");
+          }
+        }
+
+        document.getElementById("menu-toggle").addEventListener("click", toggleSidebar);
+      })();

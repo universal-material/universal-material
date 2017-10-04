@@ -87,7 +87,7 @@
   }
 }
 
-@include light-theme-style {
+@include light-theme-style(false) {
   &.card,
   .card {
     background-color: $card-bg-light-theme
@@ -100,7 +100,7 @@
   }
 }
 
-@include dark-theme-style {
+@include dark-theme-style(false) {
   &.card,
   .card {
     background-color: $card-bg-dark-theme

@@ -18,7 +18,7 @@
 @import "mixins/text-emphasis";
 @import "mixins/text-hide";
 @import "mixins/text-truncate";
-//@import "mixins/visibility";
+@import "mixins/visibility";
 //
 ////Components
 //@import "mixins/selectable-content";
@@ -36,6 +36,6 @@
 @import "mixins/center-block";
 @import "mixins/grid-framework";
 @import "mixins/grid";
-//
-//@import "mixins/float";
+@import "mixins/float";
+
 @import "mixins/themes";

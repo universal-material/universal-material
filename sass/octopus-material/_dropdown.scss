@@ -75,7 +75,7 @@
 
 .dropdown-toggle-icon {
   font-size: $base-icon-size;
-  background-color: $text-low-contrast;
+  color: $text-low-contrast;
 }
 
 .dropdown.show {
@@ -107,7 +107,7 @@
   }
 }
 
-@include light-theme-style {
+@include light-theme-style(false) {
 
   .dropdown-menu {
     background: $dropdown-menu-bg-light-theme;
@@ -129,7 +129,7 @@
   }
 }
 
-@include dark-theme-style {
+@include dark-theme-style(false) {
   .dropdown-menu {
     background: $dropdown-menu-bg-dark-theme;
   }

@@ -2,3 +2,35 @@ extends ../layout
 
 block content
   h4 Dialogs
+
+  button.btn.btn-raised.btn-primary Launch dialog
+
+  .dialog
+    .dialog-backdrop
+    .dialog-content
+      .dialog-title Dialog example
+      .dialog-body
+        p Content
+      .dialog-actions
+        button.btn.btn-flat-primary Cancel
+        button.btn.btn-flat-primary Ok
+
+  script.
+    (function () {
+      var dialog = document.querySelector(".dialog");
+
+      function toggleDialogVisibility() {
+        if (dialog.classList.contains("show")) {
+          dialog.classList.remove("show");
+        } else {
+          dialog.classList.add("show");
+        }
+      }
+
+      document.querySelector(".dialog-backdrop").addEventListener("click", toggleDialogVisibility);
+      var buttons = document.querySelectorAll("button");
+      buttons.forEach(function (button) {
+        button.addEventListener("click", toggleDialogVisibility);
+      });
+
+    })();

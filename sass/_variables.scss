@@ -292,8 +292,32 @@ $dt-font-weight: $font-weight-bold !default;
 //
 $mark-bg: #fcf8e3 !default;
 
-$text-low-contrast: rgba(0, 0, 0, 0.54) !default;
 $base-icon-size: 1.5rem;
+
+//$checked-radio-color: $primary-color !default;
+//
+////Typography
+//$font-thin: 100;
+//$font-light: 300;
+//$font-regular: 400;
+//$font-medium: 500;
+//$font-bold: 700;
+//$font-black: 900;
+//
+//$font-weight-normal: normal !default;
+//$font-weight-bold: bold !default;
+//
+$text-high-contrast: $body-color !default;//$base-dense-color !default;
+$text-high-contrast-dark-theme: $white !default;
+$text-low-contrast: rgba(0, 0, 0, 0.54) !default;
+$text-low-contrast-dark-theme: rgba(255, 255, 255, .7) !default;
+$text-lower-contrast: rgba(0, 0, 0, 0.42) !default;
+$text-lower-contrast-dark-theme: rgba(255, 255, 255, .5) !default;
+//$text-super-low-contrast: rgba(0, 0, 0, 0.2) !default;
+//
+//$font-family-base: "Roboto", "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default;
+//$font-size-base: 14px !default;
+//
 
 // Tables
 //
@@ -393,35 +417,35 @@ $switch-toggle-size: 1.25rem !default;
 $switch-toggle-background-color-light-theme: $white;
 $switch-toggle-box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2), 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12);
 
-//$checked-radio-color: $primary-color !default;
-//
-////Typography
-//$font-thin: 100;
-//$font-light: 300;
-//$font-regular: 400;
-//$font-medium: 500;
-//$font-bold: 700;
-//$font-black: 900;
-//
-//$font-weight-normal: normal !default;
-//$font-weight-bold: bold !default;
-//
-$text-high-contrast: $body-color !default;//$base-dense-color !default;
-$text-high-contrast-dark-theme: $white !default;
-$text-low-contrast: rgba(0, 0, 0, 0.54) !default;
-$text-low-contrast-dark-theme: rgba(255, 255, 255, .7) !default;
-$text-lower-contrast: rgba(0, 0, 0, 0.42) !default;
-$text-lower-contrast-dark-theme: rgba(255, 255, 255, .5) !default;
-//$text-super-low-contrast: rgba(0, 0, 0, 0.2) !default;
-//
-//$font-family-base: "Roboto", "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default;
-//$font-size-base: 14px !default;
-//
 //Badges
 $badge-size: 1.125rem !default;
 $badge-position: -.625rem !default;
 $badge-font-size: .75rem !default;
 $badge-font-weight: $font-medium !default;
+
+// Modals
+
+// Padding applied to the modal body
+$modal-inner-padding:         15px !default;
+
+$modal-dialog-margin:         10px !default;
+$modal-dialog-margin-y-sm-up: 30px !default;
+
+$modal-title-line-height:     $line-height-base !default;
+
+$modal-content-bg:               $white !default;
+$modal-content-border-color:     rgba($black,.2) !default;
+$modal-content-border-width:     $border-width !default;
+$modal-content-box-shadow-xs:    0 3px 9px rgba($black,.5) !default;
+$modal-content-box-shadow-sm-up: 0 5px 15px rgba($black,.5) !default;
+
+$dialog-backdrop-bg:           $black !default;
+$dialog-backdrop-opacity:      .5 !default;
+
+$modal-lg:                    800px !default;
+$modal-md:                    500px !default;
+$modal-sm:                    300px !default;
+
 //
 //Card
 $card-small-title-font-size: $font-size-base !default;
@@ -450,9 +474,6 @@ $card-actions-padding: .5rem !default;
 
 $card-bg-light-theme: #fff !default;
 $card-bg-dark-theme: #424242 !default;
-
-//Sidebar
-$sidebar-width: 20rem;
 
 //
 //// 20/14
@@ -488,27 +509,28 @@ $font-size-button: $font-size-base !default;
 //$screen-xs-max: $screen-sm-min - 1 !default;
 //$screen-sm-max: $screen-md-min - 1 !default;
 //$screen-md-max: $screen-lg-min - 1 !default;
-//
-////Expansion panel
-//$expansion-panel-border-radius: $card-border-radius !default;
-//
-//$expansion-panel-label-height: 48px !default;
-//$expansion-panel-label-font-size: 15px !default;
-//
-//$expansion-panel-horizontal-padding: 24px !default;
-//$expansion-panel-content-margin: 16px !default;
-//$expansion-panel-switch-size: 24px !default;
-//
-////Dialog
-//$dialog-border-radius: 2px !default;
-//$dialog-padding: 24px !default;
-//$dialog-title-body-distance: 20px !default;
-//$dialog-actions-padding: 8px !default;
+
+//Expansion panel
+$expansion-panel-divider-width: .0625rem !default;
+$expansion-panel-border-radius: $card-border-radius !default;
+
+$expansion-panel-label-height: 3rem !default;
+$expansion-panel-label-font-size: .9375rem !default;
+
+$expansion-panel-horizontal-padding: 1.5rem !default;
+$expansion-panel-content-margin: 1rem !default;
+$expansion-panel-switch-size: 1.5rem !default;
+
+//Dialog
+$dialog-border-radius: 2px !default;
+$dialog-padding: 24px !default;
+$dialog-title-body-distance: 20px !default;
+$dialog-actions-padding: 8px !default;
 //
 //$dialog-backdrop-bg: #000 !default;
 //$dialog-backdrop-opacity: 0.5 !default;
 //
-//$dialog-background: #fff !default;
+$dialog-background: #fff !default;
 //
 //Dropdown
 $dropdown-menu-border-radius: .125rem !default;
@@ -540,10 +562,10 @@ $dropdown-in-data-table-toggle-icon-size: 22px !default;
 //$grid-small-columns: 8 !default;
 //$grid-medium-columns: $grid-max-columns !default;
 //$grid-large-columns: $grid-max-columns !default;
-//
-////Floating content
-//$floating-content-padding: 20px !default;
-//
+
+//Floating content
+$floating-content-padding: 1.25rem !default;
+
 //Chip
 $chip-height: 2rem !default;
 $chip-margin: .5rem !default;
@@ -599,10 +621,11 @@ $data-table-card-footer-font-weight: $font-medium !default;
 
 $data-table-content-font-size: .8125rem !default;
 $data-table-content-font-weight: $font-medium !default;
-//
-////Divider
-//$divider-color: $base-semi-transparent-color !default;
-//
+
+//Divider
+$divider-height: .0625rem !default;
+$divider-color: $base-semi-transparent-color !default;
+
 ////Buttons
 //$button-font-size: $font-size-base !default;
 //$button-font-weight: $font-medium !default;
@@ -623,11 +646,11 @@ $btn-height: 2.25rem !default;
 $btn-border-radius: .125rem !default;
 $btn-font-size: $font-size-base !default;
 
-//
-//$floating-button-size: 56px !default;
-//$floating-button-small-size: 40px !default;
-//$floating-button-icon-size: $base-icon-size !default;
-//
+
+$floating-button-size: 3.5rem !default;
+$floating-button-small-size: 2.5rem !default;
+$floating-button-icon-size: $base-icon-size !default;
+
 //$borderless-hover-background: $base-semi-transparent-color !default;
 $button-borderless-margin: 1.5rem !default;
 
@@ -665,20 +688,25 @@ $list-index-font-size: 1.25rem !default;
 $list-index-color-light-theme: $text-low-contrast !default;
 $list-index-color-dark-theme: $text-low-contrast-dark-theme !default;
 
-////Progress
-//$progress-height: 5px !default;
-//$progress-border-radius: 1px !default;
-//$progress-border-width: 1px !default;
+//Progress
+$progress-height: .3125rem !default;
+$progress-border-radius: .0625rem !default;
+$progress-border-width: .0625rem !default;
+
+//Spinner
+$spinner-color: $primary-color;
+
 //
 ////Menus
 //$menu-horizontal-padding: 16px;
 //
 //Sidebar
-$sidebar-width: 20rem;
+$sidebar-width: 20rem !default;
 $sidebar-background-color: #fff !default;
-//
-////Spinner
-//$spinner-color: $primary-color;
+
+$sidebar-backdrop-bg: $black !default;
+$sidebar-backdrop-opacity: .5 !default;
+
 
 //Text fields
 $error-text-font-size: .75rem !default;
@@ -763,50 +791,51 @@ $tab-active-text-color-light-theme: $body-color-light-theme !default;
 
 $tab-text-color-dark-theme: $text-low-contrast-dark-theme !default;
 $tab-active-text-color-dark-theme: $body-color-dark-theme !default;
-//
-////Steppers
-//$stepper-padding: 24px !default;
-//$step-number-font-size: 12px !default;
-//
-//$step-circle-size: $base-icon-size !default;
-//$step-circle-default-background: rgba(0, 0, 0, 0.38) !default;
-//$step-circle-default-text-color: #fff !default;
-//$step-circle-active-background: $primary-color !default;
-//$step-circle-active-text-color: get-text-color-by-background-color($step-circle-active-background, $text-low-contrast) !default;
-//
-//$step-label-margin: 16px !default;
-//$step-label-disabled-color: $text-low-contrast !default;
-//
-//$step-line-margin: 8px !default;
-//$step-content-margin: 12px !default;
-//
-//$step-actions-height: 48px !default;
-//$step-actions-buttons-margin: 8px !default;
-//$step-actions-margin: 16px !default;
-//
-//$active-step-weight: $font-medium !default;
-//
-//$vertical-step-space: 48px !default;
-//
-////Snackbar
-//$snackbar-height: 48px !default;
-//$snackbar-horizontal-padding: 24px !default;
-//$snackbar-background-color: #323232 !default;
-//$snackbar-text-color: #fff !default;
-//$snackbar-font-size: $font-size-base !default;
-//$snackbar-font-weight: $font-medium !default;
-//
-//$snackbar-tablet-min-width: 288px !default;
-//$snackbar-tablet-max-width: 568px !default;
-//
-//$snackbar-button-horizontal-padding: 24px !default;
-//$snackbar-button-tablet-left-margin: 48px - $snackbar-button-horizontal-padding !default;
-//
-//$snackbar-tablet-border-radius: 2px !default;
-//
-//$text-muted: $text-low-contrast !default;
-//
-////Shadows
+
+//Steppers
+$stepper-padding: 1.5rem !default;
+$step-number-font-size: .75rem !default;
+
+$step-circle-size: $base-icon-size !default;
+$step-circle-default-background: rgba(0, 0, 0, 0.38) !default;
+$step-circle-default-text-color: #fff !default;
+$step-circle-active-background: $primary-color !default;
+$step-circle-active-text-color: get-text-color-by-background-color($step-circle-active-background, $text-low-contrast) !default;
+
+$step-label-margin: 1rem !default;
+$step-label-disabled-color: $text-low-contrast !default;
+
+$step-line-margin: .5rem !default;
+$step-content-margin: .75rem !default;
+
+$step-actions-height: 3rem !default;
+$step-actions-buttons-margin: .5rem !default;
+$step-actions-margin: 1rem !default;
+
+$active-step-weight: $font-medium !default;
+
+$vertical-step-space: 3rem !default;
+
+//Snackbar
+$snackbar-height: 3rem !default;
+$snackbar-horizontal-padding: 1.5rem !default;
+$snackbar-background-color: #323232 !default;
+$snackbar-text-vertical-margin: .75rem !default;
+$snackbar-text-color: #fff !default;
+$snackbar-font-size: $font-size-base !default;
+$snackbar-font-weight: $font-medium !default;
+
+$snackbar-tablet-min-width: 18rem !default;
+$snackbar-tablet-max-width: 35.5rem !default;
+
+$snackbar-button-horizontal-padding: 1.5rem !default;
+$snackbar-button-tablet-left-margin: $snackbar-horizontal-padding !default;
+
+$snackbar-tablet-border-radius: .125rem !default;
+
+$text-muted: $text-low-contrast !default;
+
+//Shadows
 $shadows: ();
 $shadows: append($shadows, 0 1px 4px 0 rgba(0, 0, 0, 0.37));
 $shadows: append($shadows, (0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12)));
@@ -816,10 +845,10 @@ $shadows: append($shadows, 0 27px 55px 0 rgba(0, 0, 0, 0.3));
 //
 //Z-index
 $zindex-dropdown: 1000 !default;
-//$zindex-fixed: 1030 !default;
-//$zindex-sticky: 1030 !default;
+$zindex-fixed: 1030 !default;
+$zindex-sticky: 1030 !default;
 $zindex-toolbar-fixed: 1030 !default;
-//$zindex-sidebar: 1040 !default;
-//$zindex-dialog-background: 1050 !default;
-//$zindex-dialog: 1060 !default;
-//$zindex-snackbar: 1070 !default;
+$zindex-sidebar: 1040 !default;
+$zindex-dialog-background: 1050 !default;
+$zindex-dialog: 1060 !default;
+$zindex-snackbar: 1070 !default;

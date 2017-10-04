@@ -19,16 +19,26 @@
   }
 }
 
-@mixin light-theme-style() {
-  .light-theme,
-  .bg-light {
+@mixin light-theme-style($apply-to-bg: true) {
+  .light-theme {
     @content;
+  }
+
+  @if ($apply-to-bg) {
+    .bg-light {
+      @content;
+    }
   }
 }
 
-@mixin dark-theme-style() {
-  .dark-theme,
-  .bg-dark {
+@mixin dark-theme-style($apply-to-bg: true) {
+  .dark-theme {
     @content;
+  }
+
+  @if ($apply-to-bg) {
+    .bg-dark {
+      @content;
+    }
   }
 }

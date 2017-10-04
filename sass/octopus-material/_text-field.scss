@@ -409,3 +409,19 @@ input:focus + label {
     background: $text-input-box-bg-dark-theme;
   }
 }
+
+@include light-theme-style(false) {
+  .text-field-elevated {
+    .text-input-icon {
+      color: $text-input-icon-color-light-theme;
+    }
+  }
+}
+
+@include dark-theme-style(false) {
+  .text-field-elevated {
+    .text-input-icon {
+      color: $text-input-icon-color-dark-theme;
+    }
+  }
+}

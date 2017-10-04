@@ -1,14 +1,17 @@
-.center-block {
-  @include center-block;
-}
+//.center-block {
+//  @include center-block;
+//}
 
 @import "utilities/background";
 @import "utilities/clearfix";
 @import "utilities/spacing";
-//@import "utilities/display";
-//@import "utilities/flex";
-//@import "utilities/float";
-//@import "utilities/position";
+@import "utilities/display";
+@import "utilities/flex";
+@import "utilities/float";
+@import "utilities/position";
 
 @import "utilities/text";
-//@import "utilities/visibility";
+@import "utilities/visibility";
+
+//Octopus custom code
+@import "utilities/divider";

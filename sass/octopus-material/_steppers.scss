@@ -1,0 +1,95 @@
+.step-indicator {
+  display: flex;
+  align-items: center;
+}
+
+.step-circle {
+  @include size($step-circle-size);
+
+  font-size: $step-number-font-size;
+  background: $step-circle-default-background;
+  line-height: $step-circle-size;
+  color: $step-circle-default-text-color;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.step-label {
+  line-height: $step-circle-size;
+}
+
+.step-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.step {
+  display: flex;
+
+  &.active {
+    .step-label {
+      font-weight: $active-step-weight;
+    }
+  }
+
+  &.active, &.completed {
+    .step-circle {
+      background: $step-circle-active-background;
+      color: $step-circle-active-text-color;
+    }
+  }
+
+  &.disabled {
+    .step-label {
+      color: $step-label-disabled-color;
+    }
+  }
+
+  .step-content {
+    flex-grow: 1;
+  }
+}
+
+.step-actions {
+  display: flex;
+  align-items: center;
+  height: $step-actions-height;
+  margin-top: $step-actions-margin;
+
+  [class^="btn-"] + [class^="btn-"] {
+    margin-left: $step-actions-buttons-margin;
+  }
+}
+
+.vertical-stepper {
+  padding: $stepper-padding;
+
+  .step-content {
+    padding-bottom: $vertical-step-space;
+  }
+
+  .step:last-child .step-content {
+    padding-bottom: 0;
+  }
+
+  .step-indicator {
+    flex-direction: column;
+  }
+
+  .step-line {
+    width: 1px;
+    flex-grow: 1;
+    background: $divider-color;
+
+    @include vertical-margin($step-line-margin);
+  }
+
+  .step-content {
+    margin-left: $step-content-margin;
+    margin-right: $stepper-padding;
+  }
+
+  .step-label {
+    margin-bottom: $step-label-margin;
+  }
+}

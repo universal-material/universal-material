@@ -1,6 +1,73 @@
+.sidebar-layout {
+  position: relative;
+  display: flex;
+}
+
 .sidebar {
   width: $sidebar-width;
+  background-color: $sidebar-background-color;
   flex-shrink: 0;
+  @include elevate(2);
+
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  max-width: 85%;
+  z-index: $zindex-sidebar;
+
+  transform: translateX(-100%);
+
+  &.sidebar-right {
+    left: auto;
+    right: 0;
+    transform: translateX(100%);
+  }
+
+  transition: transform 375ms $awesome-cubic-bezier;
+
+  &.open {
+    transform: translateX(0);
+
+    + .sidebar-backdrop {
+      opacity: $sidebar-backdrop-opacity;
+      z-index: $zindex-sidebar - 1;
+    }
+  }
+}
+
+.sidebar {
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+      $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+      &.sidebar#{$infix}-fixed {
+        position: static;
+        transform: none;
+
+        @include elevate(0);
+
+        + .sidebar-backdrop {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.sidebar-backdrop {
+  position: absolute;
+  background-color: $sidebar-backdrop-bg;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  transition: 375ms opacity linear;
+
+  opacity: 0;
+  z-index: -1;
 }
 
 //.sidebar {
@@ -16,15 +83,6 @@
 //  @include apply-breakpoints(sidebar-collapsible, true, true) {
 //    @include translateX(-100%);
 //}
-//
-//
-//  &.sidebar-right {
-//    left: auto;
-//    right: 0;
-//
-//    @include apply-breakpoints(sidebar-collapsible, true, true) {
-//      @include translateX(100%);
-//  }
 //}
 //
 //  @include apply-breakpoints(sidebar-collapsible, true, true) {
@@ -48,23 +106,3 @@
 //}
 //}
 //
-//.sidebar-backdrop {
-//  position: absolute;
-//  background: #000;
-//  top: 0;
-//  left: 0;
-//  width: 100%;
-//  height: 100%;
-//
-//  @include transition(375ms opacity linear);
-//
-//  opacity: 0;
-//  z-index: -1;
-//}
-
-.sidebar-layout {
-  display: flex;
-  //width: $sidebar-width;
-  //min-width: $sidebar-width;
-  //max-width: 40%;
-}

@@ -1,0 +1,89 @@
+.expansion-panel {
+  @extend .clearfix;
+
+  position: relative;
+  background: #fff;
+  width: 100%;
+
+  @include elevate(2);
+
+  overflow: auto;
+  transition: margin 150ms ease-out;
+
+  + .expansion-panel::after {
+    position: absolute;
+    content: "";
+    top: -$expansion-panel-divider-width;
+    left: 0;
+    width: 100%;
+    height: $expansion-panel-divider-width;
+    background: $divider-color;
+  }
+
+  &:first-child, &.open, &.open + .expansion-panel {
+    border-top-left-radius: $expansion-panel-border-radius;
+    border-top-right-radius: $expansion-panel-border-radius;
+  }
+
+  &:last-child, &.open, &.before-opened {
+    border-bottom-left-radius: $expansion-panel-border-radius;
+    border-bottom-right-radius: $expansion-panel-border-radius;
+  }
+
+  .expansion-panel-content {
+    padding: 0 $expansion-panel-horizontal-padding;
+    margin-bottom: 0;
+    clear: both;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 200ms ease;
+  }
+
+  &.open {
+    margin-bottom: $expansion-panel-content-margin;
+
+    &::before, & + .expansion-panel::before {
+      content: initial;
+    }
+
+    .expansion-panel-content {
+      max-height: 120vh;
+      margin-bottom: $expansion-panel-content-margin;
+    }
+  }
+
+  &:not(:first-of-type).open {
+    margin-top: $expansion-panel-content-margin;
+  }
+
+  .expansion-panel-header {
+    @extend .clearfix;
+
+    padding: 0 $expansion-panel-horizontal-padding;
+  }
+
+  .expansion-panel-label {
+    float: left;
+    font-size: $expansion-panel-label-font-size;
+    font-weight: $font-regular;
+    line-height: $expansion-panel-label-height;
+
+    + .expansion-panel-label {
+      color: $text-low-contrast;
+      margin-left: $expansion-panel-content-margin;
+    }
+  }
+
+  .expansion-panel-switch {
+    float: right;
+    background: transparent;
+    color: $text-low-contrast;
+    font-size: $expansion-panel-switch-size;
+    width: $expansion-panel-switch-size;
+    line-height: $expansion-panel-label-height;
+    margin-left: $expansion-panel-content-margin;
+    border: none;
+    text-align: center;
+    outline: 0;
+  }
+}
