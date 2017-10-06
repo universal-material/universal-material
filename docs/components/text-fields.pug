@@ -4,15 +4,23 @@ block content
   h4 Text fields
 
   .text-field
-    input.text-input(type="text" placeholder="Placeholder" id="text-field-1")
+    small.text-field-helper-text Helper Text
+    .text-input-group
+      input.text-input(type="text" placeholder="Placeholder" id="text-field-1")
+      .text-field-border
     label(for="text-field-1") Normal
-    .text-field-border
-
 
   .text-field.focus
     input.text-input(type="text" placeholder="Placeholder")
     label Normal focused
     .text-field-border
+
+  .text-field.invalid
+    small.text-field-helper-text.error-text Error Text
+    .text-input-group
+      input.text-input(type="text" placeholder="Placeholder")
+      .text-field-border
+    label Normal
 
   .text-field.floating-label
     input.text-input(type="text" placeholder="Placeholder")

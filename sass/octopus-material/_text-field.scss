@@ -16,11 +16,11 @@
   }
 }
 
-input.text-input, .text-input input {
+input.text-input, .text-input, .text-input input {
   background: transparent;
   padding: 0;
   border: none;
-  outline: 0;
+  outline: 0 !important;
 }
 
 .text-input {
@@ -60,12 +60,17 @@ input.text-input {
 }
 
 .text-input-group {
+  position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
 
   .text-input {
     flex-grow: 1;
+  }
+
+  .text-field-border {
+    bottom: 0;
   }
 }
 
@@ -89,14 +94,15 @@ input.text-input {
   margin-left: $text-field-item-margin;
 }
 
-.error-text {
-  color: $text-field-invalid-color;
-  font-size: $error-text-font-size;
+.text-field-helper-text {
+  font-size: $text-field-helper-text-font-size;
   line-height: $text-field-item-height;
-
-  @include vertical-padding($error-text-vertical-padding);
-
   font-style: normal;
+  margin-top: $text-field-helper-text-margin;
+
+  &.error-text {
+    color: $text-field-invalid-color;
+  }
 }
 
 .text-field {
@@ -148,20 +154,6 @@ input.text-input {
     }
   }
 
-  &.invalid, &.focus.invalid {
-    .text-input {
-      border-color: $text-field-invalid-color;
-    }
-
-    label {
-      color: $text-field-invalid-color;
-    }
-
-    .error-text {
-      display: block;
-    }
-  }
-
   &:hover {
     .text-field-border {
       border-width: $text-field-divider-focus-hover-width;
@@ -179,7 +171,27 @@ input.text-input {
     &::after {
       bottom: -$text-field-divider-focus-hover-width;
       transform: scale3d(1, 1, 1);
-      transition: transform 350ms $awesome-cubic-bezier;
+      transition: transform 350ms cubic-bezier(.4,0,.2,1);
+    }
+  }
+
+  &.invalid, &.focus.invalid {
+    .text-input {
+      border-color: $text-field-invalid-color;
+    }
+
+    label {
+      color: $text-field-invalid-color;
+    }
+
+    .error-text {
+      display: block;
+    }
+
+    .text-field-border {
+      &, &::after {
+        border-color: $text-field-invalid-color !important;
+      }
     }
   }
 
@@ -215,8 +227,8 @@ input.text-input {
 
   &.focus label,
   &.not-empty label,
-  .text-input:focus + label,
-  input:focus + label {
+  .text-input:focus ~ label,
+  input:focus ~ label {
     font-size: $text-field-label-font-size;
     transform: none;
   }
@@ -416,6 +428,10 @@ input:focus + label {
       color: $text-input-icon-color-light-theme;
     }
   }
+
+  .text-field-helper-text {
+    color: $text-field-helper-text-color-light-theme;
+  }
 }
 
 @include dark-theme-style(false) {
@@ -423,5 +439,9 @@ input:focus + label {
     .text-input-icon {
       color: $text-input-icon-color-dark-theme;
     }
+  }
+
+  .text-field-helper-text {
+    color: $text-field-helper-text-color-dark-theme;
   }
 }

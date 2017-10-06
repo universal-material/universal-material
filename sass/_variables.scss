@@ -179,7 +179,7 @@ $margin-gutter-default: $margin-gutter-8dp !default;
 
 $margins-and-gutters: (
         default: $margin-gutter-default,
-        0: 0,
+        none: 0,
         8: $margin-gutter-8dp,
         16: $margin-gutter-16dp,
         24: $margin-gutter-24dp,
@@ -709,8 +709,10 @@ $sidebar-backdrop-opacity: .5 !default;
 
 
 //Text fields
-$error-text-font-size: .75rem !default;
-$error-text-vertical-padding: .25rem !default;
+$text-field-helper-text-font-size: .75rem !default;
+$text-field-helper-text-margin: .5rem !default;
+$text-field-helper-text-color-light-theme: $text-low-contrast !default;
+$text-field-helper-text-color-dark-theme: $text-low-contrast-dark-theme !default;
 
 $text-field-divider-width: .0625rem !default;
 $text-field-divider-focus-hover-width: .125rem !default;
