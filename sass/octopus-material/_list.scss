@@ -32,6 +32,7 @@
   align-items: center;
   text-decoration: none;
   padding: $list-item-padding;
+  color: $text-high-contrast;
 
   &:hover,
   &:focus,
@@ -64,6 +65,7 @@
 .list-item-avatar {
   position: relative;
   font-size: $list-icon-size;
+  color: $text-low-contrast;
 }
 
 .list-item-avatar {
@@ -101,7 +103,7 @@
   line-height: $list-item-font-size;
 
   .secondary-text {
-    font-size: 14px;
+    font-size: .875rem;
   }
 }
 

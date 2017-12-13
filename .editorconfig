@@ -8,3 +8,6 @@ indent_style = space
 
 [*.pug]
 indent_size = 2
+
+[*.scss]
+indent_size = 2

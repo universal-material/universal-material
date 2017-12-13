@@ -82,10 +82,18 @@
     th {
       color: $data-table-column-header-color-light-theme;
     }
+    
+    td {
+      color: $body-color-light-theme;
+    }
 
     tr.selected {
       background-color: $data-table-row-selected-bg-light-theme;
     }
+  }
+  
+  .data-table-title {
+    color: $body-color-light-theme;
   }
 
   .data-table-hover tbody tr {
@@ -100,12 +108,20 @@
     th {
       color: $data-table-column-header-color-dark-theme;
     }
+    
+    td {
+      color: $body-color-dark-theme;
+    }
 
     tr.selected {
       background-color: $data-table-row-selected-bg-dark-theme;
     }
   }
 
+  .data-table-title {
+    color: $body-color-dark-theme;
+  }
+  
   .data-table-hover tbody tr {
     &:hover {
       background-color: $data-table-row-hover-background-color-dark-theme

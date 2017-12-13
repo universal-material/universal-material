@@ -354,6 +354,10 @@ input:focus + label {
 
   .text-input-icon {
     color: $text-input-icon-color-light-theme;
+      
+    @include hover-focus {
+      color: $text-input-icon-color-light-theme;
+    }
   }
 
   .text-input-prefix, .text-input-suffix {
@@ -399,6 +403,10 @@ input:focus + label {
 
   .text-input-icon {
     color: $text-input-icon-color-dark-theme;
+      
+    @include hover-focus {
+      color: $text-input-icon-color-dark-theme;
+    }
   }
 
   .text-input-prefix, .text-input-suffix {
@@ -426,6 +434,10 @@ input:focus + label {
   .text-field-elevated {
     .text-input-icon {
       color: $text-input-icon-color-light-theme;
+        
+      @include hover-focus {
+        color: $text-input-icon-color-light-theme;
+      }
     }
   }
 
@@ -438,6 +450,10 @@ input:focus + label {
   .text-field-elevated {
     .text-input-icon {
       color: $text-input-icon-color-dark-theme;
+        
+      @include hover-focus {
+        color: $text-input-icon-color-dark-theme;
+      }
     }
   }
 

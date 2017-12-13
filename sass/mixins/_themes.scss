@@ -1,21 +1,21 @@
 @mixin create-theme($theme-colors, $dark-theme) {
 
+  @if (mixin_exists(create-app-bar)) {
+    @include create-app-bar($theme-colors, $dark-theme);
+  }
+    
+  @if (mixin_exists(create-buttons)) {
+    @include create-buttons($theme-colors, $dark-theme);
+  }  
+
+  @if (mixin_exists(create-backgrounds)) {
+    @include create-backgrounds($theme-colors)
+  }
+    
   @if($dark-theme) {
     @extend .dark-theme;
   } @else {
     @extend .light-theme;
-  }
-
-  @if (mixin_exists(create-buttons)) {
-    @include create-buttons($theme-colors, $dark-theme);
-  }
-
-  @if (mixin_exists(create-app-bar)) {
-    @include create-app-bar($theme-colors, $dark-theme);
-  }
-
-  @if (mixin_exists(create-backgrounds)) {
-    @include create-backgrounds($theme-colors)
   }
 }
 

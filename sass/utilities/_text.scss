@@ -39,8 +39,6 @@
 
 .text-white { color: #fff !important; }
 
-@include text-emphasis-variant(".text-low-contrast", $text-low-contrast); //Octopus material changes
-
 @include text-emphasis-variant(".text-muted", $text-muted);
 
 @include text-emphasis-variant(".text-primary", $primary-color);

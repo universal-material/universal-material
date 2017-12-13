@@ -4,6 +4,9 @@
   .selectable-background {
     @include selectable-background(false, true)
   }
+  
+  @include text-emphasis-variant(".text-low-contrast", $text-low-contrast); //Octopus material changes
+  @include text-emphasis-variant(".text-high-contrast", $text-high-contrast); //Octopus material changes
 }
 
 body.light-theme {
@@ -16,6 +19,9 @@ body.light-theme {
   .selectable-background {
     @include selectable-background(true, true)
   }
+   
+  @include text-emphasis-variant(".text-low-contrast", $text-low-contrast-dark-theme); //Octopus material changes
+  @include text-emphasis-variant(".text-high-contrast", $text-high-contrast-dark-theme); //Octopus material changes
 }
 
 body.dark-theme {

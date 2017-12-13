@@ -11,7 +11,9 @@
 @import "octopus-material/grid";
 //@import "octopus-material/elevation";
 //
+@import "octopus-material/themes";
 @import "octopus-material/badge";
+@import "octopus-material/toolbar";
 @import "octopus-material/buttons";
 @import "octopus-material/button-group";
 @import "octopus-material/checkbox";
@@ -22,7 +24,6 @@
 @import "octopus-material/dropdown";
 @import "octopus-material/steppers";
 @import "octopus-material/layout";
-@import "octopus-material/toolbar";
 @import "octopus-material/tab";
 @import "octopus-material/data-table";
 @import "octopus-material/list";
@@ -35,7 +36,7 @@
 ////Utilities
 @import "utilities";
 //@import "octopus-material/responsive-utilities";
-@import "octopus-material/themes";
+
 
 .custom-theme {
   @include create-theme((primary: red), true)

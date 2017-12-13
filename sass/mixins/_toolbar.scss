@@ -1,8 +1,19 @@
 @mixin toolbar-variant($background-color) {
+  $color: $body-color-light-theme;
+  $button-borderless-color: $btn-borderless-color-light-theme; 
+    
+    
   @if(is-dark-background($background-color)) {
-    @extend .bg-dark;
-  } @else {
-    @extend .bg-light;
+    $color: $body-color-dark-theme;
+    $button-borderless-color: $btn-borderless-color-dark-theme;
+  }
+    
+  color: $color;
+  
+  .btn-borderless {
+    @if (mixing_exists(button-borderless-variant)) {
+      @include button-borderless-variant($button-borderless-color);
+    }
   }
 
   background-color: $background-color;

@@ -53,9 +53,14 @@
 }
 
 .sidebar {
-  @each $breakpoint in map-keys($grid-breakpoints) {
+  $breakpoint-keys: map-keys($grid-breakpoints);
+  $breakpoints-length: length($grid-breakpoints);
+
+  @each $breakpoint in $breakpoint-keys {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
     @include media-breakpoint-up($breakpoint) {
-      $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
 
       &.sidebar#{$infix}-fixed {
         position: static;
@@ -63,10 +68,23 @@
 
         @include elevate(0);
 
-        ~ .sidebar-backdrop {
-          display: none;
+        &.open {
+          ~ .sidebar-backdrop {
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 375ms linear, z-index 0ms 375ms;
+          }
+
+          ~ .sidebar.open {
+            ~ .sidebar-backdrop {
+              opacity: $sidebar-backdrop-opacity;
+              z-index: $zindex-sidebar - 1;
+              transition: opacity 375ms linear;
+            }
+          }
         }
       }
     }
   }
 }
+

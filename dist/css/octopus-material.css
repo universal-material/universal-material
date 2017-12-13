@@ -1528,6 +1528,115 @@ mark,
       padding-right: 1.25rem;
       padding-left: 1.25rem; } }
 
+.light-theme, body {
+  color: #212121; }
+  .light-theme .selectable-background, body .selectable-background {
+    position: relative;
+    cursor: pointer;
+    position: relative;
+    z-index: 1; }
+    .light-theme .selectable-background::before, body .selectable-background::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 0;
+      z-index: -1;
+      -webkit-transition: background-color 250ms linear;
+      transition: background-color 250ms linear; }
+    @media (hover: hover) {
+      .light-theme .selectable-background:hover::before, body .selectable-background:hover::before {
+        background-color: rgba(0, 0, 0, 0.12); } }
+    .light-theme .selectable-background:active::before, body .selectable-background:active::before {
+      background-color: rgba(0, 0, 0, 0.12); }
+  .light-theme .text-low-contrast, body .text-low-contrast {
+    color: rgba(0, 0, 0, 0.54) !important; }
+  .light-theme a.text-low-contrast:focus, body a.text-low-contrast:focus, .light-theme a.text-low-contrast:hover, body a.text-low-contrast:hover {
+    color: rgba(0, 0, 0, 0.54) !important; }
+  .light-theme .text-high-contrast, body .text-high-contrast {
+    color: #212121 !important; }
+  .light-theme a.text-high-contrast:focus, body a.text-high-contrast:focus, .light-theme a.text-high-contrast:hover, body a.text-high-contrast:hover {
+    color: #080808 !important; }
+
+body.light-theme, body {
+  background-color: #f5f5f5; }
+
+.dark-theme, .custom-theme {
+  color: #fff; }
+  .dark-theme .selectable-background, .custom-theme .selectable-background {
+    position: relative;
+    cursor: pointer;
+    position: relative;
+    z-index: 1; }
+    .dark-theme .selectable-background::before, .custom-theme .selectable-background::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 0;
+      z-index: -1;
+      -webkit-transition: background-color 250ms linear;
+      transition: background-color 250ms linear; }
+    @media (hover: hover) {
+      .dark-theme .selectable-background:hover::before, .custom-theme .selectable-background:hover::before {
+        background-color: rgba(204, 204, 204, 0.1); } }
+    .dark-theme .selectable-background:active::before, .custom-theme .selectable-background:active::before {
+      background-color: rgba(204, 204, 204, 0.1); }
+  .dark-theme .text-low-contrast, .custom-theme .text-low-contrast {
+    color: rgba(255, 255, 255, 0.7) !important; }
+  .dark-theme a.text-low-contrast:focus, .custom-theme a.text-low-contrast:focus, .dark-theme a.text-low-contrast:hover, .custom-theme a.text-low-contrast:hover {
+    color: rgba(230, 230, 230, 0.7) !important; }
+  .dark-theme .text-high-contrast, .custom-theme .text-high-contrast {
+    color: #fff !important; }
+  .dark-theme a.text-high-contrast:focus, .custom-theme a.text-high-contrast:focus, .dark-theme a.text-high-contrast:hover, .custom-theme a.text-high-contrast:hover {
+    color: #e6e6e6 !important; }
+
+body.dark-theme, body.custom-theme {
+  background-color: #212121; }
+
+.dark-theme .light-theme, .custom-theme .light-theme, .dark-theme body, .custom-theme body {
+  color: #212121; }
+
+body .app-bar {
+  color: #fff;
+  background-color: #3863FF; }
+  body .app-bar .btn-borderless {
+    color: #fff; }
+    body .app-bar .btn-borderless:focus, body .app-bar .btn-borderless:hover {
+      color: #fff; }
+
+body .btn-primary {
+  background-color: #3863FF;
+  color: #fff; }
+  body .btn-primary:focus, body .btn-primary:hover {
+    color: #fff; }
+
+body .btn-accent, body .btn-floating {
+  background-color: #f50057;
+  color: #fff; }
+  body .btn-accent:focus, body .btn-floating:focus, body .btn-accent:hover, body .btn-floating:hover {
+    color: #fff; }
+
+body .btn-default {
+  background-color: #fff;
+  color: #212121; }
+  body .btn-default:focus, body .btn-default:hover {
+    color: #212121; }
+
+body .btn-flat-primary {
+  color: #3863FF; }
+  body .btn-flat-primary:focus, body .btn-flat-primary:hover {
+    color: #3863FF; }
+
+body .btn-flat-accent {
+  color: #f50057; }
+  body .btn-flat-accent:focus, body .btn-flat-accent:hover {
+    color: #f50057; }
+
 .badge {
   width: 1.125rem;
   height: 1.125rem;
@@ -1555,6 +1664,71 @@ mark,
 .badge-bottom-right {
   bottom: -0.625rem;
   right: -0.625rem; }
+
+.toolbar, .app-bar, .data-table-footer {
+  width: 100%; }
+
+.toolbar-row {
+  height: 4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem; }
+
+.toolbar-title {
+  font-size: 1.25rem;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+
+.toolbar-icon, .toolbar-action {
+  font-size: 1.5rem; }
+
+.toolbar-icon {
+  width: 3rem;
+  min-width: 3rem; }
+
+.toolbar-actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+.toolbar-fixed {
+  position: fixed;
+  z-index: 1030; }
+
+.toolbar-layout {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%; }
+
+.light-theme .toolbar .toolbar-icon, body .toolbar .toolbar-icon, .light-theme .app-bar .toolbar-icon, body .app-bar .toolbar-icon, .light-theme .data-table-footer .toolbar-icon, body .data-table-footer .toolbar-icon {
+  color: rgba(0, 0, 0, 0.54); }
+
+.bg-light .toolbar .toolbar-icon, .bg-light .app-bar .toolbar-icon, .bg-light .data-table-footer .toolbar-icon {
+  color: rgba(0, 0, 0, 0.54); }
+
+.dark-theme .toolbar .toolbar-icon, .custom-theme .toolbar .toolbar-icon, .dark-theme .app-bar .toolbar-icon, .custom-theme .app-bar .toolbar-icon, .dark-theme .data-table-footer .toolbar-icon, .custom-theme .data-table-footer .toolbar-icon {
+  color: #fff; }
+
+.bg-dark .toolbar .toolbar-icon, .card.card-media .card-media-content .toolbar .toolbar-icon, .card-media.text-field-elevated .card-media-content .toolbar .toolbar-icon, .bg-dark .app-bar .toolbar-icon, .card.card-media .card-media-content .app-bar .toolbar-icon, .card-media.text-field-elevated .card-media-content .app-bar .toolbar-icon, .bg-dark .data-table-footer .toolbar-icon, .card.card-media .card-media-content .data-table-footer .toolbar-icon, .card-media.text-field-elevated .card-media-content .data-table-footer .toolbar-icon {
+  color: #fff; }
 
 .btn, .btn-borderless, .btn-raised, .btn-floating, .snackbar-button {
   position: relative;
@@ -1718,12 +1892,12 @@ mark,
   .dark-theme .btn-flat-default:focus, .custom-theme .btn-flat-default:focus, .dark-theme .btn-flat-default:hover, .custom-theme .btn-flat-default:hover {
     color: #fff; }
 
-.bg-dark .btn, .card.card-media .card-media-content .btn, .card-media.text-field-elevated .card-media-content .btn, body .app-bar .btn, .custom-theme .app-bar .btn, .bg-dark .btn-borderless, .card.card-media .card-media-content .btn-borderless, .card-media.text-field-elevated .card-media-content .btn-borderless, body .app-bar .btn-borderless, .custom-theme .app-bar .btn-borderless, .bg-dark .btn-raised, .card.card-media .card-media-content .btn-raised, .card-media.text-field-elevated .card-media-content .btn-raised, body .app-bar .btn-raised, .custom-theme .app-bar .btn-raised, .bg-dark .btn-floating, .card.card-media .card-media-content .btn-floating, .card-media.text-field-elevated .card-media-content .btn-floating, body .app-bar .btn-floating, .custom-theme .app-bar .btn-floating, .bg-dark .snackbar-button, .card.card-media .card-media-content .snackbar-button, .card-media.text-field-elevated .card-media-content .snackbar-button, body .app-bar .snackbar-button, .custom-theme .app-bar .snackbar-button {
+.bg-dark .btn, .card.card-media .card-media-content .btn, .card-media.text-field-elevated .card-media-content .btn, .bg-dark .btn-borderless, .card.card-media .card-media-content .btn-borderless, .card-media.text-field-elevated .card-media-content .btn-borderless, .bg-dark .btn-raised, .card.card-media .card-media-content .btn-raised, .card-media.text-field-elevated .card-media-content .btn-raised, .bg-dark .btn-floating, .card.card-media .card-media-content .btn-floating, .card-media.text-field-elevated .card-media-content .btn-floating, .bg-dark .snackbar-button, .card.card-media .card-media-content .snackbar-button, .card-media.text-field-elevated .card-media-content .snackbar-button {
   position: relative;
   cursor: pointer;
   position: relative;
   z-index: 1; }
-  .bg-dark .btn::before, .card.card-media .card-media-content .btn::before, .card-media.text-field-elevated .card-media-content .btn::before, body .app-bar .btn::before, .custom-theme .app-bar .btn::before, .bg-dark .btn-borderless::before, .card.card-media .card-media-content .btn-borderless::before, .card-media.text-field-elevated .card-media-content .btn-borderless::before, body .app-bar .btn-borderless::before, .custom-theme .app-bar .btn-borderless::before, .bg-dark .btn-raised::before, .card.card-media .card-media-content .btn-raised::before, .card-media.text-field-elevated .card-media-content .btn-raised::before, body .app-bar .btn-raised::before, .custom-theme .app-bar .btn-raised::before, .bg-dark .btn-floating::before, .card.card-media .card-media-content .btn-floating::before, .card-media.text-field-elevated .card-media-content .btn-floating::before, body .app-bar .btn-floating::before, .custom-theme .app-bar .btn-floating::before, .bg-dark .snackbar-button::before, .card.card-media .card-media-content .snackbar-button::before, .card-media.text-field-elevated .card-media-content .snackbar-button::before, body .app-bar .snackbar-button::before, .custom-theme .app-bar .snackbar-button::before {
+  .bg-dark .btn::before, .card.card-media .card-media-content .btn::before, .card-media.text-field-elevated .card-media-content .btn::before, .bg-dark .btn-borderless::before, .card.card-media .card-media-content .btn-borderless::before, .card-media.text-field-elevated .card-media-content .btn-borderless::before, .bg-dark .btn-raised::before, .card.card-media .card-media-content .btn-raised::before, .card-media.text-field-elevated .card-media-content .btn-raised::before, .bg-dark .btn-floating::before, .card.card-media .card-media-content .btn-floating::before, .card-media.text-field-elevated .card-media-content .btn-floating::before, .bg-dark .snackbar-button::before, .card.card-media .card-media-content .snackbar-button::before, .card-media.text-field-elevated .card-media-content .snackbar-button::before {
     content: "";
     position: absolute;
     top: 0;
@@ -1735,26 +1909,26 @@ mark,
     -webkit-transition: background-color 250ms linear;
     transition: background-color 250ms linear; }
   @media (hover: hover) {
-    .bg-dark .btn:hover::before, .card.card-media .card-media-content .btn:hover::before, .card-media.text-field-elevated .card-media-content .btn:hover::before, body .app-bar .btn:hover::before, .custom-theme .app-bar .btn:hover::before, .bg-dark .btn-borderless:hover::before, .card.card-media .card-media-content .btn-borderless:hover::before, .card-media.text-field-elevated .card-media-content .btn-borderless:hover::before, body .app-bar .btn-borderless:hover::before, .custom-theme .app-bar .btn-borderless:hover::before, .bg-dark .btn-raised:hover::before, .card.card-media .card-media-content .btn-raised:hover::before, .card-media.text-field-elevated .card-media-content .btn-raised:hover::before, body .app-bar .btn-raised:hover::before, .custom-theme .app-bar .btn-raised:hover::before, .bg-dark .btn-floating:hover::before, .card.card-media .card-media-content .btn-floating:hover::before, .card-media.text-field-elevated .card-media-content .btn-floating:hover::before, body .app-bar .btn-floating:hover::before, .custom-theme .app-bar .btn-floating:hover::before, .bg-dark .snackbar-button:hover::before, .card.card-media .card-media-content .snackbar-button:hover::before, .card-media.text-field-elevated .card-media-content .snackbar-button:hover::before, body .app-bar .snackbar-button:hover::before, .custom-theme .app-bar .snackbar-button:hover::before {
+    .bg-dark .btn:hover::before, .card.card-media .card-media-content .btn:hover::before, .card-media.text-field-elevated .card-media-content .btn:hover::before, .bg-dark .btn-borderless:hover::before, .card.card-media .card-media-content .btn-borderless:hover::before, .card-media.text-field-elevated .card-media-content .btn-borderless:hover::before, .bg-dark .btn-raised:hover::before, .card.card-media .card-media-content .btn-raised:hover::before, .card-media.text-field-elevated .card-media-content .btn-raised:hover::before, .bg-dark .btn-floating:hover::before, .card.card-media .card-media-content .btn-floating:hover::before, .card-media.text-field-elevated .card-media-content .btn-floating:hover::before, .bg-dark .snackbar-button:hover::before, .card.card-media .card-media-content .snackbar-button:hover::before, .card-media.text-field-elevated .card-media-content .snackbar-button:hover::before {
       background-color: rgba(204, 204, 204, 0.1); } }
-  .bg-dark .btn:active::before, .card.card-media .card-media-content .btn:active::before, .card-media.text-field-elevated .card-media-content .btn:active::before, body .app-bar .btn:active::before, .custom-theme .app-bar .btn:active::before, .bg-dark .btn-borderless:active::before, .card.card-media .card-media-content .btn-borderless:active::before, .card-media.text-field-elevated .card-media-content .btn-borderless:active::before, body .app-bar .btn-borderless:active::before, .custom-theme .app-bar .btn-borderless:active::before, .bg-dark .btn-raised:active::before, .card.card-media .card-media-content .btn-raised:active::before, .card-media.text-field-elevated .card-media-content .btn-raised:active::before, body .app-bar .btn-raised:active::before, .custom-theme .app-bar .btn-raised:active::before, .bg-dark .btn-floating:active::before, .card.card-media .card-media-content .btn-floating:active::before, .card-media.text-field-elevated .card-media-content .btn-floating:active::before, body .app-bar .btn-floating:active::before, .custom-theme .app-bar .btn-floating:active::before, .bg-dark .snackbar-button:active::before, .card.card-media .card-media-content .snackbar-button:active::before, .card-media.text-field-elevated .card-media-content .snackbar-button:active::before, body .app-bar .snackbar-button:active::before, .custom-theme .app-bar .snackbar-button:active::before {
+  .bg-dark .btn:active::before, .card.card-media .card-media-content .btn:active::before, .card-media.text-field-elevated .card-media-content .btn:active::before, .bg-dark .btn-borderless:active::before, .card.card-media .card-media-content .btn-borderless:active::before, .card-media.text-field-elevated .card-media-content .btn-borderless:active::before, .bg-dark .btn-raised:active::before, .card.card-media .card-media-content .btn-raised:active::before, .card-media.text-field-elevated .card-media-content .btn-raised:active::before, .bg-dark .btn-floating:active::before, .card.card-media .card-media-content .btn-floating:active::before, .card-media.text-field-elevated .card-media-content .btn-floating:active::before, .bg-dark .snackbar-button:active::before, .card.card-media .card-media-content .snackbar-button:active::before, .card-media.text-field-elevated .card-media-content .snackbar-button:active::before {
     background-color: rgba(204, 204, 204, 0.1); }
-  .bg-dark .btn.disabled, .card.card-media .card-media-content .btn.disabled, .card-media.text-field-elevated .card-media-content .btn.disabled, body .app-bar .btn.disabled, .custom-theme .app-bar .btn.disabled, .bg-dark .disabled.btn-borderless, .card.card-media .card-media-content .disabled.btn-borderless, .card-media.text-field-elevated .card-media-content .disabled.btn-borderless, body .app-bar .disabled.btn-borderless, .custom-theme .app-bar .disabled.btn-borderless, .bg-dark .disabled.btn-raised, .card.card-media .card-media-content .disabled.btn-raised, .card-media.text-field-elevated .card-media-content .disabled.btn-raised, body .app-bar .disabled.btn-raised, .custom-theme .app-bar .disabled.btn-raised, .bg-dark .disabled.btn-floating, .card.card-media .card-media-content .disabled.btn-floating, .card-media.text-field-elevated .card-media-content .disabled.btn-floating, body .app-bar .disabled.btn-floating, .custom-theme .app-bar .disabled.btn-floating, .bg-dark .disabled.snackbar-button, .card.card-media .card-media-content .disabled.snackbar-button, .card-media.text-field-elevated .card-media-content .disabled.snackbar-button, body .app-bar .disabled.snackbar-button, .custom-theme .app-bar .disabled.snackbar-button, .bg-dark .btn:disabled, .card.card-media .card-media-content .btn:disabled, .card-media.text-field-elevated .card-media-content .btn:disabled, body .app-bar .btn:disabled, .custom-theme .app-bar .btn:disabled, .bg-dark .btn-borderless:disabled, .card.card-media .card-media-content .btn-borderless:disabled, .card-media.text-field-elevated .card-media-content .btn-borderless:disabled, body .app-bar .btn-borderless:disabled, .custom-theme .app-bar .btn-borderless:disabled, .bg-dark .btn-raised:disabled, .card.card-media .card-media-content .btn-raised:disabled, .card-media.text-field-elevated .card-media-content .btn-raised:disabled, body .app-bar .btn-raised:disabled, .custom-theme .app-bar .btn-raised:disabled, .bg-dark .btn-floating:disabled, .card.card-media .card-media-content .btn-floating:disabled, .card-media.text-field-elevated .card-media-content .btn-floating:disabled, body .app-bar .btn-floating:disabled, .custom-theme .app-bar .btn-floating:disabled, .bg-dark .snackbar-button:disabled, .card.card-media .card-media-content .snackbar-button:disabled, .card-media.text-field-elevated .card-media-content .snackbar-button:disabled, body .app-bar .snackbar-button:disabled, .custom-theme .app-bar .snackbar-button:disabled {
+  .bg-dark .btn.disabled, .card.card-media .card-media-content .btn.disabled, .card-media.text-field-elevated .card-media-content .btn.disabled, .bg-dark .disabled.btn-borderless, .card.card-media .card-media-content .disabled.btn-borderless, .card-media.text-field-elevated .card-media-content .disabled.btn-borderless, .bg-dark .disabled.btn-raised, .card.card-media .card-media-content .disabled.btn-raised, .card-media.text-field-elevated .card-media-content .disabled.btn-raised, .bg-dark .disabled.btn-floating, .card.card-media .card-media-content .disabled.btn-floating, .card-media.text-field-elevated .card-media-content .disabled.btn-floating, .bg-dark .disabled.snackbar-button, .card.card-media .card-media-content .disabled.snackbar-button, .card-media.text-field-elevated .card-media-content .disabled.snackbar-button, .bg-dark .btn:disabled, .card.card-media .card-media-content .btn:disabled, .card-media.text-field-elevated .card-media-content .btn:disabled, .bg-dark .btn-borderless:disabled, .card.card-media .card-media-content .btn-borderless:disabled, .card-media.text-field-elevated .card-media-content .btn-borderless:disabled, .bg-dark .btn-raised:disabled, .card.card-media .card-media-content .btn-raised:disabled, .card-media.text-field-elevated .card-media-content .btn-raised:disabled, .bg-dark .btn-floating:disabled, .card.card-media .card-media-content .btn-floating:disabled, .card-media.text-field-elevated .card-media-content .btn-floating:disabled, .bg-dark .snackbar-button:disabled, .card.card-media .card-media-content .snackbar-button:disabled, .card-media.text-field-elevated .card-media-content .snackbar-button:disabled {
     color: rgba(255, 255, 255, 0.3) !important;
     background-color: rgba(255, 255, 255, 0.12); }
-    .bg-dark .btn.disabled::before, .card.card-media .card-media-content .btn.disabled::before, .card-media.text-field-elevated .card-media-content .btn.disabled::before, body .app-bar .btn.disabled::before, .custom-theme .app-bar .btn.disabled::before, .bg-dark .disabled.btn-borderless::before, .card.card-media .card-media-content .disabled.btn-borderless::before, .card-media.text-field-elevated .card-media-content .disabled.btn-borderless::before, body .app-bar .disabled.btn-borderless::before, .custom-theme .app-bar .disabled.btn-borderless::before, .bg-dark .disabled.btn-raised::before, .card.card-media .card-media-content .disabled.btn-raised::before, .card-media.text-field-elevated .card-media-content .disabled.btn-raised::before, body .app-bar .disabled.btn-raised::before, .custom-theme .app-bar .disabled.btn-raised::before, .bg-dark .disabled.btn-floating::before, .card.card-media .card-media-content .disabled.btn-floating::before, .card-media.text-field-elevated .card-media-content .disabled.btn-floating::before, body .app-bar .disabled.btn-floating::before, .custom-theme .app-bar .disabled.btn-floating::before, .bg-dark .disabled.snackbar-button::before, .card.card-media .card-media-content .disabled.snackbar-button::before, .card-media.text-field-elevated .card-media-content .disabled.snackbar-button::before, body .app-bar .disabled.snackbar-button::before, .custom-theme .app-bar .disabled.snackbar-button::before, .bg-dark .btn:disabled::before, .card.card-media .card-media-content .btn:disabled::before, .card-media.text-field-elevated .card-media-content .btn:disabled::before, body .app-bar .btn:disabled::before, .custom-theme .app-bar .btn:disabled::before, .bg-dark .btn-borderless:disabled::before, .card.card-media .card-media-content .btn-borderless:disabled::before, .card-media.text-field-elevated .card-media-content .btn-borderless:disabled::before, body .app-bar .btn-borderless:disabled::before, .custom-theme .app-bar .btn-borderless:disabled::before, .bg-dark .btn-raised:disabled::before, .card.card-media .card-media-content .btn-raised:disabled::before, .card-media.text-field-elevated .card-media-content .btn-raised:disabled::before, body .app-bar .btn-raised:disabled::before, .custom-theme .app-bar .btn-raised:disabled::before, .bg-dark .btn-floating:disabled::before, .card.card-media .card-media-content .btn-floating:disabled::before, .card-media.text-field-elevated .card-media-content .btn-floating:disabled::before, body .app-bar .btn-floating:disabled::before, .custom-theme .app-bar .btn-floating:disabled::before, .bg-dark .snackbar-button:disabled::before, .card.card-media .card-media-content .snackbar-button:disabled::before, .card-media.text-field-elevated .card-media-content .snackbar-button:disabled::before, body .app-bar .snackbar-button:disabled::before, .custom-theme .app-bar .snackbar-button:disabled::before {
+    .bg-dark .btn.disabled::before, .card.card-media .card-media-content .btn.disabled::before, .card-media.text-field-elevated .card-media-content .btn.disabled::before, .bg-dark .disabled.btn-borderless::before, .card.card-media .card-media-content .disabled.btn-borderless::before, .card-media.text-field-elevated .card-media-content .disabled.btn-borderless::before, .bg-dark .disabled.btn-raised::before, .card.card-media .card-media-content .disabled.btn-raised::before, .card-media.text-field-elevated .card-media-content .disabled.btn-raised::before, .bg-dark .disabled.btn-floating::before, .card.card-media .card-media-content .disabled.btn-floating::before, .card-media.text-field-elevated .card-media-content .disabled.btn-floating::before, .bg-dark .disabled.snackbar-button::before, .card.card-media .card-media-content .disabled.snackbar-button::before, .card-media.text-field-elevated .card-media-content .disabled.snackbar-button::before, .bg-dark .btn:disabled::before, .card.card-media .card-media-content .btn:disabled::before, .card-media.text-field-elevated .card-media-content .btn:disabled::before, .bg-dark .btn-borderless:disabled::before, .card.card-media .card-media-content .btn-borderless:disabled::before, .card-media.text-field-elevated .card-media-content .btn-borderless:disabled::before, .bg-dark .btn-raised:disabled::before, .card.card-media .card-media-content .btn-raised:disabled::before, .card-media.text-field-elevated .card-media-content .btn-raised:disabled::before, .bg-dark .btn-floating:disabled::before, .card.card-media .card-media-content .btn-floating:disabled::before, .card-media.text-field-elevated .card-media-content .btn-floating:disabled::before, .bg-dark .snackbar-button:disabled::before, .card.card-media .card-media-content .snackbar-button:disabled::before, .card-media.text-field-elevated .card-media-content .snackbar-button:disabled::before {
       background-color: transparent; }
 
-.bg-dark .btn-borderless, .card.card-media .card-media-content .btn-borderless, .card-media.text-field-elevated .card-media-content .btn-borderless, body .app-bar .btn-borderless, .custom-theme .app-bar .btn-borderless {
+.bg-dark .btn-borderless, .card.card-media .card-media-content .btn-borderless, .card-media.text-field-elevated .card-media-content .btn-borderless {
   color: #fff; }
-  .bg-dark .btn-borderless:focus, .card.card-media .card-media-content .btn-borderless:focus, .card-media.text-field-elevated .card-media-content .btn-borderless:focus, body .app-bar .btn-borderless:focus, .custom-theme .app-bar .btn-borderless:focus, .bg-dark .btn-borderless:hover, .card.card-media .card-media-content .btn-borderless:hover, .card-media.text-field-elevated .card-media-content .btn-borderless:hover, body .app-bar .btn-borderless:hover, .custom-theme .app-bar .btn-borderless:hover {
+  .bg-dark .btn-borderless:focus, .card.card-media .card-media-content .btn-borderless:focus, .card-media.text-field-elevated .card-media-content .btn-borderless:focus, .bg-dark .btn-borderless:hover, .card.card-media .card-media-content .btn-borderless:hover, .card-media.text-field-elevated .card-media-content .btn-borderless:hover {
     color: #fff; }
-  .bg-dark .btn-borderless:disabled, .card.card-media .card-media-content .btn-borderless:disabled, .card-media.text-field-elevated .card-media-content .btn-borderless:disabled, body .app-bar .btn-borderless:disabled, .custom-theme .app-bar .btn-borderless:disabled, .bg-dark .btn-borderless.disabled, .card.card-media .card-media-content .btn-borderless.disabled, .card-media.text-field-elevated .card-media-content .btn-borderless.disabled, body .app-bar .btn-borderless.disabled, .custom-theme .app-bar .btn-borderless.disabled {
+  .bg-dark .btn-borderless:disabled, .card.card-media .card-media-content .btn-borderless:disabled, .card-media.text-field-elevated .card-media-content .btn-borderless:disabled, .bg-dark .btn-borderless.disabled, .card.card-media .card-media-content .btn-borderless.disabled, .card-media.text-field-elevated .card-media-content .btn-borderless.disabled {
     background-color: transparent; }
 
-.bg-dark .btn-flat-default, .card.card-media .card-media-content .btn-flat-default, .card-media.text-field-elevated .card-media-content .btn-flat-default, body .app-bar .btn-flat-default, .custom-theme .app-bar .btn-flat-default {
+.bg-dark .btn-flat-default, .card.card-media .card-media-content .btn-flat-default, .card-media.text-field-elevated .card-media-content .btn-flat-default {
   color: #fff; }
-  .bg-dark .btn-flat-default:focus, .card.card-media .card-media-content .btn-flat-default:focus, .card-media.text-field-elevated .card-media-content .btn-flat-default:focus, body .app-bar .btn-flat-default:focus, .custom-theme .app-bar .btn-flat-default:focus, .bg-dark .btn-flat-default:hover, .card.card-media .card-media-content .btn-flat-default:hover, .card-media.text-field-elevated .card-media-content .btn-flat-default:hover, body .app-bar .btn-flat-default:hover, .custom-theme .app-bar .btn-flat-default:hover {
+  .bg-dark .btn-flat-default:focus, .card.card-media .card-media-content .btn-flat-default:focus, .card-media.text-field-elevated .card-media-content .btn-flat-default:focus, .bg-dark .btn-flat-default:hover, .card.card-media .card-media-content .btn-flat-default:hover, .card-media.text-field-elevated .card-media-content .btn-flat-default:hover {
     color: #fff; }
 
 .btn-raised, .btn-floating {
@@ -2139,7 +2313,7 @@ mark,
   .card-actions .btn + .btn, .card-actions .btn-borderless + .btn, .card-actions .btn-raised + .btn, .card-actions .btn-floating + .btn, .card-actions .snackbar-button + .btn, .card-actions .btn + .btn-borderless, .card-actions .btn-borderless + .btn-borderless, .card-actions .btn-raised + .btn-borderless, .card-actions .btn-floating + .btn-borderless, .card-actions .snackbar-button + .btn-borderless, .card-actions .btn + .btn-raised, .card-actions .btn-borderless + .btn-raised, .card-actions .btn-raised + .btn-raised, .card-actions .btn-floating + .btn-raised, .card-actions .snackbar-button + .btn-raised, .card-actions .btn + .btn-floating, .card-actions .btn-borderless + .btn-floating, .card-actions .btn-raised + .btn-floating, .card-actions .btn-floating + .btn-floating, .card-actions .snackbar-button + .btn-floating, .card-actions .btn + .snackbar-button, .card-actions .btn-borderless + .snackbar-button, .card-actions .btn-raised + .snackbar-button, .card-actions .btn-floating + .snackbar-button, .card-actions .snackbar-button + .snackbar-button {
     margin-left: 0.5rem; }
 
-.light-theme.card, .light-theme.text-field-elevated, body.text-field-elevated, body.card,
+.light-theme.card, body.card, body.text-field-elevated, .light-theme.text-field-elevated,
 .light-theme .card, body .card,
 .light-theme .text-field-elevated, body .text-field-elevated {
   background-color: #fff; }
@@ -2543,71 +2717,6 @@ mark,
           flex-grow: 1;
   overflow: auto; }
 
-.toolbar, .app-bar, .data-table-footer {
-  width: 100%; }
-
-.toolbar-row {
-  height: 4rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem; }
-
-.toolbar-title {
-  font-size: 1.25rem;
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap; }
-
-.toolbar-icon, .toolbar-action {
-  font-size: 1.5rem; }
-
-.toolbar-icon {
-  width: 3rem;
-  min-width: 3rem; }
-
-.toolbar-actions {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex; }
-
-.toolbar-fixed {
-  position: fixed;
-  z-index: 1030; }
-
-.toolbar-layout {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  height: 100%; }
-
-.light-theme .toolbar .toolbar-icon, body .toolbar .toolbar-icon, .light-theme .app-bar .toolbar-icon, body .app-bar .toolbar-icon, .light-theme .data-table-footer .toolbar-icon, body .data-table-footer .toolbar-icon {
-  color: rgba(0, 0, 0, 0.54); }
-
-.bg-light .toolbar .toolbar-icon, .bg-light .app-bar .toolbar-icon, .bg-light .data-table-footer .toolbar-icon {
-  color: rgba(0, 0, 0, 0.54); }
-
-.dark-theme .toolbar .toolbar-icon, .custom-theme .toolbar .toolbar-icon, .dark-theme .app-bar .toolbar-icon, .custom-theme .app-bar .toolbar-icon, .dark-theme .data-table-footer .toolbar-icon, .custom-theme .data-table-footer .toolbar-icon {
-  color: #fff; }
-
-.bg-dark .toolbar .toolbar-icon, .card.card-media .card-media-content .toolbar .toolbar-icon, .card-media.text-field-elevated .card-media-content .toolbar .toolbar-icon, body .app-bar .toolbar .toolbar-icon, .custom-theme .app-bar .toolbar .toolbar-icon, .bg-dark .app-bar .toolbar-icon, .card.card-media .card-media-content .app-bar .toolbar-icon, .card-media.text-field-elevated .card-media-content .app-bar .toolbar-icon, body .app-bar .app-bar .toolbar-icon, .custom-theme .app-bar .app-bar .toolbar-icon, .bg-dark .data-table-footer .toolbar-icon, .card.card-media .card-media-content .data-table-footer .toolbar-icon, .card-media.text-field-elevated .card-media-content .data-table-footer .toolbar-icon, body .app-bar .data-table-footer .toolbar-icon, .custom-theme .app-bar .data-table-footer .toolbar-icon {
-  color: #fff; }
-
 .tab-bar {
   width: 100%; }
 
@@ -2731,21 +2840,21 @@ mark,
 .dark-theme .tab.active .tab-text, .custom-theme .tab.active .tab-text {
   color: #fff; }
 
-.bg-dark .tab, .card.card-media .card-media-content .tab, .card-media.text-field-elevated .card-media-content .tab, body .app-bar .tab, .custom-theme .app-bar .tab {
+.bg-dark .tab, .card.card-media .card-media-content .tab, .card-media.text-field-elevated .card-media-content .tab {
   position: relative;
   cursor: pointer;
   -webkit-transition: background-color 250ms linear;
   transition: background-color 250ms linear; }
   @media (hover: hover) {
-    .bg-dark .tab:hover, .card.card-media .card-media-content .tab:hover, .card-media.text-field-elevated .card-media-content .tab:hover, body .app-bar .tab:hover, .custom-theme .app-bar .tab:hover {
+    .bg-dark .tab:hover, .card.card-media .card-media-content .tab:hover, .card-media.text-field-elevated .card-media-content .tab:hover {
       background-color: rgba(204, 204, 204, 0.1); } }
-  .bg-dark .tab:active, .card.card-media .card-media-content .tab:active, .card-media.text-field-elevated .card-media-content .tab:active, body .app-bar .tab:active, .custom-theme .app-bar .tab:active {
+  .bg-dark .tab:active, .card.card-media .card-media-content .tab:active, .card-media.text-field-elevated .card-media-content .tab:active {
     background-color: rgba(204, 204, 204, 0.1); }
 
-.bg-dark .tab-text, .card.card-media .card-media-content .tab-text, .card-media.text-field-elevated .card-media-content .tab-text, body .app-bar .tab-text, .custom-theme .app-bar .tab-text {
+.bg-dark .tab-text, .card.card-media .card-media-content .tab-text, .card-media.text-field-elevated .card-media-content .tab-text {
   color: rgba(255, 255, 255, 0.7); }
 
-.bg-dark .tab.active .tab-text, .card.card-media .card-media-content .tab.active .tab-text, .card-media.text-field-elevated .card-media-content .tab.active .tab-text, body .app-bar .tab.active .tab-text, .custom-theme .app-bar .tab.active .tab-text {
+.bg-dark .tab.active .tab-text, .card.card-media .card-media-content .tab.active .tab-text, .card-media.text-field-elevated .card-media-content .tab.active .tab-text {
   color: #fff; }
 
 .data-table {
@@ -2802,8 +2911,14 @@ mark,
 .light-theme .data-table th, body .data-table th {
   color: rgba(0, 0, 0, 0.54); }
 
+.light-theme .data-table td, body .data-table td {
+  color: #212121; }
+
 .light-theme .data-table tr.selected, body .data-table tr.selected {
   background-color: #f5f5f5; }
+
+.light-theme .data-table-title, body .data-table-title {
+  color: #212121; }
 
 .light-theme .data-table-hover tbody tr:hover, body .data-table-hover tbody tr:hover {
   background-color: #eee; }
@@ -2811,8 +2926,14 @@ mark,
 .bg-light .data-table th {
   color: rgba(0, 0, 0, 0.54); }
 
+.bg-light .data-table td {
+  color: #212121; }
+
 .bg-light .data-table tr.selected {
   background-color: #f5f5f5; }
+
+.bg-light .data-table-title {
+  color: #212121; }
 
 .bg-light .data-table-hover tbody tr:hover {
   background-color: #eee; }
@@ -2820,19 +2941,31 @@ mark,
 .dark-theme .data-table th, .custom-theme .data-table th {
   color: rgba(255, 255, 255, 0.7); }
 
+.dark-theme .data-table td, .custom-theme .data-table td {
+  color: #fff; }
+
 .dark-theme .data-table tr.selected, .custom-theme .data-table tr.selected {
   background-color: #525252; }
+
+.dark-theme .data-table-title, .custom-theme .data-table-title {
+  color: #fff; }
 
 .dark-theme .data-table-hover tbody tr:hover, .custom-theme .data-table-hover tbody tr:hover {
   background-color: #626262; }
 
-.bg-dark .data-table th, .card.card-media .card-media-content .data-table th, .card-media.text-field-elevated .card-media-content .data-table th, body .app-bar .data-table th, .custom-theme .app-bar .data-table th {
+.bg-dark .data-table th, .card.card-media .card-media-content .data-table th, .card-media.text-field-elevated .card-media-content .data-table th {
   color: rgba(255, 255, 255, 0.7); }
 
-.bg-dark .data-table tr.selected, .card.card-media .card-media-content .data-table tr.selected, .card-media.text-field-elevated .card-media-content .data-table tr.selected, body .app-bar .data-table tr.selected, .custom-theme .app-bar .data-table tr.selected {
+.bg-dark .data-table td, .card.card-media .card-media-content .data-table td, .card-media.text-field-elevated .card-media-content .data-table td {
+  color: #fff; }
+
+.bg-dark .data-table tr.selected, .card.card-media .card-media-content .data-table tr.selected, .card-media.text-field-elevated .card-media-content .data-table tr.selected {
   background-color: #525252; }
 
-.bg-dark .data-table-hover tbody tr:hover, .card.card-media .card-media-content .data-table-hover tbody tr:hover, .card-media.text-field-elevated .card-media-content .data-table-hover tbody tr:hover, body .app-bar .data-table-hover tbody tr:hover, .custom-theme .app-bar .data-table-hover tbody tr:hover {
+.bg-dark .data-table-title, .card.card-media .card-media-content .data-table-title, .card-media.text-field-elevated .card-media-content .data-table-title {
+  color: #fff; }
+
+.bg-dark .data-table-hover tbody tr:hover, .card.card-media .card-media-content .data-table-hover tbody tr:hover, .card-media.text-field-elevated .card-media-content .data-table-hover tbody tr:hover {
   background-color: #626262; }
 
 .list {
@@ -2868,7 +3001,8 @@ mark,
       -ms-flex-align: center;
           align-items: center;
   text-decoration: none;
-  padding: 1rem; }
+  padding: 1rem;
+  color: #212121; }
   .list-item:hover, .list-item:focus, .list-item.focus {
     color: #212121;
     text-decoration: none;
@@ -2887,7 +3021,8 @@ mark,
 .list-item-icon,
 .list-item-avatar {
   position: relative;
-  font-size: 1.5rem; }
+  font-size: 1.5rem;
+  color: rgba(0, 0, 0, 0.54); }
 
 .list-item-avatar {
   width: 2.5rem;
@@ -2924,7 +3059,7 @@ mark,
   font-weight: 400;
   line-height: 1rem; }
   .list-item-primary-content .secondary-text {
-    font-size: 14px; }
+    font-size: .875rem; }
 
 .list-item-secondary-content {
   margin-left: 1rem; }
@@ -3041,26 +3176,26 @@ mark,
 .dark-theme .list-index, .custom-theme .list-index {
   color: rgba(255, 255, 255, 0.7); }
 
-.bg-dark .list.list-hover .list-item, .card.card-media .card-media-content .list.list-hover .list-item, .card-media.text-field-elevated .card-media-content .list.list-hover .list-item, body .app-bar .list.list-hover .list-item, .custom-theme .app-bar .list.list-hover .list-item {
+.bg-dark .list.list-hover .list-item, .card.card-media .card-media-content .list.list-hover .list-item, .card-media.text-field-elevated .card-media-content .list.list-hover .list-item {
   position: relative;
   cursor: pointer;
   -webkit-transition: background-color 250ms linear;
   transition: background-color 250ms linear; }
   @media (hover: hover) {
-    .bg-dark .list.list-hover .list-item:hover, .card.card-media .card-media-content .list.list-hover .list-item:hover, .card-media.text-field-elevated .card-media-content .list.list-hover .list-item:hover, body .app-bar .list.list-hover .list-item:hover, .custom-theme .app-bar .list.list-hover .list-item:hover {
+    .bg-dark .list.list-hover .list-item:hover, .card.card-media .card-media-content .list.list-hover .list-item:hover, .card-media.text-field-elevated .card-media-content .list.list-hover .list-item:hover {
       background-color: rgba(204, 204, 204, 0.1); } }
-  .bg-dark .list.list-hover .list-item:active, .card.card-media .card-media-content .list.list-hover .list-item:active, .card-media.text-field-elevated .card-media-content .list.list-hover .list-item:active, body .app-bar .list.list-hover .list-item:active, .custom-theme .app-bar .list.list-hover .list-item:active {
+  .bg-dark .list.list-hover .list-item:active, .card.card-media .card-media-content .list.list-hover .list-item:active, .card-media.text-field-elevated .card-media-content .list.list-hover .list-item:active {
     background-color: rgba(204, 204, 204, 0.1); }
 
-.bg-dark .list-item, .card.card-media .card-media-content .list-item, .card-media.text-field-elevated .card-media-content .list-item, body .app-bar .list-item, .custom-theme .app-bar .list-item {
+.bg-dark .list-item, .card.card-media .card-media-content .list-item, .card-media.text-field-elevated .card-media-content .list-item {
   color: #fff; }
-  .bg-dark .list-item:focus, .card.card-media .card-media-content .list-item:focus, .card-media.text-field-elevated .card-media-content .list-item:focus, body .app-bar .list-item:focus, .custom-theme .app-bar .list-item:focus, .bg-dark .list-item:hover, .card.card-media .card-media-content .list-item:hover, .card-media.text-field-elevated .card-media-content .list-item:hover, body .app-bar .list-item:hover, .custom-theme .app-bar .list-item:hover {
+  .bg-dark .list-item:focus, .card.card-media .card-media-content .list-item:focus, .card-media.text-field-elevated .card-media-content .list-item:focus, .bg-dark .list-item:hover, .card.card-media .card-media-content .list-item:hover, .card-media.text-field-elevated .card-media-content .list-item:hover {
     color: #fff; }
 
-.bg-dark .list-item-icon, .card.card-media .card-media-content .list-item-icon, .card-media.text-field-elevated .card-media-content .list-item-icon, body .app-bar .list-item-icon, .custom-theme .app-bar .list-item-icon {
+.bg-dark .list-item-icon, .card.card-media .card-media-content .list-item-icon, .card-media.text-field-elevated .card-media-content .list-item-icon {
   color: rgba(255, 255, 255, 0.7); }
 
-.bg-dark .list-index, .card.card-media .card-media-content .list-index, .card-media.text-field-elevated .card-media-content .list-index, body .app-bar .list-index, .custom-theme .app-bar .list-index {
+.bg-dark .list-index, .card.card-media .card-media-content .list-index, .card-media.text-field-elevated .card-media-content .list-index {
   color: rgba(255, 255, 255, 0.7); }
 
 .progress {
@@ -3347,8 +3482,16 @@ mark,
           transform: none;
   -webkit-box-shadow: none;
           box-shadow: none; }
-  .sidebar.sidebar-fixed ~ .sidebar-backdrop {
-    display: none; }
+  .sidebar.sidebar-fixed.open ~ .sidebar-backdrop {
+    opacity: 0;
+    z-index: -1;
+    -webkit-transition: opacity 375ms linear, z-index 0ms 375ms;
+    transition: opacity 375ms linear, z-index 0ms 375ms; }
+  .sidebar.sidebar-fixed.open ~ .sidebar.open ~ .sidebar-backdrop {
+    opacity: 0.5;
+    z-index: 1039;
+    -webkit-transition: opacity 375ms linear;
+    transition: opacity 375ms linear; }
 
 @media (min-width: 576px) {
   .sidebar.sidebar-sm-fixed {
@@ -3357,8 +3500,16 @@ mark,
             transform: none;
     -webkit-box-shadow: none;
             box-shadow: none; }
-    .sidebar.sidebar-sm-fixed ~ .sidebar-backdrop {
-      display: none; } }
+    .sidebar.sidebar-sm-fixed.open ~ .sidebar-backdrop {
+      opacity: 0;
+      z-index: -1;
+      -webkit-transition: opacity 375ms linear, z-index 0ms 375ms;
+      transition: opacity 375ms linear, z-index 0ms 375ms; }
+    .sidebar.sidebar-sm-fixed.open ~ .sidebar.open ~ .sidebar-backdrop {
+      opacity: 0.5;
+      z-index: 1039;
+      -webkit-transition: opacity 375ms linear;
+      transition: opacity 375ms linear; } }
 
 @media (min-width: 768px) {
   .sidebar.sidebar-md-fixed {
@@ -3367,8 +3518,16 @@ mark,
             transform: none;
     -webkit-box-shadow: none;
             box-shadow: none; }
-    .sidebar.sidebar-md-fixed ~ .sidebar-backdrop {
-      display: none; } }
+    .sidebar.sidebar-md-fixed.open ~ .sidebar-backdrop {
+      opacity: 0;
+      z-index: -1;
+      -webkit-transition: opacity 375ms linear, z-index 0ms 375ms;
+      transition: opacity 375ms linear, z-index 0ms 375ms; }
+    .sidebar.sidebar-md-fixed.open ~ .sidebar.open ~ .sidebar-backdrop {
+      opacity: 0.5;
+      z-index: 1039;
+      -webkit-transition: opacity 375ms linear;
+      transition: opacity 375ms linear; } }
 
 @media (min-width: 992px) {
   .sidebar.sidebar-lg-fixed {
@@ -3377,8 +3536,16 @@ mark,
             transform: none;
     -webkit-box-shadow: none;
             box-shadow: none; }
-    .sidebar.sidebar-lg-fixed ~ .sidebar-backdrop {
-      display: none; } }
+    .sidebar.sidebar-lg-fixed.open ~ .sidebar-backdrop {
+      opacity: 0;
+      z-index: -1;
+      -webkit-transition: opacity 375ms linear, z-index 0ms 375ms;
+      transition: opacity 375ms linear, z-index 0ms 375ms; }
+    .sidebar.sidebar-lg-fixed.open ~ .sidebar.open ~ .sidebar-backdrop {
+      opacity: 0.5;
+      z-index: 1039;
+      -webkit-transition: opacity 375ms linear;
+      transition: opacity 375ms linear; } }
 
 @media (min-width: 1200px) {
   .sidebar.sidebar-xl-fixed {
@@ -3387,8 +3554,16 @@ mark,
             transform: none;
     -webkit-box-shadow: none;
             box-shadow: none; }
-    .sidebar.sidebar-xl-fixed ~ .sidebar-backdrop {
-      display: none; } }
+    .sidebar.sidebar-xl-fixed.open ~ .sidebar-backdrop {
+      opacity: 0;
+      z-index: -1;
+      -webkit-transition: opacity 375ms linear, z-index 0ms 375ms;
+      transition: opacity 375ms linear, z-index 0ms 375ms; }
+    .sidebar.sidebar-xl-fixed.open ~ .sidebar.open ~ .sidebar-backdrop {
+      opacity: 0.5;
+      z-index: 1039;
+      -webkit-transition: opacity 375ms linear;
+      transition: opacity 375ms linear; } }
 
 .snackbar {
   display: -webkit-box;
@@ -3882,6 +4057,8 @@ input:focus + label {
 
 .light-theme .text-input-icon, body .text-input-icon {
   color: rgba(0, 0, 0, 0.54); }
+  .light-theme .text-input-icon:focus, body .text-input-icon:focus, .light-theme .text-input-icon:hover, body .text-input-icon:hover {
+    color: rgba(0, 0, 0, 0.54); }
 
 .light-theme .text-input-prefix, body .text-input-prefix, .light-theme .text-input-suffix, body .text-input-suffix {
   color: rgba(0, 0, 0, 0.42); }
@@ -3920,6 +4097,8 @@ input:focus + label {
 
 .bg-light .text-input-icon {
   color: rgba(0, 0, 0, 0.54); }
+  .bg-light .text-input-icon:focus, .bg-light .text-input-icon:hover {
+    color: rgba(0, 0, 0, 0.54); }
 
 .bg-light .text-input-prefix, .bg-light .text-input-suffix {
   color: rgba(0, 0, 0, 0.42); }
@@ -3958,6 +4137,8 @@ input:focus + label {
 
 .dark-theme .text-input-icon, .custom-theme .text-input-icon {
   color: rgba(255, 255, 255, 0.7); }
+  .dark-theme .text-input-icon:focus, .custom-theme .text-input-icon:focus, .dark-theme .text-input-icon:hover, .custom-theme .text-input-icon:hover {
+    color: rgba(255, 255, 255, 0.7); }
 
 .dark-theme .text-input-prefix, .custom-theme .text-input-prefix, .dark-theme .text-input-suffix, .custom-theme .text-input-suffix {
   color: rgba(255, 255, 255, 0.5); }
@@ -3971,52 +4152,58 @@ input:focus + label {
 .dark-theme .text-field-box, .custom-theme .text-field-box, .dark-theme .text-area, .custom-theme .text-area {
   background: rgba(255, 255, 255, 0.1); }
 
-.bg-dark .text-field-border, .card.card-media .card-media-content .text-field-border, .card-media.text-field-elevated .card-media-content .text-field-border, body .app-bar .text-field-border, .custom-theme .app-bar .text-field-border {
+.bg-dark .text-field-border, .card.card-media .card-media-content .text-field-border, .card-media.text-field-elevated .card-media-content .text-field-border {
   border-color: rgba(255, 255, 255, 0.7); }
 
-.bg-dark .placeholder, .card.card-media .card-media-content .placeholder, .card-media.text-field-elevated .card-media-content .placeholder, body .app-bar .placeholder, .custom-theme .app-bar .placeholder {
+.bg-dark .placeholder, .card.card-media .card-media-content .placeholder, .card-media.text-field-elevated .card-media-content .placeholder {
   color: rgba(255, 255, 255, 0.5); }
 
-.bg-dark .floating-label.focus input::-webkit-input-placeholder, .card.card-media .card-media-content .floating-label.focus input::-webkit-input-placeholder, .card-media.text-field-elevated .card-media-content .floating-label.focus input::-webkit-input-placeholder, body .app-bar .floating-label.focus input::-webkit-input-placeholder, .custom-theme .app-bar .floating-label.focus input::-webkit-input-placeholder, .bg-dark .focus.text-field-box input::-webkit-input-placeholder, .card.card-media .card-media-content .focus.text-field-box input::-webkit-input-placeholder, .card-media.text-field-elevated .card-media-content .focus.text-field-box input::-webkit-input-placeholder, body .app-bar .focus.text-field-box input::-webkit-input-placeholder, .custom-theme .app-bar .focus.text-field-box input::-webkit-input-placeholder, .bg-dark .focus.text-area input::-webkit-input-placeholder, .card.card-media .card-media-content .focus.text-area input::-webkit-input-placeholder, .card-media.text-field-elevated .card-media-content .focus.text-area input::-webkit-input-placeholder, body .app-bar .focus.text-area input::-webkit-input-placeholder, .custom-theme .app-bar .focus.text-area input::-webkit-input-placeholder, .bg-dark .floating-label input:focus::-webkit-input-placeholder, .card.card-media .card-media-content .floating-label input:focus::-webkit-input-placeholder, .card-media.text-field-elevated .card-media-content .floating-label input:focus::-webkit-input-placeholder, body .app-bar .floating-label input:focus::-webkit-input-placeholder, .custom-theme .app-bar .floating-label input:focus::-webkit-input-placeholder, .bg-dark .text-field-box input:focus::-webkit-input-placeholder, .card.card-media .card-media-content .text-field-box input:focus::-webkit-input-placeholder, .card-media.text-field-elevated .card-media-content .text-field-box input:focus::-webkit-input-placeholder, body .app-bar .text-field-box input:focus::-webkit-input-placeholder, .custom-theme .app-bar .text-field-box input:focus::-webkit-input-placeholder, .bg-dark .text-area input:focus::-webkit-input-placeholder, .card.card-media .card-media-content .text-area input:focus::-webkit-input-placeholder, .card-media.text-field-elevated .card-media-content .text-area input:focus::-webkit-input-placeholder, body .app-bar .text-area input:focus::-webkit-input-placeholder, .custom-theme .app-bar .text-area input:focus::-webkit-input-placeholder {
+.bg-dark .floating-label.focus input::-webkit-input-placeholder, .card.card-media .card-media-content .floating-label.focus input::-webkit-input-placeholder, .card-media.text-field-elevated .card-media-content .floating-label.focus input::-webkit-input-placeholder, .bg-dark .focus.text-field-box input::-webkit-input-placeholder, .card.card-media .card-media-content .focus.text-field-box input::-webkit-input-placeholder, .card-media.text-field-elevated .card-media-content .focus.text-field-box input::-webkit-input-placeholder, .bg-dark .focus.text-area input::-webkit-input-placeholder, .card.card-media .card-media-content .focus.text-area input::-webkit-input-placeholder, .card-media.text-field-elevated .card-media-content .focus.text-area input::-webkit-input-placeholder, .bg-dark .floating-label input:focus::-webkit-input-placeholder, .card.card-media .card-media-content .floating-label input:focus::-webkit-input-placeholder, .card-media.text-field-elevated .card-media-content .floating-label input:focus::-webkit-input-placeholder, .bg-dark .text-field-box input:focus::-webkit-input-placeholder, .card.card-media .card-media-content .text-field-box input:focus::-webkit-input-placeholder, .card-media.text-field-elevated .card-media-content .text-field-box input:focus::-webkit-input-placeholder, .bg-dark .text-area input:focus::-webkit-input-placeholder, .card.card-media .card-media-content .text-area input:focus::-webkit-input-placeholder, .card-media.text-field-elevated .card-media-content .text-area input:focus::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.5);
   -webkit-transition-timing-function: ease-in;
           transition-timing-function: ease-in; }
 
-.bg-dark .floating-label.focus input:-ms-input-placeholder, .card.card-media .card-media-content .floating-label.focus input:-ms-input-placeholder, .card-media.text-field-elevated .card-media-content .floating-label.focus input:-ms-input-placeholder, body .app-bar .floating-label.focus input:-ms-input-placeholder, .custom-theme .app-bar .floating-label.focus input:-ms-input-placeholder, .bg-dark .focus.text-field-box input:-ms-input-placeholder, .card.card-media .card-media-content .focus.text-field-box input:-ms-input-placeholder, .card-media.text-field-elevated .card-media-content .focus.text-field-box input:-ms-input-placeholder, body .app-bar .focus.text-field-box input:-ms-input-placeholder, .custom-theme .app-bar .focus.text-field-box input:-ms-input-placeholder, .bg-dark .focus.text-area input:-ms-input-placeholder, .card.card-media .card-media-content .focus.text-area input:-ms-input-placeholder, .card-media.text-field-elevated .card-media-content .focus.text-area input:-ms-input-placeholder, body .app-bar .focus.text-area input:-ms-input-placeholder, .custom-theme .app-bar .focus.text-area input:-ms-input-placeholder, .bg-dark .floating-label input:focus:-ms-input-placeholder, .card.card-media .card-media-content .floating-label input:focus:-ms-input-placeholder, .card-media.text-field-elevated .card-media-content .floating-label input:focus:-ms-input-placeholder, body .app-bar .floating-label input:focus:-ms-input-placeholder, .custom-theme .app-bar .floating-label input:focus:-ms-input-placeholder, .bg-dark .text-field-box input:focus:-ms-input-placeholder, .card.card-media .card-media-content .text-field-box input:focus:-ms-input-placeholder, .card-media.text-field-elevated .card-media-content .text-field-box input:focus:-ms-input-placeholder, body .app-bar .text-field-box input:focus:-ms-input-placeholder, .custom-theme .app-bar .text-field-box input:focus:-ms-input-placeholder, .bg-dark .text-area input:focus:-ms-input-placeholder, .card.card-media .card-media-content .text-area input:focus:-ms-input-placeholder, .card-media.text-field-elevated .card-media-content .text-area input:focus:-ms-input-placeholder, body .app-bar .text-area input:focus:-ms-input-placeholder, .custom-theme .app-bar .text-area input:focus:-ms-input-placeholder {
+.bg-dark .floating-label.focus input:-ms-input-placeholder, .card.card-media .card-media-content .floating-label.focus input:-ms-input-placeholder, .card-media.text-field-elevated .card-media-content .floating-label.focus input:-ms-input-placeholder, .bg-dark .focus.text-field-box input:-ms-input-placeholder, .card.card-media .card-media-content .focus.text-field-box input:-ms-input-placeholder, .card-media.text-field-elevated .card-media-content .focus.text-field-box input:-ms-input-placeholder, .bg-dark .focus.text-area input:-ms-input-placeholder, .card.card-media .card-media-content .focus.text-area input:-ms-input-placeholder, .card-media.text-field-elevated .card-media-content .focus.text-area input:-ms-input-placeholder, .bg-dark .floating-label input:focus:-ms-input-placeholder, .card.card-media .card-media-content .floating-label input:focus:-ms-input-placeholder, .card-media.text-field-elevated .card-media-content .floating-label input:focus:-ms-input-placeholder, .bg-dark .text-field-box input:focus:-ms-input-placeholder, .card.card-media .card-media-content .text-field-box input:focus:-ms-input-placeholder, .card-media.text-field-elevated .card-media-content .text-field-box input:focus:-ms-input-placeholder, .bg-dark .text-area input:focus:-ms-input-placeholder, .card.card-media .card-media-content .text-area input:focus:-ms-input-placeholder, .card-media.text-field-elevated .card-media-content .text-area input:focus:-ms-input-placeholder {
   color: rgba(255, 255, 255, 0.5);
   transition-timing-function: ease-in; }
 
-.bg-dark .floating-label.focus input::placeholder, .card.card-media .card-media-content .floating-label.focus input::placeholder, .card-media.text-field-elevated .card-media-content .floating-label.focus input::placeholder, body .app-bar .floating-label.focus input::placeholder, .custom-theme .app-bar .floating-label.focus input::placeholder, .bg-dark .focus.text-field-box input::placeholder, .card.card-media .card-media-content .focus.text-field-box input::placeholder, .card-media.text-field-elevated .card-media-content .focus.text-field-box input::placeholder, body .app-bar .focus.text-field-box input::placeholder, .custom-theme .app-bar .focus.text-field-box input::placeholder, .bg-dark .focus.text-area input::placeholder, .card.card-media .card-media-content .focus.text-area input::placeholder, .card-media.text-field-elevated .card-media-content .focus.text-area input::placeholder, body .app-bar .focus.text-area input::placeholder, .custom-theme .app-bar .focus.text-area input::placeholder, .bg-dark .floating-label input:focus::placeholder, .card.card-media .card-media-content .floating-label input:focus::placeholder, .card-media.text-field-elevated .card-media-content .floating-label input:focus::placeholder, body .app-bar .floating-label input:focus::placeholder, .custom-theme .app-bar .floating-label input:focus::placeholder, .bg-dark .text-field-box input:focus::placeholder, .card.card-media .card-media-content .text-field-box input:focus::placeholder, .card-media.text-field-elevated .card-media-content .text-field-box input:focus::placeholder, body .app-bar .text-field-box input:focus::placeholder, .custom-theme .app-bar .text-field-box input:focus::placeholder, .bg-dark .text-area input:focus::placeholder, .card.card-media .card-media-content .text-area input:focus::placeholder, .card-media.text-field-elevated .card-media-content .text-area input:focus::placeholder, body .app-bar .text-area input:focus::placeholder, .custom-theme .app-bar .text-area input:focus::placeholder {
+.bg-dark .floating-label.focus input::placeholder, .card.card-media .card-media-content .floating-label.focus input::placeholder, .card-media.text-field-elevated .card-media-content .floating-label.focus input::placeholder, .bg-dark .focus.text-field-box input::placeholder, .card.card-media .card-media-content .focus.text-field-box input::placeholder, .card-media.text-field-elevated .card-media-content .focus.text-field-box input::placeholder, .bg-dark .focus.text-area input::placeholder, .card.card-media .card-media-content .focus.text-area input::placeholder, .card-media.text-field-elevated .card-media-content .focus.text-area input::placeholder, .bg-dark .floating-label input:focus::placeholder, .card.card-media .card-media-content .floating-label input:focus::placeholder, .card-media.text-field-elevated .card-media-content .floating-label input:focus::placeholder, .bg-dark .text-field-box input:focus::placeholder, .card.card-media .card-media-content .text-field-box input:focus::placeholder, .card-media.text-field-elevated .card-media-content .text-field-box input:focus::placeholder, .bg-dark .text-area input:focus::placeholder, .card.card-media .card-media-content .text-area input:focus::placeholder, .card-media.text-field-elevated .card-media-content .text-area input:focus::placeholder {
   color: rgba(255, 255, 255, 0.5);
   -webkit-transition-timing-function: ease-in;
           transition-timing-function: ease-in; }
 
-.bg-dark .text-input, .card.card-media .card-media-content .text-input, .card-media.text-field-elevated .card-media-content .text-input, body .app-bar .text-input, .custom-theme .app-bar .text-input, .bg-dark input, .card.card-media .card-media-content input, .card-media.text-field-elevated .card-media-content input, body .app-bar input, .custom-theme .app-bar input {
+.bg-dark .text-input, .card.card-media .card-media-content .text-input, .card-media.text-field-elevated .card-media-content .text-input, .bg-dark input, .card.card-media .card-media-content input, .card-media.text-field-elevated .card-media-content input {
   color: #fff; }
 
-.bg-dark .text-input-icon, .card.card-media .card-media-content .text-input-icon, .card-media.text-field-elevated .card-media-content .text-input-icon, body .app-bar .text-input-icon, .custom-theme .app-bar .text-input-icon {
+.bg-dark .text-input-icon, .card.card-media .card-media-content .text-input-icon, .card-media.text-field-elevated .card-media-content .text-input-icon {
   color: rgba(255, 255, 255, 0.7); }
+  .bg-dark .text-input-icon:focus, .card.card-media .card-media-content .text-input-icon:focus, .card-media.text-field-elevated .card-media-content .text-input-icon:focus, .bg-dark .text-input-icon:hover, .card.card-media .card-media-content .text-input-icon:hover, .card-media.text-field-elevated .card-media-content .text-input-icon:hover {
+    color: rgba(255, 255, 255, 0.7); }
 
-.bg-dark .text-input-prefix, .card.card-media .card-media-content .text-input-prefix, .card-media.text-field-elevated .card-media-content .text-input-prefix, body .app-bar .text-input-prefix, .custom-theme .app-bar .text-input-prefix, .bg-dark .text-input-suffix, .card.card-media .card-media-content .text-input-suffix, .card-media.text-field-elevated .card-media-content .text-input-suffix, body .app-bar .text-input-suffix, .custom-theme .app-bar .text-input-suffix {
+.bg-dark .text-input-prefix, .card.card-media .card-media-content .text-input-prefix, .card-media.text-field-elevated .card-media-content .text-input-prefix, .bg-dark .text-input-suffix, .card.card-media .card-media-content .text-input-suffix, .card-media.text-field-elevated .card-media-content .text-input-suffix {
   color: rgba(255, 255, 255, 0.5); }
 
-.bg-dark .text-field label, .card.card-media .card-media-content .text-field label, .card-media.text-field-elevated .card-media-content .text-field label, body .app-bar .text-field label, .custom-theme .app-bar .text-field label {
+.bg-dark .text-field label, .card.card-media .card-media-content .text-field label, .card-media.text-field-elevated .card-media-content .text-field label {
   color: rgba(255, 255, 255, 0.7); }
 
-.bg-dark .text-field:hover .text-field-border, .card.card-media .card-media-content .text-field:hover .text-field-border, .card-media.text-field-elevated .card-media-content .text-field:hover .text-field-border, body .app-bar .text-field:hover .text-field-border, .custom-theme .app-bar .text-field:hover .text-field-border {
+.bg-dark .text-field:hover .text-field-border, .card.card-media .card-media-content .text-field:hover .text-field-border, .card-media.text-field-elevated .card-media-content .text-field:hover .text-field-border {
   border-color: #fff; }
 
-.bg-dark .text-field-box, .card.card-media .card-media-content .text-field-box, .card-media.text-field-elevated .card-media-content .text-field-box, body .app-bar .text-field-box, .custom-theme .app-bar .text-field-box, .bg-dark .text-area, .card.card-media .card-media-content .text-area, .card-media.text-field-elevated .card-media-content .text-area, body .app-bar .text-area, .custom-theme .app-bar .text-area {
+.bg-dark .text-field-box, .card.card-media .card-media-content .text-field-box, .card-media.text-field-elevated .card-media-content .text-field-box, .bg-dark .text-area, .card.card-media .card-media-content .text-area, .card-media.text-field-elevated .card-media-content .text-area {
   background: rgba(255, 255, 255, 0.1); }
 
 .light-theme .text-field-elevated .text-input-icon, body .text-field-elevated .text-input-icon {
   color: rgba(0, 0, 0, 0.54); }
+  .light-theme .text-field-elevated .text-input-icon:focus, body .text-field-elevated .text-input-icon:focus, .light-theme .text-field-elevated .text-input-icon:hover, body .text-field-elevated .text-input-icon:hover {
+    color: rgba(0, 0, 0, 0.54); }
 
 .light-theme .text-field-helper-text, body .text-field-helper-text {
   color: rgba(0, 0, 0, 0.54); }
 
 .dark-theme .text-field-elevated .text-input-icon, .custom-theme .text-field-elevated .text-input-icon {
   color: rgba(255, 255, 255, 0.7); }
+  .dark-theme .text-field-elevated .text-input-icon:focus, .custom-theme .text-field-elevated .text-input-icon:focus, .dark-theme .text-field-elevated .text-input-icon:hover, .custom-theme .text-field-elevated .text-input-icon:hover {
+    color: rgba(255, 255, 255, 0.7); }
 
 .dark-theme .text-field-helper-text, .custom-theme .text-field-helper-text {
   color: rgba(255, 255, 255, 0.7); }
@@ -4102,7 +4289,7 @@ input:focus + label {
   background-color: #f5f5f5;
   color: #212121; }
 
-.bg-dark, .card.card-media .card-media-content, .card-media.text-field-elevated .card-media-content, body .app-bar, .custom-theme .app-bar {
+.bg-dark, .card.card-media .card-media-content, .card-media.text-field-elevated .card-media-content {
   background-color: #212121;
   color: #fff; }
 
@@ -5954,12 +6141,6 @@ input:focus + label {
 .text-white {
   color: #fff !important; }
 
-.text-low-contrast {
-  color: rgba(0, 0, 0, 0.54) !important; }
-
-a.text-low-contrast:focus, a.text-low-contrast:hover {
-  color: rgba(0, 0, 0, 0.54) !important; }
-
 .text-muted {
   color: #757575 !important; }
 
@@ -5996,105 +6177,13 @@ a.text-accent:focus, a.text-accent:hover {
   height: 0.0625rem;
   background-color: rgba(0, 0, 0, 0.12); }
 
-.light-theme, body {
-  color: #212121; }
-  .light-theme .selectable-background, body .selectable-background {
-    position: relative;
-    cursor: pointer;
-    position: relative;
-    z-index: 1; }
-    .light-theme .selectable-background::before, body .selectable-background::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      border-radius: 0;
-      z-index: -1;
-      -webkit-transition: background-color 250ms linear;
-      transition: background-color 250ms linear; }
-    @media (hover: hover) {
-      .light-theme .selectable-background:hover::before, body .selectable-background:hover::before {
-        background-color: rgba(0, 0, 0, 0.12); } }
-    .light-theme .selectable-background:active::before, body .selectable-background:active::before {
-      background-color: rgba(0, 0, 0, 0.12); }
-
-body.light-theme, body {
-  background-color: #f5f5f5; }
-
-.dark-theme, .custom-theme {
-  color: #fff; }
-  .dark-theme .selectable-background, .custom-theme .selectable-background {
-    position: relative;
-    cursor: pointer;
-    position: relative;
-    z-index: 1; }
-    .dark-theme .selectable-background::before, .custom-theme .selectable-background::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      border-radius: 0;
-      z-index: -1;
-      -webkit-transition: background-color 250ms linear;
-      transition: background-color 250ms linear; }
-    @media (hover: hover) {
-      .dark-theme .selectable-background:hover::before, .custom-theme .selectable-background:hover::before {
-        background-color: rgba(204, 204, 204, 0.1); } }
-    .dark-theme .selectable-background:active::before, .custom-theme .selectable-background:active::before {
-      background-color: rgba(204, 204, 204, 0.1); }
-
-body.dark-theme, body.custom-theme {
-  background-color: #212121; }
-
-.dark-theme .light-theme, .custom-theme .light-theme, .dark-theme body, .custom-theme body {
-  color: #212121; }
-
-body .btn-primary {
-  background-color: #3863FF;
-  color: #fff; }
-  body .btn-primary:focus, body .btn-primary:hover {
+.custom-theme .app-bar {
+  color: #fff;
+  background-color: red; }
+  .custom-theme .app-bar .btn-borderless {
     color: #fff; }
-
-body .btn-accent, body .btn-floating {
-  background-color: #f50057;
-  color: #fff; }
-  body .btn-accent:focus, body .btn-floating:focus, body .btn-accent:hover, body .btn-floating:hover {
-    color: #fff; }
-
-body .btn-default {
-  background-color: #fff;
-  color: #212121; }
-  body .btn-default:focus, body .btn-default:hover {
-    color: #212121; }
-
-body .btn-flat-primary {
-  color: #3863FF; }
-  body .btn-flat-primary:focus, body .btn-flat-primary:hover {
-    color: #3863FF; }
-
-body .btn-flat-accent {
-  color: #f50057; }
-  body .btn-flat-accent:focus, body .btn-flat-accent:hover {
-    color: #f50057; }
-
-body .app-bar {
-  background-color: #3863FF; }
-
-body .bg-primary {
-  background-color: #3863FF !important; }
-
-body a.bg-primary:focus, body a.bg-primary:hover {
-  background-color: #053bff !important; }
-
-body .bg-accent {
-  background-color: #f50057 !important; }
-
-body a.bg-accent:focus, body a.bg-accent:hover {
-  background-color: #c20045 !important; }
+    .custom-theme .app-bar .btn-borderless:focus, .custom-theme .app-bar .btn-borderless:hover {
+      color: #fff; }
 
 .custom-theme .btn-primary {
   background-color: red;
@@ -6112,9 +6201,6 @@ body a.bg-accent:focus, body a.bg-accent:hover {
   color: red; }
   .custom-theme .btn-flat-primary:focus, .custom-theme .btn-flat-primary:hover {
     color: red; }
-
-.custom-theme .app-bar {
-  background-color: red; }
 
 .custom-theme .bg-primary {
   background-color: red !important; }
