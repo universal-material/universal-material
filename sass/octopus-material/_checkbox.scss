@@ -34,6 +34,22 @@
       background-color: $selection-control-hover-color;
     }
   }
+
+  &.disabled .selection-control,
+  input:disabled ~ .selection-control {
+    &:hover::before {
+      background-color: transparent !important;
+    }
+  }
+
+  &.focus .selection-control,
+  &.focus.checked .selection-control,
+  input:focus ~ .selection-control,
+  input:focus:checked ~ .selection-control{
+    &::before {
+      background-color: $hover-background-light-theme !important;
+    }
+  }
 }
 
 .selection-control {
@@ -48,7 +64,7 @@
   .selection-control {
     @include size($checkbox-size);
     border-radius: $checkbox-border-radius;
-    border: $checkbox-radio-border;
+    border: $checkbox-radio-border-light-theme;
     transition: border-color 250ms, background 250ms;
 
     &::after {
@@ -66,8 +82,6 @@
       opacity: 0;
     }
   }
-
-
 
   &.checked .selection-control,
   input:checked ~ .selection-control {
@@ -87,7 +101,6 @@
   .selection-control {
     @include size($radio-size);
     border-radius: 50%;
-    border: $checkbox-radio-border;
 
     &::after {
       @include size($radio-check-mark-size);
@@ -116,7 +129,6 @@
 
 .switch {
   .selection-control {
-    background-color: $switch-background-color;
     width: $switch-width;
     height: $switch-height;
     border-radius: $switch-border-radius;
@@ -136,7 +148,6 @@
       top: 50%;
       left: 0;
       margin-top: -$switch-toggle-size / 2;
-      background-color: $switch-toggle-background-color-light-theme;
       border-radius: 50%;
       box-shadow: $switch-toggle-box-shadow;
       transition: left 250ms, background-color 250ms;
@@ -154,6 +165,108 @@
     &::after {
       left: $switch-width - $switch-toggle-size;
       background-color: $selection-control-checked-color;
+    }
+  }
+}
+
+@include light-theme-style {
+  .checkbox, .radio {
+    .selection-control {
+      border: $checkbox-radio-border-light-theme;
+    }
+
+    &.disabled .selection-control,
+    input:disabled ~ .selection-control {
+      border-color: $checkbox-radio-disabled-color-light-theme;
+    }
+  }
+
+  .checkbox {
+    &.checked.disabled .selection-control,
+    input:checked:disabled ~ .selection-control {
+      border-color: transparent;
+      background: $checkbox-radio-disabled-color-light-theme;
+    }
+  }
+
+  .radio {
+    &.disabled .selection-control,
+    &.disabled.checked .selection-control,
+    input:disabled ~ .selection-control,
+    input:checked:disabled ~ .selection-control {
+      &::after {
+        background: $checkbox-radio-disabled-color-light-theme;
+      }
+    }
+  }
+
+  .switch {
+    .selection-control {
+      background-color: $switch-background-color-light-theme;
+
+      &::after {
+        background-color: $switch-toggle-background-color-light-theme;
+      }
+    }
+
+    &.disabled .selection-control,
+    input:disabled ~ .selection-control {
+      background-color: $switch-disabled-background-color-light-theme !important;
+
+      &::after {
+        background-color:  $switch-toggle-disabled-background-color-light-theme !important;
+      }
+    }
+  }
+}
+
+@include dark-theme-style {
+  .checkbox, .radio {
+    .selection-control {
+      border: $checkbox-radio-border-dark-theme;
+    }
+
+    &.disabled .selection-control,
+    input:disabled ~ .selection-control {
+      border-color: $checkbox-radio-disabled-color-dark-theme;
+    }
+  }
+
+  .checkbox {
+    &.checked.disabled .selection-control,
+    input:checked:disabled ~ .selection-control {
+      border-color: transparent;
+      background: $checkbox-radio-disabled-color-dark-theme;
+    }
+  }
+
+  .radio {
+    &.disabled .selection-control,
+    &.disabled.checked .selection-control,
+    input:disabled ~ .selection-control,
+    input:checked:disabled ~ .selection-control {
+      &::after {
+        background: $checkbox-radio-disabled-color-dark-theme;
+      }
+    }
+  }
+
+  .switch {
+    .selection-control {
+      background-color: $switch-background-color-dark-theme;
+
+      &::after {
+        background-color: $switch-toggle-background-color-dark-theme;
+      }
+    }
+
+    &.disabled .selection-control,
+    input:disabled ~ .selection-control {
+      background-color: $switch-disabled-background-color-dark-theme !important;
+
+      &::after {
+        background-color:  $switch-toggle-disabled-background-color-dark-theme !important;
+      }
     }
   }
 }

@@ -391,7 +391,10 @@ $selection-control-checked-color: $primary-color !default;
 $selection-control-hover-size: 2.5rem !default;
 $selection-control-hover-color: rgba($selection-control-checked-color, 0.2) !default;
 
-$checkbox-radio-border: .125rem solid rgba(0,0,0,.54);
+$checkbox-radio-border-light-theme: .125rem solid rgba(0,0,0,.54) !default;
+$checkbox-radio-border-dark-theme: .125rem solid rgba(255,255,255,.7) !default;
+$checkbox-radio-disabled-color-light-theme: rgba(0,0,0,.26) !default;
+$checkbox-radio-disabled-color-dark-theme: rgba(255,255,255,.3) !default;
 
 $checkbox-size: 1.125rem !default;
 $checkbox-border-radius: .125rem !default;
@@ -411,11 +414,17 @@ $radio-check-mark-size: $radio-size / 2 !default;
 $switch-width: 2.25rem !default;
 $switch-height: .875rem !default;
 $switch-border-radius: .5rem !default;
-$switch-background-color: rgba(0,0,0,0.38) !default;
+$switch-background-color-light-theme: rgba(0,0,0,.38) !default;
+$switch-background-color-dark-theme: rgba(255,255,255,.3) !default;
+$switch-disabled-background-color-light-theme: rgba(0,0,0,.12) !default;
+$switch-disabled-background-color-dark-theme: rgba(255,255,255,.1) !default;
 $switch-checked-background-color: rgba($selection-control-checked-color, .5) !default;
 
 $switch-toggle-size: 1.25rem !default;
-$switch-toggle-background-color-light-theme: $white;
+$switch-toggle-background-color-light-theme: #fafafa !default;
+$switch-toggle-background-color-dark-theme: #bdbdbd !default;
+$switch-toggle-disabled-background-color-light-theme: #bdbdbd !default;
+$switch-toggle-disabled-background-color-dark-theme: #424242 !default;
 $switch-toggle-box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2), 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12);
 
 //Badges
@@ -688,6 +697,9 @@ $list-index-font-size: 1.25rem !default;
 
 $list-index-color-light-theme: $text-low-contrast !default;
 $list-index-color-dark-theme: $text-low-contrast-dark-theme !default;
+
+$list-divider-height: $divider-height !default;
+$list-item-multi-line-line-height: 1.25rem !default;
 
 //Progress
 $progress-height: .3125rem !default;

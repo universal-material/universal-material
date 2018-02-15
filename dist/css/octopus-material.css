@@ -2097,6 +2097,22 @@ body .btn-flat-accent {
   .radio input:checked ~ .selection-control:hover::before, .switch.checked .selection-control:hover::before,
   .switch input:checked ~ .selection-control:hover::before {
     background-color: rgba(56, 99, 255, 0.2); }
+  .checkbox.disabled .selection-control:hover::before,
+  .checkbox input:disabled ~ .selection-control:hover::before, .radio.disabled .selection-control:hover::before,
+  .radio input:disabled ~ .selection-control:hover::before, .switch.disabled .selection-control:hover::before,
+  .switch input:disabled ~ .selection-control:hover::before {
+    background-color: transparent !important; }
+  .checkbox.focus .selection-control::before,
+  .checkbox.focus.checked .selection-control::before,
+  .checkbox input:focus ~ .selection-control::before,
+  .checkbox input:focus:checked ~ .selection-control::before, .radio.focus .selection-control::before,
+  .radio.focus.checked .selection-control::before,
+  .radio input:focus ~ .selection-control::before,
+  .radio input:focus:checked ~ .selection-control::before, .switch.focus .selection-control::before,
+  .switch.focus.checked .selection-control::before,
+  .switch input:focus ~ .selection-control::before,
+  .switch input:focus:checked ~ .selection-control::before {
+    background-color: rgba(0, 0, 0, 0.12) !important; }
 
 .selection-control {
   position: relative; }
@@ -2142,8 +2158,7 @@ body .btn-flat-accent {
 .radio .selection-control {
   width: 1.25rem;
   height: 1.25rem;
-  border-radius: 50%;
-  border: 0.125rem solid rgba(0, 0, 0, 0.54); }
+  border-radius: 50%; }
   .radio .selection-control::after {
     width: 0.625rem;
     height: 0.625rem;
@@ -2171,7 +2186,6 @@ body .btn-flat-accent {
             transform: scale3d(1, 1, 1); }
 
 .switch .selection-control {
-  background-color: rgba(0, 0, 0, 0.38);
   width: 2.25rem;
   height: 0.875rem;
   border-radius: 0.5rem;
@@ -2210,7 +2224,6 @@ body .btn-flat-accent {
     top: 50%;
     left: 0;
     margin-top: -0.625rem;
-    background-color: #fff;
     border-radius: 50%;
     -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
             box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
@@ -2227,6 +2240,130 @@ body .btn-flat-accent {
   .switch input:checked ~ .selection-control::after {
     left: 1rem;
     background-color: #3863FF; }
+
+.light-theme .checkbox .selection-control, body .checkbox .selection-control, .light-theme .radio .selection-control, body .radio .selection-control {
+  border: 0.125rem solid rgba(0, 0, 0, 0.54); }
+
+.light-theme .checkbox.disabled .selection-control, body .checkbox.disabled .selection-control,
+.light-theme .checkbox input:disabled ~ .selection-control, body .checkbox input:disabled ~ .selection-control, .light-theme .radio.disabled .selection-control, body .radio.disabled .selection-control,
+.light-theme .radio input:disabled ~ .selection-control, body .radio input:disabled ~ .selection-control {
+  border-color: rgba(0, 0, 0, 0.26); }
+
+.light-theme .checkbox.checked.disabled .selection-control, body .checkbox.checked.disabled .selection-control,
+.light-theme .checkbox input:checked:disabled ~ .selection-control, body .checkbox input:checked:disabled ~ .selection-control {
+  border-color: transparent;
+  background: rgba(0, 0, 0, 0.26); }
+
+.light-theme .radio.disabled .selection-control::after, body .radio.disabled .selection-control::after,
+.light-theme .radio.disabled.checked .selection-control::after, body .radio.disabled.checked .selection-control::after,
+.light-theme .radio input:disabled ~ .selection-control::after, body .radio input:disabled ~ .selection-control::after,
+.light-theme .radio input:checked:disabled ~ .selection-control::after, body .radio input:checked:disabled ~ .selection-control::after {
+  background: rgba(0, 0, 0, 0.26); }
+
+.light-theme .switch .selection-control, body .switch .selection-control {
+  background-color: rgba(0, 0, 0, 0.38); }
+  .light-theme .switch .selection-control::after, body .switch .selection-control::after {
+    background-color: #fafafa; }
+
+.light-theme .switch.disabled .selection-control, body .switch.disabled .selection-control,
+.light-theme .switch input:disabled ~ .selection-control, body .switch input:disabled ~ .selection-control {
+  background-color: rgba(0, 0, 0, 0.12) !important; }
+  .light-theme .switch.disabled .selection-control::after, body .switch.disabled .selection-control::after,
+  .light-theme .switch input:disabled ~ .selection-control::after, body .switch input:disabled ~ .selection-control::after {
+    background-color: #bdbdbd !important; }
+
+.bg-light .checkbox .selection-control, .bg-light .radio .selection-control {
+  border: 0.125rem solid rgba(0, 0, 0, 0.54); }
+
+.bg-light .checkbox.disabled .selection-control,
+.bg-light .checkbox input:disabled ~ .selection-control, .bg-light .radio.disabled .selection-control,
+.bg-light .radio input:disabled ~ .selection-control {
+  border-color: rgba(0, 0, 0, 0.26); }
+
+.bg-light .checkbox.checked.disabled .selection-control,
+.bg-light .checkbox input:checked:disabled ~ .selection-control {
+  border-color: transparent;
+  background: rgba(0, 0, 0, 0.26); }
+
+.bg-light .radio.disabled .selection-control::after,
+.bg-light .radio.disabled.checked .selection-control::after,
+.bg-light .radio input:disabled ~ .selection-control::after,
+.bg-light .radio input:checked:disabled ~ .selection-control::after {
+  background: rgba(0, 0, 0, 0.26); }
+
+.bg-light .switch .selection-control {
+  background-color: rgba(0, 0, 0, 0.38); }
+  .bg-light .switch .selection-control::after {
+    background-color: #fafafa; }
+
+.bg-light .switch.disabled .selection-control,
+.bg-light .switch input:disabled ~ .selection-control {
+  background-color: rgba(0, 0, 0, 0.12) !important; }
+  .bg-light .switch.disabled .selection-control::after,
+  .bg-light .switch input:disabled ~ .selection-control::after {
+    background-color: #bdbdbd !important; }
+
+.dark-theme .checkbox .selection-control, .custom-theme .checkbox .selection-control, .dark-theme .radio .selection-control, .custom-theme .radio .selection-control {
+  border: 0.125rem solid rgba(255, 255, 255, 0.7); }
+
+.dark-theme .checkbox.disabled .selection-control, .custom-theme .checkbox.disabled .selection-control,
+.dark-theme .checkbox input:disabled ~ .selection-control, .custom-theme .checkbox input:disabled ~ .selection-control, .dark-theme .radio.disabled .selection-control, .custom-theme .radio.disabled .selection-control,
+.dark-theme .radio input:disabled ~ .selection-control, .custom-theme .radio input:disabled ~ .selection-control {
+  border-color: rgba(255, 255, 255, 0.3); }
+
+.dark-theme .checkbox.checked.disabled .selection-control, .custom-theme .checkbox.checked.disabled .selection-control,
+.dark-theme .checkbox input:checked:disabled ~ .selection-control, .custom-theme .checkbox input:checked:disabled ~ .selection-control {
+  border-color: transparent;
+  background: rgba(255, 255, 255, 0.3); }
+
+.dark-theme .radio.disabled .selection-control::after, .custom-theme .radio.disabled .selection-control::after,
+.dark-theme .radio.disabled.checked .selection-control::after, .custom-theme .radio.disabled.checked .selection-control::after,
+.dark-theme .radio input:disabled ~ .selection-control::after, .custom-theme .radio input:disabled ~ .selection-control::after,
+.dark-theme .radio input:checked:disabled ~ .selection-control::after, .custom-theme .radio input:checked:disabled ~ .selection-control::after {
+  background: rgba(255, 255, 255, 0.3); }
+
+.dark-theme .switch .selection-control, .custom-theme .switch .selection-control {
+  background-color: rgba(255, 255, 255, 0.3); }
+  .dark-theme .switch .selection-control::after, .custom-theme .switch .selection-control::after {
+    background-color: #bdbdbd; }
+
+.dark-theme .switch.disabled .selection-control, .custom-theme .switch.disabled .selection-control,
+.dark-theme .switch input:disabled ~ .selection-control, .custom-theme .switch input:disabled ~ .selection-control {
+  background-color: rgba(255, 255, 255, 0.1) !important; }
+  .dark-theme .switch.disabled .selection-control::after, .custom-theme .switch.disabled .selection-control::after,
+  .dark-theme .switch input:disabled ~ .selection-control::after, .custom-theme .switch input:disabled ~ .selection-control::after {
+    background-color: #424242 !important; }
+
+.bg-dark .checkbox .selection-control, .card.card-media .card-media-content .checkbox .selection-control, .card-media.text-field-elevated .card-media-content .checkbox .selection-control, .bg-dark .radio .selection-control, .card.card-media .card-media-content .radio .selection-control, .card-media.text-field-elevated .card-media-content .radio .selection-control {
+  border: 0.125rem solid rgba(255, 255, 255, 0.7); }
+
+.bg-dark .checkbox.disabled .selection-control, .card.card-media .card-media-content .checkbox.disabled .selection-control, .card-media.text-field-elevated .card-media-content .checkbox.disabled .selection-control,
+.bg-dark .checkbox input:disabled ~ .selection-control, .card.card-media .card-media-content .checkbox input:disabled ~ .selection-control, .card-media.text-field-elevated .card-media-content .checkbox input:disabled ~ .selection-control, .bg-dark .radio.disabled .selection-control, .card.card-media .card-media-content .radio.disabled .selection-control, .card-media.text-field-elevated .card-media-content .radio.disabled .selection-control,
+.bg-dark .radio input:disabled ~ .selection-control, .card.card-media .card-media-content .radio input:disabled ~ .selection-control, .card-media.text-field-elevated .card-media-content .radio input:disabled ~ .selection-control {
+  border-color: rgba(255, 255, 255, 0.3); }
+
+.bg-dark .checkbox.checked.disabled .selection-control, .card.card-media .card-media-content .checkbox.checked.disabled .selection-control, .card-media.text-field-elevated .card-media-content .checkbox.checked.disabled .selection-control,
+.bg-dark .checkbox input:checked:disabled ~ .selection-control, .card.card-media .card-media-content .checkbox input:checked:disabled ~ .selection-control, .card-media.text-field-elevated .card-media-content .checkbox input:checked:disabled ~ .selection-control {
+  border-color: transparent;
+  background: rgba(255, 255, 255, 0.3); }
+
+.bg-dark .radio.disabled .selection-control::after, .card.card-media .card-media-content .radio.disabled .selection-control::after, .card-media.text-field-elevated .card-media-content .radio.disabled .selection-control::after,
+.bg-dark .radio.disabled.checked .selection-control::after, .card.card-media .card-media-content .radio.disabled.checked .selection-control::after, .card-media.text-field-elevated .card-media-content .radio.disabled.checked .selection-control::after,
+.bg-dark .radio input:disabled ~ .selection-control::after, .card.card-media .card-media-content .radio input:disabled ~ .selection-control::after, .card-media.text-field-elevated .card-media-content .radio input:disabled ~ .selection-control::after,
+.bg-dark .radio input:checked:disabled ~ .selection-control::after, .card.card-media .card-media-content .radio input:checked:disabled ~ .selection-control::after, .card-media.text-field-elevated .card-media-content .radio input:checked:disabled ~ .selection-control::after {
+  background: rgba(255, 255, 255, 0.3); }
+
+.bg-dark .switch .selection-control, .card.card-media .card-media-content .switch .selection-control, .card-media.text-field-elevated .card-media-content .switch .selection-control {
+  background-color: rgba(255, 255, 255, 0.3); }
+  .bg-dark .switch .selection-control::after, .card.card-media .card-media-content .switch .selection-control::after, .card-media.text-field-elevated .card-media-content .switch .selection-control::after {
+    background-color: #bdbdbd; }
+
+.bg-dark .switch.disabled .selection-control, .card.card-media .card-media-content .switch.disabled .selection-control, .card-media.text-field-elevated .card-media-content .switch.disabled .selection-control,
+.bg-dark .switch input:disabled ~ .selection-control, .card.card-media .card-media-content .switch input:disabled ~ .selection-control, .card-media.text-field-elevated .card-media-content .switch input:disabled ~ .selection-control {
+  background-color: rgba(255, 255, 255, 0.1) !important; }
+  .bg-dark .switch.disabled .selection-control::after, .card.card-media .card-media-content .switch.disabled .selection-control::after, .card-media.text-field-elevated .card-media-content .switch.disabled .selection-control::after,
+  .bg-dark .switch input:disabled ~ .selection-control::after, .card.card-media .card-media-content .switch input:disabled ~ .selection-control::after, .card-media.text-field-elevated .card-media-content .switch input:disabled ~ .selection-control::after {
+    background-color: #424242 !important; }
 
 .floating-action-area {
   position: fixed;
@@ -2980,8 +3117,8 @@ body .btn-flat-accent {
       content: "";
       position: absolute;
       background: rgba(0, 0, 0, 0.2);
-      height: 1px;
-      top: -1px;
+      height: 0.0625rem;
+      top: -0.0625rem;
       left: 0;
       right: 0; }
 
@@ -3009,7 +3146,7 @@ body .btn-flat-accent {
     outline: 0; }
   .list-item.list-item-two-lines .list-item-primary-content, .list-item.list-item-three-lines .list-item-primary-content, .list-item.list-item-dynamic .list-item-primary-content {
     display: block;
-    line-height: 20px; }
+    line-height: 1.25rem; }
   .list-item.list-item-three-lines .list-item-icon,
   .list-item.list-item-three-lines .list-item-avatar,
   .list-item.list-item-three-lines .list-item-secondary-content, .list-item.list-item-dynamic .list-item-icon,

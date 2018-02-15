@@ -14,8 +14,8 @@
         content: "";
         position: absolute;
         background: rgba(0, 0, 0, 0.2);
-        height: 1px;
-        top: -1px;
+        height: $list-divider-height;
+        top: -$list-divider-height;
         left: 0;
         right: 0;
       }
@@ -47,7 +47,7 @@
   &.list-item-dynamic {
     .list-item-primary-content {
       display: block;
-      line-height: 20px;
+      line-height: $list-item-multi-line-line-height;
     }
   }
 
