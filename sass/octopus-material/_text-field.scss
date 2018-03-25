@@ -10,7 +10,7 @@
     position: absolute;
     width: 100%;
     bottom: -$text-field-divider-width;
-    border-bottom: $text-field-divider-focus-hover-width solid $text-field-focus-color;
+    border-bottom: $text-field-divider-focus-hover-width solid;
     transform: scale3d(0, 1, 1);
     transition: none;
   }
@@ -82,7 +82,7 @@ input.text-input {
   text-align: center;
 
   & + .text-input {
-    margin-left: 16px;
+    margin-left: 1rem;
   }
 }
 
@@ -99,10 +99,6 @@ input.text-input {
   line-height: $text-field-item-height;
   font-style: normal;
   margin-top: $text-field-helper-text-margin;
-
-  &.error-text {
-    color: $text-field-invalid-color;
-  }
 }
 
 .text-field {
@@ -120,12 +116,6 @@ input.text-input {
   .text-input {
     padding-top: $text-field-item-margin;
     padding-bottom: $text-field-item-margin;
-
-    &:focus {
-      & ~ label {
-        color: $text-field-focus-color;
-      }
-    }
 
     &:disabled {
       color: $text-lower-contrast;
@@ -147,17 +137,9 @@ input.text-input {
     margin-bottom: 0;
   }
 
-  &.focus {
-
-    label {
-      color: $text-field-focus-color;
-    }
-  }
-
   &:hover {
     .text-field-border {
       border-width: $text-field-divider-focus-hover-width;
-      border-color: $text-field-divider-hover-color-light-theme;
       &::after {
         bottom: -$text-field-divider-focus-hover-width;
       }
@@ -176,22 +158,8 @@ input.text-input {
   }
 
   &.invalid, &.focus.invalid {
-    .text-input {
-      border-color: $text-field-invalid-color;
-    }
-
-    label {
-      color: $text-field-invalid-color;
-    }
-
     .error-text {
       display: block;
-    }
-
-    .text-field-border {
-      &, &::after {
-        border-color: $text-field-invalid-color !important;
-      }
     }
   }
 
@@ -328,136 +296,116 @@ input:focus + label {
   &.focus .text-field-border,
   & .text-input:focus ~ .text-field-border {
     border-width: $text-field-divider-focus-hover-width;
-    border: $text-field-divider-focus-hover-width solid $text-field-focus-color;
+    border: $text-field-divider-focus-hover-width solid;
   }
 }
 
-@include light-theme-style {
+@mixin text-fields-theme($theme-colors, $dark-theme) {
+  $primary-color: map_get($theme-colors, "primary");
+  $danger-color: map_get($theme-colors, "danger");
+
+  $text-field-label-color: $text-field-label-color-light-theme;
+  $text-field-divider-color: $text-field-divider-color-light-theme;
+  $text-field-divider-color-hover: $text-field-divider-color-hover-light-theme;
+  $text-field-box-background: $text-input-box-bg-light-theme;
+  $text-input-color: $text-input-color-light-theme;
+  $text-input-placeholder-color: $text-input-placeholder-color-light-theme;
+  $text-input-icon-color: $text-input-icon-color-light-theme;
+  $text-input-affix-color: $text-input-affix-color-light-theme;
+  $text-field-helper-color: $text-field-helper-text-color-light-theme;
+
+  @if ($dark-theme) {
+    $text-field-label-color: $text-field-label-color-dark-theme;
+    $text-field-divider-color: $text-field-divider-color-dark-theme;
+    $text-field-divider-color-hover: $text-field-divider-color-hover-dark-theme;
+    $text-field-box-background: $text-input-box-bg-dark-theme;
+    $text-input-color: $text-input-color-dark-theme;
+    $text-input-placeholder-color: $text-input-placeholder-color-dark-theme;
+    $text-input-icon-color: $text-input-icon-color-dark-theme;
+    $text-input-affix-color: $text-input-affix-color-dark-theme;
+    $text-field-helper-color: $text-field-helper-text-color-dark-theme;
+  }
+
   .text-field-border {
-    border-color: $text-field-divider-color-light-theme;
+    border-color: $text-field-divider-color;
+
+    &::after {
+      border-color: $primary-color;
+    }
   }
 
   .placeholder {
-    color: $text-input-placeholder-color-light-theme;
+    color: $text-input-placeholder-color;
   }
 
   .floating-label {
     &.focus input::placeholder, input:focus::placeholder {
-      color: $text-input-placeholder-color-light-theme;
+      color: $text-input-placeholder-color;
       transition-timing-function: ease-in;
     }
   }
 
   .text-input, input {
-    color: $text-input-color-light-theme;
-  }
-
-  .text-input-icon {
-    color: $text-input-icon-color-light-theme;
-      
-    @include hover-focus {
-      color: $text-input-icon-color-light-theme;
-    }
+    color: $text-input-color;
   }
 
   .text-input-prefix, .text-input-suffix {
-    color: $text-input-affix-color-light-theme;
+    color: $text-input-affix-color;
   }
 
   .text-field {
     label {
-      color: $text-field-label-color-light-theme;
+      color: $text-field-label-color;
     }
 
     &:hover {
       .text-field-border {
-        border-color: $text-field-divider-hover-color-light-theme;
+        border-color: $text-field-divider-color-hover;
+      }
+    }
+
+    .text-input:focus ~ label, &.focus label {
+      color: $primary-color;
+    }
+
+    &.invalid, &.focus.invalid {
+      .text-input {
+        border-color: $danger-color;
+      }
+
+      label {
+        color: $danger-color;
+      }
+
+      .text-field-border {
+        &, &::after {
+          border-color: $danger-color;
+        }
       }
     }
   }
 
   .text-field-box {
-    background: $text-input-box-bg-light-theme;
-  }
-}
-
-@include dark-theme-style {
-  .text-field-border {
-    border-color: $text-field-divider-color-dark-theme;
+    background: $text-field-box-background;
   }
 
-  .placeholder {
-    color: $text-input-placeholder-color-dark-theme;
-  }
-
-  .floating-label {
-    &.focus input::placeholder, input:focus::placeholder {
-      color: $text-input-placeholder-color-dark-theme;
-      transition-timing-function: ease-in;
-    }
-  }
-
-  .text-input, input {
-    color: $text-input-color-dark-theme;
+  .text-area .text-input:focus ~ .text-field-border {
+    border-color: $primary-color;
   }
 
   .text-input-icon {
-    color: $text-input-icon-color-dark-theme;
-      
+    color: $text-input-icon-color;
+
     @include hover-focus {
-      color: $text-input-icon-color-dark-theme;
-    }
-  }
-
-  .text-input-prefix, .text-input-suffix {
-    color: $text-input-affix-color-dark-theme;
-  }
-
-  .text-field {
-    label {
-      color: $text-field-label-color-dark-theme;
-    }
-
-    &:hover {
-      .text-field-border {
-        border-color: $text-field-divider-hover-color-dark-theme;
-      }
-    }
-  }
-
-  .text-field-box {
-    background: $text-input-box-bg-dark-theme;
-  }
-}
-
-@include light-theme-style(false) {
-  .text-field-elevated {
-    .text-input-icon {
-      color: $text-input-icon-color-light-theme;
-        
-      @include hover-focus {
-        color: $text-input-icon-color-light-theme;
-      }
+      color: $text-input-icon-color;
     }
   }
 
   .text-field-helper-text {
-    color: $text-field-helper-text-color-light-theme;
-  }
-}
+    color: $text-field-helper-color;
 
-@include dark-theme-style(false) {
-  .text-field-elevated {
-    .text-input-icon {
-      color: $text-input-icon-color-dark-theme;
-        
-      @include hover-focus {
-        color: $text-input-icon-color-dark-theme;
-      }
+    &.error-text {
+      color: $danger-color;
     }
-  }
-
-  .text-field-helper-text {
-    color: $text-field-helper-text-color-dark-theme;
   }
 }

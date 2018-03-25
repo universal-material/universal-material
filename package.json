@@ -17,11 +17,6 @@
     "docs": "http-server -a localhost -p 8081 -o http://localhost:8081/docs"
   },
   "devDependencies": {
-    "grunt": "^1.0.1",
-    "grunt-autoprefixer": "^3.0.4",
-    "grunt-contrib-pug": "^1.0.0",
-    "grunt-contrib-sass": "^1.0.0",
-    "grunt-contrib-watch": "^1.0.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-notify": "^3.0.0",
@@ -29,5 +24,8 @@
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "bootstrap": "^4.0.0",
+    "node-sass": "^4.8.3"
+  }
 }

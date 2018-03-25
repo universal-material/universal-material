@@ -64,7 +64,6 @@
 .dialog-content {
   display: flex;
   flex-direction: column;
-  background: $dialog-background;
   width: 600px;
   max-width: 100%;
   border-radius: 2px;
@@ -77,7 +76,6 @@
 .dialog-body {
   //@extend .subheading
   padding: $dialog-padding;
-  color: $text-low-contrast;
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -109,5 +107,24 @@
 
   100% {
     opacity: 1;
+  }
+}
+
+@mixin dialog-theme($dark-theme) {
+ $background-color: $dialog-background-light-theme;
+ $color: $text-low-contrast-light-theme;
+
+
+  @if ($dark-theme) {
+    $background-color: $dialog-background-dark-theme;
+    $color: $text-low-contrast-dark-theme;
+  }
+
+  .dialog-content {
+    background-color: $background-color;
+  }
+
+  .dialog-body {
+    color: $color;
   }
 }

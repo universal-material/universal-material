@@ -117,21 +117,22 @@ html
 
       .sidebar-backdrop
       .layout-content.toolbar-layout
-        .app-bar.elevate-1
+        .appbar#app-bar
           .toolbar-row
-            .toolbar-icon
-              .btn-borderless(id="menu-toggle")
+            .toolbar-icon.d-lg-none
+              .btn-borderless#menu-toggle
                 i.mdi.mdi-menu
 
             .toolbar-title
               | Material
-        .layout-content
-          .container
+        .layout-content#main-content
+          .container.margin-lg-40
             block content
 
     script.
       (function () {
         var sidebar = document.querySelector(".sidebar");
+        var appbar = document.getElementById("app-bar");
 
         function toggleSidebar() {
           if (sidebar.classList.contains("open")) {
@@ -141,5 +142,15 @@ html
           }
         }
 
+        function mainContentScroll(e) {
+          if (e.target.scrollTop) {
+            appbar.classList.add('elevation-6dp');
+          } else {
+            appbar.classList.remove('elevation-6dp');
+          }
+        }
+
         document.getElementById("menu-toggle").addEventListener("click", toggleSidebar);
+
+        document.getElementById("main-content").addEventListener("scroll", mainContentScroll);
       })();

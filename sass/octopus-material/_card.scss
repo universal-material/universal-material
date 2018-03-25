@@ -1,7 +1,6 @@
 .card {
   border-radius: $card-border-radius;
-
-  @include elevate(2);
+  box-shadow: $card-shadow;
 
   &.selectable-background::before {
     border-radius: $card-border-radius;
@@ -46,20 +45,16 @@
 }
 
 .card-media-content {
+  color: $white;
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
+  background-color: rgba(0, 0, 0, 0.54) !important;
 
   .subtitle {
-    color: $white;
+    color: $white !important;
   }
-}
-
-.card.card-media .card-media-content {
-  @extend .bg-dark;
-
-  background-color: rgba(0, 0, 0, 0.54) !important;
 }
 
 .card-body {
@@ -87,28 +82,48 @@
   }
 }
 
-@include light-theme-style(false) {
-  &.card,
+@mixin card-theme($dark-theme: $default-theme-dark) {
+  $background-color: $card-bg-light-theme;
+  $color: $card-subtitle-color-light-theme;
+
+  @if ($dark-theme) {
+    $background-color: $card-bg-dark-theme;
+    $color: $card-subtitle-color-dark-theme;
+  }
+
   .card {
-    background-color: $card-bg-light-theme
+    background-color: $background-color
   }
 
   .card-header {
     .subtitle {
-      color: $card-subtitle-color-light-theme;
+      color: $color;
     }
   }
 }
 
-@include dark-theme-style(false) {
-  &.card,
-  .card {
-    background-color: $card-bg-dark-theme
-  }
-
-  .card-header {
-    .subtitle {
-      color: $card-subtitle-color-dark-theme;
-    }
-  }
-}
+//@include light-theme-style(false) {
+//  &.card,
+//  .card {
+//    background-color: $card-bg-light-theme
+//  }
+//
+//  .card-header {
+//    .subtitle {
+//      color: $card-subtitle-color-light-theme;
+//    }
+//  }
+//}
+//
+//@include dark-theme-style(false) {
+//  &.card,
+//  .card {
+//    background-color: $card-bg-dark-theme
+//  }
+//
+//  .card-header {
+//    .subtitle {
+//      color: $card-subtitle-color-dark-theme;
+//    }
+//  }
+//}

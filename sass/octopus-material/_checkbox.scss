@@ -169,15 +169,32 @@
   }
 }
 
-@include light-theme-style {
+@mixin selection-controls-theme($dark-theme) {
+
+  $check-radio-border: $checkbox-radio-border-light-theme;
+  $check-radio-disabled-border: $checkbox-radio-disabled-color-light-theme;
+  $switch-background: $switch-background-color-light-theme;
+  $switch-disabled-background: $switch-disabled-background-color-light-theme;
+  $switch-toggle-background: $switch-toggle-background-color-light-theme;
+  $switch-toggle-disabled-background: $switch-toggle-disabled-background-color-light-theme;
+
+  @if ($dark-theme) {
+    $check-radio-border: $checkbox-radio-border-dark-theme;
+    $check-radio-disabled-border: $checkbox-radio-disabled-color-dark-theme;
+    $switch-background: $switch-background-color-dark-theme;
+    $switch-disabled-background: $switch-disabled-background-color-dark-theme;
+    $switch-toggle-background: $switch-toggle-background-color-dark-theme;
+    $switch-toggle-disabled-background: $switch-toggle-disabled-background-color-dark-theme;
+  }
+
   .checkbox, .radio {
     .selection-control {
-      border: $checkbox-radio-border-light-theme;
+      border: $check-radio-border;
     }
 
     &.disabled .selection-control,
     input:disabled ~ .selection-control {
-      border-color: $checkbox-radio-disabled-color-light-theme;
+      border-color: $check-radio-disabled-border;
     }
   }
 
@@ -185,7 +202,7 @@
     &.checked.disabled .selection-control,
     input:checked:disabled ~ .selection-control {
       border-color: transparent;
-      background: $checkbox-radio-disabled-color-light-theme;
+      background: $check-radio-disabled-border;
     }
   }
 
@@ -195,77 +212,26 @@
     input:disabled ~ .selection-control,
     input:checked:disabled ~ .selection-control {
       &::after {
-        background: $checkbox-radio-disabled-color-light-theme;
+        background: $check-radio-disabled-border;
       }
     }
   }
 
   .switch {
     .selection-control {
-      background-color: $switch-background-color-light-theme;
+      background-color: $switch-background;
 
       &::after {
-        background-color: $switch-toggle-background-color-light-theme;
+        background-color: $switch-toggle-background;
       }
     }
 
     &.disabled .selection-control,
     input:disabled ~ .selection-control {
-      background-color: $switch-disabled-background-color-light-theme !important;
+      background-color: $switch-disabled-background !important;
 
       &::after {
-        background-color:  $switch-toggle-disabled-background-color-light-theme !important;
-      }
-    }
-  }
-}
-
-@include dark-theme-style {
-  .checkbox, .radio {
-    .selection-control {
-      border: $checkbox-radio-border-dark-theme;
-    }
-
-    &.disabled .selection-control,
-    input:disabled ~ .selection-control {
-      border-color: $checkbox-radio-disabled-color-dark-theme;
-    }
-  }
-
-  .checkbox {
-    &.checked.disabled .selection-control,
-    input:checked:disabled ~ .selection-control {
-      border-color: transparent;
-      background: $checkbox-radio-disabled-color-dark-theme;
-    }
-  }
-
-  .radio {
-    &.disabled .selection-control,
-    &.disabled.checked .selection-control,
-    input:disabled ~ .selection-control,
-    input:checked:disabled ~ .selection-control {
-      &::after {
-        background: $checkbox-radio-disabled-color-dark-theme;
-      }
-    }
-  }
-
-  .switch {
-    .selection-control {
-      background-color: $switch-background-color-dark-theme;
-
-      &::after {
-        background-color: $switch-toggle-background-color-dark-theme;
-      }
-    }
-
-    &.disabled .selection-control,
-    input:disabled ~ .selection-control {
-      background-color: $switch-disabled-background-color-dark-theme !important;
-
-      &::after {
-        background-color:  $switch-toggle-disabled-background-color-dark-theme !important;
+        background-color:  $switch-toggle-disabled-background !important;
       }
     }
   }

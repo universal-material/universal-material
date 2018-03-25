@@ -5,11 +5,11 @@
     @include selectable-background(false, true)
   }
   
-  @include text-emphasis-variant(".text-low-contrast", $text-low-contrast); //Octopus material changes
+  @include text-emphasis-variant(".text-low-contrast", $text-low-contrast-light-theme); //Octopus material changes
   @include text-emphasis-variant(".text-high-contrast", $text-high-contrast); //Octopus material changes
 }
 
-body.light-theme {
+.light-theme {
   background-color: $bg-light;
 }
 
@@ -24,7 +24,7 @@ body.light-theme {
   @include text-emphasis-variant(".text-high-contrast", $text-high-contrast-dark-theme); //Octopus material changes
 }
 
-body.dark-theme {
+.dark-theme {
   background-color: $bg-dark;
 }
 
@@ -32,6 +32,4 @@ body.dark-theme {
   color: $body-color-light-theme;
 }
 
-body {
-  @include create-theme($theme-colors, $default-theme-dark)
-}
+

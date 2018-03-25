@@ -2,8 +2,10 @@
   @include media-breakpoint-up($breakpoint) {
     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
 
-    .float#{$infix}-left  { @include float-left; }
-    .float#{$infix}-right { @include float-right; }
-    .float#{$infix}-none  { @include float-none; }
+    @each $shadow, $value in $shadows {
+      .elevation#{$infix}-#{$shadow} {
+        box-shadow: $value;
+      }
+    }
   }
 }

@@ -8,7 +8,7 @@
   overflow: hidden;
 
   @include vertical-padding($dropdown-menu-padding);
-  @include elevate(2);
+  @include elevate("2dp");
 
   transform: scale3d(0, 0, 1);
   transition: transform 350ms $awesome-cubic-bezier 350ms, opacity 250ms;
@@ -75,7 +75,7 @@
 
 .dropdown-toggle-icon {
   font-size: $base-icon-size;
-  color: $text-low-contrast;
+  color: $text-low-contrast-light-theme;
 }
 
 .dropdown.show {
@@ -107,16 +107,25 @@
   }
 }
 
-@include light-theme-style(false) {
+@mixin dropdown-theme($dark-theme) {
+  $background: $dropdown-menu-bg-light-theme;
+  $background-in-data-table: $dropdown-in-data-table-bg-light-theme;
+  $color: $dropdown-item-color-light-theme;
+
+  @if($dark-theme) {
+    $background: $dropdown-menu-bg-dark-theme;
+    $background-in-data-table: $dropdown-in-data-table-bg-dark-theme;
+    $color: $dropdown-item-color-dark-theme;
+  }
 
   .dropdown-menu {
-    background: $dropdown-menu-bg-light-theme;
+    background: $background;
   }
 
   .dropdown-item {
-    color: $dropdown-item-color-light-theme;
+    color: $color;
     @include hover-focus {
-      color: $dropdown-item-color-light-theme;
+      color: $color;
     }
 
     @include selectable-background(false);
@@ -124,28 +133,50 @@
 
   .data-table {
     .dropdown-menu {
-      background-color: $dropdown-in-data-table-bg-light-theme;
+      background-color: $background-in-data-table;
     }
   }
 }
-
-@include dark-theme-style(false) {
-  .dropdown-menu {
-    background: $dropdown-menu-bg-dark-theme;
-  }
-
-  .dropdown-item {
-    color: $dropdown-item-color-dark-theme;
-    @include hover-focus {
-      color: $dropdown-item-color-dark-theme;
-    }
-
-    @include selectable-background(true);
-  }
-
-  .data-table {
-    .dropdown-menu {
-      background-color: $dropdown-in-data-table-bg-dark-theme;
-    }
-  }
-}
+//
+//@include light-theme-style(false) {
+//
+//  .dropdown-menu {
+//    background: $dropdown-menu-bg-light-theme;
+//  }
+//
+//  .dropdown-item {
+//    color: $dropdown-item-color-light-theme;
+//    @include hover-focus {
+//      color: $dropdown-item-color-light-theme;
+//    }
+//
+//    @include selectable-background(false);
+//  }
+//
+//  .data-table {
+//    .dropdown-menu {
+//      background-color: $dropdown-in-data-table-bg-light-theme;
+//    }
+//  }
+//}
+//
+//@include dark-theme-style(false) {
+//  .dropdown-menu {
+//    background: $dropdown-menu-bg-dark-theme;
+//  }
+//
+//  .dropdown-item {
+//    color: $dropdown-item-color-dark-theme;
+//    @include hover-focus {
+//      color: $dropdown-item-color-dark-theme;
+//    }
+//
+//    @include selectable-background(true);
+//  }
+//
+//  .data-table {
+//    .dropdown-menu {
+//      background-color: $dropdown-in-data-table-bg-dark-theme;
+//    }
+//  }
+//}

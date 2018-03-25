@@ -4,7 +4,6 @@
   flex-direction: row;
   height: $chip-height;
   border-radius: $chip-height / 2;
-  background-color: $chip-background-color;
   font-size: $chip-font-size;
 
   @include vertical-margin($chip-margin-vertical);
@@ -40,7 +39,6 @@
   font-size: $chip-remove-size;
   line-height: $chip-remove-size;
   margin: 0 $chip-remove-margin;
-  color: rgba(0, 0, 0, 0.54);
 
   &:hover {
     color: $chip-remove-hover-color;
@@ -51,4 +49,23 @@
   min-height: $chip-height + $chip-margin-vertical * 2;
   align-items: center;
   flex-wrap: wrap;
+}
+
+@mixin chip-theme($dark-theme) {
+  $background-color: $chip-background-color-light-theme;
+  $remove-color: $chip-remove-color-light-theme;
+
+
+  @if ($dark-theme) {
+    $background-color: $chip-background-color-dark-theme;
+    $remove-color: $chip-remove-color-dark-theme;
+  }
+
+  .chip {
+    background-color: $background-color;
+  }
+
+  .chip-remove {
+    color: $remove-color;
+  }
 }

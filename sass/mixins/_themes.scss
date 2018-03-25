@@ -1,20 +1,90 @@
+@mixin create-light-theme() {
+  @if & {
+    & {
+      background-color: $bg-light;
+    }
+  }
+  @else {
+    body {
+      background-color: $bg-light;
+      color: $body-color-light-theme;
+    }
+  }
+}
+
+@mixin create-dark-theme() {
+  @if & {
+    & {
+      background-color: $bg-dark;
+    }
+  }
+  @else {
+    body {
+      background-color: $bg-dark;
+      color: $body-color-dark-theme;
+    }
+  }
+}
+
 @mixin create-theme($theme-colors, $dark-theme) {
 
   @if (mixin_exists(create-app-bar)) {
     @include create-app-bar($theme-colors, $dark-theme);
   }
     
-  @if (mixin_exists(create-buttons)) {
-    @include create-buttons($theme-colors, $dark-theme);
+  @if (mixin_exists(buttons-theme)) {
+    @include buttons-theme($theme-colors, $dark-theme);
   }  
 
   @if (mixin_exists(create-backgrounds)) {
     @include create-backgrounds($theme-colors)
   }
+
+  @if (mixin_exists(sidebar-theme)) {
+    @include sidebar-theme($dark-theme);
+  }
+
+  @if (mixin_exists(list-theme)) {
+    @include list-theme($dark-theme);
+  }
+
+  @if (mixin_exists(card-theme)) {
+    @include card-theme($dark-theme);
+  }
+
+  @if (mixin_exists(dialog-theme)) {
+    @include dialog-theme($dark-theme);
+  }
+
+  @if (mixin_exists(dropdown-theme)) {
+    @include dropdown-theme($dark-theme);
+  }
+
+  @if (mixin_exists(chip-theme)) {
+    @include chip-theme($dark-theme);
+  }
+
+  @if (mixin_exists(selection-controls-theme)) {
+    @include selection-controls-theme($dark-theme);
+  }
+
+  @if (mixin_exists(snackbar-theme)) {
+    @include snackbar-theme($dark-theme);
+  }
+
+  @if (mixin_exists(tab-theme)) {
+    @include tab-theme($theme-colors, $dark-theme);
+  }
+
+  @if (mixin_exists(text-fields-theme)) {
+    @include text-fields-theme($theme-colors, $dark-theme);
+  }
     
   @if($dark-theme) {
+    @include create-dark-theme;
     @extend .dark-theme;
   } @else {
+    @include create-light-theme;
     @extend .light-theme;
   }
 }

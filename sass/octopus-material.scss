@@ -1,16 +1,13 @@
-@import "functions";
 @import "variables";
 @import "mixins";
-@import "print";
-@import "reboot";
 
-//
-//@import "mixins";
+@import "bootstrap-imports";
+
 @import "octopus-material/scaffolding";
 @import "octopus-material/typography";
 @import "octopus-material/grid";
-//@import "octopus-material/elevation";
-//
+@import "octopus-material/elevation";
+
 @import "octopus-material/themes";
 @import "octopus-material/badge";
 @import "octopus-material/toolbar";
@@ -32,12 +29,9 @@
 @import "octopus-material/snackbar";
 @import "octopus-material/text-field";
 @import "octopus-material/chip";
-//
-////Utilities
+
+//Utilities
 @import "utilities";
 //@import "octopus-material/responsive-utilities";
 
-
-.custom-theme {
-  @include create-theme((primary: red), true)
-}
+@include create-theme($theme-colors, $default-theme-dark)

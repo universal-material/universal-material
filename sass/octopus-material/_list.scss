@@ -65,7 +65,7 @@
 .list-item-avatar {
   position: relative;
   font-size: $list-icon-size;
-  color: $text-low-contrast;
+  color: $text-low-contrast-light-theme;
 }
 
 .list-item-avatar {
@@ -145,6 +145,38 @@
   padding: $list-item-padding;
   font-weight: $font-medium;
   font-size: $list-index-font-size;
+}
+
+@mixin list-theme($dark-theme) {
+  $color: $list-item-color-light-theme;
+  $icon-color: $list-icon-color-light-theme;
+
+  @if ($dark-theme) {
+    $color: $list-item-color-dark-theme;
+    $icon-color: $list-icon-color-dark-theme;
+  }
+
+  .list.list-hover {
+    .list-item {
+      @include selectable-background($dark-theme);
+    }
+  }
+
+  .list-item {
+    color: $color;
+
+    @include hover-focus {
+      color: $color;
+    }
+  }
+
+  .list-item-icon {
+    color: $icon-color;
+  }
+
+  .list-index {
+    color: $icon-color;
+  }
 }
 
 @include light-theme-style {

@@ -1,5 +1,7 @@
-$primary-color: #3863FF !default; //Octopus material
-$accent-color: #f50057 !default; //Octopus material
+$primary-color: #3863FF !default;
+$accent-color: #f50057 !default;
+$danger-color: #ef5350 !default;
+$default-theme-dark: true !default;
 
 $font-thin: 100;
 $font-light: 300;
@@ -7,12 +9,6 @@ $font-regular: 400;
 $font-medium: 500;
 $font-bold: 700;
 $font-black: 900;
-
-//Bootstrap stuff
-
-//
-// Color system
-//
 
 $white:  #fff !default;
 $gray-100: #f5f5f5 !default;
@@ -26,94 +22,31 @@ $gray-800: #424242 !default;
 $gray-900: #212121 !default;
 $black:  #000 !default;
 
-$grays: (
-        100: $gray-100,
-        200: $gray-200,
-        300: $gray-300,
-        400: $gray-400,
-        500: $gray-500,
-        600: $gray-600,
-        700: $gray-700,
-        800: $gray-800,
-        900: $gray-900
-) !default;
-
-$blue:    #007bff !default;
-$indigo:  #6610f2 !default;
-$purple:  #6f42c1 !default;
-$pink:    #e83e8c !default;
-$red:     #dc3545 !default;
-$orange:  #fd7e14 !default;
-$yellow:  #ffc107 !default;
-$green:   #28a745 !default;
-$teal:    #20c997 !default;
-$cyan:    #17a2b8 !default;
-
-$colors: (
-  blue: $blue,
-  indigo: $indigo,
-  purple: $purple,
-  pink: $pink,
-  red: $red,
-  orange: $orange,
-  yellow: $yellow,
-  green: $green,
-  teal: $teal,
-  cyan: $cyan,
-  white: $white,
-  gray: $gray-600,
-  gray-dark: $gray-800
-) !default;
+$blue:    #2196f3 !default;
+$indigo:  #3f51b5 !default;
+$purple:  #9c27b0 !default;
+$pink:    #e91e63 !default;
+$red:     #f44336 !default;
+$orange:  #ff9800 !default;
+$yellow:  #ffeb3b !default;
+$green:   #4caf50 !default;
+$teal:    #009688 !default;
+$cyan:    #00bcd4 !default;
 
 $theme-colors: (
   primary: $primary-color, //Octopus material changes
   accent: $accent-color,
-  //success: $green,
-  //info: $cyan,
-  //warning: $yellow,
-  //danger: $red,
+  danger: $danger-color
 ) !default;
 
-
-// Set a specific jump point for requesting color jumps
-$theme-color-interval: 8% !default;
-
-$default-theme-dark: false !default;
 
 $color-high-contrast-light-theme: rgba(0, 0, 0, .87) !default;
 $color-high-contrast-dark-theme: $white !default;
 
 $color-low-contrast-light-theme: rgba(0, 0, 0, .42) !default;
 $color-low-contrast-dark-theme: rgba(255, 255, 255, .7) !default;
-$danger-color: #ef5350 !default;
 
-// Options
-//
-// Quickly modify global styling by enabling or disabling optional features.
 
-$enable-rounded:            true !default;
-$enable-shadows:            false !default;
-$enable-gradients:          false !default;
-$enable-transitions:        true !default;
-$enable-hover-media-query:  false !default;
-$enable-grid-classes:       true !default;
-$enable-print-styles:       true !default;
-
-// Spacing
-//
-// Control the default styling of most Bootstrap elements by modifying these
-// variables. Mostly focused on spacing.
-// You can add more entries to the $spacers map, should you need more variation.
-
-$spacer: 1rem !default;
-$spacers: (
-        0: 0,
-        1: ($spacer * .25),
-        2: ($spacer * .5),
-        3: $spacer,
-        4: ($spacer * 1.5),
-        5: ($spacer * 3)
-) !default;
 
 //// This variable affects the `.h-*` and `.w-*` classes.
 //$sizes: (
@@ -131,7 +64,7 @@ $body-bg:       $gray-100 !default; //Octopus material changes
 $body-color:    $gray-900 !default;
 
 $bg-light:       $gray-100 !default; //Octopus material changes
-$bg-dark:       $gray-900 !default; //Octopus material changes
+$bg-dark:       #2d2d2d !default; //Octopus material changes
 
 $body-color-light-theme:    $gray-900 !default; //Octopus material changes
 $body-color-dark-theme:    $white !default; //Octopus material changes
@@ -140,42 +73,14 @@ $body-color-dark-theme:    $white !default; //Octopus material changes
 //
 // Style anchor elements.
 
-$link-color:            theme-color("primary") !default;
-$link-decoration:       none !default;
-$link-hover-color:      darken($link-color, 15%) !default;
-$link-hover-decoration: underline !default;
-
-// Grid breakpoints
-//
-// Define the minimum dimensions at which your layout will change,
-// adapting to different screen sizes, for use in media queries.
-
-$grid-breakpoints: (
-        xs: 0,
-        sm: 576px,
-        md: 768px,
-        lg: 992px,
-        xl: 1200px
-) !default;
-
-// Grid containers
-//
-// Define the maximum width of `.container` for different screen sizes.
-
-$container-max-widths: (
-        sm: 540px,
-        md: 720px,
-        lg: 960px,
-        xl: 1140px
-) !default;
-@include _assert-ascending($container-max-widths, "$container-max-widths");
+$link-color:            $primary-color !default;
 
 //Margin and guttters
 $margin-gutter-8dp: .5rem !default;
 $margin-gutter-16dp: 1rem !default;
 $margin-gutter-24dp: 1.5rem !default;
 $margin-gutter-40dp: 2.5rem !default;
-$margin-gutter-default: $margin-gutter-8dp !default;
+$margin-gutter-default: $margin-gutter-16dp !default;
 
 $margins-and-gutters: (
         default: $margin-gutter-default,
@@ -189,30 +94,13 @@ $margins-and-gutters: (
 //
 // Set the number of columns and specify the width of the gutters.
 
-$grid-columns: 12 !default;
 $grid-gutter-width: $margin-gutter-default !default;
 
 // Components
 //
 // Define common padding and border radius sizes and more.
 
-//$line-height-lg:         1.5 !default;
-//$line-height-sm:         1.5 !default;
-
-$border-width: 1px !default;
-
-//$border-radius:          .25rem !default;
-//$border-radius-lg:       .3rem !default;
-//$border-radius-sm:       .2rem !default;
-//
-//$component-active-color: $white !default;
-//$component-active-bg:    theme-color("primary") !default;
-//
-//$caret-width:            .3em !default;
-//
-//$transition-base:        all .2s ease-in-out !default;
-//$transition-fade:        opacity .15s linear !default;
-//$transition-collapse:    height .35s ease !default;
+$border-width: .0625rem !default;
 
 // Fonts
 //
@@ -220,41 +108,19 @@ $border-width: 1px !default;
 
 $font-family-base: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default; //Octopus material custom code
 
-$font-size-base: .875rem !default; // Assumes the browser default, typically `16px`
-//$font-size-lg:   1.25rem !default;
-//$font-size-sm:   .875rem !default;
-
-$font-weight-light:           300 !default;
-$font-weight-normal:          400 !default;
-$font-weight-bold:            700 !default;
-
-$font-weight-base: $font-weight-normal !default;
-$line-height-base: 1.5 !default;
-
-$h1-font-size: 2.5rem !default;
-$h2-font-size: 2rem !default;
-$h3-font-size: 1.75rem !default;
-$h4-font-size: 1.5rem !default;
-$h5-font-size: 1.25rem !default;
-$h6-font-size: 1rem !default;
-
-$headings-margin-bottom: ($spacer / 2) !default;
-$headings-font-family:   inherit !default;
-$headings-font-weight:   500 !default;
-$headings-line-height:   1.1 !default;
-$headings-color:         inherit !default;
+$font-size-base: .875rem !default;
 
 $display4-size: 7rem !default; //Octopus custom code
 $display3-size: 3.5rem !default; //Octopus custom code
 $display2-size: 2.81rem !default; //Octopus custom code
 $display1-size: 2.125rem !default; //Octopus custom code
-$headline-size: 1.5rem !default; //Octopus custom code
-$title-size: 1.25rem !default; //Octopus custom code
-$subheading-size: 1rem !default; //Octopus custom code
-$body-2-size: .875rem !default; //Octopus custom code
-$body-1-size: .875rem !default; //Octopus custom code
-$caption-size: 0.75rem !default; //Octopus custom code
-
+$headline-size: ceil($font-size-base * 1.7) !default;
+$title-size: ceil($font-size-base * 1.4) !default;
+$subheading-size: ceil($font-size-base * 1.1) !default;
+$body-2-size: $font-size-base !default;
+$body-1-size: $font-size-base !default;
+$caption-size: ceil($font-size-base * 0.85) !default;
+$font-size-button: $font-size-base !default;
 
 $display4-weight:     $font-light !default;
 $display3-weight:     $font-regular !default;
@@ -267,80 +133,21 @@ $body-2-weight:       $font-medium !default;
 $body-1-weight:       $font-regular !default;
 $caption-weight:      $font-regular !default;
 
-$display-line-height: $headings-line-height !default;
-
 $lead-font-size:   1.25rem !default;
-$lead-font-weight: 300 !default;
-
-$small-font-size: 80% !default;
-
-$text-muted: $gray-600 !default;
-
-//$blockquote-small-color:  $gray-600 !default;
-//$blockquote-font-size:    ($font-size-base * 1.25) !default;
-//
-$hr-border-color: rgba($black,.1) !default;
-$hr-border-width: $border-width !default;
-
-$mark-padding: .2em !default;
-
-$dt-font-weight: $font-weight-bold !default;
-
-//$kbd-box-shadow:         inset 0 -.1rem 0 rgba($black,.25) !default;
-//$nested-kbd-font-weight: $font-weight-bold !default;
-//
-//$list-inline-padding: 5px !default;
-//
-$mark-bg: #fcf8e3 !default;
 
 $base-icon-size: 1.5rem;
 
-//$checked-radio-color: $primary-color !default;
-//
-////Typography
-//$font-thin: 100;
-//$font-light: 300;
-//$font-regular: 400;
-//$font-medium: 500;
-//$font-bold: 700;
-//$font-black: 900;
-//
-//$font-weight-normal: normal !default;
-//$font-weight-bold: bold !default;
-//
 $text-high-contrast: $body-color !default;//$base-dense-color !default;
 $text-high-contrast-dark-theme: $white !default;
-$text-low-contrast: rgba(0, 0, 0, 0.54) !default;
+$text-low-contrast-light-theme: rgba(0, 0, 0, 0.54) !default;
 $text-low-contrast-dark-theme: rgba(255, 255, 255, .7) !default;
 $text-lower-contrast: rgba(0, 0, 0, 0.42) !default;
 $text-lower-contrast-dark-theme: rgba(255, 255, 255, .5) !default;
-//$text-super-low-contrast: rgba(0, 0, 0, 0.2) !default;
-//
-//$font-family-base: "Roboto", "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default;
-//$font-size-base: 14px !default;
-//
-
-// Tables
-//
-// Customizes the `.table` component with basic values, each used across all table variations.
-
-$table-cell-padding:            .75rem !default;
 
 // Buttons
 //
 // For each of Bootstrap's buttons, define text, background and border color.
 
-$input-btn-padding-y:       .5rem !default;
-$input-btn-padding-x:       .75rem !default;
-$input-btn-line-height:     1.25 !default;
-//
-//$input-btn-padding-y-sm:    .25rem !default;
-//$input-btn-padding-x-sm:    .5rem !default;
-//$input-btn-line-height-sm:  1.5 !default;
-//
-//$input-btn-padding-y-lg:    .5rem !default;
-//$input-btn-padding-x-lg:    1rem !default;
-//$input-btn-line-height-lg:  1.5 !default;
 
 $btn-font-weight:                $font-medium !default;
 //$btn-box-shadow:                 inset 0 1px 0 rgba($white,.15), 0 1px 1px rgba($black,.075) !default;
@@ -352,7 +159,7 @@ $btn-font-weight:                $font-medium !default;
 //$btn-block-spacing-y:            .5rem !default;
 $btn-default-background-light: $white !default;
 $btn-default-background-dark: $gray-800 !default;
-$btn-borderless-color-light-theme: $text-low-contrast !default;
+$btn-borderless-color-light-theme: $text-low-contrast-light-theme !default;
 $btn-borderless-color-dark-theme: $white !default;
 $btn-borderless-font-size:  $base-icon-size !default;
 
@@ -433,35 +240,11 @@ $badge-position: -.625rem !default;
 $badge-font-size: .75rem !default;
 $badge-font-weight: $font-medium !default;
 
-// Modals
-
-// Padding applied to the modal body
-$modal-inner-padding:         15px !default;
-
-$modal-dialog-margin:         10px !default;
-$modal-dialog-margin-y-sm-up: 30px !default;
-
-$modal-title-line-height:     $line-height-base !default;
-
-$modal-content-bg:               $white !default;
-$modal-content-border-color:     rgba($black,.2) !default;
-$modal-content-border-width:     $border-width !default;
-$modal-content-box-shadow-xs:    0 3px 9px rgba($black,.5) !default;
-$modal-content-box-shadow-sm-up: 0 5px 15px rgba($black,.5) !default;
-
-$dialog-backdrop-bg:           $black !default;
-$dialog-backdrop-opacity:      .5 !default;
-
-$modal-lg:                    800px !default;
-$modal-md:                    500px !default;
-$modal-sm:                    300px !default;
-
-//
 //Card
 $card-small-title-font-size: $font-size-base !default;
 $card-large-title-font-size: 1.5rem !default;
 
-$card-subtitle-color-light-theme: $text-low-contrast !default;
+$card-subtitle-color-light-theme: $text-low-contrast-light-theme !default;
 $card-subtitle-color-dark-theme: $white !default;
 
 $card-subtitle-font-size: $font-size-base !default;
@@ -479,46 +262,11 @@ $card-body-top-padding: $card-base-small-vertical-padding !default;
 $card-body-bottom-padding: $card-base-bottom-padding !default;
 
 $card-border-radius: .125rem !default;
-
+$card-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4) !default;
 $card-actions-padding: .5rem !default;
 
 $card-bg-light-theme: #fff !default;
 $card-bg-dark-theme: #424242 !default;
-
-//
-//// 20/14
-//$line-height-base: 1.42857 !default;
-//$text-color: $text-high-contrast;
-//
-//$link-color: $primary-color !default;
-//$link-hover-color: darken($link-color, 15%) !default;
-//$link-hover-decoration: underline !default;
-//
-
-//Typography
-//$display4-size: $font-size-base * 8 !default;
-//$display3-size: $font-size-base * 4 !default;
-//$display2-size: ceil($font-size-base * 3.2) !default;
-//$display1-size: ceil($font-size-base * 2.4) !default;
-$headline-size: ceil($font-size-base * 1.7) !default;
-$title-size: ceil($font-size-base * 1.4) !default;
-$subheading-size: ceil($font-size-base * 1.1) !default;
-$body-2-size: $font-size-base !default;
-$body-1-size: $font-size-base !default;
-$caption-size: ceil($font-size-base * 0.85) !default;
-$font-size-button: $font-size-base !default;
-//
-////Breakpoints
-//$screen-sm-min: 600px !default;
-//$screen-md-min: 960px !default;
-//$screen-lg-min: 1280px !default;
-//
-//$grid-breakpoints: (xs: 0, sm: $screen-sm-min, md: $screen-md-min, lg: $screen-lg-min) !default;
-//
-//// So media queries don't overlap when required, provide a maximum
-//$screen-xs-max: $screen-sm-min - 1 !default;
-//$screen-sm-max: $screen-md-min - 1 !default;
-//$screen-md-max: $screen-lg-min - 1 !default;
 
 //Expansion panel
 $expansion-panel-divider-width: .0625rem !default;
@@ -532,16 +280,15 @@ $expansion-panel-content-margin: 1rem !default;
 $expansion-panel-switch-size: 1.5rem !default;
 
 //Dialog
+$dialog-backdrop-bg:           $black !default;
+$dialog-backdrop-opacity:      .5 !default;
 $dialog-border-radius: 2px !default;
 $dialog-padding: 24px !default;
 $dialog-title-body-distance: 20px !default;
 $dialog-actions-padding: 8px !default;
-//
-//$dialog-backdrop-bg: #000 !default;
-//$dialog-backdrop-opacity: 0.5 !default;
-//
-$dialog-background: #fff !default;
-//
+$dialog-background-light-theme: #fff !default;
+$dialog-background-dark-theme: #424242 !default;
+
 //Dropdown
 $dropdown-menu-border-radius: .125rem !default;
 $dropdown-menu-padding: .5rem !default;
@@ -556,22 +303,9 @@ $dropdown-item-color-light-theme: $body-color-light-theme;
 $dropdown-item-color-dark-theme: $body-color-dark-theme;
 
 $dropdown-in-data-table-bg-light-theme: #fafafa !default;
-$dropdown-in-data-table-bg-dark-theme: $gray-900 !default;
+$dropdown-in-data-table-bg-dark-theme: $gray-700 !default;
 
 $dropdown-in-data-table-toggle-icon-size: 22px !default;
-//
-////Margin and guttters
-//$margin-gutter-8dp: 8px !default;
-//$margin-gutter-16dp: 16px !default;
-//$margin-gutter-24dp: 24px !default;
-//$margin-gutter-40dp: 40px !default;
-//
-////Grid
-//$grid-max-columns: 12 !default;
-//$grid-xsmall-columns: 4 !default;
-//$grid-small-columns: 8 !default;
-//$grid-medium-columns: $grid-max-columns !default;
-//$grid-large-columns: $grid-max-columns !default;
 
 //Floating content
 $floating-content-padding: 1.25rem !default;
@@ -580,7 +314,11 @@ $floating-content-padding: 1.25rem !default;
 $chip-height: 2rem !default;
 $chip-margin: .5rem !default;
 $chip-margin-vertical: .25rem !default;
-$chip-background-color: #e0e0e0 !default;
+$chip-background-color-light-theme: #e0e0e0 !default;
+$chip-background-color-dark-theme: #424242 !default;
+
+$chip-remove-color-light-theme: $chip-background-color-dark-theme !default;
+$chip-remove-color-dark-theme: $chip-background-color-light-theme !default;
 
 $chip-remove-color: rgba(0, 0, 0, 0.54) !default;
 $chip-remove-hover-color: #f44336 !default;
@@ -594,11 +332,7 @@ $chip-avatar-margin: .5rem !default;
 $chip-font-size: 0.8125rem !default;
 $chip-font-weight: $font-regular !default;
 $chip-label-margin: 0.75rem !default;
-//
-////Table
-//$table-bg: transparent !default;
-//$table-cell-padding: 8px !default;
-//
+
 //Data table
 $data-table-divider-color: $base-semi-transparent-color !default;
 $data-table-divider-width: .0625rem !default;
@@ -615,7 +349,7 @@ $data-table-column-header-height: 3.5rem !default;
 $data-table-column-header-font-size: .75rem !default;
 $data-table-column-header-font-weight: $font-medium !default;
 
-$data-table-column-header-color-light-theme: $text-low-contrast;
+$data-table-column-header-color-light-theme: $text-low-contrast-light-theme;
 $data-table-column-header-color-dark-theme: $text-low-contrast-dark-theme;
 
 $data-table-row-hover-background-color-light-theme: #eee !default;
@@ -625,7 +359,7 @@ $data-table-row-selected-bg-light-theme: #f5f5f5 !default;
 $data-table-row-selected-bg-dark-theme: #525252 !default;
 
 $data-table-card-footer-height: $data-table-card-header-height !default;
-$data-table-card-footer-font-color: $text-low-contrast !default;
+$data-table-card-footer-font-color: $text-low-contrast-light-theme !default;
 $data-table-card-footer-font-size: .75rem !default;
 $data-table-card-footer-font-weight: $font-medium !default;
 
@@ -637,16 +371,6 @@ $divider-height: .0625rem !default;
 $divider-color: $base-semi-transparent-color !default;
 
 ////Buttons
-//$button-font-size: $font-size-base !default;
-//$button-font-weight: $font-medium !default;
-//$button-border-radius: 2px !default;
-//$button-height: 36px !default;
-//$button-horizontal-padding: 16px !default;
-//
-//$button-hover-background-color: $base-hover-background-color !default;
-//$button-active-background-color: $base-active-background-color !default;
-//
-//$button-solid-default-color: #fff !default;
 $btn-disabled-background-light-theme: rgba(0, 0, 0, .12) !default;
 $btn-disabled-background-dark-theme: rgba(255, 255, 255, .12) !default;
 $btn-disabled-color-light-theme: rgba(0, 0, 0, .26) !default;
@@ -670,7 +394,7 @@ $button-borderless-hover-size: 2.5rem !default;
 $list-vertical-padding: .5rem !default;
 
 $list-icon-size: $base-icon-size !default;
-$list-icon-color-light-theme: $text-low-contrast !default;
+$list-icon-color-light-theme: $text-low-contrast-light-theme !default;
 $list-icon-color-dark-theme: $text-low-contrast-dark-theme !default;
 
 $list-avatar-size: $avatar-size !default;
@@ -695,7 +419,7 @@ $list-item-padding: 1rem !default;
 $list-index-width: 3.5rem !default;
 $list-index-font-size: 1.25rem !default;
 
-$list-index-color-light-theme: $text-low-contrast !default;
+$list-index-color-light-theme: $text-low-contrast-light-theme !default;
 $list-index-color-dark-theme: $text-low-contrast-dark-theme !default;
 
 $list-divider-height: $divider-height !default;
@@ -709,22 +433,18 @@ $progress-border-width: .0625rem !default;
 //Spinner
 $spinner-color: $primary-color;
 
-//
-////Menus
-//$menu-horizontal-padding: 16px;
-//
 //Sidebar
 $sidebar-width: 20rem !default;
-$sidebar-background-color: #fff !default;
+$sidebar-background-color-light-theme: #fff !default;
+$sidebar-background-color-dark-theme: #424242 !default;
 
 $sidebar-backdrop-bg: $black !default;
 $sidebar-backdrop-opacity: .5 !default;
 
-
 //Text fields
 $text-field-helper-text-font-size: .75rem !default;
 $text-field-helper-text-margin: .5rem !default;
-$text-field-helper-text-color-light-theme: $text-low-contrast !default;
+$text-field-helper-text-color-light-theme: $text-low-contrast-light-theme !default;
 $text-field-helper-text-color-dark-theme: $text-low-contrast-dark-theme !default;
 
 $text-field-divider-width: .0625rem !default;
@@ -733,17 +453,15 @@ $text-field-divider-focus-hover-width: .125rem !default;
 $text-field-divider-color-light-theme: $color-low-contrast-light-theme !default;
 $text-field-divider-color-dark-theme: $color-low-contrast-dark-theme !default;
 
-$text-field-divider-hover-color-light-theme: $color-high-contrast-light-theme !default;
-$text-field-divider-hover-color-dark-theme: $color-high-contrast-dark-theme !default;
+$text-field-divider-color-hover-light-theme: $color-high-contrast-light-theme !default;
+$text-field-divider-color-hover-dark-theme: $color-high-contrast-dark-theme !default;
 
 $text-field-item-height: 1rem !default;
 $text-field-item-margin: .5rem !default;
 $text-field-bottom-padding: $text-field-item-margin - $text-field-divider-width !default;
 $text-field-focus-hover-margin: $text-field-item-margin - $text-field-divider-focus-hover-width !default;
-$text-field-focus-color: $primary-color !default;
-$text-field-invalid-color: $danger-color !default;
 
-$text-field-label-color-light-theme: $text-low-contrast !default;
+$text-field-label-color-light-theme: $text-low-contrast-light-theme !default;
 $text-field-label-color-dark-theme: $text-low-contrast-dark-theme !default;
 
 $text-field-label-font-size: .75rem !default;
@@ -767,7 +485,7 @@ $text-input-font-weight: $font-regular !default;
 $text-input-placeholder-color-light-theme: $text-lower-contrast;
 $text-input-placeholder-color-dark-theme: $text-lower-contrast-dark-theme;
 
-$text-input-icon-color-light-theme: $text-low-contrast;
+$text-input-icon-color-light-theme: $text-low-contrast-light-theme;
 $text-input-icon-color-dark-theme: $text-low-contrast-dark-theme;
 
 $text-input-affix-color-light-theme: $text-lower-contrast;
@@ -787,7 +505,7 @@ $toolbar-action-padding: $toolbar-action-distance / 2 !default;
 $toolbar-title-font-size: 1.25rem !default;
 $toolbar-action-icon-size: $base-icon-size !default;
 
-$toolbar-icon-color-light-theme: $text-low-contrast !default;
+$toolbar-icon-color-light-theme: $text-low-contrast-light-theme !default;
 $toolbar-icon-color-dark-theme: $white !default;
 
 $bg-appbar: $primary-color !default;
@@ -801,11 +519,10 @@ $tab-font-weight: $font-medium !default;
 $tab-horizontal-padding-sm: .75rem !default;
 $tab-horizontal-padding-lg: 1.5rem !default;
 
-$tab-text-color-light-theme: $text-low-contrast !default;
-$tab-active-text-color-light-theme: $body-color-light-theme !default;
+$tab-text-color-light-theme: $text-low-contrast-light-theme !default;
 
 $tab-text-color-dark-theme: $text-low-contrast-dark-theme !default;
-$tab-active-text-color-dark-theme: $body-color-dark-theme !default;
+$tab-text-color-active-dark-theme: $body-color-dark-theme !default;
 
 //Steppers
 $stepper-padding: 1.5rem !default;
@@ -815,10 +532,10 @@ $step-circle-size: $base-icon-size !default;
 $step-circle-default-background: rgba(0, 0, 0, 0.38) !default;
 $step-circle-default-text-color: #fff !default;
 $step-circle-active-background: $primary-color !default;
-$step-circle-active-text-color: get-text-color-by-background-color($step-circle-active-background, $text-low-contrast) !default;
+$step-circle-active-text-color: get-text-color-by-background-color($step-circle-active-background, $text-low-contrast-light-theme) !default;
 
 $step-label-margin: 1rem !default;
-$step-label-disabled-color: $text-low-contrast !default;
+$step-label-disabled-color: $text-low-contrast-light-theme !default;
 
 $step-line-margin: .5rem !default;
 $step-content-margin: .75rem !default;
@@ -834,9 +551,11 @@ $vertical-step-space: 3rem !default;
 //Snackbar
 $snackbar-height: 3rem !default;
 $snackbar-horizontal-padding: 1.5rem !default;
-$snackbar-background-color: #323232 !default;
+$snackbar-background-color-light-theme: #323232 !default;
+$snackbar-background-color-dark-theme: #fafafa !default;
 $snackbar-text-vertical-margin: .75rem !default;
-$snackbar-text-color: #fff !default;
+$snackbar-text-color-light-theme: #fff !default;
+$snackbar-text-color-dark-theme: $body-color-light-theme !default;
 $snackbar-font-size: $font-size-base !default;
 $snackbar-font-weight: $font-medium !default;
 
@@ -848,16 +567,19 @@ $snackbar-button-tablet-left-margin: $snackbar-horizontal-padding !default;
 
 $snackbar-tablet-border-radius: .125rem !default;
 
-$text-muted: $text-low-contrast !default;
+$text-muted: $text-low-contrast-light-theme !default;
 
 //Shadows
-$shadows: ();
-$shadows: append($shadows, 0 1px 4px 0 rgba(0, 0, 0, 0.37));
-$shadows: append($shadows, (0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12)));
-$shadows: append($shadows, 0 13px 25px 0 rgba(0, 0, 0, 0.3));
-$shadows: append($shadows, (0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12)));
-$shadows: append($shadows, 0 27px 55px 0 rgba(0, 0, 0, 0.3));
-//
+$shadows: (
+  "2dp": (0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2)),
+  "3dp": (0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 1px 8px 0 rgba(0, 0, 0, 0.12), 0 3px 3px -2px rgba(0, 0, 0, 0.4)),
+  "4dp": (0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.4)),
+  "6dp": (0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.4)),
+  "8dp": (0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.4)),
+  "12dp": (0 12px 16px 1px rgba(0, 0, 0, 0.14), 0 4px 22px 3px rgba(0, 0, 0, 0.12), 0 6px 7px -4px rgba(0, 0, 0, 0.4)),
+  "16dp": (0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.4))
+);
+
 //Z-index
 $zindex-dropdown: 1000 !default;
 $zindex-fixed: 1030 !default;

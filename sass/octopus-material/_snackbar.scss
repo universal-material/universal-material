@@ -7,7 +7,6 @@
   width: 100%;
   min-height: $snackbar-height;
 
-  background-color: $snackbar-background-color;
   font-size: $snackbar-font-size;
   z-index: $zindex-snackbar;
 
@@ -24,7 +23,6 @@
 .snackbar-text {
   margin: $snackbar-text-vertical-margin $snackbar-horizontal-padding;
   font-weight: $snackbar-font-weight;
-  color: $snackbar-text-color;
   flex: 1;
   overflow: hidden;
 }
@@ -140,5 +138,23 @@
 
   100% {
     transform: translate(0, 150%);
+  }
+}
+
+@mixin snackbar-theme($dark-theme) {
+  $background-color: $snackbar-background-color-light-theme;
+  $color: $snackbar-text-color-light-theme;
+
+  @if ($dark-theme) {
+    $background-color: $snackbar-background-color-dark-theme;
+    $color: $snackbar-text-color-dark-theme;
+  }
+
+  .snackbar {
+    background-color: $background-color;
+  }
+
+  .snackbar-text {
+    color: $color;
   }
 }

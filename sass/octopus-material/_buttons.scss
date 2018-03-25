@@ -1,9 +1,3 @@
-// scss-lint:disable QualifyingElement
-
-//
-// Base styles
-//
-
 .btn {
   position: relative; //Octocus custom code
   display: inline-block;
@@ -43,43 +37,22 @@
   }
 }
 
+.btn-flat,
+.btn-solid {
+  @extend .btn;
+}
 
-// Disabled comes first so active can properly restyle
+.btn-raised {
+  @extend .btn-solid;
 
+  @include elevate("2dp");
 
-//
-//// Future-proof disabling of clicks on `<a>` elements
-//a.btn.disabled,
-//fieldset[disabled] a.btn {
-//  pointer-events: none;
-//}
-//
-////
-//// Block button
-////
-//
-//.btn-block {
-//  display: block;
-//  width: 100%;
-//}
-//
-//// Vertically space out multiple block buttons
-//.btn-block + .btn-block {
-//  margin-top: $btn-block-spacing-y;
-//}
-//
-//// Specificity overrides
-//input[type="submit"],
-//input[type="reset"],
-//input[type="button"] {
-//  &.btn-block {
-//    width: 100%;
-//  }
-//}
+  &:active {
+    @include elevate("4dp");
+  }
 
-
-//
-
+  transition: box-shadow 150ms;
+}
 
 .btn-borderless {
   @extend .btn;
@@ -106,27 +79,60 @@
   }
 }
 
-@include light-theme-style {
+@mixin buttons-theme($theme-colors, $dark-theme) {
+  $default-solid-background: (default: $btn-default-background-light);
+  $btn-disabled-color: $btn-disabled-color-light-theme;
+  $btn-disabled-background-color: $btn-disabled-background-light-theme;
+  $btn-flat-default-color: $body-color-light-theme;
+
+  @if ($dark-theme) {
+    $default-solid-background: (default: $btn-default-background-dark);
+    $btn-disabled-color: $btn-disabled-color-dark-theme;
+    $btn-disabled-background-color: $btn-disabled-background-dark-theme;
+    $btn-flat-default-color: $body-color-dark-theme;
+  }
+
+  @each $color, $value in join($theme-colors, $default-solid-background) {
+    .btn-solid.btn-#{$color} {
+      @include button-solid-variant($value);
+    }
+  }
+
+  .btn-flat.btn-default {
+    @include button-flat-variant($btn-flat-default-color);
+  }
+
+  @each $color, $value in $theme-colors {
+    .btn-flat.btn-#{$color},
+    .btn-borderless.btn-#{$color} {
+      @include button-flat-variant($value);
+    }
+  }
+
   .btn {
     @include selectable-background(false, true, $btn-border-radius);
 
     &.disabled,
     &:disabled {
-      //opacity: .65;
-      color: $btn-disabled-color-light-theme !important;
-      //@include box-shadow(none);
-      background-color: $btn-disabled-background-light-theme;
+      color: $btn-disabled-color !important;
+
+      background-color: $btn-disabled-background-color;
       &::before {
         background-color: transparent;
       }
     }
   }
 
+  .btn-flat,
   .btn-borderless {
-    color: $btn-borderless-color-light-theme;
+    @include selectable-background($dark-theme, true, $btn-border-radius);
+  }
+
+  .btn-borderless {
+    color: $btn-flat-default-color;
 
     @include hover-focus {
-      color: $btn-borderless-color-light-theme;
+      color: $btn-flat-default-color;
     }
 
     &:disabled,
@@ -134,75 +140,4 @@
       background-color: transparent;
     }
   }
-
-  .btn-flat-default {
-    @include button-flat-variant($gray-900);
-  }
 }
-
-@include dark-theme-style {
-  .btn {
-    @include selectable-background(true, true, $btn-border-radius);
-    &.disabled,
-    &:disabled {
-      //opacity: .65;
-      color: $btn-disabled-color-dark-theme !important;
-      //@include box-shadow(none);
-      background-color: $btn-disabled-background-dark-theme;
-      &::before {
-        background-color: transparent;
-      }
-    }
-  }
-
-  .btn-borderless {
-    color: $btn-borderless-color-dark-theme;
-
-    @include hover-focus {
-      color: $btn-borderless-color-dark-theme;
-    }
-
-    &:disabled,
-    &.disabled {
-      background-color: transparent;
-    }
-  }
-
-  .btn-flat-default {
-    @include button-flat-variant($white);
-  }
-}
-
-//
-// Alternate buttons
-//
-
-
-//.btn-solid-default {
-//  $btn-default-background-light
-//}
-
-.btn-raised {
-  @extend .btn;
-
-  @include elevate(2);
-
-  &:active {
-    @include elevate(4);
-  }
-
-  transition: box-shadow 150ms;
-}
-
-
-//.btn-borderless-group {
-//  display: inline-flex;
-//
-//  .btn-borderless {
-//    @include horizontal-margin($toolbar-action-padding);
-//
-//    &:last-child {
-//      margin-right: 0;
-//    }
-//  }
-//}
