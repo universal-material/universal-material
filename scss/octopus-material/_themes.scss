@@ -1,35 +1,35 @@
-.light-theme {
-  color: $body-color-light-theme;
-
-  .selectable-background {
-    @include selectable-background(false, true)
-  }
-  
-  @include text-emphasis-variant(".text-low-contrast", $text-low-contrast-light-theme); //Octopus material changes
-  @include text-emphasis-variant(".text-high-contrast", $text-high-contrast); //Octopus material changes
-}
-
-.light-theme {
-  background-color: $bg-light;
-}
-
-.dark-theme {
-  color: $body-color-dark-theme;
-
-  .selectable-background {
-    @include selectable-background(true, true)
-  }
-   
-  @include text-emphasis-variant(".text-low-contrast", $text-low-contrast-dark-theme); //Octopus material changes
-  @include text-emphasis-variant(".text-high-contrast", $text-high-contrast-dark-theme); //Octopus material changes
-}
-
-.dark-theme {
-  background-color: $bg-dark;
-}
-
-.dark-theme .light-theme {
-  color: $body-color-light-theme;
-}
-
-
+//.light-theme {
+//  color: $body-color-light-theme;
+//
+//  .selectable-background {
+//    @include selectable-background(false, true)
+//  }
+//
+//  @include text-emphasis-variant(".text-low-contrast", $text-low-contrast-light-theme); //Octopus material changes
+//  @include text-emphasis-variant(".text-high-contrast", $text-high-contrast); //Octopus material changes
+//}
+//
+//.light-theme {
+//  background-color: $bg-light;
+//}
+//
+//.dark-theme {
+//  color: $body-color-dark-theme;
+//
+//  .selectable-background {
+//    @include selectable-background(true, true)
+//  }
+//
+//  @include text-emphasis-variant(".text-low-contrast", $text-low-contrast-dark-theme); //Octopus material changes
+//  @include text-emphasis-variant(".text-high-contrast", $text-high-contrast-dark-theme); //Octopus material changes
+//}
+//
+//.dark-theme {
+//  background-color: $bg-dark;
+//}
+//
+//.dark-theme .light-theme {
+//  color: $body-color-light-theme;
+//}
+//
+//

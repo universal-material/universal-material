@@ -3,8 +3,7 @@
     & {
       background-color: $bg-light;
     }
-  }
-  @else {
+  } @else {
     body {
       background-color: $bg-light;
       color: $body-color-light-theme;
@@ -17,8 +16,7 @@
     & {
       background-color: $bg-dark;
     }
-  }
-  @else {
+  } @else {
     body {
       background-color: $bg-dark;
       color: $body-color-dark-theme;
@@ -31,10 +29,10 @@
   @if (mixin_exists(create-app-bar)) {
     @include create-app-bar($theme-colors, $dark-theme);
   }
-    
+
   @if (mixin_exists(buttons-theme)) {
     @include buttons-theme($theme-colors, $dark-theme);
-  }  
+  }
 
   @if (mixin_exists(create-backgrounds)) {
     @include create-backgrounds($theme-colors)
@@ -79,36 +77,14 @@
   @if (mixin_exists(text-fields-theme)) {
     @include text-fields-theme($theme-colors, $dark-theme);
   }
-    
-  @if($dark-theme) {
+
+  @if (mixin_exists(data-table-theme)) {
+    @include data-table-theme($dark-theme);
+  }
+
+  @if ($dark-theme) {
     @include create-dark-theme;
-    @extend .dark-theme;
   } @else {
     @include create-light-theme;
-    @extend .light-theme;
-  }
-}
-
-@mixin light-theme-style($apply-to-bg: true) {
-  .light-theme {
-    @content;
-  }
-
-  @if ($apply-to-bg) {
-    .bg-light {
-      @content;
-    }
-  }
-}
-
-@mixin dark-theme-style($apply-to-bg: true) {
-  .dark-theme {
-    @content;
-  }
-
-  @if ($apply-to-bg) {
-    .bg-dark {
-      @content;
-    }
   }
 }

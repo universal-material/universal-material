@@ -1,7 +1,7 @@
-$primary-color: #3863FF !default;
-$accent-color: #f50057 !default;
+$primary-color: #563d7c !default;
+$accent-color: #FFAB40 !default;
 $danger-color: #ef5350 !default;
-$default-theme-dark: true !default;
+$default-theme-dark: false !default;
 
 $font-thin: 100;
 $font-light: 300;
@@ -191,10 +191,9 @@ $focus-background-dark-theme: rgba(204, 204, 204,.25) !default;
 $avatar-size: 2.5rem !default;
 
 //Selection controls
+
 $selection-control-label-margin: .5rem;
-
 $selection-control-checked-color: $primary-color !default;
-
 $selection-control-hover-size: 2.5rem !default;
 $selection-control-hover-color: rgba($selection-control-checked-color, 0.2) !default;
 
@@ -211,12 +210,10 @@ $checkbox-mark-height: .375rem !default;
 $checkbox-mark-top: .1875rem !default;
 $checkbox-mark-left: .0625rem !default;
 $checkbox-mark-border-width: .125rem !default;
-
 $checkbox-mark-color-light-theme: $bg-light;
-//
+
 $radio-size: 1.25rem !default;
 $radio-check-mark-size: $radio-size / 2 !default;
-
 
 $switch-width: 2.25rem !default;
 $switch-height: .875rem !default;
@@ -346,7 +343,7 @@ $data-table-card-header-title-font-size: 1.25rem !default;
 $data-table-column-height: 3rem !default;
 
 $data-table-column-header-height: 3.5rem !default;
-$data-table-column-header-font-size: .75rem !default;
+$data-table-column-header-font-size: .8125rem !default;
 $data-table-column-header-font-weight: $font-medium !default;
 
 $data-table-column-header-color-light-theme: $text-low-contrast-light-theme;
@@ -361,9 +358,9 @@ $data-table-row-selected-bg-dark-theme: #525252 !default;
 $data-table-card-footer-height: $data-table-card-header-height !default;
 $data-table-card-footer-font-color: $text-low-contrast-light-theme !default;
 $data-table-card-footer-font-size: .75rem !default;
-$data-table-card-footer-font-weight: $font-medium !default;
+$data-table-card-footer-font-weight: $font-regular !default;
 
-$data-table-content-font-size: .8125rem !default;
+$data-table-content-font-size: .875rem !default;
 $data-table-content-font-weight: $font-medium !default;
 
 //Divider

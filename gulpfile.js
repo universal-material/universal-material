@@ -7,14 +7,14 @@ var notify = require('gulp-notify');
 
 
 gulp.task("sass:normal", function () {
-    return gulp.src("./sass/octopus-material.scss")
+    return gulp.src("./scss/octopus-material.scss")
         .pipe(sass().on("error", sass.logError))
         .pipe(autoprefixer())
         .pipe(gulp.dest("./dist/css"));
 });
 
 gulp.task("sass:compressed", function () {
-    return gulp.src("./sass/octopus-material.scss")
+    return gulp.src("./scss/octopus-material.scss")
         .pipe(sass({
             outputStyle: "compressed"
         }).on("error", sass.logError))
@@ -23,6 +23,13 @@ gulp.task("sass:compressed", function () {
         .pipe(gulp.dest("./dist/css"));
 });
 
+
+gulp.task("sass:docs", function () {
+    return gulp.src("./docs/css/docs.scss")
+        .pipe(sass().on("error", sass.logError))
+        .pipe(autoprefixer())
+        .pipe(gulp.dest("./docs/css"));
+});
 
 gulp.task('pug:docs', function() {
     return gulp.src(["./docs/**/*.pug", "!./docs/layout.pug"])
@@ -43,9 +50,10 @@ gulp.task("sass", ["sass:normal", "sass:compressed"]);
 
 gulp.task('watch', function () {
     gulp.watch('./docs/**/*.pug', ['pug:docs']);
-    gulp.watch('./sass/**/*.scss', ["sass"]);
+    gulp.watch('./scss/**/*.scss', ["sass"]);
+    gulp.watch('./docs/css/**/*.scss', ["sass:docs"]);
 });
 
 
-gulp.task("default", ["sass", "pug:docs", "watch"]);
+gulp.task("default", ["sass", "pug:docs", "sass:docs", "watch"]);
 

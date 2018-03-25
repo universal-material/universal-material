@@ -1,19 +1,3 @@
-//
-// Tables
-// --------------------------------------------------
-
-//table
-//  background-color: $table-bg
-//  border-spacing: 0
-//
-//caption
-//  padding-top: $table-cell-padding
-//  padding-bottom: $table-cell-padding
-//  color: $text-muted
-//  text-align: left
-//th
-//  text-align: left
-
 .data-table {
   width: 100%;
   max-width: 100%;
@@ -77,54 +61,31 @@
   }
 }
 
-@include light-theme-style {
+@mixin data-table-theme($dark-theme) {
+
+  $data-table-column-header-color: $data-table-column-header-color-light-theme;
+  $data-table-row-selected-bg: $data-table-row-selected-bg-light-theme;
+  $data-table-row-hover-background-color: $data-table-row-hover-background-color-light-theme;
+
+  @if ($dark-theme) {
+    $data-table-column-header-color: $data-table-column-header-color-dark-theme;
+    $data-table-row-selected-bg: $data-table-row-selected-bg-dark-theme;
+    $data-table-row-hover-background-color: $data-table-row-hover-background-color-dark-theme;
+  }
+
   .data-table {
     th {
-      color: $data-table-column-header-color-light-theme;
-    }
-    
-    td {
-      color: $body-color-light-theme;
+      color: $data-table-column-header-color;
     }
 
     tr.selected {
-      background-color: $data-table-row-selected-bg-light-theme;
+      background-color: $data-table-row-selected-bg;
     }
-  }
-  
-  .data-table-title {
-    color: $body-color-light-theme;
   }
 
   .data-table-hover tbody tr {
     &:hover {
-      background-color: $data-table-row-hover-background-color-light-theme
-    }
-  }
-}
-
-@include dark-theme-style {
-  .data-table {
-    th {
-      color: $data-table-column-header-color-dark-theme;
-    }
-    
-    td {
-      color: $body-color-dark-theme;
-    }
-
-    tr.selected {
-      background-color: $data-table-row-selected-bg-dark-theme;
-    }
-  }
-
-  .data-table-title {
-    color: $body-color-dark-theme;
-  }
-  
-  .data-table-hover tbody tr {
-    &:hover {
-      background-color: $data-table-row-hover-background-color-dark-theme
+      background-color: $data-table-row-hover-background-color;
     }
   }
 }

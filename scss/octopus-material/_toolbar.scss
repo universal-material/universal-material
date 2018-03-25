@@ -36,7 +36,7 @@
   z-index: $zindex-toolbar-fixed;
 }
 
-.appbar {
+.app-bar {
   @extend .toolbar;
 }
 
@@ -44,16 +44,4 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-}
-
-@include light-theme-style {
-  .toolbar .toolbar-icon {
-    color: $toolbar-icon-color-light-theme;
-  }
-}
-
-@include dark-theme-style {
-  .toolbar .toolbar-icon {
-    color: $toolbar-icon-color-dark-theme;
-  }
 }
