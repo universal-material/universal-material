@@ -1,30 +1,74 @@
 extends ../layout
 
 block content
-  h4.chapter-title Chips
+  h1.chapter-title Chips
 
+  h2.article-title Simple chip
   .example-box
-    .chip
-      .chip-label Xpto
+    .example-box-header
+      .chip
+        .chip-label John Doe
 
+    pre
+      code.html
+        | &lt;div class=&quot;chip&quot;&gt;
+        |   &lt;div class=&quot;chip-label&quot;&gt;John Doe&lt;/div&gt;
+        | &lt;/div&gt;
+
+  h2.article-title Chip with text and icon
   .example-box
-    .container
+    .example-box-header
       .chip
         .chip-avatar
-        .chip-label Xpto
+        .chip-label John Doe
         .chip-remove
           i.mdi.mdi-close-circle
+
+    pre
+      code.html
+        | &lt;div class=&quot;chip&quot;&gt;
+        |   &lt;div class=&quot;chip-avatar&quot;&gt;&lt;/div&gt;
+        |   &lt;div class=&quot;chip-label&quot;&gt;John Doe&lt;/div&gt;
+        |   &lt;div class=&quot;chip-remove&quot;&gt;&lt;i class=&quot;mdi mdi-close-circle&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+        | &lt;/div&gt;
+
+  h2.article-title Chip in input
+  .example-box
+    .example-box-header
       .text-field
-        .text-input.chip-input
-          .chip
-            .chip-avatar
-            .chip-label Juan
-            .chip-remove
-              i.mdi.mdi-close-circle
-          .chip
-            .chip-avatar
-            .chip-label John Doe
-            .chip-remove
-              i.mdi.mdi-close-circle
-          input
+        .text-input-group
+          .text-input.chip-input
+            .chip
+              .chip-avatar
+              .chip-label Juan
+              .chip-remove
+                i.mdi.mdi-close-circle
+            .chip
+              .chip-avatar
+              .chip-label John Doe
+              .chip-remove
+                i.mdi.mdi-close-circle
+            input
+        .text-field-border
         label To:
+    pre
+      code.html
+        | &lt;div class=&quot;text-field&quot;&gt;
+        |   &lt;div class=&quot;text-input-group&quot;&gt;
+        |     &lt;div class=&quot;text-input chip-input&quot;&gt;
+        |       &lt;div class=&quot;chip&quot;&gt;
+        |         &lt;div class=&quot;chip-avatar&quot;&gt;&lt;/div&gt;
+        |         &lt;div class=&quot;chip-label&quot;&gt;Juan&lt;/div&gt;
+        |         &lt;div class=&quot;chip-remove&quot;&gt;&lt;i class=&quot;mdi mdi-close-circle&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+        |       &lt;/div&gt;
+        |       &lt;div class=&quot;chip&quot;&gt;
+        |         &lt;div class=&quot;chip-avatar&quot;&gt;&lt;/div&gt;
+        |         &lt;div class=&quot;chip-label&quot;&gt;John Doe&lt;/div&gt;
+        |         &lt;div class=&quot;chip-remove&quot;&gt;&lt;i class=&quot;mdi mdi-close-circle&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+        |       &lt;/div&gt;
+        |       &lt;input/&gt;
+        |     &lt;/div&gt;
+        |   &lt;/div&gt;
+        |   &lt;div class=&quot;text-field-border&quot;&gt;&lt;/div&gt;
+        |   &lt;label&gt;To:&lt;/label&gt;
+        | &lt;/div&gt;

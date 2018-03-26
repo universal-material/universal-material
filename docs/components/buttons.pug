@@ -2,24 +2,52 @@ extends ../layout
 
 block content
   .container
-    .display-2 Buttons
+    h1.chapter-title Buttons
 
-    .display-1 Solid buttons
-    button.btn-solid.btn-default Default
-    button.btn-solid.btn-primary Primary
-    button.btn-solid.btn-accent Accent
-    button.btn-solid.btn-primary(disabled) Disabled
+    h2.article-title Solid buttons
 
-    .display-1 Raised buttons
-    button.btn-raised.btn-default Default
-    button.btn-raised.btn-primary Primary
-    button.btn-raised.btn-accent Accent
-    button.btn-raised.btn-primary(disabled) Disabled
+    .example-box
+      .example-box-header
+        button.btn-solid.btn-default Default
+        button.btn-solid.btn-primary Primary
+        button.btn-solid.btn-accent Accent
+        button.btn-solid.btn-primary(disabled) Disabled
 
-    .display-1 Flat buttons
-    button.btn-flat.btn-default Default
-    button.btn-flat.btn-primary Primary
-    button.btn-flat.btn-accent Accent
-    button.btn-flat.btn-primary(disabled) Disabled
+      pre
+        code.html
+          | &lt;button class=&quot;btn-solid btn-default&quot;&gt;Default&lt;/button&gt;
+          | &lt;button class=&quot;btn-solid btn-primary&quot;&gt;Primary&lt;/button&gt;
+          | &lt;button class=&quot;btn-solid btn-accent&quot;&gt;Accent&lt;/button&gt;
+          | &lt;button disabled=&quot;disabled&quot; class=&quot;btn-solid btn-primary&quot;&gt;Disabled&lt;/button&gt;
+
+    h2.article-title Raised buttons
+    .example-box
+      .example-box-header
+        button.btn-raised.btn-default Default
+        button.btn-raised.btn-primary Primary
+        button.btn-raised.btn-accent Accent
+        button.btn-raised.btn-primary(disabled) Disabled
+
+      pre
+        code.html
+          | &lt;button class=&quot;btn-raised btn-default&quot;&gt;Default&lt;/button&gt;
+          | &lt;button class=&quot;btn-raised btn-primary&quot;&gt;Primary&lt;/button&gt;
+          | &lt;button class=&quot;btn-raised btn-accent&quot;&gt;Accent&lt;/button&gt;
+          | &lt;button disabled=&quot;disabled&quot; class=&quot;btn-raised btn-primary&quot;&gt;Disabled&lt;/button&gt;
+
+    h2.article-title Flat buttons
+    .example-box
+      .example-box-header
+        button.btn-flat.btn-default Default
+        button.btn-flat.btn-primary Primary
+        button.btn-flat.btn-accent Accent
+        button.btn-flat.btn-primary(disabled) Disabled
+
+      pre
+        code.html
+          | &lt;button class=&quot;btn-flat btn-default&quot;&gt;Default&lt;/button&gt;
+          | &lt;button class=&quot;btn-flat btn-primary&quot;&gt;Primary&lt;/button&gt;
+          | &lt;button class=&quot;btn-flat btn-accent&quot;&gt;Accent&lt;/button&gt;
+          | &lt;button disabled=&quot;disabled&quot; class=&quot;btn-flat btn-primary&quot;&gt;Disabled&lt;/button&gt;
 
 

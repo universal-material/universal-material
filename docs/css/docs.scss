@@ -33,15 +33,21 @@
 }
 
 .example-box {
-  /* background: #fff; */
-  min-height: 300px;
-  max-height: 300px;
-  border: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  background: $gray-300;
   overflow: auto;
+  padding: .5rem;
+
+  .toolbar {
+    background: $gray-300;
+  }
 }
 
-.example-box .toolbar {
-  /* background: #fafafa; */
+.example-box-header {
+  background: $gray-100;
+  padding: 1rem;
+  margin-bottom: .5rem;
 }
 
 .example-box .chip-avatar {
@@ -69,13 +75,27 @@
   height: 100%;
 }
 
-.chapter {
+.chapter, .article-title {
   margin-top: 80px;
 }
 
-.chapter-title {
+.chapter-title, .article-title {
   font-size: 2rem;
   font-weight: 400;
   margin-bottom: 48px;
   color: $primary-color; 
+}
+
+.article-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+pre {
+  margin: 0;
+}
+
+code {
+  padding: 1rem !important;
+  background: transparent !important;
 }

@@ -1,29 +1,85 @@
 extends ../layout
 
 block content
-  h4.chapter-title Toolbars
+  h1.chapter-title Toolbars
 
+  h2.article-title Simple toolbar
   .example-box
-    .toolbar
-      .toolbar-row
-        .toolbar-icon
+    .example-box-header
+      .toolbar
+        .toolbar-row
+          .toolbar-icon
+            a.btn-borderless(href="#")
+              i.mdi.mdi-menu
+          .toolbar-title Title here
+
+          .toolbar-actions
+            a.btn-borderless(href="#")
+              i.mdi.mdi-phone
+
+            a.btn-borderless(href="#")
+              i.mdi.mdi-dots-vertical
+    pre
+      code.html
+        | &lt;div class=&quot;toolbar&quot;&gt;
+        |   &lt;div class=&quot;toolbar-row&quot;&gt;
+        |     &lt;div class=&quot;toolbar-icon&quot;&gt;
+        |       &lt;a href=&quot;#&quot; class=&quot;btn-borderless&quot;&gt;&lt;i class=&quot;mdi mdi-menu&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+        |     &lt;/div&gt;
+        |     &lt;div class=&quot;toolbar-title&quot;&gt;Title here&lt;/div&gt;
+        |     &lt;div class=&quot;toolbar-actions&quot;&gt;
+        |       &lt;a href=&quot;#&quot; class=&quot;btn-borderless&quot;&gt;&lt;i class=&quot;mdi mdi-phone&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+        |       &lt;a href=&quot;#&quot; class=&quot;btn-borderless&quot;&gt;&lt;i class=&quot;mdi mdi-dots-vertical&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+        |     &lt;/div&gt;
+        |   &lt;/div&gt;
+        | &lt;/div&gt;
+
+  h2.article-title Toolbar with tabs
+  .example-box
+    .example-box-header
+      .toolbar
+        .toolbar-row
+          .toolbar-icon
+            button.btn-borderless
+              i.mdi.mdi-menu
+          .toolbar-title Title here
           button.btn-borderless
-            i.mdi.mdi-menu
-        .toolbar-title Title here
-        button.btn-borderless
-          i.mdi.mdi-dots-vertical
-
-  .example-box
-    .toolbar
-      .toolbar-row
-        .toolbar-icon
-          a.btn-borderless(href="#")
-            i.mdi.mdi-menu
-        .toolbar-title Title here
-
-        .toolbar-actions
-          a.btn-borderless(href="#")
-            i.mdi.mdi-phone
-
-          a.btn-borderless(href="#")
             i.mdi.mdi-dots-vertical
+        .tab-bar.toolbar-icon-padding
+          .tab.active
+            .tab-content
+              .tab-text Item one
+          .tab
+            .tab-content
+              .tab-text Item two
+          .tab
+            .tab-content
+              .tab-text Item three
+    pre
+      code.html
+        | &lt;div class=&quot;toolbar&quot;&gt;
+        |   &lt;div class=&quot;toolbar-row&quot;&gt;
+        |     &lt;div class=&quot;toolbar-icon&quot;&gt;
+        |       &lt;button class=&quot;btn-borderless&quot;&gt;&lt;i class=&quot;mdi mdi-menu&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+        |     &lt;/div&gt;
+        |     &lt;div class=&quot;toolbar-title&quot;&gt;Title here&lt;/div&gt;
+        |     &lt;button class=&quot;btn-borderless&quot;&gt;&lt;i class=&quot;mdi mdi-dots-vertical&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+        |   &lt;/div&gt;
+        |   &lt;div class=&quot;tab-bar toolbar-icon-padding&quot;&gt;
+        |     &lt;div class=&quot;tab active&quot;&gt;
+        |       &lt;div class=&quot;tab-content&quot;&gt;
+        |         &lt;div class=&quot;tab-text&quot;&gt;Item one&lt;/div&gt;
+        |       &lt;/div&gt;
+        |     &lt;/div&gt;
+        |     &lt;div class=&quot;tab&quot;&gt;
+        |       &lt;div class=&quot;tab-content&quot;&gt;
+        |         &lt;div class=&quot;tab-text&quot;&gt;Item two&lt;/div&gt;
+        |       &lt;/div&gt;
+        |     &lt;/div&gt;
+        |     &lt;div class=&quot;tab&quot;&gt;
+        |       &lt;div class=&quot;tab-content&quot;&gt;
+        |         &lt;div class=&quot;tab-text&quot;&gt;Item three&lt;/div&gt;
+        |       &lt;/div&gt;
+        |     &lt;/div&gt;
+        |   &lt;/div&gt;
+        | &lt;/div&gt;
