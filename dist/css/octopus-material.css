@@ -4517,7 +4517,8 @@ mark,
 .card, .text-field-elevated {
   border-radius: 0.125rem;
   -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4);
-          box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4); }
+          box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4);
+  overflow: hidden; }
   .card.selectable-background::before, .selectable-background.text-field-elevated::before {
     border-radius: 0.125rem; }
 

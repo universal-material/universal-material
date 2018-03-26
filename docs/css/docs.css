@@ -54,7 +54,7 @@
 
 .card-media,
 .card-media-wide {
-  background: url(http://www.grayscale-wallpapers.com/grayscale/lake-house.jpg);
+  background: url(../img/card-media-background.jpg);
   background-size: cover; }
 
 .sidebar {

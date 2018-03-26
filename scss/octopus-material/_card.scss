@@ -1,6 +1,7 @@
 .card {
   border-radius: $card-border-radius;
   box-shadow: $card-shadow;
+  overflow: hidden;
 
   &.selectable-background::before {
     border-radius: $card-border-radius;
