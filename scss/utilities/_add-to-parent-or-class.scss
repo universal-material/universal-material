@@ -1,0 +1,10 @@
+@mixin add-to-parent-or-class($class) {
+  @if & {
+    @content
+  }
+  @else {
+    .#{$class} {
+      @content;
+    }
+  }
+}

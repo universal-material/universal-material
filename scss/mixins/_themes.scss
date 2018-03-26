@@ -26,10 +26,6 @@
 
 @mixin create-theme($theme-colors, $dark-theme) {
 
-  @if (mixin_exists(create-app-bar)) {
-    @include create-app-bar($theme-colors, $dark-theme);
-  }
-
   @if (mixin_exists(buttons-theme)) {
     @include buttons-theme($theme-colors, $dark-theme);
   }
@@ -80,6 +76,10 @@
 
   @if (mixin_exists(data-table-theme)) {
     @include data-table-theme($dark-theme);
+  }
+
+  @if (mixin_exists(toolbar-theme)) {
+    @include toolbar-theme($theme-colors, $dark-theme);
   }
 
   @if ($dark-theme) {

@@ -20,7 +20,7 @@
   --danger: #ef5350;
   --light: #f5f5f5;
   --dark: #424242;
-  --accent: #FFAB40;
+  --accent: #ffab40;
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
@@ -1362,7 +1362,7 @@ button.bg-dark:focus {
   background-color: #292929 !important; }
 
 .bg-accent {
-  background-color: #FFAB40 !important; }
+  background-color: #ffab40 !important; }
 
 a.bg-accent:hover, a.bg-accent:focus,
 button.bg-accent:hover,
@@ -1430,7 +1430,7 @@ button.bg-accent:focus {
   border-color: #424242 !important; }
 
 .border-accent {
-  border-color: #FFAB40 !important; }
+  border-color: #ffab40 !important; }
 
 .border-white {
   border-color: #fff !important; }
@@ -3445,7 +3445,7 @@ a.text-dark:hover, a.text-dark:focus {
   color: #292929 !important; }
 
 .text-accent {
-  color: #FFAB40 !important; }
+  color: #ffab40 !important; }
 
 a.text-accent:hover, a.text-accent:focus {
   color: #ff950d !important; }
@@ -4038,7 +4038,7 @@ mark,
   width: 1.125rem;
   height: 1.125rem;
   position: absolute;
-  background-color: #FFAB40;
+  background-color: #ffab40;
   color: #212121;
   border-radius: 50%;
   font-size: 0.75rem;
@@ -4062,7 +4062,7 @@ mark,
   bottom: -0.625rem;
   right: -0.625rem; }
 
-.toolbar, .app-bar, .data-table-footer {
+.toolbar, .data-table-footer {
   width: 100%; }
 
 .toolbar-row {
@@ -5065,7 +5065,7 @@ mark,
   padding-left: 1.5rem;
   padding-right: 1.5rem; }
   .data-table-footer .data-table-actions {
-    margin-left: 32px; }
+    margin-left: 2rem; }
     .data-table-footer .data-table-actions .data-table-action:first-child {
       margin-left: -0.75rem; }
 
@@ -5613,7 +5613,7 @@ mark,
   padding-left: 1.5rem;
   padding-right: 1.5rem; }
   .snackbar-button, .snackbar-button:hover {
-    color: #FFAB40; }
+    color: #ffab40; }
   .snackbar-button::before, .snackbar-button:focus::before {
     background-color: transparent !important; }
     @media (hover: hover) {
@@ -6112,7 +6112,7 @@ a.text-primary:hover, a.text-primary:focus {
   color: #3e2c5a !important; }
 
 .text-accent {
-  color: #FFAB40 !important; }
+  color: #ffab40 !important; }
 
 a.text-accent:hover, a.text-accent:focus {
   color: #ff950d !important; }
@@ -6121,46 +6121,6 @@ a.text-accent:hover, a.text-accent:focus {
   width: 100%;
   height: 0.0625rem;
   background-color: rgba(0, 0, 0, 0.12); }
-
-.app-bar {
-  color: #fff;
-  background-color: #563d7c; }
-  .app-bar .btn-borderless {
-    position: relative;
-    cursor: pointer;
-    position: relative;
-    z-index: 1;
-    color: #fff; }
-    .app-bar .btn-borderless::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      border-radius: 0;
-      z-index: -1;
-      -webkit-transition: background-color 250ms linear;
-      transition: background-color 250ms linear; }
-    .app-bar .btn-borderless:hover::before {
-      background-color: rgba(204, 204, 204, 0.1); }
-    .app-bar .btn-borderless:active::before {
-      background-color: rgba(204, 204, 204, 0.1); }
-    .app-bar .btn-borderless:hover, .app-bar .btn-borderless:focus {
-      color: #fff; }
-  .app-bar .tab {
-    position: relative;
-    cursor: pointer;
-    -webkit-transition: background-color 250ms linear;
-    transition: background-color 250ms linear; }
-    .app-bar .tab:hover {
-      background-color: rgba(204, 204, 204, 0.1); }
-    .app-bar .tab:active {
-      background-color: rgba(204, 204, 204, 0.1); }
-  .app-bar .tab-content {
-    color: rgba(255, 255, 255, 0.7); }
-  .app-bar .tab.active .tab-content {
-    color: #fff; }
 
 .btn-solid.btn-primary, .btn-primary.btn-raised, .btn-primary.btn-floating {
   background-color: #563d7c;
@@ -6211,7 +6171,7 @@ a.text-accent:hover, a.text-accent:focus {
     color: #fff; }
 
 .btn-solid.btn-accent, .btn-accent.btn-raised, .btn-floating {
-  background-color: #FFAB40;
+  background-color: #ffab40;
   color: #212121; }
   .btn-solid.btn-accent:hover, .btn-accent.btn-raised:hover, .btn-floating:hover, .btn-solid.btn-accent:focus, .btn-accent.btn-raised:focus, .btn-floating:focus {
     color: #212121; }
@@ -6294,13 +6254,13 @@ a.text-accent:hover, a.text-accent:focus {
 .btn-flat.btn-accent, .btn-flat.btn-floating,
 .btn-borderless.btn-accent,
 .btn-borderless.btn-floating {
-  color: #FFAB40; }
+  color: #ffab40; }
   .btn-flat.btn-accent:hover, .btn-flat.btn-floating:hover, .btn-flat.btn-accent:focus, .btn-flat.btn-floating:focus,
   .btn-borderless.btn-accent:hover,
   .btn-borderless.btn-floating:hover,
   .btn-borderless.btn-accent:focus,
   .btn-borderless.btn-floating:focus {
-    color: #FFAB40; }
+    color: #ffab40; }
 
 .btn, .btn-flat,
 .btn-solid, .btn-raised, .btn-floating, .btn-borderless, .snackbar-button {
@@ -6433,7 +6393,7 @@ button.bg-dark:focus {
   background-color: #292929 !important; }
 
 .bg-accent {
-  background-color: #FFAB40 !important; }
+  background-color: #ffab40 !important; }
 
 a.bg-accent:hover, a.bg-accent:focus,
 button.bg-accent:hover,
@@ -6548,13 +6508,13 @@ button.bg-accent:focus {
   .tab:active {
     background-color: rgba(0, 0, 0, 0.12); }
   .tab::after {
-    background-color: #FFAB40; }
+    background-color: #ffab40; }
 
 .tab-content {
   color: rgba(0, 0, 0, 0.54); }
 
 .tab.active .tab-content {
-  color: #FFAB40; }
+  color: #ffab40; }
 
 .text-field-border {
   border-color: rgba(0, 0, 0, 0.42); }
@@ -6626,6 +6586,85 @@ button.bg-accent:focus {
 
 .data-table-hover tbody tr:hover {
   background-color: #eee; }
+
+.toolbar, .data-table-footer {
+  color: #212121; }
+  .toolbar .btn-borderless, .data-table-footer .btn-borderless {
+    position: relative;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    color: rgba(0, 0, 0, 0.54); }
+    .toolbar .btn-borderless::before, .data-table-footer .btn-borderless::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 0;
+      z-index: -1;
+      -webkit-transition: background-color 250ms linear;
+      transition: background-color 250ms linear; }
+    .toolbar .btn-borderless:hover::before, .data-table-footer .btn-borderless:hover::before {
+      background-color: rgba(0, 0, 0, 0.12); }
+    .toolbar .btn-borderless:active::before, .data-table-footer .btn-borderless:active::before {
+      background-color: rgba(0, 0, 0, 0.12); }
+    .toolbar .btn-borderless:hover, .data-table-footer .btn-borderless:hover, .toolbar .btn-borderless:focus, .data-table-footer .btn-borderless:focus {
+      color: rgba(0, 0, 0, 0.54); }
+  .toolbar .tab, .data-table-footer .tab {
+    position: relative;
+    cursor: pointer;
+    -webkit-transition: background-color 250ms linear;
+    transition: background-color 250ms linear; }
+    .toolbar .tab:hover, .data-table-footer .tab:hover {
+      background-color: rgba(0, 0, 0, 0.12); }
+    .toolbar .tab:active, .data-table-footer .tab:active {
+      background-color: rgba(0, 0, 0, 0.12); }
+  .toolbar .tab-content, .data-table-footer .tab-content {
+    color: rgba(0, 0, 0, 0.54); }
+  .toolbar .tab.active .tab-content, .data-table-footer .tab.active .tab-content {
+    color: #ffab40; }
+
+.toolbar-primary {
+  color: #fff;
+  background-color: #563d7c; }
+  .toolbar-primary .btn-borderless {
+    position: relative;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    color: #fff; }
+    .toolbar-primary .btn-borderless::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 0;
+      z-index: -1;
+      -webkit-transition: background-color 250ms linear;
+      transition: background-color 250ms linear; }
+    .toolbar-primary .btn-borderless:hover::before {
+      background-color: rgba(204, 204, 204, 0.1); }
+    .toolbar-primary .btn-borderless:active::before {
+      background-color: rgba(204, 204, 204, 0.1); }
+    .toolbar-primary .btn-borderless:hover, .toolbar-primary .btn-borderless:focus {
+      color: #fff; }
+  .toolbar-primary .tab {
+    position: relative;
+    cursor: pointer;
+    -webkit-transition: background-color 250ms linear;
+    transition: background-color 250ms linear; }
+    .toolbar-primary .tab:hover {
+      background-color: rgba(204, 204, 204, 0.1); }
+    .toolbar-primary .tab:active {
+      background-color: rgba(204, 204, 204, 0.1); }
+  .toolbar-primary .tab-content {
+    color: rgba(255, 255, 255, 0.7); }
+  .toolbar-primary .tab.active .tab-content {
+    color: #fff; }
 
 body {
   background-color: #f5f5f5;

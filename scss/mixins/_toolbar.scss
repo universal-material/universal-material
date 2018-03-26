@@ -1,32 +1,8 @@
 @mixin toolbar-variant($theme-colors, $background-color) {
-  $color: $body-color-light-theme;
-  $button-borderless-color: $btn-borderless-color-light-theme; 
-    
 
   $dark-background: is-dark-background($background-color);
 
-  @if($dark-background) {
-    $color: $body-color-dark-theme;
-    $button-borderless-color: $btn-borderless-color-dark-theme;
-  }
-    
-  color: $color;
-  
-  .btn-borderless {
-    @include selectable-background($dark-background, true);
-
-    @if (mixin_exists(button-flat-variant)) {
-      @include button-flat-variant($button-borderless-color);
-    }
-  }
-
-  @if (mixin_exists(tab-text-color)) {
-    .tab {
-      @include selectable-background($dark-background);
-    }
-
-    @include tab-text-color($theme-colors, $dark-background);
-  }
+  @include toolbar-theme($theme-colors, $dark-background);
 
   background-color: $background-color;
 }

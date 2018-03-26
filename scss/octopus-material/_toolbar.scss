@@ -36,12 +36,49 @@
   z-index: $zindex-toolbar-fixed;
 }
 
-.app-bar {
-  @extend .toolbar;
-}
-
 .toolbar-layout {
   display: flex;
   flex-direction: column;
   height: 100%;
+}
+
+@mixin toolbar-theme($theme-colors, $dark-theme) {
+
+  $color: $body-color-light-theme;
+  $button-borderless-color: $toolbar-icon-color-light-theme;
+
+  @if($dark-theme) {
+    $color: $body-color-dark-theme;
+    $button-borderless-color: $toolbar-icon-color-dark-theme;
+  }
+
+  @include add-to-parent-or-class("toolbar") {
+    color: $color;
+
+    .btn-borderless {
+      @include selectable-background($dark-theme, true);
+
+      @if (mixin_exists(button-flat-variant)) {
+        @include button-flat-variant($button-borderless-color);
+      }
+    }
+
+    //@include toolbar-variant($theme-colors, $dark-theme)
+
+    @if (mixin_exists(tab-text-color)) {
+      .tab {
+        @include selectable-background($dark-theme);
+      }
+
+      @include tab-text-color($theme-colors, $dark-theme);
+    }
+  }
+
+  @if & == null {
+    $toolbar-primary: map_get($theme-colors, "primary");
+
+    .toolbar-primary {
+      @include toolbar-variant($theme-colors, $toolbar-primary);
+    }
+  }
 }
