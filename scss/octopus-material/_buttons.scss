@@ -80,29 +80,31 @@
 }
 
 @mixin buttons-theme($theme-colors, $dark-theme) {
-  $default-solid-background: (default: $btn-default-background-light);
+  $buttons-colors: (
+    default: $btn-default-background-light,
+    primary: map-get($theme-colors, "primary"),
+    accent: map-get($theme-colors, "accent"),
+    danger: map-get($theme-colors, "danger")
+  );
+
   $btn-disabled-color: $btn-disabled-color-light-theme;
   $btn-disabled-background-color: $btn-disabled-background-light-theme;
   $btn-flat-default-color: $body-color-light-theme;
 
   @if ($dark-theme) {
-    $default-solid-background: (default: $btn-default-background-dark);
+    $buttons-colors: map-merge($buttons-colors, (default: $btn-default-background-dark));
     $btn-disabled-color: $btn-disabled-color-dark-theme;
     $btn-disabled-background-color: $btn-disabled-background-dark-theme;
     $btn-flat-default-color: $body-color-dark-theme;
   }
 
-  @each $color, $value in join($theme-colors, $default-solid-background) {
+  @each $color, $value in $buttons-colors {
     .btn-solid.btn-#{$color} {
       @include button-solid-variant($value);
     }
   }
 
-  .btn-flat.btn-default {
-    @include button-flat-variant($btn-flat-default-color);
-  }
-
-  @each $color, $value in $theme-colors {
+  @each $color, $value in map-merge($buttons-colors, (default: $btn-flat-default-color)) {
     .btn-flat.btn-#{$color},
     .btn-borderless.btn-#{$color} {
       @include button-flat-variant($value);
