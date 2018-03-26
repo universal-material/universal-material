@@ -32,12 +32,10 @@
   align-items: center;
   text-decoration: none;
   padding: $list-item-padding;
-  color: $text-high-contrast;
 
   &:hover,
   &:focus,
   &.focus {
-    color: $text-high-contrast;
     text-decoration: none;
     outline: 0;
   }
@@ -65,7 +63,6 @@
 .list-item-avatar {
   position: relative;
   font-size: $list-icon-size;
-  color: $text-low-contrast-light-theme;
 }
 
 .list-item-avatar {
@@ -170,7 +167,8 @@
     }
   }
 
-  .list-item-icon {
+  .list-item-icon,
+  .list-item-avatar {
     color: $icon-color;
   }
 

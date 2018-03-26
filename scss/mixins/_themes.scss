@@ -82,6 +82,11 @@
     @include toolbar-theme($theme-colors, $dark-theme);
   }
 
+  @if (mixin_exists(text-theme)) {
+    @include text-theme($theme-colors, $dark-theme);
+  }
+
+
   @if ($dark-theme) {
     @include create-dark-theme;
   } @else {

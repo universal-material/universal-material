@@ -1,7 +1,7 @@
 $primary-color: #563d7c !default;
 $accent-color: #ffab40 !default;
 $danger-color: #ef5350 !default;
-$default-theme-dark: false !default;
+$default-theme-dark: true !default;
 
 $font-thin: 100;
 $font-light: 300;
@@ -137,7 +137,7 @@ $lead-font-size:   1.25rem !default;
 
 $base-icon-size: 1.5rem;
 
-$text-high-contrast: $body-color !default;//$base-dense-color !default;
+$text-high-contrast-light-theme: $body-color !default;
 $text-high-contrast-dark-theme: $white !default;
 $text-low-contrast-light-theme: rgba(0, 0, 0, 0.54) !default;
 $text-low-contrast-dark-theme: rgba(255, 255, 255, .7) !default;
@@ -405,7 +405,7 @@ $list-item-with-icon-height: 3.5rem !default;
 $list-item-two-lines-height: 4.5rem !default;
 $list-item-three-lines-height: 5.5rem !default;
 
-$list-item-color-light-theme: $text-high-contrast;
+$list-item-color-light-theme: $text-high-contrast-light-theme;
 $list-item-color-dark-theme: $white;
 
 $list-item-hover-color: $base-semi-transparent-color;
@@ -472,7 +472,7 @@ $text-field-box-border-width: .125rem !default;
 $text-field-box-label-transform: 1.25rem - $text-field-item-margin !default;
 
 
-$text-input-color-light-theme: $text-high-contrast;
+$text-input-color-light-theme: $text-high-contrast-light-theme;
 $text-input-color-dark-theme: $text-high-contrast-dark-theme;
 $text-input-line-height: 1.15 !default;
 $text-input-height: $text-field-item-height !default;
