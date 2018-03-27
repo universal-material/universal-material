@@ -64,18 +64,18 @@
   &::before {
     content: '';
     position: absolute;
-    width: $button-borderless-hover-size;
-    height: $button-borderless-hover-size;
+    width: $btn-borderless-hover-size;
+    height: $btn-borderless-hover-size;
     left: 50% !important;
     top: 50% !important;
-    margin-left: -$button-borderless-hover-size / 2;
-    margin-top: -$button-borderless-hover-size / 2;
+    margin-left: -$btn-borderless-hover-size / 2;
+    margin-top: -$btn-borderless-hover-size / 2;
     border-radius: 50% !important;
   }
 
 
   + .btn-borderless {
-    margin-left: $button-borderless-margin
+    margin-left: $btn-borderless-margin
   }
 }
 
@@ -90,12 +90,14 @@
   $btn-disabled-color: $btn-disabled-color-light-theme;
   $btn-disabled-background-color: $btn-disabled-background-light-theme;
   $btn-flat-default-color: $body-color-light-theme;
+  $btn-borderless-color: $btn-borderless-color-light-theme;
 
   @if ($dark-theme) {
     $buttons-colors: map-merge($buttons-colors, (default: $btn-default-background-dark));
     $btn-disabled-color: $btn-disabled-color-dark-theme;
     $btn-disabled-background-color: $btn-disabled-background-dark-theme;
     $btn-flat-default-color: $body-color-dark-theme;
+    $btn-borderless-color: $btn-borderless-color-dark-theme;
   }
 
   @each $color, $value in $buttons-colors {
@@ -105,7 +107,12 @@
   }
 
   @each $color, $value in map-merge($buttons-colors, (default: $btn-flat-default-color)) {
-    .btn-flat.btn-#{$color},
+    .btn-flat.btn-#{$color} {
+      @include button-flat-variant($value);
+    }
+  }
+
+  @each $color, $value in map-merge($buttons-colors, (default: $btn-borderless-color)) {
     .btn-borderless.btn-#{$color} {
       @include button-flat-variant($value);
     }
@@ -131,15 +138,19 @@
   }
 
   .btn-borderless {
-    color: $btn-flat-default-color;
+    color: $btn-borderless-color;
 
     @include hover-focus {
-      color: $btn-flat-default-color;
+      color: $btn-borderless-color;
     }
 
     &:disabled,
     &.disabled {
-      background-color: transparent;
+
+      &,
+      &::before {
+        background-color: transparent;
+      }
     }
   }
 }
