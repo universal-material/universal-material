@@ -5024,8 +5024,7 @@ mark,
   .data-table th {
     height: 3.5rem;
     font-size: 0.8125rem;
-    font-weight: 500;
-    border-bottom: 0.0625rem solid rgba(0, 0, 0, 0.12); }
+    font-weight: 500; }
   .data-table td {
     height: 3rem;
     font-size: 0.875rem;
@@ -5039,25 +5038,6 @@ mark,
   .data-table.card, .data-table.text-field-elevated {
     overflow: visible; }
 
-.data-table-header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 4rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem; }
-
-.data-table-title {
-  font-size: 1.25rem; }
-
-.data-table-actions {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex; }
-
 .data-table-footer {
   height: 4rem;
   border-top: 0.0625rem solid rgba(0, 0, 0, 0.12);
@@ -5070,6 +5050,9 @@ mark,
     margin-left: 2rem; }
     .data-table-footer .data-table-actions .data-table-action:first-child {
       margin-left: -0.75rem; }
+
+th.data-table-header {
+  padding: 0; }
 
 .list {
   padding: 0.5rem 0;
