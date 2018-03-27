@@ -23,6 +23,9 @@
     vertical-align: middle;
   }
 
+  &.card {
+    overflow: visible;
+  }
 }
 
 .data-table-header {
