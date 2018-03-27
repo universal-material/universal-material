@@ -322,15 +322,10 @@ $data-table-border: $data-table-divider-width solid $data-table-divider-color !d
 
 $data-table-horizontal-padding: $row-horizontal-padding !default;
 
-$data-table-card-header-height: 4rem !default;
-$data-table-card-header-title-font-size: 1.25rem !default;
-
 $data-table-column-height: 3rem !default;
-
 $data-table-column-header-height: 3.5rem !default;
 $data-table-column-header-font-size: .8125rem !default;
 $data-table-column-header-font-weight: $font-medium !default;
-
 $data-table-column-header-color-light-theme: $text-low-contrast-light-theme;
 $data-table-column-header-color-dark-theme: $text-low-contrast-dark-theme;
 
@@ -340,7 +335,7 @@ $data-table-row-hover-background-color-dark-theme: #626262 !default;
 $data-table-row-selected-bg-light-theme: #f5f5f5 !default;
 $data-table-row-selected-bg-dark-theme: #525252 !default;
 
-$data-table-card-footer-height: $data-table-card-header-height !default;
+$data-table-card-footer-height: 4rem !default;
 $data-table-card-footer-font-color: $text-low-contrast-light-theme !default;
 $data-table-card-footer-font-size: .75rem !default;
 $data-table-card-footer-font-weight: $font-regular !default;
