@@ -2,25 +2,37 @@
   overflow: hidden;
   position: relative;
   height: $progress-height;
-  background: rgba($primary-color, 0.2);
   border-radius: $progress-border-radius;
+  transform: scale3d(1, 0, 1);
+  transition: transform 350ms;
 
-  transform: scaleY(1);
-
-  transition: 350ms transform;
-
-  &.collapse {
-    transform: scaleY(0);
+  &.show {
+    transform: scale3d(1, 1, 1);
   }
 
-  &::before {
-    content: "";
-    position: absolute;
-    top: $progress-border-width;
-    left: $progress-border-width;
-    right: $progress-border-width;
-    bottom: $progress-border-width;
-    background: rgba($primary-color, 0.2);
+  &.indeterminate {
+    &::before,
+    &::after {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 20%;
+      content: "";
+      animation-duration: $progress-indeterminate-animation-duration;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+
+    &::before {
+      width: 20%;
+      animation-name: slow-bar;
+    }
+
+    &::after {
+      width: 70%;
+      right: 100%;
+      animation-name: quick-bar;
+    }
   }
 }
 
@@ -28,42 +40,30 @@
   position: relative;
   width: 0;
   height: $progress-height;
-  background: rgba($primary-color, 0.54);
-
   transition: width 250ms;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: $progress-border-width;
-    left: $progress-border-width;
-    right: 0;
-    bottom: $progress-border-width;
-    background: rgba($primary-color, 0.54);
-  }
 }
 
 .preloader-wrapper {
   display: inline-block;
   position: relative;
-  width: 48px;
-  height: 48px;
+  width: $spinner-height;
+  height: $spinner-height;
 
   animation: container-rotate 1568ms linear infinite;
 
   &.small {
-    width: 36px;
-    height: 36px;
+    width: $spinner-height-small;
+    height: $spinner-height-small;
   }
 
   &.x-small {
-    width: 24px;
-    height: 24px;
+    width: $spinner-height-x-small;
+    height: $spinner-height-x-small;
   }
 
   &.big {
-    width: 64px;
-    height: 64px;
+    width: $spinner-height-big;
+    height: $spinner-height-big;
   }
 }
 
@@ -208,5 +208,57 @@
 
   to {
     transform: rotate(-130deg);
+  }
+}
+
+@keyframes slow-bar {
+  0% {
+    width: 20%;
+    right: 100%;
+  }
+
+  50% {
+    width: 70%;
+    right: -20%;
+  }
+
+  100% {
+    width: 20%;
+    right: -140%;
+  }
+}
+
+@keyframes quick-bar {
+
+  60% {
+    right: 100%;
+    width: 70%;
+  }
+
+  80% {
+    right: 10%;
+    width: 10%;
+  }
+
+  100% {
+    right: -80%;
+    width: 10%;
+  }
+}
+
+@mixin progress-theme($theme-colors) {
+  $primary-color: map-get($theme-colors, "primary");
+
+  $progress-color: rgba($primary-color, .2);
+  $progress-bar-color: rgba($primary-color, .54);
+
+  .progress {
+    background-color: $progress-color;
+  }
+
+  .progress.indeterminate::after,
+  .progress.indeterminate::before,
+  .progress-bar {
+    background-color: $progress-bar-color;
   }
 }

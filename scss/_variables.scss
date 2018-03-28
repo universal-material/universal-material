@@ -410,9 +410,14 @@ $list-item-multi-line-line-height: 1.25rem !default;
 $progress-height: .3125rem !default;
 $progress-border-radius: .0625rem !default;
 $progress-border-width: .0625rem !default;
+$progress-indeterminate-animation-duration: 2100ms !default;
 
 //Spinner
 $spinner-color: $primary-color;
+$spinner-height: 3rem !default;
+$spinner-height-small: $spinner-height * .75 !default;
+$spinner-height-x-small: $spinner-height * .5 !default;
+$spinner-height-big: $spinner-height / 3 * 4 !default;
 
 //Sidebar
 $sidebar-width: 20rem !default;

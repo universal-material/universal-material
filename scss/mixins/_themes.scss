@@ -90,6 +90,10 @@
     @include selectable-background-theme($dark-theme);
   }
 
+  @if (mixin_exists(progress-theme)) {
+    @include progress-theme($theme-colors);
+  }
+
   @if ($dark-theme) {
     @include create-dark-theme;
   } @else {
