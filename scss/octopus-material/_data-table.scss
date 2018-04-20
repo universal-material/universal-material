@@ -6,7 +6,6 @@
     height: $data-table-column-header-height;
     font-size: $data-table-column-header-font-size;
     font-weight: $data-table-column-header-font-weight;
-    border-bottom: $data-table-border;
   }
 
   td {
@@ -23,22 +22,9 @@
     vertical-align: middle;
   }
 
-}
-
-.data-table-header {
-  display: flex;
-  align-items: center;
-  height: $data-table-card-header-height;
-
-  @include horizontal-padding($data-table-horizontal-padding);
-}
-
-.data-table-title {
-  font-size: $data-table-card-header-title-font-size;
-}
-
-.data-table-actions {
-  display: flex;
+  &.card {
+    overflow: visible;
+  }
 }
 
 .data-table-footer {
@@ -59,6 +45,10 @@
       margin-left: -$toolbar-action-padding;
     }
   }
+}
+
+th.data-table-header {
+  padding: 0;
 }
 
 @mixin data-table-theme($dark-theme) {

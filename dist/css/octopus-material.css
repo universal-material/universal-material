@@ -5042,8 +5042,7 @@ mark,
   .data-table th {
     height: 3.5rem;
     font-size: 0.8125rem;
-    font-weight: 500;
-    border-bottom: 0.0625rem solid rgba(0, 0, 0, 0.12); }
+    font-weight: 500; }
   .data-table td {
     height: 3rem;
     font-size: 0.875rem;
@@ -5054,25 +5053,8 @@ mark,
     padding-left: 1.5rem;
     padding-right: 1.5rem;
     vertical-align: middle; }
-
-.data-table-header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 4rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem; }
-
-.data-table-title {
-  font-size: 1.25rem; }
-
-.data-table-actions {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex; }
+  .data-table.card, .data-table.text-field-elevated {
+    overflow: visible; }
 
 .data-table-footer {
   height: 4rem;
@@ -5086,6 +5068,9 @@ mark,
     margin-left: 2rem; }
     .data-table-footer .data-table-actions .data-table-action:first-child {
       margin-left: -0.75rem; }
+
+th.data-table-header {
+  padding: 0; }
 
 .list {
   padding-top: 0.5rem;
@@ -5252,58 +5237,61 @@ mark,
   overflow: hidden;
   position: relative;
   height: 0.3125rem;
-  background: rgba(86, 61, 124, 0.2);
   border-radius: 0.0625rem;
-  -webkit-transform: scaleY(1);
-          transform: scaleY(1);
-  -webkit-transition: 350ms -webkit-transform;
-  transition: 350ms -webkit-transform;
-  transition: 350ms transform;
-  transition: 350ms transform, 350ms -webkit-transform; }
-  .progress.collapse {
-    -webkit-transform: scaleY(0);
-            transform: scaleY(0); }
-  .progress::before {
-    content: "";
+  -webkit-transform: scale3d(1, 0, 1);
+          transform: scale3d(1, 0, 1);
+  -webkit-transition: -webkit-transform 350ms;
+  transition: -webkit-transform 350ms;
+  transition: transform 350ms;
+  transition: transform 350ms, -webkit-transform 350ms; }
+  .progress.show {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1); }
+  .progress.indeterminate::before, .progress.indeterminate::after {
     position: absolute;
-    top: 0.0625rem;
-    left: 0.0625rem;
-    right: 0.0625rem;
-    bottom: 0.0625rem;
-    background: rgba(86, 61, 124, 0.2); }
+    top: 0;
+    bottom: 0;
+    width: 20%;
+    content: "";
+    -webkit-animation-duration: 2100ms;
+            animation-duration: 2100ms;
+    -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite; }
+  .progress.indeterminate::before {
+    width: 20%;
+    -webkit-animation-name: slow-bar;
+            animation-name: slow-bar; }
+  .progress.indeterminate::after {
+    width: 70%;
+    right: 100%;
+    -webkit-animation-name: quick-bar;
+            animation-name: quick-bar; }
 
 .progress-bar {
   position: relative;
   width: 0;
   height: 0.3125rem;
-  background: rgba(86, 61, 124, 0.54);
   -webkit-transition: width 250ms;
   transition: width 250ms; }
-  .progress-bar::before {
-    content: "";
-    position: absolute;
-    top: 0.0625rem;
-    left: 0.0625rem;
-    right: 0;
-    bottom: 0.0625rem;
-    background: rgba(86, 61, 124, 0.54); }
 
 .preloader-wrapper {
   display: inline-block;
   position: relative;
-  width: 48px;
-  height: 48px;
+  width: 3rem;
+  height: 3rem;
   -webkit-animation: container-rotate 1568ms linear infinite;
           animation: container-rotate 1568ms linear infinite; }
   .preloader-wrapper.small {
-    width: 36px;
-    height: 36px; }
+    width: 2.25rem;
+    height: 2.25rem; }
   .preloader-wrapper.x-small {
-    width: 24px;
-    height: 24px; }
+    width: 1.5rem;
+    height: 1.5rem; }
   .preloader-wrapper.big {
-    width: 64px;
-    height: 64px; }
+    width: 4rem;
+    height: 4rem; }
 
 @-webkit-keyframes container-rotate {
   to {
@@ -5471,6 +5459,50 @@ mark,
   to {
     -webkit-transform: rotate(-130deg);
             transform: rotate(-130deg); } }
+
+@-webkit-keyframes slow-bar {
+  0% {
+    width: 20%;
+    right: 100%; }
+  50% {
+    width: 70%;
+    right: -20%; }
+  100% {
+    width: 20%;
+    right: -140%; } }
+
+@keyframes slow-bar {
+  0% {
+    width: 20%;
+    right: 100%; }
+  50% {
+    width: 70%;
+    right: -20%; }
+  100% {
+    width: 20%;
+    right: -140%; } }
+
+@-webkit-keyframes quick-bar {
+  60% {
+    right: 100%;
+    width: 70%; }
+  80% {
+    right: 10%;
+    width: 10%; }
+  100% {
+    right: -80%;
+    width: 10%; } }
+
+@keyframes quick-bar {
+  60% {
+    right: 100%;
+    width: 70%; }
+  80% {
+    right: 10%;
+    width: 10%; }
+  100% {
+    right: -80%;
+    width: 10%; } }
 
 .sidebar-layout {
   position: relative;
@@ -6634,6 +6666,35 @@ a.text-low-contrast:hover, a.text-low-contrast:focus {
 
 a.text-high-contrast:hover, a.text-high-contrast:focus {
   color: #080808 !important; }
+
+.selectable-background {
+  position: relative;
+  cursor: pointer;
+  position: relative;
+  z-index: 1; }
+  .selectable-background::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 0;
+    z-index: -1;
+    -webkit-transition: background-color 250ms linear;
+    transition: background-color 250ms linear; }
+  .selectable-background:hover::before {
+    background-color: rgba(0, 0, 0, 0.12); }
+  .selectable-background:active::before {
+    background-color: rgba(0, 0, 0, 0.12); }
+
+.progress {
+  background-color: rgba(86, 61, 124, 0.2); }
+
+.progress.indeterminate::after,
+.progress.indeterminate::before,
+.progress-bar {
+  background-color: rgba(86, 61, 124, 0.54); }
 
 body {
   background-color: #f5f5f5;

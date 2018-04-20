@@ -15,3 +15,9 @@
   color: $body-color-dark-theme
 }
 
+@mixin selectable-background-theme($dark-theme) {
+  .selectable-background {
+    @include selectable-background($dark-theme, true)
+  }
+}
+
