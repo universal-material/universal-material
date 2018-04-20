@@ -3,8 +3,9 @@ extends ../layout
 block content
   h1.chapter-title Menus
 
-  .row
-    .example-box.col-2
+
+  .example-box
+    .example-box-header
       .toolbar
         .toolbar-row
           .toolbar-actions.dropdown.show
@@ -16,7 +17,8 @@ block content
                 a.dropdown-item.text-nowrap(href="#") Item A
                 a.dropdown-item.text-nowrap(href="#") Item B
                 a.dropdown-item.text-nowrap(href="#") Item C
-    .example-box.col-2
+  .example-box
+    .example-box-header
       .toolbar
         .toolbar-row
           .toolbar-title

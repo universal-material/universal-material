@@ -91,6 +91,14 @@
   }
 }
 
+.dense-layout {
+  .dropdown-item {
+    height: $dropdown-item-dense-height;
+    font-size: $dropdown-item-dense-font-size;
+    @include horizontal-padding($dropdown-item-dense-padding);
+  }
+}
+
 .data-table {
 
   .dropdown-menu {

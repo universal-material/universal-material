@@ -136,6 +136,7 @@ $caption-weight:      $font-regular !default;
 $lead-font-size:   1.25rem !default;
 
 $base-icon-size: 1.5rem;
+$base-dense-icon-size: 1.3125rem;
 
 $text-high-contrast-light-theme: $body-color !default;
 $text-high-contrast-dark-theme: $white !default;
@@ -289,6 +290,12 @@ $dropdown-in-data-table-bg-dark-theme: $gray-700 !default;
 
 $dropdown-in-data-table-toggle-icon-size: 22px !default;
 
+//Dropdown dense
+$dropdown-item-dense-height: 2rem;
+$dropdown-item-dense-padding: 1.5rem;
+$dropdown-item-dense-font-size: .9375rem;
+
+
 //Floating content
 $floating-content-padding: 1.25rem !default;
 
@@ -352,7 +359,7 @@ $data-table-content-font-weight: $font-medium !default;
 $divider-height: .0625rem !default;
 $divider-color: $base-semi-transparent-color !default;
 
-////Buttons
+//Buttons
 $btn-disabled-background-light-theme: rgba(0, 0, 0, .12) !default;
 $btn-disabled-background-dark-theme: rgba(255, 255, 255, .12) !default;
 $btn-disabled-color-light-theme: rgba(0, 0, 0, .26) !default;
@@ -361,10 +368,9 @@ $btn-side-padding: 1rem !default;
 $btn-height: 2.25rem !default;
 $btn-border-radius: .125rem !default;
 $btn-font-size: $font-size-base !default;
-$btn-font-weight:                $font-medium !default;
+$btn-font-weight: $font-medium !default;
 $btn-default-background-light: $white !default;
 $btn-default-background-dark: $gray-800 !default;
-
 
 $floating-button-size: 3.5rem !default;
 $floating-button-small-size: 2.5rem !default;
@@ -372,9 +378,13 @@ $floating-button-icon-size: $base-icon-size !default;
 
 $btn-borderless-color-light-theme: $text-low-contrast-light-theme !default;
 $btn-borderless-color-dark-theme: $white !default;
-$btn-borderless-font-size:  $base-icon-size !default;
+$btn-borderless-font-size: $base-icon-size !default;
 $btn-borderless-margin: 1.5rem !default;
 $btn-borderless-hover-size: 2.5rem !default;
+
+//Buttons dense
+$btn-dense-font-size: .8125rem !default;
+$btn-dense-height: 2rem !default;
 
 //List
 $list-vertical-padding: .5rem !default;
@@ -387,20 +397,15 @@ $list-avatar-size: $avatar-size !default;
 $list-icon-avatar-text-left-distance: 4.5rem !default;
 
 $list-item-font-size: 1rem !default;
-$list-item-line-height: 1.25rem !default;
+$list-item-padding: $list-item-font-size !default;
 
 $list-item-min-height: 3rem !default;
 $list-item-with-icon-height: 3.5rem !default;
 $list-item-two-lines-height: 4.5rem !default;
 $list-item-three-lines-height: 5.5rem !default;
 
-$list-item-color-light-theme: $text-high-contrast-light-theme;
-$list-item-color-dark-theme: $white;
-
 $list-item-hover-color: $base-semi-transparent-color;
 $list-avatar-padding-top: .5rem !default;
-
-$list-item-padding: 1rem !default;
 
 $list-index-width: 3.5rem !default;
 $list-index-font-size: 1.25rem !default;
@@ -410,6 +415,19 @@ $list-index-color-dark-theme: $text-low-contrast-dark-theme !default;
 
 $list-divider-height: $divider-height !default;
 $list-item-multi-line-line-height: 1.25rem !default;
+
+//List dense
+$list-dense-vertical-padding: .25rem !default;
+$list-item-dense-font-size: .8125rem !default;
+$list-item-dense-padding: $list-item-dense-font-size !default;
+$list-item-dense-min-height: 2.5rem !default;
+
+$list-item-color-light-theme: $text-high-contrast-light-theme;
+$list-item-color-dark-theme: $white;
+
+$list-dense-icon-size: $base-dense-icon-size;
+
+$list-index-dense-font-size: 1rem !default;
 
 //Progress
 $progress-height: .3125rem !default;
@@ -495,6 +513,9 @@ $toolbar-icon-color-light-theme: $text-low-contrast-light-theme !default;
 $toolbar-icon-color-dark-theme: $white !default;
 
 $bg-appbar: $primary-color !default;
+
+//Toolbar dense
+$toolbar-dense-height: 3rem !default;
 
 //Tabs
 $tab-height: 3rem !default;

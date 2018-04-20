@@ -42,6 +42,12 @@
   height: 100%;
 }
 
+.dense-layout {
+  .toolbar-row {
+    height: $toolbar-dense-height;
+  }
+}
+
 @mixin toolbar-theme($theme-colors, $dark-theme) {
 
   $color: $body-color-light-theme;

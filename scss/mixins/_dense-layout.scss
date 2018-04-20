@@ -1,0 +1,5 @@
+@mixin create-dense-layout() {
+  @if (mixin_exists(list-dense)) {
+    @include list-dense;
+  }
+}

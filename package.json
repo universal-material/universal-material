@@ -16,6 +16,7 @@
   "scripts": {
     "docs": "http-server -a localhost -p 8081 -o http://localhost:8081/docs"
   },
+  "sass": "scss/octopus-material.scss",
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",

@@ -11,6 +11,10 @@
         }
     }
 
+    function toggleDenseLayout() {
+        document.body.classList.toggle("dense-layout");
+    }
+
     function mainContentScroll(e) {
         if (e.target.scrollTop) {
             appbar.classList.add('elevation-6dp');
@@ -19,8 +23,17 @@
         }
     }
 
-    document.getElementById("menu-toggle").addEventListener("click", toggleSidebar);
+    document
+        .getElementById("menu-toggle")
+        .addEventListener("click", toggleSidebar);
+
+    document
+        .getElementById("dense-toggle")
+        .addEventListener("click", toggleDenseLayout);
+
     sidebarBackdrop.addEventListener("click", toggleSidebar);
+
+
 
     document.getElementById("main-content").addEventListener("scroll", mainContentScroll);
 })();

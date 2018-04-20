@@ -33,4 +33,5 @@
 @import "utilities";
 //@import "octopus-material/responsive-utilities";
 
-@include create-theme($theme-colors, $default-theme-dark)
+@include create-theme($theme-colors, $default-theme-dark);
+@include create-dense-layout();

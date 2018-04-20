@@ -4115,6 +4115,9 @@ mark,
           flex-direction: column;
   height: 100%; }
 
+.dense-layout .toolbar-row {
+  height: 3rem; }
+
 .btn, .btn-flat,
 .btn-solid, .btn-raised, .btn-floating, .btn-borderless, .snackbar-button {
   position: relative;
@@ -4177,6 +4180,15 @@ mark,
     border-radius: 50% !important; }
   .btn-borderless + .btn-borderless {
     margin-left: 1.5rem; }
+
+.dense-layout .btn, .dense-layout .btn-flat,
+.dense-layout .btn-solid, .dense-layout .btn-raised, .dense-layout .btn-floating, .dense-layout .btn-borderless, .dense-layout .snackbar-button {
+  font-size: 0.8125rem;
+  height: 2rem;
+  line-height: 2rem; }
+
+.dense-layout .btn-borderless {
+  font-size: 1.3125rem; }
 
 .btn-group,
 .btn-group-vertical {
@@ -4840,6 +4852,12 @@ mark,
   -webkit-transition: opacity 300ms 150ms;
   transition: opacity 300ms 150ms; }
 
+.dense-layout .dropdown-item {
+  height: 2rem;
+  font-size: 0.9375rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem; }
+
 .data-table .dropdown-menu {
   padding: 0; }
 
@@ -5070,7 +5088,8 @@ mark,
       margin-left: -0.75rem; }
 
 .list {
-  padding: 0.5rem 0;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   margin: 0; }
   .list .divider {
     margin-top: 0.5rem;
@@ -5206,6 +5225,28 @@ mark,
   padding: 1rem;
   font-weight: 500;
   font-size: 1.25rem; }
+
+.dense-layout .list {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem; }
+
+.dense-layout .list-item {
+  min-height: 2.5rem;
+  padding-top: 0.8125rem;
+  padding-bottom: 0.8125rem; }
+
+.dense-layout .list-item-primary-content {
+  font-size: 0.8125rem; }
+
+.dense-layout .list-item-icon {
+  font-size: 1.3125rem; }
+
+.dense-layout .list-item-primary-content,
+.dense-layout .list-item-icon {
+  line-height: 0.8125rem; }
+
+.dense-layout .list-index {
+  font-size: 1rem; }
 
 .progress {
   overflow: hidden;

@@ -79,6 +79,18 @@
   }
 }
 
+.dense-layout {
+  .btn {
+    font-size: $btn-dense-font-size;
+    height: $btn-dense-height;
+    line-height: $btn-dense-height;
+  }
+
+  .btn-borderless {
+    font-size: $base-dense-icon-size;
+  }
+}
+
 @mixin buttons-theme($theme-colors, $dark-theme) {
   $buttons-colors: (
     default: $btn-default-background-light,
