@@ -51,7 +51,7 @@ article, aside, dialog, figcaption, figure, footer, header, hgroup, main, nav, s
 
 body {
   margin: 0;
-  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.5;
@@ -302,7 +302,7 @@ template {
 .img-thumbnail {
   padding: 0.25rem;
   background-color: #f5f5f5;
-  border: 0.0625rem solid #e0e0e0;
+  border: 1px solid #e0e0e0;
   border-radius: 0.25rem;
   max-width: 100%;
   height: auto; }
@@ -1376,19 +1376,19 @@ button.bg-accent:focus {
   background-color: transparent !important; }
 
 .border {
-  border: 0.0625rem solid #e0e0e0 !important; }
+  border: 1px solid #e0e0e0 !important; }
 
 .border-top {
-  border-top: 0.0625rem solid #e0e0e0 !important; }
+  border-top: 1px solid #e0e0e0 !important; }
 
 .border-right {
-  border-right: 0.0625rem solid #e0e0e0 !important; }
+  border-right: 1px solid #e0e0e0 !important; }
 
 .border-bottom {
-  border-bottom: 0.0625rem solid #e0e0e0 !important; }
+  border-bottom: 1px solid #e0e0e0 !important; }
 
 .border-left {
-  border-left: 0.0625rem solid #e0e0e0 !important; }
+  border-left: 1px solid #e0e0e0 !important; }
 
 .border-0 {
   border: 0 !important; }
@@ -3473,8 +3473,8 @@ a.text-accent:hover, a.text-accent:focus {
     text-shadow: none !important;
     -webkit-box-shadow: none !important;
             box-shadow: none !important; }
-  a:not(.btn):not(.btn-flat):not(
-  .btn-solid):not(.btn-raised):not(.btn-floating):not(.btn-borderless):not(.snackbar-button) {
+  a:not(.btn):not(.btn-flat):not(.snackbar-button):not(
+  .btn-solid):not(.btn-raised):not(.btn-floating):not(.btn-borderless) {
     text-decoration: underline; }
   abbr[title]::after {
     content: " (" attr(title) ")"; }
@@ -3482,7 +3482,7 @@ a.text-accent:hover, a.text-accent:focus {
     white-space: pre-wrap !important; }
   pre,
   blockquote {
-    border: 0.0625rem solid #999;
+    border: 1px solid #999;
     page-break-inside: avoid; }
   thead {
     display: table-header-group; }
@@ -3506,7 +3506,7 @@ a.text-accent:hover, a.text-accent:focus {
   .navbar {
     display: none; }
   .badge {
-    border: 0.0625rem solid #000; }
+    border: 1px solid #000; }
   .table {
     border-collapse: collapse !important; }
     .table td,
@@ -3600,7 +3600,7 @@ hr {
   margin-top: 1rem;
   margin-bottom: 1rem;
   border: 0;
-  border-top: 0.0625rem solid rgba(0, 0, 0, 0.1); }
+  border-top: 1px solid rgba(0, 0, 0, 0.1); }
 
 small,
 .small {
@@ -4118,8 +4118,8 @@ mark,
 .dense-layout .toolbar-row {
   height: 3rem; }
 
-.btn, .btn-flat,
-.btn-solid, .btn-raised, .btn-floating, .btn-borderless, .snackbar-button {
+.btn, .btn-flat, .snackbar-button,
+.btn-solid, .btn-raised, .btn-floating, .btn-borderless {
   position: relative;
   display: inline-block;
   font-weight: 500;
@@ -4139,17 +4139,17 @@ mark,
   background: transparent;
   text-transform: uppercase;
   z-index: 1; }
-  .btn:hover, .btn-flat:hover,
-  .btn-solid:hover, .btn-raised:hover, .btn-floating:hover, .btn-borderless:hover, .snackbar-button:hover, .btn:focus, .btn-flat:focus,
-  .btn-solid:focus, .btn-raised:focus, .btn-floating:focus, .btn-borderless:focus, .snackbar-button:focus {
+  .btn:hover, .btn-flat:hover, .snackbar-button:hover,
+  .btn-solid:hover, .btn-raised:hover, .btn-floating:hover, .btn-borderless:hover, .btn:focus, .btn-flat:focus, .snackbar-button:focus,
+  .btn-solid:focus, .btn-raised:focus, .btn-floating:focus, .btn-borderless:focus {
     text-decoration: none; }
-  .btn:focus, .btn-flat:focus,
-  .btn-solid:focus, .btn-raised:focus, .btn-floating:focus, .btn-borderless:focus, .snackbar-button:focus, .btn.focus, .focus.btn-flat,
-  .focus.btn-solid, .focus.btn-raised, .focus.btn-floating, .focus.btn-borderless, .focus.snackbar-button {
+  .btn:focus, .btn-flat:focus, .snackbar-button:focus,
+  .btn-solid:focus, .btn-raised:focus, .btn-floating:focus, .btn-borderless:focus, .btn.focus, .focus.btn-flat, .focus.snackbar-button,
+  .focus.btn-solid, .focus.btn-raised, .focus.btn-floating, .focus.btn-borderless {
     outline: 0; }
-  .btn:active, .btn-flat:active,
-  .btn-solid:active, .btn-raised:active, .btn-floating:active, .btn-borderless:active, .snackbar-button:active, .btn.active, .active.btn-flat,
-  .active.btn-solid, .active.btn-raised, .active.btn-floating, .active.btn-borderless, .active.snackbar-button {
+  .btn:active, .btn-flat:active, .snackbar-button:active,
+  .btn-solid:active, .btn-raised:active, .btn-floating:active, .btn-borderless:active, .btn.active, .active.btn-flat, .active.snackbar-button,
+  .active.btn-solid, .active.btn-raised, .active.btn-floating, .active.btn-borderless {
     background-image: none; }
 
 .btn-raised, .btn-floating {
@@ -4181,14 +4181,18 @@ mark,
   .btn-borderless + .btn-borderless {
     margin-left: 1.5rem; }
 
-.dense-layout .btn, .dense-layout .btn-flat,
-.dense-layout .btn-solid, .dense-layout .btn-raised, .dense-layout .btn-floating, .dense-layout .btn-borderless, .dense-layout .snackbar-button {
+.dense-layout .btn, .dense-layout .btn-flat, .dense-layout .snackbar-button,
+.dense-layout .btn-solid, .dense-layout .btn-raised, .dense-layout .btn-floating, .dense-layout .btn-borderless {
   font-size: 0.8125rem;
   height: 2rem;
   line-height: 2rem; }
 
 .dense-layout .btn-borderless {
   font-size: 1.3125rem; }
+
+.btn-raised, .btn-floating {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important; }
 
 .btn-group,
 .btn-group-vertical {
@@ -4197,55 +4201,55 @@ mark,
   display: -ms-inline-flexbox;
   display: inline-flex;
   vertical-align: middle; }
-  .btn-group > .btn, .btn-group > .btn-flat,
-  .btn-group > .btn-solid, .btn-group > .btn-raised, .btn-group > .btn-floating, .btn-group > .btn-borderless, .btn-group > .snackbar-button,
+  .btn-group > .btn, .btn-group > .btn-flat, .btn-group > .snackbar-button,
+  .btn-group > .btn-solid, .btn-group > .btn-raised, .btn-group > .btn-floating, .btn-group > .btn-borderless,
   .btn-group-vertical > .btn,
   .btn-group-vertical > .btn-flat,
+  .btn-group-vertical > .snackbar-button,
   .btn-group-vertical > .btn-solid,
   .btn-group-vertical > .btn-raised,
   .btn-group-vertical > .btn-floating,
-  .btn-group-vertical > .btn-borderless,
-  .btn-group-vertical > .snackbar-button {
+  .btn-group-vertical > .btn-borderless {
     position: relative;
     -webkit-box-flex: 0;
         -ms-flex: 0 1 auto;
             flex: 0 1 auto;
     margin-bottom: 0; }
-    .btn-group > .btn:hover, .btn-group > .btn-flat:hover,
-    .btn-group > .btn-solid:hover, .btn-group > .btn-raised:hover, .btn-group > .btn-floating:hover, .btn-group > .btn-borderless:hover, .btn-group > .snackbar-button:hover,
+    .btn-group > .btn:hover, .btn-group > .btn-flat:hover, .btn-group > .snackbar-button:hover,
+    .btn-group > .btn-solid:hover, .btn-group > .btn-raised:hover, .btn-group > .btn-floating:hover, .btn-group > .btn-borderless:hover,
     .btn-group-vertical > .btn:hover,
     .btn-group-vertical > .btn-flat:hover,
+    .btn-group-vertical > .snackbar-button:hover,
     .btn-group-vertical > .btn-solid:hover,
     .btn-group-vertical > .btn-raised:hover,
     .btn-group-vertical > .btn-floating:hover,
-    .btn-group-vertical > .btn-borderless:hover,
-    .btn-group-vertical > .snackbar-button:hover {
+    .btn-group-vertical > .btn-borderless:hover {
       z-index: 2; }
-    .btn-group > .btn:focus, .btn-group > .btn-flat:focus,
-    .btn-group > .btn-solid:focus, .btn-group > .btn-raised:focus, .btn-group > .btn-floating:focus, .btn-group > .btn-borderless:focus, .btn-group > .snackbar-button:focus, .btn-group > .btn:active, .btn-group > .btn-flat:active,
-    .btn-group > .btn-solid:active, .btn-group > .btn-raised:active, .btn-group > .btn-floating:active, .btn-group > .btn-borderless:active, .btn-group > .snackbar-button:active, .btn-group > .btn.active, .btn-group > .active.btn-flat,
-    .btn-group > .active.btn-solid, .btn-group > .active.btn-raised, .btn-group > .active.btn-floating, .btn-group > .active.btn-borderless, .btn-group > .active.snackbar-button,
+    .btn-group > .btn:focus, .btn-group > .btn-flat:focus, .btn-group > .snackbar-button:focus,
+    .btn-group > .btn-solid:focus, .btn-group > .btn-raised:focus, .btn-group > .btn-floating:focus, .btn-group > .btn-borderless:focus, .btn-group > .btn:active, .btn-group > .btn-flat:active, .btn-group > .snackbar-button:active,
+    .btn-group > .btn-solid:active, .btn-group > .btn-raised:active, .btn-group > .btn-floating:active, .btn-group > .btn-borderless:active, .btn-group > .btn.active, .btn-group > .active.btn-flat, .btn-group > .active.snackbar-button,
+    .btn-group > .active.btn-solid, .btn-group > .active.btn-raised, .btn-group > .active.btn-floating, .btn-group > .active.btn-borderless,
     .btn-group-vertical > .btn:focus,
     .btn-group-vertical > .btn-flat:focus,
+    .btn-group-vertical > .snackbar-button:focus,
     .btn-group-vertical > .btn-solid:focus,
     .btn-group-vertical > .btn-raised:focus,
     .btn-group-vertical > .btn-floating:focus,
     .btn-group-vertical > .btn-borderless:focus,
-    .btn-group-vertical > .snackbar-button:focus,
     .btn-group-vertical > .btn:active,
     .btn-group-vertical > .btn-flat:active,
+    .btn-group-vertical > .snackbar-button:active,
     .btn-group-vertical > .btn-solid:active,
     .btn-group-vertical > .btn-raised:active,
     .btn-group-vertical > .btn-floating:active,
     .btn-group-vertical > .btn-borderless:active,
-    .btn-group-vertical > .snackbar-button:active,
     .btn-group-vertical > .btn.active,
     .btn-group-vertical > .active.btn-flat,
+    .btn-group-vertical > .active.snackbar-button,
     .btn-group-vertical > .active.btn-solid,
     .btn-group-vertical > .active.btn-raised,
     .btn-group-vertical > .active.btn-floating,
-    .btn-group-vertical > .active.btn-borderless,
-    .btn-group-vertical > .active.snackbar-button {
+    .btn-group-vertical > .active.btn-borderless {
       z-index: 2; }
 
 .btn-toolbar {
@@ -4263,10 +4267,10 @@ mark,
 .btn-group > .btn-group {
   float: left; }
 
-.btn + .dropdown-toggle-split, .btn-flat + .dropdown-toggle-split, .btn-solid + .dropdown-toggle-split, .btn-raised + .dropdown-toggle-split, .btn-floating + .dropdown-toggle-split, .btn-borderless + .dropdown-toggle-split, .snackbar-button + .dropdown-toggle-split {
+.btn + .dropdown-toggle-split, .btn-flat + .dropdown-toggle-split, .snackbar-button + .dropdown-toggle-split, .btn-solid + .dropdown-toggle-split, .btn-raised + .dropdown-toggle-split, .btn-floating + .dropdown-toggle-split, .btn-borderless + .dropdown-toggle-split {
   padding-right: 0.5625rem;
   padding-left: 0.5625rem; }
-  .btn + .dropdown-toggle-split::after, .btn-flat + .dropdown-toggle-split::after, .btn-solid + .dropdown-toggle-split::after, .btn-raised + .dropdown-toggle-split::after, .btn-floating + .dropdown-toggle-split::after, .btn-borderless + .dropdown-toggle-split::after, .snackbar-button + .dropdown-toggle-split::after {
+  .btn + .dropdown-toggle-split::after, .btn-flat + .dropdown-toggle-split::after, .snackbar-button + .dropdown-toggle-split::after, .btn-solid + .dropdown-toggle-split::after, .btn-raised + .dropdown-toggle-split::after, .btn-floating + .dropdown-toggle-split::after, .btn-borderless + .dropdown-toggle-split::after {
     margin-left: 0; }
 
 .btn-group-vertical {
@@ -4283,33 +4287,33 @@ mark,
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center; }
-  .btn-group-vertical .btn, .btn-group-vertical .btn-flat,
-  .btn-group-vertical .btn-solid, .btn-group-vertical .btn-raised, .btn-group-vertical .btn-floating, .btn-group-vertical .btn-borderless, .btn-group-vertical .snackbar-button,
+  .btn-group-vertical .btn, .btn-group-vertical .btn-flat, .btn-group-vertical .snackbar-button,
+  .btn-group-vertical .btn-solid, .btn-group-vertical .btn-raised, .btn-group-vertical .btn-floating, .btn-group-vertical .btn-borderless,
   .btn-group-vertical .btn-group {
     width: 100%; }
 
-[data-toggle="buttons"] > .btn input[type="radio"], [data-toggle="buttons"] > .btn-flat input[type="radio"], [data-toggle="buttons"] > .btn-solid input[type="radio"], [data-toggle="buttons"] > .btn-raised input[type="radio"], [data-toggle="buttons"] > .btn-floating input[type="radio"], [data-toggle="buttons"] > .btn-borderless input[type="radio"], [data-toggle="buttons"] > .snackbar-button input[type="radio"],
+[data-toggle="buttons"] > .btn input[type="radio"], [data-toggle="buttons"] > .btn-flat input[type="radio"], [data-toggle="buttons"] > .snackbar-button input[type="radio"], [data-toggle="buttons"] > .btn-solid input[type="radio"], [data-toggle="buttons"] > .btn-raised input[type="radio"], [data-toggle="buttons"] > .btn-floating input[type="radio"], [data-toggle="buttons"] > .btn-borderless input[type="radio"],
 [data-toggle="buttons"] > .btn input[type="checkbox"],
 [data-toggle="buttons"] > .btn-flat input[type="checkbox"],
+[data-toggle="buttons"] > .snackbar-button input[type="checkbox"],
 [data-toggle="buttons"] > .btn-solid input[type="checkbox"],
 [data-toggle="buttons"] > .btn-raised input[type="checkbox"],
 [data-toggle="buttons"] > .btn-floating input[type="checkbox"],
 [data-toggle="buttons"] > .btn-borderless input[type="checkbox"],
-[data-toggle="buttons"] > .snackbar-button input[type="checkbox"],
 [data-toggle="buttons"] > .btn-group > .btn input[type="radio"],
 [data-toggle="buttons"] > .btn-group > .btn-flat input[type="radio"],
+[data-toggle="buttons"] > .btn-group > .snackbar-button input[type="radio"],
 [data-toggle="buttons"] > .btn-group > .btn-solid input[type="radio"],
 [data-toggle="buttons"] > .btn-group > .btn-raised input[type="radio"],
 [data-toggle="buttons"] > .btn-group > .btn-floating input[type="radio"],
 [data-toggle="buttons"] > .btn-group > .btn-borderless input[type="radio"],
-[data-toggle="buttons"] > .btn-group > .snackbar-button input[type="radio"],
 [data-toggle="buttons"] > .btn-group > .btn input[type="checkbox"],
 [data-toggle="buttons"] > .btn-group > .btn-flat input[type="checkbox"],
+[data-toggle="buttons"] > .btn-group > .snackbar-button input[type="checkbox"],
 [data-toggle="buttons"] > .btn-group > .btn-solid input[type="checkbox"],
 [data-toggle="buttons"] > .btn-group > .btn-raised input[type="checkbox"],
 [data-toggle="buttons"] > .btn-group > .btn-floating input[type="checkbox"],
-[data-toggle="buttons"] > .btn-group > .btn-borderless input[type="checkbox"],
-[data-toggle="buttons"] > .btn-group > .snackbar-button input[type="checkbox"] {
+[data-toggle="buttons"] > .btn-group > .btn-borderless input[type="checkbox"] {
   position: absolute;
   clip: rect(0, 0, 0, 0);
   pointer-events: none; }
@@ -4573,6 +4577,60 @@ mark,
   background-color: rgba(0, 0, 0, 0.54) !important; }
   .card-media-content .subtitle {
     color: #fff !important; }
+  .card-media-content .btn-flat.btn-default, .card-media-content .btn-default.snackbar-button {
+    color: #fff; }
+    .card-media-content .btn-flat.btn-default:hover, .card-media-content .btn-default.snackbar-button:hover, .card-media-content .btn-flat.btn-default:focus, .card-media-content .btn-default.snackbar-button:focus {
+      color: #fff; }
+  .card-media-content .btn-flat, .card-media-content .snackbar-button {
+    position: relative;
+    cursor: pointer;
+    position: relative;
+    z-index: 1; }
+    .card-media-content .btn-flat::before, .card-media-content .snackbar-button::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 0.125rem;
+      z-index: -1;
+      -webkit-transition: background-color 250ms linear;
+      transition: background-color 250ms linear; }
+    .card-media-content .btn-flat:hover::before, .card-media-content .snackbar-button:hover::before {
+      background-color: rgba(204, 204, 204, 0.1); }
+    .card-media-content .btn-flat:active::before, .card-media-content .snackbar-button:active::before {
+      background-color: rgba(204, 204, 204, 0.1); }
+  .card-media-content .btn-borderless.btn-default {
+    color: #fff; }
+    .card-media-content .btn-borderless.btn-default:hover, .card-media-content .btn-borderless.btn-default:focus {
+      color: #fff; }
+  .card-media-content .btn-borderless {
+    position: relative;
+    cursor: pointer;
+    position: relative;
+    z-index: 1; }
+    .card-media-content .btn-borderless::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 0.125rem;
+      z-index: -1;
+      -webkit-transition: background-color 250ms linear;
+      transition: background-color 250ms linear; }
+    .card-media-content .btn-borderless:hover::before {
+      background-color: rgba(204, 204, 204, 0.1); }
+    .card-media-content .btn-borderless:active::before {
+      background-color: rgba(204, 204, 204, 0.1); }
+  .card-media-content .btn-borderless {
+    color: #fff; }
+    .card-media-content .btn-borderless:hover, .card-media-content .btn-borderless:focus {
+      color: #fff; }
+    .card-media-content .btn-borderless:disabled, .card-media-content .btn-borderless:disabled::before, .card-media-content .btn-borderless.disabled, .card-media-content .btn-borderless.disabled::before {
+      background-color: transparent; }
 
 .card-body {
   padding-left: 1rem;
@@ -4594,14 +4652,14 @@ mark,
 
 .card-actions {
   padding: 0.5rem; }
-  .card-actions .btn + .btn, .card-actions .btn-flat + .btn, .card-actions .btn-solid + .btn, .card-actions .btn-raised + .btn, .card-actions .btn-floating + .btn, .card-actions .btn-borderless + .btn, .card-actions .snackbar-button + .btn, .card-actions .btn + .btn-flat, .card-actions .btn-flat + .btn-flat, .card-actions .btn-solid + .btn-flat, .card-actions .btn-raised + .btn-flat, .card-actions .btn-floating + .btn-flat, .card-actions .btn-borderless + .btn-flat, .card-actions .snackbar-button + .btn-flat,
+  .card-actions .btn + .btn, .card-actions .btn-flat + .btn, .card-actions .snackbar-button + .btn, .card-actions .btn-solid + .btn, .card-actions .btn-raised + .btn, .card-actions .btn-floating + .btn, .card-actions .btn-borderless + .btn, .card-actions .btn + .btn-flat, .card-actions .btn-flat + .btn-flat, .card-actions .snackbar-button + .btn-flat, .card-actions .btn-solid + .btn-flat, .card-actions .btn-raised + .btn-flat, .card-actions .btn-floating + .btn-flat, .card-actions .btn-borderless + .btn-flat, .card-actions .btn + .snackbar-button, .card-actions .btn-flat + .snackbar-button, .card-actions .snackbar-button + .snackbar-button, .card-actions .btn-solid + .snackbar-button, .card-actions .btn-raised + .snackbar-button, .card-actions .btn-floating + .snackbar-button, .card-actions .btn-borderless + .snackbar-button,
   .card-actions .btn + .btn-solid,
   .card-actions .btn-flat + .btn-solid,
+  .card-actions .snackbar-button + .btn-solid,
   .card-actions .btn-solid + .btn-solid,
   .card-actions .btn-raised + .btn-solid,
   .card-actions .btn-floating + .btn-solid,
-  .card-actions .btn-borderless + .btn-solid,
-  .card-actions .snackbar-button + .btn-solid, .card-actions .btn + .btn-raised, .card-actions .btn-flat + .btn-raised, .card-actions .btn-solid + .btn-raised, .card-actions .btn-raised + .btn-raised, .card-actions .btn-floating + .btn-raised, .card-actions .btn-borderless + .btn-raised, .card-actions .snackbar-button + .btn-raised, .card-actions .btn + .btn-floating, .card-actions .btn-flat + .btn-floating, .card-actions .btn-solid + .btn-floating, .card-actions .btn-raised + .btn-floating, .card-actions .btn-floating + .btn-floating, .card-actions .btn-borderless + .btn-floating, .card-actions .snackbar-button + .btn-floating, .card-actions .btn + .btn-borderless, .card-actions .btn-flat + .btn-borderless, .card-actions .btn-solid + .btn-borderless, .card-actions .btn-raised + .btn-borderless, .card-actions .btn-floating + .btn-borderless, .card-actions .btn-borderless + .btn-borderless, .card-actions .snackbar-button + .btn-borderless, .card-actions .btn + .snackbar-button, .card-actions .btn-flat + .snackbar-button, .card-actions .btn-solid + .snackbar-button, .card-actions .btn-raised + .snackbar-button, .card-actions .btn-floating + .snackbar-button, .card-actions .btn-borderless + .snackbar-button, .card-actions .snackbar-button + .snackbar-button {
+  .card-actions .btn-borderless + .btn-solid, .card-actions .btn + .btn-raised, .card-actions .btn-flat + .btn-raised, .card-actions .snackbar-button + .btn-raised, .card-actions .btn-solid + .btn-raised, .card-actions .btn-raised + .btn-raised, .card-actions .btn-floating + .btn-raised, .card-actions .btn-borderless + .btn-raised, .card-actions .btn + .btn-floating, .card-actions .btn-flat + .btn-floating, .card-actions .snackbar-button + .btn-floating, .card-actions .btn-solid + .btn-floating, .card-actions .btn-raised + .btn-floating, .card-actions .btn-floating + .btn-floating, .card-actions .btn-borderless + .btn-floating, .card-actions .btn + .btn-borderless, .card-actions .btn-flat + .btn-borderless, .card-actions .snackbar-button + .btn-borderless, .card-actions .btn-solid + .btn-borderless, .card-actions .btn-raised + .btn-borderless, .card-actions .btn-floating + .btn-borderless, .card-actions .btn-borderless + .btn-borderless {
     margin-left: 0.5rem; }
 
 .dialog-open {
@@ -4672,14 +4730,14 @@ mark,
 .dialog-actions {
   text-align: right;
   padding: 8px; }
-  .dialog-actions .btn + .btn, .dialog-actions .btn-flat + .btn, .dialog-actions .btn-solid + .btn, .dialog-actions .btn-raised + .btn, .dialog-actions .btn-floating + .btn, .dialog-actions .btn-borderless + .btn, .dialog-actions .snackbar-button + .btn, .dialog-actions .btn + .btn-flat, .dialog-actions .btn-flat + .btn-flat, .dialog-actions .btn-solid + .btn-flat, .dialog-actions .btn-raised + .btn-flat, .dialog-actions .btn-floating + .btn-flat, .dialog-actions .btn-borderless + .btn-flat, .dialog-actions .snackbar-button + .btn-flat,
+  .dialog-actions .btn + .btn, .dialog-actions .btn-flat + .btn, .dialog-actions .snackbar-button + .btn, .dialog-actions .btn-solid + .btn, .dialog-actions .btn-raised + .btn, .dialog-actions .btn-floating + .btn, .dialog-actions .btn-borderless + .btn, .dialog-actions .btn + .btn-flat, .dialog-actions .btn-flat + .btn-flat, .dialog-actions .snackbar-button + .btn-flat, .dialog-actions .btn-solid + .btn-flat, .dialog-actions .btn-raised + .btn-flat, .dialog-actions .btn-floating + .btn-flat, .dialog-actions .btn-borderless + .btn-flat, .dialog-actions .btn + .snackbar-button, .dialog-actions .btn-flat + .snackbar-button, .dialog-actions .snackbar-button + .snackbar-button, .dialog-actions .btn-solid + .snackbar-button, .dialog-actions .btn-raised + .snackbar-button, .dialog-actions .btn-floating + .snackbar-button, .dialog-actions .btn-borderless + .snackbar-button,
   .dialog-actions .btn + .btn-solid,
   .dialog-actions .btn-flat + .btn-solid,
+  .dialog-actions .snackbar-button + .btn-solid,
   .dialog-actions .btn-solid + .btn-solid,
   .dialog-actions .btn-raised + .btn-solid,
   .dialog-actions .btn-floating + .btn-solid,
-  .dialog-actions .btn-borderless + .btn-solid,
-  .dialog-actions .snackbar-button + .btn-solid, .dialog-actions .btn + .btn-raised, .dialog-actions .btn-flat + .btn-raised, .dialog-actions .btn-solid + .btn-raised, .dialog-actions .btn-raised + .btn-raised, .dialog-actions .btn-floating + .btn-raised, .dialog-actions .btn-borderless + .btn-raised, .dialog-actions .snackbar-button + .btn-raised, .dialog-actions .btn + .btn-floating, .dialog-actions .btn-flat + .btn-floating, .dialog-actions .btn-solid + .btn-floating, .dialog-actions .btn-raised + .btn-floating, .dialog-actions .btn-floating + .btn-floating, .dialog-actions .btn-borderless + .btn-floating, .dialog-actions .snackbar-button + .btn-floating, .dialog-actions .btn + .btn-borderless, .dialog-actions .btn-flat + .btn-borderless, .dialog-actions .btn-solid + .btn-borderless, .dialog-actions .btn-raised + .btn-borderless, .dialog-actions .btn-floating + .btn-borderless, .dialog-actions .btn-borderless + .btn-borderless, .dialog-actions .snackbar-button + .btn-borderless, .dialog-actions .btn + .snackbar-button, .dialog-actions .btn-flat + .snackbar-button, .dialog-actions .btn-solid + .snackbar-button, .dialog-actions .btn-raised + .snackbar-button, .dialog-actions .btn-floating + .snackbar-button, .dialog-actions .btn-borderless + .snackbar-button, .dialog-actions .snackbar-button + .snackbar-button {
+  .dialog-actions .btn-borderless + .btn-solid, .dialog-actions .btn + .btn-raised, .dialog-actions .btn-flat + .btn-raised, .dialog-actions .snackbar-button + .btn-raised, .dialog-actions .btn-solid + .btn-raised, .dialog-actions .btn-raised + .btn-raised, .dialog-actions .btn-floating + .btn-raised, .dialog-actions .btn-borderless + .btn-raised, .dialog-actions .btn + .btn-floating, .dialog-actions .btn-flat + .btn-floating, .dialog-actions .snackbar-button + .btn-floating, .dialog-actions .btn-solid + .btn-floating, .dialog-actions .btn-raised + .btn-floating, .dialog-actions .btn-floating + .btn-floating, .dialog-actions .btn-borderless + .btn-floating, .dialog-actions .btn + .btn-borderless, .dialog-actions .btn-flat + .btn-borderless, .dialog-actions .snackbar-button + .btn-borderless, .dialog-actions .btn-solid + .btn-borderless, .dialog-actions .btn-raised + .btn-borderless, .dialog-actions .btn-floating + .btn-borderless, .dialog-actions .btn-borderless + .btn-borderless {
     margin-left: 8px; }
 
 @-webkit-keyframes modal-show {
@@ -4777,22 +4835,22 @@ mark,
           transform-origin: top left;
   opacity: 0;
   z-index: 1000; }
-  .dropdown-menu.bottom-left {
+  .dropdown-menu.down-right {
     top: 0;
     left: 0;
     -webkit-transform-origin: top left;
             transform-origin: top left; }
-  .dropdown-menu.bottom-right {
+  .dropdown-menu.down-left {
     top: 0;
     right: 0;
     -webkit-transform-origin: top right;
             transform-origin: top right; }
-  .dropdown-menu.top-left {
+  .dropdown-menu.up-right {
     bottom: 0;
     left: 0;
     -webkit-transform-origin: bottom left;
             transform-origin: bottom left; }
-  .dropdown-menu.top-right {
+  .dropdown-menu.up-left {
     bottom: 0;
     right: 0;
     -webkit-transform-origin: bottom right;
@@ -5684,11 +5742,6 @@ th.data-table-header {
   padding-right: 1.5rem; }
   .snackbar-button, .snackbar-button:hover {
     color: #ffab40; }
-  .snackbar-button::before, .snackbar-button:focus::before {
-    background-color: transparent !important; }
-    @media (hover: hover) {
-      .snackbar-button::before, .snackbar-button:focus::before {
-        background-color: transparent !important; } }
 
 @media (min-width: 768px) {
   .snackbar {
@@ -6198,25 +6251,80 @@ input:focus + label {
   .btn-solid.btn-danger:hover, .btn-danger.btn-raised:hover, .btn-danger.btn-floating:hover, .btn-solid.btn-danger:focus, .btn-danger.btn-raised:focus, .btn-danger.btn-floating:focus {
     color: #212121; }
 
-.btn-flat.btn-default {
+.btn, .btn-flat, .snackbar-button,
+.btn-solid, .btn-raised, .btn-floating, .btn-borderless {
+  position: relative;
+  cursor: pointer;
+  position: relative;
+  z-index: 1; }
+  .btn::before, .btn-flat::before, .snackbar-button::before,
+  .btn-solid::before, .btn-raised::before, .btn-floating::before, .btn-borderless::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 0.125rem;
+    z-index: -1;
+    -webkit-transition: background-color 250ms linear;
+    transition: background-color 250ms linear; }
+  .btn:hover::before, .btn-flat:hover::before, .snackbar-button:hover::before,
+  .btn-solid:hover::before, .btn-raised:hover::before, .btn-floating:hover::before, .btn-borderless:hover::before {
+    background-color: rgba(0, 0, 0, 0.12); }
+  .btn:active::before, .btn-flat:active::before, .snackbar-button:active::before,
+  .btn-solid:active::before, .btn-raised:active::before, .btn-floating:active::before, .btn-borderless:active::before {
+    background-color: rgba(0, 0, 0, 0.12); }
+  .btn.disabled, .disabled.btn-flat, .disabled.snackbar-button,
+  .disabled.btn-solid, .disabled.btn-raised, .disabled.btn-floating, .disabled.btn-borderless, .btn:disabled, .btn-flat:disabled, .snackbar-button:disabled,
+  .btn-solid:disabled, .btn-raised:disabled, .btn-floating:disabled, .btn-borderless:disabled {
+    color: rgba(0, 0, 0, 0.26) !important;
+    background-color: rgba(0, 0, 0, 0.12); }
+    .btn.disabled::before, .disabled.btn-flat::before, .disabled.snackbar-button::before,
+    .disabled.btn-solid::before, .disabled.btn-raised::before, .disabled.btn-floating::before, .disabled.btn-borderless::before, .btn:disabled::before, .btn-flat:disabled::before, .snackbar-button:disabled::before,
+    .btn-solid:disabled::before, .btn-raised:disabled::before, .btn-floating:disabled::before, .btn-borderless:disabled::before {
+      background-color: transparent !important; }
+
+.btn-flat.btn-default, .btn-default.snackbar-button {
   color: #212121; }
-  .btn-flat.btn-default:hover, .btn-flat.btn-default:focus {
+  .btn-flat.btn-default:hover, .btn-default.snackbar-button:hover, .btn-flat.btn-default:focus, .btn-default.snackbar-button:focus {
     color: #212121; }
 
-.btn-flat.btn-primary {
+.btn-flat.btn-primary, .btn-primary.snackbar-button {
   color: #563d7c; }
-  .btn-flat.btn-primary:hover, .btn-flat.btn-primary:focus {
+  .btn-flat.btn-primary:hover, .btn-primary.snackbar-button:hover, .btn-flat.btn-primary:focus, .btn-primary.snackbar-button:focus {
     color: #563d7c; }
 
-.btn-flat.btn-accent, .btn-flat.btn-floating {
+.btn-flat.btn-accent, .btn-flat.btn-floating, .btn-floating.snackbar-button, .btn-accent.snackbar-button {
   color: #ffab40; }
-  .btn-flat.btn-accent:hover, .btn-flat.btn-floating:hover, .btn-flat.btn-accent:focus, .btn-flat.btn-floating:focus {
+  .btn-flat.btn-accent:hover, .btn-flat.btn-floating:hover, .btn-floating.snackbar-button:hover, .btn-accent.snackbar-button:hover, .btn-flat.btn-accent:focus, .btn-flat.btn-floating:focus, .btn-floating.snackbar-button:focus, .btn-accent.snackbar-button:focus {
     color: #ffab40; }
 
-.btn-flat.btn-danger {
+.btn-flat.btn-danger, .btn-danger.snackbar-button {
   color: #ef5350; }
-  .btn-flat.btn-danger:hover, .btn-flat.btn-danger:focus {
+  .btn-flat.btn-danger:hover, .btn-danger.snackbar-button:hover, .btn-flat.btn-danger:focus, .btn-danger.snackbar-button:focus {
     color: #ef5350; }
+
+.btn-flat, .snackbar-button {
+  position: relative;
+  cursor: pointer;
+  position: relative;
+  z-index: 1; }
+  .btn-flat::before, .snackbar-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 0.125rem;
+    z-index: -1;
+    -webkit-transition: background-color 250ms linear;
+    transition: background-color 250ms linear; }
+  .btn-flat:hover::before, .snackbar-button:hover::before {
+    background-color: rgba(0, 0, 0, 0.12); }
+  .btn-flat:active::before, .snackbar-button:active::before {
+    background-color: rgba(0, 0, 0, 0.12); }
 
 .btn-borderless.btn-default {
   color: rgba(0, 0, 0, 0.54); }
@@ -6238,47 +6346,11 @@ input:focus + label {
   .btn-borderless.btn-danger:hover, .btn-borderless.btn-danger:focus {
     color: #ef5350; }
 
-.btn, .btn-flat,
-.btn-solid, .btn-raised, .btn-floating, .btn-borderless, .snackbar-button {
-  position: relative;
-  cursor: pointer;
-  position: relative;
-  z-index: 1; }
-  .btn::before, .btn-flat::before,
-  .btn-solid::before, .btn-raised::before, .btn-floating::before, .btn-borderless::before, .snackbar-button::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 0.125rem;
-    z-index: -1;
-    -webkit-transition: background-color 250ms linear;
-    transition: background-color 250ms linear; }
-  .btn:hover::before, .btn-flat:hover::before,
-  .btn-solid:hover::before, .btn-raised:hover::before, .btn-floating:hover::before, .btn-borderless:hover::before, .snackbar-button:hover::before {
-    background-color: rgba(0, 0, 0, 0.12); }
-  .btn:active::before, .btn-flat:active::before,
-  .btn-solid:active::before, .btn-raised:active::before, .btn-floating:active::before, .btn-borderless:active::before, .snackbar-button:active::before {
-    background-color: rgba(0, 0, 0, 0.12); }
-  .btn.disabled, .disabled.btn-flat,
-  .disabled.btn-solid, .disabled.btn-raised, .disabled.btn-floating, .disabled.btn-borderless, .disabled.snackbar-button, .btn:disabled, .btn-flat:disabled,
-  .btn-solid:disabled, .btn-raised:disabled, .btn-floating:disabled, .btn-borderless:disabled, .snackbar-button:disabled {
-    color: rgba(0, 0, 0, 0.26) !important;
-    background-color: rgba(0, 0, 0, 0.12); }
-    .btn.disabled::before, .disabled.btn-flat::before,
-    .disabled.btn-solid::before, .disabled.btn-raised::before, .disabled.btn-floating::before, .disabled.btn-borderless::before, .disabled.snackbar-button::before, .btn:disabled::before, .btn-flat:disabled::before,
-    .btn-solid:disabled::before, .btn-raised:disabled::before, .btn-floating:disabled::before, .btn-borderless:disabled::before, .snackbar-button:disabled::before {
-      background-color: transparent; }
-
-.btn-flat,
 .btn-borderless {
   position: relative;
   cursor: pointer;
   position: relative;
   z-index: 1; }
-  .btn-flat::before,
   .btn-borderless::before {
     content: "";
     position: absolute;
@@ -6290,10 +6362,8 @@ input:focus + label {
     z-index: -1;
     -webkit-transition: background-color 250ms linear;
     transition: background-color 250ms linear; }
-  .btn-flat:hover::before,
   .btn-borderless:hover::before {
     background-color: rgba(0, 0, 0, 0.12); }
-  .btn-flat:active::before,
   .btn-borderless:active::before {
     background-color: rgba(0, 0, 0, 0.12); }
 
@@ -6303,6 +6373,31 @@ input:focus + label {
     color: rgba(0, 0, 0, 0.54); }
   .btn-borderless:disabled, .btn-borderless:disabled::before, .btn-borderless.disabled, .btn-borderless.disabled::before {
     background-color: transparent; }
+
+.btn, .btn-flat, .snackbar-button,
+.btn-solid, .btn-raised, .btn-floating, .btn-borderless, .btn::before, .btn-flat::before, .snackbar-button::before,
+.btn-solid::before, .btn-raised::before, .btn-floating::before, .btn-borderless::before {
+  border-radius: 0 !important; }
+
+.btn:before, .btn-flat:before, .snackbar-button:before,
+.btn-solid:before, .btn-raised:before, .btn-floating:before, .btn-borderless:before {
+  -webkit-transition: none !important;
+  transition: none !important; }
+
+.btn:not(:disabled):not(.disabled):hover:not(:active)::before, .btn-flat:not(:disabled):not(.disabled):hover:not(:active)::before, .snackbar-button:not(:disabled):not(.disabled):hover:not(:active)::before,
+.btn-solid:not(:disabled):not(.disabled):hover:not(:active)::before, .btn-raised:not(:disabled):not(.disabled):hover:not(:active)::before, .btn-floating:not(:disabled):not(.disabled):hover:not(:active)::before, .btn-borderless:not(:disabled):not(.disabled):hover:not(:active)::before {
+  border: 0.125rem solid rgba(0, 0, 0, 0.42);
+  background-color: transparent; }
+
+.btn:not(:disabled):not(.disabled):active::before, .btn-flat:not(:disabled):not(.disabled):active::before, .snackbar-button:not(:disabled):not(.disabled):active::before,
+.btn-solid:not(:disabled):not(.disabled):active::before, .btn-raised:not(:disabled):not(.disabled):active::before, .btn-floating:not(:disabled):not(.disabled):active::before, .btn-borderless:not(:disabled):not(.disabled):active::before {
+  background-color: rgba(0, 0, 0, 0.42); }
+
+.btn-flat:hover::before, .snackbar-button:hover::before {
+  border: 0.125rem solid rgba(0, 0, 0, 0.42); }
+
+.btn-flat:active::before, .snackbar-button:active::before {
+  background-color: rgba(0, 0, 0, 0.12); }
 
 .bg-primary {
   background-color: #563d7c !important; }
@@ -6407,6 +6502,36 @@ button.bg-accent:focus {
 .card-header .subtitle {
   color: rgba(0, 0, 0, 0.54); }
 
+.card, .text-field-elevated {
+  border-radius: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none; }
+
+.card-media-content .btn, .card-media-content .btn-flat, .card-media-content .snackbar-button,
+.card-media-content .btn-solid, .card-media-content .btn-raised, .card-media-content .btn-floating, .card-media-content .btn-borderless, .card-media-content .btn::before, .card-media-content .btn-flat::before, .card-media-content .snackbar-button::before,
+.card-media-content .btn-solid::before, .card-media-content .btn-raised::before, .card-media-content .btn-floating::before, .card-media-content .btn-borderless::before {
+  border-radius: 0 !important; }
+
+.card-media-content .btn:before, .card-media-content .btn-flat:before, .card-media-content .snackbar-button:before,
+.card-media-content .btn-solid:before, .card-media-content .btn-raised:before, .card-media-content .btn-floating:before, .card-media-content .btn-borderless:before {
+  -webkit-transition: none !important;
+  transition: none !important; }
+
+.card-media-content .btn:not(:disabled):not(.disabled):hover:not(:active)::before, .card-media-content .btn-flat:not(:disabled):not(.disabled):hover:not(:active)::before, .card-media-content .snackbar-button:not(:disabled):not(.disabled):hover:not(:active)::before,
+.card-media-content .btn-solid:not(:disabled):not(.disabled):hover:not(:active)::before, .card-media-content .btn-raised:not(:disabled):not(.disabled):hover:not(:active)::before, .card-media-content .btn-floating:not(:disabled):not(.disabled):hover:not(:active)::before, .card-media-content .btn-borderless:not(:disabled):not(.disabled):hover:not(:active)::before {
+  border: 0.125rem solid rgba(204, 204, 204, 0.54);
+  background-color: transparent; }
+
+.card-media-content .btn:not(:disabled):not(.disabled):active::before, .card-media-content .btn-flat:not(:disabled):not(.disabled):active::before, .card-media-content .snackbar-button:not(:disabled):not(.disabled):active::before,
+.card-media-content .btn-solid:not(:disabled):not(.disabled):active::before, .card-media-content .btn-raised:not(:disabled):not(.disabled):active::before, .card-media-content .btn-floating:not(:disabled):not(.disabled):active::before, .card-media-content .btn-borderless:not(:disabled):not(.disabled):active::before {
+  background-color: rgba(204, 204, 204, 0.54); }
+
+.card-media-content .btn-flat:hover::before, .card-media-content .snackbar-button:hover::before {
+  border: 0.125rem solid rgba(204, 204, 204, 0.54); }
+
+.card-media-content .btn-flat:active::before, .card-media-content .snackbar-button:active::before {
+  background-color: rgba(204, 204, 204, 0.54); }
+
 .dialog-content {
   background-color: #fff; }
 
@@ -6431,6 +6556,19 @@ button.bg-accent:focus {
 
 .data-table .dropdown-menu {
   background-color: #fafafa; }
+
+.dropdown-menu {
+  border-radius: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none; }
+  .dropdown-menu::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0.0625rem solid rgba(0, 0, 0, 0.12); }
 
 .chip {
   background-color: #e0e0e0; }
@@ -6474,6 +6612,45 @@ button.bg-accent:focus {
 
 .snackbar-text {
   color: #fff; }
+
+.snackbar {
+  border-radius: 0; }
+  .snackbar::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border: 0.125rem solid rgba(204, 204, 204, 0.54); }
+
+.snackbar-button:last-child {
+  margin-right: 0.5rem; }
+
+.snackbar .btn, .snackbar .btn-flat, .snackbar .snackbar-button,
+.snackbar .btn-solid, .snackbar .btn-raised, .snackbar .btn-floating, .snackbar .btn-borderless, .snackbar .btn::before, .snackbar .btn-flat::before, .snackbar .snackbar-button::before,
+.snackbar .btn-solid::before, .snackbar .btn-raised::before, .snackbar .btn-floating::before, .snackbar .btn-borderless::before {
+  border-radius: 0 !important; }
+
+.snackbar .btn:before, .snackbar .btn-flat:before, .snackbar .snackbar-button:before,
+.snackbar .btn-solid:before, .snackbar .btn-raised:before, .snackbar .btn-floating:before, .snackbar .btn-borderless:before {
+  -webkit-transition: none !important;
+  transition: none !important; }
+
+.snackbar .btn:not(:disabled):not(.disabled):hover:not(:active)::before, .snackbar .btn-flat:not(:disabled):not(.disabled):hover:not(:active)::before, .snackbar .snackbar-button:not(:disabled):not(.disabled):hover:not(:active)::before,
+.snackbar .btn-solid:not(:disabled):not(.disabled):hover:not(:active)::before, .snackbar .btn-raised:not(:disabled):not(.disabled):hover:not(:active)::before, .snackbar .btn-floating:not(:disabled):not(.disabled):hover:not(:active)::before, .snackbar .btn-borderless:not(:disabled):not(.disabled):hover:not(:active)::before {
+  border: 0.125rem solid rgba(204, 204, 204, 0.54);
+  background-color: transparent; }
+
+.snackbar .btn:not(:disabled):not(.disabled):active::before, .snackbar .btn-flat:not(:disabled):not(.disabled):active::before, .snackbar .snackbar-button:not(:disabled):not(.disabled):active::before,
+.snackbar .btn-solid:not(:disabled):not(.disabled):active::before, .snackbar .btn-raised:not(:disabled):not(.disabled):active::before, .snackbar .btn-floating:not(:disabled):not(.disabled):active::before, .snackbar .btn-borderless:not(:disabled):not(.disabled):active::before {
+  background-color: rgba(204, 204, 204, 0.54); }
+
+.snackbar .btn-flat:hover::before, .snackbar .snackbar-button:hover::before {
+  border: 0.125rem solid rgba(204, 204, 204, 0.54); }
+
+.snackbar .btn-flat:active::before, .snackbar .snackbar-button:active::before {
+  background-color: rgba(204, 204, 204, 0.54); }
 
 .tab {
   position: relative;

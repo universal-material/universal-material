@@ -1,3 +1,5 @@
+@import "uwp/uwp-snackbar";
+
 .snackbar {
   display: flex;
   align-items: center;
@@ -28,23 +30,13 @@
 }
 
 .snackbar-button {
-  @extend .btn;
+  @extend .btn-flat;
   border-radius: 0;
   padding-left: $snackbar-button-horizontal-padding;
   padding-right: $snackbar-button-horizontal-padding;
 
   &, &:hover {
     color: $accent-color;
-  }
-
-  &, &:focus {
-    &::before {
-      background-color: transparent !important;
-
-      @media (hover: hover) {
-        background-color: transparent !important;
-      }
-    }
   }
 }
 
@@ -141,7 +133,11 @@
   }
 }
 
-@mixin snackbar-theme($dark-theme) {
+@mixin snackbar-theme($theme) {
+
+  $dark-theme: map-get($theme, "dark");
+  $uwp-style: map-get($theme, "uwp-style");
+
   $background-color: $snackbar-background-color-light-theme;
   $color: $snackbar-text-color-light-theme;
 
@@ -156,5 +152,15 @@
 
   .snackbar-text {
     color: $color;
+  }
+
+  @if ($uwp-style) {
+    @include uwp-snackbar($dark-theme);
+
+    @if (mixin_exists(uwp-button)) {
+      .snackbar {
+        @include uwp-button(not $dark-theme);
+      }
+    }
   }
 }

@@ -1,3 +1,5 @@
+@import "uwp/uwp-dropdown";
+
 .dropdown {
   position: relative;
 }
@@ -16,25 +18,25 @@
   opacity: 0;
   z-index: $zindex-dropdown;
 
-  &.bottom-left {
+  &.down-right {
     top: 0;
     left: 0;
     transform-origin: top left;
   }
 
-  &.bottom-right {
+  &.down-left {
     top: 0;
     right: 0;
     transform-origin: top right;
   }
 
-  &.top-left {
+  &.up-right {
     bottom: 0;
     left: 0;
     transform-origin: bottom left;
   }
 
-  &.top-right {
+  &.up-left {
     bottom: 0;
     right: 0;
     transform-origin: bottom right;
@@ -115,7 +117,12 @@
   }
 }
 
-@mixin dropdown-theme($dark-theme) {
+@mixin dropdown-theme($theme) {
+
+  $dark-theme: map-get($theme, "dark");
+  $uwp-style: map-get($theme, "uwp-style");
+
+
   $background: $dropdown-menu-bg-light-theme;
   $background-in-data-table: $dropdown-in-data-table-bg-light-theme;
   $color: $dropdown-item-color-light-theme;
@@ -143,5 +150,9 @@
     .dropdown-menu {
       background-color: $background-in-data-table;
     }
+  }
+
+  @if ($uwp-style) {
+    @include uwp-dropdown($dark-theme);
   }
 }

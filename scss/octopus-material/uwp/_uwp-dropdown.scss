@@ -1,0 +1,21 @@
+@mixin uwp-dropdown($dark-theme) {
+  $uwp-dropdown-border-color: $uwp-dropdown-border-color-light-theme;
+
+  @if ($dark-theme) {
+    $uwp-dropdown-border-color: $uwp-dropdown-border-color-dark-theme;
+  }
+
+  .dropdown-menu {
+    border-radius: 0;
+    box-shadow: none;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: $uwp-dropdown-border-width solid $uwp-dropdown-border-color;
+    }
+  }
+}

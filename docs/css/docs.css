@@ -35,6 +35,12 @@
   height: 300px;
   background: #ccc; }
 
+.menu-example .example-box-header {
+  height: 14rem; }
+
+.menu-example .toolbar {
+  background-color: white; }
+
 .card {
   margin-bottom: 8px; }
 

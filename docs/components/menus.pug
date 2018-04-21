@@ -3,31 +3,64 @@ extends ../layout
 block content
   h1.chapter-title Menus
 
+  .menu-example
 
-  .example-box
-    .example-box-header
-      .toolbar
-        .toolbar-row
-          .toolbar-actions.dropdown.show
-            button.btn-borderless
-              i.mdi.mdi-dots-vertical
+    h2.article-title Bottom left
+    .example-box
+      .example-box-header
+        .toolbar
+          .toolbar-row
+            .toolbar-actions.dropdown
+              button.btn-borderless
+                i.mdi.mdi-dots-vertical
 
-            .dropdown-menu.bottom-left
-              .dropdown-content
-                a.dropdown-item.text-nowrap(href="#") Item A
-                a.dropdown-item.text-nowrap(href="#") Item B
-                a.dropdown-item.text-nowrap(href="#") Item C
-  .example-box
-    .example-box-header
-      .toolbar
-        .toolbar-row
-          .toolbar-title
-          .dropdown.show
-            button.btn-borderless
-              i.mdi.mdi-dots-vertical
+              .dropdown-menu.down-right
+                .dropdown-content
+                  a.dropdown-item.text-nowrap(href="#") Item A
+                  a.dropdown-item.text-nowrap(href="#") Item B
+                  a.dropdown-item.text-nowrap(href="#") Item C
+      pre
+        code.html
+          | &lt;div class=&quot;dropdown&quot;&gt;
+          |   &lt;button class=&quot;btn-borderless&quot;&gt;
+          |     &lt;i class=&quot;mdi mdi-dots-vertial&quot;&nbsp;/&gt;
+          |   &lt;/button&gt;
+          |   &lt;div class=&quot;dropdown-menu bottom-left&quot;&gt;
+          |     &lt;div class=&quot;dropdown-content&quot;&gt;
+          |       &lt;a class=&quot;dropdown-item text-nowrap&quot;&gt;Item A&lt;/a&gt;
+          |       &lt;a class=&quot;dropdown-item text-nowrap&quot;&gt;Item B&lt;/a&gt;
+          |       &lt;a class=&quot;dropdown-item text-nowrap&quot;&gt;Item C&lt;/a&gt;
+          |     &lt;/div&gt;
+          |   &lt;/div&gt;
+          | &lt;/div&gt;
 
-            .dropdown-menu.bottom-right
-              .dropdown-content
-                a.dropdown-item.text-nowrap(href="#") Item A
-                a.dropdown-item.text-nowrap(href="#") Item B
-                a.dropdown-item.text-nowrap(href="#") Item C
+    h2.article-title Bottom right
+    .example-box
+      .example-box-header
+        .toolbar
+          .toolbar-row
+            .toolbar-title
+            .dropdown
+              button.btn-borderless
+                i.mdi.mdi-dots-vertical
+
+              .dropdown-menu.down-left
+                .dropdown-content
+                  a.dropdown-item.text-nowrap(href="#") Item A
+                  a.dropdown-item.text-nowrap(href="#") Item B
+                  a.dropdown-item.text-nowrap(href="#") Item C
+
+      pre
+        code.html
+          | &lt;div class=&quot;dropdown&quot;&gt;
+          |   &lt;button class=&quot;btn-borderless&quot;&gt;
+          |     &lt;i class=&quot;mdi mdi-dots-vertial&quot;&nbsp;/&gt;
+          |   &lt;/button&gt;
+          |   &lt;div class=&quot;dropdown-menu bottom-right&quot;&gt;
+          |     &lt;div class=&quot;dropdown-content&quot;&gt;
+          |       &lt;a class=&quot;dropdown-item text-nowrap&quot;&gt;Item A&lt;/a&gt;
+          |       &lt;a class=&quot;dropdown-item text-nowrap&quot;&gt;Item B&lt;/a&gt;
+          |       &lt;a class=&quot;dropdown-item text-nowrap&quot;&gt;Item C&lt;/a&gt;
+          |     &lt;/div&gt;
+          |   &lt;/div&gt;
+          | &lt;/div&gt;

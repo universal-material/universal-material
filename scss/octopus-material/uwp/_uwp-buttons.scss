@@ -1,0 +1,41 @@
+@mixin uwp-button($dark-theme) {
+
+  $btn-active-background-color: $uwp-btn-active-background-color-light-theme;
+  $btn-flat-active-background-color: $uwp-btn-flat-active-background-color-light-theme;
+
+  @if ($dark-theme) {
+    $btn-active-background-color: $uwp-btn-active-background-color-dark-theme;
+    $btn-flat-active-background-color: $uwp-btn-flat-active-background-color-dark-theme;
+  }
+
+  .btn {
+
+    &, &::before {
+      border-radius: $uwp-btn-border-radius !important;
+    }
+
+    &:before {
+      transition: none !important;
+    }
+
+    &:not(:disabled):not(.disabled) {
+
+      &:hover:not(:active)::before {
+        border: $uwp-btn-hover-border-width solid $btn-active-background-color;
+        background-color: transparent;
+      }
+
+      &:active::before {
+        background-color: $btn-active-background-color;
+      }
+    }
+  }
+
+  .btn-flat:hover::before {
+    border: $uwp-btn-hover-border-width solid $btn-active-background-color;
+  }
+
+  .btn-flat:active::before {
+    background-color: $btn-flat-active-background-color;
+  }
+}

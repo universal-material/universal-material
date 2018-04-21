@@ -24,10 +24,13 @@
   }
 }
 
-@mixin create-theme($theme-colors, $dark-theme) {
+@mixin create-theme($theme) {
+
+  $theme-colors: map-get($theme, "colors");
+  $dark-theme: map-get($theme, "dark");
 
   @if (mixin_exists(buttons-theme)) {
-    @include buttons-theme($theme-colors, $dark-theme);
+    @include buttons-theme($theme);
   }
 
   @if (mixin_exists(create-backgrounds)) {
@@ -43,7 +46,7 @@
   }
 
   @if (mixin_exists(card-theme)) {
-    @include card-theme($dark-theme);
+    @include card-theme($theme);
   }
 
   @if (mixin_exists(dialog-theme)) {
@@ -51,7 +54,7 @@
   }
 
   @if (mixin_exists(dropdown-theme)) {
-    @include dropdown-theme($dark-theme);
+    @include dropdown-theme($theme);
   }
 
   @if (mixin_exists(chip-theme)) {
@@ -63,7 +66,7 @@
   }
 
   @if (mixin_exists(snackbar-theme)) {
-    @include snackbar-theme($dark-theme);
+    @include snackbar-theme($theme);
   }
 
   @if (mixin_exists(tab-theme)) {

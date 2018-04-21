@@ -23,6 +23,25 @@
         }
     }
 
+    function dropdown() {
+        var dropdowns = document.querySelectorAll('.dropdown');
+
+        function toggleDropdown(e) {
+            e.stopPropagation();
+            this.parentElement.classList.toggle("show");
+        }
+
+        document.body.addEventListener("click", function () {
+            dropdowns.forEach(function (dropdown) {
+                dropdown.classList.remove("show");
+            });
+        });
+
+        dropdowns.forEach(function (dropdown) {
+            dropdown.querySelector('button').addEventListener("click", toggleDropdown);
+        });
+    }
+
     document
         .getElementById("menu-toggle")
         .addEventListener("click", toggleSidebar);
@@ -34,8 +53,8 @@
     sidebarBackdrop.addEventListener("click", toggleSidebar);
 
 
-
     document.getElementById("main-content").addEventListener("scroll", mainContentScroll);
+    setTimeout(dropdown, 0);
 })();
 
 hljs.initHighlightingOnLoad();

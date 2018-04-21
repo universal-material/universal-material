@@ -2,6 +2,7 @@ $primary-color: #563d7c !default;
 $accent-color: #ffab40 !default;
 $danger-color: #ef5350 !default;
 $default-theme-dark: false !default;
+$default-uwp-style: true !default;
 
 $font-thin: 100;
 $font-light: 300;
@@ -27,7 +28,7 @@ $indigo:  #3f51b5 !default;
 $purple:  #9c27b0 !default;
 $pink:    #e91e63 !default;
 $red:     #f44336 !default;
-$orange:  #ff9800 !default; 
+$orange:  #ff9800 !default;
 $yellow:  #ffeb3b !default;
 $green:   #4caf50 !default;
 $teal:    #009688 !default;
@@ -43,6 +44,7 @@ $theme-colors: (
 $color-high-contrast-light-theme: rgba(0, 0, 0, .87) !default;
 $color-high-contrast-dark-theme: $white !default;
 
+$color-lower-contrast-light-theme: rgba(0, 0, 0, .42) !default;
 $color-low-contrast-light-theme: rgba(0, 0, 0, .42) !default;
 $color-low-contrast-dark-theme: rgba(255, 255, 255, .7) !default;
 
@@ -99,14 +101,14 @@ $grid-gutter-width: $margin-gutter-default !default;
 // Components
 //
 // Define common padding and border radius sizes and more.
+$uwp-border-width: .125rem;
 
-$border-width: .0625rem !default;
 
 // Fonts
 //
 // Font, line-height, and color for body text, headings, and more.
 
-$font-family-base: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default; //Octopus material custom code
+$font-family-base: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif !default; //Octopus material custom code
 
 $font-size-base: .875rem !default;
 
@@ -290,6 +292,10 @@ $dropdown-in-data-table-bg-dark-theme: $gray-700 !default;
 
 $dropdown-in-data-table-toggle-icon-size: 22px !default;
 
+$uwp-dropdown-border-width: .0625rem;
+$uwp-dropdown-border-color-light-theme: $base-semi-transparent-color !default;
+$uwp-dropdown-border-color-dark-theme: rgba(204,204,204,.54) !default;
+
 //Dropdown dense
 $dropdown-item-dense-height: 2rem;
 $dropdown-item-dense-padding: 1.5rem;
@@ -376,6 +382,13 @@ $btn-borderless-color-dark-theme: $white !default;
 $btn-borderless-font-size: $base-icon-size !default;
 $btn-borderless-margin: 1.5rem !default;
 $btn-borderless-hover-size: 2.5rem !default;
+//UWP Buttons
+$uwp-btn-border-radius: 0 !default;
+$uwp-btn-hover-border-width: $uwp-border-width !default;
+$uwp-btn-active-background-color-light-theme: $color-low-contrast-light-theme !default;
+$uwp-btn-active-background-color-dark-theme: rgba(204,204,204,.54) !default;
+$uwp-btn-flat-active-background-color-light-theme: $hover-background-light-theme !default;
+$uwp-btn-flat-active-background-color-dark-theme: $uwp-btn-active-background-color-dark-theme !default;
 
 //Buttons dense
 $btn-dense-font-size: .8125rem !default;
@@ -573,6 +586,11 @@ $snackbar-button-horizontal-padding: 1.5rem !default;
 $snackbar-button-tablet-left-margin: $snackbar-horizontal-padding !default;
 
 $snackbar-tablet-border-radius: .125rem !default;
+
+$uwp-snackbar-button-right-margin: .5rem;
+$uwp-snackbar-border-width: $uwp-border-width;
+$uwp-snackbar-border-color-light-theme: rgba(204,204,204,.54) !default;
+$uwp-snackbar-border-color-dark-theme: $color-low-contrast-light-theme !default;
 
 $text-muted: $text-low-contrast-light-theme !default;
 
