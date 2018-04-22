@@ -1,0 +1,6 @@
+@mixin uwp-dialog($theme-colors) {
+  .dialog-content {
+    border-radius: 0;
+    border: $uwp-dialog-border-width solid map-get($theme-colors, "primary");
+  }
+}

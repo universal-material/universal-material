@@ -50,7 +50,7 @@
   }
 
   @if (mixin_exists(dialog-theme)) {
-    @include dialog-theme($dark-theme);
+    @include dialog-theme($theme);
   }
 
   @if (mixin_exists(dropdown-theme)) {
@@ -74,7 +74,7 @@
   }
 
   @if (mixin_exists(text-fields-theme)) {
-    @include text-fields-theme($theme-colors, $dark-theme);
+    @include text-fields-theme($theme);
   }
 
   @if (mixin_exists(data-table-theme)) {

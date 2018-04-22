@@ -5,18 +5,17 @@
 }
 
 .dropdown-menu {
-  position: absolute;
-  border-radius: $dropdown-menu-border-radius;
-  overflow: hidden;
-
   @include vertical-padding($dropdown-menu-padding);
   @include elevate("2dp");
 
-  transform: scale3d(0, 0, 1);
-  transition: transform 350ms $awesome-cubic-bezier 350ms, opacity 250ms;
-  transform-origin: top left;
-  opacity: 0;
+  position: absolute;
   z-index: $zindex-dropdown;
+  overflow: hidden;
+  border-radius: $dropdown-menu-border-radius;
+  opacity: 0;
+  transition: transform 350ms $awesome-cubic-bezier 350ms, opacity 250ms;
+  transform: scale3d(0, 0, 1);
+  transform-origin: top left;
 
   &.down-right {
     top: 0;
@@ -37,8 +36,8 @@
   }
 
   &.up-left {
-    bottom: 0;
     right: 0;
+    bottom: 0;
     transform-origin: bottom right;
   }
 
@@ -68,7 +67,6 @@
 .dropdown-toggle {
   display: flex;
   align-items: center;
-  outline: 0;
 }
 
 .dropdown-toggle-label {
@@ -80,14 +78,16 @@
   color: $text-low-contrast-light-theme;
 }
 
-.dropdown.show {
-  .dropdown-menu {
+.dropdown {
+  &.show .dropdown-menu,
+  .dropdown-toggle:focus ~ .dropdown-menu {
     opacity: 1;
-    transform: scale3d(1, 1, 1);
     transition: transform 350ms $awesome-cubic-bezier, opacity 250ms;
+    transform: scale3d(1, 1, 1);
   }
 
-  .dropdown-content {
+  &.show .dropdown-content,
+  .dropdown-toggle:focus  ~ .dropdown-menu .dropdown-content {
     opacity: 1;
     transition: opacity 300ms 150ms;
   }
@@ -127,7 +127,7 @@
   $background-in-data-table: $dropdown-in-data-table-bg-light-theme;
   $color: $dropdown-item-color-light-theme;
 
-  @if($dark-theme) {
+  @if ($dark-theme) {
     $background: $dropdown-menu-bg-dark-theme;
     $background-in-data-table: $dropdown-in-data-table-bg-dark-theme;
     $color: $dropdown-item-color-dark-theme;

@@ -1,8 +1,9 @@
+@import "uwp/uwp-dialog";
+
 // .dialog-open      - body class for killing the scroll
 // .dialog           - container to scroll within
 // .dialog-dialog    - positioning shell for the actual dialog
 // .dialog-content   - actual dialog w/ bg and corners and stuff
-
 
 // Kill the scroll on the body
 .dialog-open {
@@ -10,18 +11,19 @@
 }
 
 .dialog {
-  display: flex;
-  flex-direction: column;
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   z-index: $zindex-dialog;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
   padding: $dialog-padding;
+  overflow: hidden;
   // Prevent Chrome on Windows from adding a focus outline. For details, see
   // https://github.com/twbs/bootstrap/pull/10951.
+  pointer-events: none;
   outline: 0;
   // We deliberately don't use `-webkit-overflow-scrolling: touch;` due to a
   // gnarly iOS Safari bug: https://bugs.webkit.org/show_bug.cgi?id=158342
@@ -33,7 +35,6 @@
   //  transform: translate(0, -25%);
   //}
   //&.show .dialog-dialog { transform: translate(0, 0); }
-  pointer-events: none;
   opacity: 0;
   transition: opacity 250ms;
 
@@ -51,10 +52,10 @@
   bottom: 0;
   left: 0;
   //z-index: $zindex-dialog-backdrop;//Octopus material changes
+  z-index: -1;
   background-color: $dialog-backdrop-bg;
   opacity: $dialog-backdrop-opacity;//Octopus material changes
 
-  z-index: -1;
 
   //// Fade for backdrop
   //&.fade { opacity: 0; }
@@ -66,11 +67,11 @@
   flex-direction: column;
   width: 600px;
   max-width: 100%;
-  border-radius: 2px;
-  overflow: hidden;
   margin: 0 auto;
+  overflow: hidden;
+  border-radius: 2px;
 
-  box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2), 0 13px 19px 2px rgba(0, 0, 0, 0.14), 0 5px 24px 4px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 7px 8px -4px rgba(0, 0, 0, .2), 0 13px 19px 2px rgba(0, 0, 0, .14), 0 5px 24px 4px rgba(0, 0, 0, .12);
 }
 
 .dialog-body {
@@ -92,8 +93,8 @@
 }
 
 .dialog-actions {
-  text-align: right;
   padding: $dialog-actions-padding;
+  text-align: right;
 
   .btn + .btn {
     margin-left: $dialog-actions-padding;
@@ -110,9 +111,14 @@
   }
 }
 
-@mixin dialog-theme($dark-theme) {
- $background-color: $dialog-background-light-theme;
- $color: $text-low-contrast-light-theme;
+@mixin dialog-theme($theme) {
+
+  $theme-colors: map-get($theme, "colors");
+  $dark-theme: map-get($theme, "dark");
+  $uwp-style: map-get($theme, "uwp-style");
+
+  $background-color: $dialog-background-light-theme;
+  $color: $text-low-contrast-light-theme;
 
 
   @if ($dark-theme) {
@@ -126,5 +132,9 @@
 
   .dialog-body {
     color: $color;
+  }
+
+  @if ($uwp-style) {
+    @include uwp-dialog($theme-colors);
   }
 }

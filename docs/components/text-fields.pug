@@ -4,38 +4,42 @@ block content
   h1.chapter-title Text fields
 
   .text-field
-    small.text-field-helper-text Helper Text
+    small.helper-text Helper Text
     .text-input-group
       input.text-input(type="text" placeholder="Placeholder" id="text-field-1")
       .text-field-border
     label(for="text-field-1") Normal
 
   .text-field.focus
-    input.text-input(type="text" placeholder="Placeholder")
+    .text-input-group
+      input.text-input(type="text" placeholder="Placeholder")
+      .text-field-border
     label Normal focused
-    .text-field-border
 
   .text-field.invalid
-    small.text-field-helper-text.error-text Error Text
+    small.helper-text.error-text Error Text
     .text-input-group
       input.text-input(type="text" placeholder="Placeholder")
       .text-field-border
     label Normal
 
   .text-field.floating-label
-    input.text-input(type="text" placeholder="Placeholder")
+    .text-input-group
+      input.text-input(type="text" placeholder="Placeholder")
+      .text-field-border
     label Floating label
-    .text-field-border
 
   .text-field.floating-label.not-empty
-    input.text-input(type="text" placeholder="Placeholder" value="some value")
+    .text-input-group
+      input.text-input(type="text" placeholder="Placeholder" value="some value")
+      .text-field-border
     label Floating label not empty
-    .text-field-border
 
   .text-field.floating-label.focus
-    input.text-input(type="text" placeholder="Placeholder")
+    .text-input-group
+      input.text-input(type="text" placeholder="Placeholder")
+      .text-field-border
     label Floating label focus
-    .text-field-border
 
   .text-field
     .text-input-group
@@ -52,16 +56,16 @@ block content
         .placeholder Placeholder
         .text-input-icon
           i.mdi.mdi-menu-down
+      .text-field-border
     label Action icon
-    .text-field-border
 
   .text-field
     .text-input-group
       .text-input
         .text-input-prefix $
         input(type="text" placeholder="Placeholder")
+        .text-field-border
     label Input prefix
-    .text-field-border
 
   .text-field
     .text-input-group
@@ -87,17 +91,18 @@ block content
 
   .text-field
     .text-field-box
-      textarea(rows=5).text-input
+      textarea.text-input(rows=5, placeholder="Description here...")
       label Label
       .text-field-border
 
   .text-field
-    textarea(rows=5).text-input
     label.floating-label Multi-line text field
-    .text-field-border
+    .text-input-group
+      textarea.text-input(rows=5)
+      .text-field-border
 
   .text-field
     .text-area
-      textarea(rows=5).text-input
+      textarea.text-input(rows=5, placeholder="Description here...")
       label.floating-label Text area
       .text-field-border

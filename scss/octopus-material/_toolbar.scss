@@ -3,22 +3,23 @@
 }
 
 .toolbar-row {
-  height: $toolbar-height;
   display: flex;
   flex-direction: row;
   align-items: center;
+  height: $toolbar-height;
 
   @include horizontal-padding($toolbar-horizontal-padding);
 }
 
 .toolbar-title {
-  font-size: $toolbar-title-font-size;
   flex-grow: 1;
+  font-size: $toolbar-title-font-size;
 
   @include text-truncate;
 }
 
-.toolbar-icon, .toolbar-action {
+.toolbar-icon,
+.toolbar-action {
   font-size: $toolbar-action-icon-size;
 }
 
@@ -53,7 +54,7 @@
   $color: $body-color-light-theme;
   $button-borderless-color: $toolbar-icon-color-light-theme;
 
-  @if($dark-theme) {
+  @if ($dark-theme) {
     $color: $body-color-dark-theme;
     $button-borderless-color: $toolbar-icon-color-dark-theme;
   }
