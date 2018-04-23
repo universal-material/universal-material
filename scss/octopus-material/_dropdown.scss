@@ -1,9 +1,5 @@
 @import "uwp/uwp-dropdown";
 
-.dropdown {
-  position: relative;
-}
-
 .dropdown-menu {
   @include vertical-padding($dropdown-menu-padding);
   @include elevate("2dp");
@@ -74,11 +70,23 @@
 }
 
 .dropdown-toggle-icon {
-  font-size: $base-icon-size;
-  color: $text-low-contrast-light-theme;
+  transition: transform 150ms;
+  transform-origin: center;
+
+  &::before {
+    display: block;
+    width: 0;
+    height: 0;
+    content: "";
+    border-top: $dropdown-icon-size solid;
+    border-right: $dropdown-icon-size solid transparent;
+    border-left: $dropdown-icon-size solid transparent;
+  }
 }
 
 .dropdown {
+  position: relative;
+
   &.show .dropdown-menu,
   .dropdown-toggle:focus ~ .dropdown-menu {
     opacity: 1;
@@ -86,8 +94,13 @@
     transform: scale3d(1, 1, 1);
   }
 
+  &.show .dropdown-toggle-icon,
+  .dropdown-toggle:focus .dropdown-toggle-icon {
+    transform: rotate(180deg);
+  }
+
   &.show .dropdown-content,
-  .dropdown-toggle:focus  ~ .dropdown-menu .dropdown-content {
+  .dropdown-toggle:focus ~ .dropdown-menu .dropdown-content {
     opacity: 1;
     transition: opacity 300ms 150ms;
   }
@@ -107,10 +120,6 @@
     padding: 0;
   }
 
-  .dropdown-toggle-icon {
-    font-size: $dropdown-in-data-table-toggle-icon-size;
-  }
-
   .dropdown-item {
     font-size: $data-table-content-font-size;
     font-weight: $data-table-content-font-weight;
@@ -126,11 +135,13 @@
   $background: $dropdown-menu-bg-light-theme;
   $background-in-data-table: $dropdown-in-data-table-bg-light-theme;
   $color: $dropdown-item-color-light-theme;
+  $dropdown-icon-color: $dropdown-icon-color-light-theme;
 
   @if ($dark-theme) {
     $background: $dropdown-menu-bg-dark-theme;
     $background-in-data-table: $dropdown-in-data-table-bg-dark-theme;
     $color: $dropdown-item-color-dark-theme;
+    $dropdown-icon-color: $dropdown-icon-color-dark-theme;
   }
 
   .dropdown-menu {
@@ -152,7 +163,11 @@
     }
   }
 
+  .dropdown-toggle-icon::before {
+    border-top-color: $dropdown-icon-color;
+  }
+
   @if ($uwp-style) {
-    @include uwp-dropdown($dark-theme);
+    @include uwp-dropdown($dark-theme, $dropdown-icon-color);
   }
 }

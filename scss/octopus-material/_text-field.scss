@@ -1,21 +1,16 @@
 @import "uwp/uwp-text-fields";
 
-.text-field-border {
-  position: relative;
-  margin-top: -$text-field-divider-width;
-  border-bottom: $text-field-divider-width solid;
-
-  &::after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    content: "";
-    border-bottom: $text-field-divider-focus-hover-width solid;
-    transition: none;
-    transform: scale3d(0, 1, 1);
-  }
+input,
+.text-input {
+  padding: $text-field-item-margin 0;
+  font-size: $text-input-font-size;
+  font-weight: $text-input-font-weight;
+  line-height: $text-input-line-height;
+  text-align: left;
+  resize: none;
+  background: transparent;
+  border: none;
+  outline: 0 !important;
 }
 
 .text-input {
@@ -23,20 +18,9 @@
   box-sizing: content-box;
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
-
-  @at-root input,
-  & {
-    padding: $text-field-item-margin 0;
-    font-size: $text-input-font-size;
-    font-weight: $text-input-font-weight;
-    line-height: $text-input-line-height;
-    text-align: left;
-    resize: none;
-    background: transparent;
-    border: none;
-    outline: 0;
-  }
+  align-items: center;
+  padding-bottom: $text-input-padding-bottom;
+  border-bottom: $text-field-divider-width solid;
 
   input,
   .placeholder,
@@ -49,48 +33,18 @@
     }
   }
 
-  .text-field-border {
-    bottom: 0;
-  }
-
-  &:hover,
-  input:hover {
-    ~ .text-field-border {
-      margin-top: -$text-field-divider-focus-hover-width;
-      border-width: $text-field-divider-focus-hover-width;
-    }
-  }
-
-  @at-root .text-field.focus .text-field-border,
-  &:focus ~ .text-field-border,
-  input:focus ~ .text-field-border {
-    margin-top: -$text-field-divider-focus-hover-width;
+  @at-root .text-field.focus .text-input,
+  &:focus,
+  &:hover {
+    padding-bottom: $text-input-dense-padding-bottom;
     border-width: $text-field-divider-focus-hover-width;
-
-    &::after {
-      transition: transform 350ms cubic-bezier(.4, 0, .2, 1);
-      transform: scale3d(1, 1, 1);
-    }
   }
 
-  @at-root .text-field {
-    &.disabled label,
-    .text-input:disabled ~ label {
-      color: $text-lower-contrast;
-    }
-  }
-
-  @at-root .text-field.disabled,
+  @at-root .text-field.disabled .text-input,
   &:disabled {
+    padding-bottom: $text-input-padding-bottom;
     color: $text-lower-contrast;
-
-    .text-field-border {
-      border-bottom: $text-field-divider-width dashed $text-field-divider-color-light-theme;
-
-      &::after {
-        content: none;
-      }
-    }
+    border-bottom: $text-field-divider-width dashed;
   }
 }
 
@@ -106,12 +60,6 @@
     &:not(input) {
       display: flex;
     }
-  }
-
-  .text-field-border {
-    position: absolute;
-    top: 100%;
-    width: 100%;
   }
 }
 
@@ -146,17 +94,16 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  padding-top: $text-field-item-margin;
-  padding-bottom: $text-field-item-margin;
+  margin-top: $text-field-item-margin;
+  margin-bottom: $text-field-item-margin;
 
   .error-text {
     display: none;
-    margin-bottom: -$text-field-bottom-padding;
   }
 
   label {
     order: 0;
-    padding-top: $text-field-item-margin;
+    padding-top: $text-field-label-padding-top;
     margin-bottom: 0;
     font-size: $text-field-label-font-size;
     font-weight: $text-field-label-font-weight;
@@ -168,10 +115,6 @@
     order: 1;
   }
 
-  .text-field-border {
-    order: 2;
-  }
-
   .helper-text,
   .error-text {
     order: 3;
@@ -181,6 +124,12 @@
   &.focus.invalid {
     .error-text {
       display: block;
+    }
+  }
+
+  &.dropdown {
+    label ~ .dropdown-menu {
+      top: $text-field-item-height + $text-field-label-padding-top + $text-field-item-margin;
     }
   }
 }
@@ -198,9 +147,12 @@
 
   &.focus label,
   &.not-empty label,
-  .text-input:focus ~ label,
-  .text-input[placeholder]:not(:placeholder-shown) ~ label,
-  input:focus ~ label {
+  .text-input:focus ~ label {
+    font-size: $text-field-label-font-size;
+    transform: none;
+  }
+
+  .text-input[placeholder]:not(:placeholder-shown) ~ label {
     font-size: $text-field-label-font-size;
     transform: none;
   }
@@ -210,11 +162,6 @@
     transition: color 150ms;
     transition-timing-function: ease-out;
   }
-}
-
-input:focus + label {
-  font-size: $text-field-label-font-size;
-  transform: none;
 }
 
 .text-field-elevated {
@@ -230,6 +177,10 @@ input:focus + label {
   .text-input-group {
     flex-grow: 1;
   }
+
+  .text-input {
+    border: none;
+  }
 }
 
 .text-field-box {
@@ -243,11 +194,11 @@ input:focus + label {
   @extend .floating-label;
 
   label {
-    font-weight: $font-medium;
-    line-height: 15px;
+    padding-right: $text-field-box-padding;
+    padding-left: $text-field-box-padding;
+    font-weight: $text-field-box-label-font-weight;
+    line-height: $text-field-box-label-line-height;
     transform: translate3d(0, $text-field-box-label-transform, 0);
-
-    @include horizontal-padding($text-field-box-padding);
   }
 
   &.focus input::placeholder,
@@ -261,43 +212,43 @@ input:focus + label {
   }
 
   .text-input {
-    @include horizontal-padding($text-field-box-padding);
-
+    padding-right: $text-field-box-padding;
+    padding-bottom: $text-input-dense-padding-bottom;
+    padding-left: $text-field-box-padding;
     margin-bottom: 0;
-  }
-
-  .text-field-border,
-  .text-input:focus ~ .text-field-border,
-  .text-input:hover ~ .text-field-border  {
-    margin-top: 0;
     border-width: $text-field-box-border-width;
   }
 }
 
 .text-area {
   @extend .text-field-box;
+  position: relative;
   background: transparent !important;
 
-  .text-field-border {
+  label {
     position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 5;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    border-style: solid;
-    border-width: $text-field-divider-width;
-    border-radius: $text-field-box-border-radius;
-
-    &::after {
-      content: none;
-    }
   }
 
-  &.focus .text-field-border,
-  & .text-input:focus ~ .text-field-border {
-    border: $text-field-divider-focus-hover-width solid;
+  .text-input {
+    padding: $text-area-top-padding $text-area-horizontal-padding $text-area-bottom-padding;
+    border: $text-area-border-width solid;
+    border-radius: $text-field-box-border-radius;
+  }
+
+  &.focus .text-input,
+  .text-input:hover,
+  .text-input:focus {
+    padding: $text-area-hover-focus-top-padding $text-area-hover-focus-horizontal-padding $text-area-hover-focus-bottom-padding;
+    border-width: $text-area-dense-border-width;
+  }
+}
+
+.text-input,
+.text-input input,
+.text-input-value,
+.placeholder {
+  + .dropdown-toggle-icon {
+    margin-left: $text-field-item-margin;
   }
 }
 
@@ -307,15 +258,17 @@ input:focus + label {
   $dark-theme: map-get($theme, "dark");
   $uwp-style: map-get($theme, "uwp-style");
 
-  $primary-color: map_get($theme-colors, "primary");
-  $danger-color: map_get($theme-colors, "danger");
+  $primary-color: map-get($theme-colors, "primary");
+  $danger-color: map-get($theme-colors, "danger");
 
   $text-field-label-color: $text-field-label-color-light-theme;
   $text-field-divider-color: $text-field-divider-color-light-theme;
   $text-field-divider-color-hover: $text-field-divider-color-hover-light-theme;
+  $text-field-divider-color-disabled: $text-field-divider-color-disabled-light-theme;
   $text-field-box-background: $text-input-box-bg-light-theme;
   $text-input-color: $text-input-color-light-theme;
   $text-input-placeholder-color: $text-input-placeholder-color-light-theme;
+  $text-input-disabled-color: $text-input-disabled-color-light-theme;
   $text-input-icon-color: $text-input-icon-color-light-theme;
   $text-input-affix-color: $text-input-affix-color-light-theme;
   $text-field-helper-color: $text-field-helper-text-color-light-theme;
@@ -324,23 +277,18 @@ input:focus + label {
     $text-field-label-color: $text-field-label-color-dark-theme;
     $text-field-divider-color: $text-field-divider-color-dark-theme;
     $text-field-divider-color-hover: $text-field-divider-color-hover-dark-theme;
+    $text-field-divider-color-disabled: $text-field-divider-color-disabled-dark-theme;
     $text-field-box-background: $text-input-box-bg-dark-theme;
     $text-input-color: $text-input-color-dark-theme;
     $text-input-placeholder-color: $text-input-placeholder-color-dark-theme;
+    $text-input-disabled-color: $text-input-disabled-color-dark-theme;
     $text-input-icon-color: $text-input-icon-color-dark-theme;
     $text-input-affix-color: $text-input-affix-color-dark-theme;
     $text-field-helper-color: $text-field-helper-text-color-dark-theme;
   }
 
-  .text-field-border {
-    border-color: $text-field-divider-color;
-
-    &::after {
-      border-color: $primary-color;
-    }
-  }
-
-  .placeholder {
+  .placeholder,
+  .text-input::placeholder {
     color: $text-input-placeholder-color;
   }
 
@@ -348,7 +296,6 @@ input:focus + label {
     &.focus .text-input::placeholder,
     .text-input:focus::placeholder {
       color: $text-input-placeholder-color;
-      transition-timing-function: ease-in;
     }
   }
 
@@ -362,28 +309,10 @@ input:focus + label {
     color: $text-input-affix-color;
   }
 
-  .text-input {
-    &:hover,
-    input:hover {
-      ~ .text-field-border {
-        border-color: $text-field-divider-color-hover;
-      }
-    }
-
-    @at-root .text-field.disabled,
-    &:disabled {
-      .text-input {
-        color: $text-lower-contrast;
-      }
-
-      .text-field-border {
-        border-bottom: $text-field-divider-width dashed $text-field-divider-color-light-theme;
-
-        &::after {
-          content: none;
-        }
-      }
-    }
+  .text-field.focus .text-input,
+  .text-input:focus,
+  .text-input:focus:hover {
+    border-color: $primary-color;
   }
 
   .text-field {
@@ -398,6 +327,9 @@ input:focus + label {
 
     &.invalid,
     &.focus.invalid {
+
+      .text-input:focus,
+      .text-input:hover,
       .text-input {
         border-color: $danger-color;
       }
@@ -406,22 +338,19 @@ input:focus + label {
       .text-input:focus ~ label {
         color: $danger-color;
       }
+    }
 
-      .text-field-border {
-        &,
-        &::after {
-          border-color: $danger-color;
-        }
-      }
+    &.disabled label,
+    &.disabled .text-input:focus ~ label,
+    &.focus.disabled label,
+    .text-input:disabled ~ label,
+    .text-input:focus:disabled ~ label {
+      color: $text-input-disabled-color;
     }
   }
 
   .text-field-box {
     background: $text-field-box-background;
-  }
-
-  .text-area .text-input:focus ~ .text-field-border {
-    border-color: $primary-color;
   }
 
   .text-input-icon {
@@ -440,7 +369,23 @@ input:focus + label {
     }
   }
 
+  .text-input {
+    border-color: $text-field-divider-color;
+
+    &:hover {
+      border-color: $text-field-divider-color-hover;
+    }
+  }
+
+  .text-field.disabled .text-input,
+  .text-field.disabled.focus .text-input,
+  .text-input:disabled,
+  .text-input:disabled:hover {
+    color: $text-input-disabled-color;
+    border-color: $text-field-divider-color-disabled;
+  }
+
   @if ($uwp-style) {
-    @include uwp-text-fields;
+    @include uwp-text-fields($text-input-placeholder-color);
   }
 }

@@ -5,66 +5,53 @@ block content
 
   .text-field
     small.helper-text Helper Text
-    .text-input-group
-      input.text-input(type="text" placeholder="Placeholder" id="text-field-1")
-      .text-field-border
+    input.text-input(type="text" placeholder="Placeholder" id="text-field-1")
     label(for="text-field-1") Normal
 
   .text-field.focus
-    .text-input-group
-      input.text-input(type="text" placeholder="Placeholder")
-      .text-field-border
+    input.text-input(type="text" placeholder="Placeholder")
     label Normal focused
 
   .text-field.invalid
     small.helper-text.error-text Error Text
-    .text-input-group
-      input.text-input(type="text" placeholder="Placeholder")
-      .text-field-border
+    input.text-input(type="text" placeholder="Placeholder")
     label Normal
 
   .text-field.floating-label
-    .text-input-group
-      input.text-input(type="text" placeholder="Placeholder")
-      .text-field-border
+    input.text-input(type="text" placeholder="Placeholder")
     label Floating label
 
   .text-field.floating-label.not-empty
-    .text-input-group
-      input.text-input(type="text" placeholder="Placeholder" value="some value")
-      .text-field-border
+    input.text-input(type="text" placeholder="Placeholder" value="some value")
     label Floating label not empty
 
   .text-field.floating-label.focus
-    .text-input-group
-      input.text-input(type="text" placeholder="Placeholder")
-      .text-field-border
+    input.text-input(type="text" placeholder="Placeholder")
     label Floating label focus
 
   .text-field
     .text-input-group
       .text-input-icon
         i.mdi.mdi-calendar
-      .text-input
-        input(type="text" placeholder="Placeholder")
-        .text-field-border
+      input.text-input(type="text" placeholder="Placeholder")
     label Icon signifier
 
-  .text-field
-    .text-input-group
-      .text-input
-        .placeholder Placeholder
-        .text-input-icon
-          i.mdi.mdi-menu-down
-      .text-field-border
+  .text-field.dropdown
+    button.text-input.dropdown-toggle(type="button")
+      .placeholder Placeholder
+      .dropdown-toggle-icon
     label Action icon
+    .dropdown-menu.down-right.fit-width
+      .dropdown-content
+        .dropdown-item Ice cream
+        .dropdown-item Pastry
+        .dropdown-item Other
 
   .text-field
     .text-input-group
       .text-input
         .text-input-prefix $
         input(type="text" placeholder="Placeholder")
-        .text-field-border
     label Input prefix
 
   .text-field
@@ -72,7 +59,6 @@ block content
       .text-input
         input(type="text" placeholder="Placeholder")
         .text-input-suffix kg
-        .text-field-border
     label Input suffix
 
   .text-field-elevated
@@ -83,26 +69,18 @@ block content
       .text-input-icon
         i.mdi.mdi-microphone
 
-  .text-field
-    .text-field-box
-      input.text-input(placeholder="Placeholder")
-      label Label
-      .text-field-border
+  .text-field.text-field-box
+    input.text-input(placeholder="Placeholder")
+    label Label
+
+  .text-field.text-field-box
+    textarea.text-input(rows=5, placeholder="Description here...")
+    label Label
 
   .text-field
-    .text-field-box
-      textarea.text-input(rows=5, placeholder="Description here...")
-      label Label
-      .text-field-border
+    textarea.text-input(rows=5)
+    label Multi-line text field
 
-  .text-field
-    label.floating-label Multi-line text field
-    .text-input-group
-      textarea.text-input(rows=5)
-      .text-field-border
-
-  .text-field
-    .text-area
-      textarea.text-input(rows=5, placeholder="Description here...")
-      label.floating-label Text area
-      .text-field-border
+  .text-field.text-area
+    textarea.text-input(rows=5, placeholder="Description here...")
+    label.floating-label Text area
