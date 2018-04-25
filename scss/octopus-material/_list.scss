@@ -1,5 +1,6 @@
 .list {
-  padding: $list-vertical-padding 0;
+  padding-top: $list-vertical-padding;
+  padding-bottom: $list-vertical-padding;
   margin: 0;
 
   .divider {
@@ -142,6 +143,36 @@
   padding: $list-item-padding;
   font-weight: $font-medium;
   font-size: $list-index-font-size;
+}
+
+.dense-layout {
+  .list {
+    padding-top: $list-dense-vertical-padding;
+    padding-bottom: $list-dense-vertical-padding;
+  }
+
+  .list-item {
+    min-height: $list-item-dense-min-height;
+    padding-top: $list-item-dense-padding;
+    padding-bottom: $list-item-dense-padding;
+  }
+
+  .list-item-primary-content {
+    font-size: $list-item-dense-font-size;
+  }
+
+  .list-item-icon {
+    font-size: $list-dense-icon-size;
+  }
+
+  .list-item-primary-content,
+  .list-item-icon {
+    line-height: $list-item-dense-font-size;
+  }
+
+  .list-index {
+    font-size: $list-index-dense-font-size;
+  }
 }
 
 @mixin list-theme($dark-theme) {

@@ -2,6 +2,7 @@ $primary-color: #563d7c !default;
 $accent-color: #ffab40 !default;
 $danger-color: #ef5350 !default;
 $default-theme-dark: false !default;
+$default-uwp-style: false !default;
 
 $font-thin: 100;
 $font-light: 300;
@@ -12,7 +13,7 @@ $font-black: 900;
 
 $white:  #fff !default;
 $gray-100: #f5f5f5 !default;
-$gray-200: #eeeeee !default;
+$gray-200: #eee !default;
 $gray-300: #e0e0e0 !default;
 $gray-400: #bdbdbd !default;
 $gray-500: #9e9e9e !default;
@@ -43,6 +44,7 @@ $theme-colors: (
 $color-high-contrast-light-theme: rgba(0, 0, 0, .87) !default;
 $color-high-contrast-dark-theme: $white !default;
 
+$color-lower-contrast-light-theme: rgba(0, 0, 0, .42) !default;
 $color-low-contrast-light-theme: rgba(0, 0, 0, .42) !default;
 $color-low-contrast-dark-theme: rgba(255, 255, 255, .7) !default;
 
@@ -99,14 +101,14 @@ $grid-gutter-width: $margin-gutter-default !default;
 // Components
 //
 // Define common padding and border radius sizes and more.
+$uwp-border-width: .125rem;
 
-$border-width: .0625rem !default;
 
 // Fonts
 //
 // Font, line-height, and color for body text, headings, and more.
 
-$font-family-base: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default; //Octopus material custom code
+$font-family-base: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif !default; //Octopus material custom code
 
 $font-size-base: .875rem !default;
 
@@ -139,6 +141,7 @@ $subheading-line-height: 1.15rem;
 $lead-font-size:   1.25rem !default;
 
 $base-icon-size: 1.5rem;
+$base-dense-icon-size: 1.3125rem;
 
 $text-high-contrast-light-theme: $body-color !default;
 $text-high-contrast-dark-theme: $white !default;
@@ -274,6 +277,8 @@ $dialog-actions-padding: 8px !default;
 $dialog-background-light-theme: #fff !default;
 $dialog-background-dark-theme: #424242 !default;
 
+$uwp-dialog-border-width: .0625rem !default;
+
 //Dropdown
 $dropdown-menu-border-radius: .125rem !default;
 $dropdown-menu-padding: .5rem !default;
@@ -291,6 +296,19 @@ $dropdown-in-data-table-bg-light-theme: #fafafa !default;
 $dropdown-in-data-table-bg-dark-theme: $gray-700 !default;
 
 $dropdown-in-data-table-toggle-icon-size: 22px !default;
+$dropdown-icon-size: .3rem !default;
+$dropdown-icon-color-light-theme: $color-low-contrast-light-theme !default;
+$dropdown-icon-color-dark-theme: $color-low-contrast-dark-theme !default;
+
+$uwp-dropdown-border-width: .0625rem;
+$uwp-dropdown-border-color-light-theme: $base-semi-transparent-color !default;
+$uwp-dropdown-border-color-dark-theme: rgba(204,204,204,.54) !default;
+
+//Dropdown dense
+$dropdown-item-dense-height: 2rem;
+$dropdown-item-dense-padding: 1.5rem;
+$dropdown-item-dense-font-size: .9375rem;
+
 
 //Floating content
 $floating-content-padding: 1.25rem !default;
@@ -350,7 +368,7 @@ $data-table-content-font-weight: $font-medium !default;
 $divider-height: .0625rem !default;
 $divider-color: $base-semi-transparent-color !default;
 
-////Buttons
+//Buttons
 $btn-disabled-background-light-theme: rgba(0, 0, 0, .12) !default;
 $btn-disabled-background-dark-theme: rgba(255, 255, 255, .12) !default;
 $btn-disabled-color-light-theme: rgba(0, 0, 0, .26) !default;
@@ -359,10 +377,9 @@ $btn-side-padding: 1rem !default;
 $btn-height: 2.25rem !default;
 $btn-border-radius: .125rem !default;
 $btn-font-size: $font-size-base !default;
-$btn-font-weight:                $font-medium !default;
+$btn-font-weight: $font-medium !default;
 $btn-default-background-light: $white !default;
 $btn-default-background-dark: $gray-800 !default;
-
 
 $floating-button-size: 3.5rem !default;
 $floating-button-small-size: 2.5rem !default;
@@ -370,9 +387,20 @@ $floating-button-icon-size: $base-icon-size !default;
 
 $btn-borderless-color-light-theme: $text-low-contrast-light-theme !default;
 $btn-borderless-color-dark-theme: $white !default;
-$btn-borderless-font-size:  $base-icon-size !default;
+$btn-borderless-font-size: $base-icon-size !default;
 $btn-borderless-margin: 1.5rem !default;
 $btn-borderless-hover-size: 2.5rem !default;
+//UWP Buttons
+$uwp-btn-border-radius: 0 !default;
+$uwp-btn-hover-border-width: $uwp-border-width !default;
+$uwp-btn-active-background-color-light-theme: $color-low-contrast-light-theme !default;
+$uwp-btn-active-background-color-dark-theme: rgba(204,204,204,.54) !default;
+$uwp-btn-flat-active-background-color-light-theme: $hover-background-light-theme !default;
+$uwp-btn-flat-active-background-color-dark-theme: $uwp-btn-active-background-color-dark-theme !default;
+
+//Buttons dense
+$btn-dense-font-size: .8125rem !default;
+$btn-dense-height: 2rem !default;
 
 //List
 $list-vertical-padding: .5rem !default;
@@ -385,20 +413,15 @@ $list-avatar-size: $avatar-size !default;
 $list-icon-avatar-text-left-distance: 4.5rem !default;
 
 $list-item-font-size: 1rem !default;
-$list-item-line-height: 1.25rem !default;
+$list-item-padding: $list-item-font-size !default;
 
 $list-item-min-height: 3rem !default;
 $list-item-with-icon-height: 3.5rem !default;
 $list-item-two-lines-height: 4.5rem !default;
 $list-item-three-lines-height: 5.5rem !default;
 
-$list-item-color-light-theme: $text-high-contrast-light-theme;
-$list-item-color-dark-theme: $white;
-
 $list-item-hover-color: $base-semi-transparent-color;
 $list-avatar-padding-top: .5rem !default;
-
-$list-item-padding: 1rem !default;
 
 $list-index-width: 3.5rem !default;
 $list-index-font-size: 1.25rem !default;
@@ -408,6 +431,19 @@ $list-index-color-dark-theme: $text-low-contrast-dark-theme !default;
 
 $list-divider-height: $divider-height !default;
 $list-item-multi-line-line-height: 1.25rem !default;
+
+//List dense
+$list-dense-vertical-padding: .25rem !default;
+$list-item-dense-font-size: .8125rem !default;
+$list-item-dense-padding: $list-item-dense-font-size !default;
+$list-item-dense-min-height: 2.5rem !default;
+
+$list-item-color-light-theme: $text-high-contrast-light-theme;
+$list-item-color-dark-theme: $white;
+
+$list-dense-icon-size: $base-dense-icon-size;
+
+$list-index-dense-font-size: 1rem !default;
 
 //Progress
 $progress-height: .3125rem !default;
@@ -440,15 +476,14 @@ $text-field-divider-width: .0625rem !default;
 $text-field-divider-focus-hover-width: .125rem !default;
 
 $text-field-divider-color-light-theme: $color-low-contrast-light-theme !default;
-$text-field-divider-color-dark-theme: $color-low-contrast-dark-theme !default;
-
 $text-field-divider-color-hover-light-theme: $color-high-contrast-light-theme !default;
+$text-field-divider-color-disabled-light-theme: $text-field-divider-color-light-theme !default;
+$text-field-divider-color-dark-theme: $color-low-contrast-dark-theme !default;
 $text-field-divider-color-hover-dark-theme: $color-high-contrast-dark-theme !default;
+$text-field-divider-color-disabled-dark-theme: $text-field-divider-color-dark-theme !default;
 
 $text-field-item-height: 1rem !default;
 $text-field-item-margin: .5rem !default;
-$text-field-bottom-padding: $text-field-item-margin - $text-field-divider-width !default;
-$text-field-focus-hover-margin: $text-field-item-margin - $text-field-divider-focus-hover-width !default;
 
 $text-field-label-color-light-theme: $text-low-contrast-light-theme !default;
 $text-field-label-color-dark-theme: $text-low-contrast-dark-theme !default;
@@ -458,11 +493,28 @@ $text-field-label-font-weight: $font-regular !default;
 
 $text-field-elevated-height: 3rem !default;
 
+$text-field-label-padding-top: $text-field-item-margin !default;
+
 $text-field-box-border-radius: .25rem !default;
 $text-field-box-padding: 1rem !default;
 $text-field-box-border-width: .125rem !default;
 $text-field-box-label-transform: 1.25rem - $text-field-item-margin !default;
+$text-field-box-label-font-weight: $font-medium !default;
+$text-field-box-label-line-height: .9375rem !default;
 
+$text-area-border-radius: .25rem !default;
+$text-area-border-width: .0625rem !default;
+$text-area-dense-border-width: .125rem !default;
+$text-area-top-base-padding: $text-field-box-label-line-height + $text-field-label-padding-top + $text-field-item-margin !default;
+$text-area-top-padding: $text-area-top-base-padding - $text-area-border-width !default;
+$text-area-hover-focus-top-padding: $text-area-top-base-padding - $text-area-dense-border-width !default;
+
+$text-area-bottom-base-padding: $text-field-item-margin !default;
+$text-area-bottom-padding: $text-area-bottom-base-padding - $text-area-border-width !default;
+$text-area-hover-focus-bottom-padding: $text-area-bottom-base-padding - $text-area-dense-border-width !default;
+$text-area-horizontal-base-padding: $text-field-box-padding !default;
+$text-area-horizontal-padding: $text-field-box-padding - $text-area-border-width !default;
+$text-area-hover-focus-horizontal-padding: $text-field-box-padding - $text-area-dense-border-width !default;
 
 $text-input-color-light-theme: $text-high-contrast-light-theme;
 $text-input-color-dark-theme: $text-high-contrast-dark-theme;
@@ -470,18 +522,27 @@ $text-input-line-height: 1.15 !default;
 $text-input-height: $text-field-item-height !default;
 $text-input-font-size: 1rem !default;
 $text-input-font-weight: $font-regular !default;
+$text-input-padding-bottom: $text-field-item-margin - $text-field-divider-width !default;
+$text-input-dense-padding-bottom: $text-field-item-margin - $text-field-divider-focus-hover-width !default;
 
-$text-input-placeholder-color-light-theme: $text-lower-contrast;
-$text-input-placeholder-color-dark-theme: $text-lower-contrast-dark-theme;
+$text-input-placeholder-color-light-theme: $text-lower-contrast !default;
+$text-input-placeholder-color-dark-theme: $text-lower-contrast-dark-theme !default;
+$text-input-disabled-color-light-theme: $text-lower-contrast !default;
+$text-input-disabled-color-dark-theme: $text-lower-contrast-dark-theme !default;
 
-$text-input-icon-color-light-theme: $text-low-contrast-light-theme;
-$text-input-icon-color-dark-theme: $text-low-contrast-dark-theme;
+$text-input-icon-color-light-theme: $text-low-contrast-light-theme !default;
+$text-input-icon-color-dark-theme: $text-low-contrast-dark-theme !default;
 
 $text-input-affix-color-light-theme: $text-lower-contrast;
 $text-input-affix-color-dark-theme: $text-lower-contrast-dark-theme;
 
-$text-input-box-bg-light-theme: rgba(0, 0, 0, .06);
-$text-input-box-bg-dark-theme: rgba(255, 255, 255, .1);
+$text-input-box-bg-light-theme: rgba(0, 0, 0, .06) !default;
+$text-input-box-bg-dark-theme: rgba(255, 255, 255, .1) !default;
+
+$uwp-text-field-border-width: $uwp-border-width !default;
+$uwp-text-input-horizontal-padding: .75rem !default;
+$uwp-text-input-vertical-padding: $text-field-item-margin !default;
+$uwp-text-area-top-padding: $text-area-top-base-padding !default;
 
 //Toolbar
 $toolbar-height: 4rem !default;
@@ -498,6 +559,9 @@ $toolbar-icon-color-light-theme: $text-low-contrast-light-theme !default;
 $toolbar-icon-color-dark-theme: $white !default;
 
 $bg-appbar: $primary-color !default;
+
+//Toolbar dense
+$toolbar-dense-height: 3rem !default;
 
 //Tabs
 $tab-height: 3rem !default;
@@ -555,6 +619,11 @@ $snackbar-button-horizontal-padding: 1.5rem !default;
 $snackbar-button-tablet-left-margin: $snackbar-horizontal-padding !default;
 
 $snackbar-tablet-border-radius: .125rem !default;
+
+$uwp-snackbar-button-right-margin: .5rem;
+$uwp-snackbar-border-width: $uwp-border-width;
+$uwp-snackbar-border-color-light-theme: rgba(204,204,204,.54) !default;
+$uwp-snackbar-border-color-dark-theme: $color-low-contrast-light-theme !default;
 
 $text-muted: $text-low-contrast-light-theme !default;
 

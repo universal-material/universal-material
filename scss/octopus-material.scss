@@ -32,5 +32,7 @@
 //Utilities
 @import "utilities";
 //@import "octopus-material/responsive-utilities";
+$theme:(colors: $theme-colors, dark: $default-theme-dark, uwp-style: $default-uwp-style);
 
-@include create-theme($theme-colors, $default-theme-dark)
+@include create-theme($theme);
+@include create-dense-layout();

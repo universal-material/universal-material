@@ -1,3 +1,5 @@
+@import "uwp/uwp-card";
+
 .card {
   border-radius: $card-border-radius;
   box-shadow: $card-shadow;
@@ -56,6 +58,11 @@
   .subtitle {
     color: $white !important;
   }
+
+  @if (mixin_exists(button-flat-theme)) {
+    @include button-flat-theme((), true);
+    @include button-borderless-theme((), true);
+  }
 }
 
 .card-body {
@@ -83,7 +90,11 @@
   }
 }
 
-@mixin card-theme($dark-theme: $default-theme-dark) {
+@mixin card-theme($theme) {
+
+  $dark-theme: map-get($theme, "dark");
+  $uwp-style: map-get($theme, "uwp-style");
+
   $background-color: $card-bg-light-theme;
   $color: $card-subtitle-color-light-theme;
 
@@ -101,30 +112,15 @@
       color: $color;
     }
   }
-}
 
-//@include light-theme-style(false) {
-//  &.card,
-//  .card {
-//    background-color: $card-bg-light-theme
-//  }
-//
-//  .card-header {
-//    .subtitle {
-//      color: $card-subtitle-color-light-theme;
-//    }
-//  }
-//}
-//
-//@include dark-theme-style(false) {
-//  &.card,
-//  .card {
-//    background-color: $card-bg-dark-theme
-//  }
-//
-//  .card-header {
-//    .subtitle {
-//      color: $card-subtitle-color-dark-theme;
-//    }
-//  }
-//}
+  @if ($uwp-style) {
+    @include uwp-card;
+
+
+    @if (mixin_exists(uwp-button)) {
+      .card-media-content {
+        @include uwp-button(true);
+      }
+    }
+  }
+}

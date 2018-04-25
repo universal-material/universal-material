@@ -3,22 +3,23 @@
 }
 
 .toolbar-row {
-  height: $toolbar-height;
   display: flex;
   flex-direction: row;
   align-items: center;
+  height: $toolbar-height;
 
   @include horizontal-padding($toolbar-horizontal-padding);
 }
 
 .toolbar-title {
-  font-size: $toolbar-title-font-size;
   flex-grow: 1;
+  font-size: $toolbar-title-font-size;
 
   @include text-truncate;
 }
 
-.toolbar-icon, .toolbar-action {
+.toolbar-icon,
+.toolbar-action {
   font-size: $toolbar-action-icon-size;
 }
 
@@ -42,26 +43,24 @@
   height: 100%;
 }
 
+.dense-layout {
+  .toolbar-row {
+    height: $toolbar-dense-height;
+  }
+}
+
 @mixin toolbar-theme($theme-colors, $dark-theme) {
 
   $color: $body-color-light-theme;
   $button-borderless-color: $toolbar-icon-color-light-theme;
 
-  @if($dark-theme) {
+  @if ($dark-theme) {
     $color: $body-color-dark-theme;
     $button-borderless-color: $toolbar-icon-color-dark-theme;
   }
 
   @include add-to-parent-or-class("toolbar") {
     color: $color;
-
-    .btn-borderless {
-      @include selectable-background($dark-theme, true);
-
-      @if (mixin_exists(button-flat-variant)) {
-        @include button-flat-variant($button-borderless-color);
-      }
-    }
 
     //@include toolbar-variant($theme-colors, $dark-theme)
 
@@ -76,9 +75,11 @@
 
   @if & == null {
     $toolbar-primary: map_get($theme-colors, "primary");
+    $dark-background: is-dark-background($toolbar-primary);
 
     .toolbar-primary {
       @include toolbar-variant($theme-colors, $toolbar-primary);
+      @include button-borderless-theme((), $dark-background);
     }
   }
 }

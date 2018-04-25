@@ -1,3 +1,5 @@
+// stylelint-disable selector-no-qualifying-type
+
 .data-table {
   width: 100%;
   max-width: 100%;
@@ -25,14 +27,24 @@
   &.card {
     overflow: visible;
   }
+
+  .dropdown-toggle {
+    width: 100%;
+    padding: 0;
+    text-align: left;
+    text-transform: none;
+    &.btn::before {
+      content: none;
+    }
+  }
 }
 
 .data-table-footer {
   height: $data-table-card-footer-height;
-  border-top: $data-table-border;
-  color: $data-table-card-footer-font-color;
   font-size: $data-table-card-footer-font-size;
   font-weight: $data-table-card-footer-font-weight;
+  color: $data-table-card-footer-font-color;
+  border-top: $data-table-border;
 
   @include horizontal-padding($data-table-horizontal-padding);
 

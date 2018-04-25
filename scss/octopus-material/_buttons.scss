@@ -1,3 +1,6 @@
+@import "uwp/uwp-buttons";
+@import "uwp/uwp-buttons";
+
 .btn {
   position: relative; //Octocus custom code
   display: inline-block;
@@ -79,7 +82,87 @@
   }
 }
 
-@mixin buttons-theme($theme-colors, $dark-theme) {
+.dense-layout {
+  .btn {
+    font-size: $btn-dense-font-size;
+    height: $btn-dense-height;
+    line-height: $btn-dense-height;
+  }
+
+  .btn-borderless {
+    font-size: $base-dense-icon-size;
+  }
+}
+
+.btn-raised {
+  box-shadow: none !important;
+}
+
+@mixin button-flat-theme($buttons-colors, $dark-theme) {
+
+  $btn-flat-default-color: $body-color-light-theme;
+
+  @if ($dark-theme) {
+    $btn-flat-default-color: $body-color-dark-theme;
+  }
+
+  @each $color, $value in map-merge($buttons-colors, (default: $btn-flat-default-color)) {
+    .btn-flat.btn-#{$color} {
+      @include button-flat-variant($value);
+    }
+  }
+
+  .btn-flat {
+    @include selectable-background($dark-theme, true, $btn-border-radius);
+  }
+}
+
+@mixin button-borderless-theme($buttons-colors, $dark-theme) {
+
+  $btn-flat-default-color: $body-color-light-theme;
+  $btn-borderless-color: $btn-borderless-color-light-theme;
+  $btn-disabled-color: $btn-disabled-color-light-theme;
+
+  @if ($dark-theme) {
+    $btn-flat-default-color: $body-color-dark-theme;
+    $btn-borderless-color: $btn-borderless-color-dark-theme;
+    $btn-disabled-color: $btn-disabled-color-dark-theme;
+  }
+
+  @each $color, $value in map-merge($buttons-colors, (default: $btn-borderless-color)) {
+    .btn-borderless.btn-#{$color} {
+      @include button-flat-variant($value);
+    }
+  }
+
+  .btn-borderless {
+    @include selectable-background($dark-theme, true, $btn-border-radius);
+  }
+
+  .btn-borderless {
+    color: $btn-borderless-color;
+
+    @include hover-focus {
+      color: $btn-borderless-color;
+    }
+
+    &:disabled,
+    &.disabled {
+      color: $btn-disabled-color !important;
+      &,
+      &::before {
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+@mixin buttons-theme($theme) {
+
+  $theme-colors: map-get($theme, "colors");
+  $dark-theme: map-get($theme, "dark");
+  $uwp-style: map-get($theme, "uwp-style");
+
   $buttons-colors: (
     default: $btn-default-background-light,
     primary: map-get($theme-colors, "primary"),
@@ -106,18 +189,6 @@
     }
   }
 
-  @each $color, $value in map-merge($buttons-colors, (default: $btn-flat-default-color)) {
-    .btn-flat.btn-#{$color} {
-      @include button-flat-variant($value);
-    }
-  }
-
-  @each $color, $value in map-merge($buttons-colors, (default: $btn-borderless-color)) {
-    .btn-borderless.btn-#{$color} {
-      @include button-flat-variant($value);
-    }
-  }
-
   .btn {
     @include selectable-background(false, true, $btn-border-radius);
 
@@ -127,30 +198,15 @@
 
       background-color: $btn-disabled-background-color;
       &::before {
-        background-color: transparent;
+        background-color: transparent !important;
       }
     }
   }
 
-  .btn-flat,
-  .btn-borderless {
-    @include selectable-background($dark-theme, true, $btn-border-radius);
-  }
+  @include button-flat-theme($buttons-colors, $dark-theme);
+  @include button-borderless-theme($buttons-colors, $dark-theme);
 
-  .btn-borderless {
-    color: $btn-borderless-color;
-
-    @include hover-focus {
-      color: $btn-borderless-color;
-    }
-
-    &:disabled,
-    &.disabled {
-
-      &,
-      &::before {
-        background-color: transparent;
-      }
-    }
+  @if ($uwp-style) {
+    @include uwp-button($dark-theme);
   }
 }

@@ -86,7 +86,7 @@ html
 
           a.list-item(href="components/progress.html")
             .list-item-icon
-              i.mdi.mdi-toggle-switch
+              i.mdi.mdi-loading
             .list-item-primary-content
               span Progress
 
@@ -125,11 +125,13 @@ html
         .toolbar.toolbar-primary#app-bar
           .toolbar-row
             .toolbar-icon.d-lg-none
-              .btn-borderless#menu-toggle
+              .btn-borderless.btn-default#menu-toggle
                 i.mdi.mdi-menu
 
             .toolbar-title
               | Material
+            button.btn-borderless.btn-default#dense-toggle(type="button", title="Dense layout")
+              i.mdi.mdi-format-size
         .layout-content#main-content
           .container.margin-lg-40.chapter
             block content

@@ -16,13 +16,19 @@
   "scripts": {
     "docs": "http-server -a localhost -p 8081 -o http://localhost:8081/docs"
   },
+  "sass": "scss/octopus-material.scss",
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-notify": "^3.0.0",
     "gulp-pug": "^3.3.0",
     "gulp-rename": "^1.2.2",
-    "gulp-sass": "^3.1.0"
+    "gulp-sass": "^3.1.0",
+    "stylelint": "^9.2.0",
+    "stylelint-config-recommended-scss": "^3.2.0",
+    "stylelint-config-standard": "^18.2.0",
+    "stylelint-order": "^0.8.1",
+    "stylelint-scss": "^3.0.0"
   },
   "dependencies": {
     "bootstrap": "^4.0.0",

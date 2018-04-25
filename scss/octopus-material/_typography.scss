@@ -1,3 +1,5 @@
+// stylelint-disable declaration-no-important, selector-list-comma-newline-after
+
 //
 // Headings
 //
@@ -105,24 +107,3 @@ mark,
   padding: $mark-padding;
   background-color: $mark-bg;
 }
-
-//.button {
-//  font-size: $font-size-button;
-//  font-weight: $font-medium;
-//}
-//
-//.high-contrast {
-//  color: $text-high-contrast;
-//}
-//
-//.low-contrast {
-//  color: $text-low-contrast;
-//}
-//
-//.lower-contrast {
-//  color: $text-lower-contrast;
-//}
-//
-//.secondary-text {
-//  color: $text-low-contrast;
-//}
