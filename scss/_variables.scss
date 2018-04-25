@@ -110,16 +110,16 @@ $font-family-base: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Robo
 
 $font-size-base: .875rem !default;
 
-$display4-size: 7rem !default; //Octopus custom code
-$display3-size: 3.5rem !default; //Octopus custom code
-$display2-size: 2.81rem !default; //Octopus custom code
-$display1-size: 2.125rem !default; //Octopus custom code
-$headline-size: ceil($font-size-base * 1.7) !default;
-$title-size: ceil($font-size-base * 1.4) !default;
-$subheading-size: ceil($font-size-base * 1.1) !default;
+$display4-size: $font-size-base * 8 !default; //Octopus custom code
+$display3-size: $font-size-base * 4 !default; //Octopus custom code
+$display2-size: $font-size-base * 3.21 !default; //Octopus custom code
+$display1-size: $font-size-base * 2.42 !default; //Octopus custom code
+$headline-size: $font-size-base * 1.7 !default;
+$title-size: $font-size-base * 1.4 !default;
+$subheading-size: $font-size-base * 1.1 !default;
 $body-2-size: $font-size-base !default;
 $body-1-size: $font-size-base !default;
-$caption-size: ceil($font-size-base * 0.85) !default;
+$caption-size: $font-size-base * 0.85 !default;
 $font-size-button: $font-size-base !default;
 
 $display4-weight:     $font-light !default;
@@ -132,6 +132,9 @@ $subheading-weight:   $font-regular !default;
 $body-2-weight:       $font-medium !default;
 $body-1-weight:       $font-regular !default;
 $caption-weight:      $font-regular !default;
+$headline-line-height:   1.15rem;
+$title-line-height:      1.15rem;
+$subheading-line-height: 1.15rem;
 
 $lead-font-size:   1.25rem !default;
 
@@ -244,7 +247,7 @@ $card-body-top-padding: $card-base-small-vertical-padding !default;
 $card-body-bottom-padding: $card-base-bottom-padding !default;
 
 $card-border-radius: .125rem !default;
-$card-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4) !default;
+$card-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12) !default;
 $card-actions-padding: .5rem !default;
 
 $card-bg-light-theme: #fff !default;

@@ -3560,29 +3560,29 @@ h6, .h6 {
   line-height: 1.2; }
 
 .display-2 {
-  font-size: 2.81rem;
+  font-size: 2.80875rem;
   font-weight: 400;
   line-height: 1.2; }
 
 .display-1 {
-  font-size: 2.125rem;
+  font-size: 2.1175rem;
   font-weight: 400;
   line-height: 1.2; }
 
 .headline {
-  font-size: 2rem;
+  font-size: 1.4875rem;
   font-weight: 400;
-  line-height: 1; }
+  line-height: 1.15rem; }
 
 .title, .dialog-title {
-  font-size: 2rem;
+  font-size: 1.225rem;
   font-weight: 500;
-  line-height: 1; }
+  line-height: 1.15rem; }
 
 .subheading {
-  font-size: 1rem;
+  font-size: 0.9625rem;
   font-weight: 400;
-  line-height: 1; }
+  line-height: 1.15rem; }
 
 .body-2 {
   font-size: 0.875rem;
@@ -3593,7 +3593,7 @@ h6, .h6 {
   font-weight: 400; }
 
 .caption {
-  font-size: 1rem;
+  font-size: 0.74375rem;
   font-weight: 400; }
 
 hr {
@@ -4516,8 +4516,8 @@ mark,
 
 .card, .text-field-elevated {
   border-radius: 0.125rem;
-  -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4);
-          box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+          box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   overflow: hidden; }
   .card.selectable-background::before, .selectable-background.text-field-elevated::before {
     border-radius: 0.125rem; }
@@ -5195,17 +5195,12 @@ th.data-table-header {
 .progress {
   overflow: hidden;
   position: relative;
-  height: 0.3125rem;
+  height: 0;
   border-radius: 0.0625rem;
-  -webkit-transform: scale3d(1, 0, 1);
-          transform: scale3d(1, 0, 1);
-  -webkit-transition: -webkit-transform 350ms;
-  transition: -webkit-transform 350ms;
-  transition: transform 350ms;
-  transition: transform 350ms, -webkit-transform 350ms; }
+  -webkit-transition: height 350ms;
+  transition: height 350ms; }
   .progress.show {
-    -webkit-transform: scale3d(1, 1, 1);
-            transform: scale3d(1, 1, 1); }
+    height: 0.3125rem; }
   .progress.indeterminate::before, .progress.indeterminate::after {
     position: absolute;
     top: 0;

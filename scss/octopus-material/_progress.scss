@@ -1,13 +1,12 @@
 .progress {
   overflow: hidden;
   position: relative;
-  height: $progress-height;
+  height: 0;
   border-radius: $progress-border-radius;
-  transform: scale3d(1, 0, 1);
-  transition: transform 350ms;
+  transition: height 350ms;
 
   &.show {
-    transform: scale3d(1, 1, 1);
+    height: $progress-height;
   }
 
   &.indeterminate {

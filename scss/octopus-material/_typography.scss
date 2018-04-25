@@ -49,18 +49,18 @@ h6, .h6 { font-size: $h6-font-size; }
 .headline {
   font-size: $headline-size;
   font-weight: $headline-weight;
-  line-height: 1;
+  line-height: $headline-line-height;
 }
 .title {
   font-size: $title-size;
   font-weight: $title-weight;
-  line-height: 1;
+  line-height: $title-line-height;
 }
 
 .subheading {
   font-size: $subheading-size;
   font-weight: $subheading-weight;
-  line-height: 1;
+  line-height: $subheading-line-height;
 }
 
 .body-2 {
