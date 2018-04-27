@@ -178,7 +178,7 @@ input,
     flex-grow: 1;
   }
 
-  .text-input {
+  > .text-input-group > .text-input {
     border: none;
   }
 }

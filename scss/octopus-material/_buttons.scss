@@ -94,10 +94,6 @@
   }
 }
 
-.btn-raised {
-  box-shadow: none !important;
-}
-
 @mixin button-flat-theme($buttons-colors, $dark-theme) {
 
   $btn-flat-default-color: $body-color-light-theme;

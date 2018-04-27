@@ -5,16 +5,24 @@
   max-width: 100%;
 
   th {
-    height: $data-table-column-header-height;
+    padding-top: $data-table-column-header-vertical-padding;
+    padding-bottom: $data-table-column-header-vertical-padding;
     font-size: $data-table-column-header-font-size;
     font-weight: $data-table-column-header-font-weight;
+    line-height: $data-table-column-header-line-height;
   }
 
   td {
-    height: $data-table-column-height;
+    padding-top: $data-table-column-vertical-padding;
+    padding-bottom: $data-table-column-vertical-padding;
     font-size: $data-table-content-font-size;
     font-weight: $data-table-content-font-weight;
     border-top: $data-table-border;
+  }
+
+  td.dropdown {
+    padding-top: 0;
+    padding-bottom: 0;
   }
 
   th,
@@ -28,13 +36,21 @@
     overflow: visible;
   }
 
-  .dropdown-toggle {
+  .dropdown-toggle:not(.btn-borderless) {
     width: 100%;
     padding: 0;
     text-align: left;
     text-transform: none;
     &.btn::before {
       content: none;
+    }
+  }
+
+  th,
+  td {
+    &.no-vertical-padding {
+      padding-top: 0;
+      padding-bottom: 0;
     }
   }
 }

@@ -38,4 +38,8 @@
   .btn-flat:active::before {
     background-color: $btn-flat-active-background-color;
   }
+
+  .btn-raised {
+    box-shadow: none !important
+  }
 }

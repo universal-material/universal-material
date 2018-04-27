@@ -1,5 +1,6 @@
 var gulp = require("gulp");
 var sass = require("gulp-sass");
+var sourcemaps = require('gulp-sourcemaps');
 var rename = require("gulp-rename");
 var autoprefixer = require("gulp-autoprefixer");
 var pug = require("gulp-pug");
@@ -8,18 +9,23 @@ var notify = require('gulp-notify');
 
 gulp.task("sass:normal", function () {
     return gulp.src("./scss/octopus-material.scss")
+        .pipe(sourcemaps.init())
         .pipe(sass().on("error", sass.logError))
         .pipe(autoprefixer())
-        .pipe(gulp.dest("./dist/css"));
+        .pipe(sourcemaps.write("./"))
+        .pipe(gulp.dest("./dist/css"))
+        .pipe(gulp.dest("./docs/css"));
 });
 
 gulp.task("sass:compressed", function () {
     return gulp.src("./scss/octopus-material.scss")
+        .pipe(sourcemaps.init())
         .pipe(sass({
             outputStyle: "compressed"
         }).on("error", sass.logError))
         .pipe(autoprefixer())
         .pipe(rename("octopus-material.min.css"))
+        .pipe(sourcemaps.write("./"))
         .pipe(gulp.dest("./dist/css"));
 });
 

@@ -343,10 +343,11 @@ $data-table-border: $data-table-divider-width solid $data-table-divider-color !d
 
 $data-table-horizontal-padding: $row-horizontal-padding !default;
 
-$data-table-column-height: 3rem !default;
-$data-table-column-header-height: 3.5rem !default;
+$data-table-column-vertical-padding: .8125rem !default;
+$data-table-column-header-vertical-padding: 1.25rem !default;
 $data-table-column-header-font-size: .8125rem !default;
 $data-table-column-header-font-weight: $font-medium !default;
+$data-table-column-header-line-height: 1rem !default;
 $data-table-column-header-color-light-theme: $text-low-contrast-light-theme;
 $data-table-column-header-color-dark-theme: $text-low-contrast-dark-theme;
 
@@ -539,7 +540,7 @@ $text-input-affix-color-dark-theme: $text-lower-contrast-dark-theme;
 $text-input-box-bg-light-theme: rgba(0, 0, 0, .06) !default;
 $text-input-box-bg-dark-theme: rgba(255, 255, 255, .1) !default;
 
-$uwp-text-field-border-width: $uwp-border-width !default;
+$uwp-text-field-border-width: .0625rem !default;
 $uwp-text-input-horizontal-padding: .75rem !default;
 $uwp-text-input-vertical-padding: $text-field-item-margin !default;
 $uwp-text-area-top-padding: $text-area-top-base-padding !default;
