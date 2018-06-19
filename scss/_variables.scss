@@ -40,15 +40,12 @@ $theme-colors: (
   danger: $danger-color
 ) !default;
 
-
 $color-high-contrast-light-theme: rgba(0, 0, 0, .87) !default;
 $color-high-contrast-dark-theme: $white !default;
 
 $color-lower-contrast-light-theme: rgba(0, 0, 0, .42) !default;
 $color-low-contrast-light-theme: rgba(0, 0, 0, .42) !default;
 $color-low-contrast-dark-theme: rgba(255, 255, 255, .7) !default;
-
-
 
 //// This variable affects the `.h-*` and `.w-*` classes.
 //$sizes: (
@@ -63,7 +60,7 @@ $color-low-contrast-dark-theme: rgba(255, 255, 255, .7) !default;
 // Settings for the `<body>` element.
 
 $body-bg:       $gray-100 !default; //Universal Material changes
-$body-color:    $gray-900 !default;
+$body-color:    rgba(#000,.87) !default;
 
 $bg-light:       $gray-100 !default; //Universal Material changes
 $bg-dark:       #2d2d2d !default; //Universal Material changes
@@ -324,9 +321,6 @@ $chip-outline-border-color-light-theme: $chip-background-color-light-theme !defa
 $chip-outline-border-color-dark-theme: $chip-background-color-dark-theme !default;
 $chip-outline-border-width: .0625rem !default;
 
-$chip-remove-color-light-theme: rgba(0,0,0,.87) !default;
-$chip-remove-color-dark-theme: #fff !default;
-
 $chip-remove-size: 1.125rem !default;
 $chip-remove-margin: .5rem !default;
 $chip-remove-hover-size: 2.5rem !default;
@@ -336,9 +330,9 @@ $chip-avatar-margin-left: .25rem !default;
 $chip-avatar-font-size: 1rem !default;
 $chip-avatar-margin: .5rem !default;
 
-$chip-font-size: 0.8125rem !default;
+$chip-font-size: .8125rem !default;
 $chip-font-weight: $font-regular !default;
-$chip-label-margin: 0.75rem !default;
+$chip-label-margin: .75rem !default;
 
 //Data table
 $data-table-divider-color: $base-semi-transparent-color !default;

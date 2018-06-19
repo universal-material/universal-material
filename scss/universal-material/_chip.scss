@@ -1,15 +1,14 @@
 .chip {
   display: inline-flex;
-  align-items: center;
   flex-direction: row;
+  align-items: center;
   height: $chip-height;
-  border-radius: $chip-height / 2;
-  font-size: $chip-font-size;
-
-  @include vertical-margin($chip-margin-vertical);
-
+  margin-top: $chip-margin-vertical;
   margin-right: $chip-margin;
+  margin-bottom: $chip-margin-vertical;
   overflow: hidden;
+  font-size: $chip-font-size;
+  border-radius: $chip-height / 2;
 }
 
 .chip-outline {
@@ -17,6 +16,8 @@
 }
 
 .chip-label {
+  font-weight: $font-medium;
+
   &:first-child {
     margin-left: $chip-label-margin;
   }
@@ -29,50 +30,47 @@
 .chip-avatar {
   @include size($chip-avatar-size);
 
-  line-height: $chip-avatar-size;
-  font-size: $chip-avatar-font-size;
-  margin-left: $chip-avatar-margin-left;
   margin-right: $chip-avatar-margin;
+  margin-left: $chip-avatar-margin-left;
+  font-size: $chip-avatar-font-size;
+  line-height: $chip-avatar-size;
   border-radius: 50%;
 }
 
 .chip-remove {
-  cursor: pointer;
+  margin: 0 $chip-remove-margin;
+  font-size: $chip-remove-size;
+  line-height: $chip-remove-size;
   text-align: center;
+  cursor: pointer;
 
   @include size($chip-remove-size);
 
-  font-size: $chip-remove-size;
-  line-height: $chip-remove-size;
-  margin: 0 $chip-remove-margin;
-
   &::before {
-    content: '';
     position: absolute;
+    top: 50% !important;
+    left: 50% !important;
     width: $chip-remove-hover-size;
     height: $chip-remove-hover-size;
-    left: 50% !important;
-    top: 50% !important;
-    margin-left: -$chip-remove-hover-size / 2;
     margin-top: -$chip-remove-hover-size / 2;
+    margin-left: -$chip-remove-hover-size / 2;
+    content: "";
     border-radius: 50% !important;
   }
 }
 
 .chip-input {
-  min-height: $chip-height + $chip-margin-vertical * 2;
-  align-items: center;
   flex-wrap: wrap;
+  align-items: center;
+  min-height: $chip-height + $chip-margin-vertical * 2;
 }
 
-@mixin chip-theme($dark-theme) {
+@mixin chip-theme($theme-colors, $dark-theme) {
   $background-color: $chip-background-color-light-theme;
-  $remove-color: $chip-remove-color-light-theme;
   $chip-outline-border-color: $chip-outline-border-color-light-theme;
 
   @if ($dark-theme) {
     $background-color: $chip-background-color-dark-theme;
-    $remove-color: $chip-remove-color-dark-theme;
     $chip-outline-border-color: $chip-outline-border-color-dark-theme;
   }
 
@@ -86,8 +84,17 @@
   }
 
   .chip-remove {
-    color: $remove-color;
-
     @include selectable-background($dark-theme, true, 50%);
+  }
+
+  @each $color, $value in $theme-colors {
+    .chip-#{$color} {
+      color: darken($value, 10%);
+      background: rgba($value, .47);
+
+      &.chip-outline {
+        background: rgba($value, .2);
+      }
+    }
   }
 }

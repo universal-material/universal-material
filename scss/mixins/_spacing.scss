@@ -1,6 +1,6 @@
 @mixin horizontal-margin($size) {
-  margin-left: $size;
   margin-right: $size;
+  margin-left: $size;
 }
 
 @mixin vertical-margin($top, $bottom: $top) {
@@ -9,8 +9,8 @@
 }
 
 @mixin horizontal-padding($size) {
-  padding-left: $size;
   padding-right: $size;
+  padding-left: $size;
 }
 
 @mixin vertical-padding($top, $bottom: $top) {

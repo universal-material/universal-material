@@ -5,8 +5,8 @@
     }
   } @else {
     body {
-      background-color: $bg-light;
       color: $body-color-light-theme;
+      background-color: $bg-light;
     }
   }
 }
@@ -18,8 +18,8 @@
     }
   } @else {
     body {
-      background-color: $bg-dark;
       color: $body-color-dark-theme;
+      background-color: $bg-dark;
     }
   }
 }
@@ -34,7 +34,7 @@
   }
 
   @if (mixin_exists(create-backgrounds)) {
-    @include create-backgrounds($theme-colors)
+    @include create-backgrounds($theme-colors);
   }
 
   @if (mixin_exists(sidebar-theme)) {
@@ -58,7 +58,7 @@
   }
 
   @if (mixin_exists(chip-theme)) {
-    @include chip-theme($dark-theme);
+    @include chip-theme($theme-colors, $dark-theme);
   }
 
   @if (mixin_exists(selection-controls-theme)) {
