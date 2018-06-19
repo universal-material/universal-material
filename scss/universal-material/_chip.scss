@@ -9,6 +9,11 @@
   @include vertical-margin($chip-margin-vertical);
 
   margin-right: $chip-margin;
+  overflow: hidden;
+}
+
+.chip-outline {
+  border: $chip-outline-border-width solid;
 }
 
 .chip-label {
@@ -26,6 +31,7 @@
 
   line-height: $chip-avatar-size;
   font-size: $chip-avatar-font-size;
+  margin-left: $chip-avatar-margin-left;
   margin-right: $chip-avatar-margin;
   border-radius: 50%;
 }
@@ -40,8 +46,16 @@
   line-height: $chip-remove-size;
   margin: 0 $chip-remove-margin;
 
-  &:hover {
-    color: $chip-remove-hover-color;
+  &::before {
+    content: '';
+    position: absolute;
+    width: $chip-remove-hover-size;
+    height: $chip-remove-hover-size;
+    left: 50% !important;
+    top: 50% !important;
+    margin-left: -$chip-remove-hover-size / 2;
+    margin-top: -$chip-remove-hover-size / 2;
+    border-radius: 50% !important;
   }
 }
 
@@ -54,18 +68,26 @@
 @mixin chip-theme($dark-theme) {
   $background-color: $chip-background-color-light-theme;
   $remove-color: $chip-remove-color-light-theme;
-
+  $chip-outline-border-color: $chip-outline-border-color-light-theme;
 
   @if ($dark-theme) {
     $background-color: $chip-background-color-dark-theme;
     $remove-color: $chip-remove-color-dark-theme;
+    $chip-outline-border-color: $chip-outline-border-color-dark-theme;
   }
 
   .chip {
     background-color: $background-color;
   }
 
+  .chip-outline {
+    background: transparent;
+    border-color: $chip-outline-border-color;
+  }
+
   .chip-remove {
     color: $remove-color;
+
+    @include selectable-background($dark-theme, true, 50%);
   }
 }

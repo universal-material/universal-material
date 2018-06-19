@@ -66,7 +66,7 @@ $body-bg:       $gray-100 !default; //Universal Material changes
 $body-color:    $gray-900 !default;
 
 $bg-light:       $gray-100 !default; //Universal Material changes
-$bg-dark:       #2d2d2d !default; //Universal Material changes 
+$bg-dark:       #2d2d2d !default; //Universal Material changes
 
 $body-color-light-theme:    $gray-900 !default; //Universal Material changes
 $body-color-dark-theme:    $white !default; //Universal Material changes
@@ -317,18 +317,22 @@ $floating-content-padding: 1.25rem !default;
 $chip-height: 2rem !default;
 $chip-margin: .5rem !default;
 $chip-margin-vertical: .25rem !default;
-$chip-background-color-light-theme: #e0e0e0 !default;
-$chip-background-color-dark-theme: #424242 !default;
+$chip-background-color-light-theme: rgba(0,0,0,.12) !default;
+$chip-background-color-dark-theme: rgba(255,255,255,.1) !default;
 
-$chip-remove-color-light-theme: $chip-background-color-dark-theme !default;
-$chip-remove-color-dark-theme: $chip-background-color-light-theme !default;
+$chip-outline-border-color-light-theme: $chip-background-color-light-theme !default;
+$chip-outline-border-color-dark-theme: $chip-background-color-dark-theme !default;
+$chip-outline-border-width: .0625rem !default;
 
-$chip-remove-color: rgba(0, 0, 0, 0.54) !default;
-$chip-remove-hover-color: #f44336 !default;
-$chip-remove-size: 1.5rem !default;
-$chip-remove-margin: .25rem !default;
+$chip-remove-color-light-theme: rgba(0,0,0,.87) !default;
+$chip-remove-color-dark-theme: #fff !default;
 
-$chip-avatar-size: $chip-height !default;
+$chip-remove-size: 1.125rem !default;
+$chip-remove-margin: .5rem !default;
+$chip-remove-hover-size: 2.5rem !default;
+
+$chip-avatar-size: 1.5rem !default;
+$chip-avatar-margin-left: .25rem !default;
 $chip-avatar-font-size: 1rem !default;
 $chip-avatar-margin: .5rem !default;
 

@@ -8,7 +8,7 @@ var notify = require('gulp-notify');
 
 
 gulp.task("sass:normal", function () {
-    return gulp.src("./scss/octopus-material.scss")
+    return gulp.src("./scss/universal-material.scss")
         .pipe(sourcemaps.init())
         .pipe(sass().on("error", sass.logError))
         .pipe(autoprefixer())
@@ -18,13 +18,13 @@ gulp.task("sass:normal", function () {
 });
 
 gulp.task("sass:compressed", function () {
-    return gulp.src("./scss/octopus-material.scss")
+    return gulp.src("./scss/universal-material.scss")
         .pipe(sourcemaps.init())
         .pipe(sass({
             outputStyle: "compressed"
         }).on("error", sass.logError))
         .pipe(autoprefixer())
-        .pipe(rename("octopus-material.min.css"))
+        .pipe(rename("universal-material.min.css"))
         .pipe(sourcemaps.write("./"))
         .pipe(gulp.dest("./dist/css"));
 });
