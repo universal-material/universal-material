@@ -5083,23 +5083,23 @@ mark,
   -webkit-transform-origin: top left;
           transform-origin: top left; }
   .dropdown-menu.down-right {
-    top: 0;
+    top: 100%;
     left: 0;
     -webkit-transform-origin: top left;
             transform-origin: top left; }
   .dropdown-menu.down-left {
-    top: 0;
+    top: 100%;
     right: 0;
     -webkit-transform-origin: top right;
             transform-origin: top right; }
   .dropdown-menu.up-right {
-    bottom: 0;
+    bottom: 100%;
     left: 0;
     -webkit-transform-origin: bottom left;
             transform-origin: bottom left; }
   .dropdown-menu.up-left {
     right: 0;
-    bottom: 0;
+    bottom: 100%;
     -webkit-transform-origin: bottom right;
             transform-origin: bottom right; }
   .dropdown-menu.fit-width {

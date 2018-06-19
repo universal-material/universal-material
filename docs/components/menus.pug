@@ -5,7 +5,7 @@ block content
 
   .menu-example
 
-    h2.article-title Bottom left
+    h2.article-title Down right
     .example-box
       .example-box-header
         .toolbar
@@ -25,7 +25,7 @@ block content
           |   &lt;button class=&quot;btn-borderless btn-default&quot;&gt;
           |     &lt;i class=&quot;mdi mdi-dots-vertial&quot;&nbsp;/&gt;
           |   &lt;/button&gt;
-          |   &lt;div class=&quot;dropdown-menu bottom-left&quot;&gt;
+          |   &lt;div class=&quot;dropdown-menu down-right&quot;&gt;
           |     &lt;div class=&quot;dropdown-content&quot;&gt;
           |       &lt;a class=&quot;dropdown-item text-nowrap&quot;&gt;Item A&lt;/a&gt;
           |       &lt;a class=&quot;dropdown-item text-nowrap&quot;&gt;Item B&lt;/a&gt;
@@ -34,7 +34,7 @@ block content
           |   &lt;/div&gt;
           | &lt;/div&gt;
 
-    h2.article-title Bottom right
+    h2.article-title Down left
     .example-box
       .example-box-header
         .toolbar
@@ -56,7 +56,67 @@ block content
           |   &lt;button class=&quot;btn-borderless btn-default&quot;&gt;
           |     &lt;i class=&quot;mdi mdi-dots-vertial&quot;&nbsp;/&gt;
           |   &lt;/button&gt;
-          |   &lt;div class=&quot;dropdown-menu bottom-right&quot;&gt;
+          |   &lt;div class=&quot;dropdown-menu down-left&quot;&gt;
+          |     &lt;div class=&quot;dropdown-content&quot;&gt;
+          |       &lt;a class=&quot;dropdown-item text-nowrap&quot;&gt;Item A&lt;/a&gt;
+          |       &lt;a class=&quot;dropdown-item text-nowrap&quot;&gt;Item B&lt;/a&gt;
+          |       &lt;a class=&quot;dropdown-item text-nowrap&quot;&gt;Item C&lt;/a&gt;
+          |     &lt;/div&gt;
+          |   &lt;/div&gt;
+          | &lt;/div&gt;
+
+    h2.article-title Up right
+    .example-box
+      .example-box-header.d-flex.align-items-end
+        .toolbar
+          .toolbar-row
+            .toolbar-actions.dropdown
+              button.btn-borderless.btn-default.dropdown-toggle
+                i.mdi.mdi-dots-vertical
+
+              .dropdown-menu.up-right
+                .dropdown-content
+                  a.dropdown-item.text-nowrap(href="#") Item A
+                  a.dropdown-item.text-nowrap(href="#") Item B
+                  a.dropdown-item.text-nowrap(href="#") Item C
+      pre
+        code.html
+          | &lt;div class=&quot;dropdown&quot;&gt;
+          |   &lt;button class=&quot;btn-borderless btn-default&quot;&gt;
+          |     &lt;i class=&quot;mdi mdi-dots-vertial&quot;&nbsp;/&gt;
+          |   &lt;/button&gt;
+          |   &lt;div class=&quot;dropdown-menu up-right&quot;&gt;
+          |     &lt;div class=&quot;dropdown-content&quot;&gt;
+          |       &lt;a class=&quot;dropdown-item text-nowrap&quot;&gt;Item A&lt;/a&gt;
+          |       &lt;a class=&quot;dropdown-item text-nowrap&quot;&gt;Item B&lt;/a&gt;
+          |       &lt;a class=&quot;dropdown-item text-nowrap&quot;&gt;Item C&lt;/a&gt;
+          |     &lt;/div&gt;
+          |   &lt;/div&gt;
+          | &lt;/div&gt;
+
+    h2.article-title Up left
+    .example-box
+      .example-box-header.d-flex.align-items-end
+        .toolbar
+          .toolbar-row
+            .toolbar-title
+            .dropdown
+              button.btn-borderless.btn-default.dropdown-toggle
+                i.mdi.mdi-dots-vertical
+
+              .dropdown-menu.up-left
+                .dropdown-content
+                  a.dropdown-item.text-nowrap(href="#") Item A
+                  a.dropdown-item.text-nowrap(href="#") Item B
+                  a.dropdown-item.text-nowrap(href="#") Item C
+
+      pre
+        code.html
+          | &lt;div class=&quot;dropdown&quot;&gt;
+          |   &lt;button class=&quot;btn-borderless btn-default&quot;&gt;
+          |     &lt;i class=&quot;mdi mdi-dots-vertial&quot;&nbsp;/&gt;
+          |   &lt;/button&gt;
+          |   &lt;div class=&quot;dropdown-menu up-left&quot;&gt;
           |     &lt;div class=&quot;dropdown-content&quot;&gt;
           |       &lt;a class=&quot;dropdown-item text-nowrap&quot;&gt;Item A&lt;/a&gt;
           |       &lt;a class=&quot;dropdown-item text-nowrap&quot;&gt;Item B&lt;/a&gt;

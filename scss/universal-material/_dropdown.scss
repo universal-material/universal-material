@@ -14,26 +14,26 @@
   transform-origin: top left;
 
   &.down-right {
-    top: 0;
+    top: 100%;
     left: 0;
     transform-origin: top left;
   }
 
   &.down-left {
-    top: 0;
+    top: 100%;
     right: 0;
     transform-origin: top right;
   }
 
   &.up-right {
-    bottom: 0;
+    bottom: 100%;
     left: 0;
     transform-origin: bottom left;
   }
 
   &.up-left {
     right: 0;
-    bottom: 0;
+    bottom: 100%;
     transform-origin: bottom right;
   }
 
