@@ -124,6 +124,33 @@ block content
         = '  <div class="chip-remove"><i class="mdi mdi-close-circle"></i></div>\n'
         = '</div>'
 
+  h2.article-title Selectable chip
+  .example-box
+    .example-box-header
+      .chip.chip-selectable
+        .chip-avatar
+        .chip-label John Doe
+        .chip-remove
+          i.mdi.mdi-close-circle
+      .chip.chip-selectable.chip-outline
+        .chip-avatar
+        .chip-label John Doe
+        .chip-remove
+          i.mdi.mdi-close-circle
+
+    pre
+      code.html
+        = '<div class="chip chip-selectable">\n'
+        = '  <div class="chip-avatar"></div>\n'
+        = '  <div class="chip-label">John Doe</div>\n'
+        = '  <div class="chip-remove"><i class="mdi mdi-close-circle"></i></div>\n'
+        = '</div>\n'
+        = '<div class="chip chip-selectable chip-outline">\n'
+        = '  <div class="chip-avatar"></div>\n'
+        = '  <div class="chip-label">John Doe</div>\n'
+        = '  <div class="chip-remove"><i class="mdi mdi-close-circle"></i></div>\n'
+        = '</div>'
+
   h2.article-title Chip in input
   .example-box
     .example-box-header

@@ -87,6 +87,10 @@
     @include selectable-background($dark-theme, true, 50%);
   }
 
+  .chip-selectable {
+    @include selectable-background($dark-theme, true);
+  }
+
   @each $color, $value in $theme-colors {
     .chip-#{$color} {
       color: darken($value, 10%);
