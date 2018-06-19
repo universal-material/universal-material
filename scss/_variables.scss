@@ -161,7 +161,7 @@ $awesome-cubic-bezier: cubic-bezier(0.19, 1, 0.22, 1);
 //
 //$bg-body: #fafafa !default;
 //
-$row-horizontal-padding: 1.5rem !default;
+$row-horizontal-padding: 1rem !default;
 //
 $base-semi-transparent-color: rgba(0, 0, 0, .12) !default;
 
@@ -391,6 +391,13 @@ $btn-borderless-color-dark-theme: $white !default;
 $btn-borderless-font-size: $base-icon-size !default;
 $btn-borderless-margin: 1.5rem !default;
 $btn-borderless-hover-size: 2.5rem !default;
+
+$btn-outline-border-width: .0625rem !default;
+$btn-outline-gray-border-color-light-theme: rgba(0, 0, 0, .12) !default;
+$btn-outline-gray-border-color-dark-theme: rgba(255, 255, 255, .12) !default;
+
+$btn-icon-size: 1.125rem !default;
+
 //UWP Buttons
 $uwp-btn-border-radius: 0 !default;
 $uwp-btn-hover-border-width: $uwp-border-width !default;
@@ -402,6 +409,7 @@ $uwp-btn-flat-active-background-color-dark-theme: $uwp-btn-active-background-col
 //Buttons dense
 $btn-dense-font-size: .8125rem !default;
 $btn-dense-height: 2rem !default;
+$btn-icon-dense-size: 1rem !default;
 
 //List
 $list-vertical-padding: .5rem !default;
@@ -546,7 +554,7 @@ $uwp-text-input-vertical-padding: $text-field-item-margin !default;
 $uwp-text-area-top-padding: $text-area-top-base-padding !default;
 
 //Toolbar
-$toolbar-height: 4rem !default;
+$toolbar-height: 3.5rem !default;
 $toolbar-horizontal-padding: $row-horizontal-padding !default;
 $toolbar-icon-width: 4.5rem - $toolbar-horizontal-padding !default;
 

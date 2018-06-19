@@ -3,12 +3,12 @@
 
 .btn {
   position: relative; //Octocus custom code
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   font-weight: $btn-font-weight;
   font-size: $btn-font-size;
   padding: 0 $btn-side-padding; //Octopus custom code
   height: $btn-height; //Octopus custom code
-  line-height: $btn-height; //Octopus custom code
   border-radius: $btn-border-radius; //Octopus custom code
   text-align: center;
   white-space: nowrap;
@@ -43,6 +43,11 @@
 .btn-flat,
 .btn-solid {
   @extend .btn;
+}
+
+.btn-outline {
+  @extend .btn-flat;
+  border: $btn-outline-border-width solid currentColor;
 }
 
 .btn-raised {
@@ -82,15 +87,31 @@
   }
 }
 
-.dense-layout {
-  .btn {
+.btn-icon {
+  display: inline-block;
+  width: $btn-icon-size;
+  height: $btn-icon-size;
+  font-size: $btn-icon-size;
+  line-height: $btn-icon-size;
+  margin-left: -.25rem;
+  margin-right: .5rem;
+}
+
+.dense {
+  @at-root .dense-layout .btn,
+  &.btn {
     font-size: $btn-dense-font-size;
     height: $btn-dense-height;
-    line-height: $btn-dense-height;
   }
 
-  .btn-borderless {
+  @at-root .dense-layout .btn-borderless,
+  &.btn-borderless {
     font-size: $base-dense-icon-size;
+  }
+
+  @at-root .dense-layout .btn-icon,
+  &.btn-icon {
+    font-size: $btn-icon-dense-size;
   }
 }
 
@@ -145,10 +166,6 @@
     &:disabled,
     &.disabled {
       color: $btn-disabled-color !important;
-      &,
-      &::before {
-        background-color: transparent;
-      }
     }
   }
 }
@@ -170,6 +187,7 @@
   $btn-disabled-background-color: $btn-disabled-background-light-theme;
   $btn-flat-default-color: $body-color-light-theme;
   $btn-borderless-color: $btn-borderless-color-light-theme;
+  $btn-outline-gray-border-color: $btn-outline-gray-border-color-light-theme;
 
   @if ($dark-theme) {
     $buttons-colors: map-merge($buttons-colors, (default: $btn-default-background-dark));
@@ -177,6 +195,7 @@
     $btn-disabled-background-color: $btn-disabled-background-dark-theme;
     $btn-flat-default-color: $body-color-dark-theme;
     $btn-borderless-color: $btn-borderless-color-dark-theme;
+    $btn-outline-gray-border-color: $btn-outline-gray-border-color-dark-theme;
   }
 
   @each $color, $value in $buttons-colors {
@@ -191,12 +210,28 @@
     &.disabled,
     &:disabled {
       color: $btn-disabled-color !important;
-
       background-color: $btn-disabled-background-color;
+      box-shadow: none;
+
       &::before {
         background-color: transparent !important;
       }
     }
+  }
+
+  .btn-borderless,
+  .btn-flat {
+    &.disabled,
+    &:disabled {
+      &,
+      &::before {
+        background-color: transparent;
+      }
+    }
+  }
+
+  .btn-outline-gray-border {
+    border-color: $btn-outline-gray-border-color;
   }
 
   @include button-flat-theme($buttons-colors, $dark-theme);

@@ -3693,7 +3693,7 @@ a.text-accent:hover, a.text-accent:focus {
     text-shadow: none !important;
     -webkit-box-shadow: none !important;
             box-shadow: none !important; }
-  a:not(.btn):not(.btn-flat):not(.snackbar-button):not(
+  a:not(.btn):not(.btn-flat):not(.btn-outline):not(.snackbar-button):not(
   .btn-solid):not(.btn-raised):not(.btn-floating):not(.btn-borderless) {
     text-decoration: underline; }
   abbr[title]::after {
@@ -4283,7 +4283,8 @@ mark,
   right: -0.625rem; }
 
 .toolbar, .data-table-footer {
-  width: 100%; }
+  width: 100%;
+  z-index: 1; }
 
 .toolbar-row {
   display: -webkit-box;
@@ -4296,9 +4297,9 @@ mark,
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 4rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem; }
+  height: 3.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem; }
 
 .toolbar-title {
   -webkit-box-flex: 1;
@@ -4314,8 +4315,8 @@ mark,
   font-size: 1.5rem; }
 
 .toolbar-icon {
-  width: 3rem;
-  min-width: 3rem; }
+  width: 3.5rem;
+  min-width: 3.5rem; }
 
 .toolbar-actions {
   display: -webkit-box;
@@ -4339,15 +4340,19 @@ mark,
 .dense-layout .toolbar-row {
   height: 3rem; }
 
-.btn, .btn-flat, .snackbar-button,
+.btn, .btn-flat, .btn-outline, .snackbar-button,
 .btn-solid, .btn-raised, .btn-floating, .btn-borderless {
   position: relative;
-  display: inline-block;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-weight: 500;
   font-size: 0.875rem;
   padding: 0 1rem;
   height: 2.25rem;
-  line-height: 2.25rem;
   border-radius: 0.125rem;
   text-align: center;
   white-space: nowrap;
@@ -4360,18 +4365,21 @@ mark,
   background: transparent;
   text-transform: uppercase;
   z-index: 1; }
-  .btn:hover, .btn-flat:hover, .snackbar-button:hover,
-  .btn-solid:hover, .btn-raised:hover, .btn-floating:hover, .btn-borderless:hover, .btn:focus, .btn-flat:focus, .snackbar-button:focus,
+  .btn:hover, .btn-flat:hover, .btn-outline:hover, .snackbar-button:hover,
+  .btn-solid:hover, .btn-raised:hover, .btn-floating:hover, .btn-borderless:hover, .btn:focus, .btn-flat:focus, .btn-outline:focus, .snackbar-button:focus,
   .btn-solid:focus, .btn-raised:focus, .btn-floating:focus, .btn-borderless:focus {
     text-decoration: none; }
-  .btn:focus, .btn-flat:focus, .snackbar-button:focus,
-  .btn-solid:focus, .btn-raised:focus, .btn-floating:focus, .btn-borderless:focus, .btn.focus, .focus.btn-flat, .focus.snackbar-button,
+  .btn:focus, .btn-flat:focus, .btn-outline:focus, .snackbar-button:focus,
+  .btn-solid:focus, .btn-raised:focus, .btn-floating:focus, .btn-borderless:focus, .btn.focus, .focus.btn-flat, .focus.btn-outline, .focus.snackbar-button,
   .focus.btn-solid, .focus.btn-raised, .focus.btn-floating, .focus.btn-borderless {
     outline: 0; }
-  .btn:active, .btn-flat:active, .snackbar-button:active,
-  .btn-solid:active, .btn-raised:active, .btn-floating:active, .btn-borderless:active, .btn.active, .active.btn-flat, .active.snackbar-button,
+  .btn:active, .btn-flat:active, .btn-outline:active, .snackbar-button:active,
+  .btn-solid:active, .btn-raised:active, .btn-floating:active, .btn-borderless:active, .btn.active, .active.btn-flat, .active.btn-outline, .active.snackbar-button,
   .active.btn-solid, .active.btn-raised, .active.btn-floating, .active.btn-borderless {
     background-image: none; }
+
+.btn-outline {
+  border: 0.0625rem solid currentColor; }
 
 .btn-raised, .btn-floating {
   -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
@@ -4402,14 +4410,26 @@ mark,
   .btn-borderless + .btn-borderless {
     margin-left: 1.5rem; }
 
-.dense-layout .btn, .dense-layout .btn-flat, .dense-layout .snackbar-button,
-.dense-layout .btn-solid, .dense-layout .btn-raised, .dense-layout .btn-floating, .dense-layout .btn-borderless {
-  font-size: 0.8125rem;
-  height: 2rem;
-  line-height: 2rem; }
+.btn-icon {
+  display: inline-block;
+  width: 1.125rem;
+  height: 1.125rem;
+  font-size: 1.125rem;
+  line-height: 1.125rem;
+  margin-left: -.25rem;
+  margin-right: .5rem; }
 
-.dense-layout .btn-borderless {
+.dense-layout .btn, .dense-layout .btn-flat, .dense-layout .btn-outline, .dense-layout .snackbar-button,
+.dense-layout .btn-solid, .dense-layout .btn-raised, .dense-layout .btn-floating, .dense-layout .btn-borderless, .dense.btn, .dense.btn-flat, .dense.btn-outline, .dense.snackbar-button,
+.dense.btn-solid, .dense.btn-raised, .dense.btn-floating, .dense.btn-borderless {
+  font-size: 0.8125rem;
+  height: 2rem; }
+
+.dense-layout .btn-borderless, .dense.btn-borderless {
   font-size: 1.3125rem; }
+
+.dense-layout .btn-icon, .dense.btn-icon {
+  font-size: 1rem; }
 
 .btn-group,
 .btn-group-vertical {
@@ -4418,10 +4438,11 @@ mark,
   display: -ms-inline-flexbox;
   display: inline-flex;
   vertical-align: middle; }
-  .btn-group > .btn, .btn-group > .btn-flat, .btn-group > .snackbar-button,
+  .btn-group > .btn, .btn-group > .btn-flat, .btn-group > .btn-outline, .btn-group > .snackbar-button,
   .btn-group > .btn-solid, .btn-group > .btn-raised, .btn-group > .btn-floating, .btn-group > .btn-borderless,
   .btn-group-vertical > .btn,
   .btn-group-vertical > .btn-flat,
+  .btn-group-vertical > .btn-outline,
   .btn-group-vertical > .snackbar-button,
   .btn-group-vertical > .btn-solid,
   .btn-group-vertical > .btn-raised,
@@ -4432,22 +4453,24 @@ mark,
         -ms-flex: 0 1 auto;
             flex: 0 1 auto;
     margin-bottom: 0; }
-    .btn-group > .btn:hover, .btn-group > .btn-flat:hover, .btn-group > .snackbar-button:hover,
+    .btn-group > .btn:hover, .btn-group > .btn-flat:hover, .btn-group > .btn-outline:hover, .btn-group > .snackbar-button:hover,
     .btn-group > .btn-solid:hover, .btn-group > .btn-raised:hover, .btn-group > .btn-floating:hover, .btn-group > .btn-borderless:hover,
     .btn-group-vertical > .btn:hover,
     .btn-group-vertical > .btn-flat:hover,
+    .btn-group-vertical > .btn-outline:hover,
     .btn-group-vertical > .snackbar-button:hover,
     .btn-group-vertical > .btn-solid:hover,
     .btn-group-vertical > .btn-raised:hover,
     .btn-group-vertical > .btn-floating:hover,
     .btn-group-vertical > .btn-borderless:hover {
       z-index: 2; }
-    .btn-group > .btn:focus, .btn-group > .btn-flat:focus, .btn-group > .snackbar-button:focus,
-    .btn-group > .btn-solid:focus, .btn-group > .btn-raised:focus, .btn-group > .btn-floating:focus, .btn-group > .btn-borderless:focus, .btn-group > .btn:active, .btn-group > .btn-flat:active, .btn-group > .snackbar-button:active,
-    .btn-group > .btn-solid:active, .btn-group > .btn-raised:active, .btn-group > .btn-floating:active, .btn-group > .btn-borderless:active, .btn-group > .btn.active, .btn-group > .active.btn-flat, .btn-group > .active.snackbar-button,
+    .btn-group > .btn:focus, .btn-group > .btn-flat:focus, .btn-group > .btn-outline:focus, .btn-group > .snackbar-button:focus,
+    .btn-group > .btn-solid:focus, .btn-group > .btn-raised:focus, .btn-group > .btn-floating:focus, .btn-group > .btn-borderless:focus, .btn-group > .btn:active, .btn-group > .btn-flat:active, .btn-group > .btn-outline:active, .btn-group > .snackbar-button:active,
+    .btn-group > .btn-solid:active, .btn-group > .btn-raised:active, .btn-group > .btn-floating:active, .btn-group > .btn-borderless:active, .btn-group > .btn.active, .btn-group > .active.btn-flat, .btn-group > .active.btn-outline, .btn-group > .active.snackbar-button,
     .btn-group > .active.btn-solid, .btn-group > .active.btn-raised, .btn-group > .active.btn-floating, .btn-group > .active.btn-borderless,
     .btn-group-vertical > .btn:focus,
     .btn-group-vertical > .btn-flat:focus,
+    .btn-group-vertical > .btn-outline:focus,
     .btn-group-vertical > .snackbar-button:focus,
     .btn-group-vertical > .btn-solid:focus,
     .btn-group-vertical > .btn-raised:focus,
@@ -4455,6 +4478,7 @@ mark,
     .btn-group-vertical > .btn-borderless:focus,
     .btn-group-vertical > .btn:active,
     .btn-group-vertical > .btn-flat:active,
+    .btn-group-vertical > .btn-outline:active,
     .btn-group-vertical > .snackbar-button:active,
     .btn-group-vertical > .btn-solid:active,
     .btn-group-vertical > .btn-raised:active,
@@ -4462,6 +4486,7 @@ mark,
     .btn-group-vertical > .btn-borderless:active,
     .btn-group-vertical > .btn.active,
     .btn-group-vertical > .active.btn-flat,
+    .btn-group-vertical > .active.btn-outline,
     .btn-group-vertical > .active.snackbar-button,
     .btn-group-vertical > .active.btn-solid,
     .btn-group-vertical > .active.btn-raised,
@@ -4484,10 +4509,10 @@ mark,
 .btn-group > .btn-group {
   float: left; }
 
-.btn + .dropdown-toggle-split, .btn-flat + .dropdown-toggle-split, .snackbar-button + .dropdown-toggle-split, .btn-solid + .dropdown-toggle-split, .btn-raised + .dropdown-toggle-split, .btn-floating + .dropdown-toggle-split, .btn-borderless + .dropdown-toggle-split {
+.btn + .dropdown-toggle-split, .btn-flat + .dropdown-toggle-split, .btn-outline + .dropdown-toggle-split, .snackbar-button + .dropdown-toggle-split, .btn-solid + .dropdown-toggle-split, .btn-raised + .dropdown-toggle-split, .btn-floating + .dropdown-toggle-split, .btn-borderless + .dropdown-toggle-split {
   padding-right: 0.5625rem;
   padding-left: 0.5625rem; }
-  .btn + .dropdown-toggle-split::after, .btn-flat + .dropdown-toggle-split::after, .snackbar-button + .dropdown-toggle-split::after, .btn-solid + .dropdown-toggle-split::after, .btn-raised + .dropdown-toggle-split::after, .btn-floating + .dropdown-toggle-split::after, .btn-borderless + .dropdown-toggle-split::after {
+  .btn + .dropdown-toggle-split::after, .btn-flat + .dropdown-toggle-split::after, .btn-outline + .dropdown-toggle-split::after, .snackbar-button + .dropdown-toggle-split::after, .btn-solid + .dropdown-toggle-split::after, .btn-raised + .dropdown-toggle-split::after, .btn-floating + .dropdown-toggle-split::after, .btn-borderless + .dropdown-toggle-split::after {
     margin-left: 0; }
 
 .btn-group-vertical {
@@ -4504,14 +4529,15 @@ mark,
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center; }
-  .btn-group-vertical .btn, .btn-group-vertical .btn-flat, .btn-group-vertical .snackbar-button,
+  .btn-group-vertical .btn, .btn-group-vertical .btn-flat, .btn-group-vertical .btn-outline, .btn-group-vertical .snackbar-button,
   .btn-group-vertical .btn-solid, .btn-group-vertical .btn-raised, .btn-group-vertical .btn-floating, .btn-group-vertical .btn-borderless,
   .btn-group-vertical .btn-group {
     width: 100%; }
 
-[data-toggle="buttons"] > .btn input[type="radio"], [data-toggle="buttons"] > .btn-flat input[type="radio"], [data-toggle="buttons"] > .snackbar-button input[type="radio"], [data-toggle="buttons"] > .btn-solid input[type="radio"], [data-toggle="buttons"] > .btn-raised input[type="radio"], [data-toggle="buttons"] > .btn-floating input[type="radio"], [data-toggle="buttons"] > .btn-borderless input[type="radio"],
+[data-toggle="buttons"] > .btn input[type="radio"], [data-toggle="buttons"] > .btn-flat input[type="radio"], [data-toggle="buttons"] > .btn-outline input[type="radio"], [data-toggle="buttons"] > .snackbar-button input[type="radio"], [data-toggle="buttons"] > .btn-solid input[type="radio"], [data-toggle="buttons"] > .btn-raised input[type="radio"], [data-toggle="buttons"] > .btn-floating input[type="radio"], [data-toggle="buttons"] > .btn-borderless input[type="radio"],
 [data-toggle="buttons"] > .btn input[type="checkbox"],
 [data-toggle="buttons"] > .btn-flat input[type="checkbox"],
+[data-toggle="buttons"] > .btn-outline input[type="checkbox"],
 [data-toggle="buttons"] > .snackbar-button input[type="checkbox"],
 [data-toggle="buttons"] > .btn-solid input[type="checkbox"],
 [data-toggle="buttons"] > .btn-raised input[type="checkbox"],
@@ -4519,6 +4545,7 @@ mark,
 [data-toggle="buttons"] > .btn-borderless input[type="checkbox"],
 [data-toggle="buttons"] > .btn-group > .btn input[type="radio"],
 [data-toggle="buttons"] > .btn-group > .btn-flat input[type="radio"],
+[data-toggle="buttons"] > .btn-group > .btn-outline input[type="radio"],
 [data-toggle="buttons"] > .btn-group > .snackbar-button input[type="radio"],
 [data-toggle="buttons"] > .btn-group > .btn-solid input[type="radio"],
 [data-toggle="buttons"] > .btn-group > .btn-raised input[type="radio"],
@@ -4526,6 +4553,7 @@ mark,
 [data-toggle="buttons"] > .btn-group > .btn-borderless input[type="radio"],
 [data-toggle="buttons"] > .btn-group > .btn input[type="checkbox"],
 [data-toggle="buttons"] > .btn-group > .btn-flat input[type="checkbox"],
+[data-toggle="buttons"] > .btn-group > .btn-outline input[type="checkbox"],
 [data-toggle="buttons"] > .btn-group > .snackbar-button input[type="checkbox"],
 [data-toggle="buttons"] > .btn-group > .btn-solid input[type="checkbox"],
 [data-toggle="buttons"] > .btn-group > .btn-raised input[type="checkbox"],
@@ -4794,16 +4822,16 @@ mark,
   background-color: rgba(0, 0, 0, 0.54) !important; }
   .card-media-content .subtitle {
     color: #fff !important; }
-  .card-media-content .btn-flat.btn-default, .card-media-content .btn-default.snackbar-button {
+  .card-media-content .btn-flat.btn-default, .card-media-content .btn-default.btn-outline, .card-media-content .btn-default.snackbar-button {
     color: #fff; }
-    .card-media-content .btn-flat.btn-default:hover, .card-media-content .btn-default.snackbar-button:hover, .card-media-content .btn-flat.btn-default:focus, .card-media-content .btn-default.snackbar-button:focus {
+    .card-media-content .btn-flat.btn-default:hover, .card-media-content .btn-default.btn-outline:hover, .card-media-content .btn-default.snackbar-button:hover, .card-media-content .btn-flat.btn-default:focus, .card-media-content .btn-default.btn-outline:focus, .card-media-content .btn-default.snackbar-button:focus {
       color: #fff; }
-  .card-media-content .btn-flat, .card-media-content .snackbar-button {
+  .card-media-content .btn-flat, .card-media-content .btn-outline, .card-media-content .snackbar-button {
     position: relative;
     cursor: pointer;
     position: relative;
     z-index: 1; }
-    .card-media-content .btn-flat::before, .card-media-content .snackbar-button::before {
+    .card-media-content .btn-flat::before, .card-media-content .btn-outline::before, .card-media-content .snackbar-button::before {
       content: "";
       position: absolute;
       top: 0;
@@ -4814,9 +4842,9 @@ mark,
       z-index: -1;
       -webkit-transition: background-color 250ms linear;
       transition: background-color 250ms linear; }
-    .card-media-content .btn-flat:hover::before, .card-media-content .snackbar-button:hover::before {
+    .card-media-content .btn-flat:hover::before, .card-media-content .btn-outline:hover::before, .card-media-content .snackbar-button:hover::before {
       background-color: rgba(204, 204, 204, 0.1); }
-    .card-media-content .btn-flat:active::before, .card-media-content .snackbar-button:active::before {
+    .card-media-content .btn-flat:active::before, .card-media-content .btn-outline:active::before, .card-media-content .snackbar-button:active::before {
       background-color: rgba(204, 204, 204, 0.1); }
   .card-media-content .btn-borderless.btn-default {
     color: #fff; }
@@ -4848,8 +4876,6 @@ mark,
       color: #fff; }
     .card-media-content .btn-borderless:disabled, .card-media-content .btn-borderless.disabled {
       color: rgba(255, 255, 255, 0.3) !important; }
-      .card-media-content .btn-borderless:disabled, .card-media-content .btn-borderless:disabled::before, .card-media-content .btn-borderless.disabled, .card-media-content .btn-borderless.disabled::before {
-        background-color: transparent; }
 
 .card-body {
   padding-left: 1rem;
@@ -4871,14 +4897,15 @@ mark,
 
 .card-actions {
   padding: 0.5rem; }
-  .card-actions .btn + .btn, .card-actions .btn-flat + .btn, .card-actions .snackbar-button + .btn, .card-actions .btn-solid + .btn, .card-actions .btn-raised + .btn, .card-actions .btn-floating + .btn, .card-actions .btn-borderless + .btn, .card-actions .btn + .btn-flat, .card-actions .btn-flat + .btn-flat, .card-actions .snackbar-button + .btn-flat, .card-actions .btn-solid + .btn-flat, .card-actions .btn-raised + .btn-flat, .card-actions .btn-floating + .btn-flat, .card-actions .btn-borderless + .btn-flat, .card-actions .btn + .snackbar-button, .card-actions .btn-flat + .snackbar-button, .card-actions .snackbar-button + .snackbar-button, .card-actions .btn-solid + .snackbar-button, .card-actions .btn-raised + .snackbar-button, .card-actions .btn-floating + .snackbar-button, .card-actions .btn-borderless + .snackbar-button,
+  .card-actions .btn + .btn, .card-actions .btn-flat + .btn, .card-actions .btn-outline + .btn, .card-actions .snackbar-button + .btn, .card-actions .btn-solid + .btn, .card-actions .btn-raised + .btn, .card-actions .btn-floating + .btn, .card-actions .btn-borderless + .btn, .card-actions .btn + .btn-flat, .card-actions .btn-flat + .btn-flat, .card-actions .btn-outline + .btn-flat, .card-actions .snackbar-button + .btn-flat, .card-actions .btn-solid + .btn-flat, .card-actions .btn-raised + .btn-flat, .card-actions .btn-floating + .btn-flat, .card-actions .btn-borderless + .btn-flat, .card-actions .btn + .btn-outline, .card-actions .btn-flat + .btn-outline, .card-actions .btn-outline + .btn-outline, .card-actions .snackbar-button + .btn-outline, .card-actions .btn-solid + .btn-outline, .card-actions .btn-raised + .btn-outline, .card-actions .btn-floating + .btn-outline, .card-actions .btn-borderless + .btn-outline, .card-actions .btn + .snackbar-button, .card-actions .btn-flat + .snackbar-button, .card-actions .btn-outline + .snackbar-button, .card-actions .snackbar-button + .snackbar-button, .card-actions .btn-solid + .snackbar-button, .card-actions .btn-raised + .snackbar-button, .card-actions .btn-floating + .snackbar-button, .card-actions .btn-borderless + .snackbar-button,
   .card-actions .btn + .btn-solid,
   .card-actions .btn-flat + .btn-solid,
+  .card-actions .btn-outline + .btn-solid,
   .card-actions .snackbar-button + .btn-solid,
   .card-actions .btn-solid + .btn-solid,
   .card-actions .btn-raised + .btn-solid,
   .card-actions .btn-floating + .btn-solid,
-  .card-actions .btn-borderless + .btn-solid, .card-actions .btn + .btn-raised, .card-actions .btn-flat + .btn-raised, .card-actions .snackbar-button + .btn-raised, .card-actions .btn-solid + .btn-raised, .card-actions .btn-raised + .btn-raised, .card-actions .btn-floating + .btn-raised, .card-actions .btn-borderless + .btn-raised, .card-actions .btn + .btn-floating, .card-actions .btn-flat + .btn-floating, .card-actions .snackbar-button + .btn-floating, .card-actions .btn-solid + .btn-floating, .card-actions .btn-raised + .btn-floating, .card-actions .btn-floating + .btn-floating, .card-actions .btn-borderless + .btn-floating, .card-actions .btn + .btn-borderless, .card-actions .btn-flat + .btn-borderless, .card-actions .snackbar-button + .btn-borderless, .card-actions .btn-solid + .btn-borderless, .card-actions .btn-raised + .btn-borderless, .card-actions .btn-floating + .btn-borderless, .card-actions .btn-borderless + .btn-borderless {
+  .card-actions .btn-borderless + .btn-solid, .card-actions .btn + .btn-raised, .card-actions .btn-flat + .btn-raised, .card-actions .btn-outline + .btn-raised, .card-actions .snackbar-button + .btn-raised, .card-actions .btn-solid + .btn-raised, .card-actions .btn-raised + .btn-raised, .card-actions .btn-floating + .btn-raised, .card-actions .btn-borderless + .btn-raised, .card-actions .btn + .btn-floating, .card-actions .btn-flat + .btn-floating, .card-actions .btn-outline + .btn-floating, .card-actions .snackbar-button + .btn-floating, .card-actions .btn-solid + .btn-floating, .card-actions .btn-raised + .btn-floating, .card-actions .btn-floating + .btn-floating, .card-actions .btn-borderless + .btn-floating, .card-actions .btn + .btn-borderless, .card-actions .btn-flat + .btn-borderless, .card-actions .btn-outline + .btn-borderless, .card-actions .snackbar-button + .btn-borderless, .card-actions .btn-solid + .btn-borderless, .card-actions .btn-raised + .btn-borderless, .card-actions .btn-floating + .btn-borderless, .card-actions .btn-borderless + .btn-borderless {
     margin-left: 0.5rem; }
 
 .dialog-open {
@@ -4949,14 +4976,15 @@ mark,
 .dialog-actions {
   padding: 8px;
   text-align: right; }
-  .dialog-actions .btn + .btn, .dialog-actions .btn-flat + .btn, .dialog-actions .snackbar-button + .btn, .dialog-actions .btn-solid + .btn, .dialog-actions .btn-raised + .btn, .dialog-actions .btn-floating + .btn, .dialog-actions .btn-borderless + .btn, .dialog-actions .btn + .btn-flat, .dialog-actions .btn-flat + .btn-flat, .dialog-actions .snackbar-button + .btn-flat, .dialog-actions .btn-solid + .btn-flat, .dialog-actions .btn-raised + .btn-flat, .dialog-actions .btn-floating + .btn-flat, .dialog-actions .btn-borderless + .btn-flat, .dialog-actions .btn + .snackbar-button, .dialog-actions .btn-flat + .snackbar-button, .dialog-actions .snackbar-button + .snackbar-button, .dialog-actions .btn-solid + .snackbar-button, .dialog-actions .btn-raised + .snackbar-button, .dialog-actions .btn-floating + .snackbar-button, .dialog-actions .btn-borderless + .snackbar-button,
+  .dialog-actions .btn + .btn, .dialog-actions .btn-flat + .btn, .dialog-actions .btn-outline + .btn, .dialog-actions .snackbar-button + .btn, .dialog-actions .btn-solid + .btn, .dialog-actions .btn-raised + .btn, .dialog-actions .btn-floating + .btn, .dialog-actions .btn-borderless + .btn, .dialog-actions .btn + .btn-flat, .dialog-actions .btn-flat + .btn-flat, .dialog-actions .btn-outline + .btn-flat, .dialog-actions .snackbar-button + .btn-flat, .dialog-actions .btn-solid + .btn-flat, .dialog-actions .btn-raised + .btn-flat, .dialog-actions .btn-floating + .btn-flat, .dialog-actions .btn-borderless + .btn-flat, .dialog-actions .btn + .btn-outline, .dialog-actions .btn-flat + .btn-outline, .dialog-actions .btn-outline + .btn-outline, .dialog-actions .snackbar-button + .btn-outline, .dialog-actions .btn-solid + .btn-outline, .dialog-actions .btn-raised + .btn-outline, .dialog-actions .btn-floating + .btn-outline, .dialog-actions .btn-borderless + .btn-outline, .dialog-actions .btn + .snackbar-button, .dialog-actions .btn-flat + .snackbar-button, .dialog-actions .btn-outline + .snackbar-button, .dialog-actions .snackbar-button + .snackbar-button, .dialog-actions .btn-solid + .snackbar-button, .dialog-actions .btn-raised + .snackbar-button, .dialog-actions .btn-floating + .snackbar-button, .dialog-actions .btn-borderless + .snackbar-button,
   .dialog-actions .btn + .btn-solid,
   .dialog-actions .btn-flat + .btn-solid,
+  .dialog-actions .btn-outline + .btn-solid,
   .dialog-actions .snackbar-button + .btn-solid,
   .dialog-actions .btn-solid + .btn-solid,
   .dialog-actions .btn-raised + .btn-solid,
   .dialog-actions .btn-floating + .btn-solid,
-  .dialog-actions .btn-borderless + .btn-solid, .dialog-actions .btn + .btn-raised, .dialog-actions .btn-flat + .btn-raised, .dialog-actions .snackbar-button + .btn-raised, .dialog-actions .btn-solid + .btn-raised, .dialog-actions .btn-raised + .btn-raised, .dialog-actions .btn-floating + .btn-raised, .dialog-actions .btn-borderless + .btn-raised, .dialog-actions .btn + .btn-floating, .dialog-actions .btn-flat + .btn-floating, .dialog-actions .snackbar-button + .btn-floating, .dialog-actions .btn-solid + .btn-floating, .dialog-actions .btn-raised + .btn-floating, .dialog-actions .btn-floating + .btn-floating, .dialog-actions .btn-borderless + .btn-floating, .dialog-actions .btn + .btn-borderless, .dialog-actions .btn-flat + .btn-borderless, .dialog-actions .snackbar-button + .btn-borderless, .dialog-actions .btn-solid + .btn-borderless, .dialog-actions .btn-raised + .btn-borderless, .dialog-actions .btn-floating + .btn-borderless, .dialog-actions .btn-borderless + .btn-borderless {
+  .dialog-actions .btn-borderless + .btn-solid, .dialog-actions .btn + .btn-raised, .dialog-actions .btn-flat + .btn-raised, .dialog-actions .btn-outline + .btn-raised, .dialog-actions .snackbar-button + .btn-raised, .dialog-actions .btn-solid + .btn-raised, .dialog-actions .btn-raised + .btn-raised, .dialog-actions .btn-floating + .btn-raised, .dialog-actions .btn-borderless + .btn-raised, .dialog-actions .btn + .btn-floating, .dialog-actions .btn-flat + .btn-floating, .dialog-actions .btn-outline + .btn-floating, .dialog-actions .snackbar-button + .btn-floating, .dialog-actions .btn-solid + .btn-floating, .dialog-actions .btn-raised + .btn-floating, .dialog-actions .btn-floating + .btn-floating, .dialog-actions .btn-borderless + .btn-floating, .dialog-actions .btn + .btn-borderless, .dialog-actions .btn-flat + .btn-borderless, .dialog-actions .btn-outline + .btn-borderless, .dialog-actions .snackbar-button + .btn-borderless, .dialog-actions .btn-solid + .btn-borderless, .dialog-actions .btn-raised + .btn-borderless, .dialog-actions .btn-floating + .btn-borderless, .dialog-actions .btn-borderless + .btn-borderless {
     margin-left: 8px; }
 
 @-webkit-keyframes modal-show {
@@ -5345,8 +5373,8 @@ mark,
     padding-bottom: 0; }
   .data-table th,
   .data-table td {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     vertical-align: middle; }
   .data-table.card, .data-table.text-field-elevated {
     overflow: visible; }
@@ -5355,7 +5383,7 @@ mark,
     padding: 0;
     text-align: left;
     text-transform: none; }
-    .data-table .dropdown-toggle:not(.btn-borderless).btn::before, .data-table .dropdown-toggle.btn-flat:not(.btn-borderless)::before, .data-table .dropdown-toggle.snackbar-button:not(.btn-borderless)::before,
+    .data-table .dropdown-toggle:not(.btn-borderless).btn::before, .data-table .dropdown-toggle.btn-flat:not(.btn-borderless)::before, .data-table .dropdown-toggle.btn-outline:not(.btn-borderless)::before, .data-table .dropdown-toggle.snackbar-button:not(.btn-borderless)::before,
     .data-table .dropdown-toggle.btn-solid:not(.btn-borderless)::before, .data-table .dropdown-toggle.btn-raised:not(.btn-borderless)::before, .data-table .dropdown-toggle.btn-floating:not(.btn-borderless)::before, .data-table .dropdown-toggle.btn-borderless:not(.btn-borderless)::before {
       content: none; }
   .data-table th.no-vertical-padding,
@@ -5369,8 +5397,8 @@ mark,
   font-weight: 400;
   color: rgba(0, 0, 0, 0.54);
   border-top: 0.0625rem solid rgba(0, 0, 0, 0.12);
-  padding-left: 1.5rem;
-  padding-right: 1.5rem; }
+  padding-left: 1rem;
+  padding-right: 1rem; }
   .data-table-footer .data-table-actions {
     margin-left: 2rem; }
     .data-table-footer .data-table-actions .data-table-action:first-child {
@@ -6457,13 +6485,13 @@ input,
   .btn-solid.btn-danger:hover, .btn-danger.btn-raised:hover, .btn-danger.btn-floating:hover, .btn-solid.btn-danger:focus, .btn-danger.btn-raised:focus, .btn-danger.btn-floating:focus {
     color: #212121; }
 
-.btn, .btn-flat, .snackbar-button,
+.btn, .btn-flat, .btn-outline, .snackbar-button,
 .btn-solid, .btn-raised, .btn-floating, .btn-borderless {
   position: relative;
   cursor: pointer;
   position: relative;
   z-index: 1; }
-  .btn::before, .btn-flat::before, .snackbar-button::before,
+  .btn::before, .btn-flat::before, .btn-outline::before, .snackbar-button::before,
   .btn-solid::before, .btn-raised::before, .btn-floating::before, .btn-borderless::before {
     content: "";
     position: absolute;
@@ -6475,48 +6503,68 @@ input,
     z-index: -1;
     -webkit-transition: background-color 250ms linear;
     transition: background-color 250ms linear; }
-  .btn:hover::before, .btn-flat:hover::before, .snackbar-button:hover::before,
+  .btn:hover::before, .btn-flat:hover::before, .btn-outline:hover::before, .snackbar-button:hover::before,
   .btn-solid:hover::before, .btn-raised:hover::before, .btn-floating:hover::before, .btn-borderless:hover::before {
     background-color: rgba(0, 0, 0, 0.12); }
-  .btn:active::before, .btn-flat:active::before, .snackbar-button:active::before,
+  .btn:active::before, .btn-flat:active::before, .btn-outline:active::before, .snackbar-button:active::before,
   .btn-solid:active::before, .btn-raised:active::before, .btn-floating:active::before, .btn-borderless:active::before {
     background-color: rgba(0, 0, 0, 0.12); }
-  .btn.disabled, .disabled.btn-flat, .disabled.snackbar-button,
-  .disabled.btn-solid, .disabled.btn-raised, .disabled.btn-floating, .disabled.btn-borderless, .btn:disabled, .btn-flat:disabled, .snackbar-button:disabled,
+  .btn.disabled, .disabled.btn-flat, .disabled.btn-outline, .disabled.snackbar-button,
+  .disabled.btn-solid, .disabled.btn-raised, .disabled.btn-floating, .disabled.btn-borderless, .btn:disabled, .btn-flat:disabled, .btn-outline:disabled, .snackbar-button:disabled,
   .btn-solid:disabled, .btn-raised:disabled, .btn-floating:disabled, .btn-borderless:disabled {
     color: rgba(0, 0, 0, 0.26) !important;
-    background-color: rgba(0, 0, 0, 0.12); }
-    .btn.disabled::before, .disabled.btn-flat::before, .disabled.snackbar-button::before,
-    .disabled.btn-solid::before, .disabled.btn-raised::before, .disabled.btn-floating::before, .disabled.btn-borderless::before, .btn:disabled::before, .btn-flat:disabled::before, .snackbar-button:disabled::before,
+    background-color: rgba(0, 0, 0, 0.12);
+    -webkit-box-shadow: none;
+            box-shadow: none; }
+    .btn.disabled::before, .disabled.btn-flat::before, .disabled.btn-outline::before, .disabled.snackbar-button::before,
+    .disabled.btn-solid::before, .disabled.btn-raised::before, .disabled.btn-floating::before, .disabled.btn-borderless::before, .btn:disabled::before, .btn-flat:disabled::before, .btn-outline:disabled::before, .snackbar-button:disabled::before,
     .btn-solid:disabled::before, .btn-raised:disabled::before, .btn-floating:disabled::before, .btn-borderless:disabled::before {
       background-color: transparent !important; }
 
-.btn-flat.btn-default, .btn-default.snackbar-button {
+.btn-borderless.disabled, .btn-borderless.disabled::before, .btn-borderless:disabled, .btn-borderless:disabled::before,
+.btn-flat.disabled,
+.disabled.btn-outline,
+.disabled.snackbar-button,
+.btn-flat.disabled::before,
+.disabled.btn-outline::before,
+.disabled.snackbar-button::before,
+.btn-flat:disabled,
+.btn-outline:disabled,
+.snackbar-button:disabled,
+.btn-flat:disabled::before,
+.btn-outline:disabled::before,
+.snackbar-button:disabled::before {
+  background-color: transparent; }
+
+.btn-outline-gray-border {
+  border-color: rgba(0, 0, 0, 0.12); }
+
+.btn-flat.btn-default, .btn-default.btn-outline, .btn-default.snackbar-button {
   color: #212121; }
-  .btn-flat.btn-default:hover, .btn-default.snackbar-button:hover, .btn-flat.btn-default:focus, .btn-default.snackbar-button:focus {
+  .btn-flat.btn-default:hover, .btn-default.btn-outline:hover, .btn-default.snackbar-button:hover, .btn-flat.btn-default:focus, .btn-default.btn-outline:focus, .btn-default.snackbar-button:focus {
     color: #212121; }
 
-.btn-flat.btn-primary, .btn-primary.snackbar-button {
+.btn-flat.btn-primary, .btn-primary.btn-outline, .btn-primary.snackbar-button {
   color: #563d7c; }
-  .btn-flat.btn-primary:hover, .btn-primary.snackbar-button:hover, .btn-flat.btn-primary:focus, .btn-primary.snackbar-button:focus {
+  .btn-flat.btn-primary:hover, .btn-primary.btn-outline:hover, .btn-primary.snackbar-button:hover, .btn-flat.btn-primary:focus, .btn-primary.btn-outline:focus, .btn-primary.snackbar-button:focus {
     color: #563d7c; }
 
-.btn-flat.btn-accent, .btn-flat.btn-floating, .btn-floating.snackbar-button, .btn-accent.snackbar-button {
+.btn-flat.btn-accent, .btn-accent.btn-outline, .btn-outline.btn-floating, .btn-flat.btn-floating, .btn-floating.snackbar-button, .btn-accent.snackbar-button {
   color: #ffab40; }
-  .btn-flat.btn-accent:hover, .btn-flat.btn-floating:hover, .btn-floating.snackbar-button:hover, .btn-accent.snackbar-button:hover, .btn-flat.btn-accent:focus, .btn-flat.btn-floating:focus, .btn-floating.snackbar-button:focus, .btn-accent.snackbar-button:focus {
+  .btn-flat.btn-accent:hover, .btn-accent.btn-outline:hover, .btn-outline.btn-floating:hover, .btn-flat.btn-floating:hover, .btn-floating.snackbar-button:hover, .btn-accent.snackbar-button:hover, .btn-flat.btn-accent:focus, .btn-accent.btn-outline:focus, .btn-outline.btn-floating:focus, .btn-flat.btn-floating:focus, .btn-floating.snackbar-button:focus, .btn-accent.snackbar-button:focus {
     color: #ffab40; }
 
-.btn-flat.btn-danger, .btn-danger.snackbar-button {
+.btn-flat.btn-danger, .btn-danger.btn-outline, .btn-danger.snackbar-button {
   color: #ef5350; }
-  .btn-flat.btn-danger:hover, .btn-danger.snackbar-button:hover, .btn-flat.btn-danger:focus, .btn-danger.snackbar-button:focus {
+  .btn-flat.btn-danger:hover, .btn-danger.btn-outline:hover, .btn-danger.snackbar-button:hover, .btn-flat.btn-danger:focus, .btn-danger.btn-outline:focus, .btn-danger.snackbar-button:focus {
     color: #ef5350; }
 
-.btn-flat, .snackbar-button {
+.btn-flat, .btn-outline, .snackbar-button {
   position: relative;
   cursor: pointer;
   position: relative;
   z-index: 1; }
-  .btn-flat::before, .snackbar-button::before {
+  .btn-flat::before, .btn-outline::before, .snackbar-button::before {
     content: "";
     position: absolute;
     top: 0;
@@ -6527,9 +6575,9 @@ input,
     z-index: -1;
     -webkit-transition: background-color 250ms linear;
     transition: background-color 250ms linear; }
-  .btn-flat:hover::before, .snackbar-button:hover::before {
+  .btn-flat:hover::before, .btn-outline:hover::before, .snackbar-button:hover::before {
     background-color: rgba(0, 0, 0, 0.12); }
-  .btn-flat:active::before, .snackbar-button:active::before {
+  .btn-flat:active::before, .btn-outline:active::before, .snackbar-button:active::before {
     background-color: rgba(0, 0, 0, 0.12); }
 
 .btn-borderless.btn-default {
@@ -6579,8 +6627,6 @@ input,
     color: rgba(0, 0, 0, 0.54); }
   .btn-borderless:disabled, .btn-borderless.disabled {
     color: rgba(0, 0, 0, 0.26) !important; }
-    .btn-borderless:disabled, .btn-borderless:disabled::before, .btn-borderless.disabled, .btn-borderless.disabled::before {
-      background-color: transparent; }
 
 .bg-primary {
   background-color: #563d7c !important; }
@@ -6939,8 +6985,6 @@ input {
       color: #fff; }
     .toolbar-primary .btn-borderless:disabled, .toolbar-primary .btn-borderless.disabled {
       color: rgba(255, 255, 255, 0.3) !important; }
-      .toolbar-primary .btn-borderless:disabled, .toolbar-primary .btn-borderless:disabled::before, .toolbar-primary .btn-borderless.disabled, .toolbar-primary .btn-borderless.disabled::before {
-        background-color: transparent; }
 
 .text-primary {
   color: #563d7c !important; }
