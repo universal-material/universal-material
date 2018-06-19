@@ -1,0 +1,38 @@
+@import "variables";
+@import "mixins";
+
+@import "bootstrap-imports";
+
+@import "universal-material/scaffolding";
+@import "universal-material/typography";
+@import "universal-material/grid";
+@import "universal-material/elevation";
+
+@import "universal-material/badge";
+@import "universal-material/toolbar";
+@import "universal-material/buttons";
+@import "universal-material/button-group";
+@import "universal-material/checkbox";
+@import "universal-material/floating-action-button";
+@import "universal-material/card";
+@import "universal-material/dialog";
+@import "universal-material/expansion-panel";
+@import "universal-material/dropdown";
+@import "universal-material/steppers";
+@import "universal-material/layout";
+@import "universal-material/tab";
+@import "universal-material/data-table";
+@import "universal-material/list";
+@import "universal-material/progress";
+@import "universal-material/sidebar";
+@import "universal-material/snackbar";
+@import "universal-material/text-field";
+@import "universal-material/chip";
+
+//Utilities
+@import "utilities";
+//@import "universal-material/responsive-utilities";
+$theme:(colors: $theme-colors, dark: $default-theme-dark, uwp-style: $default-uwp-style);
+
+@include create-theme($theme);
+@include create-dense-layout();

@@ -35,7 +35,7 @@ $teal:    #009688 !default;
 $cyan:    #00bcd4 !default;
 
 $theme-colors: (
-  primary: $primary-color, //Octopus material changes
+  primary: $primary-color, //Universal Material changes
   accent: $accent-color,
   danger: $danger-color
 ) !default;
@@ -62,14 +62,14 @@ $color-low-contrast-dark-theme: rgba(255, 255, 255, .7) !default;
 //
 // Settings for the `<body>` element.
 
-$body-bg:       $gray-100 !default; //Octopus material changes
+$body-bg:       $gray-100 !default; //Universal Material changes
 $body-color:    $gray-900 !default;
 
-$bg-light:       $gray-100 !default; //Octopus material changes
-$bg-dark:       #2d2d2d !default; //Octopus material changes
+$bg-light:       $gray-100 !default; //Universal Material changes
+$bg-dark:       #2d2d2d !default; //Universal Material changes 
 
-$body-color-light-theme:    $gray-900 !default; //Octopus material changes
-$body-color-dark-theme:    $white !default; //Octopus material changes
+$body-color-light-theme:    $gray-900 !default; //Universal Material changes
+$body-color-dark-theme:    $white !default; //Universal Material changes
 
 // Links
 //
@@ -108,14 +108,14 @@ $uwp-border-width: .125rem;
 //
 // Font, line-height, and color for body text, headings, and more.
 
-$font-family-base: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif !default; //Octopus material custom code
+$font-family-base: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif !default; //Universal Material custom code
 
 $font-size-base: .875rem !default;
 
-$display4-size: $font-size-base * 8 !default; //Octopus custom code
-$display3-size: $font-size-base * 4 !default; //Octopus custom code
-$display2-size: $font-size-base * 3.21 !default; //Octopus custom code
-$display1-size: $font-size-base * 2.42 !default; //Octopus custom code
+$display4-size: $font-size-base * 8 !default; //Universal Material custom code
+$display3-size: $font-size-base * 4 !default; //Universal Material custom code
+$display2-size: $font-size-base * 3.21 !default; //Universal Material custom code
+$display1-size: $font-size-base * 2.42 !default; //Universal Material custom code
 $headline-size: $font-size-base * 1.7 !default;
 $title-size: $font-size-base * 1.4 !default;
 $subheading-size: $font-size-base * 1.1 !default;

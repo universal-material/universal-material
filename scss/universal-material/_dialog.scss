@@ -51,10 +51,10 @@
   right: 0;
   bottom: 0;
   left: 0;
-  //z-index: $zindex-dialog-backdrop;//Octopus material changes
+  //z-index: $zindex-dialog-backdrop;//Universal Material changes
   z-index: -1;
   background-color: $dialog-backdrop-bg;
-  opacity: $dialog-backdrop-opacity;//Octopus material changes
+  opacity: $dialog-backdrop-opacity;//Universal Material changes
 
 
   //// Fade for backdrop
