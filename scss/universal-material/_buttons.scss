@@ -5,6 +5,7 @@
   position: relative; //Octocus custom code
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   font-weight: $btn-font-weight;
   font-size: $btn-font-size;
   padding: 0 $btn-side-padding; //Universal Material custom code
