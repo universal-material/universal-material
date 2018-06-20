@@ -4,6 +4,62 @@ block content
   h1.chapter-title Menus
 
   .menu-example
+    h2.article-title Down
+    .example-box
+      .example-box-header
+        .toolbar
+          .toolbar-row
+            .toolbar-actions.dropdown
+              button.btn-borderless.btn-default.dropdown-toggle
+                i.mdi.mdi-dots-vertical
+
+              .dropdown-menu.down
+                .dropdown-content
+                  a.dropdown-item.text-nowrap(href="#") Item A
+                  a.dropdown-item.text-nowrap(href="#") Item B
+                  a.dropdown-item.text-nowrap(href="#") Item C
+      pre
+        code.html
+          = '<div class="dropdown">\n'
+          = '  <button class="btn-borderless btn-default dropdown-toggle">\n'
+          = '    <i class="mdi mdi-dots-vertical"></i>\n'
+          = '  </button>\n'
+          = '  <div class="dropdown-menu down">\n'
+          = '    <div class="dropdown-content">\n'
+          = '      <a href="#" class="dropdown-item text-nowrap">Item A</a>\n'
+          = '      <a href="#" class="dropdown-item text-nowrap">Item B</a>\n'
+          = '      <a href="#" class="dropdown-item text-nowrap">Item C</a>\n'
+          = '  </div>\n'
+          = '</div>'
+
+    h2.article-title Up
+    .example-box
+      .example-box-header.d-flex.align-items-end
+        .toolbar
+          .toolbar-row
+            .toolbar-actions.dropdown
+              button.btn-borderless.btn-default.dropdown-toggle
+                i.mdi.mdi-dots-vertical
+
+              .dropdown-menu.up
+                .dropdown-content
+                  a.dropdown-item.text-nowrap(href="#") Item A
+                  a.dropdown-item.text-nowrap(href="#") Item B
+                  a.dropdown-item.text-nowrap(href="#") Item C
+      pre
+        code.html
+          = '<div class="dropdown">\n'
+          = '  <button class="btn-borderless btn-default dropdown-toggle">\n'
+          = '    <i class="mdi mdi-dots-vertical"></i>\n'
+          = '  </button>\n'
+          = '  <div class="dropdown-menu up">\n'
+          = '    <div class="dropdown-content">\n'
+          = '      <a href="#" class="dropdown-item text-nowrap">Item A</a>\n'
+          = '      <a href="#" class="dropdown-item text-nowrap">Item B</a>\n'
+          = '      <a href="#" class="dropdown-item text-nowrap">Item C</a>\n'
+          = '  </div>\n'
+          = '</div>'
+
 
     h2.article-title Down right
     .example-box

@@ -13,6 +13,20 @@
   transform: scale3d(0, 0, 1);
   transform-origin: top left;
 
+  &.down {
+    top: 100%;
+    left: 0;
+    transform: scale3d(1, 0, 0);
+    transform-origin: top;
+  }
+
+  &.up {
+    bottom: 100%;
+    left: 0;
+    transform: scale3d(1, 0, 0);
+    transform-origin: bottom;
+  }
+
   &.down-right {
     top: 100%;
     left: 0;

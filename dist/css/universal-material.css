@@ -5082,6 +5082,20 @@ mark,
           transform: scale3d(0, 0, 1);
   -webkit-transform-origin: top left;
           transform-origin: top left; }
+  .dropdown-menu.down {
+    top: 100%;
+    left: 0;
+    -webkit-transform: scale3d(1, 0, 0);
+            transform: scale3d(1, 0, 0);
+    -webkit-transform-origin: top;
+            transform-origin: top; }
+  .dropdown-menu.up {
+    bottom: 100%;
+    left: 0;
+    -webkit-transform: scale3d(1, 0, 0);
+            transform: scale3d(1, 0, 0);
+    -webkit-transform-origin: bottom;
+            transform-origin: bottom; }
   .dropdown-menu.down-right {
     top: 100%;
     left: 0;
