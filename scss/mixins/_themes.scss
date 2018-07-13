@@ -62,7 +62,7 @@
   }
 
   @if (mixin_exists(selection-controls-theme)) {
-    @include selection-controls-theme($dark-theme);
+    @include selection-controls-theme($theme-colors, $dark-theme);
   }
 
   @if (mixin_exists(snackbar-theme)) {

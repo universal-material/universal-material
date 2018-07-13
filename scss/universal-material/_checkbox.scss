@@ -1,54 +1,46 @@
-.checkbox, .radio, .switch {
-  cursor: pointer;
+.checkbox,
+.radio,
+.switch {
   display: inline-flex;
   align-items: center;
   margin-bottom: 0;
+  cursor: pointer;
 
   input {
     position: absolute;
     width: 0;
     height: 0;
-    margin: 0;
     padding: 0;
+    margin: 0;
     opacity: 0;
     appearance: none;
   }
 
   .selection-control {
-    @include selectable-background(false, true);
-
     &::before {
+      top: 50%;
+      left: 50%;
       width: $selection-control-hover-size;
       height: $selection-control-hover-size;
-      left: 50% !important;
-      top: 50% !important;
-      margin-left: -$selection-control-hover-size / 2;
       margin-top: -$selection-control-hover-size / 2;
-      border-radius: 50% !important;
-    }
-  }
-
-  &.checked .selection-control,
-  input:checked ~ .selection-control {
-    &:hover::before {
-      background-color: $selection-control-hover-color;
+      margin-left: -$selection-control-hover-size / 2;
     }
   }
 
   &.disabled .selection-control,
   input:disabled ~ .selection-control {
-    &:hover::before {
-      background-color: transparent !important;
+    &::before {
+      background-color: transparent;
+      opacity: 0;
     }
   }
+}
 
-  &.focus .selection-control,
-  &.focus.checked .selection-control,
-  input:focus ~ .selection-control,
-  input:focus:checked ~ .selection-control{
-    &::before {
-      background-color: $hover-background-light-theme !important;
-    }
+.checkbox,
+.radio {
+  &.disabled .selection-control-label,
+  input:disabled ~ .selection-control-label {
+    opacity: $selection-control-disabled-opacity;
   }
 }
 
@@ -63,36 +55,35 @@
 .checkbox {
   .selection-control {
     @include size($checkbox-size);
-    border-radius: $checkbox-border-radius;
     border: $checkbox-radio-border-light-theme;
+    border-radius: $checkbox-border-radius;
     transition: border-color 250ms, background 250ms;
 
     &::after {
-      content: "";
       position: absolute;
-      transform: rotate(-45deg);
-      border: $checkbox-mark-border-width solid $checkbox-mark-color-light-theme;
-      width: $checkbox-mark-width;
-      height: $checkbox-mark-height;
       top: $checkbox-mark-top;
       left: $checkbox-mark-left;
+      width: $checkbox-mark-width;
+      height: $checkbox-mark-height;
+      content: "";
+      border: $checkbox-mark-border-width solid $checkbox-mark-color-light-theme;
       border-top-style: none;
       border-right-style: none;
-      transition: opacity 250ms;
       opacity: 0;
+      transition: opacity 250ms;
+      transform: rotate(-45deg);
     }
   }
 
   &.checked .selection-control,
   input:checked ~ .selection-control {
-    background: $selection-control-checked-color;
-    border-color: $selection-control-checked-color;
-    //border-width: $checkbox-size /2;
+    background: currentColor;
+    border-color: currentColor;
     transition: background 125ms;
 
     &::after {
-      transform: rotate(-45deg);
       opacity: 1;
+      transform: rotate(-45deg);
     }
   }
 }
@@ -104,50 +95,55 @@
 
     &::after {
       @include size($radio-check-mark-size);
-      content: "";
       position: absolute;
-      border-radius: 50%;
-      background: $selection-control-checked-color;
       top: 50%;
       left: 50%;
       margin-top: -$radio-check-mark-size / 2;
       margin-left: -$radio-check-mark-size / 2;
-      transform: scale3d(0,0,1);
+      content: "";
+      background: currentColor;
+      border-radius: 50%;
       transition: transform 250ms;
+      transform: scale3d(0, 0, 1);
     }
   }
 
   &.checked .selection-control,
   input:checked ~ .selection-control {
-    border-color: $selection-control-checked-color;
+    border-color: currentColor;
 
     &::after {
-      transform: scale3d(1,1,1);
+      transform: scale3d(1, 1, 1);
     }
   }
+}
+
+.switch-track {
+  width: 100%;
+  height: 100%;
+  border-radius: $switch-border-radius;
+  transition: background-color 250ms;
 }
 
 .switch {
   .selection-control {
     width: $switch-width;
     height: $switch-height;
-    border-radius: $switch-border-radius;
-    transition: background-color 250ms;
-
-    @include selectable-background(false, true);
 
     &::before {
-      left: -($selection-control-hover-size - $switch-toggle-size) / 2 !important;
+      left: -($selection-control-hover-size - $switch-toggle-size) / 2;
       margin-left: 0;
       transition: background-color 250ms, left 250ms;
     }
+
     &::after {
-      content: "";
-      @include size($switch-toggle-size);
       position: absolute;
       top: 50%;
       left: 0;
+      width: $switch-toggle-size;
+      height: $switch-toggle-size;
       margin-top: -$switch-toggle-size / 2;
+      content: "";
       border-radius: 50%;
       box-shadow: $switch-toggle-box-shadow;
       transition: left 250ms, background-color 250ms;
@@ -156,20 +152,30 @@
 
   &.checked .selection-control,
   input:checked ~ .selection-control {
-    background-color: $switch-checked-background-color;
-
     &::before {
-      left: $switch-width - $switch-toggle-size - (($selection-control-hover-size - $switch-toggle-size) / 2) !important;
+      left: $switch-width - $switch-toggle-size - (($selection-control-hover-size - $switch-toggle-size) / 2);
     }
 
     &::after {
       left: $switch-width - $switch-toggle-size;
-      background-color: $selection-control-checked-color;
+      background-color: currentColor;
     }
+  }
+
+  &.checked .switch-track,
+  input:checked ~ .selection-control .switch-track {
+    background: currentColor;
+    opacity: $switch-checked-track-opacity;
+  }
+
+  &.disabled,
+  input:disabled ~ * {
+    opacity: $selection-control-disabled-opacity;
   }
 }
 
-@mixin selection-controls-theme($dark-theme) {
+@mixin selection-controls-theme($theme-colors, $dark-theme) {
+  $primary-color: map-get($theme-colors, "primary");
 
   $check-radio-border: $checkbox-radio-border-light-theme;
   $check-radio-disabled-border: $checkbox-radio-disabled-color-light-theme;
@@ -187,7 +193,8 @@
     $switch-toggle-disabled-background: $switch-toggle-disabled-background-color-dark-theme;
   }
 
-  .checkbox, .radio {
+  .checkbox,
+  .radio {
     .selection-control {
       border: $check-radio-border;
     }
@@ -201,8 +208,8 @@
   .checkbox {
     &.checked.disabled .selection-control,
     input:checked:disabled ~ .selection-control {
-      border-color: transparent;
       background: $check-radio-disabled-border;
+      border-color: transparent;
     }
   }
 
@@ -217,21 +224,31 @@
     }
   }
 
+  .switch-track {
+    background-color: $switch-background;
+  }
+
+  .switch {
+    .selection-control::after {
+      background-color: $switch-toggle-background;
+    }
+  }
+
+  .selection-control {
+    @include selectable-background2($dark-theme, true, 50%);
+  }
+
+  .checkbox,
+  .radio,
   .switch {
     .selection-control {
-      background-color: $switch-background;
-
-      &::after {
-        background-color: $switch-toggle-background;
-      }
+      color: $primary-color;
     }
 
-    &.disabled .selection-control,
-    input:disabled ~ .selection-control {
-      background-color: $switch-disabled-background !important;
-
-      &::after {
-        background-color:  $switch-toggle-disabled-background !important;
+    &.checked .selection-control,
+    input:checked ~ .selection-control {
+      &::before {
+        color: inherit;
       }
     }
   }

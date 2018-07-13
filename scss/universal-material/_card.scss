@@ -10,6 +10,11 @@
   }
 }
 
+.card-outline {
+  box-shadow: none;
+  border: $card-outline-border;
+}
+
 .card-header {
   @include horizontal-padding($card-side-padding);
 

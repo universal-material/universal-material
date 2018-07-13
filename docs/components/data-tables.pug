@@ -2,119 +2,121 @@ extends ../layout
 
 block content
   h1.chapter-title Data tables
+  .card
+    table.data-table.data-table-hover
+      thead
+        tr
+          th Dessert (100g serving)
+          th.text-right Calories
+          th.text-right Fat (g)
+          th.text-right Carbs(g)
+      tbody
+        tr
+          td Frozen yogurt
+          td.text-right 159
+          td.text-right 6.0
+          td.text-right 24
+        tr
+          td Ice cream sandwich
+          td.text-right 237
+          td.text-right 9.0
+          td.text-right 37
+        tr
+          td Eclair
+          td.text-right 262
+          td.text-right 16.0
+          td.text-right 24
 
-  table.data-table.data-table-hover.card
-    thead
-      tr
-        th Dessert (100g serving)
-        th.text-right Calories
-        th.text-right Fat (g)
-        th.text-right Carbs(g)
-    tbody
-      tr
-        td Frozen yogurt
-        td.text-right 159
-        td.text-right 6.0
-        td.text-right 24
-      tr
-        td Ice cream sandwich
-        td.text-right 237
-        td.text-right 9.0
-        td.text-right 37
-      tr
-        td Eclair
-        td.text-right 262
-        td.text-right 16.0
-        td.text-right 24
+  .card
+    table.data-table.data-table-hover
+      thead
+        tr
+          th.data-table-header(colspan="4")
+            .toolbar
+              .toolbar-row
+                .toolbar-title Nutrients
+                .toolbar-actions
+                  button.btn-borderless.btn-default(disabled)
+                    i.mdi.mdi-phone
 
-  table.data-table.data-table-hover.card
-    thead
-      tr
-        th.data-table-header(colspan="4")
-          .toolbar
-            .toolbar-row
-              .toolbar-title Nutrients
-              .toolbar-actions
-                button.btn-borderless.btn-default(disabled)
-                  i.mdi.mdi-phone
-
-                button.btn-borderless.btn-default
-                  i.mdi.mdi-dots-vertical
-      tr
-        th Dessert (100g serving)
-        th.text-right Calories
-        th.text-right Fat (g)
-        th.text-right Carbs(g)
-    tbody
-      tr
-        td Frozen yogurt
-        td.text-right 159
-        td.text-right 6.0
-        td.text-right 24
-      tr
-        td Ice cream sandwich
-        td.text-right 237
-        td.text-right 9.0
-        td.text-right 37
-      tr
-        td Eclair
-        td.text-right 262
-        td.text-right 16.0
-        td.text-right 24
+                  button.btn-borderless.btn-default
+                    i.mdi.mdi-dots-vertical
+        tr
+          th Dessert (100g serving)
+          th.text-right Calories
+          th.text-right Fat (g)
+          th.text-right Carbs(g)
+      tbody
+        tr
+          td Frozen yogurt
+          td.text-right 159
+          td.text-right 6.0
+          td.text-right 24
+        tr
+          td Ice cream sandwich
+          td.text-right 237
+          td.text-right 9.0
+          td.text-right 37
+        tr
+          td Eclair
+          td.text-right 262
+          td.text-right 16.0
+          td.text-right 24
 
 
-  table.data-table.data-table-hover.card
-    thead
-      tr
-        th.text-nowrap Dessert (100g serving)
-        th Type
-        th.text-right Calories
-        th.text-right Fat (g)
-        th.text-right Carbs(g)
-    tbody
-      tr
-        td.text-nowrap Frozen yogurt
-        td.text-nowrap.dropdown
-          button.btn-flat.btn-default.dropdown-toggle
-            .dropdown-toggle-label Ice cream
-            .dropdown-toggle-icon
+  .card
+    table.data-table.data-table-hover
+      thead
+        tr
+          th.text-nowrap Dessert (100g serving)
+          th Type
+          th.text-right Calories
+          th.text-right Fat (g)
+          th.text-right Carbs(g)
+      tbody
+        tr
+          td.text-nowrap Frozen yogurt
+          td.text-nowrap.dropdown
+            button.btn-flat.btn-default.dropdown-toggle
+              .dropdown-toggle-label Ice cream
+              .dropdown-toggle-icon
 
-          .dropdown-menu.down-right.fit-width
-            .dropdown-content
-              .dropdown-item Ice cream
-              .dropdown-item Pastry
-              .dropdown-item Other
+            .dropdown-menu.down-right.fit-width
+              .dropdown-content
+                .dropdown-item Ice cream
+                .dropdown-item Pastry
+                .dropdown-item Other
 
-        td.text-right 159
-        td.text-right 6.0
-        td.text-right 24
-      tr
-        td.text-nowrap Ice cream sandwich
-        td.text-nowrap.dropdown
-          button.btn-flat.btn-default.dropdown-toggle
-            .dropdown-toggle-label Ice cream
-            .dropdown-toggle-icon
+          td.text-right 159
+          td.text-right 6.0
+          td.text-right 24
+        tr
+          td.text-nowrap Ice cream sandwich
+          td.text-nowrap.dropdown
+            button.btn-flat.btn-default.dropdown-toggle
+              .dropdown-toggle-label Ice cream
+              .dropdown-toggle-icon
 
-          .dropdown-menu.up-right.fit-width
-            .dropdown-content
-              .dropdown-item Ice cream
-              .dropdown-item Pastry
-              .dropdown-item Other
-        td.text-right 237
-        td.text-right 9.0
-        td.text-right 37
-      tr
-        td.text-nowrap Eclair
-        td.text-nowrap.dropdown
-          button.btn-flat.btn-default.dropdown-toggle
-            .dropdown-toggle-label Pastry
-            .dropdown-toggle-icon
+            .dropdown-menu.up-right.fit-width
+              .dropdown-content
+                .dropdown-item Ice cream
+                .dropdown-item Pastry
+                .dropdown-item Other
+          td.text-right 237
+          td.text-right 9.0
+          td.text-right 37
+        tr
+          td.text-nowrap Eclair
+          td.text-nowrap.dropdown
+            button.btn-flat.btn-default.dropdown-toggle
+              .dropdown-toggle-label Pastry
+              .dropdown-toggle-icon
 
-          .dropdown-menu.up-right.fit-width
-            .dropdown-content
-              .dropdown-item Ice cream
-              .dropdown-item Pastry
-              .dropdown-item Other
-        td.text-right 262
-        td.text-right 16.0
-        td.text-right 24
+            .dropdown-menu.up-right.fit-width
+              .dropdown-content
+                .dropdown-item Ice cream
+                .dropdown-item Pastry
+                .dropdown-item Other
+          td.text-right 262
+          td.text-right 16.0
+          td.text-right 24

@@ -29,7 +29,12 @@
   td {
     @include horizontal-padding($data-table-horizontal-padding);
 
-    vertical-align: middle;
+    vertical-align: top;
+
+    &.no-vertical-padding {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
   }
 
   &.card {
@@ -43,14 +48,6 @@
     text-transform: none;
     &.btn::before {
       content: none;
-    }
-  }
-
-  th,
-  td {
-    &.no-vertical-padding {
-      padding-top: 0;
-      padding-bottom: 0;
     }
   }
 }
