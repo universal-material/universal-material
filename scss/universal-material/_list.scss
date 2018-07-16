@@ -12,27 +12,27 @@
       position: relative;
 
       & + .list-item::after {
-        content: "";
         position: absolute;
-        background: rgba(0, 0, 0, 0.2);
-        height: $list-divider-height;
         top: -$list-divider-height;
-        left: 0;
         right: 0;
+        left: 0;
+        height: $list-divider-height;
+        content: "";
+        background: rgba(0, 0, 0, .2);
       }
     }
   }
 }
 
 .list-item {
-  display: flex;
   position: relative;
-  min-height: $list-item-min-height;
+  display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
-  text-decoration: none;
+  min-height: $list-item-min-height;
   padding: $list-item-padding;
+  text-decoration: none;
 
   &:hover,
   &:focus,
@@ -80,6 +80,12 @@
   line-height: $list-item-font-size;
 }
 
+.list-item-icon.btn-borderless {
+  width: $btn-borderless-size;
+  margin-top: -$list-item-padding / 2;
+  margin-bottom: -$list-item-padding / 2;
+}
+
 .list-item-icon + .list-item-primary-content {
   margin-left: $list-icon-avatar-text-left-distance - $list-icon-size - $list-item-padding;
 }
@@ -92,10 +98,15 @@
   margin-left: $list-item-padding;
 }
 
+.list-item-primary-content ~ .list-item-icon.btn-borderless {
+  margin-right: -$list-item-padding / 2;
+  margin-left: $list-item-padding / 2;
+}
+
 .list-item-primary-content {
   display: flex;
-  align-items: center;
   flex-grow: 1;
+  align-items: center;
   font-size: $list-item-font-size;
   font-weight: $font-regular;
   line-height: $list-item-font-size;
@@ -118,9 +129,9 @@
 
   position: absolute;
   top: 0;
-  left: 0;
-  bottom: 0;
   right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 .list-group {
@@ -133,16 +144,16 @@
 }
 
 .list-index {
-  display: flex;
-  align-items: center;
   position: sticky;
   top: 0;
+  display: flex;
+  align-items: center;
   width: $list-index-width;
   min-width: $list-index-width;
   height: $list-item-min-height;
   padding: $list-item-padding;
-  font-weight: $font-medium;
   font-size: $list-index-font-size;
+  font-weight: $font-medium;
 }
 
 .dense-layout {
@@ -163,6 +174,10 @@
 
   .list-item-icon {
     font-size: $list-dense-icon-size;
+  }
+
+  .list-item-icon.btn-borderless {
+    width: $btn-dense-size;
   }
 
   .list-item-primary-content,

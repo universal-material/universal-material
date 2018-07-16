@@ -1,26 +1,26 @@
 @import "uwp/uwp-buttons";
-@import "uwp/uwp-buttons";
 
 .btn {
-  position: relative; //Octocus custom code
+  position: relative; //Universal Material custom code
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-weight: $btn-font-weight;
-  font-size: $btn-font-size;
-  padding: 0 $btn-side-padding; //Universal Material custom code
   height: $btn-height; //Universal Material custom code
-  border-radius: $btn-border-radius; //Universal Material custom code
+  padding: 0 $btn-side-padding; //Universal Material custom code
+  font-size: $btn-font-size;
+  font-weight: $btn-font-weight;
   text-align: center;
+  z-index: 1; //Universal Material custom code
   white-space: nowrap;
+  text-transform: uppercase; //Universal Material custom code
   vertical-align: middle;
   user-select: none;
-  border: none; //Universal Material custom code
-  //@include button-size($input-btn-padding-y, $input-btn-padding-x, $font-size-base, $input-btn-line-height, $btn-border-radius);
-  //@include transition($btn-transition);
   background: transparent; //Universal Material custom code
-  text-transform: uppercase; //Universal Material custom code
-  z-index: 1; //Universal Material custom code
+  overflow: hidden;
+  border: none; //Universal Material custom code
+  border-radius: $btn-border-radius; //Universal Material custom code
+
+  @include selectable-background-before(0);
 
   // Share hover and focus styles
   @include hover-focus {
@@ -65,26 +65,14 @@
 
 .btn-borderless {
   @extend .btn;
-  position: relative;
-  height: auto;
+  width: $btn-borderless-size;
+  height: $btn-borderless-size;
   padding: 0;
   font-size: $base-icon-size;
-
-  &::before {
-    content: '';
-    position: absolute;
-    width: $btn-borderless-hover-size;
-    height: $btn-borderless-hover-size;
-    left: 50% !important;
-    top: 50% !important;
-    margin-left: -$btn-borderless-hover-size / 2;
-    margin-top: -$btn-borderless-hover-size / 2;
-    border-radius: 50% !important;
-  }
-
+  border-radius: 50%;
 
   + .btn-borderless {
-    margin-left: $btn-borderless-margin
+    margin-left: $btn-borderless-margin;
   }
 }
 
@@ -92,21 +80,22 @@
   display: inline-block;
   width: $btn-icon-size;
   height: $btn-icon-size;
+  margin-right: .5rem;
+  margin-left: -.25rem;
   font-size: $btn-icon-size;
   line-height: $btn-icon-size;
-  margin-left: -.25rem;
-  margin-right: .5rem;
 }
 
 .dense {
   @at-root .dense-layout .btn,
   &.btn {
+    height: $btn-dense-size;
     font-size: $btn-dense-font-size;
-    height: $btn-dense-height;
   }
 
   @at-root .dense-layout .btn-borderless,
   &.btn-borderless {
+    width: $btn-dense-size;
     font-size: $base-dense-icon-size;
   }
 
@@ -129,10 +118,6 @@
       @include button-flat-variant($value);
     }
   }
-
-  .btn-flat {
-    @include selectable-background($dark-theme, true, $btn-border-radius);
-  }
 }
 
 @mixin button-borderless-theme($buttons-colors, $dark-theme) {
@@ -151,10 +136,6 @@
     .btn-borderless.btn-#{$color} {
       @include button-flat-variant($value);
     }
-  }
-
-  .btn-borderless {
-    @include selectable-background($dark-theme, true, $btn-border-radius);
   }
 
   .btn-borderless {
@@ -206,8 +187,6 @@
   }
 
   .btn {
-    @include selectable-background(false, true, $btn-border-radius);
-
     &.disabled,
     &:disabled {
       color: $btn-disabled-color !important;

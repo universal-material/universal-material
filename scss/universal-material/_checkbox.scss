@@ -17,13 +17,17 @@
   }
 
   .selection-control {
-    &::before {
+    @include selectable-background-before(50%);
+
+    &::before,
+    .ripple-wrapper {
       top: 50%;
       left: 50%;
       width: $selection-control-hover-size;
       height: $selection-control-hover-size;
       margin-top: -$selection-control-hover-size / 2;
       margin-left: -$selection-control-hover-size / 2;
+      border-radius: 50%;
     }
   }
 
@@ -130,7 +134,8 @@
     width: $switch-width;
     height: $switch-height;
 
-    &::before {
+    &::before,
+    .ripple-wrapper {
       left: -($selection-control-hover-size - $switch-toggle-size) / 2;
       margin-left: 0;
       transition: background-color 250ms, left 250ms;
@@ -152,7 +157,8 @@
 
   &.checked .selection-control,
   input:checked ~ .selection-control {
-    &::before {
+    &::before,
+    .ripple-wrapper {
       left: $switch-width - $switch-toggle-size - (($selection-control-hover-size - $switch-toggle-size) / 2);
     }
 
@@ -234,22 +240,12 @@
     }
   }
 
-  .selection-control {
-    @include selectable-background2($dark-theme, true, 50%);
-  }
-
   .checkbox,
   .radio,
   .switch {
-    .selection-control {
-      color: $primary-color;
-    }
-
     &.checked .selection-control,
     input:checked ~ .selection-control {
-      &::before {
-        color: inherit;
-      }
+      color: $primary-color;
     }
   }
 }

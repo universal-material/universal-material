@@ -3,30 +3,32 @@
   flex-direction: row;
   width: 100%;
   height: $tab-height;
-  @include horizontal-padding($tab-horizontal-padding-sm)
+  @include horizontal-padding($tab-horizontal-padding-sm);
 }
 
 .tab {
   position: relative;
   display: flex;
+  flex: 1;
   flex-direction: row;
   align-items: center;
-  flex: 1;
   @include horizontal-padding($tab-horizontal-padding-sm);
   @include horizontal-margin(-$tab-horizontal-padding-sm);
+  @include selectable-background-before;
 
   + .tab {
     margin-left: $tab-horizontal-padding-sm;
   }
 
   &::after {
-    content: "";
     position: absolute;
-    left: 0;
     bottom: 0;
+    left: 0;
     width: 100%;
-    opacity: 0;
     height: $tab-indicator-height;
+    content: "";
+    background-color: currentColor;
+    opacity: 0;
   }
 
   &.active {
@@ -37,16 +39,16 @@
 }
 
 .tab-content {
-  text-align: center;
   width: 100%;
+  text-align: center;
 }
 
 .tab-text {
   position: relative;
   display: inline-block;
   font-size: $tab-font-size;
-  text-transform: uppercase;
   font-weight: $tab-font-weight;
+  text-transform: uppercase;
 }
 
 @include media-breakpoint-up(lg) {
@@ -71,33 +73,23 @@
 }
 
 @mixin tab-text-color($theme-colors, $dark-background) {
-  $tab-accent-color: map-get($theme-colors, "accent");
   $tab-text-color: $tab-text-color-light-theme;
-  $tab-text-color-active: $tab-accent-color;
+  $tab-text-color-active: map-get($theme-colors, "primary");
 
   @if ($dark-background) {
     $tab-text-color: $tab-text-color-dark-theme;
     $tab-text-color-active: $tab-text-color-active-dark-theme;
   }
 
-  .tab-content {
+  .tab {
     color: $tab-text-color;
   }
 
-  .tab.active .tab-content {
+  .tab.active {
     color: $tab-text-color-active;
   }
 }
 
 @mixin tab-theme($theme-colors, $dark-theme) {
-
-  .tab {
-    @include selectable-background($dark-theme);
-
-    &::after {
-      background-color: map-get($theme-colors, "accent");
-    }
-  }
-
   @include tab-text-color($theme-colors, $dark-theme);
 }

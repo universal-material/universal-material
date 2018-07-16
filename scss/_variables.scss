@@ -388,8 +388,8 @@ $floating-button-icon-size: $base-icon-size !default;
 $btn-borderless-color-light-theme: $text-low-contrast-light-theme !default;
 $btn-borderless-color-dark-theme: $white !default;
 $btn-borderless-font-size: $base-icon-size !default;
-$btn-borderless-margin: 1.5rem !default;
-$btn-borderless-hover-size: 2.5rem !default;
+$btn-borderless-margin: .5rem !default;
+$btn-borderless-size: 2.5rem !default;
 
 $btn-outline-border-width: .0625rem !default;
 $btn-outline-gray-border-color-light-theme: rgba(0, 0, 0, .12) !default;
@@ -407,7 +407,7 @@ $uwp-btn-flat-active-background-color-dark-theme: $uwp-btn-active-background-col
 
 //Buttons dense
 $btn-dense-font-size: .8125rem !default;
-$btn-dense-height: 2rem !default;
+$btn-dense-size: 2rem !default;
 $btn-icon-dense-size: 1rem !default;
 
 //List
@@ -421,7 +421,7 @@ $list-avatar-size: $avatar-size !default;
 $list-icon-avatar-text-left-distance: 4.5rem !default;
 
 $list-item-font-size: 1rem !default;
-$list-item-padding: $list-item-font-size !default;
+$list-item-padding: 1rem !default;
 
 $list-item-min-height: 3rem !default;
 $list-item-with-icon-height: 3.5rem !default;

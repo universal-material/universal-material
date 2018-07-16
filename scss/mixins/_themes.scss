@@ -89,10 +89,6 @@
     @include text-theme($theme-colors, $dark-theme);
   }
 
-  @if (mixin_exists(selectable-background-theme)) {
-    @include selectable-background-theme($dark-theme);
-  }
-
   @if (mixin_exists(progress-theme)) {
     @include progress-theme($theme-colors);
   }

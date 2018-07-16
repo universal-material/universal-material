@@ -63,13 +63,7 @@
   @include add-to-parent-or-class("toolbar") {
     color: $color;
 
-    //@include toolbar-variant($theme-colors, $dark-theme)
-
     @if (mixin_exists(tab-text-color)) {
-      .tab {
-        @include selectable-background($dark-theme);
-      }
-
       @include tab-text-color($theme-colors, $dark-theme);
     }
   }

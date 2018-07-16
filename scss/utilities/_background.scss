@@ -15,8 +15,6 @@
   background-color: $bg-dark;
 }
 
-@mixin selectable-background-theme($dark-theme) {
-  .selectable-background {
-    @include selectable-background($dark-theme, true);
-  }
+.selectable-background {
+  @include selectable-background-before;
 }

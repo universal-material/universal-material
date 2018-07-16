@@ -1,4 +1,37 @@
-@mixin selectable-background($dark-theme, $background-color-on-before: false, $border-radius: 0) {
+@mixin selectable-background-before($border-radius: null) {
+
+  @if ($border-radius == null) {
+    $border-radius: inherit;
+  }
+
+  position: relative;
+  z-index: 1;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    content: "";
+    background: currentColor;
+    border-radius: $border-radius;
+    opacity: 0;
+    transition: opacity 250ms linear;
+  }
+
+  &:hover::before {
+    opacity: .12;
+  }
+
+  &:active::before {
+    opacity: .2;
+  }
+}
+
+
+@mixin selectable-background($dark-theme) {
   position: relative;
   cursor: pointer;
 
@@ -10,157 +43,25 @@
     //$focus-background: $focus-background-dark-theme;
   }
 
-  @if ($background-color-on-before) {
-    position: relative;
-    z-index: 1;
-
-    &::before {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      z-index: -1;
-      content: "";
-      border-radius: $border-radius;
-      transition: background-color 250ms linear;
-    }
-
-    &:hover::before {
-      background-color: $hover-background;
-    }
-
-    &:active::before {
-      background-color: $hover-background;
-    }
-
-    //&:active::before {
-    //  background-color: $focus-background;
-    //}
-
-    //&.active::before {
-    //  background-color: $focus-background;
-    //}
-  } @else {
-    transition: background-color 250ms linear;
-
-    &:hover {
-      background-color: $hover-background;
-    }
-
-    &:active {
-      background-color: $hover-background;
-    }
-
-    //&:active {
-    //  background-color: $focus-background;
-    //}
-
-    //&.active {
-    //  background-color: $focus-background;
-    //}
-  }
-}
-
-@mixin selectable-background2($dark-theme, $background-color-on-before: false, $border-radius: 0) {
-
-  @if ($background-color-on-before) {
-
-    $selection-color: $body-color-light-theme;
-    //$focus-background: $focus-background-light-theme;
-
-    @if ($dark-theme) {
-      $selection-color: $body-color-dark-theme;
-      //$focus-background: $focus-background-dark-theme;
-    }
-
-    position: relative;
-    z-index: 1;
-
-    &::before {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      z-index: -1;
-      color: $selection-color;
-      content: "";
-      background-color: currentColor;
-      border-radius: $border-radius;
-      opacity: 0;
-      transition: opacity 250ms linear;
-    }
-
-    &:hover::before {
-      opacity: .12;
-    }
-
-    &:active::before {
-      opacity: .2;
-    }
-  } @else {
-    $selection-color: $hover-background-light-theme;
-    //$focus-background: $focus-background-light-theme;
-
-    @if ($dark-theme) {
-      $selection-color: $hover-background-dark-theme;
-      //$focus-background: $focus-background-dark-theme;
-    }
-
-    transition: background-color 250ms linear;
-
-    &:hover {
-      background-color: $selection-color;
-    }
-
-    &:active {
-      background-color: $selection-color;
-    }
-
-    //&:active {
-    //  background-color: $focus-background;
-    //}
-
-    //&.active {
-    //  background-color: $focus-background;
-    //}
+  @if ($border-radius == null) {
+    $border-radius: inherit;
   }
 
-  //@if ($background-color-on-before) {
-  //
-  //
-  //
-  //  &::before {
-  //    color: $selection-color;
-  //    border-radius: $border-radius;
-  //    outline: .75rem solid currentColor;
-  //    opacity: 0;
-  //  }
-  //
-  //  &:hover::before {
-  //    opacity: .3;
-  //  }
-  //
-  //  &:active::before {
-  //    opacity: .6;
-  //  }
-  //
-  //} @else {
-  //  $selection-color: $hover-background-light-theme;
-  //  //$focus-background: $focus-background-light-theme;
-  //
-  //  @if ($dark-theme) {
-  //    $selection-color: $hover-background-dark-theme;
-  //    //$focus-background: $focus-background-dark-theme;
-  //  }
-  //
-  //  transition: background-color 250ms linear;
-  //
-  //  &:hover,
-  //  &:active {
-  //    color: $selection-color;
-  //    box-shadow: 0 0 0 .5rem currentColor;
-  //  }
+  transition: background-color 250ms linear;
+
+  &:hover {
+    background-color: $hover-background;
+  }
+
+  &:active {
+    background-color: $hover-background;
+  }
+
+  //&:active {
+  //  background-color: $focus-background;
+  //}
+
+  //&.active {
+  //  background-color: $focus-background;
   //}
 }

@@ -45,8 +45,10 @@
   cursor: pointer;
 
   @include size($chip-remove-size);
+  @include selectable-background-before;
 
-  &::before {
+  &::before,
+  .ripple-wrapper {
     position: absolute;
     top: 50% !important;
     left: 50% !important;
@@ -57,6 +59,10 @@
     content: "";
     border-radius: 50% !important;
   }
+}
+
+.chip-selectable {
+  @include selectable-background-before;
 }
 
 .chip-input {
@@ -81,14 +87,6 @@
   .chip-outline {
     background: transparent;
     border-color: $chip-outline-border-color;
-  }
-
-  .chip-remove {
-    @include selectable-background($dark-theme, true, 50%);
-  }
-
-  .chip-selectable {
-    @include selectable-background($dark-theme, true);
   }
 
   @each $color, $value in $theme-colors {
