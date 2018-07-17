@@ -12,6 +12,7 @@
   flex: 1;
   flex-direction: row;
   align-items: center;
+  cursor: pointer;
   @include horizontal-padding($tab-horizontal-padding-sm);
   @include horizontal-margin(-$tab-horizontal-padding-sm);
   @include selectable-background-before;

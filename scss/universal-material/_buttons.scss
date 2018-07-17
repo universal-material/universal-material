@@ -1,22 +1,23 @@
 @import "uwp/uwp-buttons";
 
 .btn {
+
   position: relative; //Universal Material custom code
   display: inline-flex;
   align-items: center;
   justify-content: center;
   height: $btn-height; //Universal Material custom code
   padding: 0 $btn-side-padding; //Universal Material custom code
+  z-index: 1; //Universal Material custom code
   font-size: $btn-font-size;
   font-weight: $btn-font-weight;
   text-align: center;
-  z-index: 1; //Universal Material custom code
-  white-space: nowrap;
   text-transform: uppercase; //Universal Material custom code
+  white-space: nowrap;
   vertical-align: middle;
+  overflow: hidden;
   user-select: none;
   background: transparent; //Universal Material custom code
-  overflow: hidden;
   border: none; //Universal Material custom code
   border-radius: $btn-border-radius; //Universal Material custom code
 

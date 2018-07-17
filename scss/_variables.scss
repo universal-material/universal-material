@@ -109,6 +109,117 @@ $font-family-base: "Roboto", -apple-system, "BlinkMacSystemFont", "Segoe UI", "H
 
 $font-size-base: .875rem !default;
 
+@function mdc-typography-get-letter-spacing_($tracking, $font-size) {
+  @return $tracking / ($font-size * 16) * 1em;
+}
+
+$typography-styles: (
+  headline1: (
+    font-size: 6rem, // 96sp
+    line-height: 6rem,
+    font-weight: $font-light,
+    letter-spacing: mdc-typography-get-letter-spacing_(-1.5, 6),
+    text-decoration: inherit,
+    text-transform: inherit
+  ),
+  headline2: (
+    font-size: 3.75rem, // 60sp
+    line-height: 3.75rem,
+    font-weight: $font-light,
+    letter-spacing: mdc-typography-get-letter-spacing_(-.5, 3.75),
+    text-decoration: inherit,
+    text-transform: inherit
+  ),
+  headline3: (
+    font-size: 3rem, // 48px
+    line-height: 3.125rem, // 50px
+    font-weight: $font-regular,
+    letter-spacing: normal,
+    text-decoration: inherit,
+    text-transform: inherit
+  ),
+  headline4: (
+    font-size: 2.125rem, // 34sp
+    line-height: 2.5rem, // 40sp
+    font-weight: $font-regular,
+    letter-spacing: mdc-typography-get-letter-spacing_(.25, 2.125),
+    text-decoration: inherit,
+    text-transform: inherit
+  ),
+  headline5: (
+    font-size: 1.5rem, // 24sp
+    line-height: 2rem, // 32sp
+    font-weight: $font-regular,
+    letter-spacing: normal,
+    text-decoration: inherit,
+    text-transform: inherit
+  ),
+  headline6: (
+    font-size: 1.25rem, // 20sp
+    line-height: 2rem, // 32sp
+    font-weight: $font-medium,
+    letter-spacing: mdc-typography-get-letter-spacing_(.25, 1.25),
+    text-decoration: inherit,
+    text-transform: inherit
+  ),
+  subtitle1: (
+    font-size: 1rem, // 16sp
+    line-height: 1.75rem, // 28sp
+    font-weight: $font-regular,
+    letter-spacing: mdc-typography-get-letter-spacing_(.15, 1),
+    text-decoration: inherit,
+    text-transform: inherit
+  ),
+  subtitle2: (
+    font-size: .875rem, // 14sp
+    line-height: 1.375rem, // 22sp
+    font-weight: $font-medium,
+    letter-spacing: mdc-typography-get-letter-spacing_(.1, .875),
+    text-decoration: inherit,
+    text-transform: inherit
+  ),
+  body1: (
+    font-size: 1rem, // 16sp
+    line-height: 1.5rem, // 24sp
+    font-weight: $font-regular,
+    letter-spacing: mdc-typography-get-letter-spacing_(.5, 1),
+    text-decoration: inherit,
+    text-transform: inherit
+  ),
+  body2: (
+    font-size: .875rem, // 14sp
+    line-height: 1.25rem, // 20sp
+    font-weight: $font-regular,
+    letter-spacing: mdc-typography-get-letter-spacing_(.25, .875),
+    text-decoration: inherit,
+    text-transform: inherit
+  ),
+  caption: (
+    font-size: .75rem, // 12sp
+    line-height: 1.25rem, // 20sp
+    font-weight: $font-regular,
+    letter-spacing: mdc-typography-get-letter-spacing_(.4, .75),
+    text-decoration: inherit,
+    text-transform: inherit
+  ),
+  button: (
+    font-size: .875rem, // 14sp
+    line-height: 2.25rem, // 36sp
+    font-weight: $font-medium,
+    letter-spacing: mdc-typography-get-letter-spacing_(1.25, .875),
+    text-decoration: none,
+    text-transform: uppercase
+  ),
+  overline: (
+    font-size: .75rem, // 12sp
+    line-height: 2rem, // 32sp
+    font-weight: $font-medium,
+    letter-spacing: mdc-typography-get-letter-spacing_(2, .75),
+    text-decoration: none,
+    text-transform: uppercase
+  ),
+) !default;
+
 $display4-size: $font-size-base * 8 !default; //Universal Material custom code
 $display3-size: $font-size-base * 4 !default; //Universal Material custom code
 $display2-size: $font-size-base * 3.21 !default; //Universal Material custom code
@@ -610,24 +721,23 @@ $vertical-step-space: 3rem !default;
 
 //Snackbar
 $snackbar-height: 3rem !default;
-$snackbar-horizontal-padding: 1.5rem !default;
+$snackbar-horizontal-padding: 1rem !default;
 $snackbar-background-color-light-theme: #323232 !default;
 $snackbar-background-color-dark-theme: #fafafa !default;
 $snackbar-text-vertical-margin: .75rem !default;
-$snackbar-text-color-light-theme: #fff !default;
+$snackbar-text-color-light-theme: rgba(255, 255, 255, .87) !default;
 $snackbar-text-color-dark-theme: $body-color-light-theme !default;
 $snackbar-font-size: $font-size-base !default;
 $snackbar-font-weight: $font-medium !default;
+$snackbar-margin: .5rem !default;
+$snackbar-btn-margin: .375rem .5rem !default;
 
 $snackbar-tablet-min-width: 18rem !default;
 $snackbar-tablet-max-width: 35.5rem !default;
+$snackbar-tabled-margin: 1.5rem !default;
 
-$snackbar-button-horizontal-padding: 1.5rem !default;
-$snackbar-button-tablet-left-margin: $snackbar-horizontal-padding !default;
+$snackbar-border-radius: .25rem !default;
 
-$snackbar-tablet-border-radius: .125rem !default;
-
-$uwp-snackbar-button-right-margin: .5rem !default;
 $uwp-snackbar-border-width: $uwp-border-width !default;
 $uwp-snackbar-border-color-light-theme: rgba(204, 204, 204, .54) !default;
 $uwp-snackbar-border-color-dark-theme: $color-low-contrast-light-theme !default;

@@ -1,0 +1,11 @@
+@mixin mdc-typography($style) {
+  $style-props: map-get($typography-styles, $style);
+
+  @if not map-has-key($typography-styles, $style) {
+    @error "Invalid style specified! #{$style} doesn't exist. Choose one of #{map-keys($typography-styles)}";
+  }
+
+  @each $key, $value in $style-props {
+    #{$key}: $value;
+  }
+}

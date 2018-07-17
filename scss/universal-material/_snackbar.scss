@@ -1,135 +1,74 @@
 @import "uwp/uwp-snackbar";
 
 .snackbar {
+  position: fixed;
+  right: $snackbar-margin;
+  bottom: $snackbar-margin;
+  left: $snackbar-margin;
+  z-index: $zindex-snackbar;
   display: flex;
   align-items: center;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
   min-height: $snackbar-height;
-
   font-size: $snackbar-font-size;
-  z-index: $zindex-snackbar;
-
+  border-radius: $snackbar-border-radius;
   animation-name: snackbar-fade-in;
   animation-duration: 450ms;
+  animation-timing-function: $awesome-cubic-bezier;
   animation-fill-mode: forwards;
-  //animation-timing-function: $awesome-cubic-bezier;
 
-  &.dismiss {
-    animation-name: snackbar-fade-out;
+  .btn {
+    margin: $snackbar-btn-margin;
+  }
+
+  &.snackbar-vertical {
+    flex-direction: column;
+    align-items: flex-end;
+
+    .snackbar-text {
+      align-self: flex-start;
+    }
   }
 }
 
 .snackbar-text {
-  margin: $snackbar-text-vertical-margin $snackbar-horizontal-padding;
-  font-weight: $snackbar-font-weight;
   flex: 1;
+  margin: $snackbar-text-vertical-margin $snackbar-horizontal-padding;
   overflow: hidden;
+  font-weight: $snackbar-font-weight;
 }
 
-.snackbar-button {
-  @extend .btn-flat;
-  border-radius: 0;
-  padding-left: $snackbar-button-horizontal-padding;
-  padding-right: $snackbar-button-horizontal-padding;
-
-  &, &:hover {
-    color: $accent-color;
-  }
-}
 
 @include media-breakpoint-up(md) {
   .snackbar {
-    left: 50%;
-    width: auto;
+    right: auto;
+    bottom: $snackbar-tabled-margin;
+    left: $snackbar-tabled-margin;
     min-width: $snackbar-tablet-min-width;
     max-width: $snackbar-tablet-max-width;
-    border-radius: $snackbar-tablet-border-radius;
-
-    animation-name: snackbar-centered-fade-in;
-
-    &.dismiss {
-      animation-name: snackbar-centered-fade-out;
-    }
-
-    &.snackbar-left {
-      bottom: $floating-content-padding;
-      left: $floating-content-padding;
-
-      animation-name: snackbar-left-fade-in;
-
-      &.dismiss {
-        animation-name: snackbar-left-fade-out;
-      }
-    }
-  }
-
-  .snackbar-button {
-    margin-left: $snackbar-button-tablet-left-margin;
   }
 }
 
 @keyframes snackbar-fade-in {
   0% {
-    transform: translate(0, 100%);
+    opacity: 0;
+    transform: scale3d(.5, .5, 1);
   }
 
   100% {
-    transform: translate(0, 0);
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
   }
 }
-
-
-@keyframes snackbar-centered-fade-in {
-  0% {
-    transform: translate(-50%, 100%);
-  }
-
-  100% {
-    transform: translate(-50%, 0);
-  }
-}
-
-@keyframes snackbar-left-fade-in {
-  0% {
-    transform: translate(0, 150%);
-  }
-
-  100% {
-    transform: translate(0, 0);
-  }
-}
-
 
 @keyframes snackbar-fade-out {
   0% {
-    transform: translate(0, 0);
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
   }
 
   100% {
-    transform: translate(0, 100%);
-  }
-}
-
-@keyframes snackbar-centered-fade-out {
-  0% {
-    transform: translate(-50%, 0);
-  }
-
-  100% {
-    transform: translate(-50%, 100%);
-  }
-}
-
-@keyframes snackbar-left-fade-out {
-  0% {
-    transform: translate(0, 0);
-  }
-
-  100% {
-    transform: translate(0, 150%);
+    opacity: 0;
+    transform: scale3d(.5, .5, 1);
   }
 }
 

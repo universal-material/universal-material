@@ -1,9 +1,9 @@
 extends ../layout
 
 block content
-  h1.chapter-title Chips
+  h4.headline4.chapter-title Chips
 
-  h2.article-title Simple chip
+  h5.headline5.article-title Simple chip
   .example-box
     .example-box-header
       .chip
@@ -30,7 +30,7 @@ block content
         = '  <div class="chip-label">John Doe</div>\n'
         = '</div>'
 
-  h2.article-title Chip with text and icon
+  h5.headline5.article-title Chip with text and icon
   .example-box
     .example-box-header
       .chip
@@ -77,7 +77,7 @@ block content
         = '  <div class="chip-remove"><i class="mdi mdi-close-circle"></i></div>\n'
         = '</div>'
 
-  h2.article-title Outlined chip
+  h5.headline5.article-title Outlined chip
   .example-box
     .example-box-header
       .chip.chip-outline
@@ -124,15 +124,17 @@ block content
         = '  <div class="chip-remove"><i class="mdi mdi-close-circle"></i></div>\n'
         = '</div>'
 
-  h2.article-title Selectable chip
+  h5.headline5.article-title Selectable chip
   .example-box
     .example-box-header
-      .chip.chip-selectable
+      .chip
+        .chip-hover
         .chip-avatar
         .chip-label John Doe
         .chip-remove
           i.mdi.mdi-close-circle
-      .chip.chip-selectable.chip-outline
+      .chip.chip-outline
+        .chip-hover
         .chip-avatar
         .chip-label John Doe
         .chip-remove
@@ -140,18 +142,20 @@ block content
 
     pre
       code.html
-        = '<div class="chip chip-selectable">\n'
+        = '<div class="chip">\n'
+        = '  <div class="chip-hover"></div>\n'
         = '  <div class="chip-avatar"></div>\n'
         = '  <div class="chip-label">John Doe</div>\n'
         = '  <div class="chip-remove"><i class="mdi mdi-close-circle"></i></div>\n'
         = '</div>\n'
-        = '<div class="chip chip-selectable chip-outline">\n'
+        = '<div class="chip chip-outline">\n'
+        = '  <div class="chip-hover"></div>\n'
         = '  <div class="chip-avatar"></div>\n'
         = '  <div class="chip-label">John Doe</div>\n'
         = '  <div class="chip-remove"><i class="mdi mdi-close-circle"></i></div>\n'
         = '</div>'
 
-  h2.article-title Chip in input
+  h5.headline5.article-title Chip in input
   .example-box
     .example-box-header
       .text-field
