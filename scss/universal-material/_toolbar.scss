@@ -1,6 +1,6 @@
 .toolbar {
-  width: 100%;
   z-index: 1;
+  width: 100%;
 }
 
 .toolbar-row {
@@ -25,8 +25,12 @@
 }
 
 .toolbar-icon {
-  width: $toolbar-icon-width;
-  min-width: $toolbar-icon-width;
+  margin-right: $toolbar-icon-margin;
+
+  &.btn-borderless {
+    margin-right: $toolbar-icon-margin - $toolbar-horizontal-padding / 2;
+    margin-left: -$toolbar-horizontal-padding / 2;
+  }
 }
 
 .toolbar-actions {

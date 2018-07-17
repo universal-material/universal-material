@@ -108,13 +108,7 @@
 
 @mixin button-flat-theme($buttons-colors, $dark-theme) {
 
-  $btn-flat-default-color: $body-color-light-theme;
-
-  @if ($dark-theme) {
-    $btn-flat-default-color: $body-color-dark-theme;
-  }
-
-  @each $color, $value in map-merge($buttons-colors, (default: $btn-flat-default-color)) {
+  @each $color, $value in map-merge($buttons-colors, (default: inherit)) {
     .btn-flat.btn-#{$color} {
       @include button-flat-variant($value);
     }
@@ -123,12 +117,10 @@
 
 @mixin button-borderless-theme($buttons-colors, $dark-theme) {
 
-  $btn-flat-default-color: $body-color-light-theme;
   $btn-borderless-color: $btn-borderless-color-light-theme;
   $btn-disabled-color: $btn-disabled-color-light-theme;
 
   @if ($dark-theme) {
-    $btn-flat-default-color: $body-color-dark-theme;
     $btn-borderless-color: $btn-borderless-color-dark-theme;
     $btn-disabled-color: $btn-disabled-color-dark-theme;
   }
@@ -140,12 +132,6 @@
   }
 
   .btn-borderless {
-    color: $btn-borderless-color;
-
-    @include hover-focus {
-      color: $btn-borderless-color;
-    }
-
     &:disabled,
     &.disabled {
       color: $btn-disabled-color !important;

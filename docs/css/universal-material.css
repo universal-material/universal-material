@@ -4340,8 +4340,8 @@ mark,
   right: -0.625rem; }
 
 .toolbar, .data-table-footer {
-  width: 100%;
-  z-index: 1; }
+  z-index: 1;
+  width: 100%; }
 
 .toolbar-row {
   display: -webkit-box;
@@ -4372,8 +4372,10 @@ mark,
   font-size: 1.5rem; }
 
 .toolbar-icon {
-  width: 3.5rem;
-  min-width: 3.5rem; }
+  margin-right: 2rem; }
+  .toolbar-icon.btn-borderless {
+    margin-right: 1.5rem;
+    margin-left: -0.5rem; }
 
 .toolbar-actions {
   display: -webkit-box;
@@ -4900,19 +4902,15 @@ mark,
   .card-media-content .subtitle {
     color: #fff !important; }
   .card-media-content .btn-flat.btn-default, .card-media-content .btn-default.btn-outline {
-    color: #fff; }
+    color: inherit; }
     .card-media-content .btn-flat.btn-default:hover, .card-media-content .btn-default.btn-outline:hover, .card-media-content .btn-flat.btn-default:focus, .card-media-content .btn-default.btn-outline:focus {
-      color: #fff; }
+      color: inherit; }
   .card-media-content .btn-borderless.btn-default {
     color: #fff; }
     .card-media-content .btn-borderless.btn-default:hover, .card-media-content .btn-borderless.btn-default:focus {
       color: #fff; }
-  .card-media-content .btn-borderless {
-    color: #fff; }
-    .card-media-content .btn-borderless:hover, .card-media-content .btn-borderless:focus {
-      color: #fff; }
-    .card-media-content .btn-borderless:disabled, .card-media-content .btn-borderless.disabled {
-      color: rgba(255, 255, 255, 0.3) !important; }
+  .card-media-content .btn-borderless:disabled, .card-media-content .btn-borderless.disabled {
+    color: rgba(255, 255, 255, 0.3) !important; }
 
 .card-body {
   padding-right: 1rem;
@@ -6678,9 +6676,9 @@ input,
   border-color: rgba(0, 0, 0, 0.12); }
 
 .btn-flat.btn-default, .btn-default.btn-outline {
-  color: rgba(0, 0, 0, 0.87); }
+  color: inherit; }
   .btn-flat.btn-default:hover, .btn-default.btn-outline:hover, .btn-flat.btn-default:focus, .btn-default.btn-outline:focus {
-    color: rgba(0, 0, 0, 0.87); }
+    color: inherit; }
 
 .btn-flat.btn-primary, .btn-primary.btn-outline {
   color: #563d7c; }
@@ -6717,12 +6715,8 @@ input,
   .btn-borderless.btn-danger:hover, .btn-borderless.btn-danger:focus {
     color: #ef5350; }
 
-.btn-borderless {
-  color: rgba(0, 0, 0, 0.54); }
-  .btn-borderless:hover, .btn-borderless:focus {
-    color: rgba(0, 0, 0, 0.54); }
-  .btn-borderless:disabled, .btn-borderless.disabled {
-    color: rgba(0, 0, 0, 0.26) !important; }
+.btn-borderless:disabled, .btn-borderless.disabled {
+  color: rgba(0, 0, 0, 0.26) !important; }
 
 .bg-primary {
   background-color: #563d7c !important; }
@@ -7053,12 +7047,8 @@ input {
     color: #fff; }
     .toolbar-primary .btn-borderless.btn-default:hover, .toolbar-primary .btn-borderless.btn-default:focus {
       color: #fff; }
-  .toolbar-primary .btn-borderless {
-    color: #fff; }
-    .toolbar-primary .btn-borderless:hover, .toolbar-primary .btn-borderless:focus {
-      color: #fff; }
-    .toolbar-primary .btn-borderless:disabled, .toolbar-primary .btn-borderless.disabled {
-      color: rgba(255, 255, 255, 0.3) !important; }
+  .toolbar-primary .btn-borderless:disabled, .toolbar-primary .btn-borderless.disabled {
+    color: rgba(255, 255, 255, 0.3) !important; }
 
 .text-primary {
   color: #563d7c !important; }
