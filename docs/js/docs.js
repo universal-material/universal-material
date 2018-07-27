@@ -44,10 +44,12 @@
             };
 
             window.addEventListener(releaseEventName, release);
+            rippleContainer.addEventListener("dragover", release);
 
             ripple.addEventListener('transitionend', function () {
                 if (ripple.classList.contains('dismiss')) {
                     rippleContainer.removeChild(rippleWrapper);
+                    rippleContainer.removeEventListener("dragover", release);
                     window.removeEventListener(releaseEventName, release)
                 }
             });
@@ -79,7 +81,6 @@
             var isTouching = false;
 
             rippleContainer.addEventListener('mousedown', function (e) {
-                e.preventDefault();
                 if (!isTouching) {
                     createRipple(rippleContainer, 'mouseup', null, e.clientX, e.clientY);
                 }
