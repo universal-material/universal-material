@@ -78,7 +78,7 @@
 
     .toolbar-primary {
       @include toolbar-variant($theme-colors, $toolbar-primary);
-      @include button-borderless-theme((), $dark-background);
+      //@include button-borderless-theme((), $dark-background);
     }
   }
 }

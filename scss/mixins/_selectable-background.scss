@@ -20,11 +20,11 @@
   }
 
   &:hover::before {
-    opacity: .12;
+    opacity: .08;
   }
 
   &:active::before {
-    opacity: .2;
+    opacity: .12;
   }
 }
 

@@ -79,12 +79,12 @@
   min-width: $list-icon-size;
   line-height: $list-item-font-size;
 }
-
-.list-item-icon.btn-borderless {
-  width: $btn-borderless-size;
-  margin-top: -$list-item-padding / 2;
-  margin-bottom: -$list-item-padding / 2;
-}
+//
+//.list-item-icon.btn-borderless {
+//  width: $btn-borderless-size;
+//  margin-top: -$list-item-padding / 2;
+//  margin-bottom: -$list-item-padding / 2;
+//}
 
 .list-item-icon + .list-item-primary-content {
   margin-left: $list-icon-avatar-text-left-distance - $list-icon-size - $list-item-padding;

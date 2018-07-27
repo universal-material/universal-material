@@ -9,7 +9,7 @@
   overflow: hidden;
   border-radius: $dropdown-menu-border-radius;
   opacity: 0;
-  transition: transform 350ms $awesome-cubic-bezier 350ms, opacity 250ms;
+  transition: transform 350ms $awesome-cubic-bezier 350ms, opacity 350ms;
   transform: scale3d(0, 0, 1);
   transform-origin: top left;
 

@@ -1,0 +1,35 @@
+$btn-disabled-background-light-theme: rgba(0, 0, 0, .12) !default;
+$btn-disabled-background-dark-theme: rgba(255, 255, 255, .12) !default;
+$btn-disabled-color-light-theme: rgba(0, 0, 0, .26) !default;
+$btn-disabled-color-dark-theme: rgba(255, 255, 255, .3) !default;
+$btn-side-padding: 1rem !default;
+$btn-height: 2.25rem !default;
+$btn-border-radius: .125rem !default;
+$btn-font-size: $font-size-base !default;
+$btn-font-weight: $font-medium !default;
+$btn-default-background-light: $white !default;
+$btn-default-background-dark: $gray-800 !default;
+
+$floating-action-area-margin: 1.25rem !default;
+$floating-button-size: 3.5rem !default;
+$floating-button-small-size: 2.5rem !default;
+$floating-button-icon-size: $base-icon-size !default;
+
+$btn-borderless-color-light-theme: $text-low-contrast-light-theme !default;
+$btn-borderless-color-dark-theme: $white !default;
+$btn-borderless-font-size: $base-icon-size !default;
+$btn-borderless-margin: .5rem !default;
+$btn-borderless-size: 2.5rem !default;
+
+$btn-outline-border-width: .0625rem !default;
+$btn-outline-gray-border-color-light-theme: rgba(0, 0, 0, .12) !default;
+$btn-outline-gray-border-color-dark-theme: rgba(255, 255, 255, .12) !default;
+
+$btn-icon-size: 1.125rem !default;
+
+$uwp-btn-border-radius: 0 !default;
+$uwp-btn-hover-border-width: $uwp-border-width !default;
+$uwp-btn-active-background-color-light-theme: $color-low-contrast-light-theme !default;
+$uwp-btn-active-background-color-dark-theme: rgba(204, 204, 204, .54) !default;
+$uwp-btn-flat-active-background-color-light-theme: $hover-background-light-theme !default;
+$uwp-btn-flat-active-background-color-dark-theme: $uwp-btn-active-background-color-dark-theme !default;

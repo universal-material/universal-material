@@ -188,14 +188,15 @@ input,
   display: flex;
   flex-direction: column;
   padding: 0;
-  overflow: hidden;
-  border-radius: $text-field-box-border-radius;
+  border-top-left-radius: $text-field-box-border-radius;
+  border-top-right-radius: $text-field-box-border-radius;
 
   @extend .floating-label;
 
   label {
-    padding-right: $text-field-box-padding;
-    padding-left: $text-field-box-padding;
+    padding-top: $text-field-box-label-padding-top;
+    padding-right: $text-field-box-padding-sides;
+    padding-left: $text-field-box-padding-sides;
     font-weight: $text-field-box-label-font-weight;
     line-height: $text-field-box-label-line-height;
     transform: translate3d(0, $text-field-box-label-transform, 0);
@@ -212,9 +213,7 @@ input,
   }
 
   .text-input {
-    padding-right: $text-field-box-padding;
-    padding-bottom: $text-input-dense-padding-bottom;
-    padding-left: $text-field-box-padding;
+    padding: $text-field-box-input-padding-top $text-field-box-padding-sides $text-field-box-input-padding-bottom;
     margin-bottom: 0;
     border-width: $text-field-box-border-width;
   }

@@ -1,7 +1,9 @@
+@import "variables";
+
 .floating-action-area {
   position: fixed;
-  right: $floating-content-padding;
-  bottom: $floating-content-padding;
+  right: $floating-action-area-margin;
+  bottom: $floating-action-area-margin;
 }
 
 .btn-floating {

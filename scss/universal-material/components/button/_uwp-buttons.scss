@@ -1,0 +1,46 @@
+@mixin uwp-button($dark-theme) {
+
+  $btn-active-background-color: $uwp-btn-active-background-color-light-theme;
+  $btn-flat-active-background-color: $uwp-btn-flat-active-background-color-light-theme;
+
+  @if ($dark-theme) {
+    $btn-active-background-color: $uwp-btn-active-background-color-dark-theme;
+    $btn-flat-active-background-color: $uwp-btn-flat-active-background-color-dark-theme;
+  }
+
+  .btn {
+    box-shadow: none;
+
+    &,
+    &::before {
+      border-radius: $uwp-btn-border-radius !important;
+    }
+
+    //&::before {
+    //  transition: none !important;
+    //}
+
+    &:hover:not(:disabled):not(.disabled) {
+      box-shadow: 0 0 0 $uwp-btn-hover-border-width $btn-active-background-color inset;
+    }
+  }
+
+  .btn-flat,
+  .btn-borderless {
+    &:hover:not(:disabled):not(.disabled) {
+      box-shadow: 0 0 0 $uwp-btn-hover-border-width currentColor inset;
+    }
+  }
+
+  .btn-outline {
+    &:hover:not(:disabled):not(.disabled) {
+      box-shadow: 0 0 0 $uwp-btn-hover-border-width - $btn-outline-border-width currentColor inset;
+    }
+  }
+
+  .btn-outline-gray-border {
+    &:hover:not(:disabled):not(.disabled) {
+      box-shadow: 0 0 0 $uwp-btn-hover-border-width $btn-active-background-color inset;
+    }
+  }
+}

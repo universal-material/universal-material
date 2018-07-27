@@ -10,11 +10,11 @@
 
 @import "universal-material/badge";
 @import "universal-material/toolbar";
-@import "universal-material/buttons";
+@import "universal-material/components/button/buttons";
+@import "universal-material/components/button/floating-action-button";
 @import "universal-material/button-group";
 @import "universal-material/checkbox";
-@import "universal-material/floating-action-button";
-@import "universal-material/card";
+@import "universal-material/components/card/card";
 @import "universal-material/dialog";
 @import "universal-material/expansion-panel";
 @import "universal-material/dropdown";

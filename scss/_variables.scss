@@ -276,10 +276,10 @@ $base-semi-transparent-color: rgba(0, 0, 0, .12) !default;
 $base-hover-background-color: $base-semi-transparent-color !default;
 $base-active-background-color: rgba(0, 0, 0, .2) !default;
 
-$hover-background-light-theme: rgba(0, 0, 0, .12) !default;
+$hover-background-light-theme: rgba(0, 0, 0, .06) !default;
 $hover-background-dark-theme: rgba(204, 204, 204, .1) !default;
 
-$focus-background-light-theme: rgba(0, 0, 0, .2) !default;
+$focus-background-light-theme: rgba(0, 0, 0, .12) !default;
 $focus-background-dark-theme: rgba(204, 204, 204, .25) !default;
 
 //$base-dense-color: rgba(0, 0, 0, 0.87) !default;
@@ -335,39 +335,9 @@ $badge-position: -.625rem !default;
 $badge-font-size: .75rem !default;
 $badge-font-weight: $font-medium !default;
 
-//Card
-$card-small-title-font-size: $font-size-base !default;
-$card-large-title-font-size: 1.5rem !default;
-
-$card-subtitle-color-light-theme: $text-low-contrast-light-theme !default;
-$card-subtitle-color-dark-theme: $white !default;
-
-$card-subtitle-font-size: $font-size-base !default;
-$card-subtitle-font-weight: $font-medium !default;
-$card-subtitle-margin: .75rem !default;
-
-$card-side-padding: 1rem !default;
-$card-base-small-vertical-padding: 1rem !default;
-$card-base-large-vertical-padding: 1.5rem !default;
-
-$card-base-small-vertical-padding: 1rem !default;
-$card-base-bottom-padding: 1.5rem !default;
-
-$card-body-top-padding: $card-base-small-vertical-padding !default;
-$card-body-bottom-padding: $card-base-bottom-padding !default;
-
-$card-border-radius: .25rem !default;
-$card-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12) !default;
-$card-actions-padding: .5rem !default;
-
-$card-bg-light-theme: #fff !default;
-$card-bg-dark-theme: #424242 !default;
-
-$card-outline-border: .0625rem solid rgba(0, 0, 0, .12) !default;
-
 //Expansion panel
 $expansion-panel-divider-width: .0625rem !default;
-$expansion-panel-border-radius: $card-border-radius !default;
+$expansion-panel-border-radius: .25rem !default;
 
 $expansion-panel-label-height: 3rem !default;
 $expansion-panel-label-font-size: .9375rem !default;
@@ -389,7 +359,7 @@ $dialog-background-dark-theme: #424242 !default;
 $uwp-dialog-border-width: .0625rem !default;
 
 //Dropdown
-$dropdown-menu-border-radius: .125rem !default;
+$dropdown-menu-border-radius: .25rem !default;
 $dropdown-menu-padding: .5rem !default;
 $dropdown-menu-bg-light-theme: #fff !default;
 $dropdown-menu-bg-dark-theme: #424242 !default;
@@ -417,10 +387,6 @@ $uwp-dropdown-border-color-dark-theme: rgba(204, 204, 204, .54) !default;
 $dropdown-item-dense-height: 2rem !default;
 $dropdown-item-dense-padding: 1.5rem !default;
 $dropdown-item-dense-font-size: .9375rem !default;
-
-
-//Floating content
-$floating-content-padding: 1.25rem !default;
 
 //Chip
 $chip-height: 2rem !default;
@@ -478,43 +444,6 @@ $data-table-content-font-weight: $font-medium !default;
 //Divider
 $divider-height: .0625rem !default;
 $divider-color: $base-semi-transparent-color !default;
-
-//Buttons
-$btn-disabled-background-light-theme: rgba(0, 0, 0, .12) !default;
-$btn-disabled-background-dark-theme: rgba(255, 255, 255, .12) !default;
-$btn-disabled-color-light-theme: rgba(0, 0, 0, .26) !default;
-$btn-disabled-color-dark-theme: rgba(255, 255, 255, .3) !default;
-$btn-side-padding: 1rem !default;
-$btn-height: 2.25rem !default;
-$btn-border-radius: .125rem !default;
-$btn-font-size: $font-size-base !default;
-$btn-font-weight: $font-medium !default;
-$btn-default-background-light: $white !default;
-$btn-default-background-dark: $gray-800 !default;
-
-$floating-button-size: 3.5rem !default;
-$floating-button-small-size: 2.5rem !default;
-$floating-button-icon-size: $base-icon-size !default;
-
-$btn-borderless-color-light-theme: $text-low-contrast-light-theme !default;
-$btn-borderless-color-dark-theme: $white !default;
-$btn-borderless-font-size: $base-icon-size !default;
-$btn-borderless-margin: .5rem !default;
-$btn-borderless-size: 2.5rem !default;
-
-$btn-outline-border-width: .0625rem !default;
-$btn-outline-gray-border-color-light-theme: rgba(0, 0, 0, .12) !default;
-$btn-outline-gray-border-color-dark-theme: rgba(255, 255, 255, .12) !default;
-
-$btn-icon-size: 1.125rem !default;
-
-//UWP Buttons
-$uwp-btn-border-radius: 0 !default;
-$uwp-btn-hover-border-width: $uwp-border-width !default;
-$uwp-btn-active-background-color-light-theme: $color-low-contrast-light-theme !default;
-$uwp-btn-active-background-color-dark-theme: rgba(204, 204, 204, .54) !default;
-$uwp-btn-flat-active-background-color-light-theme: $hover-background-light-theme !default;
-$uwp-btn-flat-active-background-color-dark-theme: $uwp-btn-active-background-color-dark-theme !default;
 
 //Buttons dense
 $btn-dense-font-size: .8125rem !default;
@@ -614,11 +543,15 @@ $text-field-elevated-height: 3rem !default;
 $text-field-label-padding-top: $text-field-item-margin !default;
 
 $text-field-box-border-radius: .25rem !default;
-$text-field-box-padding: 1rem !default;
+$text-field-box-label-padding-top: .6875rem !default;
+$text-field-box-label-padding-bottom: .25rem !default;
+$text-field-box-padding-sides: .75rem !default;
+$text-field-box-input-padding-top: .25rem !default;
+$text-field-box-input-padding-bottom: .625rem !default;
 $text-field-box-border-width: .125rem !default;
-$text-field-box-label-transform: 1.25rem - $text-field-item-margin !default;
+$text-field-box-label-transform: 1.3125rem - $text-field-item-margin !default;
 $text-field-box-label-font-weight: $font-medium !default;
-$text-field-box-label-line-height: .9375rem !default;
+$text-field-box-label-line-height: .75rem !default;
 
 $text-area-border-radius: .25rem !default;
 $text-area-border-width: .0625rem !default;
@@ -630,9 +563,9 @@ $text-area-hover-focus-top-padding: $text-area-top-base-padding - $text-area-den
 $text-area-bottom-base-padding: $text-field-item-margin !default;
 $text-area-bottom-padding: $text-area-bottom-base-padding - $text-area-border-width !default;
 $text-area-hover-focus-bottom-padding: $text-area-bottom-base-padding - $text-area-dense-border-width !default;
-$text-area-horizontal-base-padding: $text-field-box-padding !default;
-$text-area-horizontal-padding: $text-field-box-padding - $text-area-border-width !default;
-$text-area-hover-focus-horizontal-padding: $text-field-box-padding - $text-area-dense-border-width !default;
+$text-area-horizontal-base-padding: $text-field-box-label-padding-top !default;
+$text-area-horizontal-padding: $text-field-box-label-padding-top - $text-area-border-width !default;
+$text-area-hover-focus-horizontal-padding: $text-field-box-label-padding-top - $text-area-dense-border-width !default;
 
 $text-input-color-light-theme: $text-high-contrast-light-theme !default;
 $text-input-color-dark-theme: $text-high-contrast-dark-theme !default;

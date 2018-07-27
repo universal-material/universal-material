@@ -24,7 +24,7 @@
     }
 
     function initializeRipples() {
-        var rippleContainers = document.querySelectorAll('.btn, .btn-flat, .btn-borderless, .btn-solid, .btn-raised, .btn-outline, .list-hover .list-item, .list-item .list-item-hover, .tab, .selection-control, .chip-remove, .chip-hover');
+        var rippleContainers = document.querySelectorAll('.btn, .btn-flat, .btn-borderless, .btn-solid, .btn-raised, .btn-outline, .list-hover .list-item, .list-item .list-item-hover, .tab, .selection-control, .chip-remove, .chip-hover, .dropdown-item');
 
         function createRipple(rippleContainer, releaseEventName, releaseCallback, pageX, pageY) {
             var rippleWrapper = document.createElement('DIV');

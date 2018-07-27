@@ -1,4 +1,5 @@
-@import "uwp/uwp-buttons";
+@import "variables";
+@import "uwp-buttons";
 
 .btn {
   @extend .button;
@@ -9,6 +10,7 @@
   height: $btn-height; //Universal Material custom code
   padding: 0 $btn-side-padding; //Universal Material custom code
   overflow: hidden;
+  color: inherit;
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;

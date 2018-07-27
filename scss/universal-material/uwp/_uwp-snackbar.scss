@@ -1,27 +1,27 @@
 @mixin uwp-snackbar($dark-theme) {
-  $uwp-snackbar-border-color: $uwp-snackbar-border-color-light-theme;
-
-  @if ($dark-theme) {
-
-    $uwp-snackbar-border-color: $uwp-snackbar-border-color-dark-theme;
-  }
-
-  .snackbar {
-    border-radius: 0;
-    &::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      border: $uwp-snackbar-border-width solid $uwp-snackbar-border-color;
-    }
-  }
-
-  .snackbar-button {
-    &:last-child {
-      margin-right: $uwp-snackbar-button-right-margin
-    }
-  }
+  //$uwp-snackbar-border-color: $uwp-snackbar-border-color-light-theme;
+  //
+  //@if ($dark-theme) {
+  //
+  //  $uwp-snackbar-border-color: $uwp-snackbar-border-color-dark-theme;
+  //}
+  //
+  //.snackbar {
+  //  border-radius: 0;
+  //  &::before {
+  //    content: "";
+  //    position: absolute;
+  //    left: 0;
+  //    top: 0;
+  //    right: 0;
+  //    bottom: 0;
+  //    border: $uwp-snackbar-border-width solid $uwp-snackbar-border-color;
+  //  }
+  //}
+  //
+  //.snackbar-button {
+  //  &:last-child {
+  //    margin-right: $uwp-snackbar-button-right-margin
+  //  }
+  //}
 }

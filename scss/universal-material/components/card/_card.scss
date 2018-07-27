@@ -1,0 +1,90 @@
+@import "variables";
+@import "uwp-card";
+
+.card {
+  border-radius: $card-border-radius;
+  box-shadow: $card-shadow;
+
+  &.selectable-background::before {
+    border-radius: $card-border-radius;
+  }
+}
+
+.card-outline {
+  border: $card-outline-border;
+  box-shadow: none;
+}
+
+.card-media {
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  &:first-child {
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+  }
+
+  &:last-child {
+    border-bottom-right-radius: inherit;
+    border-bottom-left-radius: inherit;
+  }
+}
+
+.card-media-square {
+  padding-bottom: 100%;
+}
+
+.card-media-wide {
+  padding-bottom: 56.25%;
+}
+
+.card-media-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: #fff;
+  background-color: rgba(0, 0, 0, .6);
+  border-bottom-right-radius: inherit;
+  border-bottom-left-radius: inherit;
+}
+
+.card-content {
+  padding: $card-base-small-vertical-padding $card-side-padding;
+}
+
+.card-actions {
+  padding: $card-actions-padding;
+
+  .btn + .btn {
+    margin-left: $card-actions-padding;
+  }
+}
+
+@mixin card-theme($theme) {
+
+  $dark-theme: map-get($theme, "dark");
+  $uwp-style: map-get($theme, "uwp-style");
+
+  $background-color: $card-bg-light-theme;
+
+  @if ($dark-theme) {
+    $background-color: $card-bg-dark-theme;
+  }
+
+  .card {
+    background-color: $background-color;
+  }
+
+  @if ($uwp-style) {
+    @include uwp-card;
+
+    @if (mixin_exists(uwp-button)) {
+      .card-media-content {
+        @include uwp-button(true);
+      }
+    }
+  }
+}
