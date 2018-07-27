@@ -18,13 +18,14 @@
   left: 50%;
   background: currentColor;
   border-radius: 50%;
+  box-shadow: 0 0 4rem 4rem currentColor;
   opacity: .2;
   transform: scale3d(0, 0, 1);
   will-change: transform;
 }
 
 .ripple.show {
-  transition: transform 1.5s $awesome-cubic-bezier, opacity 750ms;
+  transition: transform 3s $awesome-cubic-bezier, opacity 750ms;
   transform: scale3d(1, 1, 1);
 }
 

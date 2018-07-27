@@ -1,19 +1,21 @@
 @import "../../scss/variables";
 
 .sidebar {
-  border-right: 1px solid rgba(0, 0, 0, 0.12);
+  height: 100%;
+  overflow: auto;
+  border-right: 1px solid rgba(0, 0, 0, .12);
 }
 
 .sidebar .toolbar {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.12)
+  border-bottom: 1px solid rgba(0, 0, 0, .12);
 }
 
 .example-box {
   display: flex;
   flex-direction: column;
-  background: $gray-300;
-  overflow: auto;
   padding: .5rem;
+  overflow: auto;
+  background: $gray-300;
 
   .toolbar {
     background: $gray-300;
@@ -21,9 +23,9 @@
 }
 
 .example-box-header {
-  background: $gray-100;
   padding: 1rem;
   margin-bottom: .5rem;
+  background: $gray-100;
 }
 
 .limited-height {
@@ -32,7 +34,7 @@
 }
 
 .example-box .chip-avatar {
-  background: rgba(0,0,0,.54);
+  background: rgba(0, 0, 0, .54);
 }
 
 .example-step-content {
@@ -48,7 +50,7 @@
   }
 
   .toolbar {
-    background-color: white;
+    background-color: #fff;
   }
 }
 
@@ -58,29 +60,26 @@
 
 .card-media,
 .card-media-wide {
-  background: url(../img/card-media-background.jpg);
+  background: url("http://via.placeholder.com/640x400") center;
   background-size: cover;
 }
 
-.sidebar {
-  overflow: auto;
-  height: 100%;
-}
-
-.chapter, .article-title {
+.chapter,
+.article-title {
   margin-top: 80px;
 }
 
-.chapter-title, .article-title {
+.chapter-title,
+.article-title {
+  margin-bottom: 48px;
   font-size: 2rem;
   font-weight: 400;
-  margin-bottom: 48px;
-  color: $primary-color; 
+  color: $primary-color;
 }
 
 .article-title {
-  font-size: 1.5rem;
   margin-bottom: 1rem;
+  font-size: 1.5rem;
 }
 
 pre {

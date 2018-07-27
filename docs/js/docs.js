@@ -41,17 +41,18 @@
                 if (releaseCallback) {
                     releaseCallback();
                 }
-                console.log('released');
             };
 
-            requestAnimationFrame(function () {
-                ripple.addEventListener('transitionend', function () {
-                    if (ripple.classList.contains('dismiss')) {
-                        rippleContainer.removeChild(rippleWrapper);
-                        window.removeEventListener(releaseEventName, release)
-                    }
-                });
+            window.addEventListener(releaseEventName, release);
 
+            ripple.addEventListener('transitionend', function () {
+                if (ripple.classList.contains('dismiss')) {
+                    rippleContainer.removeChild(rippleWrapper);
+                    window.removeEventListener(releaseEventName, release)
+                }
+            });
+
+            requestAnimationFrame(function () {
                 var clientRect = rippleContainer.getBoundingClientRect();
                 var largestDimensionSize = Math.max(rippleWrapper.clientWidth, rippleWrapper.clientHeight);
                 var rippleSize = largestDimensionSize * 2;
@@ -59,14 +60,13 @@
                 ripple.style.height = rippleSize + 'px';
                 ripple.style.marginLeft = -rippleSize / 2 + 'px';
                 ripple.style.marginTop = -rippleSize / 2 + 'px';
+                ripple.style.transitionDuration = (1080 * Math.pow(rippleSize,0.3)) + 'ms, 750ms';
 
                 var x = (pageX - clientRect.left) + ((rippleSize - rippleContainer.clientWidth) / 2);
                 var y = (pageY - clientRect.top) + ((rippleSize - rippleContainer.clientHeight) / 2);
 
                 ripple.style.transformOrigin = x + "px " + y + "px"
                 ripple.classList.add('show');
-
-                window.addEventListener(releaseEventName, release);
             });
         }
 
@@ -79,13 +79,13 @@
             var isTouching = false;
 
             rippleContainer.addEventListener('mousedown', function (e) {
+                e.preventDefault();
                 if (!isTouching) {
-                    createRipple(rippleContainer, 'mouseup', null, e.pageX, e.pageY);
+                    createRipple(rippleContainer, 'mouseup', null, e.clientX, e.clientY);
                 }
             });
 
             rippleContainer.addEventListener('touchstart', function (e) {
-                console.log(e);
                 e.cancelBubble = true;
                 e.returnValue = false;
 

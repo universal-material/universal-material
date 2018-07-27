@@ -3857,7 +3857,8 @@ h6, .h6 {
   text-decoration: inherit;
   text-transform: inherit; }
 
-.button {
+.button, .btn, .btn-flat, .btn-outline,
+.btn-solid, .btn-raised, .btn-floating, .btn-borderless {
   font-size: 0.875rem;
   line-height: 2.25rem;
   font-weight: 500;
@@ -4413,14 +4414,11 @@ mark,
           justify-content: center;
   height: 2.25rem;
   padding: 0 1rem;
-  z-index: 1;
-  font-size: 0.875rem;
-  font-weight: 500;
+  overflow: hidden;
   text-align: center;
-  text-transform: uppercase;
   white-space: nowrap;
   vertical-align: middle;
-  overflow: hidden;
+  cursor: pointer;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -4428,8 +4426,7 @@ mark,
   background: transparent;
   border: none;
   border-radius: 0.125rem;
-  position: relative;
-  z-index: 1; }
+  position: relative; }
   .btn::before, .btn-flat::before, .btn-outline::before,
   .btn-solid::before, .btn-raised::before, .btn-floating::before, .btn-borderless::before {
     position: absolute;
@@ -4437,7 +4434,6 @@ mark,
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: -1;
     content: "";
     background: currentColor;
     border-radius: 0;
@@ -4462,6 +4458,10 @@ mark,
   .btn-solid:active, .btn-raised:active, .btn-floating:active, .btn-borderless:active, .btn.active, .active.btn-flat, .active.btn-outline,
   .active.btn-solid, .active.btn-raised, .active.btn-floating, .active.btn-borderless {
     background-image: none; }
+  .btn.disabled, .disabled.btn-flat, .disabled.btn-outline,
+  .disabled.btn-solid, .disabled.btn-raised, .disabled.btn-floating, .disabled.btn-borderless, .btn:disabled, .btn-flat:disabled, .btn-outline:disabled,
+  .btn-solid:disabled, .btn-raised:disabled, .btn-floating:disabled, .btn-borderless:disabled {
+    cursor: default; }
 
 .btn-outline {
   border: 0.0625rem solid currentColor; }
@@ -4658,8 +4658,7 @@ mark,
   .checkbox .selection-control,
   .radio .selection-control,
   .switch .selection-control {
-    position: relative;
-    z-index: 1; }
+    position: relative; }
     .checkbox .selection-control::before,
     .radio .selection-control::before,
     .switch .selection-control::before {
@@ -4668,7 +4667,6 @@ mark,
       right: 0;
       bottom: 0;
       left: 0;
-      z-index: -1;
       content: "";
       background: currentColor;
       border-radius: 50%;
@@ -5360,15 +5358,13 @@ mark,
   padding-left: 0.75rem;
   margin-right: -0.75rem;
   margin-left: -0.75rem;
-  position: relative;
-  z-index: 1; }
+  position: relative; }
   .tab::before {
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: -1;
     content: "";
     background: currentColor;
     border-radius: inherit;
@@ -6482,15 +6478,13 @@ input,
   cursor: pointer;
   width: 1.125rem;
   height: 1.125rem;
-  position: relative;
-  z-index: 1; }
+  position: relative; }
   .chip-remove::before {
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: -1;
     content: "";
     background: currentColor;
     border-radius: inherit;
@@ -6515,7 +6509,6 @@ input,
 
 .chip-hover {
   position: relative;
-  z-index: 1;
   position: absolute;
   top: 0;
   right: 0;
@@ -6529,7 +6522,6 @@ input,
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: -1;
     content: "";
     background: currentColor;
     border-radius: inherit;
@@ -6567,16 +6559,18 @@ input,
   left: 50%;
   background: currentColor;
   border-radius: 50%;
+  -webkit-box-shadow: 0 0 4rem 4rem currentColor;
+          box-shadow: 0 0 4rem 4rem currentColor;
   opacity: .2;
   -webkit-transform: scale3d(0, 0, 1);
           transform: scale3d(0, 0, 1);
   will-change: transform; }
 
 .ripple.show {
-  -webkit-transition: opacity 750ms, -webkit-transform 1.5s cubic-bezier(0.19, 1, 0.22, 1);
-  transition: opacity 750ms, -webkit-transform 1.5s cubic-bezier(0.19, 1, 0.22, 1);
-  transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1), opacity 750ms;
-  transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1), opacity 750ms, -webkit-transform 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+  -webkit-transition: opacity 750ms, -webkit-transform 3s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: opacity 750ms, -webkit-transform 3s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: transform 3s cubic-bezier(0.19, 1, 0.22, 1), opacity 750ms;
+  transition: transform 3s cubic-bezier(0.19, 1, 0.22, 1), opacity 750ms, -webkit-transform 3s cubic-bezier(0.19, 1, 0.22, 1);
   -webkit-transform: scale3d(1, 1, 1);
           transform: scale3d(1, 1, 1); }
 
@@ -6600,15 +6594,13 @@ input,
   background-color: #2d2d2d; }
 
 .selectable-background {
-  position: relative;
-  z-index: 1; }
+  position: relative; }
   .selectable-background::before {
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: -1;
     content: "";
     background: currentColor;
     border-radius: inherit;

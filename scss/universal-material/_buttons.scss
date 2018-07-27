@@ -1,21 +1,18 @@
 @import "uwp/uwp-buttons";
 
 .btn {
-
+  @extend .button;
   position: relative; //Universal Material custom code
   display: inline-flex;
   align-items: center;
   justify-content: center;
   height: $btn-height; //Universal Material custom code
   padding: 0 $btn-side-padding; //Universal Material custom code
-  z-index: 1; //Universal Material custom code
-  font-size: $btn-font-size;
-  font-weight: $btn-font-weight;
+  overflow: hidden;
   text-align: center;
-  text-transform: uppercase; //Universal Material custom code
   white-space: nowrap;
   vertical-align: middle;
-  overflow: hidden;
+  cursor: pointer;
   user-select: none;
   background: transparent; //Universal Material custom code
   border: none; //Universal Material custom code
@@ -39,6 +36,11 @@
   &.active {
     background-image: none;
     //@include box-shadow($btn-focus-box-shadow, $btn-active-box-shadow);
+  }
+
+  &.disabled,
+  &:disabled {
+    cursor: default;
   }
 }
 
