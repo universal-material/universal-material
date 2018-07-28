@@ -1,4 +1,5 @@
-@import "uwp/uwp-dialog";
+@import "variables";
+@import "uwp-dialog";
 
 // .dialog-open      - body class for killing the scroll
 // .dialog           - container to scroll within
@@ -10,15 +11,30 @@
   overflow: hidden;
 }
 
+.dialog-content {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: $dialog-border-radius;
+  box-shadow: 0 7px 8px -4px rgba(0, 0, 0, .2), 0 13px 19px 2px rgba(0, 0, 0, .14), 0 5px 24px 4px rgba(0, 0, 0, .12);
+  transition: transform 350ms $awesome-cubic-bezier;
+  transform: scale3d(0, 0, 1);
+}
+
 .dialog {
   position: fixed;
   top: 0;
-  right: 0;
-  bottom: 0;
   left: 0;
   z-index: $zindex-dialog;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
   padding: $dialog-padding;
   overflow: hidden;
   // Prevent Chrome on Windows from adding a focus outline. For details, see
@@ -41,10 +57,13 @@
   &.show {
     pointer-events: auto;
     opacity: 1;
+
+    .dialog-content {
+      transform: scale3d(1, 1, 1);
+    }
   }
 }
 
-/// dialog background
 .dialog-backdrop {
   position: fixed;
   top: 0;
@@ -62,18 +81,6 @@
   //&.show { opacity: $dialog-backdrop-opacity; }
 }
 
-.dialog-content {
-  display: flex;
-  flex-direction: column;
-  width: 600px;
-  max-width: 100%;
-  margin: 0 auto;
-  overflow: hidden;
-  border-radius: 2px;
-
-  box-shadow: 0 7px 8px -4px rgba(0, 0, 0, .2), 0 13px 19px 2px rgba(0, 0, 0, .14), 0 5px 24px 4px rgba(0, 0, 0, .12);
-}
-
 .dialog-body {
   //@extend .subheading
   padding: $dialog-padding;
@@ -82,7 +89,7 @@
 }
 
 .dialog-title {
-  //@extend .title;
+  @include mdc-typography(headline6);
 
   padding: $dialog-padding;
 
@@ -93,8 +100,9 @@
 }
 
 .dialog-actions {
+  display: flex;
+  justify-content: flex-end;
   padding: $dialog-actions-padding;
-  text-align: right;
 
   .btn + .btn {
     margin-left: $dialog-actions-padding;

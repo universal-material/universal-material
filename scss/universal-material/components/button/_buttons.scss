@@ -2,7 +2,7 @@
 @import "uwp-buttons";
 
 .btn {
-  @extend .button;
+  @include mdc-typography(button);
   position: relative; //Universal Material custom code
   display: inline-flex;
   align-items: center;

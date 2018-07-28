@@ -4,10 +4,6 @@
 .card {
   border-radius: $card-border-radius;
   box-shadow: $card-shadow;
-
-  &.selectable-background::before {
-    border-radius: $card-border-radius;
-  }
 }
 
 .card-outline {
@@ -52,10 +48,11 @@
 }
 
 .card-content {
-  padding: $card-base-small-vertical-padding $card-side-padding;
+  padding: $card-padding $card-padding;
 }
 
 .card-actions {
+  display: flex;
   padding: $card-actions-padding;
 
   .btn + .btn {

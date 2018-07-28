@@ -3857,8 +3857,7 @@ h6, .h6 {
   text-decoration: inherit;
   text-transform: inherit; }
 
-.button, .btn, .btn-flat, .btn-outline,
-.btn-solid, .btn-raised, .btn-floating, .btn-borderless {
+.button {
   font-size: 0.875rem;
   line-height: 2.25rem;
   font-weight: 500;
@@ -4402,6 +4401,12 @@ mark,
 
 .btn, .btn-flat, .btn-outline,
 .btn-solid, .btn-raised, .btn-floating, .btn-borderless {
+  font-size: 0.875rem;
+  line-height: 2.25rem;
+  font-weight: 500;
+  letter-spacing: 0.08929em;
+  text-decoration: none;
+  text-transform: uppercase;
   position: relative;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -4852,8 +4857,6 @@ mark,
   border-radius: 0.25rem;
   -webkit-box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
           box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
-  .card.selectable-background::before, .selectable-background.text-field-elevated::before {
-    border-radius: 0.25rem; }
 
 .card-outline {
   border: 0.0625rem solid rgba(0, 0, 0, 0.12);
@@ -4889,10 +4892,13 @@ mark,
   border-bottom-left-radius: inherit; }
 
 .card-content {
-  padding: 1rem 1rem; }
+  padding: 16px 16px; }
 
 .card-actions {
-  padding: 0.5rem; }
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 8px; }
   .card-actions .btn + .btn, .card-actions .btn-flat + .btn, .card-actions .btn-outline + .btn, .card-actions .btn-solid + .btn, .card-actions .btn-raised + .btn, .card-actions .btn-floating + .btn, .card-actions .btn-borderless + .btn, .card-actions .btn + .btn-flat, .card-actions .btn-flat + .btn-flat, .card-actions .btn-outline + .btn-flat, .card-actions .btn-solid + .btn-flat, .card-actions .btn-raised + .btn-flat, .card-actions .btn-floating + .btn-flat, .card-actions .btn-borderless + .btn-flat, .card-actions .btn + .btn-outline, .card-actions .btn-flat + .btn-outline, .card-actions .btn-outline + .btn-outline, .card-actions .btn-solid + .btn-outline, .card-actions .btn-raised + .btn-outline, .card-actions .btn-floating + .btn-outline, .card-actions .btn-borderless + .btn-outline,
   .card-actions .btn + .btn-solid,
   .card-actions .btn-flat + .btn-solid,
@@ -4901,45 +4907,10 @@ mark,
   .card-actions .btn-raised + .btn-solid,
   .card-actions .btn-floating + .btn-solid,
   .card-actions .btn-borderless + .btn-solid, .card-actions .btn + .btn-raised, .card-actions .btn-flat + .btn-raised, .card-actions .btn-outline + .btn-raised, .card-actions .btn-solid + .btn-raised, .card-actions .btn-raised + .btn-raised, .card-actions .btn-floating + .btn-raised, .card-actions .btn-borderless + .btn-raised, .card-actions .btn + .btn-floating, .card-actions .btn-flat + .btn-floating, .card-actions .btn-outline + .btn-floating, .card-actions .btn-solid + .btn-floating, .card-actions .btn-raised + .btn-floating, .card-actions .btn-floating + .btn-floating, .card-actions .btn-borderless + .btn-floating, .card-actions .btn + .btn-borderless, .card-actions .btn-flat + .btn-borderless, .card-actions .btn-outline + .btn-borderless, .card-actions .btn-solid + .btn-borderless, .card-actions .btn-raised + .btn-borderless, .card-actions .btn-floating + .btn-borderless, .card-actions .btn-borderless + .btn-borderless {
-    margin-left: 0.5rem; }
+    margin-left: 8px; }
 
 .dialog-open {
   overflow: hidden; }
-
-.dialog {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1060;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  padding: 24px;
-  overflow: hidden;
-  pointer-events: none;
-  outline: 0;
-  opacity: 0;
-  -webkit-transition: opacity 250ms;
-  transition: opacity 250ms; }
-  .dialog.show {
-    pointer-events: auto;
-    opacity: 1; }
-
-.dialog-backdrop {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-  background-color: #000;
-  opacity: 0.5; }
 
 .dialog-content {
   display: -webkit-box;
@@ -4953,9 +4924,59 @@ mark,
   max-width: 100%;
   margin: 0 auto;
   overflow: hidden;
-  border-radius: 2px;
+  border-radius: 0.25rem;
   -webkit-box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2), 0 13px 19px 2px rgba(0, 0, 0, 0.14), 0 5px 24px 4px rgba(0, 0, 0, 0.12);
-          box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2), 0 13px 19px 2px rgba(0, 0, 0, 0.14), 0 5px 24px 4px rgba(0, 0, 0, 0.12); }
+          box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2), 0 13px 19px 2px rgba(0, 0, 0, 0.14), 0 5px 24px 4px rgba(0, 0, 0, 0.12);
+  -webkit-transition: -webkit-transform 350ms cubic-bezier(0.19, 1, 0.22, 1);
+  transition: -webkit-transform 350ms cubic-bezier(0.19, 1, 0.22, 1);
+  transition: transform 350ms cubic-bezier(0.19, 1, 0.22, 1);
+  transition: transform 350ms cubic-bezier(0.19, 1, 0.22, 1), -webkit-transform 350ms cubic-bezier(0.19, 1, 0.22, 1);
+  -webkit-transform: scale3d(0, 0, 1);
+          transform: scale3d(0, 0, 1); }
+
+.dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1060;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 24px;
+  overflow: hidden;
+  pointer-events: none;
+  outline: 0;
+  opacity: 0;
+  -webkit-transition: opacity 250ms;
+  transition: opacity 250ms; }
+  .dialog.show {
+    pointer-events: auto;
+    opacity: 1; }
+    .dialog.show .dialog-content {
+      -webkit-transform: scale3d(1, 1, 1);
+              transform: scale3d(1, 1, 1); }
+
+.dialog-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  background-color: #000;
+  opacity: 0.5; }
 
 .dialog-body {
   padding: 24px;
@@ -4963,14 +4984,25 @@ mark,
   overflow-y: auto; }
 
 .dialog-title {
+  font-size: 1.25rem;
+  line-height: 2rem;
+  font-weight: 500;
+  letter-spacing: 0.0125em;
+  text-decoration: inherit;
+  text-transform: inherit;
   padding: 24px; }
   .dialog-title + .dialog-body {
     padding-top: 0;
     margin-top: -4px; }
 
 .dialog-actions {
-  padding: 8px;
-  text-align: right; }
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding: 8px; }
   .dialog-actions .btn + .btn, .dialog-actions .btn-flat + .btn, .dialog-actions .btn-outline + .btn, .dialog-actions .btn-solid + .btn, .dialog-actions .btn-raised + .btn, .dialog-actions .btn-floating + .btn, .dialog-actions .btn-borderless + .btn, .dialog-actions .btn + .btn-flat, .dialog-actions .btn-flat + .btn-flat, .dialog-actions .btn-outline + .btn-flat, .dialog-actions .btn-solid + .btn-flat, .dialog-actions .btn-raised + .btn-flat, .dialog-actions .btn-floating + .btn-flat, .dialog-actions .btn-borderless + .btn-flat, .dialog-actions .btn + .btn-outline, .dialog-actions .btn-flat + .btn-outline, .dialog-actions .btn-outline + .btn-outline, .dialog-actions .btn-solid + .btn-outline, .dialog-actions .btn-raised + .btn-outline, .dialog-actions .btn-floating + .btn-outline, .dialog-actions .btn-borderless + .btn-outline,
   .dialog-actions .btn + .btn-solid,
   .dialog-actions .btn-flat + .btn-solid,
