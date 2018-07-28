@@ -1,9 +1,10 @@
+@import "variables";
+
 .tab-bar {
   display: flex;
   flex-direction: row;
   width: 100%;
   height: $tab-height;
-  @include horizontal-padding($tab-horizontal-padding-sm);
 }
 
 .tab {
@@ -12,14 +13,12 @@
   flex: 1;
   flex-direction: row;
   align-items: center;
+  min-width: $tab-min-width;
+  max-width: $tab-max-width;
+  padding-right: $tab-horizontal-padding;
+  padding-left: $tab-horizontal-padding;
   cursor: pointer;
-  @include horizontal-padding($tab-horizontal-padding-sm);
-  @include horizontal-margin(-$tab-horizontal-padding-sm);
   @include selectable-background-before;
-
-  + .tab {
-    margin-left: $tab-horizontal-padding-sm;
-  }
 
   &::after {
     position: absolute;
@@ -54,21 +53,24 @@
 
 @include media-breakpoint-up(lg) {
   .tab-bar {
-    @include horizontal-padding($tab-horizontal-padding-lg);
-
     //&.toolbar-icon-padding {
     //  padding-left: $toolbar-icon-width + $toolbar-horizontal-padding;
     //}
+    justify-content: center;
   }
 
   .tab {
     flex: none;
+  }
+}
 
-    @include horizontal-padding($tab-horizontal-padding-lg);
-    @include horizontal-margin(-$tab-horizontal-padding-lg);
+.tab-bar-scrollable {
+  justify-content: flex-start;
 
-    + .tab {
-      margin-left: $tab-horizontal-padding-lg;
+  .tab {
+    flex: none;
+    &:first-child {
+      margin-left: $tab-bar-scrollable-margin;
     }
   }
 }

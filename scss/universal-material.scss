@@ -1,5 +1,4 @@
 @import "variables";
-@debug $theme-colors;
 @import "mixins";
 
 @import "bootstrap-imports";
@@ -21,7 +20,7 @@
 @import "universal-material/dropdown";
 @import "universal-material/steppers";
 @import "universal-material/layout";
-@import "universal-material/tab";
+@import "components/tabs/tab";
 @import "universal-material/data-table";
 @import "universal-material/list";
 @import "universal-material/progress";

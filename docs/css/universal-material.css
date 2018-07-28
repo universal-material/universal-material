@@ -4341,7 +4341,7 @@ mark,
   bottom: -0.625rem;
   right: -0.625rem; }
 
-.toolbar, .data-table-footer {
+.toolbar {
   z-index: 1;
   width: 100%; }
 
@@ -4386,6 +4386,9 @@ mark,
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 8px;
   margin-left: auto; }
 
@@ -5339,9 +5342,7 @@ mark,
       -ms-flex-direction: row;
           flex-direction: row;
   width: 100%;
-  height: 3rem;
-  padding-right: 0.75rem;
-  padding-left: 0.75rem; }
+  height: 3rem; }
 
 .tab {
   position: relative;
@@ -5358,11 +5359,11 @@ mark,
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  min-width: 90px;
+  max-width: 360px;
+  padding-right: 16px;
+  padding-left: 16px;
   cursor: pointer;
-  padding-right: 0.75rem;
-  padding-left: 0.75rem;
-  margin-right: -0.75rem;
-  margin-left: -0.75rem;
   position: relative; }
   .tab::before {
     position: absolute;
@@ -5380,8 +5381,6 @@ mark,
     opacity: .08; }
   .tab:active::before {
     opacity: .12; }
-  .tab + .tab {
-    margin-left: 0.75rem; }
   .tab::after {
     position: absolute;
     bottom: 0;
@@ -5407,18 +5406,24 @@ mark,
 
 @media (min-width: 992px) {
   .tab-bar {
-    padding-right: 1.5rem;
-    padding-left: 1.5rem; }
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
   .tab {
     -webkit-box-flex: 0;
         -ms-flex: none;
-            flex: none;
-    padding-right: 1.5rem;
-    padding-left: 1.5rem;
-    margin-right: -1.5rem;
-    margin-left: -1.5rem; }
-    .tab + .tab {
-      margin-left: 1.5rem; } }
+            flex: none; } }
+
+.tab-bar-scrollable {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start; }
+  .tab-bar-scrollable .tab {
+    -webkit-box-flex: 0;
+        -ms-flex: none;
+            flex: none; }
+    .tab-bar-scrollable .tab:first-child {
+      margin-left: 56px; }
 
 .data-table {
   width: 100%;
@@ -6957,11 +6962,11 @@ input {
 .data-table-hover tbody tr:hover {
   background-color: #eee; }
 
-.toolbar, .data-table-footer {
+.toolbar {
   color: rgba(0, 0, 0, 0.87); }
-  .toolbar .tab, .data-table-footer .tab {
+  .toolbar .tab {
     color: rgba(0, 0, 0, 0.54); }
-  .toolbar .tab.active, .data-table-footer .tab.active {
+  .toolbar .tab.active {
     color: #563d7c; }
 
 .toolbar-primary {

@@ -61,7 +61,7 @@
 
   @include horizontal-padding($data-table-horizontal-padding);
 
-  @extend .toolbar;
+  //@extend .toolbar;
 
   .data-table-actions {
     margin-left: 2rem;
