@@ -1,4 +1,5 @@
 @import "variables";
+@debug $theme-colors;
 @import "mixins";
 
 @import "bootstrap-imports";
@@ -9,13 +10,13 @@
 @import "universal-material/elevation";
 
 @import "universal-material/badge";
-@import "universal-material/toolbar";
-@import "universal-material/components/button/buttons";
-@import "universal-material/components/button/floating-action-button";
+@import "components/toolbar/toolbar";
+@import "components/button/buttons";
+@import "components/button/floating-action-button";
 @import "universal-material/button-group";
 @import "universal-material/checkbox";
-@import "universal-material/components/card/card";
-@import "universal-material/components/dialog/dialog";
+@import "components/card/card";
+@import "components/dialog/dialog";
 @import "universal-material/expansion-panel";
 @import "universal-material/dropdown";
 @import "universal-material/steppers";

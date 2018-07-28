@@ -122,13 +122,14 @@ html
       .layout-content.toolbar-layout
         .toolbar.toolbar-primary#app-bar
           .toolbar-row
-            .toolbar-icon.btn-borderless.btn-default.d-lg-none#menu-toggle
+            .toolbar-navigation.btn-borderless.btn-default.d-lg-none#menu-toggle
               i.mdi.mdi-menu
 
             .toolbar-title
               | Material
-            button.btn-borderless.btn-default#dense-toggle(type="button", title="Dense layout")
-              i.mdi.mdi-format-size
+            .toolbar-actions
+              button.toolbar-action.btn-borderless.btn-default#dense-toggle(type="button", title="Dense layout")
+                i.mdi.mdi-format-size
         .layout-content#main-content
           .container.margin-lg-40.chapter
             block content

@@ -45,6 +45,8 @@
   background-color: rgba(0, 0, 0, .6);
   border-bottom-right-radius: inherit;
   border-bottom-left-radius: inherit;
+
+  @extend .bg-dark;
 }
 
 .card-content {

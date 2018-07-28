@@ -585,26 +585,6 @@ $uwp-text-input-horizontal-padding: .75rem !default;
 $uwp-text-input-vertical-padding: $text-field-item-margin !default;
 $uwp-text-area-top-padding: $text-area-top-base-padding !default;
 
-//Toolbar
-$toolbar-height: 3.5rem !default;
-$toolbar-horizontal-padding: $row-horizontal-padding !default;
-$toolbar-icon-width: 4.5rem - $toolbar-horizontal-padding !default;
-$toolbar-icon-margin: 2rem !default;
-
-$toolbar-action-distance: 1.5rem !default;
-$toolbar-action-padding: $toolbar-action-distance / 2 !default;
-
-$toolbar-title-font-size: 1.25rem !default;
-$toolbar-action-icon-size: $base-icon-size !default;
-
-$toolbar-icon-color-light-theme: $text-low-contrast-light-theme !default;
-$toolbar-icon-color-dark-theme: $white !default;
-
-$bg-appbar: $primary-color !default;
-
-//Toolbar dense
-$toolbar-dense-height: 3rem !default;
-
 //Tabs
 $tab-height: 3rem !default;
 $tab-indicator-height: .125rem !default;

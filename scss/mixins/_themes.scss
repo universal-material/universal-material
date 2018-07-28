@@ -33,10 +33,6 @@
     @include buttons-theme($theme);
   }
 
-  @if (mixin_exists(create-backgrounds)) {
-    @include create-backgrounds($theme-colors);
-  }
-
   @if (mixin_exists(sidebar-theme)) {
     @include sidebar-theme($dark-theme);
   }

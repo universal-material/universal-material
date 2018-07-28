@@ -56,9 +56,9 @@
   .tab-bar {
     @include horizontal-padding($tab-horizontal-padding-lg);
 
-    &.toolbar-icon-padding {
-      padding-left: $toolbar-icon-width + $toolbar-horizontal-padding;
-    }
+    //&.toolbar-icon-padding {
+    //  padding-left: $toolbar-icon-width + $toolbar-horizontal-padding;
+    //}
   }
 
   .tab {

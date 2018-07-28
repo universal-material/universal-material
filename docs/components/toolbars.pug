@@ -8,22 +8,28 @@ block content
     .example-box-header
       .toolbar
         .toolbar-row
-          .toolbar-icon.btn-borderless.btn-default
+          .toolbar-navigation.btn-borderless.btn-default
 
             i.mdi.mdi-menu
           .toolbar-title Title here
 
           .toolbar-actions
-            button.btn-borderless.btn-default(type="button" disabled="")
+            button.toolbar-action.btn-borderless.btn-default(type="button" disabled="")
               i.mdi.mdi-phone
+            .toolbar-action.dropdown
+              button.btn-borderless.btn-default.dropdown-toggle(type="button")
+                i.mdi.mdi-dots-vertical
 
-            button.btn-borderless.btn-default(type="button")
-              i.mdi.mdi-dots-vertical
+              .dropdown-menu.down-left
+                .dropdown-content
+                  a.dropdown-item.text-nowrap(href="#") Item A
+                  a.dropdown-item.text-nowrap(href="#") Item B
+                  a.dropdown-item.text-nowrap(href="#") Item C
     pre
       code.html
         = '<div class="toolbar">\n'
         = '  <div class="toolbar-row">\n'
-        = '    <div class="toolbar-icon btn-borderless btn-default">\n'
+        = '    <div class="toolbar-navigation btn-borderless btn-default">\n'
         = '      <i class="mdi mdi-menu"></i>\n'
         = '     </div>\n'
         = '    <div class="toolbar-title">Title here</div>\n'
@@ -43,11 +49,12 @@ block content
     .example-box-header
       .toolbar
         .toolbar-row
-          .toolbar-icon.btn-borderless.btn-default
+          .toolbar-navigation.btn-borderless.btn-default
             i.mdi.mdi-menu
           .toolbar-title Title here
-          button.btn-borderless.btn-default
-            i.mdi.mdi-dots-vertical
+          .toolbar-actions
+            button.toolbar-action.btn-borderless.btn-default(type="button")
+              i.mdi.mdi-dots-vertical
         .tab-bar.toolbar-icon-padding
           .tab.active
             .tab-content
@@ -62,7 +69,7 @@ block content
       code.html
         = '<div class="toolbar">\n'
         = '  <div class="toolbar-row">\n'
-        = '    <div class="toolbar-icon btn-borderless btn-default"><i class="mdi mdi-menu"></i></div>\n'
+        = '    <div class="toolbar-navigation btn-borderless btn-default"><i class="mdi mdi-menu"></i></div>\n'
         = '    <div class="toolbar-title">Title here</div>\n'
         = '    <button class="btn-borderless btn-default">\n'
         = '      <i class="mdi mdi-dots-vertical"></i>\n'

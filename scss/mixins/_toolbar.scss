@@ -5,4 +5,9 @@
   @include toolbar-theme($theme-colors, $dark-background);
 
   background-color: $background-color;
+  @if ($dark-background) {
+    @include dark-background-colors;
+  } @else {
+    @include light-background-colors;
+  }
 }

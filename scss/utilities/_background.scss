@@ -1,18 +1,8 @@
-@mixin create-backgrounds($theme-colors) {
-  @each $color, $value in $theme-colors {
-    @include bg-variant(".bg-#{$color}", $value);
-  }
-}
-
-.bg-white { background-color: $white !important; }
-.bg-transparent { background-color: transparent !important; }
 .bg-light {
-  color: $body-color-light-theme;
-  background-color: $bg-light;
+  @include light-background-colors;
 }
 .bg-dark {
-  color: $body-color-dark-theme;
-  background-color: $bg-dark;
+  @include dark-background-colors;
 }
 
 .selectable-background {
