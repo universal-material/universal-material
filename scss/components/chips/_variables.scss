@@ -1,0 +1,22 @@
+$chip-height: 2rem !default;
+$chip-margin: 8px !default;
+$chip-margin-vertical: .25rem !default;
+$chip-background-color-light-theme: rgba(0, 0, 0, .12) !default;
+$chip-background-color-dark-theme: rgba(255, 255, 255, .1) !default;
+
+$chip-outline-border-color-light-theme: $chip-background-color-light-theme !default;
+$chip-outline-border-color-dark-theme: $chip-background-color-dark-theme !default;
+$chip-outline-border-width: .0625rem !default;
+
+$chip-remove-size: 1.125rem !default;
+$chip-remove-margin: 8px !default;
+$chip-remove-hover-size: 2.5rem !default;
+
+$chip-avatar-size: 1.5rem !default;
+$chip-avatar-margin-left: 4px !default;
+$chip-avatar-font-size: 1rem !default;
+$chip-avatar-margin: 8px !default;
+
+$chip-font-size: .8125rem !default;
+$chip-font-weight: 400 !default;
+$chip-label-margin: 12px !default;
