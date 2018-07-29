@@ -61,6 +61,14 @@
     @include selection-controls-theme($theme-colors, $dark-theme);
   }
 
+  @if (mixin_exists(radio-theme)) {
+    @include radio-theme($theme-colors, $dark-theme);
+  }
+
+  @if (mixin_exists(switch-theme)) {
+    @include switch-theme($theme-colors, $dark-theme);
+  }
+
   @if (mixin_exists(snackbar-theme)) {
     @include snackbar-theme($theme);
   }

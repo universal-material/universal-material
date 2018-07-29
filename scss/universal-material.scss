@@ -13,7 +13,9 @@
 @import "components/button/buttons";
 @import "components/button/floating-action-button";
 @import "universal-material/button-group";
-@import "universal-material/checkbox";
+@import "components/checkbox/checkbox";
+@import "components/radio/radio";
+@import "components/switch/switch";
 @import "components/card/card";
 @import "components/dialog/dialog";
 @import "universal-material/expansion-panel";
@@ -25,7 +27,7 @@
 @import "universal-material/list";
 @import "universal-material/progress";
 @import "universal-material/sidebar";
-@import "universal-material/snackbar";
+@import "components/snackbar/snackbar";
 @import "universal-material/text-field";
 @import "components/chips/chips";
 @import "universal-material/ripple";

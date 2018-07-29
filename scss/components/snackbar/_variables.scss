@@ -1,0 +1,22 @@
+//Snackbar
+$snackbar-height: 3rem !default;
+$snackbar-horizontal-padding: 1rem !default;
+$snackbar-background-color-light-theme: #323232 !default;
+$snackbar-background-color-dark-theme: #fafafa !default;
+$snackbar-text-vertical-margin: .75rem !default;
+$snackbar-text-color-light-theme: rgba(255, 255, 255, .87) !default;
+$snackbar-text-color-dark-theme: $body-color-light-theme !default;
+$snackbar-font-size: $font-size-base !default;
+$snackbar-font-weight: $font-medium !default;
+$snackbar-margin: .5rem !default;
+$snackbar-btn-margin: .375rem .5rem !default;
+
+$snackbar-tablet-min-width: 18rem !default;
+$snackbar-tablet-max-width: 35.5rem !default;
+$snackbar-tabled-margin: 1.5rem !default;
+
+$snackbar-border-radius: .25rem !default;
+
+$uwp-snackbar-border-width: $uwp-border-width !default;
+$uwp-snackbar-border-color-light-theme: rgba(204, 204, 204, .54) !default;
+$uwp-snackbar-border-color-dark-theme: $color-low-contrast-light-theme !default;

@@ -1,0 +1,120 @@
+@import "variables";
+
+//Inspiration: https://codepen.io/abottega/pen/vNzQMo/
+
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 0;
+  cursor: pointer;
+
+  @include hide-native-input;
+
+  .selection-control {
+    @include selectable-background-before;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: $checkbox-click-size;
+    height: $checkbox-click-size;
+    border-radius: 50%;
+  }
+
+  .selection-control-label {
+    margin-left: $checkbox-label-margin;
+  }
+
+  .check-indicator {
+    position: relative;
+    width: $checkbox-size;
+    height: $checkbox-size;
+    overflow: hidden;
+    border: $checkbox-border;
+    border-radius: $checkbox-border-radius;
+
+    &::before {
+      position: absolute;
+      top: -$checkbox-border-width;
+      left: -$checkbox-border-width;
+      display: block;
+      width: 0;
+      height: 0;
+      margin-top: -.25rem;
+      margin-left: .375rem;
+      content: "";
+      transform: rotate(45deg);
+      animation: checkbox-off 300ms forwards linear;
+    }
+  }
+
+  input:checked ~ .selection-control .check-indicator {
+    color: inherit;
+    border-color: currentColor;
+
+    &::before {
+      animation: checkbox-on 300ms forwards linear;
+    }
+  }
+
+  &.disabled .selection-control,
+  input:disabled ~ .selection-control {
+    opacity: $checkbox-disabled-opacity;
+  }
+}
+
+@keyframes checkbox-on {
+  0% {
+    box-shadow: 0 0 0 .625rem currentColor, .625rem -.625rem 0 .625rem currentColor, 2rem 0 0 1.25rem currentColor, 0 2rem 0 1.25rem currentColor, -.3125rem .3125rem 0 .625rem currentColor, .9375rem .125rem 0 .6875rem;
+    opacity: 0;
+  }
+  50% {
+    box-shadow: 0 0 0 .625rem currentColor, .625rem -.625rem 0 .625rem currentColor, 2rem 0 0 1.25rem currentColor, 0 2rem 0 1.25rem currentColor, -.3125rem .3125rem 0 .625rem currentColor, 1.25rem .125rem 0 .6875rem;
+  }
+  100% {
+    box-shadow: 0 0 0 .625rem currentColor, .625rem -.625rem 0 .625rem currentColor, 2rem 0 0 1.25rem currentColor, 0 2rem 0 1.25rem currentColor, -.3125rem .3125rem 0 .625rem currentColor, 1.25rem -.75rem 0 .6875rem;
+    opacity: 1;
+  }
+}
+
+@keyframes checkbox-off {
+  0% {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin-top: 0;
+    margin-left: 0;
+    box-shadow: 0 0 0 .625rem inset currentColor;
+    transform: rotate(0deg);
+  }
+  100% {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin-top: 0;
+    margin-left: 0;
+    box-shadow: 0 0 0 0 inset;
+    transform: rotate(0deg);
+  }
+}
+
+@mixin selection-controls-theme($theme-colors, $dark-theme) {
+  $primary-color: map-get($theme-colors, "primary");
+  $check-color: $checkbox-color-light-theme;
+
+  @if ($dark-theme) {
+    $check-color: $checkbox-color-dark-theme;
+  }
+
+  .checkbox {
+    .check-indicator {
+      color: $check-color;
+    }
+
+    &.checked:not(.disabled) .selection-control,
+    input:checked:not(:disabled) ~ .selection-control {
+      color: $primary-color;
+    }
+  }
+}

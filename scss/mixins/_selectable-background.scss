@@ -1,9 +1,4 @@
-@mixin selectable-background-before($border-radius: null) {
-
-  @if ($border-radius == null) {
-    $border-radius: inherit;
-  }
-
+@mixin selectable-background-before($border-radius: inherit) {
   position: relative;
 
   &::before {

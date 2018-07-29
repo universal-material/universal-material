@@ -289,46 +289,6 @@ $focus-background-dark-theme: rgba(204, 204, 204, .25) !default;
 //Avatar
 $avatar-size: 2.5rem !default;
 
-//Selection controls
-
-$selection-control-label-margin: .5rem !default;
-$selection-control-hover-size: 2.5rem !default;
-$selection-control-disabled-opacity: .4 !default;
-
-$checkbox-radio-border-light-theme: .125rem solid rgba(0, 0, 0, .54) !default;
-$checkbox-radio-border-dark-theme: .125rem solid rgba(255, 255, 255, .7) !default;
-$checkbox-radio-disabled-color-light-theme: rgba(0, 0, 0, .26) !default;
-$checkbox-radio-disabled-color-dark-theme: rgba(255, 255, 255, .3) !default;
-
-$checkbox-size: 1.125rem !default;
-$checkbox-border-radius: .125rem !default;
-
-$checkbox-mark-width: .75rem !default;
-$checkbox-mark-height: .375rem !default;
-$checkbox-mark-top: .1875rem !default;
-$checkbox-mark-left: .0625rem !default;
-$checkbox-mark-border-width: .125rem !default;
-$checkbox-mark-color-light-theme: $bg-light !default;
-
-$radio-size: 1.25rem !default;
-$radio-check-mark-size: $radio-size / 2 !default;
-
-$switch-width: 2.25rem !default;
-$switch-height: .875rem !default;
-$switch-border-radius: .5rem !default;
-$switch-background-color-light-theme: rgba(0, 0, 0, .38) !default;
-$switch-background-color-dark-theme: rgba(255, 255, 255, .3) !default;
-$switch-disabled-background-color-light-theme: rgba(0, 0, 0, .12) !default;
-$switch-disabled-background-color-dark-theme: rgba(255, 255, 255, .1) !default;
-
-$switch-toggle-size: 1.25rem !default;
-$switch-toggle-background-color-light-theme: #fafafa !default;
-$switch-toggle-background-color-dark-theme: #bdbdbd !default;
-$switch-toggle-disabled-background-color-light-theme: #bdbdbd !default;
-$switch-toggle-disabled-background-color-dark-theme: #424242 !default;
-$switch-toggle-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12) !default;
-$switch-checked-track-opacity: .4 !default;
-
 //Badges
 $badge-size: 1.125rem !default;
 $badge-position: -.625rem !default;
@@ -584,29 +544,6 @@ $step-actions-margin: 1rem !default;
 $active-step-weight: $font-medium !default;
 
 $vertical-step-space: 3rem !default;
-
-//Snackbar
-$snackbar-height: 3rem !default;
-$snackbar-horizontal-padding: 1rem !default;
-$snackbar-background-color-light-theme: #323232 !default;
-$snackbar-background-color-dark-theme: #fafafa !default;
-$snackbar-text-vertical-margin: .75rem !default;
-$snackbar-text-color-light-theme: rgba(255, 255, 255, .87) !default;
-$snackbar-text-color-dark-theme: $body-color-light-theme !default;
-$snackbar-font-size: $font-size-base !default;
-$snackbar-font-weight: $font-medium !default;
-$snackbar-margin: .5rem !default;
-$snackbar-btn-margin: .375rem .5rem !default;
-
-$snackbar-tablet-min-width: 18rem !default;
-$snackbar-tablet-max-width: 35.5rem !default;
-$snackbar-tabled-margin: 1.5rem !default;
-
-$snackbar-border-radius: .25rem !default;
-
-$uwp-snackbar-border-width: $uwp-border-width !default;
-$uwp-snackbar-border-color-light-theme: rgba(204, 204, 204, .54) !default;
-$uwp-snackbar-border-color-dark-theme: $color-low-contrast-light-theme !default;
 
 $text-muted: $text-low-contrast-light-theme !default;
 

@@ -1,0 +1,81 @@
+@import "variables";
+
+.radio {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 0;
+  cursor: pointer;
+
+  @include hide-native-input;
+
+  .selection-control {
+    @include selectable-background-before;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: $radio-click-size;
+    height: $radio-click-size;
+    border-radius: 50%;
+  }
+
+  .selection-control-label {
+    margin-left: $radio-label-margin;
+  }
+
+  .check-indicator {
+    position: relative;
+    width: $radio-size;
+    height: $radio-size;
+    border: $radio-border;
+    border-radius: 50%;
+
+    &::before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: $radio-check-mark-size;
+      height: $radio-check-mark-size;
+      margin-top: -$radio-check-mark-size / 2;
+      margin-left: -$radio-check-mark-size / 2;
+      content: "";
+      background: currentColor;
+      border-radius: 50%;
+      transition: transform 250ms;
+      transform: scale3d(0, 0, 1);
+    }
+  }
+
+  &.checked .check-indicator,
+  input:checked ~ .selection-control .check-indicator {
+    color: inherit;
+
+    &::before {
+      transform: scale3d(1, 1, 1);
+    }
+  }
+
+  &.disabled .selection-control,
+  input:disabled ~ .selection-control {
+    opacity: $radio-disabled-opacity;
+  }
+}
+
+@mixin radio-theme($theme-colors, $dark-theme) {
+  $primary-color: map-get($theme-colors, "primary");
+  $radio-color: $radio-color-light-theme;
+
+  @if ($dark-theme) {
+    $radio-color: $radio-color-dark-theme;
+  }
+
+  .radio {
+    .check-indicator {
+      color: $radio-color;
+    }
+
+    &.checked:not(.disabled) .selection-control,
+    input:checked:not(:disabled) ~ .selection-control {
+      color: $primary-color;
+    }
+  }
+}
