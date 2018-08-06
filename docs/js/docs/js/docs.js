@@ -24,7 +24,7 @@
     }
 
     function initializeRipples() {
-        var rippleContainers = document.querySelectorAll('.btn, .btn-flat, .btn-borderless, .btn-solid, .btn-raised, .btn-outline, .list-hover .list-item, .list-item .list-item-hover, .tab, .radio .selection-control, .checkbox .selection-control, .switch .check-indicator, .chip-remove, .chip-hover');
+        var rippleContainers = document.querySelectorAll('.btn, .btn-flat, .btn-borderless, .btn-solid, .btn-raised, .btn-outline, .list-hover .list-item, .list-item .list-item-hover, .tab, .selection-control, .chip-remove, .chip-hover');
 
         function createRipple(rippleContainer, releaseEventName, releaseCallback, pageX, pageY) {
             var rippleWrapper = document.createElement('DIV');
@@ -87,12 +87,16 @@
             });
 
             rippleContainer.addEventListener('touchstart', function (e) {
+                e.cancelBubble = true;
+                e.returnValue = false;
+
                 isTouching = true;
                 createRipple(rippleContainer, 'touchend', function () {
                     setTimeout(function () {
                         isTouching = false;
                     }, 100);
                 }, e.touches[0].clientX, e.touches[0].clientY);
+                return false;
             });
         });
     }
@@ -111,7 +115,6 @@
     document.getElementById("main-content").addEventListener("scroll", mainContentScroll);
 
     initializeRipples();
-    TextField.InitializeTextFields();
 })();
 
 hljs.initHighlightingOnLoad();

@@ -1,0 +1,350 @@
+@import "variables";
+
+.text-field-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: $text-field-container-margin;
+}
+
+.text-input {
+  box-sizing: content-box;
+  height: $text-input-height;
+  padding-top: $text-input-padding;
+  padding-bottom: $text-input-padding - $text-field-border-width;
+  font-size: $text-input-font-size;
+  line-height: $text-input-line-height;
+  background: transparent;
+  border: none;
+  border-bottom: $text-input-border;
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+.text-field {
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
+
+  label {
+    align-self: flex-start;
+    height: $text-field-label-height;
+    margin-bottom: $text-field-label-margin;
+    font-size: $text-field-label-font-size;
+    line-height: $text-field-label-line-height;
+  }
+
+  &::before {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: $text-field-focus-border-width;
+    content: "";
+    pointer-events: none;
+    border-bottom: $text-field-focus-border-width solid currentColor;
+    transition: transform 350ms $awesome-cubic-bezier;
+    transform: scale3d(0, 1, 1);
+    will-change: transform;
+  }
+
+  &.focus {
+
+    label {
+      color: currentColor;
+    }
+
+    &::before {
+      transform: scale3d(1, 1, 1);
+    }
+  }
+}
+
+.text-field.text-field-floating-label,
+.text-field-box,
+.text-field-outline {
+  label {
+    transition: transform 200ms, font-size 200ms;
+  }
+
+  .text-input::placeholder {
+    transition: color 150ms;
+  }
+
+  &.empty:not(.focus) {
+    label {
+      font-size: $text-input-font-size;
+      pointer-events: none;
+      transform: translateY(($text-field-label-height / 2) + $text-field-label-margin + ($text-input-height / 2) + $text-input-padding);
+    }
+
+    .text-input::placeholder {
+      color: transparent;
+      transition: color 150ms 100ms;
+    }
+  }
+}
+
+.text-field-box {
+  background: rgba(0, 0, 0, .12);
+  border-radius: $text-field-box-border-radius;
+
+  label {
+    height: $text-field-box-label-height;
+    margin-bottom: 0;
+    margin-left: $text-field-box-padding;
+    line-height: $text-field-box-label-line-height;
+  }
+
+  .text-input {
+    padding: 0 $text-field-box-padding calc(#{$text-field-box-padding} - #{$text-field-border-width});
+    border-color: transparent;
+  }
+
+  &.empty:not(.focus) {
+    label {
+      transform: translateY(($text-field-box-height / 2) - (1.75rem / 2)) !important;
+    }
+  }
+}
+
+.text-field-outline {
+  label {
+    height: $text-field-outline-label-height;
+    padding: $text-field-outline-label-padding;
+    margin-bottom: 0;
+    margin-left: $text-field-outline-padding - $text-field-outline-label-padding;
+    line-height: $text-field-outline-label-line-height;
+    transform: translateY(-$text-field-outline-label-height / 2);
+  }
+
+  .text-input {
+    padding: 0 $text-field-outline-padding calc(#{$text-field-outline-padding-bottom} - #{$text-field-border-width});
+    border-color: transparent !important;
+  }
+
+  &.empty:not(.focus) {
+    label {
+      transform: translateY(($text-field-outline-height / 2) - ($text-field-outline-label-height / 2)) !important;
+    }
+  }
+
+  &::before {
+    top: 0;
+    height: auto;
+    border: $text-field-border-width solid;
+    border-radius: $text-field-outline-border-radius;
+    transition: none;
+    transform: none;
+  }
+
+  &.focus {
+    &::before {
+      border-width: $text-field-focus-border-width;
+    }
+  }
+}
+
+.text-area-outline {
+  @extend .text-field-outline;
+
+  label {
+    background: transparent !important;
+    transform: translateY(0);
+  }
+}
+
+.text-field-helper-text {
+  margin-top: $text-field-helper-text-margin;
+  font-size: $text-field-helper-text-font-size;
+}
+
+@mixin text-fields-theme($theme) {
+
+  $theme-colors: map-get($theme, "colors");
+  $dark-theme: map-get($theme, "dark");
+  $uwp-style: map-get($theme, "uwp-style");
+
+  $primary-color: map-get($theme-colors, "primary");
+  $danger-color: map-get($theme-colors, "danger");
+
+
+  $text-field-label-color: $text-field-label-color-light-theme;
+  $text-field-divider-color: $text-field-divider-color-light-theme;
+  $text-field-divider-color-hover: $text-field-divider-color-hover-light-theme;
+  $text-field-divider-color-disabled: $text-field-divider-color-disabled-light-theme;
+  //$text-field-box-background: $text-input-box-bg-light-theme;
+  $text-input-color: $text-input-color-light-theme;
+  $text-input-placeholder-color: $text-input-placeholder-color-light-theme;
+  $text-input-disabled-color: $text-input-disabled-color-light-theme;
+  //$text-input-icon-color: $text-input-icon-color-light-theme;
+  //$text-input-affix-color: $text-input-affix-color-light-theme;
+  $text-field-helper-text-color: $text-field-helper-text-color-light-theme;
+  $text-field-outline-label-background: $bg-light;
+
+  @if ($dark-theme) {
+    $text-field-label-color: $text-field-label-color-dark-theme;
+    $text-field-divider-color: $text-field-divider-color-dark-theme;
+    $text-field-divider-color-hover: $text-field-divider-color-hover-dark-theme;
+    $text-field-divider-color-disabled: $text-field-divider-color-disabled-dark-theme;
+  //  $text-field-box-background: $text-input-box-bg-dark-theme;
+    $text-input-color: $text-input-color-dark-theme;
+    $text-input-placeholder-color: $text-input-placeholder-color-dark-theme;
+  //  $text-input-disabled-color: $text-input-disabled-color-dark-theme;
+  //  $text-input-icon-color: $text-input-icon-color-dark-theme;
+  //  $text-input-affix-color: $text-input-affix-color-dark-theme;
+    $text-field-helper-text-color: $text-field-helper-text-color-dark-theme;
+    $text-field-outline-label-background: $bg-dark;
+  }
+
+  .text-field {
+    label {
+      color: $text-field-label-color;
+    }
+
+    &.focus {
+      color: $primary-color;
+    }
+
+    &:hover {
+      .text-input:not(:disabled) {
+        border-color: $text-field-divider-color-hover;
+      }
+    }
+  }
+
+  .text-field-outline {
+    label {
+      background: $text-field-outline-label-background;
+    }
+
+    &:not(.focus) {
+      &::before {
+        border-color: $text-field-divider-color;
+      }
+
+      &:hover::before {
+        border-color: $text-field-divider-color-hover;
+      }
+    }
+  }
+
+  .text-input {
+    color: $text-input-color;
+    border-color: $text-field-divider-color;
+
+    &:disabled {
+      color: $text-input-disabled-color;
+      border-color: $text-field-divider-color-disabled;
+    }
+  }
+
+  .text-field-helper-text {
+    color: $text-field-helper-text-color;
+  }
+
+  //
+  //.placeholder,
+  .text-input::placeholder {
+    color: $text-input-placeholder-color;
+  }
+  //
+  //.floating-label {
+  //  &.focus .text-input::placeholder,
+  //  .text-input:focus::placeholder {
+  //    color: $text-input-placeholder-color;
+  //  }
+  //}
+  //
+  //.text-input,
+  //input {
+  //  color: $text-input-color;
+  //}
+  //
+  //.text-input-prefix,
+  //.text-input-suffix {
+  //  color: $text-input-affix-color;
+  //}
+  //
+  //.text-field.focus .text-input,
+  //.text-input:focus,
+  //.text-input:focus:hover {
+  //  border-color: $primary-color;
+  //}
+  //
+  //.text-field {
+  //  label {
+  //    color: $text-field-label-color;
+  //  }
+  //
+  //  .text-input:focus ~ label,
+  //  &.focus label {
+  //    color: $primary-color;
+  //  }
+  //
+  //  &.invalid,
+  //  &.focus.invalid {
+  //
+  //    .text-input:focus,
+  //    .text-input:hover,
+  //    .text-input {
+  //      border-color: $danger-color;
+  //    }
+  //
+  //    label,
+  //    .text-input:focus ~ label {
+  //      color: $danger-color;
+  //    }
+  //  }
+  //
+  //  &.disabled label,
+  //  &.disabled .text-input:focus ~ label,
+  //  &.focus.disabled label,
+  //  .text-input:disabled ~ label,
+  //  .text-input:focus:disabled ~ label {
+  //    color: $text-input-disabled-color;
+  //  }
+  //}
+  //
+  //.text-field-box {
+  //  background: $text-field-box-background;
+  //}
+  //
+  //.text-input-icon {
+  //  color: $text-input-icon-color;
+  //
+  //  @include hover-focus {
+  //    color: $text-input-icon-color;
+  //  }
+  //}
+  //
+  //.helper-text {
+  //  color: $text-field-helper-color;
+  //
+  //  &.error-text {
+  //    color: $danger-color;
+  //  }
+  //}
+  //
+  //.text-input {
+  //  border-color: $text-field-divider-color;
+  //
+  //  &:hover {
+  //    border-color: $text-field-divider-color-hover;
+  //  }
+  //}
+  //
+  //.text-field.disabled .text-input,
+  //.text-field.disabled.focus .text-input,
+  //.text-input:disabled,
+  //.text-input:disabled:hover {
+  //  color: $text-input-disabled-color;
+  //  border-color: $text-field-divider-color-disabled;
+  //}
+  //
+  //@if ($uwp-style) {
+  //  @include uwp-text-fields($text-input-placeholder-color);
+  //}
+}
+

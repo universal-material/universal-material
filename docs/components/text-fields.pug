@@ -2,85 +2,38 @@ extends ../layout
 
 block content
   h4.headline4.chapter-title Text fields
+  .text-field-container
+    .text-field
+      input.text-input(type="text" placeholder="Placeholder" id="text-field-standard" aria-describedby="standardHelper")
+      label(for="text-field-standard") Standard
+    small#standardHelper.text-field-helper-text Standard text field
 
-  .text-field
-    small.helper-text Helper Text
-    input.text-input(type="text" placeholder="Placeholder" id="text-field-1")
-    label(for="text-field-1") Normal
+  .text-field-container
+    .text-field.text-field-floating-label
+      input.text-input(type="text" placeholder="Placeholder" id="text-field-floating-label" aria-describedby="standardWithFloatinglabelHelper")
+      label(for="text-field-floating-label") Standard floating label
+    small#standardWithFloatinglabelHelper.text-field-helper-text Standard text field with floating label
 
-  .text-field.focus
-    input.text-input(type="text" placeholder="Placeholder")
-    label Normal focused
+  .text-field-container
+    .text-field.text-field-box.text-field-floating-label
+      input.text-input(type="text" placeholder="Placeholder" id="text-field-box" aria-describedby="textFieldBox")
+      label(for="text-field-box") Text field box
+    small#textFieldBox.text-field-helper-text Text field box
 
-  .text-field.invalid
-    small.helper-text.error-text Error Text
-    input.text-input(type="text" placeholder="Placeholder")
-    label Normal
+  .text-field-container
+    .text-field.text-field-outline.text-field-floating-label
+      input.text-input(type="text" placeholder="Placeholder" id="text-field-outline" aria-describedby="textFieldOutline")
+      label(for="text-field-outline") Text field outline
+    small#textFieldOutline.text-field-helper-text Text field outline
 
-  .text-field.floating-label
-    input.text-input(type="text" placeholder="Placeholder")
-    label Floating label
+  .text-field-container
+    .text-field.text-field-box.text-field-floating-label
+      textarea.text-input(type="text" placeholder="Placeholder" id="text-area-box" aria-describedby="textAreaBox")
+      label(for="text-area-box") Text area box
+    small#textAreaBox.text-field-helper-text Text area box
 
-  .text-field.floating-label.not-empty
-    input.text-input(type="text" placeholder="Placeholder" value="some value")
-    label Floating label not empty
-
-  .text-field.floating-label.focus
-    input.text-input(type="text" placeholder="Placeholder")
-    label Floating label focus
-
-  .text-field
-    .text-input-group
-      .text-input-icon
-        i.mdi.mdi-calendar
-      input.text-input(type="text" placeholder="Placeholder")
-    label Icon signifier
-
-  .text-field.dropdown
-    button.text-input.dropdown-toggle(type="button")
-      .placeholder Placeholder
-      .dropdown-toggle-icon
-    label Action icon
-    .dropdown-menu.down-right.fit-width
-      .dropdown-content
-        .dropdown-item Ice cream
-        .dropdown-item Pastry
-        .dropdown-item Other
-
-  .text-field
-    .text-input-group
-      .text-input
-        .text-input-prefix $
-        input(type="text" placeholder="Placeholder")
-    label Input prefix
-
-  .text-field
-    .text-input-group
-      .text-input
-        input(type="text" placeholder="Placeholder")
-        .text-input-suffix kg
-    label Input suffix
-
-  .text-field-elevated
-    .text-input-group
-      .text-input-icon
-        i.mdi.mdi-magnify
-      input.text-input(placeholder="Search")
-      .text-input-icon
-        i.mdi.mdi-microphone
-
-  .text-field.text-field-box
-    input.text-input(placeholder="Placeholder")
-    label Label
-
-  .text-field.text-field-box
-    textarea.text-input(rows=5, placeholder="Description here...")
-    label Label
-
-  .text-field
-    textarea.text-input(rows=5)
-    label Multi-line text field
-
-  .text-field.text-area
-    textarea.text-input(rows=5, placeholder="Description here...")
-    label.floating-label Text area
+  .text-field-container
+    .text-field.text-area-outline.text-field-floating-label
+      textarea.text-input(type="text" placeholder="Placeholder" id="text-area-outline" aria-describedby="textAreaOutline")
+      label(for="text-area-outline") Text area outline
+    small#textAreaOutline.text-field-helper-text Text area outline

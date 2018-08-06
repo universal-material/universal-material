@@ -1,4 +1,4 @@
-$primary-color: #563d7c !default;
+$primary-color: #009688 !default;
 $accent-color: #ffab40 !default;
 $danger-color: #ef5350 !default;
 $default-theme-dark: false !default;
@@ -438,88 +438,6 @@ $sidebar-background-color-dark-theme: #424242 !default;
 
 $sidebar-backdrop-bg: $black !default;
 $sidebar-backdrop-opacity: .5 !default;
-
-//Text fields
-$text-field-helper-text-font-size: .75rem !default;
-$text-field-helper-text-margin: .5rem !default;
-$text-field-helper-text-color-light-theme: $text-low-contrast-light-theme !default;
-$text-field-helper-text-color-dark-theme: $text-low-contrast-dark-theme !default;
-
-$text-field-divider-width: .0625rem !default;
-$text-field-divider-focus-hover-width: .125rem !default;
-
-$text-field-divider-color-light-theme: $color-low-contrast-light-theme !default;
-$text-field-divider-color-hover-light-theme: $color-high-contrast-light-theme !default;
-$text-field-divider-color-disabled-light-theme: $text-field-divider-color-light-theme !default;
-$text-field-divider-color-dark-theme: $color-low-contrast-dark-theme !default;
-$text-field-divider-color-hover-dark-theme: $color-high-contrast-dark-theme !default;
-$text-field-divider-color-disabled-dark-theme: $text-field-divider-color-dark-theme !default;
-
-$text-field-item-height: 1rem !default;
-$text-field-item-margin: .5rem !default;
-
-$text-field-label-color-light-theme: $text-low-contrast-light-theme !default;
-$text-field-label-color-dark-theme: $text-low-contrast-dark-theme !default;
-
-$text-field-label-font-size: .75rem !default;
-$text-field-label-font-weight: $font-regular !default;
-
-$text-field-elevated-height: 3rem !default;
-
-$text-field-label-padding-top: $text-field-item-margin !default;
-
-$text-field-box-border-radius: .25rem !default;
-$text-field-box-label-padding-top: .6875rem !default;
-$text-field-box-label-padding-bottom: .25rem !default;
-$text-field-box-padding-sides: .75rem !default;
-$text-field-box-input-padding-top: .25rem !default;
-$text-field-box-input-padding-bottom: .625rem !default;
-$text-field-box-border-width: .125rem !default;
-$text-field-box-label-transform: 1.3125rem - $text-field-item-margin !default;
-$text-field-box-label-font-weight: $font-medium !default;
-$text-field-box-label-line-height: .75rem !default;
-
-$text-area-border-radius: .25rem !default;
-$text-area-border-width: .0625rem !default;
-$text-area-dense-border-width: .125rem !default;
-$text-area-top-base-padding: $text-field-box-label-line-height + $text-field-label-padding-top + $text-field-item-margin !default;
-$text-area-top-padding: $text-area-top-base-padding - $text-area-border-width !default;
-$text-area-hover-focus-top-padding: $text-area-top-base-padding - $text-area-dense-border-width !default;
-
-$text-area-bottom-base-padding: $text-field-item-margin !default;
-$text-area-bottom-padding: $text-area-bottom-base-padding - $text-area-border-width !default;
-$text-area-hover-focus-bottom-padding: $text-area-bottom-base-padding - $text-area-dense-border-width !default;
-$text-area-horizontal-base-padding: $text-field-box-label-padding-top !default;
-$text-area-horizontal-padding: $text-field-box-label-padding-top - $text-area-border-width !default;
-$text-area-hover-focus-horizontal-padding: $text-field-box-label-padding-top - $text-area-dense-border-width !default;
-
-$text-input-color-light-theme: $text-high-contrast-light-theme !default;
-$text-input-color-dark-theme: $text-high-contrast-dark-theme !default;
-$text-input-line-height: 1.15 !default;
-$text-input-height: $text-field-item-height !default;
-$text-input-font-size: 1rem !default;
-$text-input-font-weight: $font-regular !default;
-$text-input-padding-bottom: $text-field-item-margin - $text-field-divider-width !default;
-$text-input-dense-padding-bottom: $text-field-item-margin - $text-field-divider-focus-hover-width !default;
-
-$text-input-placeholder-color-light-theme: $text-lower-contrast !default;
-$text-input-placeholder-color-dark-theme: $text-lower-contrast-dark-theme !default;
-$text-input-disabled-color-light-theme: $text-lower-contrast !default;
-$text-input-disabled-color-dark-theme: $text-lower-contrast-dark-theme !default;
-
-$text-input-icon-color-light-theme: $text-low-contrast-light-theme !default;
-$text-input-icon-color-dark-theme: $text-low-contrast-dark-theme !default;
-
-$text-input-affix-color-light-theme: $text-lower-contrast !default;
-$text-input-affix-color-dark-theme: $text-lower-contrast-dark-theme !default;
-
-$text-input-box-bg-light-theme: rgba(0, 0, 0, .06) !default;
-$text-input-box-bg-dark-theme: rgba(255, 255, 255, .1) !default;
-
-$uwp-text-field-border-width: .0625rem !default;
-$uwp-text-input-horizontal-padding: .75rem !default;
-$uwp-text-input-vertical-padding: $text-field-item-margin !default;
-$uwp-text-area-top-padding: $text-area-top-base-padding !default;
 
 //Steppers
 $stepper-padding: 1.5rem !default;

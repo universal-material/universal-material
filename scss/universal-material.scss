@@ -28,13 +28,13 @@
 @import "universal-material/progress";
 @import "universal-material/sidebar";
 @import "components/snackbar/snackbar";
-@import "universal-material/text-field";
+@import "components/text-field/text-field";
 @import "components/chips/chips";
 @import "universal-material/ripple";
 
 //Utilities
 @import "utilities";
-//@import "universal-material/responsive-utilities";
+
 $theme:(colors: $theme-colors, dark: $default-theme-dark, uwp-style: $default-uwp-style);
 
 @include create-theme($theme);
