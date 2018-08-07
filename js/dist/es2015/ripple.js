@@ -57,9 +57,9 @@ export default class Ripple {
     }
     static initializeRipples() {
         const rippleContainers = document.querySelectorAll(Ripple.rippleContainersSelectors);
-        rippleContainers.forEach((rippleContainer) => {
-            new Ripple(rippleContainer);
-        });
+        for (let i = 0; i < rippleContainers.length; i++) {
+            new Ripple(rippleContainers[i]);
+        }
     }
 }
 Ripple.rippleContainersSelectors = [

@@ -58,9 +58,9 @@ var Ripple = /** @class */ (function () {
     };
     Ripple.initializeRipples = function () {
         var rippleContainers = document.querySelectorAll(Ripple.rippleContainersSelectors);
-        rippleContainers.forEach(function (rippleContainer) {
-            new Ripple(rippleContainer);
-        });
+        for (var i = 0; i < rippleContainers.length; i++) {
+            new Ripple(rippleContainers[i]);
+        }
     };
     Ripple.rippleContainersSelectors = [
         '.btn',

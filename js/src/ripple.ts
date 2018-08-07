@@ -90,8 +90,9 @@ export class Ripple {
     static initializeRipples(): void {
         const rippleContainers = document.querySelectorAll(Ripple.rippleContainersSelectors);
 
-        rippleContainers.forEach((rippleContainer: HTMLElement) => {
-            new Ripple(rippleContainer);
-        });
+        for (let i = 0; i < rippleContainers.length; i++) {
+            new Ripple(rippleContainers[i] as HTMLElement);
+
+        }
     }
 }
