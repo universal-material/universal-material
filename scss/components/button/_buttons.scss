@@ -152,7 +152,7 @@
   $buttons-colors: (
     default: $btn-default-background-light,
     primary: map-get($theme-colors, "primary"),
-    accent: map-get($theme-colors, "accent"),
+    secondary: map-get($theme-colors, "secondary"),
     danger: map-get($theme-colors, "danger")
   );
 

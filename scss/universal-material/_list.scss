@@ -190,6 +190,19 @@
   }
 }
 
+.rtl,
+[dir="rtl"] {
+  .list-item-icon + .list-item-primary-content {
+    margin-right: $list-icon-avatar-text-left-distance - $list-icon-size - $list-item-padding;
+    margin-left: 0;
+  }
+
+  .list-item-avatar + .list-item-primary-content {
+    margin-right: $list-icon-avatar-text-left-distance - $list-avatar-size - $list-item-padding;
+    margin-left: 0;
+  }
+}
+
 @mixin list-theme($dark-theme) {
   $color: $list-item-color-light-theme;
   $icon-color: $list-icon-color-light-theme;

@@ -1,6 +1,6 @@
-$primary-color: #009688 !default;
-$accent-color: #ffab40 !default;
-$danger-color: #ef5350 !default;
+$primary-color: #512da8 !default;
+$secondary-color: #ffd740 !default;
+$danger-color: #c51162 !default;
 $default-theme-dark: false !default;
 $default-uwp-style: false !default;
 
@@ -36,7 +36,7 @@ $cyan:    #00bcd4 !default;
 
 $theme-colors: (
   primary: $primary-color, //Universal Material changes
-  accent: $accent-color,
+  secondary: $secondary-color,
   danger: $danger-color
 ) !default;
 
@@ -305,38 +305,6 @@ $expansion-panel-label-font-size: .9375rem !default;
 $expansion-panel-horizontal-padding: 1.5rem !default;
 $expansion-panel-content-margin: 1rem !default;
 $expansion-panel-switch-size: 1.5rem !default;
-
-
-
-//Dropdown
-$dropdown-menu-border-radius: .25rem !default;
-$dropdown-menu-padding: .5rem !default;
-$dropdown-menu-bg-light-theme: #fff !default;
-$dropdown-menu-bg-dark-theme: #424242 !default;
-
-$dropdown-item-height: 3rem !default;
-$dropdown-item-padding: 1rem !default;
-$dropdown-item-font-size: 1rem !default;
-
-$dropdown-item-color-light-theme: $body-color-light-theme !default;
-$dropdown-item-color-dark-theme: $body-color-dark-theme !default;
-
-$dropdown-in-data-table-bg-light-theme: #fafafa !default;
-$dropdown-in-data-table-bg-dark-theme: $gray-700 !default;
-
-$dropdown-in-data-table-toggle-icon-size: 22px !default;
-$dropdown-icon-size: .3rem !default;
-$dropdown-icon-color-light-theme: $color-low-contrast-light-theme !default;
-$dropdown-icon-color-dark-theme: $color-low-contrast-dark-theme !default;
-
-$uwp-dropdown-border-width: .0625rem !default;
-$uwp-dropdown-border-color-light-theme: $base-semi-transparent-color !default;
-$uwp-dropdown-border-color-dark-theme: rgba(204, 204, 204, .54) !default;
-
-//Dropdown dense
-$dropdown-item-dense-height: 2rem !default;
-$dropdown-item-dense-padding: 1.5rem !default;
-$dropdown-item-dense-font-size: .9375rem !default;
 
 //Data table
 $data-table-divider-color: $base-semi-transparent-color !default;

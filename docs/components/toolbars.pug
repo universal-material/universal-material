@@ -8,23 +8,25 @@ block content
     .example-box-header
       .toolbar
         .toolbar-row
-          .toolbar-navigation.btn-borderless.btn-default
+          .toolbar-start
+            .toolbar-navigation.btn-borderless.btn-default
+              i.mdi.mdi-menu
 
-            i.mdi.mdi-menu
           .toolbar-title Title here
 
-          .toolbar-actions
-            button.toolbar-action.btn-borderless.btn-default(type="button" disabled="")
-              i.mdi.mdi-phone
-            .toolbar-action.dropdown
-              button.btn-borderless.btn-default.dropdown-toggle(type="button")
-                i.mdi.mdi-dots-vertical
+          .toolbar-end
+            .toolbar-actions
+              button.toolbar-action.btn-borderless.btn-default(type="button" disabled="")
+                i.mdi.mdi-phone
+              .toolbar-action.dropdown
+                button.btn-borderless.btn-default.dropdown-toggle(type="button")
+                  i.mdi.mdi-dots-vertical
 
-              .dropdown-menu.down-left
-                .dropdown-content
-                  a.dropdown-item.text-nowrap(href="#") Item A
-                  a.dropdown-item.text-nowrap(href="#") Item B
-                  a.dropdown-item.text-nowrap(href="#") Item C
+                .dropdown-menu.down-left
+                  .dropdown-content
+                    a.dropdown-item.text-nowrap(href="#") Item A
+                    a.dropdown-item.text-nowrap(href="#") Item B
+                    a.dropdown-item.text-nowrap(href="#") Item C
     pre
       code.html
         = '<div class="toolbar">\n'
@@ -49,12 +51,14 @@ block content
     .example-box-header
       .toolbar
         .toolbar-row
-          .toolbar-navigation.btn-borderless.btn-default
-            i.mdi.mdi-menu
+          .toolbar-start
+            .toolbar-navigation.btn-borderless.btn-default
+              i.mdi.mdi-menu
           .toolbar-title Title here
-          .toolbar-actions
-            button.toolbar-action.btn-borderless.btn-default(type="button")
-              i.mdi.mdi-dots-vertical
+          .toolbar-end
+            .toolbar-actions
+              button.toolbar-action.btn-borderless.btn-default(type="button")
+                i.mdi.mdi-dots-vertical
         .tab-bar.toolbar-icon-padding
           .tab.active
             .tab-content

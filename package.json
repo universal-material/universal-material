@@ -18,7 +18,7 @@
     "scss/"
   ],
   "scripts": {
-    "docs": "http-server ./docs -a localhost -p 8081 -o http://localhost:8081"
+    "docs": "http-server ./docs -p 8081 -o http://localhost:8081"
   },
   "sass": "scss/universal-material.scss",
   "devDependencies": {
@@ -46,6 +46,7 @@
   },
   "dependencies": {
     "bootstrap": "^4.0.0",
-    "node-sass": "^4.8.3"
+    "node-sass": "^4.8.3",
+    "npm": "^6.3.0"
   }
 }

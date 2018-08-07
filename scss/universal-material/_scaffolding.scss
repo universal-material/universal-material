@@ -1,110 +1,16 @@
-// Reset the box-sizing
-//
-// Heads up! This reset may cause conflicts with some third-party widgets.
-// For recommendations on resolving such conflicts, see
-// http://getbootstrap.com/getting-started/#third-box-sizing
-//* {
-//  @include box-sizing(border-box);
-//}
-//
-//*:before,
-//*:after {
-//  @include box-sizing(border-box);
-//}
-
-html, body {
+html,
+body {
   height: 100%;
+  text-align: start;
 }
 
-//body {
-//  background-color: $bg-body;
-//  color: $text-color;
-//  font-family: $font-family-base;
-//  font-size: $font-size-base;
-//}
-//
-//// Reset fonts for relevant elements *bootstrap*
-//input,
-//button,
-//select,
-//textarea {
-//  font-family: inherit;
-//  font-size: inherit;
-//  line-height: inherit;
-//}
-//
-//.divider {
-//  width: 100%;
-//  height: 1px;
-//  background-color: $divider-color;
-//}
-//
-//.avatar {
-//  float: left;
-//
-//  @include size($avatar-size);
-//
-//  border-radius: 50%;
-//  font-size: $base-icon-size;
-//}
-//
-//.fill-height {
-//  height: 100%;
-//}
-//
-//.selectable-background {
-//  position: relative;
-//  z-index: 1;
-//  cursor: pointer;
-//
-//  &::before {
-//    content: "";
-//    position: absolute;
-//    width: 100%;
-//    height: 100%;
-//    top: 0;
-//    left: 0;
-//    z-index: -1;
-//
-//    @include transition(background-color 150ms linear);
-//  }
-//
-//  &:hover::before {
-//    background-color: $base-hover-background-color;
-//  }
-//
-//  &:active::before {
-//    background-color: $base-active-background-color;
-//  }
-//
-//  &:disabled {
-//    cursor: default;
-//
-//    &::before {
-//      content: none;
-//    }
-//  }
-//}
-//
-//a {
-//  color: $link-color;
-//  text-decoration: none;
-//
-//  &:hover,
-//  &:focus {
-//    color: $link-hover-color;
-//    text-decoration: $link-hover-decoration;
-//  }
-//
-//  &:focus {
-//    @include tab-focus;
-//  }
-//}
-//
-//.bg-primary {
-//  background-color: $primary-color;
-//}
-//
-//.bg-accent {
-//  background-color: $accent-color;
-//}
+body.rtl {
+
+
+  direction: rtl;
+
+  //&,
+  //input {
+  //  text-align: right;
+  //}
+}

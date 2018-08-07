@@ -2,8 +2,8 @@
   @include size($badge-size);
 
   position: absolute;
-  background-color: $accent-color;
-  color: get-text-color-by-background-color($accent-color);
+  background-color: $secondary-color;
+  color: get-text-color-by-background-color($secondary-color);
   border-radius: 50%;
   font-size: $badge-font-size;
   font-weight: $badge-font-weight;

@@ -1,3 +1,16 @@
+// stylelint-disable declaration-no-important
+
+// Responsive alignment
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    .text#{$infix}-start   { text-align: start !important; }
+    .text#{$infix}-end  { text-align: end !important; }
+  }
+}
+
 @mixin text-theme($theme-colors, $dark-theme) {
   $text-low-contrast: $text-low-contrast-light-theme;
   $text-high-contrast: $text-high-contrast-light-theme;
@@ -8,7 +21,7 @@
   }
 
   @include text-emphasis-variant(".text-primary", map-get($theme-colors, "primary"));
-  @include text-emphasis-variant(".text-accent", map-get($theme-colors, "accent"));
+  @include text-emphasis-variant(".text-secondary", map-get($theme-colors, "secondary"));
   @include text-emphasis-variant(".text-low-contrast", $text-low-contrast);
   @include text-emphasis-variant(".text-high-contrast", $text-high-contrast);
 }

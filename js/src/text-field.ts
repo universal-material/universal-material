@@ -37,7 +37,7 @@ class TextField {
         }
     }
 
-    static InitializeTextFields(): void {
+    static initializeTextFields(): void {
         const textFields = document.querySelectorAll('.text-field');
         for (let i = 0; i < textFields.length; i++) {
             const textField = textFields[i];

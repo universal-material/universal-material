@@ -49,7 +49,7 @@
   @include size($chip-avatar-size);
 
   margin-right: $chip-avatar-margin;
-  margin-left: $chip-avatar-margin-left;
+  margin-left: $chip-avatar-margin-start;
   font-size: $chip-avatar-font-size;
   line-height: $chip-avatar-size;
   border-radius: 50%;
@@ -94,6 +94,25 @@
   flex-wrap: wrap;
   align-items: center;
   min-height: $chip-height + $chip-margin-vertical * 2;
+
+  input {
+    background: transparent;
+    border: none;
+    outline: 0;
+  }
+}
+
+.rtl,
+[dir="rtl"] {
+  .chip {
+    margin-right: 0;
+    margin-left: $chip-margin;
+  }
+
+  .chip-avatar {
+    margin-right: $chip-avatar-margin-start;
+    margin-left: $chip-avatar-margin;
+  }
 }
 
 @mixin chip-theme($theme-colors, $dark-theme) {

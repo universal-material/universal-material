@@ -1,4 +1,5 @@
 @import "variables";
+@import "ios-toolbar";
 
 .toolbar {
   z-index: 1;
@@ -12,12 +13,23 @@
   height: $toolbar-height;
 }
 
+.toolbar-start {
+  display: inline-flex;
+  justify-content: flex-start;
+}
+
+.toolbar-end {
+  display: inline-flex;
+  justify-content: flex-end;
+}
+
 .toolbar-title {
   @include mdc-typography(headline6);
   @include text-truncate;
   flex-grow: 1;
   margin-left: $toolbar-title-margin;
   font-weight: 400;
+  text-align: start;
 }
 
 .toolbar-icon,
@@ -34,7 +46,6 @@
   display: flex;
   align-items: center;
   padding: $toolbar-actions-padding;
-  margin-left: auto;
 }
 
 .toolbar-action + .toolbar-action {
@@ -55,6 +66,14 @@
 .dense-layout {
   .toolbar-row {
     height: $toolbar-dense-height;
+  }
+}
+
+.rtl,
+[dir="rtl"] {
+  .toolbar-title {
+    margin-right: $toolbar-title-margin;
+    margin-left: 0;
   }
 }
 
@@ -86,3 +105,5 @@
     }
   }
 }
+
+//@include ios-toolbar;

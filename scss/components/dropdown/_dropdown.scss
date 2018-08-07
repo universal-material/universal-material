@@ -1,11 +1,13 @@
-@import "uwp/uwp-dropdown";
+@import "_variables";
 
 .dropdown-menu {
-  @include vertical-padding($dropdown-menu-padding);
   @include elevate("2dp");
 
   position: absolute;
   z-index: $zindex-dropdown;
+  min-width: $dropdown-menu-min-width;
+  padding-top: $dropdown-menu-padding;
+  padding-bottom: $dropdown-menu-padding;
   overflow: hidden;
   border-radius: $dropdown-menu-border-radius;
   opacity: 0;
@@ -124,7 +126,6 @@
   .dropdown-item {
     height: $dropdown-item-dense-height;
     font-size: $dropdown-item-dense-font-size;
-    @include horizontal-padding($dropdown-item-dense-padding);
   }
 }
 
@@ -143,8 +144,6 @@
 @mixin dropdown-theme($theme) {
 
   $dark-theme: map-get($theme, "dark");
-  $uwp-style: map-get($theme, "uwp-style");
-
 
   $background: $dropdown-menu-bg-light-theme;
   $background-in-data-table: $dropdown-in-data-table-bg-light-theme;
@@ -179,9 +178,5 @@
 
   .dropdown-toggle-icon::before {
     border-top-color: $dropdown-icon-color;
-  }
-
-  @if ($uwp-style) {
-    @include uwp-dropdown($dark-theme, $dropdown-icon-color);
   }
 }

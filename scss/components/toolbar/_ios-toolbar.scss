@@ -1,0 +1,20 @@
+@mixin ios-toolbar() {
+  .toolbar-start,
+  .toolbar-end {
+    display: inline-flex;
+    flex: 2;
+  }
+
+  .toolbar-start {
+    align-items: flex-start;
+  }
+
+  .toolbar-end {
+    align-items: flex-end;
+  }
+
+  .toolbar-title {
+    margin-left: 0;
+    text-align: center;
+  }
+}

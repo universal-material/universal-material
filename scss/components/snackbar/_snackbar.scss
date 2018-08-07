@@ -47,6 +47,14 @@
     min-width: $snackbar-tablet-min-width;
     max-width: $snackbar-tablet-max-width;
   }
+
+  .rtl,
+  [dir="rtl"] {
+    .snackbar {
+      right: $snackbar-tabled-margin;
+      left: auto;
+    }
+  }
 }
 
 @keyframes snackbar-fade-in {
