@@ -1,4 +1,4 @@
-class TextField {
+export class TextField {
 
     private readonly element: Element;
     private readonly input: HTMLInputElement;

@@ -1,16 +1,18 @@
+import autoprefixer from "gulp-autoprefixer";
 import gulp from "gulp";
+import notify from "gulp-notify";
+import pug from "gulp-pug";
+import rename from "gulp-rename";
+import replace from "gulp-replace";
 import sass from "gulp-sass";
 import sourcemaps from "gulp-sourcemaps";
-import rename from "gulp-rename";
-import autoprefixer from "gulp-autoprefixer";
-import pug from "gulp-pug";
-import notify from "gulp-notify";
 import ts from "gulp-typescript";
 import uglify from 'gulp-uglify';
 
-const tsProject = ts.createProject('./js/src/tsconfig.json');
-const tsProjectBundle = ts.createProject('./js/src/tsconfig.json', {outFile: 'universal-material.js'});
-const tsProjectBundleMinify = ts.createProject('./js/src/tsconfig.json', {outFile: 'universal-material.min.js'});
+const tsProjectEs5 = ts.createProject({module: 'amd', target:"es5"});
+const tsProjectEs2015 = ts.createProject({module: 'es2015', target:"es2015"});
+const tsProjectBundle = ts.createProject({module: 'amd', target:"es5", outFile: 'universal-material.js'});
+const tsProjectBundleMinify = ts.createProject({module: 'amd', target:"es5", outFile: 'universal-material.min.js'});
 
 
 gulp.task("sass:normal", function () {
@@ -60,19 +62,31 @@ gulp.task('pug:docs', function() {
 
 gulp.task("sass", ["sass:normal", "sass:compressed"]);
 
+gulp.task('scripts', ['ts-compile', 'js-compile-bundle', 'js-minify-bundle']);
 
-gulp.task('scripts', ['js-compile', 'js-compile-bundle', 'js-minify-bundle']);
+gulp.task('ts-compile', ['ts-compile-es5', 'ts-compile-es2015']);
 
-gulp.task('js-compile', function () {
+gulp.task('ts-compile-es5', function () {
     return gulp.src('./js/src/*.ts')
+        .pipe(replace('export class', 'class'))
         .pipe(sourcemaps.init())
-        .pipe(tsProject())
-        .pipe(sourcemaps.write())
-        .pipe(gulp.dest("./js/dist"))
+        .pipe(tsProjectEs5())
+        .pipe(sourcemaps.write('./'))
+        .pipe(gulp.dest("./js/dist/es5"))
+});
+
+gulp.task('ts-compile-es2015', function () {
+    return gulp.src('./js/src/*.ts')
+        .pipe(replace('export class', 'export default class'))
+        .pipe(sourcemaps.init())
+        .pipe(tsProjectEs2015())
+        .pipe(sourcemaps.write('./'))
+        .pipe(gulp.dest("./js/dist/es2015"))
 });
 
 gulp.task('js-compile-bundle', function () {
     return gulp.src('./js/src/*.ts')
+        .pipe(replace('export class', 'class'))
         .pipe(sourcemaps.init())
         .pipe(tsProjectBundle())
         .pipe(sourcemaps.write('./'))
@@ -82,6 +96,7 @@ gulp.task('js-compile-bundle', function () {
 
 gulp.task('js-minify-bundle', function () {
     return gulp.src('./js/src/*.ts')
+        .pipe(replace('export class', 'class'))
         .pipe(sourcemaps.init())
         .pipe(tsProjectBundleMinify())
         .pipe(uglify())

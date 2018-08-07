@@ -1,4 +1,4 @@
-class Ripple {
+export class Ripple {
     static rippleContainersSelectors =
         [
             '.btn',

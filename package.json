@@ -1,6 +1,6 @@
 {
   "name": "universal-material",
-  "version": "0.41.0",
+  "version": "0.42.0",
   "keywords": [
     "css",
     "sass",
@@ -15,12 +15,17 @@
   ],
   "files": [
     "dist/",
-    "scss/"
+    "scss/",
+    "types/",
+    "js/dist/",
+    "js/src/"
   ],
   "scripts": {
     "docs": "http-server ./docs -p 8081 -o http://localhost:8081"
   },
-  "sass": "scss/universal-material.scss",
+  "main": "./dist/js/universal-material",
+  "sass": "./scss/universal-material.scss",
+  "typings": "types/index.d.ts",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-preset-es2015": "^6.24.1",
@@ -30,6 +35,7 @@
     "gulp-notify": "^3.0.0",
     "gulp-pug": "^3.3.0",
     "gulp-rename": "^1.2.2",
+    "gulp-replace": "^1.0.0",
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-typescript": "^4.0.2",
@@ -45,7 +51,7 @@
     "typescript": "^3.0.1"
   },
   "dependencies": {
-    "bootstrap": "^4.0.0",
+    "bootstrap": "^4.1.3",
     "node-sass": "^4.8.3",
     "npm": "^6.3.0"
   }
