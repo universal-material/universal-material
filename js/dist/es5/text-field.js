@@ -1,10 +1,8 @@
-var TextField = /** @class */ (function () {
+var TextField = (function () {
     function TextField(element) {
         var _this = this;
-        var input = element.querySelector('input.text-input')
-            || element.querySelector('textarea.text-input')
-            || element.querySelector('.text-input input')
-            || element.querySelector('.text-input textarea');
+        var input = element.querySelector('input')
+            || element.querySelector('textarea');
         if (input) {
             input.addEventListener('focus', function () {
                 element.classList.add('focus');

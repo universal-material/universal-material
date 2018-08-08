@@ -1,10 +1,18 @@
 {
   "compilerOptions": {
-    "module": "umd",
-    "target": "es5",
-    "sourceMap": true
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "strictFunctionTypes": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "stripInternal": false,
+    "moduleResolution": "node"
   },
-  "exclude": [
-    "node_modules"
-  ]
+  "formatCodeOptions": {
+    "indentSize": 2,
+    "tabSize": 2
+  }
 }

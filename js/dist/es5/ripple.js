@@ -1,4 +1,4 @@
-var Ripple = /** @class */ (function () {
+var Ripple = (function () {
     function Ripple(element) {
         var _this = this;
         if (window.getComputedStyle(element).position !== "absolute" && window.getComputedStyle(element).position !== "fixed") {

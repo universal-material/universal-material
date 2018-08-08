@@ -41,7 +41,7 @@ export class Ripple {
         });
     }
 
-    createRipple(rippleContainer, releaseEventName, releaseCallback, pageX, pageY) {
+    createRipple(rippleContainer: Element, releaseEventName: string, releaseCallback: Function, pageX: number, pageY: number) {
         const rippleWrapper = document.createElement('DIV');
         rippleWrapper.classList.add('ripple-wrapper');
 

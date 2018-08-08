@@ -1,4 +1,4 @@
-export default class Ripple {
+export class Ripple {
     constructor(element) {
         if (window.getComputedStyle(element).position !== "absolute" && window.getComputedStyle(element).position !== "fixed") {
             element.style.position = "relative";

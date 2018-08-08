@@ -1,13 +1,11 @@
 export class TextField {
 
     private readonly element: Element;
-    private readonly input: HTMLInputElement;
+    private readonly input: HTMLInputElement | HTMLTextAreaElement;
 
-    constructor(element) {
-        const input = element.querySelector('input.text-input')
-            || element.querySelector('textarea.text-input')
-            || element.querySelector('.text-input input')
-            || element.querySelector('.text-input textarea');
+    constructor(element: Element) {
+        const input = element.querySelector('input')
+            || element.querySelector('textarea');
 
         if (input) {
             input.addEventListener('focus', () => {

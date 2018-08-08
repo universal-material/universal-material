@@ -1,9 +1,7 @@
-export default class TextField {
+export class TextField {
     constructor(element) {
-        const input = element.querySelector('input.text-input')
-            || element.querySelector('textarea.text-input')
-            || element.querySelector('.text-input input')
-            || element.querySelector('.text-input textarea');
+        const input = element.querySelector('input')
+            || element.querySelector('textarea');
         if (input) {
             input.addEventListener('focus', () => {
                 element.classList.add('focus');
