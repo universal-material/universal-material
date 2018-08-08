@@ -1,6 +1,6 @@
 {
   "name": "universal-material",
-  "version": "0.42.2",
+  "version": "0.42.3",
   "keywords": [
     "css",
     "sass",
@@ -21,7 +21,7 @@
   "scripts": {
     "docs": "http-server ./docs -p 8081 -o http://localhost:8081"
   },
-  "main": "./js/dist/es2015/universal-material",
+  "main": "./js/dist/es2015/index.js",
   "sass": "./scss/universal-material.scss",
   "typings": "./js/dist/typings/index.d.ts",
   "devDependencies": {
