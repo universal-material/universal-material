@@ -1,11 +1,10 @@
 export class TextField {
 
-    private readonly element: Element;
-    private readonly input: HTMLInputElement | HTMLTextAreaElement;
+    readonly element: Element;
+    readonly input: HTMLInputElement | HTMLTextAreaElement;
 
     constructor(element: Element) {
-        const input = element.querySelector('input')
-            || element.querySelector('textarea');
+        const input = element.querySelector('input, textarea') as HTMLInputElement | HTMLTextAreaElement;
 
         if (input) {
             input.addEventListener('focus', () => {
@@ -19,12 +18,16 @@ export class TextField {
             input.addEventListener('input', () => {
                 this.setEmpty();
             });
+
+            element.addEventListener('click', () => {
+                input.focus();
+            });
+
+            this.input = input;
+            this.element = element;
+
+            this.setEmpty();
         }
-
-        this.input = input;
-        this.element = element;
-
-        this.setEmpty();
     }
 
     setEmpty() {

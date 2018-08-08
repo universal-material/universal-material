@@ -16,12 +16,26 @@ block content
 
   .text-field-container
     .text-field.text-field-box.text-field-floating-label
+      .text-field-leading-icon
+        i.mdi.mdi-calendar
+      .text-field-trailing-icon
+        i.mdi.mdi-calendar
+
       input.text-input(type="text" placeholder="Placeholder" id="text-field-box" aria-describedby="textFieldBox")
       label(for="text-field-box") Text field box
-    small#textFieldBox.text-field-helper-text Text field box
+    small#textFieldBox.text-field-helper-text
+      .d-flex.position-relative
+        .flex-fill
+          span.text-field-helper-text-default Text field box
+          span.text-field-helper-text-invalid Error
+        span 0 / 10
 
   .text-field-container
     .text-field.text-field-outline.text-field-floating-label
+      .text-field-leading-icon
+        i.mdi.mdi-calendar
+      .text-field-trailing-icon
+        i.mdi.mdi-calendar
       input.text-input(type="text" placeholder="Placeholder" id="text-field-outline" aria-describedby="textFieldOutline")
       label(for="text-field-outline") Text field outline
     small#textFieldOutline.text-field-helper-text Text field outline

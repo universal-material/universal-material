@@ -47,6 +47,16 @@
 
     Ripple.initializeRipples();
     TextField.initializeTextFields();
+
+    var textField = document.querySelector('.text-field-box');
+    var textInput = document.querySelector('#text-field-box');
+    textInput.addEventListener('input', function () {
+        if (textInput.value) {
+            textField.classList.remove('invalid');
+        } else {
+            textField.classList.add('invalid');
+        }
+    });
 })();
 
 hljs.initHighlightingOnLoad();

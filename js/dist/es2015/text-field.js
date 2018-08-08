@@ -1,7 +1,6 @@
 export class TextField {
     constructor(element) {
-        const input = element.querySelector('input')
-            || element.querySelector('textarea');
+        const input = element.querySelector('input, textarea');
         if (input) {
             input.addEventListener('focus', () => {
                 element.classList.add('focus');
@@ -12,10 +11,13 @@ export class TextField {
             input.addEventListener('input', () => {
                 this.setEmpty();
             });
+            element.addEventListener('click', () => {
+                input.focus();
+            });
+            this.input = input;
+            this.element = element;
+            this.setEmpty();
         }
-        this.input = input;
-        this.element = element;
-        this.setEmpty();
     }
     setEmpty() {
         if (this.input.value) {

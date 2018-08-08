@@ -6,9 +6,78 @@
   margin-bottom: $text-field-container-margin;
 }
 
+.text-field-helper-text {
+  position: relative;
+  overflow: hidden;
+  font-size: $text-field-helper-text-font-size;
+}
+
+.text-field-helper-text-invalid {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  &:only-child {
+    position: static;
+    display: none;
+  }
+}
+
+.text-field-helper-text-default,
+.text-field-helper-text-invalid {
+  display: inline-block;
+  margin-top: $text-field-helper-text-margin;
+}
+
+.text-field-helper-text-default:not(:only-child),
+.text-field-helper-text-invalid {
+  opacity: 0;
+  transition: transform 1ms 200ms, opacity 150ms;
+  transform: translate3d(0, -100%, 0);
+}
+
+.text-field:not(.invalid) ~ .text-field-helper-text .text-field-helper-text-default,
+.text-field.invalid ~ .text-field-helper-text .text-field-helper-text-invalid {
+  opacity: 1;
+  transition: transform 200ms, opacity 150ms;
+  transform: translate3d(0, 0, 0);
+
+  &:only-child {
+    display: inline-block;
+  }
+}
+
+.text-field-leading-icon,
+.text-field-trailing-icon {
+  position: absolute;
+  bottom: $text-field-icon-bottom;
+  width: 1em;
+  height: 1em;
+  margin-bottom: -.5em;
+  font-size: $text-field-icon-size;
+  line-height: 1em;
+  text-align: center;
+}
+
+.text-field-leading-icon {
+  left: 0;
+
+  ~ .text-input {
+    padding-left: $text-input-padding + $text-field-icon-size;
+  }
+}
+
+.text-field-trailing-icon {
+  right: 0;
+
+  ~ .text-input {
+    padding-right: $text-input-padding + $text-field-icon-size;
+  }
+}
+
 .text-input {
   box-sizing: content-box;
-  height: $text-input-height;
   padding-top: $text-input-padding;
   padding-bottom: $text-input-padding - $text-field-border-width;
   font-size: $text-input-font-size;
@@ -16,6 +85,10 @@
   background: transparent;
   border: none;
   border-bottom: $text-input-border;
+
+  &:not(textarea) {
+    height: $text-input-height;
+  }
 
   &:focus {
     outline: 0;
@@ -41,15 +114,16 @@
     bottom: 0;
     left: 0;
     height: $text-field-focus-border-width;
-    content: "";
     pointer-events: none;
+    content: "";
     border-bottom: $text-field-focus-border-width solid currentColor;
     transition: transform 350ms $awesome-cubic-bezier;
     transform: scale3d(0, 1, 1);
     will-change: transform;
   }
 
-  &.focus {
+  &.focus,
+  &.invalid {
 
     label {
       color: currentColor;
@@ -76,7 +150,7 @@
     label {
       font-size: $text-input-font-size;
       pointer-events: none;
-      transform: translateY(($text-field-label-height / 2) + $text-field-label-margin + ($text-input-height / 2) + $text-input-padding);
+      transform: translate3d(0, ($text-field-label-height / 2) + $text-field-label-margin + ($text-input-height / 2) + $text-input-padding, 0);
     }
 
     .text-input::placeholder {
@@ -87,24 +161,50 @@
 }
 
 .text-field-box {
-  background: rgba(0, 0, 0, .12);
   border-radius: $text-field-box-border-radius;
 
   label {
     height: $text-field-box-label-height;
+    padding-left: $text-field-box-padding;
     margin-bottom: 0;
-    margin-left: $text-field-box-padding;
     line-height: $text-field-box-label-line-height;
   }
 
   .text-input {
     padding: 0 $text-field-box-padding calc(#{$text-field-box-padding} - #{$text-field-border-width});
-    border-color: transparent;
   }
 
   &.empty:not(.focus) {
     label {
-      transform: translateY(($text-field-box-height / 2) - (1.75rem / 2)) !important;
+      transform: translate3d(0, ($text-field-box-height / 2) - (1.75rem / 2), 0) !important;
+    }
+  }
+
+  ~ .text-field-helper-text {
+    margin-right: $text-field-box-padding;
+    margin-left: $text-field-box-padding;
+  }
+
+  .text-field-leading-icon,
+  .text-field-trailing-icon {
+    bottom: 50%;
+  }
+
+  .text-field-leading-icon {
+    left: $text-field-icon-margin;
+
+    ~ .text-input,
+    ~ label {
+      padding-left: calc(#{$text-field-icon-margin + $text-field-box-padding} + #{$text-field-icon-size});
+    }
+  }
+
+  .text-field-trailing-icon {
+    right: $text-field-icon-margin;
+
+    ~ .text-input,
+    ~ label {
+      padding-right: calc(#{$text-field-icon-margin + $text-field-box-padding} + #{$text-field-icon-size});
     }
   }
 }
@@ -112,11 +212,12 @@
 .text-field-outline {
   label {
     height: $text-field-outline-label-height;
-    padding: $text-field-outline-label-padding;
+    padding-right: $text-field-outline-label-padding;
+    padding-left: $text-field-outline-label-padding;
     margin-bottom: 0;
     margin-left: $text-field-outline-padding - $text-field-outline-label-padding;
     line-height: $text-field-outline-label-line-height;
-    transform: translateY(-$text-field-outline-label-height / 2);
+    transform: translate3d(0, -$text-field-outline-label-height / 2, 0);
   }
 
   .text-input {
@@ -126,7 +227,11 @@
 
   &.empty:not(.focus) {
     label {
-      transform: translateY(($text-field-outline-height / 2) - ($text-field-outline-label-height / 2)) !important;
+      transform: translate3d(0, ($text-field-outline-height / 2) - ($text-field-outline-label-height / 2), 0) !important;
+    }
+
+    .text-field-leading-icon ~ label {
+      transform: translate3d(calc(#{$text-field-icon-margin} + #{$text-field-icon-size}), ($text-field-outline-height / 2) - ($text-field-outline-label-height / 2), 0) !important;
     }
   }
 
@@ -139,9 +244,37 @@
     transform: none;
   }
 
-  &.focus {
+  &.focus,
+  &.invalid {
     &::before {
       border-width: $text-field-focus-border-width;
+    }
+  }
+
+  ~ .text-field-helper-text {
+    margin-right: $text-field-outline-padding;
+    margin-left: $text-field-outline-padding;
+  }
+
+  .text-field-leading-icon,
+  .text-field-trailing-icon {
+    bottom: 50%;
+  }
+
+  .text-field-leading-icon {
+    left: $text-field-icon-margin;
+
+    ~ .text-input {
+      margin-left: calc(#{$text-field-icon-margin} + #{$text-field-icon-size});
+    }
+  }
+
+  .text-field-trailing-icon {
+    right: $text-field-icon-margin;
+
+    ~ .text-input,
+    ~ label {
+      margin-right: calc(#{$text-field-icon-margin} + #{$text-field-icon-size});
     }
   }
 }
@@ -151,13 +284,8 @@
 
   label {
     background: transparent !important;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
-}
-
-.text-field-helper-text {
-  margin-top: $text-field-helper-text-margin;
-  font-size: $text-field-helper-text-font-size;
 }
 
 @mixin text-fields-theme($theme) {
@@ -169,16 +297,15 @@
   $primary-color: map-get($theme-colors, "primary");
   $danger-color: map-get($theme-colors, "danger");
 
-
   $text-field-label-color: $text-field-label-color-light-theme;
   $text-field-divider-color: $text-field-divider-color-light-theme;
   $text-field-divider-color-hover: $text-field-divider-color-hover-light-theme;
   $text-field-divider-color-disabled: $text-field-divider-color-disabled-light-theme;
-  //$text-field-box-background: $text-input-box-bg-light-theme;
+  $text-field-box-background: $text-input-box-bg-light-theme;
   $text-input-color: $text-input-color-light-theme;
   $text-input-placeholder-color: $text-input-placeholder-color-light-theme;
   $text-input-disabled-color: $text-input-disabled-color-light-theme;
-  //$text-input-icon-color: $text-input-icon-color-light-theme;
+  $text-input-icon-color: $text-input-icon-color-light-theme;
   //$text-input-affix-color: $text-input-affix-color-light-theme;
   $text-field-helper-text-color: $text-field-helper-text-color-light-theme;
   $text-field-outline-label-background: $bg-light;
@@ -188,14 +315,19 @@
     $text-field-divider-color: $text-field-divider-color-dark-theme;
     $text-field-divider-color-hover: $text-field-divider-color-hover-dark-theme;
     $text-field-divider-color-disabled: $text-field-divider-color-disabled-dark-theme;
-  //  $text-field-box-background: $text-input-box-bg-dark-theme;
+    $text-field-box-background: $text-input-box-bg-dark-theme;
     $text-input-color: $text-input-color-dark-theme;
     $text-input-placeholder-color: $text-input-placeholder-color-dark-theme;
   //  $text-input-disabled-color: $text-input-disabled-color-dark-theme;
-  //  $text-input-icon-color: $text-input-icon-color-dark-theme;
+    $text-input-icon-color: $text-input-icon-color-dark-theme;
   //  $text-input-affix-color: $text-input-affix-color-dark-theme;
     $text-field-helper-text-color: $text-field-helper-text-color-dark-theme;
     $text-field-outline-label-background: $bg-dark;
+  }
+
+  .text-field-leading-icon,
+  .text-field-trailing-icon {
+    color: $text-input-icon-color;
   }
 
   .text-field {
@@ -207,6 +339,13 @@
       color: $primary-color;
     }
 
+    &.invalid,
+    &.invalid .text-field-leading-icon,
+    &.invalid .text-field-trailing-icon,
+    & ~ .text-field-helper-text .text-field-helper-text-invalid {
+      color: $danger-color;
+    }
+
     &:hover {
       .text-input:not(:disabled) {
         border-color: $text-field-divider-color-hover;
@@ -214,12 +353,16 @@
     }
   }
 
+  .text-field-box {
+    background: $text-field-box-background;
+  }
+
   .text-field-outline {
     label {
       background: $text-field-outline-label-background;
     }
 
-    &:not(.focus) {
+    &:not(.focus):not(.invalid) {
       &::before {
         border-color: $text-field-divider-color;
       }
@@ -244,107 +387,8 @@
     color: $text-field-helper-text-color;
   }
 
-  //
-  //.placeholder,
   .text-input::placeholder {
     color: $text-input-placeholder-color;
   }
-  //
-  //.floating-label {
-  //  &.focus .text-input::placeholder,
-  //  .text-input:focus::placeholder {
-  //    color: $text-input-placeholder-color;
-  //  }
-  //}
-  //
-  //.text-input,
-  //input {
-  //  color: $text-input-color;
-  //}
-  //
-  //.text-input-prefix,
-  //.text-input-suffix {
-  //  color: $text-input-affix-color;
-  //}
-  //
-  //.text-field.focus .text-input,
-  //.text-input:focus,
-  //.text-input:focus:hover {
-  //  border-color: $primary-color;
-  //}
-  //
-  //.text-field {
-  //  label {
-  //    color: $text-field-label-color;
-  //  }
-  //
-  //  .text-input:focus ~ label,
-  //  &.focus label {
-  //    color: $primary-color;
-  //  }
-  //
-  //  &.invalid,
-  //  &.focus.invalid {
-  //
-  //    .text-input:focus,
-  //    .text-input:hover,
-  //    .text-input {
-  //      border-color: $danger-color;
-  //    }
-  //
-  //    label,
-  //    .text-input:focus ~ label {
-  //      color: $danger-color;
-  //    }
-  //  }
-  //
-  //  &.disabled label,
-  //  &.disabled .text-input:focus ~ label,
-  //  &.focus.disabled label,
-  //  .text-input:disabled ~ label,
-  //  .text-input:focus:disabled ~ label {
-  //    color: $text-input-disabled-color;
-  //  }
-  //}
-  //
-  //.text-field-box {
-  //  background: $text-field-box-background;
-  //}
-  //
-  //.text-input-icon {
-  //  color: $text-input-icon-color;
-  //
-  //  @include hover-focus {
-  //    color: $text-input-icon-color;
-  //  }
-  //}
-  //
-  //.helper-text {
-  //  color: $text-field-helper-color;
-  //
-  //  &.error-text {
-  //    color: $danger-color;
-  //  }
-  //}
-  //
-  //.text-input {
-  //  border-color: $text-field-divider-color;
-  //
-  //  &:hover {
-  //    border-color: $text-field-divider-color-hover;
-  //  }
-  //}
-  //
-  //.text-field.disabled .text-input,
-  //.text-field.disabled.focus .text-input,
-  //.text-input:disabled,
-  //.text-input:disabled:hover {
-  //  color: $text-input-disabled-color;
-  //  border-color: $text-field-divider-color-disabled;
-  //}
-  //
-  //@if ($uwp-style) {
-  //  @include uwp-text-fields($text-input-placeholder-color);
-  //}
 }
 
