@@ -1,6 +1,6 @@
 export declare class TextField {
-    private readonly element;
-    private readonly input;
+    element: Element;
+    input: HTMLInputElement | HTMLTextAreaElement;
     constructor(element: Element);
     setEmpty(): void;
     static initializeTextFields(): void;

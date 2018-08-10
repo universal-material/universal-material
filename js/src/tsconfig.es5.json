@@ -1,8 +1,0 @@
-{
-  "extends": "./tsconfig.json",
-  "compilerOptions": {
-    "module": "amd",
-    "target": "es5",
-    "importHelpers": true
-  }
-}

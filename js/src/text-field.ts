@@ -1,7 +1,7 @@
 export class TextField {
 
-    readonly element: Element;
-    readonly input: HTMLInputElement | HTMLTextAreaElement;
+    element: Element;
+    input: HTMLInputElement | HTMLTextAreaElement;
 
     constructor(element: Element) {
         const input = element.querySelector('input, textarea') as HTMLInputElement | HTMLTextAreaElement;
