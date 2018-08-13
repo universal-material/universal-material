@@ -1,3 +1,20 @@
+var RippleContainersSelector = [
+    '.btn',
+    '.btn-flat',
+    '.btn-borderless',
+    '.btn-solid',
+    '.btn-raised',
+    '.btn-outline',
+    '.list-hover .list-item',
+    '.list-item .list-item-hover',
+    '.tab',
+    '.dropdown-item',
+    '.radio .selection-control',
+    '.checkbox .selection-control',
+    '.switch .check-indicator',
+    '.chip-remove',
+    '.chip-hover'
+].join(',');
 var Ripple = (function () {
     function Ripple(element) {
         var _this = this;
@@ -57,28 +74,11 @@ var Ripple = (function () {
         });
     };
     Ripple.initializeRipples = function () {
-        var rippleContainers = document.querySelectorAll(Ripple.rippleContainersSelectors);
+        var rippleContainers = document.querySelectorAll(RippleContainersSelector);
         for (var i = 0; i < rippleContainers.length; i++) {
             new Ripple(rippleContainers[i]);
         }
     };
-    Ripple.rippleContainersSelectors = [
-        '.btn',
-        '.btn-flat',
-        '.btn-borderless',
-        '.btn-solid',
-        '.btn-raised',
-        '.btn-outline',
-        '.list-hover .list-item',
-        '.list-item .list-item-hover',
-        '.tab',
-        '.dropdown-item',
-        '.radio .selection-control',
-        '.checkbox .selection-control',
-        '.switch .check-indicator',
-        '.chip-remove',
-        '.chip-hover'
-    ].join(',');
     return Ripple;
 }());
 var Snackbar = (function () {

@@ -1,22 +1,23 @@
+export const RippleContainersSelector =
+  [
+    '.btn',
+    '.btn-flat',
+    '.btn-borderless',
+    '.btn-solid',
+    '.btn-raised',
+    '.btn-outline',
+    '.list-hover .list-item',
+    '.list-item .list-item-hover',
+    '.tab',
+    '.dropdown-item',
+    '.radio .selection-control',
+    '.checkbox .selection-control',
+    '.switch .check-indicator',
+    '.chip-remove',
+    '.chip-hover'
+  ].join(',');
+
 export class Ripple {
-    static rippleContainersSelectors =
-        [
-            '.btn',
-            '.btn-flat',
-            '.btn-borderless',
-            '.btn-solid',
-            '.btn-raised',
-            '.btn-outline',
-            '.list-hover .list-item',
-            '.list-item .list-item-hover',
-            '.tab',
-            '.dropdown-item',
-            '.radio .selection-control',
-            '.checkbox .selection-control',
-            '.switch .check-indicator',
-            '.chip-remove',
-            '.chip-hover'
-        ].join(',');
 
     constructor(element: HTMLElement) {
         if (window.getComputedStyle(element).position !== "absolute" && window.getComputedStyle(element).position !== "fixed") {
@@ -88,7 +89,7 @@ export class Ripple {
     }
 
     static initializeRipples(): void {
-        const rippleContainers = document.querySelectorAll(Ripple.rippleContainersSelectors);
+        const rippleContainers = document.querySelectorAll(RippleContainersSelector);
 
         for (let i = 0; i < rippleContainers.length; i++) {
             new Ripple(rippleContainers[i] as HTMLElement);

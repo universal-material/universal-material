@@ -1,14 +1,14 @@
-import autoprefixer from "gulp-autoprefixer";
-import gulp from "gulp";
+import autoprefixer from 'gulp-autoprefixer';
+import gulp from 'gulp';
 import debug from 'gulp-debug';
 import notify from "gulp-notify";
-import pug from "gulp-pug";
-import rename from "gulp-rename";
-import replace from "gulp-replace";
-import sass from "gulp-sass";
+import pug from 'gulp-pug';
+import rename from 'gulp-rename';
+import replace from 'gulp-replace';
+import sass from 'gulp-sass';
+import sassTildeImporter from 'node-sass-tilde-importer';
 import sourcemaps from "gulp-sourcemaps";
 import ts from 'gulp-typescript';
-import typescript from 'typescript';
 import uglify from 'gulp-uglify';
 import rollupTypescript from 'rollup-plugin-typescript2';
 const rollup = require('rollup');
@@ -21,7 +21,9 @@ const tsProjectBrowserUglify = ts.createProject('./js/src/tsconfig.browser.json'
 gulp.task("sass:normal", function () {
   return gulp.src("./scss/universal-material.scss")
     .pipe(sourcemaps.init())
-    .pipe(sass().on("error", sass.logError))
+    .pipe(sass({
+      importer: sassTildeImporter
+    }).on("error", sass.logError))
     .pipe(autoprefixer())
     .pipe(sourcemaps.write("./"))
     .pipe(gulp.dest("./dist/css"))
@@ -32,6 +34,7 @@ gulp.task("sass:compressed", function () {
   return gulp.src("./scss/universal-material.scss")
     .pipe(sourcemaps.init())
     .pipe(sass({
+      importer: sassTildeImporter,
       outputStyle: "compressed"
     }).on("error", sass.logError))
     .pipe(autoprefixer())
@@ -113,6 +116,7 @@ gulp.task('js-compile-browser', function () {
     .pipe(replace(/import\s{[A-z]+}\sfrom\s'.+';/, ''))
     .pipe(replace('export class', 'class'))
     .pipe(replace('export enum', 'enum'))
+    .pipe(replace('export const', 'const'))
     .pipe(sourcemaps.init())
     .pipe(tsProjectBrowser())
     .pipe(sourcemaps.write('./'))
@@ -125,6 +129,7 @@ gulp.task('js-compile-browser-uglify', function () {
     .pipe(replace(/import\s{[A-z]+}\sfrom\s'.+';/, ''))
     .pipe(replace('export class', 'class'))
     .pipe(replace('export enum', 'enum'))
+    .pipe(replace('export const', 'const'))
     .pipe(sourcemaps.init())
     .pipe(tsProjectBrowserUglify())
     .pipe(uglify())
