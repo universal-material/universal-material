@@ -18,6 +18,7 @@ var RippleContainersSelector = [
 var Ripple = (function () {
     function Ripple(element) {
         var _this = this;
+        this.disabled = false;
         if (window.getComputedStyle(element).position !== "absolute" && window.getComputedStyle(element).position !== "fixed") {
             element.style.position = "relative";
         }
@@ -37,6 +38,8 @@ var Ripple = (function () {
         });
     }
     Ripple.prototype.createRipple = function (rippleContainer, releaseEventName, releaseCallback, pageX, pageY) {
+        if (this.disabled)
+            return;
         var rippleWrapper = document.createElement('DIV');
         rippleWrapper.classList.add('ripple-wrapper');
         var ripple = document.createElement('DIV');

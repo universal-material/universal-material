@@ -5759,12 +5759,12 @@ th.data-table-header {
   padding: 0; }
 
 .list {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding-top: 8px;
+  padding-bottom: 8px;
   margin: 0; }
   .list .divider {
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem; }
+    margin-top: 8px;
+    margin-bottom: 8px; }
   .list.list-dividers .list-item {
     position: relative; }
     .list.list-dividers .list-item + .list-item::after {

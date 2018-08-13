@@ -18,82 +18,85 @@ export const RippleContainersSelector =
   ].join(',');
 
 export class Ripple {
+  disabled = false;
 
-    constructor(element: HTMLElement) {
-        if (window.getComputedStyle(element).position !== "absolute" && window.getComputedStyle(element).position !== "fixed") {
-            element.style.position = "relative";
-        }
-
-        let isTouching = false;
-
-        element.addEventListener('mousedown', (e: MouseEvent) => {
-            if (!isTouching) {
-                this.createRipple(element, 'mouseup', null, e.clientX, e.clientY);
-            }
-        });
-
-        element.addEventListener('touchstart', (e: TouchEvent) => {
-            isTouching = true;
-            this.createRipple(element, 'touchend', () => {
-                setTimeout(() => {
-                    isTouching = false;
-                }, 100);
-            }, e.touches[0].clientX, e.touches[0].clientY);
-        });
+  constructor(element: HTMLElement) {
+    if (window.getComputedStyle(element).position !== "absolute" && window.getComputedStyle(element).position !== "fixed") {
+      element.style.position = "relative";
     }
 
-    createRipple(rippleContainer: Element, releaseEventName: string, releaseCallback: Function, pageX: number, pageY: number) {
-        const rippleWrapper = document.createElement('DIV');
-        rippleWrapper.classList.add('ripple-wrapper');
+    let isTouching = false;
 
-        const ripple = document.createElement('DIV');
-        ripple.classList.add('ripple');
-        rippleWrapper.appendChild(ripple);
-        rippleContainer.insertAdjacentElement('afterbegin', rippleWrapper);
+    element.addEventListener('mousedown', (e: MouseEvent) => {
+      if (!isTouching) {
+        this.createRipple(element, 'mouseup', null, e.clientX, e.clientY);
+      }
+    });
 
-        const release = function () {
-            ripple.classList.add('dismiss');
+    element.addEventListener('touchstart', (e: TouchEvent) => {
+      isTouching = true;
+      this.createRipple(element, 'touchend', () => {
+        setTimeout(() => {
+          isTouching = false;
+        }, 100);
+      }, e.touches[0].clientX, e.touches[0].clientY);
+    });
+  }
 
-            if (releaseCallback) {
-                releaseCallback();
-            }
-        };
+  createRipple(rippleContainer: Element, releaseEventName: string, releaseCallback: Function, pageX: number, pageY: number) {
+    if (this.disabled) return;
 
-        window.addEventListener(releaseEventName, release);
-        rippleContainer.addEventListener("dragover", release);
+    const rippleWrapper = document.createElement('DIV');
+    rippleWrapper.classList.add('ripple-wrapper');
 
-        ripple.addEventListener('transitionend', () => {
-            if (ripple.classList.contains('dismiss')) {
-                rippleContainer.removeChild(rippleWrapper);
-                rippleContainer.removeEventListener("dragover", release);
-                window.removeEventListener(releaseEventName, release)
-            }
-        });
+    const ripple = document.createElement('DIV');
+    ripple.classList.add('ripple');
+    rippleWrapper.appendChild(ripple);
+    rippleContainer.insertAdjacentElement('afterbegin', rippleWrapper);
 
-        requestAnimationFrame(() => {
-            const clientRect = rippleContainer.getBoundingClientRect();
-            const largestDimensionSize = Math.max(rippleWrapper.clientWidth, rippleWrapper.clientHeight);
-            let rippleSize = largestDimensionSize * 2;
-            ripple.style.width = rippleSize + 'px';
-            ripple.style.height = rippleSize + 'px';
-            ripple.style.marginLeft = -rippleSize / 2 + 'px';
-            ripple.style.marginTop = -rippleSize / 2 + 'px';
-            ripple.style.transitionDuration = (1080 * Math.pow(rippleSize,0.3)) + 'ms, 750ms';
+    const release = function () {
+      ripple.classList.add('dismiss');
 
-            const x = (pageX - clientRect.left) + ((rippleSize - rippleContainer.clientWidth) / 2);
-            const y = (pageY - clientRect.top) + ((rippleSize - rippleContainer.clientHeight) / 2);
+      if (releaseCallback) {
+        releaseCallback();
+      }
+    };
 
-            ripple.style.transformOrigin = x + "px " + y + "px";
-            ripple.classList.add('show');
-        });
+    window.addEventListener(releaseEventName, release);
+    rippleContainer.addEventListener("dragover", release);
+
+    ripple.addEventListener('transitionend', () => {
+      if (ripple.classList.contains('dismiss')) {
+        rippleContainer.removeChild(rippleWrapper);
+        rippleContainer.removeEventListener("dragover", release);
+        window.removeEventListener(releaseEventName, release)
+      }
+    });
+
+    requestAnimationFrame(() => {
+      const clientRect = rippleContainer.getBoundingClientRect();
+      const largestDimensionSize = Math.max(rippleWrapper.clientWidth, rippleWrapper.clientHeight);
+      let rippleSize = largestDimensionSize * 2;
+      ripple.style.width = rippleSize + 'px';
+      ripple.style.height = rippleSize + 'px';
+      ripple.style.marginLeft = -rippleSize / 2 + 'px';
+      ripple.style.marginTop = -rippleSize / 2 + 'px';
+      ripple.style.transitionDuration = (1080 * Math.pow(rippleSize, 0.3)) + 'ms, 750ms';
+
+      const x = (pageX - clientRect.left) + ((rippleSize - rippleContainer.clientWidth) / 2);
+      const y = (pageY - clientRect.top) + ((rippleSize - rippleContainer.clientHeight) / 2);
+
+      ripple.style.transformOrigin = x + "px " + y + "px";
+      ripple.classList.add('show');
+    });
+  }
+
+  static initializeRipples(): void {
+    const rippleContainers = document.querySelectorAll(RippleContainersSelector);
+
+    for (let i = 0; i < rippleContainers.length; i++) {
+      new Ripple(rippleContainers[i] as HTMLElement);
+
     }
-
-    static initializeRipples(): void {
-        const rippleContainers = document.querySelectorAll(RippleContainersSelector);
-
-        for (let i = 0; i < rippleContainers.length; i++) {
-            new Ripple(rippleContainers[i] as HTMLElement);
-
-        }
-    }
+  }
 }

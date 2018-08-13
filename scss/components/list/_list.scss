@@ -1,10 +1,12 @@
+@import 'variables';
+
 .list {
-  padding-top: $list-vertical-padding;
-  padding-bottom: $list-vertical-padding;
+  padding-top: $list-vertical-margin;
+  padding-bottom: $list-vertical-margin;
   margin: 0;
 
   .divider {
-    @include vertical-margin($list-vertical-padding);
+    @include vertical-margin($list-vertical-margin);
   }
 
   &.list-dividers {

@@ -1,0 +1,41 @@
+$list-vertical-margin: 8px !default;
+
+$list-icon-size: $base-icon-size !default;
+$list-icon-color-light-theme: $text-low-contrast-light-theme !default;
+$list-icon-color-dark-theme: $text-low-contrast-dark-theme !default;
+
+$list-avatar-size: $avatar-size !default;
+$list-icon-avatar-text-left-distance: 4.5rem !default;
+
+$list-item-font-size: 1rem !default;
+$list-item-padding: 1rem !default;
+
+$list-item-min-height: 3rem !default;
+$list-item-side-padding: 16px !default;
+$list-item-with-icon-height: 3.5rem !default;
+$list-item-two-lines-height: 4.5rem !default;
+$list-item-three-lines-height: 5.5rem !default;
+
+$list-avatar-padding-top: .5rem !default;
+
+$list-index-width: 3.5rem !default;
+$list-index-font-size: 1.25rem !default;
+
+$list-index-color-light-theme: $text-low-contrast-light-theme !default;
+$list-index-color-dark-theme: $text-low-contrast-dark-theme !default;
+
+$list-divider-height: $divider-height !default;
+$list-item-multi-line-line-height: 1.25rem !default;
+
+//List dense
+$list-dense-vertical-padding: .25rem !default;
+$list-item-dense-font-size: .8125rem !default;
+$list-item-dense-padding: $list-item-dense-font-size !default;
+$list-item-dense-min-height: 2.5rem !default;
+
+$list-item-color-light-theme: $text-high-contrast-light-theme !default;
+$list-item-color-dark-theme: $white !default;
+
+$list-dense-icon-size: $base-dense-icon-size !default;
+
+$list-index-dense-font-size: 1rem !default;
