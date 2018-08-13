@@ -46,7 +46,7 @@
   border-bottom-right-radius: inherit;
   border-bottom-left-radius: inherit;
 
-  @extend .bg-dark;
+  @include dark-background-colors;
 }
 
 .card-content {

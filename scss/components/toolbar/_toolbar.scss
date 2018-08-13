@@ -24,7 +24,7 @@
 }
 
 .toolbar-title {
-  @include mdc-typography(headline6);
+  @include umd-typography(headline6);
   @include text-truncate;
   flex-grow: 1;
   margin-left: $toolbar-title-margin;

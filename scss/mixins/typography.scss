@@ -1,4 +1,4 @@
-@mixin mdc-typography($style) {
+@mixin umd-typography($style) {
   $style-props: map-get($typography-styles, $style);
 
   @if not map-has-key($typography-styles, $style) {

@@ -2,8 +2,13 @@ extends ../layout
 
 block content
   h4.headline4.chapter-title Snackbars
-
-
-  .snackbar
-    .snackbar-text Example message
-    .btn-flat.btn-secondary Action
+  .text-field-container
+    .text-field.text-field-box
+      input.text-input#snackbarText
+      label Snackbar text
+  .text-field-container
+    .text-field.text-field-box
+      input.text-input#snackbarButtonText
+      label Snackbar button text
+  .text-end
+    button.btn-raised.btn-primary(onclick="showSnackbar()") Show snackbar

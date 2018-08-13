@@ -1,4 +1,5 @@
 @import "variables";
+@import "../button/buttons";
 @import "uwp-snackbar";
 
 .snackbar {
@@ -28,6 +29,10 @@
     .snackbar-text {
       align-self: flex-start;
     }
+  }
+
+  &.dismiss {
+    animation-name: snackbar-fade-out;
   }
 }
 

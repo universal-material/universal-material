@@ -59,5 +59,18 @@
     });
 })();
 
+function showSnackbar() {
+
+  var text = document.getElementById('snackbarText').value;
+  var buttonText = document.getElementById('snackbarButtonText').value;
+
+  Snackbar.show(document.getElementById('snackbarText').value, SnackbarDuration.long, buttonText ? {
+    text: buttonText,
+    action: function () {
+      alert('Snackbar action!')
+    }
+  } : null);
+}
+
 hljs.initHighlightingOnLoad();
 

@@ -89,7 +89,7 @@
 }
 
 .dialog-title {
-  @include mdc-typography(headline6);
+  @include umd-typography(headline6);
 
   padding: $dialog-padding;
 

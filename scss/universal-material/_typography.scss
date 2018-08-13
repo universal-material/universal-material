@@ -4,7 +4,7 @@
 // Headings
 //
 
-@mixin mdc-typography($style) {
+@mixin umd-typography($style) {
   $style-props: map-get($typography-styles, $style);
 
   @if not map-has-key($typography-styles, $style) {
@@ -39,7 +39,7 @@ h6, .h6 { font-size: $h6-font-size; }
 
 @each $style in map-keys($typography-styles) {
   .#{$style} {
-    @include mdc-typography($style);
+    @include umd-typography($style);
   }
 }
 

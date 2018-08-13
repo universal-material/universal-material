@@ -81,6 +81,99 @@ var Ripple = (function () {
     ].join(',');
     return Ripple;
 }());
+var Snackbar = (function () {
+    function Snackbar() {
+    }
+    Snackbar.show = function (text, duration, buttonDefinition) {
+        if (duration === void 0) { duration = SnackbarDuration.long; }
+        Snackbar.snackbarQueue.push({
+            text: text,
+            duration: duration,
+            buttonDefinition: buttonDefinition
+        });
+        if (!Snackbar.consuming) {
+            Snackbar.consumeQueue();
+        }
+    };
+    Snackbar.consumeQueue = function () {
+        if (Snackbar.snackbarQueue.length) {
+            Snackbar.consuming = true;
+            Snackbar.showNext();
+        }
+    };
+    Snackbar.showNext = function () {
+        if (Snackbar.snackbarQueue.length) {
+            var snackbarDefinition = Snackbar.snackbarQueue[0];
+            Snackbar.snackbarQueue = Snackbar.snackbarQueue.slice(1);
+            var snackbar_1 = Snackbar.createSnackbar();
+            snackbar_1.appendChild(Snackbar.createSnackbarText(snackbarDefinition.text));
+            if (snackbarDefinition.buttonDefinition) {
+                var snackbarButton = Snackbar.createButton(snackbarDefinition.buttonDefinition);
+                snackbar_1.appendChild(snackbarButton);
+            }
+            document.body.appendChild(snackbar_1);
+            setTimeout(function () {
+                snackbar_1.classList.add("dismiss");
+                Snackbar.addAnimationEndEvents(snackbar_1);
+            }, snackbarDefinition.duration);
+        }
+        else {
+            Snackbar.consuming = false;
+        }
+    };
+    Snackbar.createSnackbar = function () {
+        var snackbar = document.createElement("div");
+        snackbar.className = "snackbar";
+        return snackbar;
+    };
+    Snackbar.createSnackbarText = function (text) {
+        var snackbarText = document.createElement("div");
+        snackbarText.innerText = text;
+        snackbarText.className = "snackbar-text";
+        return snackbarText;
+    };
+    Snackbar.createButton = function (buttonDefinition) {
+        var snackbarButton = document.createElement("button");
+        snackbarButton.type = "button";
+        snackbarButton.className = "btn-flat btn-secondary";
+        snackbarButton.innerText = buttonDefinition.text;
+        new Ripple(snackbarButton);
+        if (buttonDefinition.action) {
+            snackbarButton.addEventListener("click", buttonDefinition.action);
+        }
+        return snackbarButton;
+    };
+    Snackbar.addAnimationEndEvents = function (snackbar) {
+        var _this = this;
+        Snackbar.animationEvents.forEach(function (eventName) {
+            snackbar.addEventListener(eventName, Snackbar.onAnimationEnd.bind(_this));
+        });
+    };
+    Snackbar.onAnimationEnd = function (event) {
+        event.currentTarget.removeEventListener(event.type, Snackbar.onAnimationEnd);
+        var element = event.currentTarget;
+        element.parentNode.removeChild(element);
+        Snackbar.showNext();
+    };
+    Snackbar.animationEvents = ["webkitAnimationEnd", "oanimationend", "msAnimationEnd", "animationend"];
+    Snackbar.snackbarQueue = [];
+    return Snackbar;
+}());
+var SnackbarDuration;
+(function (SnackbarDuration) {
+    SnackbarDuration[SnackbarDuration["short"] = 2500] = "short";
+    SnackbarDuration[SnackbarDuration["long"] = 5000] = "long";
+})(SnackbarDuration || (SnackbarDuration = {}));
+var SnackbarDefinition = (function () {
+    function SnackbarDefinition() {
+    }
+    return SnackbarDefinition;
+}());
+var SnackbarButtonDefinition = (function () {
+    function SnackbarButtonDefinition() {
+    }
+    return SnackbarButtonDefinition;
+}());
 var TextField = (function () {
     function TextField(element) {
         var _this = this;

@@ -1,5 +1,4 @@
 .expansion-panel {
-  @extend .clearfix;
 
   position: relative;
   background: #fff;
@@ -57,8 +56,6 @@
   }
 
   .expansion-panel-header {
-    @extend .clearfix;
-
     padding: 0 $expansion-panel-horizontal-padding;
   }
 

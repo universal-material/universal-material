@@ -1560,14 +1560,12 @@ button.bg-light:hover,
 button.bg-light:focus {
   background-color: gainsboro !important; }
 
-.bg-dark, .card-media-content {
+.bg-dark {
   background-color: #424242 !important; }
 
-a.bg-dark:hover, a.card-media-content:hover, a.bg-dark:focus, a.card-media-content:focus,
+a.bg-dark:hover, a.bg-dark:focus,
 button.bg-dark:hover,
-button.card-media-content:hover,
-button.bg-dark:focus,
-button.card-media-content:focus {
+button.bg-dark:focus {
   background-color: #292929 !important; }
 
 .bg-white {
@@ -1658,7 +1656,7 @@ button.card-media-content:focus {
 .rounded-0 {
   border-radius: 0 !important; }
 
-.clearfix::after, .expansion-panel::after, .expansion-panel .expansion-panel-header::after {
+.clearfix::after {
   display: block;
   clear: both;
   content: ""; }
@@ -5173,7 +5171,20 @@ mark,
   color: #fff;
   background-color: rgba(0, 0, 0, 0.6);
   border-bottom-right-radius: inherit;
-  border-bottom-left-radius: inherit; }
+  border-bottom-left-radius: inherit;
+  color: #fff; }
+  .card-media-content .text-low-contrast {
+    color: rgba(255, 255, 255, 0.7) !important; }
+  .card-media-content a.text-low-contrast:hover, .card-media-content a.text-low-contrast:focus {
+    color: rgba(230, 230, 230, 0.7) !important; }
+  .card-media-content .text-high-contrast {
+    color: #fff !important; }
+  .card-media-content a.text-high-contrast:hover, .card-media-content a.text-high-contrast:focus {
+    color: #e6e6e6 !important; }
+  .card-media-content .btn-borderless.btn-default {
+    color: #fff; }
+    .card-media-content .btn-borderless.btn-default:hover, .card-media-content .btn-borderless.btn-default:focus {
+      color: #fff; }
 
 .card-content {
   padding: 16px 16px; }
@@ -6350,6 +6361,121 @@ th.data-table-header {
       -webkit-transition: opacity 375ms linear;
       transition: opacity 375ms linear; } }
 
+.btn, .btn-flat, .btn-outline,
+.btn-solid, .btn-raised, .btn-floating, .btn-borderless {
+  font-size: 0.875rem;
+  line-height: 2.25rem;
+  font-weight: 500;
+  letter-spacing: 0.08929em;
+  text-decoration: none;
+  text-transform: uppercase;
+  position: relative;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 2.25rem;
+  padding: 0 1rem;
+  overflow: hidden;
+  color: inherit;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background: transparent;
+  border: none;
+  border-radius: 0.25rem;
+  position: relative; }
+  .btn::before, .btn-flat::before, .btn-outline::before,
+  .btn-solid::before, .btn-raised::before, .btn-floating::before, .btn-borderless::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    content: "";
+    background: currentColor;
+    border-radius: 0;
+    opacity: 0;
+    -webkit-transition: opacity 250ms linear;
+    transition: opacity 250ms linear; }
+  .btn:hover::before, .btn-flat:hover::before, .btn-outline:hover::before,
+  .btn-solid:hover::before, .btn-raised:hover::before, .btn-floating:hover::before, .btn-borderless:hover::before {
+    opacity: .08; }
+  .btn:active::before, .btn-flat:active::before, .btn-outline:active::before,
+  .btn-solid:active::before, .btn-raised:active::before, .btn-floating:active::before, .btn-borderless:active::before {
+    opacity: .12; }
+  .btn:hover, .btn-flat:hover, .btn-outline:hover,
+  .btn-solid:hover, .btn-raised:hover, .btn-floating:hover, .btn-borderless:hover, .btn:focus, .btn-flat:focus, .btn-outline:focus,
+  .btn-solid:focus, .btn-raised:focus, .btn-floating:focus, .btn-borderless:focus {
+    text-decoration: none; }
+  .btn:focus, .btn-flat:focus, .btn-outline:focus,
+  .btn-solid:focus, .btn-raised:focus, .btn-floating:focus, .btn-borderless:focus, .btn.focus, .focus.btn-flat, .focus.btn-outline,
+  .focus.btn-solid, .focus.btn-raised, .focus.btn-floating, .focus.btn-borderless {
+    outline: 0; }
+  .btn:active, .btn-flat:active, .btn-outline:active,
+  .btn-solid:active, .btn-raised:active, .btn-floating:active, .btn-borderless:active, .btn.active, .active.btn-flat, .active.btn-outline,
+  .active.btn-solid, .active.btn-raised, .active.btn-floating, .active.btn-borderless {
+    background-image: none; }
+  .btn.disabled, .disabled.btn-flat, .disabled.btn-outline,
+  .disabled.btn-solid, .disabled.btn-raised, .disabled.btn-floating, .disabled.btn-borderless, .btn:disabled, .btn-flat:disabled, .btn-outline:disabled,
+  .btn-solid:disabled, .btn-raised:disabled, .btn-floating:disabled, .btn-borderless:disabled {
+    cursor: default; }
+
+.btn-outline {
+  border: 0.0625rem solid currentColor; }
+
+.btn-raised, .btn-floating {
+  -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  -webkit-transition: -webkit-box-shadow 150ms;
+  transition: -webkit-box-shadow 150ms;
+  transition: box-shadow 150ms;
+  transition: box-shadow 150ms, -webkit-box-shadow 150ms; }
+  .btn-raised:active, .btn-floating:active {
+    -webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.4); }
+
+.btn-borderless {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  font-size: 1.5rem;
+  border-radius: 50%; }
+  .btn-borderless + .btn-borderless {
+    margin-left: 0.5rem; }
+
+.btn-icon {
+  display: inline-block;
+  width: 1.125rem;
+  height: 1.125rem;
+  margin-right: .5rem;
+  margin-left: -.25rem;
+  font-size: 1.125rem;
+  line-height: 1.125rem; }
+
+.dense-layout .btn, .dense-layout .btn-flat, .dense-layout .btn-outline,
+.dense-layout .btn-solid, .dense-layout .btn-raised, .dense-layout .btn-floating, .dense-layout .btn-borderless, .dense.btn, .dense.btn-flat, .dense.btn-outline,
+.dense.btn-solid, .dense.btn-raised, .dense.btn-floating, .dense.btn-borderless {
+  height: 2rem;
+  font-size: 0.8125rem; }
+
+.dense-layout .btn-borderless, .dense.btn-borderless {
+  width: 2rem;
+  font-size: 1.3125rem; }
+
+.dense-layout .btn-icon, .dense.btn-icon {
+  font-size: 1rem; }
+
 .snackbar {
   position: fixed;
   right: 0.5rem;
@@ -6387,6 +6513,9 @@ th.data-table-header {
     .snackbar.snackbar-vertical .snackbar-text {
       -ms-flex-item-align: start;
           align-self: flex-start; }
+  .snackbar.dismiss {
+    -webkit-animation-name: snackbar-fade-out;
+            animation-name: snackbar-fade-out; }
 
 .snackbar-text {
   -webkit-box-flex: 1;
@@ -6921,19 +7050,19 @@ th.data-table-header {
     .bg-light .btn-borderless.btn-default:hover, .bg-light .btn-borderless.btn-default:focus {
       color: rgba(0, 0, 0, 0.54); }
 
-.bg-dark, .card-media-content {
+.bg-dark {
   color: #fff; }
-  .bg-dark .text-low-contrast, .card-media-content .text-low-contrast {
+  .bg-dark .text-low-contrast {
     color: rgba(255, 255, 255, 0.7) !important; }
-  .bg-dark a.text-low-contrast:hover, .card-media-content a.text-low-contrast:hover, .bg-dark a.text-low-contrast:focus, .card-media-content a.text-low-contrast:focus {
+  .bg-dark a.text-low-contrast:hover, .bg-dark a.text-low-contrast:focus {
     color: rgba(230, 230, 230, 0.7) !important; }
-  .bg-dark .text-high-contrast, .card-media-content .text-high-contrast {
+  .bg-dark .text-high-contrast {
     color: #fff !important; }
-  .bg-dark a.text-high-contrast:hover, .card-media-content a.text-high-contrast:hover, .bg-dark a.text-high-contrast:focus, .card-media-content a.text-high-contrast:focus {
+  .bg-dark a.text-high-contrast:hover, .bg-dark a.text-high-contrast:focus {
     color: #e6e6e6 !important; }
-  .bg-dark .btn-borderless.btn-default, .card-media-content .btn-borderless.btn-default {
+  .bg-dark .btn-borderless.btn-default {
     color: #fff; }
-    .bg-dark .btn-borderless.btn-default:hover, .card-media-content .btn-borderless.btn-default:hover, .bg-dark .btn-borderless.btn-default:focus, .card-media-content .btn-borderless.btn-default:focus {
+    .bg-dark .btn-borderless.btn-default:hover, .bg-dark .btn-borderless.btn-default:focus {
       color: #fff; }
 
 .selectable-background {

@@ -8,8 +8,9 @@ import replace from "gulp-replace";
 import sass from "gulp-sass";
 import sourcemaps from "gulp-sourcemaps";
 import ts from 'gulp-typescript';
+import typescript from 'typescript';
 import uglify from 'gulp-uglify';
-import rollupTypescript from 'rollup-plugin-typescript';
+import rollupTypescript from 'rollup-plugin-typescript2';
 const rollup = require('rollup');
 
 const tsProjectTypings = ts.createProject('./js/src/tsconfig.types.json');
@@ -81,7 +82,9 @@ gulp.task('ts-compile-typings', function () {
 gulp.task('js-compile-bundle', () => {
   return rollup.rollup({
     input: './js/src/index.ts',
-    plugins: [rollupTypescript()]
+    plugins: [rollupTypescript({
+      typescript: require('typescript')
+    })]
   }).then(bundle => {
     return bundle.write({
       file: './js/dist/bundle/universal-material.umd.js',
@@ -93,8 +96,23 @@ gulp.task('js-compile-bundle', () => {
 });
 
 gulp.task('js-compile-browser', function () {
+
+  // return rollup.rollup({
+  //   input: './js/src/index.ts',
+  //   plugins: [rollupTypescript()]
+  // }).then(bundle => {
+  //   return bundle.write({
+  //     file: './dist/js/universal-material.js',
+  //     name: 'universal-material',
+  //     format: 'cjs',
+  //     sourcemap: true
+  //   });
+  // });
+
   return gulp.src(['./js/src/*.ts', '!./js/src/index.ts'])
+    .pipe(replace(/import\s{[A-z]+}\sfrom\s'.+';/, ''))
     .pipe(replace('export class', 'class'))
+    .pipe(replace('export enum', 'enum'))
     .pipe(sourcemaps.init())
     .pipe(tsProjectBrowser())
     .pipe(sourcemaps.write('./'))
@@ -104,7 +122,9 @@ gulp.task('js-compile-browser', function () {
 
 gulp.task('js-compile-browser-uglify', function () {
   return gulp.src(['./js/src/*.ts', '!./js/src/index.ts'])
+    .pipe(replace(/import\s{[A-z]+}\sfrom\s'.+';/, ''))
     .pipe(replace('export class', 'class'))
+    .pipe(replace('export enum', 'enum'))
     .pipe(sourcemaps.init())
     .pipe(tsProjectBrowserUglify())
     .pipe(uglify())
