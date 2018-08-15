@@ -1,6 +1,6 @@
 {
   "name": "@universal-material/core",
-  "version": "0.45.1",
+  "version": "0.46.0",
   "keywords": [
     "css",
     "sass",
@@ -66,8 +66,5 @@
     "ts-loader": "^4.4.2",
     "tsc": "^1.20150623.0",
     "typescript": "^3.0.1"
-  },
-  "dependencies": {
-    "bootstrap": "^4.1.3"
   }
 }

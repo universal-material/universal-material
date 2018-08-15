@@ -6,7 +6,6 @@ import pug from 'gulp-pug';
 import rename from 'gulp-rename';
 import replace from 'gulp-replace';
 import sass from 'gulp-sass';
-import sassTildeImporter from './node-sass-tilde-importer';
 import sourcemaps from "gulp-sourcemaps";
 import ts from 'gulp-typescript';
 import uglify from 'gulp-uglify';
@@ -20,9 +19,7 @@ const tsProjectBrowserUglify = ts.createProject('./js/src/tsconfig.browser.json'
 gulp.task("sass:normal", function () {
   return gulp.src("./scss/universal-material.scss")
     .pipe(sourcemaps.init())
-    .pipe(sass({
-      importer: sassTildeImporter
-    }).on("error", sass.logError))
+    .pipe(sass().on("error", sass.logError))
     .pipe(autoprefixer())
     .pipe(sourcemaps.write("./"))
     .pipe(gulp.dest("./dist/css"))
@@ -33,7 +30,6 @@ gulp.task("sass:compressed", function () {
   return gulp.src("./scss/universal-material.scss")
     .pipe(sourcemaps.init())
     .pipe(sass({
-      importer: sassTildeImporter,
       outputStyle: "compressed"
     }).on("error", sass.logError))
     .pipe(autoprefixer())
