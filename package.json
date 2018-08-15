@@ -1,6 +1,6 @@
 {
   "name": "universal-material",
-  "version": "0.44.0",
+  "version": "0.44.1",
   "keywords": [
     "css",
     "sass",
@@ -16,7 +16,8 @@
   "files": [
     "dist/",
     "scss/",
-    "js/dist/"
+    "js/dist/",
+    "README.md"
   ],
   "scripts": {
     "docs": "http-server ./docs -p 8081 -o http://localhost:8081",
