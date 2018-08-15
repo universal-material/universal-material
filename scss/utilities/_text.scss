@@ -6,8 +6,26 @@
   @include media-breakpoint-up($breakpoint) {
     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
 
-    .text#{$infix}-start   { text-align: start !important; }
-    .text#{$infix}-end  { text-align: end !important; }
+    .text#{$infix}-start {
+      text-align: left !important;
+      text-align: start !important;
+    }
+    .text#{$infix}-end {
+      text-align: right !important;
+      text-align: end !important;
+    }
+
+    .rtl,
+    [dir="rtl"] {
+      .text#{$infix}-start {
+        text-align: right !important;
+        text-align: start !important;
+      }
+      .text#{$infix}-end {
+        text-align: left !important;
+        text-align: end !important;
+      }
+    }
   }
 }
 

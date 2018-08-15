@@ -1,6 +1,7 @@
 import autoprefixer from 'gulp-autoprefixer';
 import gulp from 'gulp';
 import debug from 'gulp-debug';
+import insert from 'gulp-insert';
 import notify from "gulp-notify";
 import pug from 'gulp-pug';
 import rename from 'gulp-rename';
@@ -93,40 +94,25 @@ gulp.task('js-compile-bundle', () => {
   });
 });
 
-gulp.task('js-compile-browser', function () {
-
-  // return rollup.rollup({
-  //   input: './js/src/index.ts',
-  //   plugins: [rollupTypescript()]
-  // }).then(bundle => {
-  //   return bundle.write({
-  //     file: './dist/js/universal-material.js',
-  //     name: 'universal-material',
-  //     format: 'cjs',
-  //     sourcemap: true
-  //   });
-  // });
-
+const jsCompileBrowserConfig = (tsProject) => {
   return gulp.src(['./js/src/*.ts', '!./js/src/index.ts'])
     .pipe(replace(/import\s{[A-z]+}\sfrom\s'.+';/, ''))
-    .pipe(replace('export class', 'class'))
-    .pipe(replace('export enum', 'enum'))
-    .pipe(replace('export const', 'const'))
     .pipe(sourcemaps.init())
-    .pipe(tsProjectBrowser())
+    .pipe(insert.transform(contents => {
+      return `namespace umd { ${contents} }`;
+    }))
+    .pipe(tsProject());
+};
+
+gulp.task('js-compile-browser', function () {
+  return jsCompileBrowserConfig(tsProjectBrowser)
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest("./dist/js"))
     .pipe(gulp.dest("./docs/js"))
 });
 
 gulp.task('js-compile-browser-uglify', function () {
-  return gulp.src(['./js/src/*.ts', '!./js/src/index.ts'])
-    .pipe(replace(/import\s{[A-z]+}\sfrom\s'.+';/, ''))
-    .pipe(replace('export class', 'class'))
-    .pipe(replace('export enum', 'enum'))
-    .pipe(replace('export const', 'const'))
-    .pipe(sourcemaps.init())
-    .pipe(tsProjectBrowserUglify())
+  return jsCompileBrowserConfig(tsProjectBrowserUglify)
     .pipe(uglify())
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest("./dist/js"))

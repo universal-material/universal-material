@@ -45,8 +45,8 @@
 
     document.getElementById("main-content").addEventListener("scroll", mainContentScroll);
 
-    Ripple.initializeRipples();
-    TextField.initializeTextFields();
+    umd.Ripple.initializeRipples();
+    umd.TextField.initializeTextFields();
 
     var textField = document.querySelector('.text-field-box');
     var textInput = document.querySelector('#text-field-box');
@@ -64,7 +64,7 @@ function showSnackbar() {
   var text = document.getElementById('snackbarText').value;
   var buttonText = document.getElementById('snackbarButtonText').value;
 
-  Snackbar.show(document.getElementById('snackbarText').value, SnackbarDuration.long, buttonText ? {
+  umd.Snackbar.show(document.getElementById('snackbarText').value, umd.SnackbarDuration.long, buttonText ? {
     text: buttonText,
     action: function () {
       alert('Snackbar action!')

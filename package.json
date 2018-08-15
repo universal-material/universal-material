@@ -1,6 +1,6 @@
 {
   "name": "@universal-material/core",
-  "version": "0.46.1",
+  "version": "0.47.1",
   "keywords": [
     "css",
     "sass",
@@ -42,8 +42,8 @@
     "find-parent-dir": "^0.3.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
-    "gulp-concat": "^2.6.1",
     "gulp-debug": "^4.0.0",
+    "gulp-insert": "^0.5.0",
     "gulp-notify": "^3.0.0",
     "gulp-pug": "^3.3.0",
     "gulp-rename": "^1.2.2",

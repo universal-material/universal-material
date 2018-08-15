@@ -4971,10 +4971,6 @@ mark,
   border-radius: 0.25rem;
   -webkit-box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2), 0 13px 19px 2px rgba(0, 0, 0, 0.14), 0 5px 24px 4px rgba(0, 0, 0, 0.12);
           box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2), 0 13px 19px 2px rgba(0, 0, 0, 0.14), 0 5px 24px 4px rgba(0, 0, 0, 0.12);
-  -webkit-transition: -webkit-transform 350ms cubic-bezier(0.19, 1, 0.22, 1);
-  transition: -webkit-transform 350ms cubic-bezier(0.19, 1, 0.22, 1);
-  transition: transform 350ms cubic-bezier(0.19, 1, 0.22, 1);
-  transition: transform 350ms cubic-bezier(0.19, 1, 0.22, 1), -webkit-transform 350ms cubic-bezier(0.19, 1, 0.22, 1);
   -webkit-transform: scale3d(0, 0, 1);
           transform: scale3d(0, 0, 1); }
 
@@ -5002,13 +4998,21 @@ mark,
   overflow: hidden;
   pointer-events: none;
   outline: 0;
-  opacity: 0;
-  -webkit-transition: opacity 250ms;
-  transition: opacity 250ms; }
+  opacity: 0; }
   .dialog.show {
     pointer-events: auto;
-    opacity: 1; }
+    opacity: 1;
+    -webkit-animation: fade-in 250ms;
+            animation: fade-in 250ms; }
     .dialog.show .dialog-content {
+      -webkit-transform: scale3d(1, 1, 1);
+              transform: scale3d(1, 1, 1);
+      -webkit-animation: zoom-in 250ms cubic-bezier(0.19, 1, 0.22, 1);
+              animation: zoom-in 250ms cubic-bezier(0.19, 1, 0.22, 1); }
+  .dialog.hide {
+    -webkit-animation: fade-out 150ms;
+            animation: fade-out 150ms; }
+    .dialog.hide .dialog-content {
       -webkit-transform: scale3d(1, 1, 1);
               transform: scale3d(1, 1, 1); }
 
@@ -5057,17 +5061,59 @@ mark,
   .dialog-actions .btn-borderless + .btn-solid, .dialog-actions .btn + .btn-raised, .dialog-actions .btn-flat + .btn-raised, .dialog-actions .btn-outline + .btn-raised, .dialog-actions .btn-solid + .btn-raised, .dialog-actions .btn-raised + .btn-raised, .dialog-actions .btn-floating + .btn-raised, .dialog-actions .btn-borderless + .btn-raised, .dialog-actions .btn + .btn-floating, .dialog-actions .btn-flat + .btn-floating, .dialog-actions .btn-outline + .btn-floating, .dialog-actions .btn-solid + .btn-floating, .dialog-actions .btn-raised + .btn-floating, .dialog-actions .btn-floating + .btn-floating, .dialog-actions .btn-borderless + .btn-floating, .dialog-actions .btn + .btn-borderless, .dialog-actions .btn-flat + .btn-borderless, .dialog-actions .btn-outline + .btn-borderless, .dialog-actions .btn-solid + .btn-borderless, .dialog-actions .btn-raised + .btn-borderless, .dialog-actions .btn-floating + .btn-borderless, .dialog-actions .btn-borderless + .btn-borderless {
     margin-left: 8px; }
 
-@-webkit-keyframes modal-show {
-  0% {
+.dialog-progress .dialog-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+
+.dialog-progress .dialog-content {
+  width: auto; }
+
+.dialog-progress .dialog-progress-message {
+  margin-left: 24px; }
+
+@-webkit-keyframes fade-in {
+  from {
     opacity: 0; }
-  100% {
+  to {
     opacity: 1; } }
 
-@keyframes modal-show {
-  0% {
+@keyframes fade-in {
+  from {
     opacity: 0; }
-  100% {
+  to {
     opacity: 1; } }
+
+@-webkit-keyframes fade-out {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
+
+@keyframes fade-out {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
+
+@-webkit-keyframes zoom-in {
+  from {
+    -webkit-transform: scale3d(0, 0, 1);
+            transform: scale3d(0, 0, 1); }
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1); } }
+
+@keyframes zoom-in {
+  from {
+    -webkit-transform: scale3d(0, 0, 1);
+            transform: scale3d(0, 0, 1); }
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1); } }
 
 .expansion-panel {
   position: relative;
@@ -6834,33 +6880,85 @@ th.data-table-header {
     opacity: .12; }
 
 .text-start {
+  text-align: left !important;
   text-align: start !important; }
 
 .text-end {
+  text-align: right !important;
+  text-align: end !important; }
+
+.rtl .text-start,
+[dir="rtl"] .text-start {
+  text-align: right !important;
+  text-align: start !important; }
+
+.rtl .text-end,
+[dir="rtl"] .text-end {
+  text-align: left !important;
   text-align: end !important; }
 
 @media (min-width: 576px) {
   .text-sm-start {
+    text-align: left !important;
     text-align: start !important; }
   .text-sm-end {
+    text-align: right !important;
+    text-align: end !important; }
+  .rtl .text-sm-start,
+  [dir="rtl"] .text-sm-start {
+    text-align: right !important;
+    text-align: start !important; }
+  .rtl .text-sm-end,
+  [dir="rtl"] .text-sm-end {
+    text-align: left !important;
     text-align: end !important; } }
 
 @media (min-width: 768px) {
   .text-md-start {
+    text-align: left !important;
     text-align: start !important; }
   .text-md-end {
+    text-align: right !important;
+    text-align: end !important; }
+  .rtl .text-md-start,
+  [dir="rtl"] .text-md-start {
+    text-align: right !important;
+    text-align: start !important; }
+  .rtl .text-md-end,
+  [dir="rtl"] .text-md-end {
+    text-align: left !important;
     text-align: end !important; } }
 
 @media (min-width: 992px) {
   .text-lg-start {
+    text-align: left !important;
     text-align: start !important; }
   .text-lg-end {
+    text-align: right !important;
+    text-align: end !important; }
+  .rtl .text-lg-start,
+  [dir="rtl"] .text-lg-start {
+    text-align: right !important;
+    text-align: start !important; }
+  .rtl .text-lg-end,
+  [dir="rtl"] .text-lg-end {
+    text-align: left !important;
     text-align: end !important; } }
 
 @media (min-width: 1200px) {
   .text-xl-start {
+    text-align: left !important;
     text-align: start !important; }
   .text-xl-end {
+    text-align: right !important;
+    text-align: end !important; }
+  .rtl .text-xl-start,
+  [dir="rtl"] .text-xl-start {
+    text-align: right !important;
+    text-align: start !important; }
+  .rtl .text-xl-end,
+  [dir="rtl"] .text-xl-end {
+    text-align: left !important;
     text-align: end !important; } }
 
 .divider {
