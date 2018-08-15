@@ -1,2 +1,14 @@
 # Universal Material
-[DEPRECATED]. Renamed to @universal-material/core
+
+
+## Getting started
+
+### Step1: Install Universal Material
+```
+npm i @universal-material/core
+```
+
+### Step2: Import Universal Material scss
+```
+@import "~@universal-material/core/scss/universal-material.scss";
+```
