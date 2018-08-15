@@ -17,7 +17,7 @@ const template = `
           </div>
         </div>
       </div>
-      <div class="dialog-progress-message subtitle1 text-low-contrast text-nowrap"></div>
+      <div class="dialog-progress-message headline6 text-low-contrast text-nowrap"></div>
     </div>
   </div>
 </div>`;

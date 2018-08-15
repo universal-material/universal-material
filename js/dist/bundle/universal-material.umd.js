@@ -4,6 +4,40 @@
   (factory((global['universal-material'] = {})));
 }(this, (function (exports) { 'use strict';
 
+  var template = "\n<div class=\"dialog dialog-progress show\">\n  <div class=\"dialog-backdrop\"></div>\n  <div class=\"dialog-content\">\n    <div class=\"dialog-body\">\n      <div class=\"preloader-wrapper\">\n        <div class=\"spinner-layer\">\n          <div class=\"circle-clipper left\">\n            <div class=\"circle\"></div>\n          </div>\n          <div class=\"gap-patch\">\n            <div class=\"circle\"></div>\n          </div>\n          <div class=\"circle-clipper right\">\n            <div class=\"circle\"></div>\n          </div>\n        </div>\n      </div>\n      <div class=\"dialog-progress-message headline6 text-low-contrast text-nowrap\"></div>\n    </div>\n  </div>\n</div>";
+  var ProgressDialog = /** @class */ (function () {
+      function ProgressDialog() {
+      }
+      ProgressDialog.addAnimationEndEvents = function (dialog) {
+          var _this = this;
+          ProgressDialog.animationEvents.forEach(function (eventName) {
+              dialog.addEventListener(eventName, ProgressDialog.onAnimationEnd.bind(_this));
+          });
+      };
+      ProgressDialog.onAnimationEnd = function (event) {
+          event.currentTarget.removeEventListener(event.type, ProgressDialog.onAnimationEnd);
+          var element = event.currentTarget;
+          document.body.removeChild(element.parentNode);
+      };
+      ProgressDialog.open = function (message) {
+          var _this = this;
+          var dialogContainer = document.createElement("div");
+          dialogContainer.innerHTML = template;
+          dialogContainer.querySelector(".dialog-progress-message").innerText = message;
+          var dialog = dialogContainer.querySelector('.dialog');
+          document.body.appendChild(dialogContainer);
+          return {
+              close: function () {
+                  dialog.classList.add('hide');
+                  dialog.classList.remove('show');
+                  _this.addAnimationEndEvents(dialog);
+              }
+          };
+      };
+      ProgressDialog.animationEvents = ["webkitAnimationEnd", "oanimationend", "msAnimationEnd", "animationend"];
+      return ProgressDialog;
+  }());
+
   var RippleContainersSelector = [
       '.btn',
       '.btn-flat',
@@ -224,6 +258,7 @@
       return TextField;
   }());
 
+  exports.ProgressDialog = ProgressDialog;
   exports.RippleContainersSelector = RippleContainersSelector;
   exports.Ripple = Ripple;
   exports.Snackbar = Snackbar;
