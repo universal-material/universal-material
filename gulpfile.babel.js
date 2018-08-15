@@ -6,7 +6,7 @@ import pug from 'gulp-pug';
 import rename from 'gulp-rename';
 import replace from 'gulp-replace';
 import sass from 'gulp-sass';
-import sassTildeImporter from 'node-sass-tilde-importer';
+import sassTildeImporter from './node-sass-tilde-importer';
 import sourcemaps from "gulp-sourcemaps";
 import ts from 'gulp-typescript';
 import uglify from 'gulp-uglify';
@@ -16,7 +16,6 @@ const rollup = require('rollup');
 const tsProjectTypings = ts.createProject('./js/src/tsconfig.types.json');
 const tsProjectBrowser = ts.createProject('./js/src/tsconfig.browser.json', {outFile: 'universal-material.js'});
 const tsProjectBrowserUglify = ts.createProject('./js/src/tsconfig.browser.json', {outFile: 'universal-material.min.js'});
-
 
 gulp.task("sass:normal", function () {
   return gulp.src("./scss/universal-material.scss")
