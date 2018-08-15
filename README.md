@@ -10,5 +10,5 @@ npm i @universal-material/core
 
 ### Step2: Import Universal Material scss
 ```
-@import "~@universal-material/core/scss/universal-material.scss";
+@import "node_modules/@universal-material/core/scss/universal-material.scss";
 ```
