@@ -18,7 +18,8 @@
   "files": [
     "dist/",
     "scss/",
-    "js/dist/"
+    "js/dist/",
+    "README.md"
   ],
   "scripts": {
     "docs": "http-server ./docs -p 8081 -o http://localhost:8081",
