@@ -4899,12 +4899,18 @@ mark,
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover; }
-  .card-media:first-child {
-    border-top-left-radius: inherit;
-    border-top-right-radius: inherit; }
-  .card-media:last-child {
-    border-bottom-right-radius: inherit;
-    border-bottom-left-radius: inherit; }
+
+.card-actions:first-child,
+.card-content:first-child,
+.card-media:first-child {
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit; }
+
+.card-actions:last-child,
+.card-content:last-child,
+.card-media:last-child {
+  border-bottom-right-radius: inherit;
+  border-bottom-left-radius: inherit; }
 
 .card-media-square {
   padding-bottom: 100%; }

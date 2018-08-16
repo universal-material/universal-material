@@ -1,7 +1,7 @@
 export declare class Snackbar {
-    private static readonly animationEvents;
-    private static snackbarQueue;
-    private static consuming;
+    private static readonly _animationEvents;
+    private static _snackbarQueue;
+    private static _consuming;
     static show(text: string, duration?: SnackbarDuration, buttonDefinition?: SnackbarButtonDefinition): void;
     private static consumeQueue;
     private static showNext;

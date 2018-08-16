@@ -4,22 +4,22 @@
   (factory((global['universal-material'] = {})));
 }(this, (function (exports) { 'use strict';
 
-  var template = "\n<div class=\"dialog dialog-progress show\">\n  <div class=\"dialog-backdrop\"></div>\n  <div class=\"dialog-content\">\n    <div class=\"dialog-body\">\n      <div class=\"preloader-wrapper\">\n        <div class=\"spinner-layer\">\n          <div class=\"circle-clipper left\">\n            <div class=\"circle\"></div>\n          </div>\n          <div class=\"gap-patch\">\n            <div class=\"circle\"></div>\n          </div>\n          <div class=\"circle-clipper right\">\n            <div class=\"circle\"></div>\n          </div>\n        </div>\n      </div>\n      <div class=\"dialog-progress-message headline6 text-low-contrast text-nowrap\"></div>\n    </div>\n  </div>\n</div>";
-  var ProgressDialog = /** @class */ (function () {
-      function ProgressDialog() {
+  var template = "\n<div class=\"dialog dialog-progress show\">\n  <div class=\"dialog-backdrop\"></div>\n  <div class=\"dialog-content\">\n    <div class=\"dialog-title\"></div> \n    <div class=\"dialog-body\">\n      \n      <div class=\"dialog-progress-message headline6 text-low-contrast text-nowrap\"></div>\n    </div>\n  </div>\n</div>";
+  var ConfirmDialog = /** @class */ (function () {
+      function ConfirmDialog() {
       }
-      ProgressDialog.addAnimationEndEvents = function (dialog) {
+      ConfirmDialog.addAnimationEndEvents = function (dialog) {
           var _this = this;
-          ProgressDialog.animationEvents.forEach(function (eventName) {
-              dialog.addEventListener(eventName, ProgressDialog.onAnimationEnd.bind(_this));
+          ConfirmDialog.animationEvents.forEach(function (eventName) {
+              dialog.addEventListener(eventName, ConfirmDialog.onAnimationEnd.bind(_this));
           });
       };
-      ProgressDialog.onAnimationEnd = function (event) {
-          event.currentTarget.removeEventListener(event.type, ProgressDialog.onAnimationEnd);
+      ConfirmDialog.onAnimationEnd = function (event) {
+          event.currentTarget.removeEventListener(event.type, ConfirmDialog.onAnimationEnd);
           var element = event.currentTarget;
           document.body.removeChild(element.parentNode);
       };
-      ProgressDialog.open = function (message) {
+      ConfirmDialog.open = function (message) {
           var _this = this;
           var dialogContainer = document.createElement("div");
           dialogContainer.innerHTML = template;
@@ -34,7 +34,94 @@
               }
           };
       };
-      ProgressDialog.animationEvents = ["webkitAnimationEnd", "oanimationend", "msAnimationEnd", "animationend"];
+      ConfirmDialog.animationEvents = ["webkitAnimationEnd", "oanimationend", "msAnimationEnd", "animationend"];
+      return ConfirmDialog;
+  }());
+
+  /*! *****************************************************************************
+  Copyright (c) Microsoft Corporation. All rights reserved.
+  Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+  this file except in compliance with the License. You may obtain a copy of the
+  License at http://www.apache.org/licenses/LICENSE-2.0
+
+  THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
+  WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
+  MERCHANTABLITY OR NON-INFRINGEMENT.
+
+  See the Apache Version 2.0 License for specific language governing permissions
+  and limitations under the License.
+  ***************************************************************************** */
+
+  var __assign = function() {
+      __assign = Object.assign || function __assign(t) {
+          for (var s, i = 1, n = arguments.length; i < n; i++) {
+              s = arguments[i];
+              for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+          }
+          return t;
+      };
+      return __assign.apply(this, arguments);
+  };
+
+  var DialogOptions = /** @class */ (function () {
+      function DialogOptions() {
+      }
+      DialogOptions["default"] = {
+          disposeWhenClose: false
+      };
+      return DialogOptions;
+  }());
+  var Dialog = /** @class */ (function () {
+      function Dialog(_dialogElement, dialogOptions) {
+          var _this = this;
+          this._dialogElement = _dialogElement;
+          this.onAnimationEnd = function (event) {
+              _this._dialogElement.removeEventListener(event.type, _this.onAnimationEnd);
+              if (_this._dialogOptions.disposeWhenClose) {
+                  document.body.removeChild(_this._dialogElement);
+              }
+              else {
+                  _this._dialogElement.classList.remove('hide');
+              }
+          };
+          this._dialogOptions = __assign({}, DialogOptions["default"], dialogOptions);
+      }
+      Dialog.prototype.addAnimationEndEvents = function () {
+          var _this = this;
+          Dialog._animationEvents.forEach(function (eventName) {
+              _this._dialogElement.addEventListener(eventName, _this.onAnimationEnd.bind(_this));
+          });
+      };
+      Dialog.attach = function (element, dialogOptions) {
+          return new Dialog(element, dialogOptions);
+      };
+      Dialog.prototype.open = function () {
+          this._dialogElement.classList.add('show');
+      };
+      Dialog.prototype.close = function () {
+          this._dialogElement.classList.add('hide');
+          this._dialogElement.classList.remove('show');
+          this.addAnimationEndEvents();
+      };
+      Dialog._animationEvents = ["webkitAnimationEnd", "oanimationend", "msAnimationEnd", "animationend"];
+      return Dialog;
+  }());
+
+  var template$1 = "\n<div class=\"dialog dialog-progress show\">\n  <div class=\"dialog-backdrop\"></div>\n  <div class=\"dialog-content\">\n    <div class=\"dialog-body\">\n      <div class=\"preloader-wrapper\">\n        <div class=\"spinner-layer\">\n          <div class=\"circle-clipper left\">\n            <div class=\"circle\"></div>\n          </div>\n          <div class=\"gap-patch\">\n            <div class=\"circle\"></div>\n          </div>\n          <div class=\"circle-clipper right\">\n            <div class=\"circle\"></div>\n          </div>\n        </div>\n      </div>\n      <div class=\"dialog-progress-message headline6 text-low-contrast text-nowrap\"></div>\n    </div>\n  </div>\n</div>";
+  var ProgressDialog = /** @class */ (function () {
+      function ProgressDialog() {
+      }
+      ProgressDialog.open = function (message) {
+          var dialogContainer = document.createElement("div");
+          dialogContainer.innerHTML = template$1;
+          dialogContainer.querySelector(".dialog-progress-message").innerText = message;
+          var dialog = dialogContainer.querySelector('.dialog');
+          document.body.appendChild(dialogContainer);
+          return Dialog.attach(dialog, {
+              disposeWhenClose: true
+          });
+      };
       return ProgressDialog;
   }());
 
@@ -130,25 +217,25 @@
       }
       Snackbar.show = function (text, duration, buttonDefinition) {
           if (duration === void 0) { duration = exports.SnackbarDuration.long; }
-          Snackbar.snackbarQueue.push({
+          Snackbar._snackbarQueue.push({
               text: text,
               duration: duration,
               buttonDefinition: buttonDefinition
           });
-          if (!Snackbar.consuming) {
+          if (!Snackbar._consuming) {
               Snackbar.consumeQueue();
           }
       };
       Snackbar.consumeQueue = function () {
-          if (Snackbar.snackbarQueue.length) {
-              Snackbar.consuming = true;
+          if (Snackbar._snackbarQueue.length) {
+              Snackbar._consuming = true;
               Snackbar.showNext();
           }
       };
       Snackbar.showNext = function () {
-          if (Snackbar.snackbarQueue.length) {
-              var snackbarDefinition = Snackbar.snackbarQueue[0];
-              Snackbar.snackbarQueue = Snackbar.snackbarQueue.slice(1);
+          if (Snackbar._snackbarQueue.length) {
+              var snackbarDefinition = Snackbar._snackbarQueue[0];
+              Snackbar._snackbarQueue = Snackbar._snackbarQueue.slice(1);
               var snackbar_1 = Snackbar.createSnackbar();
               snackbar_1.appendChild(Snackbar.createSnackbarText(snackbarDefinition.text));
               if (snackbarDefinition.buttonDefinition) {
@@ -162,7 +249,7 @@
               }, snackbarDefinition.duration);
           }
           else {
-              Snackbar.consuming = false;
+              Snackbar._consuming = false;
           }
       };
       Snackbar.createSnackbar = function () {
@@ -189,7 +276,7 @@
       };
       Snackbar.addAnimationEndEvents = function (snackbar) {
           var _this = this;
-          Snackbar.animationEvents.forEach(function (eventName) {
+          Snackbar._animationEvents.forEach(function (eventName) {
               snackbar.addEventListener(eventName, Snackbar.onAnimationEnd.bind(_this));
           });
       };
@@ -199,8 +286,8 @@
           element.parentNode.removeChild(element);
           Snackbar.showNext();
       };
-      Snackbar.animationEvents = ["webkitAnimationEnd", "oanimationend", "msAnimationEnd", "animationend"];
-      Snackbar.snackbarQueue = [];
+      Snackbar._animationEvents = ["webkitAnimationEnd", "oanimationend", "msAnimationEnd", "animationend"];
+      Snackbar._snackbarQueue = [];
       return Snackbar;
   }());
   (function (SnackbarDuration) {
@@ -258,6 +345,7 @@
       return TextField;
   }());
 
+  exports.ConfirmDialog = ConfirmDialog;
   exports.ProgressDialog = ProgressDialog;
   exports.RippleContainersSelector = RippleContainersSelector;
   exports.Ripple = Ripple;

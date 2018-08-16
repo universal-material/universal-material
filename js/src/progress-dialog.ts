@@ -1,3 +1,4 @@
+import {Dialog} from './dialog';
 
 const template = `
 <div class="dialog dialog-progress show">
@@ -23,21 +24,6 @@ const template = `
 </div>`;
 
 export class ProgressDialog {
-  private static readonly animationEvents = ["webkitAnimationEnd", "oanimationend", "msAnimationEnd", "animationend"];
-
-  private static addAnimationEndEvents(dialog: HTMLElement) {
-    ProgressDialog.animationEvents.forEach(eventName => {
-      dialog.addEventListener(eventName, ProgressDialog.onAnimationEnd.bind(this));
-    });
-  }
-
-  private static onAnimationEnd(event: Event) {
-    event.currentTarget.removeEventListener(event.type, ProgressDialog.onAnimationEnd);
-    const element = event.currentTarget as HTMLElement;
-
-    document.body.removeChild(element.parentNode);
-  }
-
   static open(message: string): {close: () => any} {
     const dialogContainer = document.createElement("div");
     dialogContainer.innerHTML = template;
@@ -46,12 +32,8 @@ export class ProgressDialog {
 
     document.body.appendChild(dialogContainer);
 
-    return {
-      close: () => {
-        dialog.classList.add('hide');
-        dialog.classList.remove('show');
-        this.addAnimationEndEvents(dialog);
-      }
-    }
+    return Dialog.attach(dialog, {
+      disposeWhenClose: true
+    });
   }
 }

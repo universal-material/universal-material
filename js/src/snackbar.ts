@@ -1,35 +1,35 @@
 import {Ripple} from './ripple';
 
 export class Snackbar {
-  private static readonly animationEvents = ["webkitAnimationEnd", "oanimationend", "msAnimationEnd", "animationend"];
-  private static snackbarQueue: SnackbarDefinition[] = [];
-  private static consuming: boolean;
+  private static readonly _animationEvents = ["webkitAnimationEnd", "oanimationend", "msAnimationEnd", "animationend"];
+  private static _snackbarQueue: SnackbarDefinition[] = [];
+  private static _consuming: boolean;
 
   static show(text: string, duration: SnackbarDuration = SnackbarDuration.long, buttonDefinition?: SnackbarButtonDefinition) {
-    Snackbar.snackbarQueue.push({
+    Snackbar._snackbarQueue.push({
       text: text,
       duration: duration,
       buttonDefinition: buttonDefinition
     });
 
-    if (!Snackbar.consuming) {
+    if (!Snackbar._consuming) {
       Snackbar.consumeQueue();
     }
   }
 
   private static consumeQueue() {
 
-    if (Snackbar.snackbarQueue.length) {
-      Snackbar.consuming = true;
+    if (Snackbar._snackbarQueue.length) {
+      Snackbar._consuming = true;
       Snackbar.showNext();
     }
   }
 
   private static showNext() {
-    if (Snackbar.snackbarQueue.length) {
-      const snackbarDefinition = Snackbar.snackbarQueue[0];
+    if (Snackbar._snackbarQueue.length) {
+      const snackbarDefinition = Snackbar._snackbarQueue[0];
 
-      Snackbar.snackbarQueue = Snackbar.snackbarQueue.slice(1);
+      Snackbar._snackbarQueue = Snackbar._snackbarQueue.slice(1);
 
       const snackbar = Snackbar.createSnackbar();
 
@@ -48,7 +48,7 @@ export class Snackbar {
 
       }, snackbarDefinition.duration);
     } else {
-      Snackbar.consuming = false;
+      Snackbar._consuming = false;
     }
   }
 
@@ -84,7 +84,7 @@ export class Snackbar {
   }
 
   private static addAnimationEndEvents(snackbar: HTMLElement) {
-    Snackbar.animationEvents.forEach(eventName => {
+    Snackbar._animationEvents.forEach(eventName => {
       snackbar.addEventListener(eventName, Snackbar.onAnimationEnd.bind(this));
     });
   }
