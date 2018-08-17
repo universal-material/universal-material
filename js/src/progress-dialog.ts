@@ -1,6 +1,14 @@
-import {Dialog} from './dialog';
+import {QuickDialog, QuickDialogConfig} from "./quick-dialog";
 
-const template = `
+export class ProgressDialogConfig extends QuickDialogConfig {
+  static readonly default: ProgressDialogConfig = {
+    ...QuickDialogConfig.default,
+    closeOnBackdropClick: false,
+    closeOnEsc: false
+  };
+}
+
+const progressDialogTemplate = `
 <div class="dialog dialog-progress show">
   <div class="dialog-backdrop"></div>
   <div class="dialog-content">
@@ -23,17 +31,27 @@ const template = `
   </div>
 </div>`;
 
-export class ProgressDialog {
-  static open(message: string): {close: () => any} {
-    const dialogContainer = document.createElement("div");
-    dialogContainer.innerHTML = template;
-    dialogContainer.querySelector<HTMLElement>(".dialog-progress-message").innerText = message;
-    const dialog = dialogContainer.querySelector<HTMLElement>('.dialog');
+export class ProgressDialog extends QuickDialog<ProgressDialogConfig> {
 
-    document.body.appendChild(dialogContainer);
+  private readonly _message: string;
 
-    return Dialog.attach(dialog, {
-      disposeWhenClose: true
-    });
+  static open(message: string, config?: ProgressDialogConfig): ProgressDialog {
+    return new ProgressDialog(message, config);
+  }
+
+  constructor(message: string, config?: ProgressDialogConfig) {
+    super(progressDialogTemplate, {...ProgressDialogConfig.default, _message: message, ...config});
+
+    this._message = message;
+  }
+
+  protected  _configureDialog(dialogElement: HTMLElement): void {
+    const message = this._config['_message'];
+
+    if (message) {
+      dialogElement.querySelector<HTMLElement>('.dialog-progress-message').innerText = message;
+    } else {
+      dialogElement.querySelector<HTMLElement>('.dialog-progress-message').style.display = 'none';
+    }
   }
 }

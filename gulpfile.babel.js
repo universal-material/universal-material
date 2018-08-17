@@ -96,9 +96,9 @@ gulp.task('js-compile-bundle', () => {
 });
 
 const jsCompileBrowserConfig = (tsProject) => {
-  return gulp.src(['./js/src/*.ts', '!./js/src/index.ts'])
-    .pipe(replace(/import\s{[A-z]+}\sfrom\s['"].+['"];/, ''))
-    //.pipe(sourcemaps.init())
+  return gulp.src(['./js/src/quick-dialog.ts', './js/src/*.ts', '!./js/src/index.ts'])
+    .pipe(replace(/import\s{.+}\sfrom\s['"].+['"];/g, ''))
+    .pipe(sourcemaps.init())
     .pipe(concat('universal-material.ts'))
     .pipe(insert.transform(contents => {
       return `namespace umd { ${contents} }`;
@@ -108,7 +108,7 @@ const jsCompileBrowserConfig = (tsProject) => {
 
 gulp.task('js-compile-browser', function () {
   return jsCompileBrowserConfig(tsProjectBrowser)
-    //.pipe(sourcemaps.write('./'))
+    .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest("./dist/js"))
     .pipe(gulp.dest("./docs/js"))
 });

@@ -14,7 +14,7 @@
 .dialog-content {
   display: flex;
   flex-direction: column;
-  width: 600px;
+  min-width: $dialog-min-width;
   max-width: 100%;
   margin: 0 auto;
   overflow: hidden;
@@ -90,15 +90,34 @@
 }
 
 .dialog-body {
-  //@extend .subheading
+  @include umd-typography(body1);
+  position: relative;
   padding: $dialog-padding;
   overflow-x: hidden;
   overflow-y: auto;
 }
 
+.dialog-body-top-divider .dialog-title::before {
+  @include divider;
+  position: absolute;
+  bottom: $dialog-padding - $dialog-title-body-distance;
+  left: 0;
+  width: 100%;
+  content: "";
+}
+
+.dialog-body-bottom-divider .dialog-actions::before {
+  @include divider;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  content: "";
+}
+
 .dialog-title {
   @include umd-typography(headline6);
-
+  position: relative;
   padding: $dialog-padding;
 
   & + .dialog-body {
@@ -108,6 +127,7 @@
 }
 
 .dialog-actions {
+  position: relative;
   display: flex;
   justify-content: flex-end;
   padding: $dialog-actions-padding;
@@ -123,12 +143,21 @@
     align-items: center;
   }
 
-  .dialog-content {
-    width: auto;
+  .preloader-wrapper {
+    flex-shrink: 0;
   }
+  //.dialog-content {
+  //  width: auto;
+  //}
 
   .dialog-progress-message {
     margin-left: $dialog-progress-margin;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .dialog-content {
+    max-width: $dialog-desktop-max-width;
   }
 }
 

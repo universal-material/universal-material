@@ -1,0 +1,5 @@
+@mixin divider {
+  width: 100%;
+  height: $divider-height;
+  background-color: $divider-color;
+}

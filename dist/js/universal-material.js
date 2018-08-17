@@ -1,3 +1,16 @@
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -11,63 +24,159 @@ var __assign = (this && this.__assign) || function () {
 };
 var umd;
 (function (umd) {
-    var template = "\n<div class=\"dialog dialog-progress show\">\n  <div class=\"dialog-backdrop\"></div>\n  <div class=\"dialog-content\">\n    <div class=\"dialog-title\"></div> \n    <div class=\"dialog-body\">\n      \n      <div class=\"dialog-progress-message headline6 text-low-contrast text-nowrap\"></div>\n    </div>\n  </div>\n</div>";
-    var ConfirmDialog = (function () {
-        function ConfirmDialog() {
+    var EscapeKeyCode = 27;
+    var QuickDialogConfig = (function () {
+        function QuickDialogConfig() {
         }
-        ConfirmDialog.addAnimationEndEvents = function (dialog) {
-            var _this = this;
-            ConfirmDialog.animationEvents.forEach(function (eventName) {
-                dialog.addEventListener(eventName, ConfirmDialog.onAnimationEnd.bind(_this));
-            });
+        QuickDialogConfig.default = {
+            closeOnBackdropClick: true,
+            closeOnEsc: true
         };
-        ConfirmDialog.onAnimationEnd = function (event) {
-            event.currentTarget.removeEventListener(event.type, ConfirmDialog.onAnimationEnd);
-            var element = event.currentTarget;
-            document.body.removeChild(element.parentNode);
-        };
-        ConfirmDialog.open = function (message) {
+        return QuickDialogConfig;
+    }());
+    umd.QuickDialogConfig = QuickDialogConfig;
+    var QuickDialog = (function () {
+        function QuickDialog(template, config, beforeCreateDialog) {
             var _this = this;
-            var dialogContainer = document.createElement("div");
-            dialogContainer.innerHTML = template;
-            dialogContainer.querySelector(".dialog-progress-message").innerText = message;
-            var dialog = dialogContainer.querySelector('.dialog');
-            document.body.appendChild(dialogContainer);
-            return {
-                close: function () {
-                    dialog.classList.add('hide');
-                    dialog.classList.remove('show');
-                    _this.addAnimationEndEvents(dialog);
+            this._keyDownEvent = function (event) {
+                if (event.which === EscapeKeyCode) {
+                    _this._innerDialog.close();
+                    event.preventDefault();
                 }
             };
-        };
-        ConfirmDialog.animationEvents = ["webkitAnimationEnd", "oanimationend", "msAnimationEnd", "animationend"];
-        return ConfirmDialog;
-    }());
-    umd.ConfirmDialog = ConfirmDialog;
-    var DialogOptions = (function () {
-        function DialogOptions() {
+            this._template = template;
+            this._config = __assign({}, QuickDialogConfig.default, config);
+            if (beforeCreateDialog)
+                beforeCreateDialog();
+            this._createDialog();
         }
-        DialogOptions.default = {
-            disposeWhenClose: false
+        QuickDialog.prototype._createDialog = function () {
+            var _this = this;
+            var dialogContainer = document.createElement('div');
+            dialogContainer.innerHTML = this._template;
+            var dialogElement = dialogContainer.querySelector('.dialog');
+            this._configureDialog(dialogElement);
+            document.body.appendChild(dialogContainer);
+            dialogElement.addEventListener('closed', function () {
+                document.body.removeChild(dialogContainer);
+                document.body.removeEventListener('keydown', _this._keyDownEvent, true);
+                _this._onClosed();
+            });
+            this._innerDialog = Dialog.attach(dialogElement, {
+                destroyWhenClose: true
+            });
+            if (this._config.closeOnEsc) {
+                this._setEscapeEvent();
+            }
+            if (this._config.closeOnBackdropClick) {
+                dialogElement
+                    .querySelector('.dialog-backdrop')
+                    .addEventListener('click', function () { return _this._innerDialog.close(); }, true);
+            }
         };
-        return DialogOptions;
+        QuickDialog.prototype.close = function () {
+            this._innerDialog.close();
+        };
+        QuickDialog.prototype._onClosed = function () {
+        };
+        QuickDialog.prototype._setEscapeEvent = function () {
+            document.body.addEventListener('keydown', this._keyDownEvent, true);
+        };
+        return QuickDialog;
     }());
-    umd.DialogOptions = DialogOptions;
+    umd.QuickDialog = QuickDialog;
+    var ConfirmDialogConfig = (function (_super) {
+        __extends(ConfirmDialogConfig, _super);
+        function ConfirmDialogConfig() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        ConfirmDialogConfig.default = __assign({ confirmLabel: "Ok", cancelLabel: "Cancel" }, QuickDialogConfig.default);
+        return ConfirmDialogConfig;
+    }(QuickDialogConfig));
+    umd.ConfirmDialogConfig = ConfirmDialogConfig;
+    var confirmDialogTemplate = "\n<div class=\"dialog show\">\n  <div class=\"dialog-backdrop\"></div>\n  <div class=\"dialog-content\">\n    <div class=\"dialog-title\"></div>\n    <div class=\"dialog-body\"></div>\n    <div class=\"dialog-actions\">\n      <button type=\"button\" class=\"btn-flat btn-primary\" confirmButton></button>\n      <button type=\"button\" class=\"btn-flat btn-primary\" cancelButton></button>\n    </div>\n  </div>\n</div>";
+    var ConfirmDialog = (function (_super) {
+        __extends(ConfirmDialog, _super);
+        function ConfirmDialog(message, config) {
+            var _this = _super.call(this, confirmDialogTemplate, __assign({}, ConfirmDialogConfig.default, { _message: message }, config)) || this;
+            _this._message = message;
+            return _this;
+        }
+        ConfirmDialog.open = function (message, config) {
+            return new ConfirmDialog(message, config);
+        };
+        ConfirmDialog.prototype._configureDialog = function (dialogElement) {
+            var _this = this;
+            var titleElement = dialogElement.querySelector('.dialog-title');
+            if (this._config.title) {
+                titleElement.innerText = this._config.title;
+            }
+            else {
+                titleElement.parentNode.removeChild(titleElement);
+            }
+            dialogElement.querySelector('.dialog-body').innerText = this._config['_message'];
+            var confirmButton = dialogElement.querySelector('[confirmButton]');
+            var cancelButton = dialogElement.querySelector('[cancelButton]');
+            confirmButton.innerText = this._config.confirmLabel;
+            cancelButton.innerText = this._config.cancelLabel;
+            confirmButton.addEventListener('click', function () {
+                _this._innerDialog.close();
+                if (_this._config.onConfirm)
+                    _this._config.onConfirm();
+            });
+            cancelButton.addEventListener('click', function () {
+                _this._innerDialog.close();
+                if (_this._config.onCancel)
+                    _this._config.onCancel();
+            });
+        };
+        return ConfirmDialog;
+    }(QuickDialog));
+    umd.ConfirmDialog = ConfirmDialog;
+    (function () {
+        if (typeof window['CustomEvent'] === "function")
+            return;
+        function CustomEvent(event, params) {
+            params = params || { bubbles: false, cancelable: false, detail: undefined };
+            var evt = document.createEvent('CustomEvent');
+            evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
+            return evt;
+        }
+        CustomEvent.prototype = window['Event'].prototype;
+        window['CustomEvent'] = CustomEvent;
+    })();
+    var DialogConfig = (function () {
+        function DialogConfig() {
+        }
+        DialogConfig.default = {
+            destroyWhenClose: false
+        };
+        return DialogConfig;
+    }());
+    umd.DialogConfig = DialogConfig;
+    var closedEvent = new CustomEvent('closed');
+    var dialogBodyTopDividerClassName = 'dialog-body-top-divider';
+    var dialogBodyBottomDividerClassName = 'dialog-body-bottom-divider';
     var Dialog = (function () {
-        function Dialog(_dialogElement, dialogOptions) {
+        function Dialog(_dialogElement, dialogConfig) {
             var _this = this;
             this._dialogElement = _dialogElement;
             this.onAnimationEnd = function (event) {
                 _this._dialogElement.removeEventListener(event.type, _this.onAnimationEnd);
-                if (_this._dialogOptions.disposeWhenClose) {
-                    document.body.removeChild(_this._dialogElement);
+                _this._dialogElement.dispatchEvent(closedEvent);
+                if (_this._dialogConfig.destroyWhenClose) {
+                    _this._dialogElement.parentNode.removeChild(_this._dialogElement);
                 }
                 else {
                     _this._dialogElement.classList.remove('hide');
                 }
             };
-            this._dialogOptions = __assign({}, DialogOptions.default, dialogOptions);
+            this._dialogConfig = __assign({}, DialogConfig.default, dialogConfig);
+            this._dialogBodyElement = this._dialogElement.querySelector('.dialog-body');
+            if (this._dialogBodyElement) {
+                this._setBodyDividers();
+                this._setDialogBodyScrollHandler();
+            }
         }
         Dialog.prototype.addAnimationEndEvents = function () {
             var _this = this;
@@ -75,8 +184,8 @@ var umd;
                 _this._dialogElement.addEventListener(eventName, _this.onAnimationEnd.bind(_this));
             });
         };
-        Dialog.attach = function (element, dialogOptions) {
-            return new Dialog(element, dialogOptions);
+        Dialog.attach = function (element, dialogConfig) {
+            return new Dialog(element, dialogConfig);
         };
         Dialog.prototype.open = function () {
             this._dialogElement.classList.add('show');
@@ -86,26 +195,59 @@ var umd;
             this._dialogElement.classList.remove('show');
             this.addAnimationEndEvents();
         };
+        Dialog.prototype._setBodyDividers = function () {
+            if (this._dialogBodyElement.scrollTop) {
+                this._dialogElement.classList.add(dialogBodyTopDividerClassName);
+            }
+            else {
+                this._dialogElement.classList.remove(dialogBodyTopDividerClassName);
+            }
+            var scrollBottom = this._dialogBodyElement.scrollTop + this._dialogBodyElement.offsetHeight;
+            if (scrollBottom !== this._dialogBodyElement.scrollHeight) {
+                this._dialogElement.classList.add(dialogBodyBottomDividerClassName);
+            }
+            else {
+                this._dialogElement.classList.remove(dialogBodyBottomDividerClassName);
+            }
+        };
+        Dialog.prototype._setDialogBodyScrollHandler = function () {
+            this._dialogBodyElement.addEventListener('scroll', this._setBodyDividers.bind(this), true);
+        };
         Dialog._animationEvents = ["webkitAnimationEnd", "oanimationend", "msAnimationEnd", "animationend"];
         return Dialog;
     }());
     umd.Dialog = Dialog;
-    var template = "\n<div class=\"dialog dialog-progress show\">\n  <div class=\"dialog-backdrop\"></div>\n  <div class=\"dialog-content\">\n    <div class=\"dialog-body\">\n      <div class=\"preloader-wrapper\">\n        <div class=\"spinner-layer\">\n          <div class=\"circle-clipper left\">\n            <div class=\"circle\"></div>\n          </div>\n          <div class=\"gap-patch\">\n            <div class=\"circle\"></div>\n          </div>\n          <div class=\"circle-clipper right\">\n            <div class=\"circle\"></div>\n          </div>\n        </div>\n      </div>\n      <div class=\"dialog-progress-message headline6 text-low-contrast text-nowrap\"></div>\n    </div>\n  </div>\n</div>";
-    var ProgressDialog = (function () {
-        function ProgressDialog() {
+    var ProgressDialogConfig = (function (_super) {
+        __extends(ProgressDialogConfig, _super);
+        function ProgressDialogConfig() {
+            return _super !== null && _super.apply(this, arguments) || this;
         }
-        ProgressDialog.open = function (message) {
-            var dialogContainer = document.createElement("div");
-            dialogContainer.innerHTML = template;
-            dialogContainer.querySelector(".dialog-progress-message").innerText = message;
-            var dialog = dialogContainer.querySelector('.dialog');
-            document.body.appendChild(dialogContainer);
-            return Dialog.attach(dialog, {
-                disposeWhenClose: true
-            });
+        ProgressDialogConfig.default = __assign({}, QuickDialogConfig.default, { closeOnBackdropClick: false, closeOnEsc: false });
+        return ProgressDialogConfig;
+    }(QuickDialogConfig));
+    umd.ProgressDialogConfig = ProgressDialogConfig;
+    var progressDialogTemplate = "\n<div class=\"dialog dialog-progress show\">\n  <div class=\"dialog-backdrop\"></div>\n  <div class=\"dialog-content\">\n    <div class=\"dialog-body\">\n      <div class=\"preloader-wrapper\">\n        <div class=\"spinner-layer\">\n          <div class=\"circle-clipper left\">\n            <div class=\"circle\"></div>\n          </div>\n          <div class=\"gap-patch\">\n            <div class=\"circle\"></div>\n          </div>\n          <div class=\"circle-clipper right\">\n            <div class=\"circle\"></div>\n          </div>\n        </div>\n      </div>\n      <div class=\"dialog-progress-message headline6 text-low-contrast text-nowrap\"></div>\n    </div>\n  </div>\n</div>";
+    var ProgressDialog = (function (_super) {
+        __extends(ProgressDialog, _super);
+        function ProgressDialog(message, config) {
+            var _this = _super.call(this, progressDialogTemplate, __assign({}, ProgressDialogConfig.default, { _message: message }, config)) || this;
+            _this._message = message;
+            return _this;
+        }
+        ProgressDialog.open = function (message, config) {
+            return new ProgressDialog(message, config);
+        };
+        ProgressDialog.prototype._configureDialog = function (dialogElement) {
+            var message = this._config['_message'];
+            if (message) {
+                dialogElement.querySelector('.dialog-progress-message').innerText = message;
+            }
+            else {
+                dialogElement.querySelector('.dialog-progress-message').style.display = 'none';
+            }
         };
         return ProgressDialog;
-    }());
+    }(QuickDialog));
     umd.ProgressDialog = ProgressDialog;
     umd.RippleContainersSelector = [
         '.btn',
@@ -331,3 +473,5 @@ var umd;
     }());
     umd.TextField = TextField;
 })(umd || (umd = {}));
+
+//# sourceMappingURL=universal-material.js.map
