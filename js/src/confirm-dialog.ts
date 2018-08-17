@@ -22,8 +22,8 @@ const confirmDialogTemplate = `
     <div class="dialog-title"></div>
     <div class="dialog-body"></div>
     <div class="dialog-actions">
-      <button type="button" class="btn-flat btn-primary" confirmButton></button>
       <button type="button" class="btn-flat btn-primary" cancelButton></button>
+      <button type="button" class="btn-flat btn-primary" confirmButton></button>
     </div>
   </div>
 </div>`;

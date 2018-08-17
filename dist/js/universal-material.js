@@ -94,7 +94,7 @@ var umd;
         return ConfirmDialogConfig;
     }(QuickDialogConfig));
     umd.ConfirmDialogConfig = ConfirmDialogConfig;
-    var confirmDialogTemplate = "\n<div class=\"dialog show\">\n  <div class=\"dialog-backdrop\"></div>\n  <div class=\"dialog-content\">\n    <div class=\"dialog-title\"></div>\n    <div class=\"dialog-body\"></div>\n    <div class=\"dialog-actions\">\n      <button type=\"button\" class=\"btn-flat btn-primary\" confirmButton></button>\n      <button type=\"button\" class=\"btn-flat btn-primary\" cancelButton></button>\n    </div>\n  </div>\n</div>";
+    var confirmDialogTemplate = "\n<div class=\"dialog show\">\n  <div class=\"dialog-backdrop\"></div>\n  <div class=\"dialog-content\">\n    <div class=\"dialog-title\"></div>\n    <div class=\"dialog-body\"></div>\n    <div class=\"dialog-actions\">\n      <button type=\"button\" class=\"btn-flat btn-primary\" cancelButton></button>\n      <button type=\"button\" class=\"btn-flat btn-primary\" confirmButton></button>\n    </div>\n  </div>\n</div>";
     var ConfirmDialog = (function (_super) {
         __extends(ConfirmDialog, _super);
         function ConfirmDialog(message, config) {
