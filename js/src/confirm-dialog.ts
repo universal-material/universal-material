@@ -1,4 +1,5 @@
 import {QuickDialog, QuickDialogConfig} from './quick-dialog';
+import {Ripple} from './ripple';
 
 export class ConfirmDialogConfig extends QuickDialogConfig {
   static readonly default: ConfirmDialogConfig = {
@@ -56,6 +57,9 @@ export class ConfirmDialog extends QuickDialog<ConfirmDialogConfig> {
 
     confirmButton.innerText = this._config.confirmLabel;
     cancelButton.innerText = this._config.cancelLabel;
+
+    Ripple.attach(confirmButton);
+    Ripple.attach(cancelButton);
 
     confirmButton.addEventListener('click', () => {
       this._innerDialog.close();

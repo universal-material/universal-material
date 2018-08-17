@@ -188,84 +188,6 @@
       return QuickDialog;
   }());
 
-  var ConfirmDialogConfig = /** @class */ (function (_super) {
-      __extends(ConfirmDialogConfig, _super);
-      function ConfirmDialogConfig() {
-          return _super !== null && _super.apply(this, arguments) || this;
-      }
-      ConfirmDialogConfig["default"] = __assign({ confirmLabel: "Ok", cancelLabel: "Cancel" }, QuickDialogConfig["default"]);
-      return ConfirmDialogConfig;
-  }(QuickDialogConfig));
-  var confirmDialogTemplate = "\n<div class=\"dialog show\">\n  <div class=\"dialog-backdrop\"></div>\n  <div class=\"dialog-content\">\n    <div class=\"dialog-title\"></div>\n    <div class=\"dialog-body\"></div>\n    <div class=\"dialog-actions\">\n      <button type=\"button\" class=\"btn-flat btn-primary\" confirmButton></button>\n      <button type=\"button\" class=\"btn-flat btn-primary\" cancelButton></button>\n    </div>\n  </div>\n</div>";
-  var ConfirmDialog = /** @class */ (function (_super) {
-      __extends(ConfirmDialog, _super);
-      function ConfirmDialog(message, config) {
-          var _this = _super.call(this, confirmDialogTemplate, __assign({}, ConfirmDialogConfig["default"], { _message: message }, config)) || this;
-          _this._message = message;
-          return _this;
-      }
-      ConfirmDialog.open = function (message, config) {
-          return new ConfirmDialog(message, config);
-      };
-      ConfirmDialog.prototype._configureDialog = function (dialogElement) {
-          var _this = this;
-          var titleElement = dialogElement.querySelector('.dialog-title');
-          if (this._config.title) {
-              titleElement.innerText = this._config.title;
-          }
-          else {
-              titleElement.parentNode.removeChild(titleElement);
-          }
-          dialogElement.querySelector('.dialog-body').innerText = this._config['_message'];
-          var confirmButton = dialogElement.querySelector('[confirmButton]');
-          var cancelButton = dialogElement.querySelector('[cancelButton]');
-          confirmButton.innerText = this._config.confirmLabel;
-          cancelButton.innerText = this._config.cancelLabel;
-          confirmButton.addEventListener('click', function () {
-              _this._innerDialog.close();
-              if (_this._config.onConfirm)
-                  _this._config.onConfirm();
-          });
-          cancelButton.addEventListener('click', function () {
-              _this._innerDialog.close();
-              if (_this._config.onCancel)
-                  _this._config.onCancel();
-          });
-      };
-      return ConfirmDialog;
-  }(QuickDialog));
-
-  var ProgressDialogConfig = /** @class */ (function (_super) {
-      __extends(ProgressDialogConfig, _super);
-      function ProgressDialogConfig() {
-          return _super !== null && _super.apply(this, arguments) || this;
-      }
-      ProgressDialogConfig["default"] = __assign({}, QuickDialogConfig["default"], { closeOnBackdropClick: false, closeOnEsc: false });
-      return ProgressDialogConfig;
-  }(QuickDialogConfig));
-  var progressDialogTemplate = "\n<div class=\"dialog dialog-progress show\">\n  <div class=\"dialog-backdrop\"></div>\n  <div class=\"dialog-content\">\n    <div class=\"dialog-body\">\n      <div class=\"preloader-wrapper\">\n        <div class=\"spinner-layer\">\n          <div class=\"circle-clipper left\">\n            <div class=\"circle\"></div>\n          </div>\n          <div class=\"gap-patch\">\n            <div class=\"circle\"></div>\n          </div>\n          <div class=\"circle-clipper right\">\n            <div class=\"circle\"></div>\n          </div>\n        </div>\n      </div>\n      <div class=\"dialog-progress-message headline6 text-low-contrast text-nowrap\"></div>\n    </div>\n  </div>\n</div>";
-  var ProgressDialog = /** @class */ (function (_super) {
-      __extends(ProgressDialog, _super);
-      function ProgressDialog(message, config) {
-          var _this = _super.call(this, progressDialogTemplate, __assign({}, ProgressDialogConfig["default"], { _message: message }, config)) || this;
-          _this._message = message;
-          return _this;
-      }
-      ProgressDialog.open = function (message, config) {
-          return new ProgressDialog(message, config);
-      };
-      ProgressDialog.prototype._configureDialog = function (dialogElement) {
-          var message = this._config['_message'];
-          if (message) {
-              dialogElement.querySelector('.dialog-progress-message').innerText = message;
-          }
-          else {
-              dialogElement.querySelector('.dialog-progress-message').style.display = 'none';
-          }
-      };
-      return ProgressDialog;
-  }(QuickDialog));
-
   var RippleContainersSelector = [
       '.btn',
       '.btn-flat',
@@ -305,6 +227,9 @@
               }, e.touches[0].clientX, e.touches[0].clientY);
           });
       }
+      Ripple.attach = function (element) {
+          return new Ripple(element);
+      };
       Ripple.prototype.createRipple = function (rippleContainer, releaseEventName, releaseCallback, pageX, pageY) {
           if (this.disabled)
               return;
@@ -352,6 +277,86 @@
       };
       return Ripple;
   }());
+
+  var ConfirmDialogConfig = /** @class */ (function (_super) {
+      __extends(ConfirmDialogConfig, _super);
+      function ConfirmDialogConfig() {
+          return _super !== null && _super.apply(this, arguments) || this;
+      }
+      ConfirmDialogConfig["default"] = __assign({ confirmLabel: "Ok", cancelLabel: "Cancel" }, QuickDialogConfig["default"]);
+      return ConfirmDialogConfig;
+  }(QuickDialogConfig));
+  var confirmDialogTemplate = "\n<div class=\"dialog show\">\n  <div class=\"dialog-backdrop\"></div>\n  <div class=\"dialog-content\">\n    <div class=\"dialog-title\"></div>\n    <div class=\"dialog-body\"></div>\n    <div class=\"dialog-actions\">\n      <button type=\"button\" class=\"btn-flat btn-primary\" confirmButton></button>\n      <button type=\"button\" class=\"btn-flat btn-primary\" cancelButton></button>\n    </div>\n  </div>\n</div>";
+  var ConfirmDialog = /** @class */ (function (_super) {
+      __extends(ConfirmDialog, _super);
+      function ConfirmDialog(message, config) {
+          var _this = _super.call(this, confirmDialogTemplate, __assign({}, ConfirmDialogConfig["default"], { _message: message }, config)) || this;
+          _this._message = message;
+          return _this;
+      }
+      ConfirmDialog.open = function (message, config) {
+          return new ConfirmDialog(message, config);
+      };
+      ConfirmDialog.prototype._configureDialog = function (dialogElement) {
+          var _this = this;
+          var titleElement = dialogElement.querySelector('.dialog-title');
+          if (this._config.title) {
+              titleElement.innerText = this._config.title;
+          }
+          else {
+              titleElement.parentNode.removeChild(titleElement);
+          }
+          dialogElement.querySelector('.dialog-body').innerText = this._config['_message'];
+          var confirmButton = dialogElement.querySelector('[confirmButton]');
+          var cancelButton = dialogElement.querySelector('[cancelButton]');
+          confirmButton.innerText = this._config.confirmLabel;
+          cancelButton.innerText = this._config.cancelLabel;
+          Ripple.attach(confirmButton);
+          Ripple.attach(cancelButton);
+          confirmButton.addEventListener('click', function () {
+              _this._innerDialog.close();
+              if (_this._config.onConfirm)
+                  _this._config.onConfirm();
+          });
+          cancelButton.addEventListener('click', function () {
+              _this._innerDialog.close();
+              if (_this._config.onCancel)
+                  _this._config.onCancel();
+          });
+      };
+      return ConfirmDialog;
+  }(QuickDialog));
+
+  var ProgressDialogConfig = /** @class */ (function (_super) {
+      __extends(ProgressDialogConfig, _super);
+      function ProgressDialogConfig() {
+          return _super !== null && _super.apply(this, arguments) || this;
+      }
+      ProgressDialogConfig["default"] = __assign({}, QuickDialogConfig["default"], { closeOnBackdropClick: false, closeOnEsc: false });
+      return ProgressDialogConfig;
+  }(QuickDialogConfig));
+  var progressDialogTemplate = "\n<div class=\"dialog dialog-progress show\">\n  <div class=\"dialog-backdrop\"></div>\n  <div class=\"dialog-content\">\n    <div class=\"dialog-body\">\n      <div class=\"preloader-wrapper\">\n        <div class=\"spinner-layer\">\n          <div class=\"circle-clipper left\">\n            <div class=\"circle\"></div>\n          </div>\n          <div class=\"gap-patch\">\n            <div class=\"circle\"></div>\n          </div>\n          <div class=\"circle-clipper right\">\n            <div class=\"circle\"></div>\n          </div>\n        </div>\n      </div>\n      <div class=\"dialog-progress-message headline6 text-low-contrast text-nowrap\"></div>\n    </div>\n  </div>\n</div>";
+  var ProgressDialog = /** @class */ (function (_super) {
+      __extends(ProgressDialog, _super);
+      function ProgressDialog(message, config) {
+          var _this = _super.call(this, progressDialogTemplate, __assign({}, ProgressDialogConfig["default"], { _message: message }, config)) || this;
+          _this._message = message;
+          return _this;
+      }
+      ProgressDialog.open = function (message, config) {
+          return new ProgressDialog(message, config);
+      };
+      ProgressDialog.prototype._configureDialog = function (dialogElement) {
+          var message = this._config['_message'];
+          if (message) {
+              dialogElement.querySelector('.dialog-progress-message').innerText = message;
+          }
+          else {
+              dialogElement.querySelector('.dialog-progress-message').style.display = 'none';
+          }
+      };
+      return ProgressDialog;
+  }(QuickDialog));
 
   var Snackbar = /** @class */ (function () {
       function Snackbar() {

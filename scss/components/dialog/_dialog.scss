@@ -129,6 +129,7 @@
 .dialog-actions {
   position: relative;
   display: flex;
+  flex-shrink: 0;
   justify-content: flex-end;
   padding: $dialog-actions-padding;
 

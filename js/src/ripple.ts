@@ -20,6 +20,10 @@ export const RippleContainersSelector =
 export class Ripple {
   disabled = false;
 
+  static attach(element: HTMLElement): Ripple {
+    return new Ripple(element);
+  }
+
   constructor(element: HTMLElement) {
     if (window.getComputedStyle(element).position !== "absolute" && window.getComputedStyle(element).position !== "fixed") {
       element.style.position = "relative";

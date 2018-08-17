@@ -119,6 +119,8 @@ var umd;
             var cancelButton = dialogElement.querySelector('[cancelButton]');
             confirmButton.innerText = this._config.confirmLabel;
             cancelButton.innerText = this._config.cancelLabel;
+            Ripple.attach(confirmButton);
+            Ripple.attach(cancelButton);
             confirmButton.addEventListener('click', function () {
                 _this._innerDialog.close();
                 if (_this._config.onConfirm)
@@ -288,6 +290,9 @@ var umd;
                 }, e.touches[0].clientX, e.touches[0].clientY);
             });
         }
+        Ripple.attach = function (element) {
+            return new Ripple(element);
+        };
         Ripple.prototype.createRipple = function (rippleContainer, releaseEventName, releaseCallback, pageX, pageY) {
             if (this.disabled)
                 return;
