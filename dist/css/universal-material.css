@@ -4578,15 +4578,18 @@ mark,
     display: -webkit-inline-box;
     display: -ms-inline-flexbox;
     display: inline-flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 50%; }
+    width: 1rem;
+    height: 1rem;
+    border-radius: 0.125rem;
+    -webkit-box-shadow: 0 0 0 0.125rem currentColor inset;
+            box-shadow: 0 0 0 0.125rem currentColor inset;
+    -webkit-transition: color 175ms 350ms, -webkit-box-shadow 175ms 175ms;
+    transition: color 175ms 350ms, -webkit-box-shadow 175ms 175ms;
+    transition: box-shadow 175ms 175ms, color 175ms 350ms;
+    transition: box-shadow 175ms 175ms, color 175ms 350ms, -webkit-box-shadow 175ms 175ms; }
     .checkbox .selection-control::before {
       position: absolute;
       top: 0;
@@ -4595,7 +4598,7 @@ mark,
       left: 0;
       content: "";
       background: currentColor;
-      border-radius: inherit;
+      border-radius: 50%;
       opacity: 0;
       -webkit-transition: opacity 250ms linear;
       transition: opacity 250ms linear; }
@@ -4603,6 +4606,13 @@ mark,
       opacity: .08; }
     .checkbox .selection-control:active::before {
       opacity: .12; }
+    .checkbox .selection-control::before {
+      top: 50%;
+      left: 50%;
+      width: 2.5rem;
+      height: 2.5rem;
+      margin-top: -1.25rem;
+      margin-left: -1.25rem; }
   .checkbox .selection-control-label {
     margin-left: 0.25rem; }
   .checkbox .check-indicator {
@@ -4613,34 +4623,37 @@ mark,
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    width: 1rem;
-    height: 1rem;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
     clip: rect(0, 0, 1rem, 0);
-    border: 0.125rem solid currentColor;
-    border-radius: 0.125rem; }
+    -webkit-transition: clip 175ms;
+    transition: clip 175ms; }
     .checkbox .check-indicator::before {
-      position: absolute;
-      top: -0.125rem;
-      left: -0.125rem;
+      position: relative;
+      top: 20%;
       display: block;
-      width: 0;
-      height: 0;
-      margin-top: -.25rem;
-      margin-left: .375rem;
+      width: .75rem;
+      height: .35rem;
       content: "";
-      -webkit-transform: rotate(45deg);
-              transform: rotate(45deg);
-      -webkit-animation: checkbox-off 300ms forwards linear;
-              animation: checkbox-off 300ms forwards linear; }
-  .checkbox.checked .selection-control .check-indicator,
-  .checkbox input:checked ~ .selection-control .check-indicator {
-    color: inherit;
-    border-color: currentColor; }
-    .checkbox.checked .selection-control .check-indicator::before,
-    .checkbox input:checked ~ .selection-control .check-indicator::before {
-      -webkit-animation: checkbox-on 300ms forwards linear;
-              animation: checkbox-on 300ms forwards linear; }
+      border: .125rem solid;
+      border-top-style: none;
+      border-right-style: none;
+      -webkit-transform: rotate(-45deg);
+              transform: rotate(-45deg); }
+  .checkbox.checked .selection-control,
+  .checkbox input:checked ~ .selection-control {
+    -webkit-box-shadow: 0 0 0 0.5rem currentColor inset;
+            box-shadow: 0 0 0 0.5rem currentColor inset;
+    -webkit-transition: color 175ms 175ms, -webkit-box-shadow 175ms;
+    transition: color 175ms 175ms, -webkit-box-shadow 175ms;
+    transition: box-shadow 175ms, color 175ms 175ms;
+    transition: box-shadow 175ms, color 175ms 175ms, -webkit-box-shadow 175ms; }
+    .checkbox.checked .selection-control .check-indicator,
+    .checkbox input:checked ~ .selection-control .check-indicator {
+      clip: rect(0, 1rem, 1rem, 0);
+      -webkit-transition: clip 175ms 175ms;
+      transition: clip 175ms 175ms; }
   .checkbox.disabled .selection-control,
   .checkbox input:disabled ~ .selection-control {
     opacity: 0.47; }
@@ -7203,8 +7216,11 @@ th.data-table-header {
 .chip-dark {
   color: #424242; }
 
-.checkbox .check-indicator {
+.checkbox .selection-control {
   color: rgba(0, 0, 0, 0.54); }
+
+.checkbox .check-indicator::before {
+  border-color: #f5f5f5; }
 
 .checkbox.checked:not(.disabled) .selection-control,
 .checkbox input:checked:not(:disabled) ~ .selection-control {

@@ -263,14 +263,17 @@ var umd;
         '.tab',
         '.dropdown-item',
         '.radio .selection-control',
-        '.checkbox .selection-control',
         '.switch .check-indicator',
         '.chip-remove',
         '.chip-hover'
     ].join(',');
+    var customRippleSizeMap = [
+        { selector: '.checkbox .selection-control', size: 40 }
+    ];
     var Ripple = (function () {
-        function Ripple(element) {
+        function Ripple(element, _customSize) {
             var _this = this;
+            this._customSize = _customSize;
             this.disabled = false;
             if (window.getComputedStyle(element).position !== "absolute" && window.getComputedStyle(element).position !== "fixed") {
                 element.style.position = "relative";
@@ -290,10 +293,11 @@ var umd;
                 }, e.touches[0].clientX, e.touches[0].clientY);
             });
         }
-        Ripple.attach = function (element) {
-            return new Ripple(element);
+        Ripple.attach = function (element, customSize) {
+            return new Ripple(element, customSize);
         };
         Ripple.prototype.createRipple = function (rippleContainer, releaseEventName, releaseCallback, pageX, pageY) {
+            var _this = this;
             if (this.disabled)
                 return;
             var rippleWrapper = document.createElement('DIV');
@@ -320,7 +324,7 @@ var umd;
             requestAnimationFrame(function () {
                 var clientRect = rippleContainer.getBoundingClientRect();
                 var largestDimensionSize = Math.max(rippleWrapper.clientWidth, rippleWrapper.clientHeight);
-                var rippleSize = largestDimensionSize * 2;
+                var rippleSize = _this._customSize || largestDimensionSize * 2;
                 ripple.style.width = rippleSize + 'px';
                 ripple.style.height = rippleSize + 'px';
                 ripple.style.marginLeft = -rippleSize / 2 + 'px';
@@ -332,10 +336,17 @@ var umd;
                 ripple.classList.add('show');
             });
         };
-        Ripple.initializeRipples = function () {
-            var rippleContainers = document.querySelectorAll(umd.RippleContainersSelector);
+        Ripple._initilizeRipples = function (selector, customSize) {
+            var rippleContainers = document.querySelectorAll(selector);
             for (var i = 0; i < rippleContainers.length; i++) {
-                new Ripple(rippleContainers[i]);
+                new Ripple(rippleContainers[i], customSize);
+            }
+        };
+        Ripple.initializeRipples = function () {
+            Ripple._initilizeRipples(umd.RippleContainersSelector);
+            for (var i = 0; i < customRippleSizeMap.length; i++) {
+                var customRippleSize = customRippleSizeMap[i];
+                Ripple._initilizeRipples(customRippleSize.selector, customRippleSize.size);
             }
         };
         return Ripple;

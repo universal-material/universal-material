@@ -11,20 +11,23 @@ export const RippleContainersSelector =
     '.tab',
     '.dropdown-item',
     '.radio .selection-control',
-    '.checkbox .selection-control',
     '.switch .check-indicator',
     '.chip-remove',
     '.chip-hover'
   ].join(',');
 
+const customRippleSizeMap = [
+  {selector: '.checkbox .selection-control', size: 40}
+];
+
 export class Ripple {
   disabled = false;
 
-  static attach(element: HTMLElement): Ripple {
-    return new Ripple(element);
+  static attach(element: HTMLElement, customSize?: number): Ripple {
+    return new Ripple(element, customSize);
   }
 
-  constructor(element: HTMLElement) {
+  constructor(element: HTMLElement, private readonly _customSize?: number) {
     if (window.getComputedStyle(element).position !== "absolute" && window.getComputedStyle(element).position !== "fixed") {
       element.style.position = "relative";
     }
@@ -80,7 +83,7 @@ export class Ripple {
     requestAnimationFrame(() => {
       const clientRect = rippleContainer.getBoundingClientRect();
       const largestDimensionSize = Math.max(rippleWrapper.clientWidth, rippleWrapper.clientHeight);
-      let rippleSize = largestDimensionSize * 2;
+      let rippleSize = this._customSize || largestDimensionSize * 2;
       ripple.style.width = rippleSize + 'px';
       ripple.style.height = rippleSize + 'px';
       ripple.style.marginLeft = -rippleSize / 2 + 'px';
@@ -95,12 +98,21 @@ export class Ripple {
     });
   }
 
-  static initializeRipples(): void {
-    const rippleContainers = document.querySelectorAll(RippleContainersSelector);
+  private static _initilizeRipples(selector: string, customSize?: number) {
+    const rippleContainers = document.querySelectorAll(selector);
 
     for (let i = 0; i < rippleContainers.length; i++) {
-      new Ripple(rippleContainers[i] as HTMLElement);
+      new Ripple(rippleContainers[i] as HTMLElement, customSize);
+    }
+  }
 
+  static initializeRipples(): void {
+    Ripple._initilizeRipples(RippleContainersSelector);
+
+    for (let i = 0; i < customRippleSizeMap.length; i++) {
+      let customRippleSize = customRippleSizeMap[i];
+
+      Ripple._initilizeRipples(customRippleSize.selector, customRippleSize.size);
     }
   }
 }

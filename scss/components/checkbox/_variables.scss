@@ -6,5 +6,9 @@ $checkbox-border-width: .125rem !default;
 $checkbox-border: $checkbox-border-width solid currentColor !default;
 $checkbox-color-light-theme: rgba(0, 0, 0, .54) !default;
 $checkbox-color-dark-theme: rgba(255, 255, 255, .7) !default;
+$checkbox-mark-color-light-theme: $bg-light !default;
+$checkbox-mark-color-dark-theme: $bg-dark !default;
+
 $checkbox-border-radius: .125rem !default;
 $checkbox-size: 1rem !default;
+$check-animation-step-duration: 175ms !default;

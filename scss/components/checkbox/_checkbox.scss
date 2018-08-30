@@ -11,13 +11,14 @@
   @include hide-native-input;
 
   .selection-control {
-    @include selectable-background-before;
+    @include selectable-background-before-custom-size($checkbox-click-size, $checkbox-click-size, 50%);
     display: inline-flex;
-    align-items: center;
     justify-content: center;
-    width: $checkbox-click-size;
-    height: $checkbox-click-size;
-    border-radius: 50%;
+    width: $checkbox-size;
+    height: $checkbox-size;
+    border-radius: $checkbox-border-radius;
+    box-shadow: 0 0 0 $checkbox-border-width currentColor inset;
+    transition: box-shadow $check-animation-step-duration $check-animation-step-duration, color $check-animation-step-duration ($check-animation-step-duration * 2);
   }
 
   .selection-control-label {
@@ -25,34 +26,37 @@
   }
 
   .check-indicator {
-    position: relative;
-    width: $checkbox-size;
-    height: $checkbox-size;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
-    border: $checkbox-border;
-    border-radius: $checkbox-border-radius;
+    clip: rect(0, 0, $checkbox-size, 0);
+    transition: clip $check-animation-step-duration;
 
     &::before {
-      position: absolute;
-      top: -$checkbox-border-width;
-      left: -$checkbox-border-width;
+      position: relative;
+      top: 20%;
       display: block;
-      width: 0;
-      height: 0;
-      margin-top: -.25rem;
-      margin-left: .375rem;
+      width: .75rem;
+      height: .35rem;
       content: "";
-      transform: rotate(45deg);
-      animation: checkbox-off 300ms forwards linear;
+      border: .125rem solid;
+      border-top-style: none;
+      border-right-style: none;
+      transform: rotate(-45deg);
     }
   }
 
-  input:checked ~ .selection-control .check-indicator {
-    color: inherit;
-    border-color: currentColor;
+  &.checked .selection-control,
+  input:checked ~ .selection-control {
+    box-shadow: 0 0 0 $checkbox-size / 2 currentColor inset;
+    transition: box-shadow $check-animation-step-duration, color $check-animation-step-duration $check-animation-step-duration;
 
-    &::before {
-      animation: checkbox-on 300ms forwards linear;
+    .check-indicator {
+      clip: rect(0, $checkbox-size, $checkbox-size, 0);
+      transition: clip $check-animation-step-duration $check-animation-step-duration;
     }
   }
 
@@ -102,14 +106,20 @@
 @mixin selection-controls-theme($theme-colors, $dark-theme) {
   $primary-color: map-get($theme-colors, "primary");
   $check-color: $checkbox-color-light-theme;
+  $checkbox-mark-color-theme: $checkbox-mark-color-light-theme;
 
   @if ($dark-theme) {
     $check-color: $checkbox-color-dark-theme;
+    $checkbox-mark-color-theme: $checkbox-mark-color-dark-theme;
   }
 
   .checkbox {
-    .check-indicator {
+    .selection-control {
       color: $check-color;
+    }
+
+    .check-indicator::before {
+      border-color: $checkbox-mark-color-theme;
     }
 
     &.checked:not(.disabled) .selection-control,

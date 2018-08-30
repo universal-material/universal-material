@@ -23,6 +23,18 @@
   }
 }
 
+@mixin selectable-background-before-custom-size($width, $height, $border-radius: inherit) {
+  @include selectable-background-before($border-radius);
+
+  &::before {
+    top: 50%;
+    left: 50%;
+    width: $width;
+    height: $height;
+    margin-top: -$height / 2;
+    margin-left: -$width / 2;
+  }
+}
 
 @mixin selectable-background($dark-theme) {
   position: relative;
