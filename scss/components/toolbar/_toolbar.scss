@@ -23,6 +23,10 @@
   justify-content: flex-end;
 }
 
+.toolbar-start + .toolbar-end {
+  margin-left: auto;
+}
+
 .toolbar-title {
   @include umd-typography(headline6);
   @include text-truncate;
@@ -73,6 +77,11 @@
 [dir="rtl"] {
   .toolbar-title {
     margin-right: $toolbar-title-margin;
+    margin-left: 0;
+  }
+
+  .toolbar-start + .toolbar-end {
+    margin-right: auto;
     margin-left: 0;
   }
 }

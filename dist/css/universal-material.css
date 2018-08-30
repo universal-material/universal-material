@@ -4231,6 +4231,9 @@ mark,
       -ms-flex-pack: end;
           justify-content: flex-end; }
 
+.toolbar-start + .toolbar-end {
+  margin-left: auto; }
+
 .toolbar-title {
   font-size: 1.25rem;
   line-height: 2rem;
@@ -4288,6 +4291,11 @@ mark,
 .rtl .toolbar-title,
 [dir="rtl"] .toolbar-title {
   margin-right: 16px;
+  margin-left: 0; }
+
+.rtl .toolbar-start + .toolbar-end,
+[dir="rtl"] .toolbar-start + .toolbar-end {
+  margin-right: auto;
   margin-left: 0; }
 
 .btn, .btn-flat, .btn-outline,
@@ -4598,10 +4606,17 @@ mark,
   .checkbox .selection-control-label {
     margin-left: 0.25rem; }
   .checkbox .check-indicator {
-    position: relative;
+    position: absolute;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     width: 1rem;
     height: 1rem;
     overflow: hidden;
+    clip: rect(0, 0, 1rem, 0);
     border: 0.125rem solid currentColor;
     border-radius: 0.125rem; }
     .checkbox .check-indicator::before {
@@ -4618,9 +4633,11 @@ mark,
               transform: rotate(45deg);
       -webkit-animation: checkbox-off 300ms forwards linear;
               animation: checkbox-off 300ms forwards linear; }
+  .checkbox.checked .selection-control .check-indicator,
   .checkbox input:checked ~ .selection-control .check-indicator {
     color: inherit;
     border-color: currentColor; }
+    .checkbox.checked .selection-control .check-indicator::before,
     .checkbox input:checked ~ .selection-control .check-indicator::before {
       -webkit-animation: checkbox-on 300ms forwards linear;
               animation: checkbox-on 300ms forwards linear; }
@@ -5158,39 +5175,41 @@ mark,
             transform: scale3d(1, 1, 1); } }
 
 .expansion-panel {
-  position: relative;
-  background: #fff;
-  width: 100%;
   -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
           box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  position: relative;
+  width: 100%;
   overflow: auto;
+  background: #fff;
   -webkit-transition: margin 150ms ease-out;
   transition: margin 150ms ease-out; }
   .expansion-panel + .expansion-panel::after {
     position: absolute;
-    content: "";
     top: -0.0625rem;
     left: 0;
     width: 100%;
     height: 0.0625rem;
+    content: "";
     background: rgba(0, 0, 0, 0.12); }
-  .expansion-panel:first-child, .expansion-panel.open, .expansion-panel.open + .expansion-panel {
+  .expansion-panel:first-child, .expansion-panel.open,
+  .expansion-panel.open + .expansion-panel {
     border-top-left-radius: 0.25rem;
     border-top-right-radius: 0.25rem; }
   .expansion-panel:last-child, .expansion-panel.open, .expansion-panel.before-opened {
-    border-bottom-left-radius: 0.25rem;
-    border-bottom-right-radius: 0.25rem; }
+    border-bottom-right-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem; }
   .expansion-panel .expansion-panel-content {
-    padding: 0 1.5rem;
-    margin-bottom: 0;
-    clear: both;
-    overflow: hidden;
     max-height: 0;
+    padding: 0 1rem;
+    margin-bottom: 0;
+    overflow: hidden;
+    clear: both;
     -webkit-transition: max-height 200ms ease;
     transition: max-height 200ms ease; }
   .expansion-panel.open {
     margin-bottom: 1rem; }
-    .expansion-panel.open::before, .expansion-panel.open + .expansion-panel::before {
+    .expansion-panel.open::before,
+    .expansion-panel.open + .expansion-panel::before {
       content: initial; }
     .expansion-panel.open .expansion-panel-content {
       max-height: 120vh;
@@ -5198,25 +5217,25 @@ mark,
   .expansion-panel:not(:first-of-type).open {
     margin-top: 1rem; }
   .expansion-panel .expansion-panel-header {
-    padding: 0 1.5rem; }
+    padding: 0 1rem; }
   .expansion-panel .expansion-panel-label {
     float: left;
     font-size: 0.9375rem;
     font-weight: 400;
     line-height: 3rem; }
     .expansion-panel .expansion-panel-label + .expansion-panel-label {
-      color: rgba(0, 0, 0, 0.54);
-      margin-left: 1rem; }
+      margin-left: 1rem;
+      color: rgba(0, 0, 0, 0.54); }
   .expansion-panel .expansion-panel-switch {
     float: right;
-    background: transparent;
-    color: rgba(0, 0, 0, 0.54);
-    font-size: 1.5rem;
     width: 1.5rem;
-    line-height: 3rem;
     margin-left: 1rem;
-    border: none;
+    background: transparent;
+    font-size: 1.5rem;
+    line-height: 3rem;
+    color: rgba(0, 0, 0, 0.54);
     text-align: center;
+    border: none;
     outline: 0; }
 
 .dropdown-menu {
