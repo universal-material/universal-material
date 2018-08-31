@@ -6361,11 +6361,12 @@ th.data-table-header {
   .btn-borderless::before {
     top: 50%;
     left: 50%;
-    width: 2.5rem;
-    height: 2.5rem;
-    margin-top: -1.25rem;
-    margin-left: -1.25rem;
-    border-radius: 50%; }
+    width: 4rem;
+    height: 4rem;
+    margin-top: -2rem;
+    margin-left: -2rem;
+    border-radius: 50%;
+    }
 
 .dense-layout .btn, .dense-layout .btn-flat, .dense-layout .btn-outline,
 .dense-layout .btn-solid, .dense-layout .btn-raised, .dense-layout .btn-floating, .dense-layout .btn-borderless, .dense.btn, .dense.btn-flat, .dense.btn-outline,

@@ -3,6 +3,21 @@ export declare class RippleConfig {
     size?: number;
     borderRadius?: string;
 }
+export declare const RippleConfigMap: ({
+    selector: string;
+    subSelector: string;
+    config: {
+        size: number;
+        borderRadius: string;
+    };
+} | {
+    selector: string;
+    config: {
+        size: number;
+        borderRadius: string;
+    };
+    subSelector?: undefined;
+})[];
 export declare class Ripple {
     private readonly _config;
     disabled: boolean;

@@ -257,12 +257,8 @@ var umd;
         '.btn-solid',
         '.btn-raised',
         '.btn-outline',
-        '.list-hover .list-item',
-        '.list-item .list-item-hover',
         '.tab',
         '.dropdown-item',
-        '.radio .selection-control',
-        '.switch .check-indicator',
         '.chip-remove',
         '.chip-hover'
     ].join(',');
@@ -272,13 +268,39 @@ var umd;
         return RippleConfig;
     }());
     umd.RippleConfig = RippleConfig;
-    var customRippleConfigMap = [
+    var roundClickableConfig = {
+        size: 40,
+        borderRadius: '50%'
+    };
+    umd.RippleConfigMap = [
         {
-            selector: '.checkbox .selection-control, .btn-borderless',
-            config: {
-                size: 40,
-                borderRadius: '50%'
-            }
+            selector: '.list-hover',
+            subSelector: '.list-item',
+            config: null
+        },
+        {
+            selector: '.list-item',
+            subSelector: '.list-item-hover',
+            config: null
+        },
+        {
+            selector: '.radio',
+            subSelector: '.selection-control',
+            config: null
+        },
+        {
+            selector: '.switch',
+            subSelector: '.check-indicator',
+            config: null
+        },
+        {
+            selector: '.checkbox',
+            subSelector: '.selection-control',
+            config: roundClickableConfig
+        },
+        {
+            selector: '.btn-borderless',
+            config: roundClickableConfig
         }
     ];
     var Ripple = (function () {
@@ -366,9 +388,13 @@ var umd;
         };
         Ripple.initializeRipples = function () {
             Ripple._initilizeRipples(umd.RippleContainersSelector);
-            for (var i = 0; i < customRippleConfigMap.length; i++) {
-                var customRippleSize = customRippleConfigMap[i];
-                Ripple._initilizeRipples(customRippleSize.selector, customRippleSize.config);
+            for (var i = 0; i < umd.RippleConfigMap.length; i++) {
+                var rippleConfig = umd.RippleConfigMap[i];
+                var selector = rippleConfig.selector;
+                if (rippleConfig.subSelector) {
+                    selector = [selector, rippleConfig.subSelector].join(' ');
+                }
+                Ripple._initilizeRipples(selector, rippleConfig.config);
             }
         };
         return Ripple;

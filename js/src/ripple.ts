@@ -5,12 +5,8 @@ export const RippleContainersSelector =
     '.btn-solid',
     '.btn-raised',
     '.btn-outline',
-    '.list-hover .list-item',
-    '.list-item .list-item-hover',
     '.tab',
     '.dropdown-item',
-    '.radio .selection-control',
-    '.switch .check-indicator',
     '.chip-remove',
     '.chip-hover'
   ].join(',');
@@ -20,13 +16,40 @@ export class RippleConfig {
   borderRadius?: string;
 }
 
-const customRippleConfigMap = [
+const roundClickableConfig = {
+  size: 40,
+  borderRadius: '50%'
+};
+
+export const RippleConfigMap = [
   {
-    selector: '.checkbox .selection-control, .btn-borderless',
-    config: {
-      size: 40,
-      borderRadius: '50%'
-    }
+    selector: '.list-hover',
+    subSelector: '.list-item',
+    config: null
+  },
+  {
+    selector: '.list-item',
+    subSelector: '.list-item-hover',
+    config: null
+  },
+  {
+    selector: '.radio',
+    subSelector: '.selection-control',
+    config: null
+  },
+  {
+    selector: '.switch',
+    subSelector: '.check-indicator',
+    config: null
+  },
+  {
+    selector: '.checkbox',
+    subSelector: '.selection-control',
+    config: roundClickableConfig
+  },
+  {
+    selector: '.btn-borderless',
+    config: roundClickableConfig
   }
 ];
 
@@ -136,10 +159,16 @@ export class Ripple {
   static initializeRipples(): void {
     Ripple._initilizeRipples(RippleContainersSelector);
 
-    for (let i = 0; i < customRippleConfigMap.length; i++) {
-      let customRippleSize = customRippleConfigMap[i];
+    for (let i = 0; i < RippleConfigMap.length; i++) {
+      let rippleConfig = RippleConfigMap[i];
 
-      Ripple._initilizeRipples(customRippleSize.selector, customRippleSize.config);
+      let selector = rippleConfig.selector;
+
+      if (rippleConfig.subSelector) {
+        selector = [selector, rippleConfig.subSelector].join(' ');
+      }
+
+      Ripple._initilizeRipples(selector, rippleConfig.config);
     }
   }
 }
