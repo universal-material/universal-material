@@ -1,10 +1,15 @@
 export declare const RippleContainersSelector: string;
+export declare class RippleConfig {
+    size?: number;
+    borderRadius?: string;
+}
 export declare class Ripple {
-    private readonly _customSize?;
+    private readonly _config;
     disabled: boolean;
-    static attach(element: HTMLElement, customSize?: number): Ripple;
-    constructor(element: HTMLElement, _customSize?: number);
+    static attach(element: HTMLElement, config?: RippleConfig): Ripple;
+    constructor(element: HTMLElement, config?: RippleConfig);
     createRipple(rippleContainer: Element, releaseEventName: string, releaseCallback: Function, pageX: number, pageY: number): void;
+    private static _setElementSquareSizeAndCenter;
     private static _initilizeRipples;
     static initializeRipples(): void;
 }

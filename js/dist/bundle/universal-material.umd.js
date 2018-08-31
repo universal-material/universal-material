@@ -204,14 +204,25 @@
       '.chip-remove',
       '.chip-hover'
   ].join(',');
-  var customRippleSizeMap = [
-      { selector: '.checkbox .selection-control', size: 40 }
+  var RippleConfig = /** @class */ (function () {
+      function RippleConfig() {
+      }
+      return RippleConfig;
+  }());
+  var customRippleConfigMap = [
+      {
+          selector: '.checkbox .selection-control',
+          config: {
+              size: 40,
+              borderRadius: '50%'
+          }
+      }
   ];
   var Ripple = /** @class */ (function () {
-      function Ripple(element, _customSize) {
+      function Ripple(element, config) {
           var _this = this;
-          this._customSize = _customSize;
           this.disabled = false;
+          this._config = __assign({}, config);
           if (window.getComputedStyle(element).position !== "absolute" && window.getComputedStyle(element).position !== "fixed") {
               element.style.position = "relative";
           }
@@ -230,8 +241,8 @@
               }, e.touches[0].clientX, e.touches[0].clientY);
           });
       }
-      Ripple.attach = function (element, customSize) {
-          return new Ripple(element, customSize);
+      Ripple.attach = function (element, config) {
+          return new Ripple(element, config);
       };
       Ripple.prototype.createRipple = function (rippleContainer, releaseEventName, releaseCallback, pageX, pageY) {
           var _this = this;
@@ -243,6 +254,12 @@
           ripple.classList.add('ripple');
           rippleWrapper.appendChild(ripple);
           rippleContainer.insertAdjacentElement('afterbegin', rippleWrapper);
+          if (this._config.size) {
+              Ripple._setElementSquareSizeAndCenter(rippleWrapper, this._config.size);
+          }
+          if (this._config.borderRadius) {
+              rippleWrapper.style.borderRadius = this._config.borderRadius;
+          }
           var release = function () {
               ripple.classList.add('dismiss');
               if (releaseCallback) {
@@ -261,11 +278,8 @@
           requestAnimationFrame(function () {
               var clientRect = rippleContainer.getBoundingClientRect();
               var largestDimensionSize = Math.max(rippleWrapper.clientWidth, rippleWrapper.clientHeight);
-              var rippleSize = _this._customSize || largestDimensionSize * 2;
-              ripple.style.width = rippleSize + 'px';
-              ripple.style.height = rippleSize + 'px';
-              ripple.style.marginLeft = -rippleSize / 2 + 'px';
-              ripple.style.marginTop = -rippleSize / 2 + 'px';
+              var rippleSize = _this._config.size || largestDimensionSize * 2;
+              Ripple._setElementSquareSizeAndCenter(ripple, rippleSize);
               ripple.style.transitionDuration = (1080 * Math.pow(rippleSize, 0.3)) + 'ms, 750ms';
               var x = (pageX - clientRect.left) + ((rippleSize - rippleContainer.clientWidth) / 2);
               var y = (pageY - clientRect.top) + ((rippleSize - rippleContainer.clientHeight) / 2);
@@ -273,17 +287,25 @@
               ripple.classList.add('show');
           });
       };
-      Ripple._initilizeRipples = function (selector, customSize) {
+      Ripple._setElementSquareSizeAndCenter = function (element, size) {
+          element.style.top = "50%";
+          element.style.left = "50%";
+          element.style.width = size + 'px';
+          element.style.height = size + 'px';
+          element.style.marginLeft = -size / 2 + 'px';
+          element.style.marginTop = -size / 2 + 'px';
+      };
+      Ripple._initilizeRipples = function (selector, config) {
           var rippleContainers = document.querySelectorAll(selector);
           for (var i = 0; i < rippleContainers.length; i++) {
-              new Ripple(rippleContainers[i], customSize);
+              new Ripple(rippleContainers[i], config);
           }
       };
       Ripple.initializeRipples = function () {
           Ripple._initilizeRipples(RippleContainersSelector);
-          for (var i = 0; i < customRippleSizeMap.length; i++) {
-              var customRippleSize = customRippleSizeMap[i];
-              Ripple._initilizeRipples(customRippleSize.selector, customRippleSize.size);
+          for (var i = 0; i < customRippleConfigMap.length; i++) {
+              var customRippleSize = customRippleConfigMap[i];
+              Ripple._initilizeRipples(customRippleSize.selector, customRippleSize.config);
           }
       };
       return Ripple;
@@ -511,6 +533,7 @@
   exports.QuickDialogConfig = QuickDialogConfig;
   exports.QuickDialog = QuickDialog;
   exports.RippleContainersSelector = RippleContainersSelector;
+  exports.RippleConfig = RippleConfig;
   exports.Ripple = Ripple;
   exports.Snackbar = Snackbar;
   exports.SnackbarDefinition = SnackbarDefinition;

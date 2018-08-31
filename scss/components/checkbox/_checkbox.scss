@@ -16,6 +16,7 @@
     justify-content: center;
     width: $checkbox-size;
     height: $checkbox-size;
+    margin: ($checkbox-click-size - $checkbox-size) / 2;
     border-radius: $checkbox-border-radius;
     box-shadow: 0 0 0 $checkbox-border-width currentColor inset;
     transition: box-shadow $check-animation-step-duration $check-animation-step-duration, color $check-animation-step-duration ($check-animation-step-duration * 2);
@@ -37,7 +38,7 @@
 
     &::before {
       position: relative;
-      top: 20%;
+      top: 25%;
       display: block;
       width: .75rem;
       height: .35rem;

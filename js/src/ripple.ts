@@ -16,18 +16,32 @@ export const RippleContainersSelector =
     '.chip-hover'
   ].join(',');
 
-const customRippleSizeMap = [
-  {selector: '.checkbox .selection-control', size: 40}
+export class RippleConfig {
+  size?: number;
+  borderRadius?: string;
+}
+
+const customRippleConfigMap = [
+  {
+    selector: '.checkbox .selection-control',
+    config: {
+      size: 40,
+      borderRadius: '50%'
+    }
+  }
 ];
 
 export class Ripple {
+  private readonly _config: RippleConfig;
   disabled = false;
 
-  static attach(element: HTMLElement, customSize?: number): Ripple {
-    return new Ripple(element, customSize);
+  static attach(element: HTMLElement, config?: RippleConfig): Ripple {
+    return new Ripple(element, config);
   }
 
-  constructor(element: HTMLElement, private readonly _customSize?: number) {
+  constructor(element: HTMLElement, config?: RippleConfig) {
+    this._config = {...config};
+
     if (window.getComputedStyle(element).position !== "absolute" && window.getComputedStyle(element).position !== "fixed") {
       element.style.position = "relative";
     }
@@ -61,6 +75,14 @@ export class Ripple {
     rippleWrapper.appendChild(ripple);
     rippleContainer.insertAdjacentElement('afterbegin', rippleWrapper);
 
+    if (this._config.size) {
+      Ripple._setElementSquareSizeAndCenter(rippleWrapper, this._config.size);
+    }
+
+    if (this._config.borderRadius) {
+      rippleWrapper.style.borderRadius = this._config.borderRadius;
+    }
+
     const release = function () {
       ripple.classList.add('dismiss');
 
@@ -83,11 +105,8 @@ export class Ripple {
     requestAnimationFrame(() => {
       const clientRect = rippleContainer.getBoundingClientRect();
       const largestDimensionSize = Math.max(rippleWrapper.clientWidth, rippleWrapper.clientHeight);
-      let rippleSize = this._customSize || largestDimensionSize * 2;
-      ripple.style.width = rippleSize + 'px';
-      ripple.style.height = rippleSize + 'px';
-      ripple.style.marginLeft = -rippleSize / 2 + 'px';
-      ripple.style.marginTop = -rippleSize / 2 + 'px';
+      let rippleSize = this._config.size || largestDimensionSize * 2;
+      Ripple._setElementSquareSizeAndCenter(ripple, rippleSize);
       ripple.style.transitionDuration = (1080 * Math.pow(rippleSize, 0.3)) + 'ms, 750ms';
 
       const x = (pageX - clientRect.left) + ((rippleSize - rippleContainer.clientWidth) / 2);
@@ -98,21 +117,30 @@ export class Ripple {
     });
   }
 
-  private static _initilizeRipples(selector: string, customSize?: number) {
+  private static _setElementSquareSizeAndCenter(element: HTMLElement, size: number) {
+    element.style.top = "50%";
+    element.style.left = "50%";
+    element.style.width = size + 'px';
+    element.style.height = size + 'px';
+    element.style.marginLeft = -size / 2 + 'px';
+    element.style.marginTop = -size / 2 + 'px';
+  }
+
+  private static _initilizeRipples(selector: string, config?: RippleConfig) {
     const rippleContainers = document.querySelectorAll(selector);
 
     for (let i = 0; i < rippleContainers.length; i++) {
-      new Ripple(rippleContainers[i] as HTMLElement, customSize);
+      new Ripple(rippleContainers[i] as HTMLElement, config);
     }
   }
 
   static initializeRipples(): void {
     Ripple._initilizeRipples(RippleContainersSelector);
 
-    for (let i = 0; i < customRippleSizeMap.length; i++) {
-      let customRippleSize = customRippleSizeMap[i];
+    for (let i = 0; i < customRippleConfigMap.length; i++) {
+      let customRippleSize = customRippleConfigMap[i];
 
-      Ripple._initilizeRipples(customRippleSize.selector, customRippleSize.size);
+      Ripple._initilizeRipples(customRippleSize.selector, customRippleSize.config);
     }
   }
 }

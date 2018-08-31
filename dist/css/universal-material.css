@@ -4583,6 +4583,7 @@ mark,
             justify-content: center;
     width: 1rem;
     height: 1rem;
+    margin: 0.75rem;
     border-radius: 0.125rem;
     -webkit-box-shadow: 0 0 0 0.125rem currentColor inset;
             box-shadow: 0 0 0 0.125rem currentColor inset;
@@ -4631,7 +4632,7 @@ mark,
     transition: clip 175ms; }
     .checkbox .check-indicator::before {
       position: relative;
-      top: 20%;
+      top: 25%;
       display: block;
       width: .75rem;
       height: .35rem;
