@@ -15,7 +15,7 @@ block content
     small#standardWithFloatinglabelHelper.text-field-helper-text Standard text field with floating label
 
   .text-field-container
-    .text-field.text-field-box.text-field-floating-label
+    .text-field.text-field-box
       .text-field-leading-icon
         i.mdi.mdi-calendar
       .text-field-trailing-icon
@@ -31,7 +31,7 @@ block content
         span 0 / 10
 
   .text-field-container
-    .text-field.text-field-outline.text-field-floating-label
+    .text-field.text-field-outline
       .text-field-leading-icon
         i.mdi.mdi-calendar
       .text-field-trailing-icon
@@ -41,13 +41,21 @@ block content
     small#textFieldOutline.text-field-helper-text Text field outline
 
   .text-field-container
-    .text-field.text-field-box.text-field-floating-label
+    .text-field.text-field-elevated
+      .text-field-leading-icon
+        i.mdi.mdi-calendar
+      .text-field-trailing-icon.btn-borderless
+        i.btn-icon.mdi.mdi-calendar
+      input.text-input(type="text" placeholder="Placeholder" id="text-field-elevated" aria-describedby="textFieldElevated")
+
+  .text-field-container
+    .text-field.text-field-box
       textarea.text-input(type="text" placeholder="Placeholder" id="text-area-box" aria-describedby="textAreaBox")
       label(for="text-area-box") Text area box
     small#textAreaBox.text-field-helper-text Text area box
 
   .text-field-container
-    .text-field.text-area-outline.text-field-floating-label
+    .text-field.text-area-outline
       textarea.text-input(type="text" placeholder="Placeholder" id="text-area-outline" aria-describedby="textAreaOutline")
       label(for="text-area-outline") Text area outline
     small#textAreaOutline.text-field-helper-text Text area outline

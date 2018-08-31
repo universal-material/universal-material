@@ -68,19 +68,6 @@
   transition: box-shadow 150ms;
 }
 
-.btn-borderless {
-  @extend .btn;
-  width: $btn-borderless-size;
-  height: $btn-borderless-size;
-  padding: 0;
-  font-size: $base-icon-size;
-  border-radius: 50%;
-
-  + .btn-borderless {
-    margin-left: $btn-borderless-margin;
-  }
-}
-
 .btn-icon {
   display: inline-block;
   width: $btn-icon-size;
@@ -88,7 +75,38 @@
   margin-right: .5rem;
   margin-left: -.25rem;
   font-size: $btn-icon-size;
-  line-height: $btn-icon-size;
+  line-height: 1em;
+}
+
+.btn-borderless {
+  @extend .btn;
+
+  width: $btn-borderless-size;
+  height: $btn-borderless-size;
+  padding: 0;
+  overflow: visible;
+  border-radius: 50%;
+
+  + .btn-borderless {
+    margin-left: $btn-borderless-margin;
+  }
+
+  .btn-icon {
+    width: $btn-borderless-icon-size;
+    height: $btn-borderless-icon-size;
+    margin: 0;
+    font-size: $btn-borderless-icon-size;
+  }
+
+  &::before {
+    top: 50%;
+    left: 50%;
+    width: $btn-borderless-action-size;
+    height: $btn-borderless-action-size;
+    margin-top: -$btn-borderless-action-size / 2;
+    margin-left: -$btn-borderless-action-size / 2;
+    border-radius: 50%;
+  }
 }
 
 .dense {

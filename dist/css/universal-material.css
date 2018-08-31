@@ -4258,6 +4258,9 @@ mark,
 .toolbar-navigation {
   margin-right: 8px;
   margin-left: 8px; }
+  .toolbar-navigation, .toolbar-navigation.btn-borderless {
+    width: 2.5rem;
+    height: 2.5rem; }
 
 .toolbar-actions {
   display: -webkit-box;
@@ -4268,8 +4271,13 @@ mark,
           align-items: center;
   padding: 8px; }
 
-.toolbar-action + .toolbar-action {
-  margin-left: 8px; }
+.toolbar-action {
+  text-align: center; }
+  .toolbar-action, .toolbar-action.btn-borderless {
+    width: 2.5rem;
+    height: 2.5rem; }
+    .toolbar-action + .toolbar-action, .toolbar-action.btn-borderless + .toolbar-action {
+      margin-left: 8px; }
 
 .toolbar-fixed {
   position: fixed;
@@ -4382,15 +4390,6 @@ mark,
     -webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.4);
             box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.4); }
 
-.btn-borderless {
-  width: 2.5rem;
-  height: 2.5rem;
-  padding: 0;
-  font-size: 1.5rem;
-  border-radius: 50%; }
-  .btn-borderless + .btn-borderless {
-    margin-left: 0.5rem; }
-
 .btn-icon {
   display: inline-block;
   width: 1.125rem;
@@ -4398,7 +4397,29 @@ mark,
   margin-right: .5rem;
   margin-left: -.25rem;
   font-size: 1.125rem;
-  line-height: 1.125rem; }
+  line-height: 1em; }
+
+.btn-borderless {
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  overflow: visible;
+  border-radius: 50%; }
+  .btn-borderless + .btn-borderless {
+    margin-left: 1rem; }
+  .btn-borderless .btn-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: 0;
+    font-size: 1.5rem; }
+  .btn-borderless::before {
+    top: 50%;
+    left: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-top: -1.25rem;
+    margin-left: -1.25rem;
+    border-radius: 50%; }
 
 .dense-layout .btn, .dense-layout .btn-flat, .dense-layout .btn-outline,
 .dense-layout .btn-solid, .dense-layout .btn-raised, .dense-layout .btn-floating, .dense-layout .btn-borderless, .dense.btn, .dense.btn-flat, .dense.btn-outline,
@@ -6315,15 +6336,6 @@ th.data-table-header {
     -webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.4);
             box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.4); }
 
-.btn-borderless {
-  width: 2.5rem;
-  height: 2.5rem;
-  padding: 0;
-  font-size: 1.5rem;
-  border-radius: 50%; }
-  .btn-borderless + .btn-borderless {
-    margin-left: 0.5rem; }
-
 .btn-icon {
   display: inline-block;
   width: 1.125rem;
@@ -6331,7 +6343,29 @@ th.data-table-header {
   margin-right: .5rem;
   margin-left: -.25rem;
   font-size: 1.125rem;
-  line-height: 1.125rem; }
+  line-height: 1em; }
+
+.btn-borderless {
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  overflow: visible;
+  border-radius: 50%; }
+  .btn-borderless + .btn-borderless {
+    margin-left: 1rem; }
+  .btn-borderless .btn-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: 0;
+    font-size: 1.5rem; }
+  .btn-borderless::before {
+    top: 50%;
+    left: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-top: -1.25rem;
+    margin-left: -1.25rem;
+    border-radius: 50%; }
 
 .dense-layout .btn, .dense-layout .btn-flat, .dense-layout .btn-outline,
 .dense-layout .btn-solid, .dense-layout .btn-raised, .dense-layout .btn-floating, .dense-layout .btn-borderless, .dense.btn, .dense.btn-flat, .dense.btn-outline,
@@ -6526,7 +6560,7 @@ th.data-table-header {
   padding-top: 0.5rem;
   padding-bottom: 0.4375rem;
   font-size: 1rem;
-  line-height: 1.75;
+  line-height: 1rem;
   background: transparent;
   border: none;
   border-bottom: 0.0625rem solid; }
@@ -6726,6 +6760,28 @@ th.data-table-header {
   .text-field-outline .text-field-trailing-icon ~ label,
   .text-area-outline .text-field-trailing-icon ~ label {
     margin-right: calc(8px + 1.5rem); }
+
+.text-field-elevated {
+  border-radius: 4px;
+  -webkit-box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+          box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
+  .text-field-elevated::before {
+    content: none; }
+  .text-field-elevated .text-field-leading-icon,
+  .text-field-elevated .text-field-trailing-icon {
+    bottom: 50%; }
+  .text-field-elevated .text-input {
+    padding: 1rem 0.75rem;
+    border: none; }
+  .text-field-elevated .text-field-leading-icon {
+    left: 8px; }
+    .text-field-elevated .text-field-leading-icon ~ .text-input {
+      margin-left: calc(8px + 1.5rem); }
+  .text-field-elevated .text-field-trailing-icon {
+    right: 8px; }
+    .text-field-elevated .text-field-trailing-icon ~ .text-input,
+    .text-field-elevated .text-field-trailing-icon ~ label {
+      margin-right: calc(8px + 1.5rem); }
 
 .text-area-outline label {
   background: transparent !important;
@@ -7285,6 +7341,9 @@ th.data-table-header {
 
 .text-field-outline:not(.focus):not(.invalid):hover::before, .text-area-outline:not(.focus):not(.invalid):hover::before {
   border-color: rgba(0, 0, 0, 0.87); }
+
+.text-field-elevated {
+  background: #fff; }
 
 .text-input {
   color: rgba(0, 0, 0, 0.87);

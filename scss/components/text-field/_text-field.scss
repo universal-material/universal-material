@@ -279,6 +279,42 @@
   }
 }
 
+.text-field-elevated {
+  border-radius: $text-field-elevated-border-radius;
+  box-shadow: $text-field-elevated-box-shadow;
+
+  &::before {
+    content: none;
+  }
+
+  .text-field-leading-icon,
+  .text-field-trailing-icon {
+    bottom: 50%;
+  }
+
+  .text-input {
+    padding: $text-field-elevated-padding;
+    border: none;
+  }
+
+  .text-field-leading-icon {
+    left: $text-field-icon-margin;
+
+    ~ .text-input {
+      margin-left: calc(#{$text-field-icon-margin} + #{$text-field-icon-size});
+    }
+  }
+
+  .text-field-trailing-icon {
+    right: $text-field-icon-margin;
+
+    ~ .text-input,
+    ~ label {
+      margin-right: calc(#{$text-field-icon-margin} + #{$text-field-icon-size});
+    }
+  }
+}
+
 .text-area-outline {
   @extend .text-field-outline;
 
@@ -302,6 +338,7 @@
   $text-field-divider-color-hover: $text-field-divider-color-hover-light-theme;
   $text-field-divider-color-disabled: $text-field-divider-color-disabled-light-theme;
   $text-field-box-background: $text-input-box-bg-light-theme;
+  $text-field-elevated-background: $text-field-elevated-bg-light-theme;
   $text-input-color: $text-input-color-light-theme;
   $text-input-placeholder-color: $text-input-placeholder-color-light-theme;
   $text-input-disabled-color: $text-input-disabled-color-light-theme;
@@ -316,6 +353,7 @@
     $text-field-divider-color-hover: $text-field-divider-color-hover-dark-theme;
     $text-field-divider-color-disabled: $text-field-divider-color-disabled-dark-theme;
     $text-field-box-background: $text-input-box-bg-dark-theme;
+    $text-field-elevated-background: $text-field-elevated-bg-dark-theme;
     $text-input-color: $text-input-color-dark-theme;
     $text-input-placeholder-color: $text-input-placeholder-color-dark-theme;
   //  $text-input-disabled-color: $text-input-disabled-color-dark-theme;
@@ -371,6 +409,10 @@
         border-color: $text-field-divider-color-hover;
       }
     }
+  }
+
+  .text-field-elevated {
+    background: $text-field-elevated-background;
   }
 
   .text-input {

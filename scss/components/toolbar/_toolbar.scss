@@ -42,6 +42,12 @@
 }
 
 .toolbar-navigation {
+  &,
+  &.btn-borderless {
+    width: $toolbar-navigation-size;
+    height: $toolbar-navigation-size;
+  }
+
   margin-right: $toolbar-navigation-margin;
   margin-left: $toolbar-navigation-margin;
 }
@@ -52,8 +58,18 @@
   padding: $toolbar-actions-padding;
 }
 
-.toolbar-action + .toolbar-action {
-  margin-left: $toolbar-action-margin;
+.toolbar-action {
+  text-align: center;
+
+  &,
+  &.btn-borderless {
+    width: $toolbar-action-size;
+    height: $toolbar-action-size;
+
+    + .toolbar-action {
+      margin-left: $toolbar-action-margin;
+    }
+  }
 }
 
 .toolbar-fixed {

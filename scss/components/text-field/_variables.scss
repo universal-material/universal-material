@@ -26,6 +26,12 @@ $text-field-outline-padding: .75rem !default;
 $text-field-outline-padding-bottom: 1.25rem !default;
 $text-field-outline-border-radius: .25rem !default;
 
+$text-field-elevated-box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12) !default;
+$text-field-elevated-border-radius: 4px !default;
+$text-field-elevated-bg-light-theme: #fff !default;
+$text-field-elevated-bg-dark-theme: #424242 !default;
+$text-field-elevated-padding: 1rem .75rem !default;
+
 $text-field-divider-color-light-theme: $color-low-contrast-light-theme !default;
 $text-field-divider-color-dark-theme: $color-low-contrast-dark-theme !default;
 $text-field-divider-color-hover-light-theme: $color-high-contrast-light-theme !default;
@@ -41,7 +47,7 @@ $text-input-total-height: $text-input-height + $text-input-padding * 2;
 $text-input-border: $text-field-border-width solid !default;
 $text-input-font-size: 1rem !default;
 $text-input-font-weight: $font-regular !default;
-$text-input-line-height: 1.75 !default;
+$text-input-line-height: 1rem !default;
 $text-input-placeholder-color-light-theme: $text-lower-contrast !default;
 $text-input-placeholder-color-dark-theme: $text-lower-contrast-dark-theme !default;
 $text-input-disabled-color-light-theme: $text-lower-contrast !default;

@@ -191,7 +191,6 @@
   var RippleContainersSelector = [
       '.btn',
       '.btn-flat',
-      '.btn-borderless',
       '.btn-solid',
       '.btn-raised',
       '.btn-outline',
@@ -211,7 +210,7 @@
   }());
   var customRippleConfigMap = [
       {
-          selector: '.checkbox .selection-control',
+          selector: '.checkbox .selection-control, .btn-borderless',
           config: {
               size: 40,
               borderRadius: '50%'
@@ -498,6 +497,24 @@
               input.addEventListener('input', function () {
                   _this.setEmpty();
               });
+              var prototype = void 0;
+              if (input.nodeName.toLowerCase() === 'input') {
+                  prototype = HTMLInputElement.prototype;
+              }
+              else {
+                  prototype = HTMLTextAreaElement.prototype;
+              }
+              var descriptor_1 = Object.getOwnPropertyDescriptor(prototype, 'value');
+              var inputSetter_1 = descriptor_1.set;
+              descriptor_1.set = function (val) {
+                  //changing to native setter to prevent the loop while setting the value
+                  Object.defineProperty(input, "value", { set: inputSetter_1 });
+                  input.value = val;
+                  _this.setEmpty();
+                  //changing back to custom setter
+                  Object.defineProperty(input, "value", descriptor_1);
+              };
+              Object.defineProperty(input, "value", descriptor_1);
               element.addEventListener('click', function () {
                   input.focus();
               });

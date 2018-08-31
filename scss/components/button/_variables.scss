@@ -16,8 +16,10 @@ $floating-button-icon-size: $base-icon-size !default;
 $btn-borderless-color-light-theme: $text-low-contrast-light-theme !default;
 $btn-borderless-color-dark-theme: $white !default;
 $btn-borderless-font-size: $base-icon-size !default;
-$btn-borderless-margin: .5rem !default;
-$btn-borderless-size: 2.5rem !default;
+$btn-borderless-margin: 1rem !default;
+$btn-borderless-size: 1.5rem !default;
+$btn-borderless-action-size: 2.5rem !default;
+$btn-borderless-icon-size: 1.5rem !default;
 
 $btn-outline-border-width: .0625rem !default;
 $btn-outline-gray-border-color-light-theme: rgba(0, 0, 0, .12) !default;

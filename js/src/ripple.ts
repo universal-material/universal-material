@@ -2,7 +2,6 @@ export const RippleContainersSelector =
   [
     '.btn',
     '.btn-flat',
-    '.btn-borderless',
     '.btn-solid',
     '.btn-raised',
     '.btn-outline',
@@ -23,7 +22,7 @@ export class RippleConfig {
 
 const customRippleConfigMap = [
   {
-    selector: '.checkbox .selection-control',
+    selector: '.checkbox .selection-control, .btn-borderless',
     config: {
       size: 40,
       borderRadius: '50%'
