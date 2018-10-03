@@ -34,7 +34,7 @@
   }
 
   @if (mixin_exists(sidebar-theme)) {
-    @include sidebar-theme($dark-theme);
+    @include sidebar-theme($theme);
   }
 
   @if (mixin_exists(list-theme)) {

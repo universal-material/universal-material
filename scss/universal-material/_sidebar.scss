@@ -9,49 +9,46 @@
 
 .sidebar-backdrop {
   position: absolute;
-  background-color: $sidebar-backdrop-bg;
   top: 0;
-  left: 0;
   right: 0;
   bottom: 0;
-  opacity: 0;
+  left: 0;
   z-index: -1;
+  background-color: $sidebar-backdrop-bg;
+  opacity: 0;
   transition: opacity 375ms linear, z-index 0ms 375ms;
 }
 
 .sidebar {
   @include elevate("2dp");
-  width: $sidebar-width;
-  flex-shrink: 0;
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
+  z-index: $zindex-sidebar;
+  flex-shrink: 0;
+  width: $sidebar-width;
   max-width: 85%;
   overflow-y: auto;
+  transition: transform 375ms $awesome-cubic-bezier;
   transform: translateX(-100%);
-  z-index: $zindex-sidebar;
 
   &.sidebar-right {
-    left: auto;
     right: 0;
+    left: auto;
     transform: translateX(100%);
   }
-
-  transition: transform 375ms $awesome-cubic-bezier;
 
   &.open {
     transform: translateX(0);
 
     ~ .sidebar-backdrop {
-      opacity: $sidebar-backdrop-opacity;
       z-index: $zindex-sidebar - 1;
+      opacity: $sidebar-backdrop-opacity;
       transition: opacity 375ms linear;
     }
   }
-}
 
-.sidebar {
   $breakpoint-keys: map-keys($grid-breakpoints);
   $breakpoints-length: length($grid-breakpoints);
 
@@ -61,7 +58,7 @@
     @include media-breakpoint-up($breakpoint) {
 
 
-      &.sidebar#{$infix}-fixed {
+      &.sidebar#{$infix}-pinned {
         position: static;
         transform: none;
 
@@ -69,15 +66,15 @@
 
         &.open {
           ~ .sidebar-backdrop {
-            opacity: 0;
             z-index: -1;
+            opacity: 0;
             transition: opacity 375ms linear, z-index 0ms 375ms;
           }
 
           ~ .sidebar.open {
             ~ .sidebar-backdrop {
-              opacity: $sidebar-backdrop-opacity;
               z-index: $zindex-sidebar - 1;
+              opacity: $sidebar-backdrop-opacity;
               transition: opacity 375ms linear;
             }
           }
@@ -85,9 +82,30 @@
       }
     }
   }
+
+  .list-item {
+    min-height: 2.5rem;
+    padding: .5rem;
+    margin: .5rem;
+    border-radius: .25rem;
+  }
+
+  .list-item:first-child {
+    margin-top: 0;
+  }
+
+  .list-divider {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
 }
 
-@mixin sidebar-theme($dark-theme) {
+@mixin sidebar-theme($theme) {
+
+  $theme-colors: map-get($theme, "colors");
+  $dark-theme: map-get($theme, "dark");
+  $primary-color: map-get($theme-colors, "primary");
+
   $background-color: $sidebar-background-color-light-theme;
   $color: $body-color-light-theme;
 
@@ -96,8 +114,23 @@
     $color: $body-color-dark-theme;
   }
 
-
   .sidebar {
     background-color: $background-color;
+
+    .list-item.active {
+      &,
+      .list-item-icon {
+        color: $primary-color;
+      }
+
+      &:hover::before,
+      &::before {
+        opacity: .2;
+      }
+
+      &:focus::before {
+        opacity: .3;
+      }
+    }
   }
 }

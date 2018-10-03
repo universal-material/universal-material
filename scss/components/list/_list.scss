@@ -5,11 +5,7 @@
   padding-bottom: $list-vertical-margin;
   margin: 0;
 
-  .divider {
-    @include vertical-margin($list-vertical-margin);
-  }
-
-  &.list-dividers {
+  &.list-item-dividers {
     .list-item {
       position: relative;
 
@@ -24,6 +20,18 @@
       }
     }
   }
+
+  &.list-hover {
+    .list-item {
+      @include selectable-background-before();
+    }
+  }
+}
+
+.list-divider {
+  @extend .divider;
+  margin-top: $list-vertical-margin;
+  margin-bottom: $list-vertical-margin;
 }
 
 .list-item {
@@ -127,7 +135,7 @@
 }
 
 .list-item-hover {
-  @include selectable-background(false);
+  @include selectable-background-before();
 
   position: absolute;
   top: 0;
@@ -212,12 +220,6 @@
   @if ($dark-theme) {
     $color: $list-item-color-dark-theme;
     $icon-color: $list-icon-color-dark-theme;
-  }
-
-  .list.list-hover {
-    .list-item {
-      @include selectable-background($dark-theme);
-    }
   }
 
   .list-item {
