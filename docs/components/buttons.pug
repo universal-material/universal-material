@@ -93,6 +93,38 @@ block content
           | &lt;button class=&quot;btn-outline btn-outline-gray-border btn-danger&quot;&gt;Danger&lt;/button&gt;
           | &lt;button class=&quot;btn-outline btn-outline-gray-border btn-primary&quot; disabled=&quot;disabled&quot; &gt;Disabled&lt;/button&gt;
 
+    h5.headline5.article-title Round buttons
+    .example-box
+      .example-box-header
+        button.btn-round.btn-default
+          i.btn-icon.mdi.mdi-plus
+        button.btn-round.btn-primary
+          i.btn-icon.mdi.mdi-plus
+        button.btn-round.btn-secondary
+          i.btn-icon.mdi.mdi-plus
+        button.btn-round.btn-danger
+          i.btn-icon.mdi.mdi-plus
+        button.btn-round.btn-primary(disabled)
+          i.btn-icon.mdi.mdi-plus
+
+      pre
+        code.html
+          = '<button class="btn-round btn-default">\n'
+          = '  <i class="btn-icon mdi mdi-plus"></i>\n'
+          = '</button>\n'
+          = '<button class="btn-round btn-primary">\n'
+          = '  <i class="btn-icon mdi mdi-plus"></i>\n'
+          = '</button>\n'
+          = '<button class="btn-round btn-secondary">\n'
+          = '  <i class="btn-icon mdi mdi-plus"></i>\n'
+          = '</button>\n'
+          = '<button class="btn-round btn-danger">\n'
+          = '  <i class="btn-icon mdi mdi-plus"></i>\n'
+          = '</button>\n'
+          = '<button class="btn-round btn-primary" disabled>\n'
+          = '  <i class="btn-icon mdi mdi-plus"></i>\n'
+          = '</button>'
+
     h5.headline5.article-title Borderless buttons
     .example-box
       .example-box-header
@@ -124,3 +156,7 @@ block content
           = '<button class="btn-borderless btn-primary" disabled>\n'
           = '  <i class="btn-icon mdi mdi-heart"></i>\n'
           = '</button>'
+
+  .floating-action-area
+    button.btn-round.btn-secondary
+      i.btn-icon.mdi.mdi-plus

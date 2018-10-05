@@ -9,7 +9,7 @@ $btn-default-background-light: $white !default;
 $btn-default-background-dark: $gray-800 !default;
 
 $floating-action-area-margin: 1.25rem !default;
-$floating-button-size: 3.5rem !default;
+$btn-round-size: 3.5rem !default;
 $floating-button-small-size: 2.5rem !default;
 $floating-button-icon-size: $base-icon-size !default;
 
@@ -33,3 +33,4 @@ $uwp-btn-active-background-color-light-theme: $color-low-contrast-light-theme !d
 $uwp-btn-active-background-color-dark-theme: rgba(204, 204, 204, .54) !default;
 $uwp-btn-flat-active-background-color-light-theme: $hover-background-light-theme !default;
 $uwp-btn-flat-active-background-color-dark-theme: $uwp-btn-active-background-color-dark-theme !default;
+

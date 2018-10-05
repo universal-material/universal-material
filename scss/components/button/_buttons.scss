@@ -109,6 +109,21 @@
   }
 }
 
+.btn-round {
+  @extend .btn-raised;
+
+  width: $btn-round-size;
+  height: $btn-round-size;
+  border-radius: 50%;
+
+  .btn-icon {
+    width: $btn-borderless-icon-size;
+    height: $btn-borderless-icon-size;
+    margin: 0;
+    font-size: $btn-borderless-icon-size;
+  }
+}
+
 .dense {
   @at-root .dense-layout .btn,
   &.btn {

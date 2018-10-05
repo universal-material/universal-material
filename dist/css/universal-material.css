@@ -3538,7 +3538,7 @@ a.text-dark:hover, a.text-dark:focus {
     -webkit-box-shadow: none !important;
             box-shadow: none !important; }
   a:not(.btn):not(.btn-flat):not(.btn-outline):not(
-  .btn-solid):not(.btn-raised):not(.btn-floating):not(.btn-borderless) {
+  .btn-solid):not(.btn-raised):not(.btn-round):not(.btn-borderless) {
     text-decoration: underline; }
   abbr[title]::after {
     content: " (" attr(title) ")"; }
@@ -4307,7 +4307,7 @@ mark,
   margin-left: 0; }
 
 .btn, .btn-flat, .btn-outline,
-.btn-solid, .btn-raised, .btn-floating, .btn-borderless {
+.btn-solid, .btn-raised, .btn-round, .btn-borderless {
   font-size: 0.875rem;
   line-height: 2.25rem;
   font-weight: 500;
@@ -4341,7 +4341,7 @@ mark,
   border-radius: 0.25rem;
   position: relative; }
   .btn::before, .btn-flat::before, .btn-outline::before,
-  .btn-solid::before, .btn-raised::before, .btn-floating::before, .btn-borderless::before {
+  .btn-solid::before, .btn-raised::before, .btn-round::before, .btn-borderless::before {
     position: absolute;
     top: 0;
     right: 0;
@@ -4354,39 +4354,39 @@ mark,
     -webkit-transition: opacity 250ms linear;
     transition: opacity 250ms linear; }
   .btn:hover::before, .btn-flat:hover::before, .btn-outline:hover::before,
-  .btn-solid:hover::before, .btn-raised:hover::before, .btn-floating:hover::before, .btn-borderless:hover::before {
+  .btn-solid:hover::before, .btn-raised:hover::before, .btn-round:hover::before, .btn-borderless:hover::before {
     opacity: .12; }
   .btn:active::before, .btn-flat:active::before, .btn-outline:active::before,
-  .btn-solid:active::before, .btn-raised:active::before, .btn-floating:active::before, .btn-borderless:active::before {
+  .btn-solid:active::before, .btn-raised:active::before, .btn-round:active::before, .btn-borderless:active::before {
     opacity: .2; }
   .btn:hover, .btn-flat:hover, .btn-outline:hover,
-  .btn-solid:hover, .btn-raised:hover, .btn-floating:hover, .btn-borderless:hover, .btn:focus, .btn-flat:focus, .btn-outline:focus,
-  .btn-solid:focus, .btn-raised:focus, .btn-floating:focus, .btn-borderless:focus {
+  .btn-solid:hover, .btn-raised:hover, .btn-round:hover, .btn-borderless:hover, .btn:focus, .btn-flat:focus, .btn-outline:focus,
+  .btn-solid:focus, .btn-raised:focus, .btn-round:focus, .btn-borderless:focus {
     text-decoration: none; }
   .btn:focus, .btn-flat:focus, .btn-outline:focus,
-  .btn-solid:focus, .btn-raised:focus, .btn-floating:focus, .btn-borderless:focus, .btn.focus, .focus.btn-flat, .focus.btn-outline,
-  .focus.btn-solid, .focus.btn-raised, .focus.btn-floating, .focus.btn-borderless {
+  .btn-solid:focus, .btn-raised:focus, .btn-round:focus, .btn-borderless:focus, .btn.focus, .focus.btn-flat, .focus.btn-outline,
+  .focus.btn-solid, .focus.btn-raised, .focus.btn-round, .focus.btn-borderless {
     outline: 0; }
   .btn:active, .btn-flat:active, .btn-outline:active,
-  .btn-solid:active, .btn-raised:active, .btn-floating:active, .btn-borderless:active, .btn.active, .active.btn-flat, .active.btn-outline,
-  .active.btn-solid, .active.btn-raised, .active.btn-floating, .active.btn-borderless {
+  .btn-solid:active, .btn-raised:active, .btn-round:active, .btn-borderless:active, .btn.active, .active.btn-flat, .active.btn-outline,
+  .active.btn-solid, .active.btn-raised, .active.btn-round, .active.btn-borderless {
     background-image: none; }
   .btn.disabled, .disabled.btn-flat, .disabled.btn-outline,
-  .disabled.btn-solid, .disabled.btn-raised, .disabled.btn-floating, .disabled.btn-borderless, .btn:disabled, .btn-flat:disabled, .btn-outline:disabled,
-  .btn-solid:disabled, .btn-raised:disabled, .btn-floating:disabled, .btn-borderless:disabled {
+  .disabled.btn-solid, .disabled.btn-raised, .disabled.btn-round, .disabled.btn-borderless, .btn:disabled, .btn-flat:disabled, .btn-outline:disabled,
+  .btn-solid:disabled, .btn-raised:disabled, .btn-round:disabled, .btn-borderless:disabled {
     cursor: default; }
 
 .btn-outline {
   border: 0.0625rem solid currentColor; }
 
-.btn-raised, .btn-floating {
+.btn-raised, .btn-round {
   -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
           box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
   -webkit-transition: -webkit-box-shadow 150ms;
   transition: -webkit-box-shadow 150ms;
   transition: box-shadow 150ms;
   transition: box-shadow 150ms, -webkit-box-shadow 150ms; }
-  .btn-raised:active, .btn-floating:active {
+  .btn-raised:active, .btn-round:active {
     -webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.4);
             box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.4); }
 
@@ -4421,9 +4421,19 @@ mark,
     margin-left: -1.25rem;
     border-radius: 50%; }
 
+.btn-round {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%; }
+  .btn-round .btn-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: 0;
+    font-size: 1.5rem; }
+
 .dense-layout .btn, .dense-layout .btn-flat, .dense-layout .btn-outline,
-.dense-layout .btn-solid, .dense-layout .btn-raised, .dense-layout .btn-floating, .dense-layout .btn-borderless, .dense.btn, .dense.btn-flat, .dense.btn-outline,
-.dense.btn-solid, .dense.btn-raised, .dense.btn-floating, .dense.btn-borderless {
+.dense-layout .btn-solid, .dense-layout .btn-raised, .dense-layout .btn-round, .dense-layout .btn-borderless, .dense.btn, .dense.btn-flat, .dense.btn-outline,
+.dense.btn-solid, .dense.btn-raised, .dense.btn-round, .dense.btn-borderless {
   height: 2rem;
   font-size: 0.8125rem; }
 
@@ -4439,18 +4449,6 @@ mark,
   right: 1.25rem;
   bottom: 1.25rem; }
 
-.btn-floating {
-  overflow: hidden;
-  width: 3.5rem;
-  height: 3.5rem;
-  border-radius: 50%;
-  font-size: 1.5rem;
-  line-height: 3.5rem; }
-  .btn-floating.button-small {
-    width: 2.5rem;
-    height: 2.5rem;
-    line-height: 2.5rem; }
-
 .btn-group,
 .btn-group-vertical {
   position: relative;
@@ -4459,13 +4457,13 @@ mark,
   display: inline-flex;
   vertical-align: middle; }
   .btn-group > .btn, .btn-group > .btn-flat, .btn-group > .btn-outline,
-  .btn-group > .btn-solid, .btn-group > .btn-raised, .btn-group > .btn-floating, .btn-group > .btn-borderless,
+  .btn-group > .btn-solid, .btn-group > .btn-raised, .btn-group > .btn-round, .btn-group > .btn-borderless,
   .btn-group-vertical > .btn,
   .btn-group-vertical > .btn-flat,
   .btn-group-vertical > .btn-outline,
   .btn-group-vertical > .btn-solid,
   .btn-group-vertical > .btn-raised,
-  .btn-group-vertical > .btn-floating,
+  .btn-group-vertical > .btn-round,
   .btn-group-vertical > .btn-borderless {
     position: relative;
     -webkit-box-flex: 0;
@@ -4473,39 +4471,39 @@ mark,
             flex: 0 1 auto;
     margin-bottom: 0; }
     .btn-group > .btn:hover, .btn-group > .btn-flat:hover, .btn-group > .btn-outline:hover,
-    .btn-group > .btn-solid:hover, .btn-group > .btn-raised:hover, .btn-group > .btn-floating:hover, .btn-group > .btn-borderless:hover,
+    .btn-group > .btn-solid:hover, .btn-group > .btn-raised:hover, .btn-group > .btn-round:hover, .btn-group > .btn-borderless:hover,
     .btn-group-vertical > .btn:hover,
     .btn-group-vertical > .btn-flat:hover,
     .btn-group-vertical > .btn-outline:hover,
     .btn-group-vertical > .btn-solid:hover,
     .btn-group-vertical > .btn-raised:hover,
-    .btn-group-vertical > .btn-floating:hover,
+    .btn-group-vertical > .btn-round:hover,
     .btn-group-vertical > .btn-borderless:hover {
       z-index: 2; }
     .btn-group > .btn:focus, .btn-group > .btn-flat:focus, .btn-group > .btn-outline:focus,
-    .btn-group > .btn-solid:focus, .btn-group > .btn-raised:focus, .btn-group > .btn-floating:focus, .btn-group > .btn-borderless:focus, .btn-group > .btn:active, .btn-group > .btn-flat:active, .btn-group > .btn-outline:active,
-    .btn-group > .btn-solid:active, .btn-group > .btn-raised:active, .btn-group > .btn-floating:active, .btn-group > .btn-borderless:active, .btn-group > .btn.active, .btn-group > .active.btn-flat, .btn-group > .active.btn-outline,
-    .btn-group > .active.btn-solid, .btn-group > .active.btn-raised, .btn-group > .active.btn-floating, .btn-group > .active.btn-borderless,
+    .btn-group > .btn-solid:focus, .btn-group > .btn-raised:focus, .btn-group > .btn-round:focus, .btn-group > .btn-borderless:focus, .btn-group > .btn:active, .btn-group > .btn-flat:active, .btn-group > .btn-outline:active,
+    .btn-group > .btn-solid:active, .btn-group > .btn-raised:active, .btn-group > .btn-round:active, .btn-group > .btn-borderless:active, .btn-group > .btn.active, .btn-group > .active.btn-flat, .btn-group > .active.btn-outline,
+    .btn-group > .active.btn-solid, .btn-group > .active.btn-raised, .btn-group > .active.btn-round, .btn-group > .active.btn-borderless,
     .btn-group-vertical > .btn:focus,
     .btn-group-vertical > .btn-flat:focus,
     .btn-group-vertical > .btn-outline:focus,
     .btn-group-vertical > .btn-solid:focus,
     .btn-group-vertical > .btn-raised:focus,
-    .btn-group-vertical > .btn-floating:focus,
+    .btn-group-vertical > .btn-round:focus,
     .btn-group-vertical > .btn-borderless:focus,
     .btn-group-vertical > .btn:active,
     .btn-group-vertical > .btn-flat:active,
     .btn-group-vertical > .btn-outline:active,
     .btn-group-vertical > .btn-solid:active,
     .btn-group-vertical > .btn-raised:active,
-    .btn-group-vertical > .btn-floating:active,
+    .btn-group-vertical > .btn-round:active,
     .btn-group-vertical > .btn-borderless:active,
     .btn-group-vertical > .btn.active,
     .btn-group-vertical > .active.btn-flat,
     .btn-group-vertical > .active.btn-outline,
     .btn-group-vertical > .active.btn-solid,
     .btn-group-vertical > .active.btn-raised,
-    .btn-group-vertical > .active.btn-floating,
+    .btn-group-vertical > .active.btn-round,
     .btn-group-vertical > .active.btn-borderless {
       z-index: 2; }
 
@@ -4524,10 +4522,10 @@ mark,
 .btn-group > .btn-group {
   float: left; }
 
-.btn + .dropdown-toggle-split, .btn-flat + .dropdown-toggle-split, .btn-outline + .dropdown-toggle-split, .btn-solid + .dropdown-toggle-split, .btn-raised + .dropdown-toggle-split, .btn-floating + .dropdown-toggle-split, .btn-borderless + .dropdown-toggle-split {
+.btn + .dropdown-toggle-split, .btn-flat + .dropdown-toggle-split, .btn-outline + .dropdown-toggle-split, .btn-solid + .dropdown-toggle-split, .btn-raised + .dropdown-toggle-split, .btn-round + .dropdown-toggle-split, .btn-borderless + .dropdown-toggle-split {
   padding-right: 0.5625rem;
   padding-left: 0.5625rem; }
-  .btn + .dropdown-toggle-split::after, .btn-flat + .dropdown-toggle-split::after, .btn-outline + .dropdown-toggle-split::after, .btn-solid + .dropdown-toggle-split::after, .btn-raised + .dropdown-toggle-split::after, .btn-floating + .dropdown-toggle-split::after, .btn-borderless + .dropdown-toggle-split::after {
+  .btn + .dropdown-toggle-split::after, .btn-flat + .dropdown-toggle-split::after, .btn-outline + .dropdown-toggle-split::after, .btn-solid + .dropdown-toggle-split::after, .btn-raised + .dropdown-toggle-split::after, .btn-round + .dropdown-toggle-split::after, .btn-borderless + .dropdown-toggle-split::after {
     margin-left: 0; }
 
 .btn-group-vertical {
@@ -4545,31 +4543,31 @@ mark,
       -ms-flex-pack: center;
           justify-content: center; }
   .btn-group-vertical .btn, .btn-group-vertical .btn-flat, .btn-group-vertical .btn-outline,
-  .btn-group-vertical .btn-solid, .btn-group-vertical .btn-raised, .btn-group-vertical .btn-floating, .btn-group-vertical .btn-borderless,
+  .btn-group-vertical .btn-solid, .btn-group-vertical .btn-raised, .btn-group-vertical .btn-round, .btn-group-vertical .btn-borderless,
   .btn-group-vertical .btn-group {
     width: 100%; }
 
-[data-toggle="buttons"] > .btn input[type="radio"], [data-toggle="buttons"] > .btn-flat input[type="radio"], [data-toggle="buttons"] > .btn-outline input[type="radio"], [data-toggle="buttons"] > .btn-solid input[type="radio"], [data-toggle="buttons"] > .btn-raised input[type="radio"], [data-toggle="buttons"] > .btn-floating input[type="radio"], [data-toggle="buttons"] > .btn-borderless input[type="radio"],
+[data-toggle="buttons"] > .btn input[type="radio"], [data-toggle="buttons"] > .btn-flat input[type="radio"], [data-toggle="buttons"] > .btn-outline input[type="radio"], [data-toggle="buttons"] > .btn-solid input[type="radio"], [data-toggle="buttons"] > .btn-raised input[type="radio"], [data-toggle="buttons"] > .btn-round input[type="radio"], [data-toggle="buttons"] > .btn-borderless input[type="radio"],
 [data-toggle="buttons"] > .btn input[type="checkbox"],
 [data-toggle="buttons"] > .btn-flat input[type="checkbox"],
 [data-toggle="buttons"] > .btn-outline input[type="checkbox"],
 [data-toggle="buttons"] > .btn-solid input[type="checkbox"],
 [data-toggle="buttons"] > .btn-raised input[type="checkbox"],
-[data-toggle="buttons"] > .btn-floating input[type="checkbox"],
+[data-toggle="buttons"] > .btn-round input[type="checkbox"],
 [data-toggle="buttons"] > .btn-borderless input[type="checkbox"],
 [data-toggle="buttons"] > .btn-group > .btn input[type="radio"],
 [data-toggle="buttons"] > .btn-group > .btn-flat input[type="radio"],
 [data-toggle="buttons"] > .btn-group > .btn-outline input[type="radio"],
 [data-toggle="buttons"] > .btn-group > .btn-solid input[type="radio"],
 [data-toggle="buttons"] > .btn-group > .btn-raised input[type="radio"],
-[data-toggle="buttons"] > .btn-group > .btn-floating input[type="radio"],
+[data-toggle="buttons"] > .btn-group > .btn-round input[type="radio"],
 [data-toggle="buttons"] > .btn-group > .btn-borderless input[type="radio"],
 [data-toggle="buttons"] > .btn-group > .btn input[type="checkbox"],
 [data-toggle="buttons"] > .btn-group > .btn-flat input[type="checkbox"],
 [data-toggle="buttons"] > .btn-group > .btn-outline input[type="checkbox"],
 [data-toggle="buttons"] > .btn-group > .btn-solid input[type="checkbox"],
 [data-toggle="buttons"] > .btn-group > .btn-raised input[type="checkbox"],
-[data-toggle="buttons"] > .btn-group > .btn-floating input[type="checkbox"],
+[data-toggle="buttons"] > .btn-group > .btn-round input[type="checkbox"],
 [data-toggle="buttons"] > .btn-group > .btn-borderless input[type="checkbox"] {
   position: absolute;
   clip: rect(0, 0, 0, 0);
@@ -5001,14 +4999,14 @@ mark,
   display: -ms-flexbox;
   display: flex;
   padding: 8px; }
-  .card-actions .btn + .btn, .card-actions .btn-flat + .btn, .card-actions .btn-outline + .btn, .card-actions .btn-solid + .btn, .card-actions .btn-raised + .btn, .card-actions .btn-floating + .btn, .card-actions .btn-borderless + .btn, .card-actions .btn + .btn-flat, .card-actions .btn-flat + .btn-flat, .card-actions .btn-outline + .btn-flat, .card-actions .btn-solid + .btn-flat, .card-actions .btn-raised + .btn-flat, .card-actions .btn-floating + .btn-flat, .card-actions .btn-borderless + .btn-flat, .card-actions .btn + .btn-outline, .card-actions .btn-flat + .btn-outline, .card-actions .btn-outline + .btn-outline, .card-actions .btn-solid + .btn-outline, .card-actions .btn-raised + .btn-outline, .card-actions .btn-floating + .btn-outline, .card-actions .btn-borderless + .btn-outline,
+  .card-actions .btn + .btn, .card-actions .btn-flat + .btn, .card-actions .btn-outline + .btn, .card-actions .btn-solid + .btn, .card-actions .btn-raised + .btn, .card-actions .btn-round + .btn, .card-actions .btn-borderless + .btn, .card-actions .btn + .btn-flat, .card-actions .btn-flat + .btn-flat, .card-actions .btn-outline + .btn-flat, .card-actions .btn-solid + .btn-flat, .card-actions .btn-raised + .btn-flat, .card-actions .btn-round + .btn-flat, .card-actions .btn-borderless + .btn-flat, .card-actions .btn + .btn-outline, .card-actions .btn-flat + .btn-outline, .card-actions .btn-outline + .btn-outline, .card-actions .btn-solid + .btn-outline, .card-actions .btn-raised + .btn-outline, .card-actions .btn-round + .btn-outline, .card-actions .btn-borderless + .btn-outline,
   .card-actions .btn + .btn-solid,
   .card-actions .btn-flat + .btn-solid,
   .card-actions .btn-outline + .btn-solid,
   .card-actions .btn-solid + .btn-solid,
   .card-actions .btn-raised + .btn-solid,
-  .card-actions .btn-floating + .btn-solid,
-  .card-actions .btn-borderless + .btn-solid, .card-actions .btn + .btn-raised, .card-actions .btn-flat + .btn-raised, .card-actions .btn-outline + .btn-raised, .card-actions .btn-solid + .btn-raised, .card-actions .btn-raised + .btn-raised, .card-actions .btn-floating + .btn-raised, .card-actions .btn-borderless + .btn-raised, .card-actions .btn + .btn-floating, .card-actions .btn-flat + .btn-floating, .card-actions .btn-outline + .btn-floating, .card-actions .btn-solid + .btn-floating, .card-actions .btn-raised + .btn-floating, .card-actions .btn-floating + .btn-floating, .card-actions .btn-borderless + .btn-floating, .card-actions .btn + .btn-borderless, .card-actions .btn-flat + .btn-borderless, .card-actions .btn-outline + .btn-borderless, .card-actions .btn-solid + .btn-borderless, .card-actions .btn-raised + .btn-borderless, .card-actions .btn-floating + .btn-borderless, .card-actions .btn-borderless + .btn-borderless {
+  .card-actions .btn-round + .btn-solid,
+  .card-actions .btn-borderless + .btn-solid, .card-actions .btn + .btn-raised, .card-actions .btn-flat + .btn-raised, .card-actions .btn-outline + .btn-raised, .card-actions .btn-solid + .btn-raised, .card-actions .btn-raised + .btn-raised, .card-actions .btn-round + .btn-raised, .card-actions .btn-borderless + .btn-raised, .card-actions .btn + .btn-round, .card-actions .btn-flat + .btn-round, .card-actions .btn-outline + .btn-round, .card-actions .btn-solid + .btn-round, .card-actions .btn-raised + .btn-round, .card-actions .btn-round + .btn-round, .card-actions .btn-borderless + .btn-round, .card-actions .btn + .btn-borderless, .card-actions .btn-flat + .btn-borderless, .card-actions .btn-outline + .btn-borderless, .card-actions .btn-solid + .btn-borderless, .card-actions .btn-raised + .btn-borderless, .card-actions .btn-round + .btn-borderless, .card-actions .btn-borderless + .btn-borderless {
     margin-left: 8px; }
 
 .dialog-open {
@@ -5140,14 +5138,14 @@ mark,
       -ms-flex-pack: end;
           justify-content: flex-end;
   padding: 8px; }
-  .dialog-actions .btn + .btn, .dialog-actions .btn-flat + .btn, .dialog-actions .btn-outline + .btn, .dialog-actions .btn-solid + .btn, .dialog-actions .btn-raised + .btn, .dialog-actions .btn-floating + .btn, .dialog-actions .btn-borderless + .btn, .dialog-actions .btn + .btn-flat, .dialog-actions .btn-flat + .btn-flat, .dialog-actions .btn-outline + .btn-flat, .dialog-actions .btn-solid + .btn-flat, .dialog-actions .btn-raised + .btn-flat, .dialog-actions .btn-floating + .btn-flat, .dialog-actions .btn-borderless + .btn-flat, .dialog-actions .btn + .btn-outline, .dialog-actions .btn-flat + .btn-outline, .dialog-actions .btn-outline + .btn-outline, .dialog-actions .btn-solid + .btn-outline, .dialog-actions .btn-raised + .btn-outline, .dialog-actions .btn-floating + .btn-outline, .dialog-actions .btn-borderless + .btn-outline,
+  .dialog-actions .btn + .btn, .dialog-actions .btn-flat + .btn, .dialog-actions .btn-outline + .btn, .dialog-actions .btn-solid + .btn, .dialog-actions .btn-raised + .btn, .dialog-actions .btn-round + .btn, .dialog-actions .btn-borderless + .btn, .dialog-actions .btn + .btn-flat, .dialog-actions .btn-flat + .btn-flat, .dialog-actions .btn-outline + .btn-flat, .dialog-actions .btn-solid + .btn-flat, .dialog-actions .btn-raised + .btn-flat, .dialog-actions .btn-round + .btn-flat, .dialog-actions .btn-borderless + .btn-flat, .dialog-actions .btn + .btn-outline, .dialog-actions .btn-flat + .btn-outline, .dialog-actions .btn-outline + .btn-outline, .dialog-actions .btn-solid + .btn-outline, .dialog-actions .btn-raised + .btn-outline, .dialog-actions .btn-round + .btn-outline, .dialog-actions .btn-borderless + .btn-outline,
   .dialog-actions .btn + .btn-solid,
   .dialog-actions .btn-flat + .btn-solid,
   .dialog-actions .btn-outline + .btn-solid,
   .dialog-actions .btn-solid + .btn-solid,
   .dialog-actions .btn-raised + .btn-solid,
-  .dialog-actions .btn-floating + .btn-solid,
-  .dialog-actions .btn-borderless + .btn-solid, .dialog-actions .btn + .btn-raised, .dialog-actions .btn-flat + .btn-raised, .dialog-actions .btn-outline + .btn-raised, .dialog-actions .btn-solid + .btn-raised, .dialog-actions .btn-raised + .btn-raised, .dialog-actions .btn-floating + .btn-raised, .dialog-actions .btn-borderless + .btn-raised, .dialog-actions .btn + .btn-floating, .dialog-actions .btn-flat + .btn-floating, .dialog-actions .btn-outline + .btn-floating, .dialog-actions .btn-solid + .btn-floating, .dialog-actions .btn-raised + .btn-floating, .dialog-actions .btn-floating + .btn-floating, .dialog-actions .btn-borderless + .btn-floating, .dialog-actions .btn + .btn-borderless, .dialog-actions .btn-flat + .btn-borderless, .dialog-actions .btn-outline + .btn-borderless, .dialog-actions .btn-solid + .btn-borderless, .dialog-actions .btn-raised + .btn-borderless, .dialog-actions .btn-floating + .btn-borderless, .dialog-actions .btn-borderless + .btn-borderless {
+  .dialog-actions .btn-round + .btn-solid,
+  .dialog-actions .btn-borderless + .btn-solid, .dialog-actions .btn + .btn-raised, .dialog-actions .btn-flat + .btn-raised, .dialog-actions .btn-outline + .btn-raised, .dialog-actions .btn-solid + .btn-raised, .dialog-actions .btn-raised + .btn-raised, .dialog-actions .btn-round + .btn-raised, .dialog-actions .btn-borderless + .btn-raised, .dialog-actions .btn + .btn-round, .dialog-actions .btn-flat + .btn-round, .dialog-actions .btn-outline + .btn-round, .dialog-actions .btn-solid + .btn-round, .dialog-actions .btn-raised + .btn-round, .dialog-actions .btn-round + .btn-round, .dialog-actions .btn-borderless + .btn-round, .dialog-actions .btn + .btn-borderless, .dialog-actions .btn-flat + .btn-borderless, .dialog-actions .btn-outline + .btn-borderless, .dialog-actions .btn-solid + .btn-borderless, .dialog-actions .btn-raised + .btn-borderless, .dialog-actions .btn-round + .btn-borderless, .dialog-actions .btn-borderless + .btn-borderless {
     margin-left: 8px; }
 
 .dialog-progress .dialog-body {
@@ -5597,59 +5595,45 @@ mark,
     .tab-bar-scrollable .tab:first-child {
       margin-left: 56px; }
 
-.data-table table {
-  min-width: 100%; }
-
-.data-table th {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  font-size: 0.8125rem;
-  font-weight: 500;
-  line-height: 1rem; }
-
-.data-table td {
-  padding-top: 0.8125rem;
-  padding-bottom: 0.8125rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  border-top: 0.0625rem solid rgba(0, 0, 0, 0.12); }
-
-.data-table td.dropdown {
-  padding-top: 0;
-  padding-bottom: 0; }
-
-.data-table th,
-.data-table td {
-  padding-right: 1rem;
-  padding-left: 1rem;
-  vertical-align: top; }
-  .data-table th.no-vertical-padding,
-  .data-table td.no-vertical-padding {
+.data-table {
+  width: 100%;
+  max-width: 100%; }
+  .data-table th {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    line-height: 1rem; }
+  .data-table td {
+    padding-top: 0.8125rem;
+    padding-bottom: 0.8125rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-top: 0.0625rem solid rgba(0, 0, 0, 0.12); }
+  .data-table td.dropdown {
     padding-top: 0;
     padding-bottom: 0; }
-
-.data-table.card {
-  overflow: visible; }
-
-.data-table .dropdown-toggle:not(.btn-borderless) {
-  width: 100%;
-  padding: 0;
-  text-align: left;
-  text-transform: none; }
-  .data-table .dropdown-toggle:not(.btn-borderless).btn::before, .data-table .dropdown-toggle.btn-flat:not(.btn-borderless)::before, .data-table .dropdown-toggle.btn-outline:not(.btn-borderless)::before,
-  .data-table .dropdown-toggle.btn-solid:not(.btn-borderless)::before, .data-table .dropdown-toggle.btn-raised:not(.btn-borderless)::before, .data-table .dropdown-toggle.btn-floating:not(.btn-borderless)::before, .data-table .dropdown-toggle.btn-borderless:not(.btn-borderless)::before {
-    content: none; }
+  .data-table th,
+  .data-table td {
+    padding-right: 1rem;
+    padding-left: 1rem;
+    vertical-align: top; }
+    .data-table th.no-vertical-padding,
+    .data-table td.no-vertical-padding {
+      padding-top: 0;
+      padding-bottom: 0; }
+  .data-table.card {
+    overflow: visible; }
+  .data-table .dropdown-toggle:not(.btn-borderless) {
+    width: 100%;
+    padding: 0;
+    text-align: left;
+    text-transform: none; }
+    .data-table .dropdown-toggle:not(.btn-borderless).btn::before, .data-table .dropdown-toggle.btn-flat:not(.btn-borderless)::before, .data-table .dropdown-toggle.btn-outline:not(.btn-borderless)::before,
+    .data-table .dropdown-toggle.btn-solid:not(.btn-borderless)::before, .data-table .dropdown-toggle.btn-raised:not(.btn-borderless)::before, .data-table .dropdown-toggle.btn-round:not(.btn-borderless)::before, .data-table .dropdown-toggle.btn-borderless:not(.btn-borderless)::before {
+      content: none; }
 
 .data-table-footer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
   height: 4rem;
   font-size: 0.75rem;
   font-weight: 400;
@@ -5659,6 +5643,9 @@ mark,
   padding-left: 1rem; }
   .data-table-footer .data-table-actions {
     margin-left: 2rem; }
+
+th.data-table-header {
+  padding: 0; }
 
 .list {
   padding-top: 8px;
@@ -6297,7 +6284,7 @@ mark,
     margin-bottom: 0; }
 
 .btn, .btn-flat, .btn-outline,
-.btn-solid, .btn-raised, .btn-floating, .btn-borderless {
+.btn-solid, .btn-raised, .btn-round, .btn-borderless {
   font-size: 0.875rem;
   line-height: 2.25rem;
   font-weight: 500;
@@ -6331,7 +6318,7 @@ mark,
   border-radius: 0.25rem;
   position: relative; }
   .btn::before, .btn-flat::before, .btn-outline::before,
-  .btn-solid::before, .btn-raised::before, .btn-floating::before, .btn-borderless::before {
+  .btn-solid::before, .btn-raised::before, .btn-round::before, .btn-borderless::before {
     position: absolute;
     top: 0;
     right: 0;
@@ -6344,39 +6331,39 @@ mark,
     -webkit-transition: opacity 250ms linear;
     transition: opacity 250ms linear; }
   .btn:hover::before, .btn-flat:hover::before, .btn-outline:hover::before,
-  .btn-solid:hover::before, .btn-raised:hover::before, .btn-floating:hover::before, .btn-borderless:hover::before {
+  .btn-solid:hover::before, .btn-raised:hover::before, .btn-round:hover::before, .btn-borderless:hover::before {
     opacity: .12; }
   .btn:active::before, .btn-flat:active::before, .btn-outline:active::before,
-  .btn-solid:active::before, .btn-raised:active::before, .btn-floating:active::before, .btn-borderless:active::before {
+  .btn-solid:active::before, .btn-raised:active::before, .btn-round:active::before, .btn-borderless:active::before {
     opacity: .2; }
   .btn:hover, .btn-flat:hover, .btn-outline:hover,
-  .btn-solid:hover, .btn-raised:hover, .btn-floating:hover, .btn-borderless:hover, .btn:focus, .btn-flat:focus, .btn-outline:focus,
-  .btn-solid:focus, .btn-raised:focus, .btn-floating:focus, .btn-borderless:focus {
+  .btn-solid:hover, .btn-raised:hover, .btn-round:hover, .btn-borderless:hover, .btn:focus, .btn-flat:focus, .btn-outline:focus,
+  .btn-solid:focus, .btn-raised:focus, .btn-round:focus, .btn-borderless:focus {
     text-decoration: none; }
   .btn:focus, .btn-flat:focus, .btn-outline:focus,
-  .btn-solid:focus, .btn-raised:focus, .btn-floating:focus, .btn-borderless:focus, .btn.focus, .focus.btn-flat, .focus.btn-outline,
-  .focus.btn-solid, .focus.btn-raised, .focus.btn-floating, .focus.btn-borderless {
+  .btn-solid:focus, .btn-raised:focus, .btn-round:focus, .btn-borderless:focus, .btn.focus, .focus.btn-flat, .focus.btn-outline,
+  .focus.btn-solid, .focus.btn-raised, .focus.btn-round, .focus.btn-borderless {
     outline: 0; }
   .btn:active, .btn-flat:active, .btn-outline:active,
-  .btn-solid:active, .btn-raised:active, .btn-floating:active, .btn-borderless:active, .btn.active, .active.btn-flat, .active.btn-outline,
-  .active.btn-solid, .active.btn-raised, .active.btn-floating, .active.btn-borderless {
+  .btn-solid:active, .btn-raised:active, .btn-round:active, .btn-borderless:active, .btn.active, .active.btn-flat, .active.btn-outline,
+  .active.btn-solid, .active.btn-raised, .active.btn-round, .active.btn-borderless {
     background-image: none; }
   .btn.disabled, .disabled.btn-flat, .disabled.btn-outline,
-  .disabled.btn-solid, .disabled.btn-raised, .disabled.btn-floating, .disabled.btn-borderless, .btn:disabled, .btn-flat:disabled, .btn-outline:disabled,
-  .btn-solid:disabled, .btn-raised:disabled, .btn-floating:disabled, .btn-borderless:disabled {
+  .disabled.btn-solid, .disabled.btn-raised, .disabled.btn-round, .disabled.btn-borderless, .btn:disabled, .btn-flat:disabled, .btn-outline:disabled,
+  .btn-solid:disabled, .btn-raised:disabled, .btn-round:disabled, .btn-borderless:disabled {
     cursor: default; }
 
 .btn-outline {
   border: 0.0625rem solid currentColor; }
 
-.btn-raised, .btn-floating {
+.btn-raised, .btn-round {
   -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
           box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
   -webkit-transition: -webkit-box-shadow 150ms;
   transition: -webkit-box-shadow 150ms;
   transition: box-shadow 150ms;
   transition: box-shadow 150ms, -webkit-box-shadow 150ms; }
-  .btn-raised:active, .btn-floating:active {
+  .btn-raised:active, .btn-round:active {
     -webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.4);
             box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.4); }
 
@@ -6411,9 +6398,19 @@ mark,
     margin-left: -1.25rem;
     border-radius: 50%; }
 
+.btn-round {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%; }
+  .btn-round .btn-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: 0;
+    font-size: 1.5rem; }
+
 .dense-layout .btn, .dense-layout .btn-flat, .dense-layout .btn-outline,
-.dense-layout .btn-solid, .dense-layout .btn-raised, .dense-layout .btn-floating, .dense-layout .btn-borderless, .dense.btn, .dense.btn-flat, .dense.btn-outline,
-.dense.btn-solid, .dense.btn-raised, .dense.btn-floating, .dense.btn-borderless {
+.dense-layout .btn-solid, .dense-layout .btn-raised, .dense-layout .btn-round, .dense-layout .btn-borderless, .dense.btn, .dense.btn-flat, .dense.btn-outline,
+.dense.btn-solid, .dense.btn-raised, .dense.btn-round, .dense.btn-borderless {
   height: 2rem;
   font-size: 0.8125rem; }
 
@@ -6448,7 +6445,7 @@ mark,
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards; }
   .snackbar .btn, .snackbar .btn-flat, .snackbar .btn-outline,
-  .snackbar .btn-solid, .snackbar .btn-raised, .snackbar .btn-floating, .snackbar .btn-borderless {
+  .snackbar .btn-solid, .snackbar .btn-raised, .snackbar .btn-round, .snackbar .btn-borderless {
     margin: 0.375rem 0.5rem; }
   .snackbar.snackbar-vertical {
     -webkit-box-orient: vertical;
@@ -7141,40 +7138,40 @@ mark,
   height: 0.0625rem;
   background-color: rgba(0, 0, 0, 0.12); }
 
-.btn-solid.btn-default, .btn-default.btn-raised, .btn-default.btn-floating {
+.btn-solid.btn-default, .btn-default.btn-raised, .btn-default.btn-round {
   background-color: #fff;
   color: rgba(0, 0, 0, 0.87); }
-  .btn-solid.btn-default:hover, .btn-default.btn-raised:hover, .btn-default.btn-floating:hover, .btn-solid.btn-default:focus, .btn-default.btn-raised:focus, .btn-default.btn-floating:focus {
+  .btn-solid.btn-default:hover, .btn-default.btn-raised:hover, .btn-default.btn-round:hover, .btn-solid.btn-default:focus, .btn-default.btn-raised:focus, .btn-default.btn-round:focus {
     color: rgba(0, 0, 0, 0.87); }
 
-.btn-solid.btn-primary, .btn-primary.btn-raised, .btn-primary.btn-floating {
+.btn-solid.btn-primary, .btn-primary.btn-raised, .btn-primary.btn-round {
   background-color: #512da8;
   color: #fff; }
-  .btn-solid.btn-primary:hover, .btn-primary.btn-raised:hover, .btn-primary.btn-floating:hover, .btn-solid.btn-primary:focus, .btn-primary.btn-raised:focus, .btn-primary.btn-floating:focus {
+  .btn-solid.btn-primary:hover, .btn-primary.btn-raised:hover, .btn-primary.btn-round:hover, .btn-solid.btn-primary:focus, .btn-primary.btn-raised:focus, .btn-primary.btn-round:focus {
     color: #fff; }
 
-.btn-solid.btn-secondary, .btn-secondary.btn-raised, .btn-floating {
+.btn-solid.btn-secondary, .btn-secondary.btn-raised, .btn-secondary.btn-round {
   background-color: #ffd740;
   color: rgba(0, 0, 0, 0.87); }
-  .btn-solid.btn-secondary:hover, .btn-secondary.btn-raised:hover, .btn-floating:hover, .btn-solid.btn-secondary:focus, .btn-secondary.btn-raised:focus, .btn-floating:focus {
+  .btn-solid.btn-secondary:hover, .btn-secondary.btn-raised:hover, .btn-secondary.btn-round:hover, .btn-solid.btn-secondary:focus, .btn-secondary.btn-raised:focus, .btn-secondary.btn-round:focus {
     color: rgba(0, 0, 0, 0.87); }
 
-.btn-solid.btn-danger, .btn-danger.btn-raised, .btn-danger.btn-floating {
+.btn-solid.btn-danger, .btn-danger.btn-raised, .btn-danger.btn-round {
   background-color: #b00020;
   color: #fff; }
-  .btn-solid.btn-danger:hover, .btn-danger.btn-raised:hover, .btn-danger.btn-floating:hover, .btn-solid.btn-danger:focus, .btn-danger.btn-raised:focus, .btn-danger.btn-floating:focus {
+  .btn-solid.btn-danger:hover, .btn-danger.btn-raised:hover, .btn-danger.btn-round:hover, .btn-solid.btn-danger:focus, .btn-danger.btn-raised:focus, .btn-danger.btn-round:focus {
     color: #fff; }
 
 .btn.disabled, .disabled.btn-flat, .disabled.btn-outline,
-.disabled.btn-solid, .disabled.btn-raised, .disabled.btn-floating, .disabled.btn-borderless, .btn:disabled, .btn-flat:disabled, .btn-outline:disabled,
-.btn-solid:disabled, .btn-raised:disabled, .btn-floating:disabled, .btn-borderless:disabled {
+.disabled.btn-solid, .disabled.btn-raised, .disabled.btn-round, .disabled.btn-borderless, .btn:disabled, .btn-flat:disabled, .btn-outline:disabled,
+.btn-solid:disabled, .btn-raised:disabled, .btn-round:disabled, .btn-borderless:disabled {
   color: rgba(0, 0, 0, 0.26) !important;
   background-color: rgba(0, 0, 0, 0.12);
   -webkit-box-shadow: none;
           box-shadow: none; }
   .btn.disabled::before, .disabled.btn-flat::before, .disabled.btn-outline::before,
-  .disabled.btn-solid::before, .disabled.btn-raised::before, .disabled.btn-floating::before, .disabled.btn-borderless::before, .btn:disabled::before, .btn-flat:disabled::before, .btn-outline:disabled::before,
-  .btn-solid:disabled::before, .btn-raised:disabled::before, .btn-floating:disabled::before, .btn-borderless:disabled::before {
+  .disabled.btn-solid::before, .disabled.btn-raised::before, .disabled.btn-round::before, .disabled.btn-borderless::before, .btn:disabled::before, .btn-flat:disabled::before, .btn-outline:disabled::before,
+  .btn-solid:disabled::before, .btn-raised:disabled::before, .btn-round:disabled::before, .btn-borderless:disabled::before {
     background-color: transparent !important; }
 
 .btn-borderless.disabled, .btn-borderless.disabled::before, .btn-borderless:disabled, .btn-borderless:disabled::before,
@@ -7201,9 +7198,9 @@ mark,
   .btn-flat.btn-primary:hover, .btn-primary.btn-outline:hover, .btn-flat.btn-primary:focus, .btn-primary.btn-outline:focus {
     color: #512da8; }
 
-.btn-flat.btn-secondary, .btn-secondary.btn-outline, .btn-outline.btn-floating, .btn-flat.btn-floating {
+.btn-flat.btn-secondary, .btn-secondary.btn-outline {
   color: #ffd740; }
-  .btn-flat.btn-secondary:hover, .btn-secondary.btn-outline:hover, .btn-outline.btn-floating:hover, .btn-flat.btn-floating:hover, .btn-flat.btn-secondary:focus, .btn-secondary.btn-outline:focus, .btn-outline.btn-floating:focus, .btn-flat.btn-floating:focus {
+  .btn-flat.btn-secondary:hover, .btn-secondary.btn-outline:hover, .btn-flat.btn-secondary:focus, .btn-secondary.btn-outline:focus {
     color: #ffd740; }
 
 .btn-flat.btn-danger, .btn-danger.btn-outline {
@@ -7221,9 +7218,9 @@ mark,
   .btn-borderless.btn-primary:hover, .btn-borderless.btn-primary:focus {
     color: #512da8; }
 
-.btn-borderless.btn-secondary, .btn-borderless.btn-floating {
+.btn-borderless.btn-secondary {
   color: #ffd740; }
-  .btn-borderless.btn-secondary:hover, .btn-borderless.btn-floating:hover, .btn-borderless.btn-secondary:focus, .btn-borderless.btn-floating:focus {
+  .btn-borderless.btn-secondary:hover, .btn-borderless.btn-secondary:focus {
     color: #ffd740; }
 
 .btn-borderless.btn-danger {
