@@ -9,8 +9,12 @@ $btn-default-background-light: $white !default;
 $btn-default-background-dark: $gray-800 !default;
 
 $floating-action-area-margin: 1.25rem !default;
-$btn-round-size: 3.5rem !default;
-$floating-button-small-size: 2.5rem !default;
+$btn-floating-size: 3.5rem !default;
+$btn-floating-small-size: 2.5rem !default;
+$btn-floating-extended-height: 3rem !default;
+$btn-floating-extended-border-radius: $btn-floating-extended-height / 2 !default;
+$btn-floating-extended-padding: 20px !default;
+$btn-floating-extended-icon-margin: 12px !default;
 $floating-button-icon-size: $base-icon-size !default;
 
 $btn-borderless-color-light-theme: $text-low-contrast-light-theme !default;

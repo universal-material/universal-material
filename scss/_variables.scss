@@ -1,5 +1,7 @@
-$primary-color: #512da8 !default;
-$secondary-color: #ffd740 !default;
+$primary-color: #6200ee !default;
+$primary-variant-color: #3700b3 !default;
+$secondary-color: #03dac6 !default;
+$secondary-variant-color: #018786 !default;
 $danger-color: #b00020 !default;
 $default-theme-dark: false !default;
 $default-uwp-style: false !default;
@@ -36,7 +38,9 @@ $cyan:    #00bcd4 !default;
 
 $theme-colors: (
   primary: $primary-color, //Universal Material changes
+  primary-variant: $primary-variant-color,
   secondary: $secondary-color,
+  secondary-variant: $secondary-variant-color,
   danger: $danger-color
 ) !default;
 

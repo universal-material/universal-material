@@ -1,8 +1,9 @@
 // stylelint-disable selector-no-qualifying-type
 
 .data-table {
-  width: 100%;
-  max-width: 100%;
+  table {
+    min-width: 100%;
+  }
 
   th {
     padding-top: $data-table-column-header-vertical-padding;
@@ -52,7 +53,19 @@
   }
 }
 
+//.data-table-content {
+//  overflow-x: hidden;
+//  overflow-y: visible;
+//}
+
+.data-table-header {
+
+}
+
 .data-table-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   height: $data-table-card-footer-height;
   font-size: $data-table-card-footer-font-size;
   font-weight: $data-table-card-footer-font-weight;
@@ -70,10 +83,6 @@
     //  margin-left: -$toolbar-action-padding;
     //}
   }
-}
-
-th.data-table-header {
-  padding: 0;
 }
 
 @mixin data-table-theme($dark-theme) {

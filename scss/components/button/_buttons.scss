@@ -65,7 +65,7 @@
     @include elevate("4dp");
   }
 
-  transition: box-shadow 150ms;
+  transition: box-shadow 250ms;
 }
 
 .btn-icon {
@@ -109,11 +109,10 @@
   }
 }
 
-.btn-round {
+.btn-floating {
   @extend .btn-raised;
-
-  width: $btn-round-size;
-  height: $btn-round-size;
+  width: $btn-floating-size;
+  height: $btn-floating-size;
   border-radius: 50%;
 
   .btn-icon {
@@ -122,6 +121,24 @@
     margin: 0;
     font-size: $btn-borderless-icon-size;
   }
+}
+
+.btn-floating-extended {
+  width: auto;
+  height: $btn-floating-extended-height;
+  padding-right: $btn-floating-extended-padding;
+  padding-left: $btn-floating-extended-padding;
+  border-radius: $btn-floating-extended-border-radius;
+
+  .btn-icon {
+    margin-right: $btn-floating-extended-icon-margin;
+    margin-left: $btn-floating-extended-icon-margin - $btn-floating-extended-padding;
+  }
+}
+
+.btn-floating-sm {
+  width: $btn-floating-small-size;
+  height: $btn-floating-small-size;
 }
 
 .dense {
@@ -140,6 +157,16 @@
   @at-root .dense-layout .btn-icon,
   &.btn-icon {
     font-size: $btn-icon-dense-size;
+  }
+}
+
+.rtl,
+[dir="rtl"] {
+  .btn-floating-extended {
+    .btn-icon {
+      margin-right: $btn-floating-extended-icon-margin - $btn-floating-extended-padding;
+      margin-left: $btn-floating-extended-icon-margin;
+    }
   }
 }
 
@@ -185,7 +212,9 @@
   $buttons-colors: (
     default: $btn-default-background-light,
     primary: map-get($theme-colors, "primary"),
+    primary-variant: map-get($theme-colors, "primary-variant"),
     secondary: map-get($theme-colors, "secondary"),
+    secondary-variant: map-get($theme-colors, "secondary-variant"),
     danger: map-get($theme-colors, "danger")
   );
 

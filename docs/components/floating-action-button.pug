@@ -1,0 +1,38 @@
+extends ../layout
+
+block content
+  .container
+    h4.headline4.chapter-title Buttons
+
+    h5.headline5.article-title Button colors
+    .example-box
+      .example-box-header
+        button.btn-solid.btn-default Default
+        button.btn-solid.btn-primary Primary
+        button.btn-solid.btn-primary-variant Primary
+        button.btn-solid.btn-secondary Secondary
+        button.btn-solid.btn-secondary-variant Secondary
+        button.btn-solid.btn-danger Danger
+        button.btn-solid.btn-primary(disabled) Disabled
+
+      pre
+        code.html
+          = '<button class="btn-solid btn-default">Default</button>\n'
+          = '<button class="btn-solid btn-primary">Primary</button>\n'
+          = '<button class="btn-solid btn-secondary">Secondary</button>\n'
+          = '<button class="btn-solid btn-danger">Danger</button>\n'
+          = '<button class="btn-solid btn-primary" disabled>Disabled</button>'
+  .floating-action-area.floating-menu
+    span.btn-floating.btn-danger.floating-menu-toggle(tabindex="1")
+      i.btn-icon.mdi.mdi-plus
+    .floating-menu-items
+      .floating-menu-item
+        .floating-menu-label Write
+        .floating-menu-action
+          button.btn-floating.btn-danger
+            i.btn-icon.mdi.mdi-pencil
+      .floating-menu-item
+        .floating-menu-label Reminder
+        .floating-menu-action
+            button.btn-floating.btn-floating-sm.btn-primary
+              i.btn-icon.mdi.mdi-reminder

@@ -4,125 +4,161 @@ block content
   .container
     h4.headline4.chapter-title Buttons
 
-    h5.headline5.article-title Solid buttons
-
+    h5.headline5.article-title Button colors
     .example-box
       .example-box-header
         button.btn-solid.btn-default Default
         button.btn-solid.btn-primary Primary
+        button.btn-solid.btn-primary-variant Primary
         button.btn-solid.btn-secondary Secondary
+        button.btn-solid.btn-secondary-variant Secondary
         button.btn-solid.btn-danger Danger
         button.btn-solid.btn-primary(disabled) Disabled
 
       pre
         code.html
-          | &lt;button class=&quot;btn-solid btn-default&quot;&gt;Default&lt;/button&gt;
-          | &lt;button class=&quot;btn-solid btn-primary&quot;&gt;Primary&lt;/button&gt;
-          | &lt;button class=&quot;btn-solid btn-secondary&quot;&gt;Secondary&lt;/button&gt;
-          | &lt;button class=&quot;btn-solid btn-danger&quot;&gt;Danger&lt;/button&gt;
-          | &lt;button class=&quot;btn-solid btn-primary&quot; disabled=&quot;disabled&quot;&gt;Disabled&lt;/button&gt;
+         = '<button class="btn-solid btn-default">Default</button>\n'
+         = '<button class="btn-solid btn-primary">Primary</button>\n'
+         = '<button class="btn-solid btn-secondary">Secondary</button>\n'
+         = '<button class="btn-solid btn-danger">Danger</button>\n'
+         = '<button class="btn-solid btn-primary" disabled>Disabled</button>'
+
+    h5.headline5.article-title Solid buttons
+    .example-box
+      .example-box-header
+        button.btn-solid.btn-default Solid button
+        button.btn-solid.btn-default
+          i.btn-icon.mdi.mdi-heart
+          | Solid button
+        button.btn-solid.btn-default(disabled) Solid button
+
+      pre
+        code.html
+          = '<button class="btn-solid btn-default">Solid button</button>\n'
+          = '<button class="btn-solid btn-default">\n'
+          = '  <i class="btn-icon mdi mdi-heart"></i>Solid button\n'
+          = '</button>\n'
+          = '<button class="btn-solid btn-default" disabled>Solid button</button>'
 
     h5.headline5.article-title Raised buttons
     .example-box
       .example-box-header
-        button.btn-raised.btn-default Default
-        button.btn-raised.btn-primary Primary
-        button.btn-raised.btn-secondary Secondary
-        button.btn-raised.btn-danger Danger
-        button.btn-raised.btn-primary(disabled) Disabled
+        button.btn-raised.btn-default Raised button
+        button.btn-raised.btn-default
+          i.btn-icon.mdi.mdi-heart
+          | Raised button
+        button.btn-raised.btn-default(disabled) Raised button
 
       pre
         code.html
-          | &lt;button class=&quot;btn-raised btn-default&quot;&gt;Default&lt;/button&gt;
-          | &lt;button class=&quot;btn-raised btn-primary&quot;&gt;Primary&lt;/button&gt;
-          | &lt;button class=&quot;btn-raised btn-secondary&quot;&gt;Secondary&lt;/button&gt;
-          | &lt;button class=&quot;btn-raised btn-danger&quot;&gt;Danger&lt;/button&gt;
-          | &lt;button class=&quot;btn-raised btn-primary&quot; disabled=&quot;disabled&quot;&gt;Disabled&lt;/button&gt;
+          = '<button class="btn-raised btn-default">Raised button</button>\n'
+          = '<button class="btn-raised btn-default">\n'
+          = '  <i class="btn-icon mdi mdi-heart"></i>Raised button\n'
+          = '</button>\n'
+          = '<button class="btn-raised btn-default" disabled>Raised button</button>'
 
     h5.headline5.article-title Flat buttons
     .example-box
       .example-box-header
-        button.btn-flat.btn-default Default
-        button.btn-flat.btn-primary Primary
-        button.btn-flat.btn-secondary Secondary
-        button.btn-flat.btn-danger Danger
-        button.btn-flat.btn-primary(disabled) Disabled
+        button.btn-flat.btn-default Flat button
+        button.btn-flat.btn-default
+          i.btn-icon.mdi.mdi-heart
+          | Flat button
+        button.btn-flat.btn-default(disabled) Flat button
 
       pre
         code.html
-          | &lt;button class=&quot;btn-flat btn-default&quot;&gt;Default&lt;/button&gt;
-          | &lt;button class=&quot;btn-flat btn-primary&quot;&gt;Primary&lt;/button&gt;
-          | &lt;button class=&quot;btn-flat btn-secondary&quot;&gt;Secondary&lt;/button&gt;
-          | &lt;button class=&quot;btn-flat btn-danger&quot;&gt;Danger&lt;/button&gt;
-          | &lt;button class=&quot;btn-flat btn-primary&quot; disabled=&quot;disabled&quot;&gt;Disabled&lt;/button&gt;
+          = '<button class="btn-flat btn-default">Flat button</button>\n'
+          = '<button class="btn-flat btn-default">\n'
+          = '  <i class="btn-icon mdi mdi-heart"></i>Flat button\n'
+          = '</button>\n'
+          = '<button class="btn-flat btn-default" disabled>Flat button</button>'
 
     h5.headline5.article-title Outline buttons
     .example-box
       .example-box-header
-        button.btn-outline.btn-default Default
-        button.btn-outline.btn-primary Primary
-        button.btn-outline.btn-secondary Secondary
-        button.btn-outline.btn-danger Danger
-        button.btn-outline.btn-primary(disabled) Disabled
+        button.btn-outline.btn-default Outline button
+        button.btn-outline.btn-default
+          i.btn-icon.mdi.mdi-heart
+          | Outline button
+        button.btn-outline.btn-default(disabled) Outline button
 
       pre
         code.html
-          | &lt;button class=&quot;btn-outline btn-default&quot;&gt;Default&lt;/button&gt;
-          | &lt;button class=&quot;btn-outline btn-primary&quot;&gt;Primary&lt;/button&gt;
-          | &lt;button class=&quot;btn-outline btn-secondary&quot;&gt;Secondary&lt;/button&gt;
-          | &lt;button class=&quot;btn-outline btn-danger&quot;&gt;Danger&lt;/button&gt;
-          | &lt;button class=&quot;btn-outline btn-primary&quot; disabled=&quot;disabled&quot;&gt;Disabled&lt;/button&gt;
+          = '<button class="btn-outline btn-default">Outline button</button>\n'
+          = '<button class="btn-outline btn-default">\n'
+          = '  <i class="btn-icon mdi mdi-heart"></i>Outline button\n'
+          = '</button>\n'
+          = '<button class="btn-outline btn-default" disabled>Outline button</button>'
 
     h5.headline5.article-title Outline buttons (gray border)
     .example-box
       .example-box-header
-        button.btn-outline.btn-outline-gray-border.btn-default Default
-        button.btn-outline.btn-outline-gray-border.btn-primary
-         .btn-icon
-           i.mdi.mdi-heart
-         | Primary
-        button.btn-outline.btn-outline-gray-border.btn-secondary Secondary
-        button.btn-outline.btn-outline-gray-border.btn-danger Danger
-        button.btn-outline.btn-outline-gray-border.btn-primary(disabled) Disabled
+        button.btn-outline.btn-outline-gray-border.btn-default Outline button
+        button.btn-outline.btn-outline-gray-border.btn-default
+          i.btn-icon.mdi.mdi-heart
+          | Outline button
+        button.btn-outline.btn-outline-gray-border.btn-default(disabled) Outline button
 
       pre
         code.html
-          | &lt;button class=&quot;btn-outline btn-outline-gray-border btn-default&quot;&gt;Default&lt;/button&gt;
-          | &lt;button class=&quot;btn-outline btn-outline-gray-border btn-primary&quot;&gt;Primary&lt;/button&gt;
-          | &lt;button class=&quot;btn-outline btn-outline-gray-border btn-secondary&quot;&gt;Secondary&lt;/button&gt;
-          | &lt;button class=&quot;btn-outline btn-outline-gray-border btn-danger&quot;&gt;Danger&lt;/button&gt;
-          | &lt;button class=&quot;btn-outline btn-outline-gray-border btn-primary&quot; disabled=&quot;disabled&quot; &gt;Disabled&lt;/button&gt;
+          = '<button class="btn-outline btn-outline-gray-border btn-default">Outline button</button>\n'
+          = '<button class="btn-outline btn-outline-gray-border btn-default">\n'
+          = '  <i class="btn-icon mdi mdi-heart"></i>Outline button\n'
+          = '</button>\n'
+          = '<button class="btn-outline btn-outline-gray-border btn-default" disabled>Outline button</button>'
 
-    h5.headline5.article-title Round buttons
+    h5.headline5.article-title Floating buttons
     .example-box
       .example-box-header
-        button.btn-round.btn-default
+        button.btn-floating.btn-default
           i.btn-icon.mdi.mdi-plus
-        button.btn-round.btn-primary
-          i.btn-icon.mdi.mdi-plus
-        button.btn-round.btn-secondary
-          i.btn-icon.mdi.mdi-plus
-        button.btn-round.btn-danger
-          i.btn-icon.mdi.mdi-plus
-        button.btn-round.btn-primary(disabled)
+        button.btn-floating.btn-default(disabled)
           i.btn-icon.mdi.mdi-plus
 
       pre
         code.html
-          = '<button class="btn-round btn-default">\n'
+          = '<button class="btn-floating btn-default">\n'
           = '  <i class="btn-icon mdi mdi-plus"></i>\n'
           = '</button>\n'
-          = '<button class="btn-round btn-primary">\n'
+          = '<button class="btn-floating btn-default" disabled>\n'
           = '  <i class="btn-icon mdi mdi-plus"></i>\n'
+          = '</button>'
+
+    h5.headline5.article-title Small floating buttons
+      .example-box
+        .example-box-header
+          button.btn-floating.btn-floating-sm.btn-default
+            i.btn-icon.mdi.mdi-plus
+          button.btn-floating.btn-floating-sm.btn-default(disabled)
+            i.btn-icon.mdi.mdi-plus
+
+        pre
+          code.html
+            = '<button class="btn-floating btn-floating-sm btn-default">\n'
+            = '  <i class="btn-icon mdi mdi-plus"></i>\n'
+            = '</button>\n'
+            = '<button class="btn-floating btn-floating-sm btn-default" disabled>\n'
+            = '  <i class="btn-icon mdi mdi-plus"></i>\n'
+            = '</button>'
+
+    h5.headline5.article-title Floating extended buttons
+    .example-box
+      .example-box-header
+        button.btn-floating.btn-floating-extended.btn-default
+          i.btn-icon.mdi.mdi-plus
+          | Floating extended
+        button.btn-floating.btn-floating-extended.btn-default(disabled)
+          i.btn-icon.mdi.mdi-plus
+          | Floating extended
+
+      pre
+        code.html
+          = '<button class="btn-floating btn-floating-extended btn-default">\n'
+          = '  <i class="btn-icon mdi mdi-plus"></i>Floating extended\n'
           = '</button>\n'
-          = '<button class="btn-round btn-secondary">\n'
-          = '  <i class="btn-icon mdi mdi-plus"></i>\n'
-          = '</button>\n'
-          = '<button class="btn-round btn-danger">\n'
-          = '  <i class="btn-icon mdi mdi-plus"></i>\n'
-          = '</button>\n'
-          = '<button class="btn-round btn-primary" disabled>\n'
-          = '  <i class="btn-icon mdi mdi-plus"></i>\n'
+          = '<button class="btn-floating btn-floating-extended btn-default" disabled>\n'
+          = '  <i class="btn-icon mdi mdi-plus"></i>Floating extended\n'
           = '</button>'
 
     h5.headline5.article-title Borderless buttons

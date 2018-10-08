@@ -5,3 +5,74 @@
   right: $floating-action-area-margin;
   bottom: $floating-action-area-margin;
 }
+
+.floating-menu-toggle {
+  .btn-icon {
+    transition: transform 150ms;
+  }
+}
+
+.floating-menu-items {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column-reverse;
+  opacity: 0;
+}
+
+.floating-menu-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+
+  + .floating-menu-item {
+    margin-bottom: 1rem;
+  }
+}
+
+.floating-menu-label {
+  @include elevate("2dp");
+
+  display: flex;
+  align-items: center;
+  height: 2rem;
+  padding-right: .5rem;
+  padding-left: .5rem;
+  margin-right: .5rem;
+  background: $white;
+  border-radius: 4px;
+}
+
+.floating-menu-action {
+  width: $btn-floating-size;
+  text-align: center;
+}
+
+.floating-menu-toggle,
+.floating-menu-items {
+  transition: opacity 150ms 100ms !important;
+}
+
+.floating-menu:hover .floating-menu-toggle,
+.floating-menu-toggle:focus {
+  opacity: 0;
+
+  .btn-icon {
+    transform: rotate(225deg);
+  }
+}
+
+.floating-menu:hover .floating-menu-items,
+.floating-menu-toggle:focus + .floating-menu-items {
+  opacity: 1;
+}
+
+.rtl,
+[dir="rtl"] {
+  .floating-action-area {
+    right: auto;
+    left: $floating-action-area-margin;
+  }
+}

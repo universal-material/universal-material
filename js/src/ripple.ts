@@ -5,7 +5,7 @@ export const RippleContainersSelector =
     '.btn-solid',
     '.btn-raised',
     '.btn-outline',
-    '.btn-round',
+    '.btn-floating',
     '.tab',
     '.dropdown-item',
     '.chip-remove',
