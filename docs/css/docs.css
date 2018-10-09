@@ -19,6 +19,11 @@
   background: #e0e0e0; }
   .example-box .toolbar {
     background: #e0e0e0; }
+  .example-box .floating-action-area {
+    position: static; }
+  .example-box .floating-menu {
+    position: relative;
+    margin-top: 200px; }
 
 .example-box-header {
   padding: 1rem;

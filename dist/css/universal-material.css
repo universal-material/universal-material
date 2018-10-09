@@ -4504,11 +4504,14 @@ mark,
   right: 1.25rem;
   bottom: 1.25rem; }
 
-.floating-menu-toggle .btn-icon {
-  -webkit-transition: -webkit-transform 150ms;
-  transition: -webkit-transform 150ms;
-  transition: transform 150ms;
-  transition: transform 150ms, -webkit-transform 150ms; }
+.floating-menu-toggle {
+  -webkit-transition: opacity 150ms 100ms !important;
+  transition: opacity 150ms 100ms !important; }
+  .floating-menu-toggle .btn-icon {
+    -webkit-transition: -webkit-transform 250ms 150ms;
+    transition: -webkit-transform 250ms 150ms;
+    transition: transform 250ms 150ms;
+    transition: transform 250ms 150ms, -webkit-transform 250ms 150ms; }
 
 .floating-menu-items {
   position: absolute;
@@ -4520,8 +4523,7 @@ mark,
   -webkit-box-orient: vertical;
   -webkit-box-direction: reverse;
       -ms-flex-direction: column-reverse;
-          flex-direction: column-reverse;
-  opacity: 0; }
+          flex-direction: column-reverse; }
 
 .floating-menu-item {
   display: -webkit-box;
@@ -4536,9 +4538,20 @@ mark,
           align-items: center;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
-          justify-content: flex-end; }
+          justify-content: flex-end;
+  opacity: 0; }
   .floating-menu-item + .floating-menu-item {
     margin-bottom: 1rem; }
+  .floating-menu-item:nth-child(1) {
+    -webkit-transition: opacity 150ms 100ms;
+    transition: opacity 150ms 100ms; }
+    .floating-menu-item:nth-child(1) .btn-icon {
+      -webkit-transition: -webkit-transform 250ms 100ms;
+      transition: -webkit-transform 250ms 100ms;
+      transition: transform 250ms 100ms;
+      transition: transform 250ms 100ms, -webkit-transform 250ms 100ms;
+      -webkit-transform: rotate(-90deg);
+              transform: rotate(-90deg); }
 
 .floating-menu-label {
   -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
@@ -4550,37 +4563,166 @@ mark,
       -ms-flex-align: center;
           align-items: center;
   height: 2rem;
-  padding-right: .5rem;
-  padding-left: .5rem;
-  margin-right: .5rem;
-  background: #fff;
+  padding-right: 12px;
+  padding-left: 12px;
+  margin-right: 16px;
   border-radius: 4px; }
 
 .floating-menu-action {
   width: 3.5rem;
   text-align: center; }
 
-.floating-menu-toggle,
-.floating-menu-items {
-  -webkit-transition: opacity 150ms 100ms !important;
-  transition: opacity 150ms 100ms !important; }
-
 .floating-menu:hover .floating-menu-toggle,
 .floating-menu-toggle:focus {
-  opacity: 0; }
+  opacity: 0;
+  -webkit-transition-delay: 0ms;
+          transition-delay: 0ms; }
   .floating-menu:hover .floating-menu-toggle .btn-icon,
   .floating-menu-toggle:focus .btn-icon {
-    -webkit-transform: rotate(225deg);
-            transform: rotate(225deg); }
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg); }
 
 .floating-menu:hover .floating-menu-items,
 .floating-menu-toggle:focus + .floating-menu-items {
   opacity: 1; }
+  .floating-menu:hover .floating-menu-items .floating-menu-item:nth-child(1),
+  .floating-menu-toggle:focus + .floating-menu-items .floating-menu-item:nth-child(1) {
+    opacity: 1;
+    -webkit-transition-delay: 100ms;
+            transition-delay: 100ms; }
+    .floating-menu:hover .floating-menu-items .floating-menu-item:nth-child(1) .btn-icon,
+    .floating-menu-toggle:focus + .floating-menu-items .floating-menu-item:nth-child(1) .btn-icon {
+      -webkit-transition-delay: 100ms;
+              transition-delay: 100ms;
+      -webkit-transform: none;
+              transform: none; }
+  .floating-menu:hover .floating-menu-items .floating-menu-item:not(:nth-child(1)),
+  .floating-menu-toggle:focus + .floating-menu-items .floating-menu-item:not(:nth-child(1)) {
+    -webkit-animation: floating-menu-item-appear 250ms;
+            animation: floating-menu-item-appear 250ms;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards; }
+    .floating-menu:hover .floating-menu-items .floating-menu-item:not(:nth-child(1)) .floating-menu-action,
+    .floating-menu-toggle:focus + .floating-menu-items .floating-menu-item:not(:nth-child(1)) .floating-menu-action {
+      -webkit-animation: floating-menu-action-appear 250ms;
+              animation: floating-menu-action-appear 250ms;
+      -webkit-animation-fill-mode: forwards;
+              animation-fill-mode: forwards; }
+  .floating-menu:hover .floating-menu-items .floating-menu-item:nth-child(3n),
+  .floating-menu-toggle:focus + .floating-menu-items .floating-menu-item:nth-child(3n) {
+    -webkit-animation-delay: 75ms;
+            animation-delay: 75ms; }
+    .floating-menu:hover .floating-menu-items .floating-menu-item:nth-child(3n) .floating-menu-action,
+    .floating-menu-toggle:focus + .floating-menu-items .floating-menu-item:nth-child(3n) .floating-menu-action {
+      -webkit-animation-delay: 75ms;
+              animation-delay: 75ms; }
+  .floating-menu:hover .floating-menu-items .floating-menu-item:nth-child(4n),
+  .floating-menu-toggle:focus + .floating-menu-items .floating-menu-item:nth-child(4n) {
+    -webkit-animation-delay: 100ms;
+            animation-delay: 100ms; }
+    .floating-menu:hover .floating-menu-items .floating-menu-item:nth-child(4n) .floating-menu-action,
+    .floating-menu-toggle:focus + .floating-menu-items .floating-menu-item:nth-child(4n) .floating-menu-action {
+      -webkit-animation-delay: 100ms;
+              animation-delay: 100ms; }
+  .floating-menu:hover .floating-menu-items .floating-menu-item:nth-child(5n),
+  .floating-menu-toggle:focus + .floating-menu-items .floating-menu-item:nth-child(5n) {
+    -webkit-animation-delay: 125ms;
+            animation-delay: 125ms; }
+    .floating-menu:hover .floating-menu-items .floating-menu-item:nth-child(5n) .floating-menu-action,
+    .floating-menu-toggle:focus + .floating-menu-items .floating-menu-item:nth-child(5n) .floating-menu-action {
+      -webkit-animation-delay: 125ms;
+              animation-delay: 125ms; }
+  .floating-menu:hover .floating-menu-items .floating-menu-item:nth-child(6n),
+  .floating-menu-toggle:focus + .floating-menu-items .floating-menu-item:nth-child(6n) {
+    -webkit-animation-delay: 150ms;
+            animation-delay: 150ms; }
+    .floating-menu:hover .floating-menu-items .floating-menu-item:nth-child(6n) .floating-menu-action,
+    .floating-menu-toggle:focus + .floating-menu-items .floating-menu-item:nth-child(6n) .floating-menu-action {
+      -webkit-animation-delay: 150ms;
+              animation-delay: 150ms; }
+  .floating-menu:hover .floating-menu-items .floating-menu-item:nth-child(7n),
+  .floating-menu-toggle:focus + .floating-menu-items .floating-menu-item:nth-child(7n) {
+    -webkit-animation-delay: 175ms;
+            animation-delay: 175ms; }
+    .floating-menu:hover .floating-menu-items .floating-menu-item:nth-child(7n) .floating-menu-action,
+    .floating-menu-toggle:focus + .floating-menu-items .floating-menu-item:nth-child(7n) .floating-menu-action {
+      -webkit-animation-delay: 175ms;
+              animation-delay: 175ms; }
+  .floating-menu:hover .floating-menu-items .floating-menu-item:nth-child(8n),
+  .floating-menu-toggle:focus + .floating-menu-items .floating-menu-item:nth-child(8n) {
+    -webkit-animation-delay: 200ms;
+            animation-delay: 200ms; }
+    .floating-menu:hover .floating-menu-items .floating-menu-item:nth-child(8n) .floating-menu-action,
+    .floating-menu-toggle:focus + .floating-menu-items .floating-menu-item:nth-child(8n) .floating-menu-action {
+      -webkit-animation-delay: 200ms;
+              animation-delay: 200ms; }
+  .floating-menu:hover .floating-menu-items .floating-menu-item:nth-child(9n),
+  .floating-menu-toggle:focus + .floating-menu-items .floating-menu-item:nth-child(9n) {
+    -webkit-animation-delay: 225ms;
+            animation-delay: 225ms; }
+    .floating-menu:hover .floating-menu-items .floating-menu-item:nth-child(9n) .floating-menu-action,
+    .floating-menu-toggle:focus + .floating-menu-items .floating-menu-item:nth-child(9n) .floating-menu-action {
+      -webkit-animation-delay: 225ms;
+              animation-delay: 225ms; }
+  .floating-menu:hover .floating-menu-items .floating-menu-item:nth-child(10n),
+  .floating-menu-toggle:focus + .floating-menu-items .floating-menu-item:nth-child(10n) {
+    -webkit-animation-delay: 250ms;
+            animation-delay: 250ms; }
+    .floating-menu:hover .floating-menu-items .floating-menu-item:nth-child(10n) .floating-menu-action,
+    .floating-menu-toggle:focus + .floating-menu-items .floating-menu-item:nth-child(10n) .floating-menu-action {
+      -webkit-animation-delay: 250ms;
+              animation-delay: 250ms; }
+
+@-webkit-keyframes floating-menu-item-appear {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 30%, 0);
+            transform: translate3d(0, 30%, 0); }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0); } }
+
+@keyframes floating-menu-item-appear {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 30%, 0);
+            transform: translate3d(0, 30%, 0); }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0); } }
+
+@-webkit-keyframes floating-menu-action-appear {
+  0% {
+    -webkit-transform: scale3d(0, 0, 1);
+            transform: scale3d(0, 0, 1); }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1); } }
+
+@keyframes floating-menu-action-appear {
+  0% {
+    -webkit-transform: scale3d(0, 0, 1);
+            transform: scale3d(0, 0, 1); }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1); } }
 
 .rtl .floating-action-area,
 [dir="rtl"] .floating-action-area {
   right: auto;
   left: 1.25rem; }
+
+.rtl .floating-menu-items,
+[dir="rtl"] .floating-menu-items {
+  right: auto;
+  left: 0; }
+
+.rtl .floating-menu-label,
+[dir="rtl"] .floating-menu-label {
+  margin-right: 0;
+  margin-left: 16px; }
 
 .btn-group,
 .btn-group-vertical {
@@ -7425,6 +7567,9 @@ mark,
 
 .btn-borderless:disabled, .btn-borderless.disabled {
   color: rgba(0, 0, 0, 0.26) !important; }
+
+.floating-menu-label {
+  background: #fff; }
 
 .sidebar {
   background-color: #fff; }

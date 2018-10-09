@@ -33,6 +33,10 @@
     @include buttons-theme($theme);
   }
 
+  @if (mixin_exists(floating-action-button-theme)) {
+    @include floating-action-button-theme($dark-theme);
+  }
+
   @if (mixin_exists(sidebar-theme)) {
     @include sidebar-theme($theme);
   }

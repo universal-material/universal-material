@@ -16,6 +16,12 @@ $btn-floating-extended-border-radius: $btn-floating-extended-height / 2 !default
 $btn-floating-extended-padding: 20px !default;
 $btn-floating-extended-icon-margin: 12px !default;
 $floating-button-icon-size: $base-icon-size !default;
+$floating-menu-label-height: 2rem !default;
+$floating-menu-label-padding: 12px !default;
+$floating-menu-label-margin: 16px !default;
+$floating-menu-label-border-radius: 4px !default;
+$floating-menu-label-bg-light-theme: #fff !default;
+$floating-menu-label-bg-dark-theme: #424242 !default;
 
 $btn-borderless-color-light-theme: $text-low-contrast-light-theme !default;
 $btn-borderless-color-dark-theme: $white !default;

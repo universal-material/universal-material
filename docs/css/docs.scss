@@ -20,6 +20,16 @@
   .toolbar {
     background: $gray-300;
   }
+
+
+  .floating-action-area {
+    position: static;
+  }
+
+  .floating-menu {
+    position: relative;
+    margin-top: 200px;
+  }
 }
 
 .example-box-header {
