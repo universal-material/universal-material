@@ -198,7 +198,8 @@
       '.tab',
       '.dropdown-item',
       '.chip-remove',
-      '.chip-hover'
+      '.chip-hover',
+      '.text-field.dropdown'
   ].join(',');
   var RippleConfig = /** @class */ (function () {
       function RippleConfig() {
