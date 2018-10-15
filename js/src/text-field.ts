@@ -4,7 +4,7 @@ export class TextField {
   input: HTMLInputElement | HTMLTextAreaElement;
 
   constructor(element: Element) {
-    const input = element.querySelector('input, textarea') as HTMLInputElement | HTMLTextAreaElement;
+    const input = element.querySelector('input, textarea, .text-input') as HTMLInputElement | HTMLTextAreaElement;
 
     if (input) {
       input.addEventListener('focus', () => {
@@ -15,17 +15,22 @@ export class TextField {
         element.classList.remove('focus');
       });
 
-      input.addEventListener('input', () => {
-        this.setEmpty();
-      });
+
+      this.element = element;
 
       let prototype;
 
       if (input.nodeName.toLowerCase() === 'input') {
         prototype = HTMLInputElement.prototype;
-      } else {
+      } else if (input.nodeName.toLowerCase() === 'textarea') {
         prototype = HTMLTextAreaElement.prototype;
       }
+
+      if (!prototype) return;
+
+      input.addEventListener('input', () => {
+        this.setEmpty();
+      });
 
       const descriptor = Object.getOwnPropertyDescriptor(prototype, 'value');
       const inputSetter = descriptor.set;
@@ -43,12 +48,7 @@ export class TextField {
 
       Object.defineProperty(input, "value", descriptor);
 
-      element.addEventListener('click', () => {
-        input.focus();
-      });
-
       this.input = input;
-      this.element = element;
 
       this.setEmpty();
     }

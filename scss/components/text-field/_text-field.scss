@@ -8,8 +8,10 @@
 
 .text-field-helper-text {
   position: relative;
+  margin-top: $text-field-helper-text-margin;
   overflow: hidden;
   font-size: $text-field-helper-text-font-size;
+  line-height: $text-field-helper-text-line-height;
 }
 
 .text-field-helper-text-invalid {
@@ -27,7 +29,6 @@
 .text-field-helper-text-default,
 .text-field-helper-text-invalid {
   display: inline-block;
-  margin-top: $text-field-helper-text-margin;
 }
 
 .text-field-helper-text-default:not(:only-child),
@@ -171,7 +172,8 @@
   }
 
   .text-input {
-    padding: 0 $text-field-box-padding calc(#{$text-field-box-padding} - #{$text-field-border-width});
+    padding: $text-field-box-label-height $text-field-box-padding calc(#{$text-field-box-padding} - #{$text-field-border-width});
+    margin-top: -$text-field-box-label-height;
   }
 
   &.empty:not(.focus) {
@@ -221,7 +223,8 @@
   }
 
   .text-input {
-    padding: 0 $text-field-outline-padding calc(#{$text-field-outline-padding-bottom} - #{$text-field-border-width});
+    padding: $text-field-outline-label-height $text-field-outline-padding calc(#{$text-field-outline-padding-bottom} - #{$text-field-border-width});
+    margin-top: -$text-field-outline-label-height;
     border-color: transparent !important;
   }
 
@@ -429,7 +432,8 @@
     color: $text-field-helper-text-color;
   }
 
-  .text-input::placeholder {
+  .text-input::placeholder,
+  .text-input-placeholder {
     color: $text-input-placeholder-color;
   }
 }

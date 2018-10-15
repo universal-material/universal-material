@@ -59,3 +59,16 @@ block content
       textarea.text-input(type="text" placeholder="Placeholder" id="text-area-outline" aria-describedby="textAreaOutline")
       label(for="text-area-outline") Text area outline
     small#textAreaOutline.text-field-helper-text Text area outline
+
+  .text-field-container
+    .text-field.text-field-box.dropdown
+      .text-field-trailing-icon
+        .mdi.mdi-menu-down
+      button.text-input.dropdown-toggle(type="button")
+        .text-input-placeholder No value
+      .dropdown-menu.up.w-100
+        .dropdown-content
+          .dropdown-item Option A
+          .dropdown-item Option B
+          .dropdown-item Option C
+      label Dropdown

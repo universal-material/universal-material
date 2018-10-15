@@ -500,7 +500,7 @@ var umd;
     var TextField = (function () {
         function TextField(element) {
             var _this = this;
-            var input = element.querySelector('input, textarea');
+            var input = element.querySelector('input, textarea, .text-input');
             if (input) {
                 input.addEventListener('focus', function () {
                     element.classList.add('focus');
@@ -508,16 +508,19 @@ var umd;
                 input.addEventListener('blur', function () {
                     element.classList.remove('focus');
                 });
-                input.addEventListener('input', function () {
-                    _this.setEmpty();
-                });
+                this.element = element;
                 var prototype = void 0;
                 if (input.nodeName.toLowerCase() === 'input') {
                     prototype = HTMLInputElement.prototype;
                 }
-                else {
+                else if (input.nodeName.toLowerCase() === 'textarea') {
                     prototype = HTMLTextAreaElement.prototype;
                 }
+                if (!prototype)
+                    return;
+                input.addEventListener('input', function () {
+                    _this.setEmpty();
+                });
                 var descriptor_1 = Object.getOwnPropertyDescriptor(prototype, 'value');
                 var inputSetter_1 = descriptor_1.set;
                 descriptor_1.set = function (val) {
@@ -527,11 +530,7 @@ var umd;
                     Object.defineProperty(input, "value", descriptor_1);
                 };
                 Object.defineProperty(input, "value", descriptor_1);
-                element.addEventListener('click', function () {
-                    input.focus();
-                });
                 this.input = input;
-                this.element = element;
                 this.setEmpty();
             }
         }
