@@ -3,8 +3,32 @@ extends ../layout
 block content
   h4.headline4.chapter-title Steppers
 
+  h5.headline5.article-title Horizontal stepper
   .card
-    .vertical-stepper
+    .stepper.horizontal-stepper
+      .step.active
+        .step-indicator
+          .step-circle 1
+        .step-label Step 1
+      .step-line
+      .step
+        .step-indicator
+          .step-circle 2
+        .step-label Step 2
+      .step-line
+      .step
+        .step-indicator
+          .step-circle 3
+        .step-label Step 3
+      .step-line
+      .step
+        .step-indicator
+          .step-circle 4
+        .step-label Step 4
+
+  h5.headline5.article-title Vertical stepper
+  .card
+    .stepper.vertical-stepper
       .step.active
         .step-indicator
           .step-circle 1
@@ -20,4 +44,3 @@ block content
           .step-circle 2
         .step-content
           .step-label Step 2
-

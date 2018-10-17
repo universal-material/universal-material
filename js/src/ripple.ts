@@ -10,7 +10,7 @@ export const RippleContainersSelector =
     '.dropdown-item',
     '.chip-remove',
     '.chip-hover',
-    '.text-field.dropdown'
+    '.text-input.dropdown-toggle'
   ].join(',');
 
 export class RippleConfig {

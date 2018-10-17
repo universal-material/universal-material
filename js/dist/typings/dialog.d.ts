@@ -7,12 +7,14 @@ export declare class Dialog {
     private static readonly _animationEvents;
     private readonly _dialogConfig;
     private readonly _dialogBodyElement;
+    private _showing;
     constructor(_dialogElement: HTMLElement, dialogConfig: DialogConfig);
     private addAnimationEndEvents;
     private onAnimationEnd;
     static attach(element: HTMLElement, dialogConfig?: DialogConfig): Dialog;
-    open(): void;
-    close(): void;
+    toggle: () => void;
+    open: () => void;
+    close: () => void;
     private _setBodyDividers;
     private _setDialogBodyScrollHandler;
 }

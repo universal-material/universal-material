@@ -369,30 +369,6 @@ $sidebar-background-color-dark-theme: #424242 !default;
 $sidebar-backdrop-bg: $black !default;
 $sidebar-backdrop-opacity: .5 !default;
 
-//Steppers
-$stepper-padding: 1.5rem !default;
-$step-number-font-size: .75rem !default;
-
-$step-circle-size: $base-icon-size !default;
-$step-circle-default-background: rgba(0, 0, 0, .38) !default;
-$step-circle-default-text-color: #fff !default;
-$step-circle-active-background: $primary-color !default;
-$step-circle-active-text-color: get-text-color-by-background-color($step-circle-active-background, $text-low-contrast-light-theme) !default;
-
-$step-label-margin: 1rem !default;
-$step-label-disabled-color: $text-low-contrast-light-theme !default;
-
-$step-line-margin: .5rem !default;
-$step-content-margin: .75rem !default;
-
-$step-actions-height: 3rem !default;
-$step-actions-buttons-margin: .5rem !default;
-$step-actions-margin: 1rem !default;
-
-$active-step-weight: $font-medium !default;
-
-$vertical-step-space: 3rem !default;
-
 $text-muted: $text-low-contrast-light-theme !default;
 
 //Shadows

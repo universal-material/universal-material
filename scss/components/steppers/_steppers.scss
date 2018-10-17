@@ -1,20 +1,23 @@
+@import "variables";
+
 .step-indicator {
   display: flex;
   align-items: center;
 }
 
 .step-circle {
-  @include size($step-circle-size);
-
+  width: $step-circle-size;
+  height: $step-circle-size;
   font-size: $step-number-font-size;
-  background: $step-circle-default-background;
   line-height: $step-circle-size;
   color: $step-circle-default-text-color;
-  border-radius: 50%;
   text-align: center;
+  background: $step-circle-default-background;
+  border-radius: 50%;
 }
 
 .step-label {
+  font-weight: $step-label-font-weight;
   line-height: $step-circle-size;
 }
 
@@ -32,10 +35,17 @@
     }
   }
 
-  &.active, &.completed {
+  &:not(.active) {
+    .step-label {
+      opacity: .47;
+    }
+  }
+
+  &.active,
+  &.completed {
     .step-circle {
-      background: $step-circle-active-background;
       color: $step-circle-active-text-color;
+      background: $step-circle-active-background;
     }
   }
 
@@ -61,12 +71,38 @@
   }
 }
 
-.vertical-stepper {
-  padding: $stepper-padding;
+.step-line {
+  flex-grow: 1;
+  background: $divider-color;
+}
 
-  .step-content {
-    padding-bottom: $vertical-step-space;
+.stepper {
+  display: flex;
+  padding: $stepper-padding;
+}
+
+.horizontal-stepper {
+
+  align-items: center;
+
+  .step {
+    flex-shrink: 0;
   }
+
+  .step-indicator {
+    margin-right: $step-content-margin;
+  }
+
+  .step-line {
+    flex: 1;
+    height: $step-line-size;
+    margin-right: $step-line-margin;
+    margin-left: $step-line-margin;
+  }
+}
+
+.vertical-stepper {
+  flex-direction: column;
 
   .step:last-child .step-content {
     padding-bottom: 0;
@@ -77,16 +113,15 @@
   }
 
   .step-line {
-    width: 1px;
-    flex-grow: 1;
-    background: $divider-color;
-
-    @include vertical-margin($step-line-margin);
+    width: $step-line-size;
+    margin-top: $step-line-margin;
+    margin-bottom: $step-line-margin;
   }
 
   .step-content {
-    margin-left: $step-content-margin;
+    padding-bottom: $vertical-step-space;
     margin-right: $stepper-padding;
+    margin-left: $step-content-margin;
   }
 
   .step-label {

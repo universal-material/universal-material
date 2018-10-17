@@ -82,6 +82,20 @@
                   _this._dialogElement.classList.remove('hide');
               }
           };
+          this.toggle = function () {
+              var action = _this._showing ? _this.close : _this.open;
+              action();
+          };
+          this.open = function () {
+              _this._dialogElement.classList.add('show');
+              _this._showing = true;
+          };
+          this.close = function () {
+              _this._dialogElement.classList.add('hide');
+              _this._dialogElement.classList.remove('show');
+              _this._showing = false;
+              _this.addAnimationEndEvents();
+          };
           this._dialogConfig = __assign({}, DialogConfig["default"], dialogConfig);
           this._dialogBodyElement = this._dialogElement.querySelector('.dialog-body');
           if (this._dialogBodyElement) {
@@ -97,14 +111,6 @@
       };
       Dialog.attach = function (element, dialogConfig) {
           return new Dialog(element, dialogConfig);
-      };
-      Dialog.prototype.open = function () {
-          this._dialogElement.classList.add('show');
-      };
-      Dialog.prototype.close = function () {
-          this._dialogElement.classList.add('hide');
-          this._dialogElement.classList.remove('show');
-          this.addAnimationEndEvents();
       };
       Dialog.prototype._setBodyDividers = function () {
           if (this._dialogBodyElement.scrollTop) {
@@ -126,6 +132,79 @@
       };
       Dialog._animationEvents = ["webkitAnimationEnd", "oanimationend", "msAnimationEnd", "animationend"];
       return Dialog;
+  }());
+
+  var DropdownConfig = /** @class */ (function () {
+      function DropdownConfig() {
+      }
+      DropdownConfig["default"] = {};
+      return DropdownConfig;
+  }());
+  var closeEvent = new CustomEvent('close');
+  var openEvent = new CustomEvent('open');
+  var EnterKey = 13;
+  var EscapeKey = 27;
+  var SpaceKey = 32;
+  var Dropdown = /** @class */ (function () {
+      function Dropdown(_dropdownElement, dropdownConfig) {
+          var _this = this;
+          this._dropdownElement = _dropdownElement;
+          this.toggle = function () {
+              var action = _this._showing ? _this.close : _this.open;
+              action();
+          };
+          this.open = function () {
+              _this._dropdownElement.classList.add('open');
+              _this._showing = true;
+              _this._dropdownElement.dispatchEvent(openEvent);
+          };
+          this.close = function () {
+              _this._dropdownElement.classList.remove('open');
+              _this._showing = false;
+              _this._dropdownElement.dispatchEvent(closeEvent);
+          };
+          this._dropdownToggle = _dropdownElement.querySelector('.dropdown-toggle');
+          if (!this._dropdownToggle)
+              return;
+          this._dropdownConfig = __assign({}, DropdownConfig["default"], dropdownConfig);
+          this._attachEvents();
+      }
+      Dropdown.attach = function (element, dropdownConfig) {
+          return new Dropdown(element, dropdownConfig);
+      };
+      Dropdown.prototype._attachEvents = function () {
+          var _this = this;
+          this._dropdownToggle.addEventListener('click', function (e) {
+              e.stopPropagation();
+          });
+          document.addEventListener('click', function () {
+              _this.close();
+          });
+          this._dropdownToggle.addEventListener('mouseup', function (e) {
+              _this.toggle();
+          });
+          this._dropdownToggle.addEventListener('keyup', function (e) {
+              switch (e.which) {
+                  case EscapeKey:
+                      _this.close();
+                      break;
+                  case SpaceKey:
+                      _this.open();
+                      break;
+                  case EnterKey:
+                      _this.toggle();
+                      break;
+              }
+          });
+      };
+      Dropdown.initializeDropdowns = function () {
+          var dropdowns = document.querySelectorAll('.dropdown');
+          for (var i = 0; i < dropdowns.length; i++) {
+              var dropdown = dropdowns[i];
+              Dropdown.attach(dropdown);
+          }
+      };
+      return Dropdown;
   }());
 
   var EscapeKeyCode = 27;
@@ -199,7 +278,7 @@
       '.dropdown-item',
       '.chip-remove',
       '.chip-hover',
-      '.text-field.dropdown'
+      '.text-input.dropdown-toggle'
   ].join(',');
   var RippleConfig = /** @class */ (function () {
       function RippleConfig() {
@@ -570,6 +649,8 @@
 
   exports.DialogConfig = DialogConfig;
   exports.Dialog = Dialog;
+  exports.DropdownConfig = DropdownConfig;
+  exports.Dropdown = Dropdown;
   exports.ConfirmDialogConfig = ConfirmDialogConfig;
   exports.ConfirmDialog = ConfirmDialog;
   exports.ProgressDialogConfig = ProgressDialogConfig;

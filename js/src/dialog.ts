@@ -14,6 +14,7 @@ export class Dialog {
   private static readonly _animationEvents = ["webkitAnimationEnd", "oanimationend", "msAnimationEnd", "animationend"];
   private readonly _dialogConfig: DialogConfig;
   private readonly _dialogBodyElement: HTMLElement;
+  private _showing: boolean;
 
   constructor(private readonly _dialogElement: HTMLElement,
               dialogConfig: DialogConfig) {
@@ -47,15 +48,22 @@ export class Dialog {
     return new Dialog(element, dialogConfig);
   }
 
-  open() {
-    this._dialogElement.classList.add('show');
-  }
+  toggle =() => {
+    const action = this._showing ? this.close : this.open;
+    action();
+  };
 
-  close() {
+  open =() => {
+    this._dialogElement.classList.add('show');
+    this._showing = true;
+  };
+
+  close =() => {
     this._dialogElement.classList.add('hide');
     this._dialogElement.classList.remove('show');
+    this._showing = false;
     this.addAnimationEndEvents();
-  }
+  };
 
   private _setBodyDividers() {
     if(this._dialogBodyElement.scrollTop) {

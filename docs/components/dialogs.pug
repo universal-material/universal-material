@@ -15,23 +15,30 @@ block content
       .dialog-actions
         button.btn-flat.btn-primary Cancel
         button.btn-flat.btn-primary Ok
-
+block scripts
   script.
     (function () {
-      var dialog = document.querySelector(".dialog");
+      var dialog = umd.Dialog.attach(document.querySelector(".dialog"));
 
-      function toggleDialogVisibility() {
-        if (dialog.classList.contains("show")) {
-          dialog.classList.remove("show");
-        } else {
-          dialog.classList.add("show");
-        }
-      }
-
-      document.querySelector(".dialog-backdrop").addEventListener("click", toggleDialogVisibility);
+      document.querySelector(".dialog-backdrop").addEventListener("click", function () { dialog.toggle() });
       var buttons = document.querySelectorAll("button");
       buttons.forEach(function (button) {
-        button.addEventListener("click", toggleDialogVisibility);
+        button.addEventListener("click", function () { dialog.toggle() });
       });
+
+      //
+      // function toggleDialogVisibility() {
+      //   if (dialog.classList.contains("show")) {
+      //     dialog.classList.remove("show");
+      //   } else {
+      //     dialog.classList.add("show");
+      //   }
+      // }
+      //
+      // document.querySelector(".dialog-backdrop").addEventListener("click", toggleDialogVisibility);
+      // var buttons = document.querySelectorAll("button");
+      // buttons.forEach(function (button) {
+      //   button.addEventListener("click", toggleDialogVisibility);
+      // });
 
     })();

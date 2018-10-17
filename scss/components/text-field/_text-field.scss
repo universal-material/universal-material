@@ -86,6 +86,7 @@
   background: transparent;
   border: none;
   border-bottom: $text-input-border;
+  border-radius: inherit;
 
   &:not(textarea) {
     height: $text-input-height;

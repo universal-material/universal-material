@@ -1,5 +1,6 @@
 import './custom-event.polyfill';
 export * from './dialog';
+export * from './dropdown';
 export * from './confirm-dialog';
 export * from './progress-dialog';
 export * from './quick-dialog';

@@ -1,0 +1,27 @@
+//Steppers
+$stepper-padding: 1.5rem !default;
+$step-number-font-size: .75rem !default;
+
+$step-circle-size: $base-icon-size !default;
+$step-circle-default-background: rgba(0, 0, 0, .38) !default;
+$step-circle-default-text-color: #fff !default;
+$step-circle-active-background: $primary-color !default;
+$step-circle-active-text-color: get-text-color-by-background-color($step-circle-active-background, $text-low-contrast-light-theme) !default;
+
+$step-label-margin: 1rem !default;
+$step-label-disabled-color: $text-low-contrast-light-theme !default;
+$step-label-font-weight: $font-medium !default;
+
+$step-content-margin: .75rem !default;
+
+$step-actions-height: 3rem !default;
+$step-actions-buttons-margin: 8px !default;
+$step-actions-margin: 16px !default;
+
+$active-step-weight: $font-medium !default;
+
+$vertical-step-space: 3rem !default;
+
+$step-line-color: $divider-color !default;
+$step-line-size: 1px !default;
+$step-line-margin: 8px !default;

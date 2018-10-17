@@ -100,15 +100,13 @@
 .dropdown {
   position: relative;
 
-  &.show .dropdown-menu,
-  .dropdown-toggle:focus ~ .dropdown-menu {
+  &.open .dropdown-menu {
     opacity: 1;
     transition: transform 350ms $awesome-cubic-bezier, opacity 250ms;
     transform: scale3d(1, 1, 1);
   }
 
-  &.show .dropdown-content,
-  .dropdown-toggle:focus ~ .dropdown-menu .dropdown-content {
+  &.open .dropdown-content {
     opacity: 1;
     transition: opacity 300ms 150ms;
   }
