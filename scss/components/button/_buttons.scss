@@ -10,6 +10,7 @@
   height: $btn-height; //Universal Material custom code
   padding: 0 $btn-side-padding; //Universal Material custom code
   overflow: hidden;
+  line-height: $btn-material-line-height;
   color: inherit;
   text-align: center;
   white-space: nowrap;
@@ -72,10 +73,15 @@
   display: inline-block;
   width: $btn-icon-size;
   height: $btn-icon-size;
-  margin-right: .5rem;
-  margin-left: -.25rem;
+  margin-right: $btn-icon-margin-end;
+  margin-left: $btn-icon-margin-start;
   font-size: $btn-icon-size;
   line-height: 1em;
+}
+
+.btn-icon-end {
+  margin-right: $btn-icon-margin-start;
+  margin-left: $btn-icon-margin-end;
 }
 
 .btn-borderless {

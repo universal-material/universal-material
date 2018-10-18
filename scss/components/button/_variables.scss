@@ -3,6 +3,7 @@ $btn-disabled-background-dark-theme: rgba(255, 255, 255, .12) !default;
 $btn-disabled-color-light-theme: rgba(0, 0, 0, .26) !default;
 $btn-disabled-color-dark-theme: rgba(255, 255, 255, .3) !default;
 $btn-side-padding: 1rem !default;
+$btn-material-line-height: 1.5 !default;
 $btn-height: 2.25rem !default;
 $btn-border-radius: .125rem !default;
 $btn-default-background-light: $white !default;
@@ -36,6 +37,8 @@ $btn-outline-gray-border-color-light-theme: rgba(0, 0, 0, .12) !default;
 $btn-outline-gray-border-color-dark-theme: rgba(255, 255, 255, .12) !default;
 
 $btn-icon-size: 1.125rem !default;
+$btn-icon-margin-start: -4px;
+$btn-icon-margin-end: 8px;
 
 $uwp-btn-border-radius: 0 !default;
 $uwp-btn-hover-border-width: $uwp-border-width !default;

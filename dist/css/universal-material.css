@@ -4363,6 +4363,7 @@ mark,
   height: 2.25rem;
   padding: 0 1rem;
   overflow: hidden;
+  line-height: 1.5;
   color: inherit;
   text-align: center;
   white-space: nowrap;
@@ -4430,10 +4431,14 @@ mark,
   display: inline-block;
   width: 1.125rem;
   height: 1.125rem;
-  margin-right: .5rem;
-  margin-left: -.25rem;
+  margin-right: 8px;
+  margin-left: -4px;
   font-size: 1.125rem;
   line-height: 1em; }
+
+.btn-icon-end {
+  margin-right: -4px;
+  margin-left: 8px; }
 
 .btn-borderless {
   width: 1.5rem;
@@ -6633,6 +6638,7 @@ mark,
   height: 2.25rem;
   padding: 0 1rem;
   overflow: hidden;
+  line-height: 1.5;
   color: inherit;
   text-align: center;
   white-space: nowrap;
@@ -6700,10 +6706,14 @@ mark,
   display: inline-block;
   width: 1.125rem;
   height: 1.125rem;
-  margin-right: .5rem;
-  margin-left: -.25rem;
+  margin-right: 8px;
+  margin-left: -4px;
   font-size: 1.125rem;
   line-height: 1em; }
+
+.btn-icon-end {
+  margin-right: -4px;
+  margin-left: 8px; }
 
 .btn-borderless {
   width: 1.5rem;
