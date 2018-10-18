@@ -67,12 +67,26 @@
 .dropdown-item {
   display: flex;
   align-items: center;
+  width: 100%;
   height: $dropdown-item-height;
+  padding: 0 $dropdown-item-padding;
   font-size: $dropdown-item-font-size;
-  @include horizontal-padding($dropdown-item-padding);
+  background: none;
+  border: none;
+  outline: 0;
+
+  @include selectable-background-before();
+
+  &.active,
+  &:active {
+    &::before {
+      opacity: $dropdown-item-focus-background-opacity;
+    }
+  }
 
   @include hover-focus {
     text-decoration: none;
+    outline: 0;
   }
 }
 
@@ -120,7 +134,6 @@
 }
 
 .data-table {
-
   .dropdown-menu {
     padding: 0;
   }
@@ -156,8 +169,6 @@
     @include hover-focus {
       color: $color;
     }
-
-    @include selectable-background(false);
   }
 
   .data-table {
