@@ -6880,6 +6880,9 @@ mark,
     -webkit-transform: scale3d(0.5, 0.5, 1);
             transform: scale3d(0.5, 0.5, 1); } }
 
+.form-field {
+  margin-bottom: 24px; }
+
 .text-field-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6887,8 +6890,7 @@ mark,
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
-          flex-direction: column;
-  margin-bottom: 24px; }
+          flex-direction: column; }
 
 .text-field-helper-text {
   position: relative;
@@ -7018,23 +7020,35 @@ mark,
   transition: transform 200ms, font-size 200ms, -webkit-transform 200ms; }
 
 .text-field.text-field-floating-label .text-input::-webkit-input-placeholder,
+.text-field.text-field-floating-label .text-input-placeholder,
 .text-field-box .text-input::-webkit-input-placeholder,
+.text-field-box .text-input-placeholder,
 .text-field-outline .text-input::-webkit-input-placeholder,
-.text-area-outline .text-input::-webkit-input-placeholder {
+.text-area-outline .text-input::-webkit-input-placeholder,
+.text-field-outline .text-input-placeholder,
+.text-area-outline .text-input-placeholder {
   -webkit-transition: color 150ms;
   transition: color 150ms; }
 
 .text-field.text-field-floating-label .text-input:-ms-input-placeholder,
+.text-field.text-field-floating-label .text-input-placeholder,
 .text-field-box .text-input:-ms-input-placeholder,
+.text-field-box .text-input-placeholder,
 .text-field-outline .text-input:-ms-input-placeholder,
-.text-area-outline .text-input:-ms-input-placeholder {
+.text-area-outline .text-input:-ms-input-placeholder,
+.text-field-outline .text-input-placeholder,
+.text-area-outline .text-input-placeholder {
   -webkit-transition: color 150ms;
   transition: color 150ms; }
 
 .text-field.text-field-floating-label .text-input::placeholder,
+.text-field.text-field-floating-label .text-input-placeholder,
 .text-field-box .text-input::placeholder,
+.text-field-box .text-input-placeholder,
 .text-field-outline .text-input::placeholder,
-.text-area-outline .text-input::placeholder {
+.text-area-outline .text-input::placeholder,
+.text-field-outline .text-input-placeholder,
+.text-area-outline .text-input-placeholder {
   -webkit-transition: color 150ms;
   transition: color 150ms; }
 
@@ -7048,25 +7062,37 @@ mark,
           transform: translate3d(0, 1.625rem, 0); }
 
 .text-field.text-field-floating-label.empty:not(.focus) .text-input::-webkit-input-placeholder,
+.text-field.text-field-floating-label.empty:not(.focus) .text-input-placeholder,
 .text-field-box.empty:not(.focus) .text-input::-webkit-input-placeholder,
+.text-field-box.empty:not(.focus) .text-input-placeholder,
 .text-field-outline.empty:not(.focus) .text-input::-webkit-input-placeholder,
-.empty.text-area-outline:not(.focus) .text-input::-webkit-input-placeholder {
+.empty.text-area-outline:not(.focus) .text-input::-webkit-input-placeholder,
+.text-field-outline.empty:not(.focus) .text-input-placeholder,
+.empty.text-area-outline:not(.focus) .text-input-placeholder {
   color: transparent;
   -webkit-transition: color 150ms 100ms;
   transition: color 150ms 100ms; }
 
 .text-field.text-field-floating-label.empty:not(.focus) .text-input:-ms-input-placeholder,
+.text-field.text-field-floating-label.empty:not(.focus) .text-input-placeholder,
 .text-field-box.empty:not(.focus) .text-input:-ms-input-placeholder,
+.text-field-box.empty:not(.focus) .text-input-placeholder,
 .text-field-outline.empty:not(.focus) .text-input:-ms-input-placeholder,
-.empty.text-area-outline:not(.focus) .text-input:-ms-input-placeholder {
+.empty.text-area-outline:not(.focus) .text-input:-ms-input-placeholder,
+.text-field-outline.empty:not(.focus) .text-input-placeholder,
+.empty.text-area-outline:not(.focus) .text-input-placeholder {
   color: transparent;
   -webkit-transition: color 150ms 100ms;
   transition: color 150ms 100ms; }
 
 .text-field.text-field-floating-label.empty:not(.focus) .text-input::placeholder,
+.text-field.text-field-floating-label.empty:not(.focus) .text-input-placeholder,
 .text-field-box.empty:not(.focus) .text-input::placeholder,
+.text-field-box.empty:not(.focus) .text-input-placeholder,
 .text-field-outline.empty:not(.focus) .text-input::placeholder,
-.empty.text-area-outline:not(.focus) .text-input::placeholder {
+.empty.text-area-outline:not(.focus) .text-input::placeholder,
+.text-field-outline.empty:not(.focus) .text-input-placeholder,
+.empty.text-area-outline:not(.focus) .text-input-placeholder {
   color: transparent;
   -webkit-transition: color 150ms 100ms;
   transition: color 150ms 100ms; }
