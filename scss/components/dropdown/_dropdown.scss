@@ -99,14 +99,14 @@
 
 .dropdown {
   position: relative;
+}
 
-  &.open .dropdown-menu {
-    opacity: 1;
-    transition: transform 350ms $awesome-cubic-bezier, opacity 250ms;
-    transform: scale3d(1, 1, 1);
-  }
+.dropdown-menu.show {
+  opacity: 1;
+  transition: transform 350ms $awesome-cubic-bezier, opacity 250ms;
+  transform: scale3d(1, 1, 1);
 
-  &.open .dropdown-content {
+  .dropdown-content {
     opacity: 1;
     transition: opacity 300ms 150ms;
   }

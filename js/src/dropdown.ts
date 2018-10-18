@@ -13,12 +13,14 @@ const SpaceKey = 32;
 export class Dropdown {
   private readonly _dropdownConfig: DropdownConfig;
   private readonly _dropdownToggle: HTMLElement;
+  private readonly _dropdownMenu: HTMLElement;
   private _showing: boolean;
 
   constructor(private readonly _dropdownElement: HTMLElement,
               dropdownConfig: DropdownConfig) {
     this._dropdownToggle = _dropdownElement.querySelector('.dropdown-toggle');
-    if (!this._dropdownToggle) return;
+    this._dropdownMenu = _dropdownElement.querySelector('.dropdown-menu');
+    if (!this._dropdownToggle || !this._dropdownToggle) return;
 
     this._dropdownConfig = {...DropdownConfig.default, ...dropdownConfig};
     this._attachEvents();
@@ -61,13 +63,13 @@ export class Dropdown {
   };
 
   open = () => {
-    this._dropdownElement.classList.add('open');
+    this._dropdownMenu.classList.add('show');
     this._showing = true;
     this._dropdownElement.dispatchEvent(openEvent);
   };
 
   close = () => {
-    this._dropdownElement.classList.remove('open');
+    this._dropdownMenu.classList.remove('show');
     this._showing = false;
     this._dropdownElement.dispatchEvent(closeEvent);
   };
