@@ -1,6 +1,7 @@
 @import "variables";
 
 .tab-bar {
+  position: relative;
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -8,34 +9,22 @@
 }
 
 .tab {
-  position: relative;
   display: flex;
   flex: 1;
   flex-direction: row;
   align-items: center;
-  min-width: $tab-min-width;
-  max-width: $tab-max-width;
   padding-right: $tab-horizontal-padding;
   padding-left: $tab-horizontal-padding;
   cursor: pointer;
   @include selectable-background-before;
+}
 
-  &::after {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: $tab-indicator-height;
-    content: "";
-    background-color: currentColor;
-    opacity: 0;
-  }
-
-  &.active {
-    &::after {
-      opacity: 1;
-    }
-  }
+.tab-indicator {
+  position: absolute;
+  bottom: 0;
+  height: $tab-indicator-height;
+  content: "";
+  transition: .5s cubic-bezier(.35, 0, .25, 1);
 }
 
 .tab-content {
@@ -51,12 +40,10 @@
   text-transform: uppercase;
 }
 
-@include media-breakpoint-up(lg) {
+@include media-breakpoint-up(md) {
   .tab-bar {
-    //&.toolbar-icon-padding {
-    //  padding-left: $toolbar-icon-width + $toolbar-horizontal-padding;
-    //}
-    justify-content: center;
+    min-width: $tab-min-width;
+    max-width: $tab-max-width;
   }
 
   .tab {
@@ -69,6 +56,7 @@
 
   .tab {
     flex: none;
+
     &:first-child {
       margin-left: $tab-bar-scrollable-margin;
     }
@@ -90,6 +78,10 @@
 
   .tab.active {
     color: $tab-text-color-active;
+  }
+
+  .tab-indicator {
+    background-color: $tab-text-color-active;
   }
 }
 

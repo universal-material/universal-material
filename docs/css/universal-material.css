@@ -3668,7 +3668,7 @@ h6, .h6 {
   font-size: 6rem;
   line-height: 6rem;
   font-weight: 300;
-  letter-spacing: -0.01563em;
+  letter-spacing: -0.01562em;
   text-decoration: inherit;
   text-transform: inherit; }
 
@@ -5827,6 +5827,7 @@ mark,
   overflow: auto; }
 
 .tab-bar {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5838,7 +5839,6 @@ mark,
   height: 3rem; }
 
 .tab {
-  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5852,8 +5852,6 @@ mark,
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  min-width: 90px;
-  max-width: 360px;
   padding-right: 16px;
   padding-left: 16px;
   cursor: pointer;
@@ -5874,17 +5872,14 @@ mark,
     opacity: .12; }
   .tab:active::before {
     opacity: .2; }
-  .tab::after {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 0.125rem;
-    content: "";
-    background-color: currentColor;
-    opacity: 0; }
-  .tab.active::after {
-    opacity: 1; }
+
+.tab-indicator {
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  content: "";
+  -webkit-transition: 0.5s cubic-bezier(0.35, 0, 0.25, 1);
+  transition: 0.5s cubic-bezier(0.35, 0, 0.25, 1); }
 
 .tab-content {
   width: 100%;
@@ -5897,11 +5892,10 @@ mark,
   font-weight: 500;
   text-transform: uppercase; }
 
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   .tab-bar {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center; }
+    min-width: 90px;
+    max-width: 360px; }
   .tab {
     -webkit-box-flex: 0;
         -ms-flex: none;
@@ -7768,6 +7762,9 @@ mark,
 .tab.active {
   color: #6200ee; }
 
+.tab-indicator {
+  background-color: #6200ee; }
+
 .text-field-leading-icon,
 .text-field-trailing-icon {
   color: rgba(0, 0, 0, 0.54); }
@@ -7841,6 +7838,8 @@ mark,
     color: rgba(0, 0, 0, 0.54); }
   .toolbar .tab.active {
     color: #6200ee; }
+  .toolbar .tab-indicator {
+    background-color: #6200ee; }
 
 .toolbar-primary {
   color: #fff;
@@ -7850,6 +7849,8 @@ mark,
     color: rgba(255, 255, 255, 0.7); }
   .toolbar-primary .tab.active {
     color: #fff; }
+  .toolbar-primary .tab-indicator {
+    background-color: #fff; }
   .toolbar-primary .text-low-contrast {
     color: rgba(255, 255, 255, 0.7) !important; }
   .toolbar-primary a.text-low-contrast:hover, .toolbar-primary a.text-low-contrast:focus {

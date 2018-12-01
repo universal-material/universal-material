@@ -3,29 +3,40 @@ extends ../layout
 block content
   h4.headline4.chapter-title Tabs
 
+  h5.headline5.article-title Button colors
   .example-box
-    .toolbar.example-toolbar
-      .toolbar-row
-        .toolbar-navigation.btn-borderless.btn-default
-          i.btn-icon.mdi.mdi-menu
+    .example-box-header
+      .toolbar.example-toolbar
+        .toolbar-row
+          .toolbar-navigation.btn-borderless.btn-default
+            i.btn-icon.mdi.mdi-menu
 
-        .toolbar-title Page title
-        .toolbar-actions
-          .btn-borderless.btn-default
-            i.btn-icon.mdi.mdi-magnify
+          .toolbar-title Page title
+          .toolbar-actions
+            .btn-borderless.btn-default
+              i.btn-icon.mdi.mdi-magnify
 
-          .btn-borderless.btn-default
-            i.btn-icon.mdi.mdi-phone
+            .btn-borderless.btn-default
+              i.btn-icon.mdi.mdi-phone
 
-          .btn-borderless.btn-default
-            i.btn-icon.mdi.mdi-dots-vertical
-      .tab-bar.toolbar-icon-padding
-        .tab.active
-          .tab-content
-            .tab-text Item one
-        .tab
-          .tab-content
-            .tab-text Item two
-        .tab
-          .tab-content
-            .tab-text Item three
+            .btn-borderless.btn-default
+              i.btn-icon.mdi.mdi-dots-vertical
+        .tab-bar.toolbar-icon-padding
+          .tab.active
+            .tab-content
+              .tab-text Item one
+          .tab
+            .tab-content
+              .tab-text Item two
+          .tab
+            .tab-content
+              .tab-text Item three
+          .tab-indicator
+
+    pre
+      code.html
+        = '<button class="btn-solid btn-default">Default</button>\n'
+        = '<button class="btn-solid btn-primary">Primary</button>\n'
+        = '<button class="btn-solid btn-secondary">Secondary</button>\n'
+        = '<button class="btn-solid btn-danger">Danger</button>\n'
+        = '<button class="btn-solid btn-primary" disabled>Disabled</button>'

@@ -6,4 +6,5 @@ export * from './progress-dialog';
 export * from './quick-dialog';
 export * from './ripple';
 export * from './snackbar';
+export * from './tab-bar';
 export * from './text-field';

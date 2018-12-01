@@ -591,6 +591,73 @@
       return SnackbarButtonDefinition;
   }());
 
+  var TabBar = /** @class */ (function () {
+      function TabBar(_tabBarElement) {
+          var _this = this;
+          this._tabBarElement = _tabBarElement;
+          this._tabMap = [];
+          this._tabClick = function (event) {
+              var tab = event.currentTarget;
+              _this.setActiveTab(tab.index);
+          };
+          this._tabIndicatorElement = _tabBarElement.querySelector('.tab-indicator');
+          this._setTabInfoMap();
+          this.setActiveTab(0);
+          if (window) {
+              window.addEventListener('resize', function () {
+                  _this._updateTabIndicator();
+              });
+          }
+      }
+      TabBar.prototype.setActiveTab = function (tabIndex) {
+          var _this = this;
+          if (!isNaN(this.currentTabIndex)) {
+              this._tabMap[this.currentTabIndex].classList.remove('active');
+          }
+          this.currentTabIndex = tabIndex;
+          this._tabBarElement.dispatchEvent(new CustomEvent('tabchange', {
+              detail: {
+                  tabIndex: tabIndex
+              }
+          }));
+          this._tabMap[this.currentTabIndex].classList.add('active');
+          setTimeout(function () { return _this._updateTabIndicator(); }, 100);
+      };
+      TabBar.prototype.recalculateBounds = function () {
+          this._tabMap.length = 0;
+          this._setTabInfoMap();
+          this._updateTabIndicator();
+      };
+      TabBar.prototype._updateTabIndicator = function () {
+          var tab = this._tabMap[this.currentTabIndex];
+          var tabBounds = tab.getBoundingClientRect();
+          var offset = tabBounds.left - this._tabBarElement.getBoundingClientRect().left;
+          this._tabIndicatorElement.style.left = offset + 'px';
+          this._tabIndicatorElement.style.width = tabBounds.width + 'px';
+      };
+      TabBar.prototype._setTabInfoMap = function () {
+          var tabs = this._tabBarElement.querySelectorAll('.tab');
+          for (var i = 0; i < tabs.length; i++) {
+              var tab = tabs[i];
+              tab.removeEventListener('click', this._tabClick);
+              tab.addEventListener('click', this._tabClick);
+              tab.index = i;
+              this._tabMap.push(tab);
+          }
+      };
+      TabBar.attach = function (tabBarElement) {
+          return new TabBar(tabBarElement);
+      };
+      TabBar.initializeTabBars = function () {
+          var tabBars = document.querySelectorAll('.tab-bar');
+          for (var i = 0; i < tabBars.length; i++) {
+              var tabBar = tabBars[i];
+              TabBar.attach(tabBar);
+          }
+      };
+      return TabBar;
+  }());
+
   var TextField = /** @class */ (function () {
       function TextField(element) {
           var _this = this;
@@ -665,6 +732,7 @@
   exports.Snackbar = Snackbar;
   exports.SnackbarDefinition = SnackbarDefinition;
   exports.SnackbarButtonDefinition = SnackbarButtonDefinition;
+  exports.TabBar = TabBar;
   exports.TextField = TextField;
 
   Object.defineProperty(exports, '__esModule', { value: true });
