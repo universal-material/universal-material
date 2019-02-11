@@ -1,0 +1,19 @@
+@import "variables";
+
+.navigation-drawer {
+  .list {
+    padding: 0;
+  }
+
+  .list-item {
+    min-height: $drawer-list-item-min-height;
+    padding: $drawer-list-item-padding;
+    margin: $drawer-list-item-margin;
+    border-radius: $drawer-list-item-border-radius;
+  }
+
+  .divider {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}

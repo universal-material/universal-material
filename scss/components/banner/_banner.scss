@@ -14,11 +14,9 @@
 }
 
 .banner-content {
-  &::after {
-    display: block;
-    clear: both;
-    content: "";
-  }
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
 }
 
 .banner-text {
@@ -32,13 +30,14 @@
 }
 
 .banner-actions {
-  float: right;
-  padding: $batten-actions-padding;
+  padding: $banner-actions-padding;
+  margin-left: auto;
 }
 
 .rtl,
 [dir="rtl"] {
   .banner-actions {
-    float: left;
+    margin-right: auto;
+    margin-left: 0;
   }
 }

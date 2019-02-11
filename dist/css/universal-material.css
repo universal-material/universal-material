@@ -4868,27 +4868,33 @@ mark,
     -webkit-transition: max-height 600ms ease-in;
     transition: max-height 600ms ease-in; }
 
-.banner-content::after {
-  display: block;
-  clear: both;
-  content: ""; }
+.banner-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end; }
 
 .banner-text {
   display: inline-block;
   padding-right: 16px;
   padding-left: 16px;
   margin-top: 18px;
-  margin-bottom: 4px;
+  margin-bottom: 12px;
   font-size: .875rem;
   font-weight: 500; }
 
 .banner-actions {
-  float: right;
-  padding: 8px; }
+  padding: 8px;
+  margin-left: auto; }
 
 .rtl .banner-actions,
 [dir="rtl"] .banner-actions {
-  float: left; }
+  margin-right: auto;
+  margin-left: 0; }
 
 .checkbox {
   display: -webkit-inline-box;
@@ -5523,6 +5529,19 @@ mark,
   to {
     -webkit-transform: scale3d(1, 1, 1);
             transform: scale3d(1, 1, 1); } }
+
+.navigation-drawer .list {
+  padding: 0; }
+
+.navigation-drawer .list-item {
+  min-height: 2.5rem;
+  padding: 8px;
+  margin: 8px;
+  border-radius: 4px; }
+
+.navigation-drawer .divider, .navigation-drawer .list-divider {
+  margin-top: 0;
+  margin-bottom: 0; }
 
 .expansion-panel {
   -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
