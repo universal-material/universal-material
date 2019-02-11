@@ -42,7 +42,7 @@ html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   -ms-overflow-style: scrollbar;
-  -webkit-tap-highlight-color: transparent; }
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
 @-ms-viewport {
   width: device-width; }
@@ -3668,7 +3668,7 @@ h6, .h6 {
   font-size: 6rem;
   line-height: 6rem;
   font-weight: 300;
-  letter-spacing: -0.01562em;
+  letter-spacing: -0.01563em;
   text-decoration: inherit;
   text-transform: inherit; }
 
@@ -4854,6 +4854,41 @@ mark,
   position: absolute;
   clip: rect(0, 0, 0, 0);
   pointer-events: none; }
+
+.banner {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  max-height: 0;
+  overflow: hidden;
+  background: #fff;
+  -webkit-transition: max-height 450ms ease-out;
+  transition: max-height 450ms ease-out; }
+  .banner.show {
+    max-height: 100vh;
+    -webkit-transition: max-height 600ms ease-in;
+    transition: max-height 600ms ease-in; }
+
+.banner-content::after {
+  display: block;
+  clear: both;
+  content: ""; }
+
+.banner-text {
+  display: inline-block;
+  padding-right: 16px;
+  padding-left: 16px;
+  margin-top: 18px;
+  margin-bottom: 4px;
+  font-size: .875rem;
+  font-weight: 500; }
+
+.banner-actions {
+  float: right;
+  padding: 8px; }
+
+.rtl .banner-actions,
+[dir="rtl"] .banner-actions {
+  float: left; }
 
 .checkbox {
   display: -webkit-inline-box;
