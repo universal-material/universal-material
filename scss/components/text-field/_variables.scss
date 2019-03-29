@@ -1,3 +1,7 @@
+@import "../../animations";
+@import "../../colors";
+@import "../../font-weight";
+
 //Text fields
 $form-field-margin: 24px !default;
 
@@ -43,7 +47,7 @@ $text-input-color-light-theme: $text-high-contrast-light-theme !default;
 $text-input-color-dark-theme: $text-high-contrast-dark-theme !default;
 $text-input-height: 1rem !default;
 $text-input-padding: .5rem !default;
-$text-input-total-height: $text-input-height + $text-input-padding * 2;
+$text-input-total-height: $text-input-height + $text-input-padding * 2 !default;
 $text-input-border: $text-field-border-width solid !default;
 $text-input-font-size: 1rem !default;
 $text-input-font-weight: $font-regular !default;

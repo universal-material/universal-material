@@ -1,27 +1,19 @@
-.sidebar-layout {
-  position: relative;
-  display: flex;
-
-  .layout-content {
-    height: 100%;
-  }
-}
-
-.sidebar-backdrop {
+.u-drawer-backdrop {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   z-index: -1;
+  content: "";
   background-color: $sidebar-backdrop-bg;
   opacity: 0;
   transition: opacity 375ms linear, z-index 0ms 375ms;
 }
 
-.sidebar {
+.u-drawer-content {
   @include elevate("2dp");
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
@@ -32,71 +24,84 @@
   overflow-y: auto;
   transition: transform 375ms $awesome-cubic-bezier;
   transform: translateX(-100%);
+}
 
-  &.sidebar-right {
-    right: 0;
-    left: auto;
-    transform: translateX(100%);
-  }
+.u-drawer {
 
   &.open {
-    transform: translateX(0);
+    .u-drawer-content {
+      transform: translateX(0);
+    }
 
-    ~ .sidebar-backdrop {
+    .u-drawer-backdrop {
       z-index: $zindex-sidebar - 1;
       opacity: $sidebar-backdrop-opacity;
       transition: opacity 375ms linear;
     }
   }
+}
 
-  $breakpoint-keys: map-keys($grid-breakpoints);
-  $breakpoints-length: length($grid-breakpoints);
+.rtl {
+  .u-drawer-content {
+    right: 0;
+    left: auto;
+    transform: translateX(100%);
+  }
+}
 
-  @each $breakpoint in $breakpoint-keys {
-    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+@each $breakpoint in map-keys($grid-breakpoints) {
+  $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
 
-    @include media-breakpoint-up($breakpoint) {
+  @include media-breakpoint-up($breakpoint) {
+    .u-drawer#{$infix}-permanent,
+    .u-drawer#{$infix}-dismissible {
+      padding-left: $sidebar-width;
 
-
-      &.sidebar#{$infix}-pinned {
-        position: static;
-        transform: none;
-
+      .u-drawer-content {
         @include elevate("0");
+        transform: none;
+      }
 
-        &.open {
-          ~ .sidebar-backdrop {
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 375ms linear, z-index 0ms 375ms;
-          }
+      .u-drawer-backdrop {
+        display: none;
+      }
+    }
 
-          ~ .sidebar.open {
-            ~ .sidebar-backdrop {
-              z-index: $zindex-sidebar - 1;
-              opacity: $sidebar-backdrop-opacity;
-              transition: opacity 375ms linear;
-            }
+    .u-drawer#{$infix}-dismissible {
+      transition: padding-left 375ms $awesome-cubic-bezier;
+
+      &.dismiss {
+        padding-left: 0;
+
+        .u-drawer-content {
+          transform: translateX(-100%);
+        }
+      }
+    }
+
+    .rtl {
+      .u-drawer#{$infix}-permanent,
+      .u-drawer#{$infix}-dismissible,
+      &.u-drawer#{$infix}-permanent,
+      &.u-drawer#{$infix}-dismissible {
+        padding-right: $sidebar-width;
+        padding-left: 0;
+      }
+
+      .u-drawer#{$infix}-dismissible,
+      &.u-drawer#{$infix}-dismissible {
+        transition: padding-right 375ms $awesome-cubic-bezier;
+
+        &.dismiss {
+          padding-right: 0;
+          padding-left: 0;
+
+          .u-drawer-content {
+            transform: translateX(100%);
           }
         }
       }
     }
-  }
-
-  .list-item {
-    min-height: 2.5rem;
-    padding: .5rem;
-    margin: .5rem;
-    border-radius: .25rem;
-  }
-
-  .list-item:first-child {
-    margin-top: 0;
-  }
-
-  .list-divider {
-    margin-top: 0;
-    margin-bottom: 0;
   }
 }
 
@@ -114,7 +119,7 @@
     $color: $body-color-dark-theme;
   }
 
-  .sidebar {
+  .u-drawer-content {
     background-color: $background-color;
 
     .list-item.active {

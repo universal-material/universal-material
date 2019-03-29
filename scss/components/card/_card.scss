@@ -1,26 +1,29 @@
 @import "variables";
+@import "../../colors";
+@import "../../bootstrap/mixins";
 @import "uwp-card";
+@import "../../mixins";
 
-.card {
+.u-card {
   border-radius: $card-border-radius;
   box-shadow: $card-shadow;
 }
 
-.card-outline {
+.u-card-outline {
   border: $card-outline-border;
   box-shadow: none;
 }
 
-.card-media {
+.u-card-media {
   position: relative;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
 
-.card-actions,
-.card-content,
-.card-media {
+.u-card-actions,
+.u-card-content,
+.u-card-media {
   &:first-child {
     border-top-left-radius: inherit;
     border-top-right-radius: inherit;
@@ -32,15 +35,15 @@
   }
 }
 
-.card-media-square {
+.u-card-media-square {
   padding-bottom: 100%;
 }
 
-.card-media-wide {
+.u-card-media-wide {
   padding-bottom: 56.25%;
 }
 
-.card-media-content {
+.u-card-media-content {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -53,15 +56,15 @@
   @include dark-background-colors;
 }
 
-.card-content {
+.u-card-content {
   padding: $card-padding $card-padding;
 }
 
-.card-actions {
+.u-card-actions {
   display: flex;
   padding: $card-actions-padding;
 
-  .btn + .btn {
+  .u-btn + .u-btn {
     margin-left: $card-actions-padding;
   }
 }
@@ -77,7 +80,7 @@
     $background-color: $card-bg-dark-theme;
   }
 
-  .card {
+  .u-card {
     background-color: $background-color;
   }
 
@@ -85,7 +88,7 @@
     @include uwp-card;
 
     @if (mixin_exists(uwp-button)) {
-      .card-media-content {
+      .u-card-media-content {
         @include uwp-button(true);
       }
     }

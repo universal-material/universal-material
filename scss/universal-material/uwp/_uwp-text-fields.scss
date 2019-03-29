@@ -2,7 +2,7 @@
 
 @mixin uwp-text-fields($text-input-placeholder-color) {
 
-  //.text-field-border {
+  //.u-text-field-border {
   //  position: absolute;
   //  top: 0 !important;
   //  left: 0;
@@ -28,17 +28,17 @@
   //  }
   //}
 
-  //.text-input-group {
+  //.u-text-input-group {
   //  //padding-right: $uwp-text-input-horizontal-padding;
   //  //padding-left: $uwp-text-input-horizontal-padding;
   //
-  //  .text-input {
+  //  .u-text-input {
   //    padding-right: 0;
   //    padding-left: 0;
   //  }
   //}
 
-  .text-input {
+  .u-text-input {
     padding-right: $uwp-text-input-horizontal-padding !important;
     padding-bottom: $uwp-text-input-vertical-padding !important;
     padding-left: $uwp-text-input-horizontal-padding !important;
@@ -47,7 +47,7 @@
     border-radius: 0 !important;
   }
 
-  .text-field {
+  .u-text-field {
     label {
       margin-bottom: .25rem;
     }
@@ -58,14 +58,14 @@
         transform: none !important;
       }
 
-      .text-input::placeholder {
+      .u-text-input::placeholder {
         color: $text-input-placeholder-color;
         transition: none;
       }
     }
   }
 
-  .text-field-box {
+  .u-text-field-box {
     background-color: transparent;
     border-radius: 0;
 
@@ -74,7 +74,7 @@
     }
   }
 
-  .text-area .text-input {
+  .text-area .u-text-input {
     padding-top: $uwp-text-area-top-padding;
   }
 }

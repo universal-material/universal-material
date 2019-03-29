@@ -43,7 +43,7 @@
 
 .toolbar-navigation {
   &,
-  &.btn-borderless {
+  &.u-btn-borderless {
     width: $toolbar-navigation-size;
     height: $toolbar-navigation-size;
   }
@@ -62,7 +62,7 @@
   text-align: center;
 
   &,
-  &.btn-borderless {
+  &.u-btn-borderless {
     width: $toolbar-action-size;
     height: $toolbar-action-size;
 

@@ -9,7 +9,7 @@
 .floating-menu-toggle {
   transition: opacity 150ms 100ms !important;
 
-  .btn-icon {
+  .u-btn-icon {
     transition: transform 250ms 150ms;
   }
 }
@@ -37,7 +37,7 @@
   &:nth-child(1) {
     transition: opacity 150ms 100ms;
 
-    .btn-icon {
+    .u-btn-icon {
       transition: transform 250ms 100ms;
       transform: rotate(-90deg);
     }
@@ -66,7 +66,7 @@
   opacity: 0;
   transition-delay: 0ms;
 
-  .btn-icon {
+  .u-btn-icon {
     transform: rotate(90deg);
   }
 }
@@ -80,7 +80,7 @@
     opacity: 1;
     transition-delay: 100ms;
 
-    .btn-icon {
+    .u-btn-icon {
       transition-delay: 100ms;
       transform: none;
     }

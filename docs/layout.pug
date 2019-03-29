@@ -16,8 +16,8 @@ html
     link(rel="stylesheet" href="/css/universal-material.css")
     link(rel="stylesheet" href="/css/docs.css")
 
-    body.sidebar-layout
-      .sidebar.sidebar-left.sidebar-lg-pinned
+    body.u-drawer.u-drawer-lg-dismissible
+      .u-drawer-content.navigation-drawer
         .toolbar
           .toolbar-row
             .toolbar-title Material Design
@@ -124,22 +124,22 @@ html
             .list-item-primary-content
               span Toolbars
 
-      .sidebar-backdrop
-      .layout-content.toolbar-layout
+      .u-drawer-backdrop.d-lg-none
+      .toolbar-layout
         .toolbar.toolbar-primary#app-bar
           .toolbar-row
             .toolbar-start
-              .toolbar-navigation.btn-borderless.btn-default.d-lg-none#menu-toggle
-                i.btn-icon.mdi.mdi-menu
+              .toolbar-navigation.u-btn-borderless.u-btn-default#menu-toggle
+                i.u-btn-icon.mdi.mdi-menu
 
             .toolbar-title
               | Material
             .toolbar-end
               .toolbar-actions
-                button.toolbar-action.btn-borderless.btn-default#rtl-toggle(type="button", title="Rtl")
-                  i.btn-icon.mdi.mdi-format-align-right
-                button.toolbar-action.btn-borderless.btn-default#dense-toggle(type="button", title="Dense layout")
-                  i.btn-icon.mdi.mdi-format-size
+                button.toolbar-action.u-btn-borderless.u-btn-default#rtl-toggle(type="button", title="Rtl")
+                  i.u-btn-icon.mdi.mdi-format-align-right
+                button.toolbar-action.u-btn-borderless.u-btn-default#dense-toggle(type="button", title="Dense layout")
+                  i.u-btn-icon.mdi.mdi-format-size
         .layout-content#main-content
           .container.margin-lg-40.chapter
             block content

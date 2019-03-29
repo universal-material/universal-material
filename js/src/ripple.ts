@@ -1,16 +1,16 @@
 export const RippleContainersSelector =
   [
-    '.btn',
-    '.btn-flat',
-    '.btn-solid',
-    '.btn-raised',
-    '.btn-outline',
-    '.btn-floating',
+    '.u-btn',
+    '.u-btn-flat',
+    '.u-btn-solid',
+    '.u-btn-raised',
+    '.u-btn-outline',
+    '.u-btn-floating',
     '.tab',
     '.dropdown-item',
     '.chip-remove',
     '.chip-hover',
-    '.text-input.dropdown-toggle'
+    '.u-text-input.dropdown-toggle'
   ].join(',');
 
 export class RippleConfig {
@@ -50,7 +50,7 @@ export const RippleConfigMap = [
     config: roundClickableConfig
   },
   {
-    selector: '.btn-borderless',
+    selector: '.u-btn-borderless',
     config: roundClickableConfig
   }
 ];
@@ -92,10 +92,10 @@ export class Ripple {
     if (this.disabled) return;
 
     const rippleWrapper = document.createElement('DIV');
-    rippleWrapper.classList.add('ripple-wrapper');
+    rippleWrapper.classList.add('u-ripple-wrapper');
 
     const ripple = document.createElement('DIV');
-    ripple.classList.add('ripple');
+    ripple.classList.add('u-ripple');
     rippleWrapper.appendChild(ripple);
     rippleContainer.insertAdjacentElement('afterbegin', rippleWrapper);
 

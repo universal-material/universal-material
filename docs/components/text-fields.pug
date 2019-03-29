@@ -2,70 +2,78 @@ extends ../layout
 
 block content
   h4.headline4.chapter-title Text fields
-  .text-field-container.form-field
-    .text-field
-      input.text-input(type="text" placeholder="Placeholder" id="text-field-standard" aria-describedby="standardHelper")
+  .u-text-field-container.u-form-field
+    .u-text-field
+      input.u-text-input(type="text" placeholder="Placeholder" id="text-field-standard" aria-describedby="standardHelper")
       label(for="text-field-standard") Standard
-    small#standardHelper.text-field-helper-text Standard text field
+    small#standardHelper.u-text-field-helper-text Standard text field
 
-  .text-field-container.form-field
-    .text-field.text-field-floating-label
-      input.text-input(type="text" placeholder="Placeholder" id="text-field-floating-label" aria-describedby="standardWithFloatinglabelHelper")
+  .u-text-field-container.u-form-field
+    .u-text-field.u-text-field-floating-label
+      input.u-text-input(type="text" placeholder="Placeholder" id="text-field-floating-label" aria-describedby="standardWithFloatinglabelHelper")
       label(for="text-field-floating-label") Standard floating label
-    small#standardWithFloatinglabelHelper.text-field-helper-text Standard text field with floating label
+    small#standardWithFloatinglabelHelper.u-text-field-helper-text Standard text field with floating label
 
-  .text-field-container.form-field
-    .text-field.text-field-box
-      .text-field-leading-icon
+  .u-text-field-container.u-form-field
+    .u-text-field.u-text-field-box
+      .u-text-field-leading-icon
         i.mdi.mdi-calendar
-      .text-field-trailing-icon
+      .u-text-field-trailing-icon
         i.mdi.mdi-calendar
 
-      input.text-input(type="text" placeholder="Placeholder" id="text-field-box" aria-describedby="textFieldBox")
+      input.u-text-input(type="text" placeholder="Placeholder" id="text-field-box" aria-describedby="textFieldBox")
       label(for="text-field-box") Text field box
-    small#textFieldBox.text-field-helper-text
+    small#textFieldBox.u-text-field-helper-text
       .d-flex.position-relative
         .flex-fill
-          span.text-field-helper-text-default Text field box
-          span.text-field-helper-text-invalid Error
+          span.u-text-field-helper-text-default Text field box
+          span.u-text-field-helper-text-invalid Error
         span 0 / 10
 
-  .text-field-container.form-field
-    .text-field.text-field-outline
-      .text-field-leading-icon
+  .u-text-field-container.u-form-field
+    .u-text-field.u-text-field-outline
+      .u-text-field-leading-icon
         i.mdi.mdi-calendar
-      .text-field-trailing-icon
+      .u-text-field-trailing-icon
         i.mdi.mdi-calendar
-      input.text-input(type="text" placeholder="Placeholder" id="text-field-outline" aria-describedby="textFieldOutline")
+      input.u-text-input(type="text" placeholder="Placeholder" id="text-field-outline" aria-describedby="textFieldOutline")
       label(for="text-field-outline") Text field outline
-    small#textFieldOutline.text-field-helper-text Text field outline
+    small#textFieldOutline.u-text-field-helper-text Text field outline
 
-  .text-field-container.form-field
-    .text-field.text-field-elevated
-      .text-field-leading-icon
+  .u-text-field-container.u-form-field
+    .u-text-field.u-search-field
+      .u-text-field-leading-icon
         i.mdi.mdi-calendar
-      .text-field-trailing-icon.btn-borderless
-        i.btn-icon.mdi.mdi-calendar
-      input.text-input(type="text" placeholder="Placeholder" id="text-field-elevated" aria-describedby="textFieldElevated")
+      .u-text-field-trailing-icon.u-btn-borderless
+        i.u-btn-icon.mdi.mdi-calendar
+      input.u-text-input(type="text" placeholder="Search" id="search-field")
 
-  .text-field-container.form-field
-    .text-field.text-field-box
-      textarea.text-input(type="text" placeholder="Placeholder" id="text-area-box" aria-describedby="textAreaBox")
+  .u-text-field-container.u-form-field
+    .u-text-field.u-search-field.u-search-field-elevated
+      .u-text-field-leading-icon
+        i.mdi.mdi-calendar
+      .u-text-field-trailing-icon.u-btn-borderless
+        i.u-btn-icon.mdi.mdi-calendar
+      input.u-text-input(type="text" placeholder="Search" id="search-field-elevated")
+
+  .u-text-field-container.u-form-field
+    .u-text-field.u-text-field-box
+      textarea.u-text-input(type="text" placeholder="Placeholder" id="text-area-box" aria-describedby="textAreaBox")
       label(for="text-area-box") Text area box
-    small#textAreaBox.text-field-helper-text Text area box
+    small#textAreaBox.u-text-field-helper-text Text area box
 
-  .text-field-container.form-field
-    .text-field.text-area-outline
-      textarea.text-input(type="text" placeholder="Placeholder" id="text-area-outline" aria-describedby="textAreaOutline")
+  .u-text-field-container.u-form-field
+    .u-text-field.text-area-outline
+      textarea.u-text-input(type="text" placeholder="Placeholder" id="text-area-outline" aria-describedby="textAreaOutline")
       label(for="text-area-outline") Text area outline
-    small#textAreaOutline.text-field-helper-text Text area outline
+    small#textAreaOutline.u-text-field-helper-text Text area outline
 
-  .text-field-container.form-field
-    .text-field.text-field-box.dropdown
-      .text-field-trailing-icon
+  .u-text-field-container.u-form-field
+    .u-text-field.u-text-field-box.dropdown
+      .u-text-field-trailing-icon
         .mdi.mdi-menu-down
-      button.text-input.dropdown-toggle(type="button" disabled)
-        .text-input-placeholder No value
+      button.u-text-input.dropdown-toggle(type="button" disabled)
+        .u-text-input-placeholder No value
       .dropdown-menu.up.w-100
         .dropdown-content
           button.dropdown-item(type="button") Option A

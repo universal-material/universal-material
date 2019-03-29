@@ -1,6 +1,6 @@
 (function () {
-  const sidebar = document.querySelector(".sidebar");
-  const sidebarBackdrop = document.querySelector(".sidebar-backdrop");
+  const sidebar = document.querySelector(".u-drawer");
+  const sidebarBackdrop = document.querySelector(".u-drawer-backdrop");
   const appbar = document.getElementById("app-bar");
 
   function toggleSidebar() {
@@ -8,6 +8,12 @@
       sidebar.classList.remove("open");
     } else {
       sidebar.classList.add("open");
+    }
+
+    if (sidebar.classList.contains("dismiss")) {
+      sidebar.classList.remove("dismiss");
+    } else {
+      sidebar.classList.add("dismiss");
     }
   }
 
@@ -49,7 +55,7 @@
   umd.Dropdown.initializeDropdowns();
   umd.TabBar.initializeTabBars();
 
-  let textField = document.querySelector('.text-field-box');
+  let textField = document.querySelector('.u-text-field-box');
   const textInput = document.querySelector('#text-field-box');
   if (textInput) {
     textInput.addEventListener('input', function () {

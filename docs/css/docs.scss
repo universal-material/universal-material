@@ -1,12 +1,12 @@
 @import "../../scss/variables";
 
-.sidebar {
+.u-drawer {
   height: 100%;
   overflow: auto;
   border-right: 1px solid rgba(0, 0, 0, .12);
 }
 
-.sidebar .toolbar {
+.u-drawer .toolbar {
   border-bottom: 1px solid rgba(0, 0, 0, .12);
 }
 
@@ -64,12 +64,12 @@
   }
 }
 
-.card {
+.u-card {
   margin-bottom: 8px;
 }
 
-.card-media,
-.card-media-wide {
+.u-card-media,
+.u-card-media-wide {
   background: url("/img/venice.jpg") center;
   background-size: cover;
 }

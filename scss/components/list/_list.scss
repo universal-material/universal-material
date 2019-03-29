@@ -90,7 +90,7 @@
   line-height: $list-item-font-size;
 }
 //
-//.list-item-icon.btn-borderless {
+//.list-item-icon.u-btn-borderless {
 //  width: $btn-borderless-size;
 //  margin-top: -$list-item-padding / 2;
 //  margin-bottom: -$list-item-padding / 2;
@@ -108,7 +108,7 @@
   margin-left: $list-item-padding;
 }
 
-.list-item-primary-content ~ .list-item-icon.btn-borderless {
+.list-item-primary-content ~ .list-item-icon.u-btn-borderless {
   margin-right: -$list-item-padding / 2;
   margin-left: $list-item-padding / 2;
 }
@@ -186,7 +186,7 @@
     font-size: $list-dense-icon-size;
   }
 
-  .list-item-icon.btn-borderless {
+  .list-item-icon.u-btn-borderless {
     width: $btn-dense-size;
   }
 

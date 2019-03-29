@@ -4,7 +4,7 @@
 @import "bootstrap-imports";
 
 @import "universal-material/scaffolding";
-@import "universal-material/typography";
+@import "typography/typography";
 @import "universal-material/grid";
 @import "universal-material/elevation";
 
@@ -25,7 +25,7 @@
 @import "components/steppers/steppers";
 @import "universal-material/layout";
 @import "components/tabs/tab";
-@import "universal-material/data-table";
+@import "components/data-table/data-table";
 @import "components/list/list";
 @import "universal-material/progress";
 @import "universal-material/sidebar";

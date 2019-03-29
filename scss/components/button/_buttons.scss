@@ -1,7 +1,10 @@
 @import "variables";
+@import "../../typography/variables";
+@import "../../elevation";
+@import "../../mixins";
 @import "uwp-buttons";
 
-.btn {
+.u-btn {
   @include umd-typography(button);
   position: relative; //Universal Material custom code
   display: inline-flex;
@@ -47,18 +50,18 @@
   }
 }
 
-.btn-flat,
-.btn-solid {
-  @extend .btn;
+.u-btn-flat,
+.u-btn-solid {
+  @extend .u-btn;
 }
 
-.btn-outline {
-  @extend .btn-flat;
+.u-btn-outline {
+  @extend .u-btn-flat;
   border: $btn-outline-border-width solid currentColor;
 }
 
-.btn-raised {
-  @extend .btn-solid;
+.u-btn-raised {
+  @extend .u-btn-solid;
 
   @include elevate("2dp");
 
@@ -69,7 +72,7 @@
   transition: box-shadow 250ms;
 }
 
-.btn-icon {
+.u-btn-icon {
   display: inline-block;
   width: $btn-icon-size;
   height: $btn-icon-size;
@@ -79,13 +82,13 @@
   line-height: 1em;
 }
 
-.btn-icon-end {
+.u-btn-icon-end {
   margin-right: $btn-icon-margin-start;
   margin-left: $btn-icon-margin-end;
 }
 
-.btn-borderless {
-  @extend .btn;
+.u-btn-borderless {
+  @extend .u-btn;
 
   width: $btn-borderless-size;
   height: $btn-borderless-size;
@@ -93,11 +96,11 @@
   overflow: visible;
   border-radius: 50%;
 
-  + .btn-borderless {
+  + .u-btn-borderless {
     margin-left: $btn-borderless-margin;
   }
 
-  .btn-icon {
+  .u-btn-icon {
     width: $btn-borderless-icon-size;
     height: $btn-borderless-icon-size;
     margin: 0;
@@ -115,13 +118,13 @@
   }
 }
 
-.btn-floating {
-  @extend .btn-raised;
+.u-btn-floating {
+  @extend .u-btn-raised;
   width: $btn-floating-size;
   height: $btn-floating-size;
   border-radius: 50%;
 
-  .btn-icon {
+  .u-btn-icon {
     width: $btn-borderless-icon-size;
     height: $btn-borderless-icon-size;
     margin: 0;
@@ -129,47 +132,47 @@
   }
 }
 
-.btn-floating-extended {
+.u-btn-floating-extended {
   width: auto;
   height: $btn-floating-extended-height;
   padding-right: $btn-floating-extended-padding;
   padding-left: $btn-floating-extended-padding;
   border-radius: $btn-floating-extended-border-radius;
 
-  .btn-icon {
+  .u-btn-icon {
     margin-right: $btn-floating-extended-icon-margin;
     margin-left: $btn-floating-extended-icon-margin - $btn-floating-extended-padding;
   }
 }
 
-.btn-floating-sm {
+.u-btn-floating-sm {
   width: $btn-floating-small-size;
   height: $btn-floating-small-size;
 }
 
 .dense {
-  @at-root .dense-layout .btn,
-  &.btn {
+  @at-root .dense-layout .u-btn,
+  &.u-btn {
     height: $btn-dense-size;
     font-size: $btn-dense-font-size;
   }
 
-  @at-root .dense-layout .btn-borderless,
-  &.btn-borderless {
+  @at-root .dense-layout .u-btn-borderless,
+  &.u-btn-borderless {
     width: $btn-dense-size;
     font-size: $base-dense-icon-size;
   }
 
-  @at-root .dense-layout .btn-icon,
-  &.btn-icon {
+  @at-root .dense-layout .u-btn-icon,
+  &.u-btn-icon {
     font-size: $btn-icon-dense-size;
   }
 }
 
 .rtl,
 [dir="rtl"] {
-  .btn-floating-extended {
-    .btn-icon {
+  .u-btn-floating-extended {
+    .u-btn-icon {
       margin-right: $btn-floating-extended-icon-margin - $btn-floating-extended-padding;
       margin-left: $btn-floating-extended-icon-margin;
     }
@@ -179,7 +182,7 @@
 @mixin button-flat-theme($buttons-colors, $dark-theme) {
 
   @each $color, $value in map-merge($buttons-colors, (default: inherit)) {
-    .btn-flat.btn-#{$color} {
+    .u-btn-flat.u-btn-#{$color} {
       @include button-flat-variant($value);
     }
   }
@@ -196,12 +199,12 @@
   }
 
   @each $color, $value in map-merge($buttons-colors, (default: $btn-borderless-color)) {
-    .btn-borderless.btn-#{$color} {
+    .u-btn-borderless.u-btn-#{$color} {
       @include button-flat-variant($value);
     }
   }
 
-  .btn-borderless {
+  .u-btn-borderless {
     &:disabled,
     &.disabled {
       color: $btn-disabled-color !important;
@@ -240,12 +243,12 @@
   }
 
   @each $color, $value in $buttons-colors {
-    .btn-solid.btn-#{$color} {
+    .u-btn-solid.u-btn-#{$color} {
       @include button-solid-variant($value);
     }
   }
 
-  .btn {
+  .u-btn {
     &.disabled,
     &:disabled {
       color: $btn-disabled-color !important;
@@ -258,8 +261,8 @@
     }
   }
 
-  .btn-borderless,
-  .btn-flat {
+  .u-btn-borderless,
+  .u-btn-flat {
     &.disabled,
     &:disabled {
       &,
@@ -269,7 +272,7 @@
     }
   }
 
-  .btn-outline-gray-border {
+  .u-btn-outline-gray-border {
     border-color: $btn-outline-gray-border-color;
   }
 

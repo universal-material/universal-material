@@ -1,10 +1,12 @@
-.bg-light {
+@import "../mixins";
+
+.u-bg-light {
   @include light-background-colors;
 }
-.bg-dark {
+.u-bg-dark {
   @include dark-background-colors;
 }
 
-.selectable-background {
+.u-selectable-background {
   @include selectable-background-before;
 }

@@ -1,29 +1,45 @@
+@import "variables";
+
 // stylelint-disable selector-no-qualifying-type
 
-.data-table {
+.u-data-table {
   table {
     min-width: 100%;
   }
 
-  th {
+  thead th {
     padding-top: $data-table-column-header-vertical-padding;
     padding-bottom: $data-table-column-header-vertical-padding;
-    font-size: $data-table-column-header-font-size;
-    font-weight: $data-table-column-header-font-weight;
     line-height: $data-table-column-header-line-height;
   }
 
-  td {
+  td,
+  tbody th {
     padding-top: $data-table-column-vertical-padding;
     padding-bottom: $data-table-column-vertical-padding;
+  }
+
+  th {
+    font-size: $data-table-column-header-font-size;
+    font-weight: $data-table-column-header-font-weight;
+  }
+
+  td {
     font-size: $data-table-content-font-size;
     font-weight: $data-table-content-font-weight;
-    border-top: $data-table-border;
   }
 
   td.dropdown {
     padding-top: 0;
     padding-bottom: 0;
+  }
+
+  tr:not(:first-child),
+  thead + tbody {
+    th,
+    td {
+      border-top: $data-table-border;
+    }
   }
 
   th,
@@ -38,31 +54,32 @@
     }
   }
 
-  &.card {
+  &.u-card {
     overflow: visible;
   }
 
-  .dropdown-toggle:not(.btn-borderless) {
+  .dropdown-toggle:not(.u-btn-borderless) {
     width: 100%;
     padding: 0;
     text-align: left;
     text-transform: none;
-    &.btn::before {
+
+    &.u-btn::before {
       content: none;
     }
   }
+
+  .dropdown-menu {
+    padding: 0;
+  }
+
+  .dropdown-item {
+    font-size: $data-table-content-font-size;
+    font-weight: $data-table-content-font-weight;
+  }
 }
 
-//.data-table-content {
-//  overflow-x: hidden;
-//  overflow-y: visible;
-//}
-
-.data-table-header {
-
-}
-
-.data-table-footer {
+.u-data-table-footer {
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -76,7 +93,7 @@
 
   //@extend .toolbar;
 
-  .data-table-actions {
+  .u-data-table-actions {
     margin-left: 2rem;
 
     //.data-table-action:first-child {
@@ -97,7 +114,7 @@
     $data-table-row-hover-background-color: $data-table-row-hover-background-color-dark-theme;
   }
 
-  .data-table {
+  .u-data-table {
     th {
       color: $data-table-column-header-color;
     }
@@ -107,7 +124,7 @@
     }
   }
 
-  .data-table-hover tbody tr {
+  .u-data-table-hover tbody tr {
     &:hover {
       background-color: $data-table-row-hover-background-color;
     }

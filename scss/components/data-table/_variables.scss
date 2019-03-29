@@ -1,0 +1,34 @@
+@import "../../colors";
+@import "../../font-weight";
+@import "../../mixins";
+
+//Data table
+$row-horizontal-padding: 1rem !default;
+
+$data-table-divider-color: $base-semi-transparent-color !default;
+$data-table-divider-width: .0625rem !default;
+$data-table-border: $data-table-divider-width solid $data-table-divider-color !default;
+
+$data-table-horizontal-padding: $row-horizontal-padding !default;
+
+$data-table-column-vertical-padding: .8125rem !default;
+$data-table-column-header-vertical-padding: 1rem !default;
+$data-table-column-header-font-size: .8125rem !default;
+$data-table-column-header-font-weight: $font-medium !default;
+$data-table-column-header-line-height: 1rem !default;
+$data-table-column-header-color-light-theme: rgba(0, 0, 0, .6) !default;
+$data-table-column-header-color-dark-theme: $text-low-contrast-dark-theme !default;
+
+$data-table-row-hover-background-color-light-theme: #eee !default;
+$data-table-row-hover-background-color-dark-theme: #626262 !default;
+
+$data-table-row-selected-bg-light-theme: #f5f5f5 !default;
+$data-table-row-selected-bg-dark-theme: #525252 !default;
+
+$data-table-card-footer-height: 4rem !default;
+$data-table-card-footer-font-color: $text-low-contrast-light-theme !default;
+$data-table-card-footer-font-size: .75rem !default;
+$data-table-card-footer-font-weight: $font-regular !default;
+
+$data-table-content-font-size: .875rem !default;
+$data-table-content-font-weight: $font-medium !default;

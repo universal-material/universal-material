@@ -1,15 +1,15 @@
 @import "variables";
 
-.form-field {
+.u-form-field {
   margin-bottom: $form-field-margin;
 }
 
-.text-field-container {
+.u-text-field-container {
   display: flex;
   flex-direction: column;
 }
 
-.text-field-helper-text {
+.u-text-field-helper-text {
   position: relative;
   margin-top: $text-field-helper-text-margin;
   overflow: hidden;
@@ -17,7 +17,7 @@
   line-height: $text-field-helper-text-line-height;
 }
 
-.text-field-helper-text-invalid {
+.u-text-field-helper-text-invalid {
   position: absolute;
   top: 0;
   right: 0;
@@ -29,20 +29,20 @@
   }
 }
 
-.text-field-helper-text-default,
-.text-field-helper-text-invalid {
+.u-text-field-helper-text-default,
+.u-text-field-helper-text-invalid {
   display: inline-block;
 }
 
-.text-field-helper-text-default:not(:only-child),
-.text-field-helper-text-invalid {
+.u-text-field-helper-text-default:not(:only-child),
+.u-text-field-helper-text-invalid {
   opacity: 0;
   transition: transform 1ms 200ms, opacity 150ms;
   transform: translate3d(0, -100%, 0);
 }
 
-.text-field:not(.invalid) ~ .text-field-helper-text .text-field-helper-text-default,
-.text-field.invalid ~ .text-field-helper-text .text-field-helper-text-invalid {
+.u-text-field:not(.invalid) ~ .u-text-field-helper-text .u-text-field-helper-text-default,
+.u-text-field.invalid ~ .u-text-field-helper-text .u-text-field-helper-text-invalid {
   opacity: 1;
   transition: transform 200ms, opacity 150ms;
   transform: translate3d(0, 0, 0);
@@ -52,8 +52,8 @@
   }
 }
 
-.text-field-leading-icon,
-.text-field-trailing-icon {
+.u-text-field-leading-icon,
+.u-text-field-trailing-icon {
   position: absolute;
   bottom: $text-field-icon-bottom;
   width: 1em;
@@ -64,23 +64,23 @@
   text-align: center;
 }
 
-.text-field-leading-icon {
+.u-text-field-leading-icon {
   left: 0;
 
-  ~ .text-input {
+  ~ .u-text-input {
     padding-left: $text-input-padding + $text-field-icon-size;
   }
 }
 
-.text-field-trailing-icon {
+.u-text-field-trailing-icon {
   right: 0;
 
-  ~ .text-input {
+  ~ .u-text-input {
     padding-right: $text-input-padding + $text-field-icon-size;
   }
 }
 
-.text-input {
+.u-text-input {
   box-sizing: content-box;
   padding-top: $text-input-padding;
   padding-bottom: $text-input-padding - $text-field-border-width;
@@ -100,7 +100,7 @@
   }
 }
 
-.text-field {
+.u-text-field {
   position: relative;
   display: flex;
   flex-direction: column-reverse;
@@ -140,15 +140,15 @@
   }
 }
 
-.text-field.text-field-floating-label,
-.text-field-box,
-.text-field-outline {
+.u-text-field.u-text-field-floating-label,
+.u-text-field-box,
+.u-text-field-outline {
   label {
     transition: transform 200ms, font-size 200ms;
   }
 
-  .text-input::placeholder,
-  .text-input-placeholder {
+  .u-text-input::placeholder,
+  .u-text-input-placeholder {
     transition: color 150ms;
   }
 
@@ -159,15 +159,15 @@
       transform: translate3d(0, ($text-field-label-height / 2) + $text-field-label-margin + ($text-input-height / 2) + $text-input-padding, 0);
     }
 
-    .text-input::placeholder,
-    .text-input-placeholder {
+    .u-text-input::placeholder,
+    .u-text-input-placeholder {
       color: transparent;
       transition: color 150ms 100ms;
     }
   }
 }
 
-.text-field-box {
+.u-text-field-box {
   border-radius: $text-field-box-border-radius;
 
   label {
@@ -177,7 +177,7 @@
     line-height: $text-field-box-label-line-height;
   }
 
-  .text-input {
+  .u-text-input {
     padding: $text-field-box-label-height $text-field-box-padding calc(#{$text-field-box-padding} - #{$text-field-border-width});
     margin-top: -$text-field-box-label-height;
   }
@@ -188,36 +188,36 @@
     }
   }
 
-  ~ .text-field-helper-text {
+  ~ .u-text-field-helper-text {
     margin-right: $text-field-box-padding;
     margin-left: $text-field-box-padding;
   }
 
-  .text-field-leading-icon,
-  .text-field-trailing-icon {
+  .u-text-field-leading-icon,
+  .u-text-field-trailing-icon {
     bottom: 50%;
   }
 
-  .text-field-leading-icon {
+  .u-text-field-leading-icon {
     left: $text-field-icon-margin;
 
-    ~ .text-input,
+    ~ .u-text-input,
     ~ label {
       padding-left: calc(#{$text-field-icon-margin + $text-field-box-padding} + #{$text-field-icon-size});
     }
   }
 
-  .text-field-trailing-icon {
+  .u-text-field-trailing-icon {
     right: $text-field-icon-margin;
 
-    ~ .text-input,
+    ~ .u-text-input,
     ~ label {
       padding-right: calc(#{$text-field-icon-margin + $text-field-box-padding} + #{$text-field-icon-size});
     }
   }
 }
 
-.text-field-outline {
+.u-text-field-outline {
   label {
     height: $text-field-outline-label-height;
     padding-right: $text-field-outline-label-padding;
@@ -228,7 +228,7 @@
     transform: translate3d(0, -$text-field-outline-label-height / 2, 0);
   }
 
-  .text-input {
+  .u-text-input {
     padding: $text-field-outline-label-height $text-field-outline-padding calc(#{$text-field-outline-padding-bottom} - #{$text-field-border-width});
     margin-top: -$text-field-outline-label-height;
     border-color: transparent !important;
@@ -239,7 +239,7 @@
       transform: translate3d(0, ($text-field-outline-height / 2) - ($text-field-outline-label-height / 2), 0) !important;
     }
 
-    .text-field-leading-icon ~ label {
+    .u-text-field-leading-icon ~ label {
       transform: translate3d(calc(#{$text-field-icon-margin} + #{$text-field-icon-size}), ($text-field-outline-height / 2) - ($text-field-outline-label-height / 2), 0) !important;
     }
   }
@@ -260,72 +260,75 @@
     }
   }
 
-  ~ .text-field-helper-text {
+  ~ .u-text-field-helper-text {
     margin-right: $text-field-outline-padding;
     margin-left: $text-field-outline-padding;
   }
 
-  .text-field-leading-icon,
-  .text-field-trailing-icon {
+  .u-text-field-leading-icon,
+  .u-text-field-trailing-icon {
     bottom: 50%;
   }
 
-  .text-field-leading-icon {
+  .u-text-field-leading-icon {
     left: $text-field-icon-margin;
 
-    ~ .text-input {
+    ~ .u-text-input {
       margin-left: calc(#{$text-field-icon-margin} + #{$text-field-icon-size});
     }
   }
 
-  .text-field-trailing-icon {
+  .u-text-field-trailing-icon {
     right: $text-field-icon-margin;
 
-    ~ .text-input,
+    ~ .u-text-input,
     ~ label {
       margin-right: calc(#{$text-field-icon-margin} + #{$text-field-icon-size});
     }
   }
 }
 
-.text-field-elevated {
+.u-search-field {
   border-radius: $text-field-elevated-border-radius;
-  box-shadow: $text-field-elevated-box-shadow;
 
   &::before {
     content: none;
   }
 
-  .text-field-leading-icon,
-  .text-field-trailing-icon {
+  .u-text-field-leading-icon,
+  .u-text-field-trailing-icon {
     bottom: 50%;
   }
 
-  .text-input {
+  .u-text-input {
     padding: $text-field-elevated-padding;
     border: none;
   }
 
-  .text-field-leading-icon {
+  .u-text-field-leading-icon {
     left: $text-field-icon-margin;
 
-    ~ .text-input {
+    ~ .u-text-input {
       margin-left: calc(#{$text-field-icon-margin} + #{$text-field-icon-size});
     }
   }
 
-  .text-field-trailing-icon {
+  .u-text-field-trailing-icon {
     right: $text-field-icon-margin;
 
-    ~ .text-input,
+    ~ .u-text-input,
     ~ label {
       margin-right: calc(#{$text-field-icon-margin} + #{$text-field-icon-size});
     }
   }
 }
 
+.u-search-field-elevated {
+  box-shadow: $text-field-elevated-box-shadow;
+}
+
 .text-area-outline {
-  @extend .text-field-outline;
+  @extend .u-text-field-outline;
 
   label {
     background: transparent !important;
@@ -372,12 +375,12 @@
     $text-field-outline-label-background: $bg-dark;
   }
 
-  .text-field-leading-icon,
-  .text-field-trailing-icon {
+  .u-text-field-leading-icon,
+  .u-text-field-trailing-icon {
     color: $text-input-icon-color;
   }
 
-  .text-field {
+  .u-text-field {
     label {
       color: $text-field-label-color;
     }
@@ -387,24 +390,24 @@
     }
 
     &.invalid,
-    &.invalid .text-field-leading-icon,
-    &.invalid .text-field-trailing-icon,
-    & ~ .text-field-helper-text .text-field-helper-text-invalid {
+    &.invalid .u-text-field-leading-icon,
+    &.invalid .u-text-field-trailing-icon,
+    & ~ .u-text-field-helper-text .u-text-field-helper-text-invalid {
       color: $danger-color;
     }
 
     &:hover {
-      .text-input:not(:disabled) {
+      .u-text-input:not(:disabled) {
         border-color: $text-field-divider-color-hover;
       }
     }
   }
 
-  .text-field-box {
+  .u-text-field-box {
     background: $text-field-box-background;
   }
 
-  .text-field-outline {
+  .u-text-field-outline {
     label {
       background: $text-field-outline-label-background;
     }
@@ -420,11 +423,15 @@
     }
   }
 
-  .text-field-elevated {
+  .u-search-field {
+    background: $text-field-box-background;
+  }
+
+  .u-search-field-elevated {
     background: $text-field-elevated-background;
   }
 
-  .text-input {
+  .u-text-input {
     color: $text-input-color;
     border-color: $text-field-divider-color;
 
@@ -434,12 +441,12 @@
     }
   }
 
-  .text-field-helper-text {
+  .u-text-field-helper-text {
     color: $text-field-helper-text-color;
   }
 
-  .text-input::placeholder,
-  .text-input-placeholder {
+  .u-text-input::placeholder,
+  .u-text-input-placeholder {
     color: $text-input-placeholder-color;
   }
 }

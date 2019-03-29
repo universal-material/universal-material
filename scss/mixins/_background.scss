@@ -1,10 +1,13 @@
+@import "../colors";
+@import "./text-emphasis";
+
 @mixin dark-background-colors {
   color: $body-color-dark-theme;
   @include text-emphasis-variant(".text-low-contrast", $text-low-contrast-dark-theme);
   @include text-emphasis-variant(".text-high-contrast", $text-high-contrast-dark-theme);
 
   @if (mixin_exists(button-borderless-variant)) {
-    .btn-borderless.btn-default {
+    .u-btn-borderless.u-btn-default {
       @include button-borderless-variant($btn-borderless-color-dark-theme);
     }
   }
@@ -16,7 +19,7 @@
   @include text-emphasis-variant(".text-high-contrast", $text-high-contrast-light-theme);
 
   @if (mixin_exists(button-borderless-variant)) {
-    .btn-borderless.btn-default {
+    .u-btn-borderless.u-btn-default {
       @include button-borderless-variant($btn-borderless-color-light-theme);
     }
   }

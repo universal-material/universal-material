@@ -1,3 +1,7 @@
+@function umd-typography-get-letter-spacing_($tracking, $font-size) {
+  @return $tracking / ($font-size * 16) * 1em;
+}
+
 @mixin umd-typography($style) {
   $style-props: map-get($typography-styles, $style);
 

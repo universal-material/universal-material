@@ -8,7 +8,7 @@
     $btn-flat-active-background-color: $uwp-btn-flat-active-background-color-dark-theme;
   }
 
-  .btn {
+  .u-btn {
     box-shadow: none;
 
     &,
@@ -25,20 +25,20 @@
     }
   }
 
-  .btn-flat,
-  .btn-borderless {
+  .u-btn-flat,
+  .u-btn-borderless {
     &:hover:not(:disabled):not(.disabled) {
       box-shadow: 0 0 0 $uwp-btn-hover-border-width currentColor inset;
     }
   }
 
-  .btn-outline {
+  .u-btn-outline {
     &:hover:not(:disabled):not(.disabled) {
       box-shadow: 0 0 0 $uwp-btn-hover-border-width - $btn-outline-border-width currentColor inset;
     }
   }
 
-  .btn-outline-gray-border {
+  .u-btn-outline-gray-border {
     &:hover:not(:disabled):not(.disabled) {
       box-shadow: 0 0 0 $uwp-btn-hover-border-width $btn-active-background-color inset;
     }

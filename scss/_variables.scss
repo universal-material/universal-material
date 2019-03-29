@@ -1,55 +1,8 @@
-$primary-color: #6200ee !default;
-$primary-variant-color: #3700b3 !default;
-$secondary-color: #03dac6 !default;
-$secondary-variant-color: #018786 !default;
-$danger-color: #b00020 !default;
-$default-theme-dark: false !default;
-$default-uwp-style: false !default;
-
-$font-thin: 100 !default;
-$font-light: 300 !default;
-$font-regular: 400 !default;
-$font-medium: 500 !default;
-$font-bold: 700 !default;
-$font-black: 900 !default;
-
-$white:  #fff !default;
-$gray-100: #f5f5f5 !default;
-$gray-200: #eee !default;
-$gray-300: #e0e0e0 !default;
-$gray-400: #bdbdbd !default;
-$gray-500: #9e9e9e !default;
-$gray-600: #757575 !default;
-$gray-700: #616161 !default;
-$gray-800: #424242 !default;
-$gray-900: #212121 !default;
-$black:  #000 !default;
-
-$blue:    #2196f3 !default;
-$indigo:  #3f51b5 !default;
-$purple:  #9c27b0 !default;
-$pink:    #e91e63 !default;
-$red:     #f44336 !default;
-$orange:  #ff9800 !default;
-$yellow:  #ffeb3b !default;
-$green:   #4caf50 !default;
-$teal:    #009688 !default;
-$cyan:    #00bcd4 !default;
-
-$theme-colors: (
-  primary: $primary-color, //Universal Material changes
-  primary-variant: $primary-variant-color,
-  secondary: $secondary-color,
-  secondary-variant: $secondary-variant-color,
-  danger: $danger-color
-) !default;
-
-$color-high-contrast-light-theme: rgba(0, 0, 0, .87) !default;
-$color-high-contrast-dark-theme: $white !default;
-
-$color-lower-contrast-light-theme: rgba(0, 0, 0, .42) !default;
-$color-low-contrast-light-theme: rgba(0, 0, 0, .42) !default;
-$color-low-contrast-dark-theme: rgba(255, 255, 255, .7) !default;
+@import "animations";
+@import "base-sizes";
+@import "colors";
+@import "font-weight";
+@import "elevation";
 
 //// This variable affects the `.h-*` and `.w-*` classes.
 //$sizes: (
@@ -62,15 +15,6 @@ $color-low-contrast-dark-theme: rgba(255, 255, 255, .7) !default;
 // Body
 //
 // Settings for the `<body>` element.
-
-$body-bg:       $gray-100 !default; //Universal Material changes
-$body-color:    rgba(#000, .87) !default;
-
-$bg-light:       $gray-100 !default; //Universal Material changes
-$bg-dark:       #1d1d1d !default; //Universal Material changes
-
-$body-color-light-theme:    $body-color !default; //Universal Material changes
-$body-color-dark-theme:    $white !default; //Universal Material changes
 
 // Links
 //
@@ -99,12 +43,6 @@ $margins-and-gutters: (
 
 $grid-gutter-width: $margin-gutter-default !default;
 
-// Components
-//
-// Define common padding and border radius sizes and more.
-$uwp-border-width: .125rem !default;
-
-
 // Fonts
 //
 // Font, line-height, and color for body text, headings, and more.
@@ -113,155 +51,6 @@ $font-family-base: "Roboto", -apple-system, "BlinkMacSystemFont", "Segoe UI", "H
 
 $font-size-base: .875rem !default;
 
-@function umd-typography-get-letter-spacing_($tracking, $font-size) {
-  @return $tracking / ($font-size * 16) * 1em;
-}
-
-$typography-styles: (
-  headline1: (
-    font-size: 6rem, // 96sp
-    line-height: 6rem,
-    font-weight: $font-light,
-    letter-spacing: umd-typography-get-letter-spacing_(-1.5, 6),
-    text-decoration: inherit,
-    text-transform: inherit
-  ),
-  headline2: (
-    font-size: 3.75rem, // 60sp
-    line-height: 3.75rem,
-    font-weight: $font-light,
-    letter-spacing: umd-typography-get-letter-spacing_(-.5, 3.75),
-    text-decoration: inherit,
-    text-transform: inherit
-  ),
-  headline3: (
-    font-size: 3rem, // 48px
-    line-height: 3.125rem, // 50px
-    font-weight: $font-regular,
-    letter-spacing: normal,
-    text-decoration: inherit,
-    text-transform: inherit
-  ),
-  headline4: (
-    font-size: 2.125rem, // 34sp
-    line-height: 2.5rem, // 40sp
-    font-weight: $font-regular,
-    letter-spacing: umd-typography-get-letter-spacing_(.25, 2.125),
-    text-decoration: inherit,
-    text-transform: inherit
-  ),
-  headline5: (
-    font-size: 1.5rem, // 24sp
-    line-height: 2rem, // 32sp
-    font-weight: $font-regular,
-    letter-spacing: normal,
-    text-decoration: inherit,
-    text-transform: inherit
-  ),
-  headline6: (
-    font-size: 1.25rem, // 20sp
-    line-height: 2rem, // 32sp
-    font-weight: $font-medium,
-    letter-spacing: umd-typography-get-letter-spacing_(.25, 1.25),
-    text-decoration: inherit,
-    text-transform: inherit
-  ),
-  subtitle1: (
-    font-size: 1rem, // 16sp
-    line-height: 1.75rem, // 28sp
-    font-weight: $font-regular,
-    letter-spacing: umd-typography-get-letter-spacing_(.15, 1),
-    text-decoration: inherit,
-    text-transform: inherit
-  ),
-  subtitle2: (
-    font-size: .875rem, // 14sp
-    line-height: 1.375rem, // 22sp
-    font-weight: $font-medium,
-    letter-spacing: umd-typography-get-letter-spacing_(.1, .875),
-    text-decoration: inherit,
-    text-transform: inherit
-  ),
-  body1: (
-    font-size: 1rem, // 16sp
-    line-height: 1.5rem, // 24sp
-    font-weight: $font-regular,
-    letter-spacing: umd-typography-get-letter-spacing_(.5, 1),
-    text-decoration: inherit,
-    text-transform: inherit
-  ),
-  body2: (
-    font-size: .875rem, // 14sp
-    line-height: 1.25rem, // 20sp
-    font-weight: $font-regular,
-    letter-spacing: umd-typography-get-letter-spacing_(.25, .875),
-    text-decoration: inherit,
-    text-transform: inherit
-  ),
-  caption: (
-    font-size: .75rem, // 12sp
-    line-height: 1.25rem, // 20sp
-    font-weight: $font-regular,
-    letter-spacing: umd-typography-get-letter-spacing_(.4, .75),
-    text-decoration: inherit,
-    text-transform: inherit
-  ),
-  button: (
-    font-size: .875rem, // 14sp
-    line-height: 2.25rem, // 36sp
-    font-weight: $font-medium,
-    letter-spacing: umd-typography-get-letter-spacing_(1.25, .875),
-    text-decoration: none,
-    text-transform: uppercase
-  ),
-  overline: (
-    font-size: .75rem, // 12sp
-    line-height: 2rem, // 32sp
-    font-weight: $font-medium,
-    letter-spacing: umd-typography-get-letter-spacing_(2, .75),
-    text-decoration: none,
-    text-transform: uppercase
-  ),
-) !default;
-
-$display4-size: $font-size-base * 8 !default; //Universal Material custom code
-$display3-size: $font-size-base * 4 !default; //Universal Material custom code
-$display2-size: $font-size-base * 3.21 !default; //Universal Material custom code
-$display1-size: $font-size-base * 2.42 !default; //Universal Material custom code
-$headline-size: $font-size-base * 1.7 !default;
-$title-size: $font-size-base * 1.4 !default;
-$subheading-size: $font-size-base * 1.1 !default;
-$body-2-size: $font-size-base !default;
-$body-1-size: $font-size-base !default;
-$caption-size: $font-size-base * .85 !default;
-$font-size-button: $font-size-base !default;
-
-$display4-weight:     $font-light !default;
-$display3-weight:     $font-regular !default;
-$display2-weight:     $font-regular !default;
-$display1-weight:     $font-regular !default;
-$headline-weight:     $font-regular !default;
-$title-weight:        $font-medium !default;
-$subheading-weight:   $font-regular !default;
-$body-2-weight:       $font-medium !default;
-$body-1-weight:       $font-regular !default;
-$caption-weight:      $font-regular !default;
-$headline-line-height:   1.15rem !default;
-$title-line-height:      1.15rem !default;
-$subheading-line-height: 1.15rem !default;
-
-$lead-font-size:   1.25rem !default;
-
-$base-icon-size: 1.5rem !default;
-$base-dense-icon-size: 1.3125rem !default;
-
-$text-high-contrast-light-theme: $body-color !default;
-$text-high-contrast-dark-theme: $white !default;
-$text-low-contrast-light-theme: rgba(0, 0, 0, .54) !default;
-$text-low-contrast-dark-theme: rgba(255, 255, 255, .7) !default;
-$text-lower-contrast: rgba(0, 0, 0, .42) !default;
-$text-lower-contrast-dark-theme: rgba(255, 255, 255, .5) !default;
-
 // Buttons
 //
 // For each of Bootstrap's buttons, define text, background and border color.
@@ -269,23 +58,10 @@ $text-lower-contrast-dark-theme: rgba(255, 255, 255, .5) !default;
 
 //$danger-color: #d50000 !default;
 //
-$awesome-cubic-bezier: cubic-bezier(.19, 1, .22, 1) !default;
 //
 //$bg-body: #fafafa !default;
 //
-$row-horizontal-padding: 1rem !default;
 //
-$base-semi-transparent-color: rgba(0, 0, 0, .12) !default;
-
-$base-hover-background-color: $base-semi-transparent-color !default;
-$base-active-background-color: rgba(0, 0, 0, .2) !default;
-
-$hover-background-light-theme: rgba(0, 0, 0, .06) !default;
-$hover-background-dark-theme: rgba(204, 204, 204, .1) !default;
-
-$focus-background-light-theme: rgba(0, 0, 0, .12) !default;
-$focus-background-dark-theme: rgba(204, 204, 204, .25) !default;
-
 //$base-dense-color: rgba(0, 0, 0, 0.87) !default;
 //
 //$enable-hover-media-query: false !default;
@@ -310,43 +86,9 @@ $expansion-panel-horizontal-padding: 1rem !default;
 $expansion-panel-content-margin: 1rem !default;
 $expansion-panel-switch-size: 1.5rem !default;
 
-//Data table
-$data-table-divider-color: $base-semi-transparent-color !default;
-$data-table-divider-width: .0625rem !default;
-$data-table-border: $data-table-divider-width solid $data-table-divider-color !default;
-
-$data-table-horizontal-padding: $row-horizontal-padding !default;
-
-$data-table-column-vertical-padding: .8125rem !default;
-$data-table-column-header-vertical-padding: 1rem !default;
-$data-table-column-header-font-size: .8125rem !default;
-$data-table-column-header-font-weight: $font-medium !default;
-$data-table-column-header-line-height: 1rem !default;
-$data-table-column-header-color-light-theme: rgba(0, 0, 0, .6) !default;
-$data-table-column-header-color-dark-theme: $text-low-contrast-dark-theme !default;
-
-$data-table-row-hover-background-color-light-theme: #eee !default;
-$data-table-row-hover-background-color-dark-theme: #626262 !default;
-
-$data-table-row-selected-bg-light-theme: #f5f5f5 !default;
-$data-table-row-selected-bg-dark-theme: #525252 !default;
-
-$data-table-card-footer-height: 4rem !default;
-$data-table-card-footer-font-color: $text-low-contrast-light-theme !default;
-$data-table-card-footer-font-size: .75rem !default;
-$data-table-card-footer-font-weight: $font-regular !default;
-
-$data-table-content-font-size: .875rem !default;
-$data-table-content-font-weight: $font-medium !default;
-
 //Divider
 $divider-height: .0625rem !default;
 $divider-color: $base-semi-transparent-color !default;
-
-//Buttons dense
-$btn-dense-font-size: .8125rem !default;
-$btn-dense-size: 2rem !default;
-$btn-icon-dense-size: 1rem !default;
 
 //Progress
 $progress-height: .25rem !default;
@@ -362,7 +104,7 @@ $spinner-height-x-small: $spinner-height * .5 !default;
 $spinner-height-big: $spinner-height / 3 * 4 !default;
 
 //Sidebar
-$sidebar-width: 20rem !default;
+$sidebar-width: 16rem !default;
 $sidebar-background-color-light-theme: #fff !default;
 $sidebar-background-color-dark-theme: #424242 !default;
 
@@ -370,17 +112,6 @@ $sidebar-backdrop-bg: $black !default;
 $sidebar-backdrop-opacity: .5 !default;
 
 $text-muted: $text-low-contrast-light-theme !default;
-
-//Shadows
-$shadows: (
-  "2dp": (0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .2)),
-  "3dp": (0 3px 4px 0 rgba(0, 0, 0, .14), 0 1px 8px 0 rgba(0, 0, 0, .12), 0 3px 3px -2px rgba(0, 0, 0, .4)),
-  "4dp": (0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .4)),
-  "6dp": (0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12), 0 3px 5px -1px rgba(0, 0, 0, .4)),
-  "8dp": (0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12), 0 5px 5px -3px rgba(0, 0, 0, .4)),
-  "12dp": (0 12px 16px 1px rgba(0, 0, 0, .14), 0 4px 22px 3px rgba(0, 0, 0, .12), 0 6px 7px -4px rgba(0, 0, 0, .4)),
-  "16dp": (0 16px 24px 2px rgba(0, 0, 0, .14), 0 6px 30px 5px rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(0, 0, 0, .4))
-) !default;
 
 //Z-index
 $zindex-dropdown: 1000 !default;

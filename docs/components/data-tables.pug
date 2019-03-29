@@ -2,8 +2,20 @@ extends ../layout
 
 block content
   h4.headline4.chapter-title Data tables
-  .card
-    .data-table.data-table-hover
+  .u-card
+    .u-data-table.u-data-table-hover
+      table
+        tbody
+          tr
+            th Nome
+            td Eric Kono
+          tr
+            th Email
+            td eric.kono@impeto.com.br
+
+  h4.headline4.chapter-title Data tables
+  .u-card
+    .u-data-table.u-data-table-hover
       table
         thead
           tr
@@ -28,18 +40,18 @@ block content
             td.text-end 16.0
             td.text-end 24
 
-  .card
-    .data-table.data-table-hover
+  .u-card
+    .u-data-table.u-data-table-hover
       .toolbar
         .toolbar-row
           .toolbar-title Nutrients
           .toolbar-end
             .toolbar-actions
-              button.toolbar-action.btn-borderless.btn-default(disabled)
-                i.btn-icon.mdi.mdi-phone
+              button.toolbar-action.u-btn-borderless.u-btn-default(disabled)
+                i.u-btn-icon.mdi.mdi-phone
 
-              button.toolbar-action.btn-borderless.btn-default
-                i.btn-icon.mdi.mdi-dots-vertical
+              button.toolbar-action.u-btn-borderless.u-btn-default
+                i.u-btn-icon.mdi.mdi-dots-vertical
       table
         thead
           tr
@@ -66,20 +78,20 @@ block content
               td.text-end 24
 
 
-  .card
-    .data-table.data-table-hover
-      .data-table-header
+  .u-card
+    .u-data-table.u-data-table-hover
+      .u-data-table-header
         .toolbar
           .toolbar-row
             .toolbar-title Nutrients
             .toolbar-end
               .toolbar-actions
-                button.toolbar-action.btn-borderless.btn-default(disabled)
-                  i.btn-icon.mdi.mdi-phone
+                button.toolbar-action.u-btn-borderless.u-btn-default(disabled)
+                  i.u-btn-icon.mdi.mdi-phone
 
-                button.toolbar-action.btn-borderless.btn-default
-                  i.btn-icon.mdi.mdi-dots-vertical
-      .data-table-content
+                button.toolbar-action.u-btn-borderless.u-btn-default
+                  i.u-btn-icon.mdi.mdi-dots-vertical
+      .u-data-table-content
         table
           thead
             tr
@@ -92,7 +104,7 @@ block content
             tr
               td.text-nowrap Frozen yogurt
               td.text-nowrap.dropdown
-                button.btn-flat.btn-default.dropdown-toggle
+                button.u-btn-flat.u-btn-default.dropdown-toggle
                   .dropdown-toggle-label Ice cream
                   .dropdown-toggle-icon
 
@@ -108,7 +120,7 @@ block content
             tr
               td.text-nowrap Ice cream sandwich
               td.text-nowrap.dropdown
-                button.btn-flat.btn-default.dropdown-toggle
+                button.u-btn-flat.u-btn-default.dropdown-toggle
                   .dropdown-toggle-label Ice cream
                   .dropdown-toggle-icon
 
@@ -123,7 +135,7 @@ block content
             tr
               td.text-nowrap Eclair
               td.text-nowrap.dropdown
-                button.btn-flat.btn-default.dropdown-toggle
+                button.u-btn-flat.u-btn-default.dropdown-toggle
                   .dropdown-toggle-label Pastry
                   .dropdown-toggle-icon
 
@@ -135,8 +147,8 @@ block content
               td.text-end 262
               td.text-end 16.0
               td.text-end 24
-      .data-table-footer
-        button.btn-borderless.btn-default
-          i.btn-icon.mdi.mdi-chevron-left
-        button.btn-borderless.btn-default
-          i.btn-icon.mdi.mdi-chevron-right
+      .u-data-table-footer
+        button.u-btn-borderless.u-btn-default
+          i.u-btn-icon.mdi.mdi-chevron-left
+        button.u-btn-borderless.u-btn-default
+          i.u-btn-icon.mdi.mdi-chevron-right

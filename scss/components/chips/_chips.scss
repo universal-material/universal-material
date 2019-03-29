@@ -66,7 +66,7 @@
   @include selectable-background-before;
 
   &::before,
-  .ripple-wrapper {
+  .u-ripple-wrapper {
     position: absolute;
     top: 50% !important;
     left: 50% !important;

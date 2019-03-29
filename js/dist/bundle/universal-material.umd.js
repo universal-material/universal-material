@@ -269,17 +269,17 @@
   }());
 
   var RippleContainersSelector = [
-      '.btn',
-      '.btn-flat',
-      '.btn-solid',
-      '.btn-raised',
-      '.btn-outline',
-      '.btn-floating',
+      '.u-btn',
+      '.u-btn-flat',
+      '.u-btn-solid',
+      '.u-btn-raised',
+      '.u-btn-outline',
+      '.u-btn-floating',
       '.tab',
       '.dropdown-item',
       '.chip-remove',
       '.chip-hover',
-      '.text-input.dropdown-toggle'
+      '.u-text-input.dropdown-toggle'
   ].join(',');
   var RippleConfig = /** @class */ (function () {
       function RippleConfig() {
@@ -317,7 +317,7 @@
           config: roundClickableConfig
       },
       {
-          selector: '.btn-borderless',
+          selector: '.u-btn-borderless',
           config: roundClickableConfig
       }
   ];
@@ -352,9 +352,9 @@
           if (this.disabled)
               return;
           var rippleWrapper = document.createElement('DIV');
-          rippleWrapper.classList.add('ripple-wrapper');
+          rippleWrapper.classList.add('u-ripple-wrapper');
           var ripple = document.createElement('DIV');
-          ripple.classList.add('ripple');
+          ripple.classList.add('u-ripple');
           rippleWrapper.appendChild(ripple);
           rippleContainer.insertAdjacentElement('afterbegin', rippleWrapper);
           if (this._config.size) {
@@ -661,7 +661,7 @@
   var TextField = /** @class */ (function () {
       function TextField(element) {
           var _this = this;
-          var input = element.querySelector('input, textarea, .text-input');
+          var input = element.querySelector('input, textarea, .u-text-input');
           if (input) {
               input.addEventListener('focus', function () {
                   element.classList.add('focus');
@@ -706,7 +706,7 @@
           }
       };
       TextField.initializeTextFields = function () {
-          var textFields = document.querySelectorAll('.text-field');
+          var textFields = document.querySelectorAll('.u-text-field');
           for (var i = 0; i < textFields.length; i++) {
               var textField = textFields[i];
               new TextField(textField);

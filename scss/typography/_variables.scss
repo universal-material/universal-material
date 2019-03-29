@@ -1,0 +1,144 @@
+@import "../mixins/typography";
+@import "../colors";
+@import "../font-weight";
+
+$spacer: 1rem !default;
+
+$font-size-base: .875rem !default;
+
+$typography-styles: (
+  headline1: (
+    font-size: 6rem, // 96sp
+    line-height: 6rem,
+    font-weight: $font-light,
+    letter-spacing: umd-typography-get-letter-spacing_(-1.5, 6),
+    text-decoration: inherit,
+    text-transform: inherit
+  ),
+  headline2: (
+    font-size: 3.75rem, // 60sp
+    line-height: 3.75rem,
+    font-weight: $font-light,
+    letter-spacing: umd-typography-get-letter-spacing_(-.5, 3.75),
+    text-decoration: inherit,
+    text-transform: inherit
+  ),
+  headline3: (
+    font-size: 3rem, // 48px
+    line-height: 3.125rem, // 50px
+    font-weight: $font-regular,
+    letter-spacing: normal,
+    text-decoration: inherit,
+    text-transform: inherit
+  ),
+  headline4: (
+    font-size: 2.125rem, // 34sp
+    line-height: 2.5rem, // 40sp
+    font-weight: $font-regular,
+    letter-spacing: umd-typography-get-letter-spacing_(.25, 2.125),
+    text-decoration: inherit,
+    text-transform: inherit
+  ),
+  headline5: (
+    font-size: 1.5rem, // 24sp
+    line-height: 2rem, // 32sp
+    font-weight: $font-regular,
+    letter-spacing: normal,
+    text-decoration: inherit,
+    text-transform: inherit
+  ),
+  headline6: (
+    font-size: 1.25rem, // 20sp
+    line-height: 2rem, // 32sp
+    font-weight: $font-medium,
+    letter-spacing: umd-typography-get-letter-spacing_(.25, 1.25),
+    text-decoration: inherit,
+    text-transform: inherit
+  ),
+  subtitle1: (
+    font-size: 1rem, // 16sp
+    line-height: 1.75rem, // 28sp
+    font-weight: $font-regular,
+    letter-spacing: umd-typography-get-letter-spacing_(.15, 1),
+    text-decoration: inherit,
+    text-transform: inherit
+  ),
+  subtitle2: (
+    font-size: .875rem, // 14sp
+    line-height: 1.375rem, // 22sp
+    font-weight: $font-medium,
+    letter-spacing: umd-typography-get-letter-spacing_(.1, .875),
+    text-decoration: inherit,
+    text-transform: inherit
+  ),
+  body1: (
+    font-size: 1rem, // 16sp
+    line-height: 1.5rem, // 24sp
+    font-weight: $font-regular,
+    letter-spacing: umd-typography-get-letter-spacing_(.5, 1),
+    text-decoration: inherit,
+    text-transform: inherit
+  ),
+  body2: (
+    font-size: .875rem, // 14sp
+    line-height: 1.25rem, // 20sp
+    font-weight: $font-regular,
+    letter-spacing: umd-typography-get-letter-spacing_(.25, .875),
+    text-decoration: inherit,
+    text-transform: inherit
+  ),
+  caption: (
+    font-size: .75rem, // 12sp
+    line-height: 1.25rem, // 20sp
+    font-weight: $font-regular,
+    letter-spacing: umd-typography-get-letter-spacing_(.4, .75),
+    text-decoration: inherit,
+    text-transform: inherit
+  ),
+  button: (
+    font-size: .875rem, // 14sp
+    line-height: 2.25rem, // 36sp
+    font-weight: $font-medium,
+    letter-spacing: umd-typography-get-letter-spacing_(1.25, .875),
+    text-decoration: none,
+    text-transform: uppercase
+  ),
+  overline: (
+    font-size: .75rem, // 12sp
+    line-height: 2rem, // 32sp
+    font-weight: $font-medium,
+    letter-spacing: umd-typography-get-letter-spacing_(2, .75),
+    text-decoration: none,
+    text-transform: uppercase
+  ),
+) !default;
+
+$border-width:                1px !default;
+
+$h1-font-size:                $font-size-base * 2.5 !default;
+$h2-font-size:                $font-size-base * 2 !default;
+$h3-font-size:                $font-size-base * 1.75 !default;
+$h4-font-size:                $font-size-base * 1.5 !default;
+$h5-font-size:                $font-size-base * 1.25 !default;
+$h6-font-size:                $font-size-base !default;
+
+$headings-margin-bottom:      ($spacer / 2) !default;
+$headings-font-family:        inherit !default;
+$headings-font-weight:        500 !default;
+$headings-line-height:        1.2 !default;
+$headings-color:              inherit !default;
+
+$lead-font-size:   1.25rem !default;
+$lead-font-weight: 300 !default;
+
+$hr-border-color:             rgba($black, .1) !default;
+$hr-border-width:             $border-width !default;
+
+$small-font-size:             80% !default;
+
+$font-weight-light:           300 !default;
+$font-weight-normal:          400 !default;
+$font-weight-bold:            700 !default;
+
+$mark-padding:                .2em !default;
+$mark-bg:                     #fcf8e3 !default;

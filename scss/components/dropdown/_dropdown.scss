@@ -133,17 +133,6 @@
   }
 }
 
-.data-table {
-  .dropdown-menu {
-    padding: 0;
-  }
-
-  .dropdown-item {
-    font-size: $data-table-content-font-size;
-    font-weight: $data-table-content-font-weight;
-  }
-}
-
 @mixin dropdown-theme($theme) {
 
   $dark-theme: map-get($theme, "dark");
