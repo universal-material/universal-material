@@ -9,10 +9,10 @@ export class ProgressDialogConfig extends QuickDialogConfig {
 }
 
 const progressDialogTemplate = `
-<div class="dialog dialog-progress show">
-  <div class="dialog-backdrop"></div>
-  <div class="dialog-content">
-    <div class="dialog-body">
+<div class="u-dialog u-dialog-progress show">
+  <div class="u-dialog-backdrop"></div>
+  <div class="u-dialog-content">
+    <div class="u-dialog-body">
       <div class="preloader-wrapper">
         <div class="spinner-layer">
           <div class="circle-clipper left">
@@ -26,7 +26,7 @@ const progressDialogTemplate = `
           </div>
         </div>
       </div>
-      <div class="dialog-progress-message headline6 text-low-contrast text-nowrap"></div>
+      <div class="u-dialog-progress-message u-headline6 text-low-contrast text-nowrap"></div>
     </div>
   </div>
 </div>`;

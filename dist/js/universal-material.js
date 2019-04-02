@@ -94,7 +94,7 @@ var umd;
         return ConfirmDialogConfig;
     }(QuickDialogConfig));
     umd.ConfirmDialogConfig = ConfirmDialogConfig;
-    var confirmDialogTemplate = "\n<div class=\"dialog show\">\n  <div class=\"dialog-backdrop\"></div>\n  <div class=\"dialog-content\">\n    <div class=\"dialog-title\"></div>\n    <div class=\"dialog-body\"></div>\n    <div class=\"dialog-actions\">\n      <button type=\"button\" class=\"u-btn-flat btn-primary\" cancelButton></button>\n      <button type=\"button\" class=\"u-btn-flat btn-primary\" confirmButton></button>\n    </div>\n  </div>\n</div>";
+    var confirmDialogTemplate = "\n<div class=\"u-dialog show\">\n  <div class=\"u-dialog-backdrop\"></div>\n  <div class=\"u-dialog-content\">\n    <div class=\"u-dialog-title\"></div>\n    <div class=\"u-dialog-body\"></div>\n    <div class=\"u-dialog-actions\">\n      <button type=\"button\" class=\"u-btn-flat u-btn-primary\" cancelButton></button>\n      <button type=\"button\" class=\"u-btn-flat u-btn-primary\" confirmButton></button>\n    </div>\n  </div>\n</div>";
     var ConfirmDialog = (function (_super) {
         __extends(ConfirmDialog, _super);
         function ConfirmDialog(message, config) {
@@ -309,7 +309,7 @@ var umd;
         return ProgressDialogConfig;
     }(QuickDialogConfig));
     umd.ProgressDialogConfig = ProgressDialogConfig;
-    var progressDialogTemplate = "\n<div class=\"dialog dialog-progress show\">\n  <div class=\"dialog-backdrop\"></div>\n  <div class=\"dialog-content\">\n    <div class=\"dialog-body\">\n      <div class=\"preloader-wrapper\">\n        <div class=\"spinner-layer\">\n          <div class=\"circle-clipper left\">\n            <div class=\"circle\"></div>\n          </div>\n          <div class=\"gap-patch\">\n            <div class=\"circle\"></div>\n          </div>\n          <div class=\"circle-clipper right\">\n            <div class=\"circle\"></div>\n          </div>\n        </div>\n      </div>\n      <div class=\"dialog-progress-message headline6 text-low-contrast text-nowrap\"></div>\n    </div>\n  </div>\n</div>";
+    var progressDialogTemplate = "\n<div class=\"u-dialog u-dialog-progress show\">\n  <div class=\"u-dialog-backdrop\"></div>\n  <div class=\"u-dialog-content\">\n    <div class=\"u-dialog-body\">\n      <div class=\"preloader-wrapper\">\n        <div class=\"spinner-layer\">\n          <div class=\"circle-clipper left\">\n            <div class=\"circle\"></div>\n          </div>\n          <div class=\"gap-patch\">\n            <div class=\"circle\"></div>\n          </div>\n          <div class=\"circle-clipper right\">\n            <div class=\"circle\"></div>\n          </div>\n        </div>\n      </div>\n      <div class=\"u-dialog-progress-message u-headline6 text-low-contrast text-nowrap\"></div>\n    </div>\n  </div>\n</div>";
     var ProgressDialog = (function (_super) {
         __extends(ProgressDialog, _super);
         function ProgressDialog(message, config) {

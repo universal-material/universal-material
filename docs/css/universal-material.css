@@ -2501,7 +2501,8 @@ body {
   line-height: 1.5;
   color: rgba(0, 0, 0, 0.87);
   text-align: left;
-  background-color: #f5f5f5; }
+  /* background-color: #f5f5f5; */
+  }
 
 [tabindex="-1"]:focus {
   outline: 0 !important; }
@@ -8049,6 +8050,7 @@ a.text-high-contrast:hover, a.text-high-contrast:focus {
 
 body {
   color: rgba(0, 0, 0, 0.87);
-  background-color: #f5f5f5; }
+  /* background-color: #f5f5f5; */
+  }
 
 /*# sourceMappingURL=universal-material.css.map */

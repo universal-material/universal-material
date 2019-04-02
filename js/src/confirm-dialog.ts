@@ -16,14 +16,14 @@ export class ConfirmDialogConfig extends QuickDialogConfig {
 }
 
 const confirmDialogTemplate = `
-<div class="dialog show">
-  <div class="dialog-backdrop"></div>
-  <div class="dialog-content">
-    <div class="dialog-title"></div>
-    <div class="dialog-body"></div>
-    <div class="dialog-actions">
-      <button type="button" class="u-btn-flat btn-primary" cancelButton></button>
-      <button type="button" class="u-btn-flat btn-primary" confirmButton></button>
+<div class="u-dialog show">
+  <div class="u-dialog-backdrop"></div>
+  <div class="u-dialog-content">
+    <div class="u-dialog-title"></div>
+    <div class="u-dialog-body"></div>
+    <div class="u-dialog-actions">
+      <button type="button" class="u-btn-flat u-btn-primary" cancelButton></button>
+      <button type="button" class="u-btn-flat u-btn-primary" confirmButton></button>
     </div>
   </div>
 </div>`;
