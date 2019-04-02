@@ -1,17 +1,20 @@
 @import "variables";
+@import "../../mixins";
+@import "../../font";
 
-.switch {
+.u-switch {
   display: inline-flex;
   align-items: center;
   margin-bottom: 0;
+  font-family: $u-font-family-base;
   cursor: pointer;
 
   @include hide-native-input;
 
-  .selection-control {
+  .u-selection-control {
     position: relative;
-    width: $switch-width;
-    height: $switch-height;
+    width: $u-switch-width;
+    height: $u-switch-height;
 
     &::before {
       position: absolute;
@@ -21,17 +24,17 @@
       height: 100%;
       content: "";
       background: currentColor;
-      border-radius: $switch-border-radius;
+      border-radius: $u-switch-border-radius;
       opacity: .2;
       transition: background 300ms;
     }
   }
 
-  .selection-control-label {
-    margin-left: $switch-label-margin;
+  .u-selection-control-label {
+    margin-left: $u-switch-label-margin;
   }
 
-  .check-indicator {
+  .u-check-indicator {
     @include selectable-background-before;
 
     position: absolute;
@@ -39,54 +42,54 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: $switch-click-size;
-    height: $switch-click-size;
+    width: $u-switch-click-size;
+    height: $u-switch-click-size;
     border-radius: 50%;
     transition: transform 300ms;
-    transform: translate3d(-($switch-click-size - $switch-toggle-size) / 2, -50%, 0);
+    transform: translate3d(-($u-switch-click-size - $u-switch-toggle-size) / 2, -50%, 0);
 
     &::after {
-      width: $switch-toggle-size;
-      height: $switch-toggle-size;
+      width: $u-switch-toggle-size;
+      height: $u-switch-toggle-size;
       content: "";
       background: currentColor;
       border-radius: 50%;
-      box-shadow: $switch-toggle-box-shadow;
+      box-shadow: $u-switch-toggle-box-shadow;
       transition: background 300ms;
     }
   }
 
-  &.checked .check-indicator,
-  input:checked ~ .selection-control .check-indicator {
+  &.checked .u-check-indicator,
+  input:checked ~ .u-selection-control .u-check-indicator {
     color: inherit;
-    transform: translate3d($switch-width - $switch-click-size + (($switch-click-size - $switch-toggle-size) / 2), -50%, 0);
+    transform: translate3d($u-switch-width - $u-switch-click-size + (($u-switch-click-size - $u-switch-toggle-size) / 2), -50%, 0);
 
     &::after {
       background: currentColor;
     }
   }
 
-  &.disabled .selection-control,
-  input:disabled ~ .selection-control {
-    opacity: $switch-disabled-opacity;
+  &.disabled .u-selection-control,
+  input:disabled ~ .u-selection-control {
+    opacity: $u-switch-disabled-opacity;
   }
 }
 
 @mixin switch-theme($theme-colors, $dark-theme) {
   $primary-color: map-get($theme-colors, "primary");
-  $switch-toggle-color: $switch-toggle-color-light-theme;
+  $u-switch-toggle-color: $u-switch-toggle-color-light-theme;
 
   @if ($dark-theme) {
-    $switch-toggle-color: $switch-toggle-color-dark-theme;
+    $u-switch-toggle-color: $u-switch-toggle-color-dark-theme;
   }
 
-  .switch {
-    .check-indicator::after {
-      background: $switch-toggle-color;
+  .u-switch {
+    .u-check-indicator::after {
+      background: $u-switch-toggle-color;
     }
 
-    &.checked .selection-control,
-    input:checked ~ .selection-control {
+    &.checked .u-selection-control,
+    input:checked ~ .u-selection-control {
       color: $primary-color;
     }
   }

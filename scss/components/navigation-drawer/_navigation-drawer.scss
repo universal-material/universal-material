@@ -1,18 +1,18 @@
 @import "variables";
 
-.navigation-drawer {
-  .list {
+.u-navigation-drawer {
+  .u-list {
     padding: 0;
   }
 
-  .list-item {
-    min-height: $drawer-list-item-min-height;
-    padding: $drawer-list-item-padding;
-    margin: $drawer-list-item-margin;
-    border-radius: $drawer-list-item-border-radius;
+  .u-list-item {
+    min-height: $u-drawer-list-item-min-height;
+    padding: $u-drawer-list-item-padding;
+    margin: $u-drawer-list-item-margin;
+    border-radius: $u-drawer-list-item-border-radius;
   }
 
-  .divider {
+  .u-divider {
     margin-top: 0;
     margin-bottom: 0;
   }

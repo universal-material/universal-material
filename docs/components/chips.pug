@@ -1,192 +1,192 @@
 extends ../layout
 
 block content
-  h4.headline4.chapter-title Chips
+  h4.u-headline4.chapter-title Chips
 
-  h5.headline5.article-title Simple chip
+  h5.u-headline5.article-title Simple chip
   .example-box
     .example-box-header
-      .chip
-        .chip-label John Doe
-      .chip.chip-primary
-        .chip-label John Doe
-      .chip.chip-secondary
-        .chip-label John Doe
-      .chip.chip-danger
-        .chip-label John Doe
+      .u-chip
+        .u-chip-label John Doe
+      .u-chip.u-chip-primary
+        .u-chip-label John Doe
+      .u-chip.u-chip-secondary
+        .u-chip-label John Doe
+      .u-chip.u-chip-danger
+        .u-chip-label John Doe
 
     pre
       code.html
-        = '<div class="chip">\n'
-        = '  <div class="chip-label">John Doe</div>\n'
+        = '<div class="u-chip">\n'
+        = '  <div class="u-chip-label">John Doe</div>\n'
         = '</div>\n'
-        = '<div class="chip chip-primary">\n'
-        = '  <div class="chip-label">John Doe</div>\n'
+        = '<div class="u-chip u-chip-primary">\n'
+        = '  <div class="u-chip-label">John Doe</div>\n'
         = '</div>\n'
-        = '<div class="chip chip-secondary">\n'
-        = '  <div class="chip-label">John Doe</div>\n'
+        = '<div class="u-chip u-chip-secondary">\n'
+        = '  <div class="u-chip-label">John Doe</div>\n'
         = '</div>\n'
-        = '<div class="chip chip-danger">\n'
-        = '  <div class="chip-label">John Doe</div>\n'
+        = '<div class="u-chip u-chip-danger">\n'
+        = '  <div class="u-chip-label">John Doe</div>\n'
         = '</div>'
 
-  h5.headline5.article-title Chip with text and icon
+  h5.u-headline5.article-title Chip with text and icon
   .example-box
     .example-box-header
-      .chip
-        .chip-avatar
-        .chip-label John Doe
-        .chip-remove
+      .u-chip
+        .u-chip-avatar
+        .u-chip-label John Doe
+        .u-chip-remove
           i.mdi.mdi-close-circle
-      .chip.chip-primary
-        .chip-avatar
-        .chip-label John Doe
-        .chip-remove
+      .u-chip.u-chip-primary
+        .u-chip-avatar
+        .u-chip-label John Doe
+        .u-chip-remove
           i.mdi.mdi-close-circle
-      .chip.chip-secondary
-        .chip-avatar
-        .chip-label John Doe
-        .chip-remove
+      .u-chip.u-chip-secondary
+        .u-chip-avatar
+        .u-chip-label John Doe
+        .u-chip-remove
           i.mdi.mdi-close-circle
-      .chip.chip-danger
-        .chip-avatar
-        .chip-label John Doe
-        .chip-remove
-          i.mdi.mdi-close-circle
-
-    pre
-      code.html
-        = '<div class="chip">\n'
-        = '  <div class="chip-avatar"></div>\n'
-        = '  <div class="chip-label">John Doe</div>\n'
-        = '  <div class="chip-remove"><i class="mdi mdi-close-circle"></i></div>\n'
-        = '</div>\n'
-        = '<div class="chip chip-primary">\n'
-        = '  <div class="chip-avatar"></div>\n'
-        = '  <div class="chip-label">John Doe</div>\n'
-        = '  <div class="chip-remove"><i class="mdi mdi-close-circle"></i></div>\n'
-        = '</div>\n'
-        = '<div class="chip chip-secondary">\n'
-        = '  <div class="chip-avatar"></div>\n'
-        = '  <div class="chip-label">John Doe</div>\n'
-        = '  <div class="chip-remove"><i class="mdi mdi-close-circle"></i></div>\n'
-        = '</div>\n'
-        = '<div class="chip chip-danger">\n'
-        = '  <div class="chip-avatar"></div>\n'
-        = '  <div class="chip-label">John Doe</div>\n'
-        = '  <div class="chip-remove"><i class="mdi mdi-close-circle"></i></div>\n'
-        = '</div>'
-
-  h5.headline5.article-title Outlined chip
-  .example-box
-    .example-box-header
-      .chip.chip-outline
-        .chip-avatar
-        .chip-label John Doe
-        .chip-remove
-          i.mdi.mdi-close-circle
-      .chip.chip-outline.chip-primary
-        .chip-avatar
-        .chip-label John Doe
-        .chip-remove
-          i.mdi.mdi-close-circle
-      .chip.chip-outline.chip-secondary
-        .chip-avatar
-        .chip-label John Doe
-        .chip-remove
-          i.mdi.mdi-close-circle
-      .chip.chip-outline.chip-danger
-        .chip-avatar
-        .chip-label John Doe
-        .chip-remove
+      .u-chip.u-chip-danger
+        .u-chip-avatar
+        .u-chip-label John Doe
+        .u-chip-remove
           i.mdi.mdi-close-circle
 
     pre
       code.html
-        = '<div class="chip chip-outline">\n'
-        = '  <div class="chip-avatar"></div>\n'
-        = '  <div class="chip-label">John Doe</div>\n'
-        = '  <div class="chip-remove"><i class="mdi mdi-close-circle"></i></div>\n'
+        = '<div class="u-chip">\n'
+        = '  <div class="u-chip-avatar"></div>\n'
+        = '  <div class="u-chip-label">John Doe</div>\n'
+        = '  <div class="u-chip-remove"><i class="mdi mdi-close-circle"></i></div>\n'
         = '</div>\n'
-        = '<div class="chip chip-outline chip-primary">\n'
-        = '  <div class="chip-avatar"></div>\n'
-        = '  <div class="chip-label">John Doe</div>\n'
-        = '  <div class="chip-remove"><i class="mdi mdi-close-circle"></i></div>\n'
+        = '<div class="u-chip u-chip-primary">\n'
+        = '  <div class="u-chip-avatar"></div>\n'
+        = '  <div class="u-chip-label">John Doe</div>\n'
+        = '  <div class="u-chip-remove"><i class="mdi mdi-close-circle"></i></div>\n'
         = '</div>\n'
-        = '<div class="chip chip-outline chip-secondary">\n'
-        = '  <div class="chip-avatar"></div>\n'
-        = '  <div class="chip-label">John Doe</div>\n'
-        = '  <div class="chip-remove"><i class="mdi mdi-close-circle"></i></div>\n'
+        = '<div class="u-chip u-chip-secondary">\n'
+        = '  <div class="u-chip-avatar"></div>\n'
+        = '  <div class="u-chip-label">John Doe</div>\n'
+        = '  <div class="u-chip-remove"><i class="mdi mdi-close-circle"></i></div>\n'
         = '</div>\n'
-        = '<div class="chip chip-outline chip-danger">\n'
-        = '  <div class="chip-avatar"></div>\n'
-        = '  <div class="chip-label">John Doe</div>\n'
-        = '  <div class="chip-remove"><i class="mdi mdi-close-circle"></i></div>\n'
+        = '<div class="u-chip u-chip-danger">\n'
+        = '  <div class="u-chip-avatar"></div>\n'
+        = '  <div class="u-chip-label">John Doe</div>\n'
+        = '  <div class="u-chip-remove"><i class="mdi mdi-close-circle"></i></div>\n'
         = '</div>'
 
-  h5.headline5.article-title Selectable chip
+  h5.u-headline5.article-title Outlined chip
   .example-box
     .example-box-header
-      .chip
-        .chip-hover
-        .chip-avatar
-        .chip-label John Doe
-        .chip-remove
+      .u-chip.u-chip-outline
+        .u-chip-avatar
+        .u-chip-label John Doe
+        .u-chip-remove
           i.mdi.mdi-close-circle
-      .chip.chip-outline
-        .chip-hover
-        .chip-avatar
-        .chip-label John Doe
-        .chip-remove
+      .u-chip.u-chip-outline.u-chip-primary
+        .u-chip-avatar
+        .u-chip-label John Doe
+        .u-chip-remove
+          i.mdi.mdi-close-circle
+      .u-chip.u-chip-outline.u-chip-secondary
+        .u-chip-avatar
+        .u-chip-label John Doe
+        .u-chip-remove
+          i.mdi.mdi-close-circle
+      .u-chip.u-chip-outline.u-chip-danger
+        .u-chip-avatar
+        .u-chip-label John Doe
+        .u-chip-remove
           i.mdi.mdi-close-circle
 
     pre
       code.html
-        = '<div class="chip">\n'
-        = '  <div class="chip-hover"></div>\n'
-        = '  <div class="chip-avatar"></div>\n'
-        = '  <div class="chip-label">John Doe</div>\n'
-        = '  <div class="chip-remove"><i class="mdi mdi-close-circle"></i></div>\n'
+        = '<div class="u-chip u-chip-outline">\n'
+        = '  <div class="u-chip-avatar"></div>\n'
+        = '  <div class="u-chip-label">John Doe</div>\n'
+        = '  <div class="u-chip-remove"><i class="mdi mdi-close-circle"></i></div>\n'
         = '</div>\n'
-        = '<div class="chip chip-outline">\n'
-        = '  <div class="chip-hover"></div>\n'
-        = '  <div class="chip-avatar"></div>\n'
-        = '  <div class="chip-label">John Doe</div>\n'
-        = '  <div class="chip-remove"><i class="mdi mdi-close-circle"></i></div>\n'
+        = '<div class="u-chip u-chip-outline u-chip-primary">\n'
+        = '  <div class="u-chip-avatar"></div>\n'
+        = '  <div class="u-chip-label">John Doe</div>\n'
+        = '  <div class="u-chip-remove"><i class="mdi mdi-close-circle"></i></div>\n'
+        = '</div>\n'
+        = '<div class="u-chip u-chip-outline u-chip-secondary">\n'
+        = '  <div class="u-chip-avatar"></div>\n'
+        = '  <div class="u-chip-label">John Doe</div>\n'
+        = '  <div class="u-chip-remove"><i class="mdi mdi-close-circle"></i></div>\n'
+        = '</div>\n'
+        = '<div class="u-chip u-chip-outline u-chip-danger">\n'
+        = '  <div class="u-chip-avatar"></div>\n'
+        = '  <div class="u-chip-label">John Doe</div>\n'
+        = '  <div class="u-chip-remove"><i class="mdi mdi-close-circle"></i></div>\n'
         = '</div>'
 
-  h5.headline5.article-title Chip in input
+  h5.u-headline5.article-title Selectable chip
+  .example-box
+    .example-box-header
+      .u-chip
+        .u-chip-hover
+        .u-chip-avatar
+        .u-chip-label John Doe
+        .u-chip-remove
+          i.mdi.mdi-close-circle
+      .u-chip.u-chip-outline
+        .u-chip-hover
+        .u-chip-avatar
+        .u-chip-label John Doe
+        .u-chip-remove
+          i.mdi.mdi-close-circle
+
+    pre
+      code.html
+        = '<div class="u-chip">\n'
+        = '  <div class="u-chip-hover"></div>\n'
+        = '  <div class="u-chip-avatar"></div>\n'
+        = '  <div class="u-chip-label">John Doe</div>\n'
+        = '  <div class="u-chip-remove"><i class="mdi mdi-close-circle"></i></div>\n'
+        = '</div>\n'
+        = '<div class="u-chip u-chip-outline">\n'
+        = '  <div class="u-chip-hover"></div>\n'
+        = '  <div class="u-chip-avatar"></div>\n'
+        = '  <div class="u-chip-label">John Doe</div>\n'
+        = '  <div class="u-chip-remove"><i class="mdi mdi-close-circle"></i></div>\n'
+        = '</div>'
+
+  h5.u-headline5.article-title Chip in input
   .example-box
     .example-box-header
       .u-text-field
         .u-text-input-group
-          .u-text-input.chip-input
-            .chip
-              .chip-avatar
-              .chip-label Juan
-              .chip-remove
+          .u-text-input.u-chip-input
+            .u-chip
+              .u-chip-avatar
+              .u-chip-label Juan
+              .u-chip-remove
                 i.mdi.mdi-close-circle
-            .chip
-              .chip-avatar
-              .chip-label John Doe
-              .chip-remove
+            .u-chip
+              .u-chip-avatar
+              .u-chip-label John Doe
+              .u-chip-remove
                 i.mdi.mdi-close-circle
             input
         label To:
     pre
       code.html
-        | &lt;div class=&quot;text-field&quot;&gt;
-        |   &lt;div class=&quot;text-input-group&quot;&gt;
-        |     &lt;div class=&quot;text-input chip-input&quot;&gt;
-        |       &lt;div class=&quot;chip&quot;&gt;
-        |         &lt;div class=&quot;chip-avatar&quot;&gt;&lt;/div&gt;
-        |         &lt;div class=&quot;chip-label&quot;&gt;Juan&lt;/div&gt;
-        |         &lt;div class=&quot;chip-remove&quot;&gt;&lt;i class=&quot;mdi mdi-close-circle&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+        | &lt;div class=&quot;u-text-field&quot;&gt;
+        |   &lt;div class=&quot;u-text-input-group&quot;&gt;
+        |     &lt;div class=&quot;u-text-input u-chip-input&quot;&gt;
+        |       &lt;div class=&quot;u-chip&quot;&gt;
+        |         &lt;div class=&quot;u-chip-avatar&quot;&gt;&lt;/div&gt;
+        |         &lt;div class=&quot;u-chip-label&quot;&gt;Juan&lt;/div&gt;
+        |         &lt;div class=&quot;u-chip-remove&quot;&gt;&lt;i class=&quot;mdi mdi-close-circle&quot;&gt;&lt;/i&gt;&lt;/div&gt;
         |       &lt;/div&gt;
-        |       &lt;div class=&quot;chip&quot;&gt;
-        |         &lt;div class=&quot;chip-avatar&quot;&gt;&lt;/div&gt;
-        |         &lt;div class=&quot;chip-label&quot;&gt;John Doe&lt;/div&gt;
-        |         &lt;div class=&quot;chip-remove&quot;&gt;&lt;i class=&quot;mdi mdi-close-circle&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+        |       &lt;div class=&quot;u-chip&quot;&gt;
+        |         &lt;div class=&quot;u-chip-avatar&quot;&gt;&lt;/div&gt;
+        |         &lt;div class=&quot;u-chip-label&quot;&gt;John Doe&lt;/div&gt;
+        |         &lt;div class=&quot;u-chip-remove&quot;&gt;&lt;i class=&quot;mdi mdi-close-circle&quot;&gt;&lt;/i&gt;&lt;/div&gt;
         |       &lt;/div&gt;
         |       &lt;input/&gt;
         |     &lt;/div&gt;

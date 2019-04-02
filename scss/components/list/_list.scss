@@ -1,47 +1,56 @@
 @import "variables";
+@import "../../divider";
+@import "../../font";
+@import "../../mixins";
 
-.list {
-  padding-top: $list-vertical-margin;
-  padding-bottom: $list-vertical-margin;
+.u-list {
+  padding-top: $u-list-vertical-margin;
+  padding-bottom: $u-list-vertical-margin;
   margin: 0;
+  font-family: $u-font-family-base;
 
-  &.list-item-dividers {
-    .list-item {
+  &,
+  & * {
+    box-sizing: border-box;
+  }
+
+  &.u-list-item-dividers {
+    .u-list-item {
       position: relative;
 
-      & + .list-item::after {
+      & + .u-list-item::after {
         position: absolute;
-        top: -$list-divider-height;
+        top: -$u-list-divider-height;
         right: 0;
         left: 0;
-        height: $list-divider-height;
+        height: $u-list-divider-height;
         content: "";
         background: rgba(0, 0, 0, .2);
       }
     }
   }
 
-  &.list-hover {
-    .list-item {
+  &.u-list-hover {
+    .u-list-item {
       @include selectable-background-before();
     }
   }
 }
 
-.list-divider {
-  @extend .divider;
-  margin-top: $list-vertical-margin;
-  margin-bottom: $list-vertical-margin;
+.u-list-divider {
+  @extend %divider;
+  margin-top: $u-list-vertical-margin;
+  margin-bottom: $u-list-vertical-margin;
 }
 
-.list-item {
+.u-list-item {
   position: relative;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
-  min-height: $list-item-min-height;
-  padding: $list-item-padding;
+  min-height: $u-list-item-min-height;
+  padding: $u-list-item-padding;
   text-decoration: none;
 
   &:hover,
@@ -51,90 +60,90 @@
     outline: 0;
   }
 
-  &.list-item-two-lines,
-  &.list-item-three-lines,
-  &.list-item-dynamic {
-    .list-item-primary-content {
+  &.u-list-item-two-lines,
+  &.u-list-item-three-lines,
+  &.u-list-item-dynamic {
+    .u-list-item-primary-content {
       display: block;
-      line-height: $list-item-multi-line-line-height;
+      line-height: $u-list-item-multi-line-line-height;
     }
   }
 
-  &.list-item-three-lines,
-  &.list-item-dynamic {
-    .list-item-icon,
-    .list-item-avatar,
-    .list-item-secondary-content {
+  &.u-list-item-three-lines,
+  &.u-list-item-dynamic {
+    .u-list-item-icon,
+    .u-list-item-avatar,
+    .u-list-item-secondary-content {
       align-self: baseline;
     }
   }
 }
 
-.list-item-icon,
-.list-item-avatar {
+.u-list-item-icon,
+.u-list-item-avatar {
   position: relative;
-  font-size: $list-icon-size;
+  font-size: $u-list-icon-size;
 }
 
-.list-item-avatar {
-  @include size($list-avatar-size);
+.u-list-item-avatar {
+  @include size($u-list-avatar-size);
 
-  min-width: $list-avatar-size;
-  line-height: $list-avatar-size;
+  min-width: $u-list-avatar-size;
+  line-height: $u-list-avatar-size;
   border-radius: 50%;
 }
 
-.list-item-icon {
-  width: $list-icon-size;
-  min-width: $list-icon-size;
-  line-height: $list-item-font-size;
+.u-list-item-icon {
+  width: $u-list-icon-size;
+  min-width: $u-list-icon-size;
+  line-height: $u-list-item-font-size;
 }
 //
-//.list-item-icon.u-btn-borderless {
+//.u-list-item-icon.u-btn-borderless {
 //  width: $btn-borderless-size;
-//  margin-top: -$list-item-padding / 2;
-//  margin-bottom: -$list-item-padding / 2;
+//  margin-top: -$u-list-item-padding / 2;
+//  margin-bottom: -$u-list-item-padding / 2;
 //}
 
-.list-item-icon + .list-item-primary-content {
-  margin-left: $list-icon-avatar-text-left-distance - $list-icon-size - $list-item-padding;
+.u-list-item-icon + .u-list-item-primary-content {
+  margin-left: $u-list-icon-avatar-text-left-distance - $u-list-icon-size - $u-list-item-padding;
 }
 
-.list-item-avatar + .list-item-primary-content {
-  margin-left: $list-icon-avatar-text-left-distance - $list-avatar-size - $list-item-padding;
+.u-list-item-avatar + .u-list-item-primary-content {
+  margin-left: $u-list-icon-avatar-text-left-distance - $u-list-avatar-size - $u-list-item-padding;
 }
 
-.list-item-primary-content ~ .list-item-icon {
-  margin-left: $list-item-padding;
+.u-list-item-primary-content ~ .u-list-item-icon {
+  margin-left: $u-list-item-padding;
 }
 
-.list-item-primary-content ~ .list-item-icon.u-btn-borderless {
-  margin-right: -$list-item-padding / 2;
-  margin-left: $list-item-padding / 2;
+.u-list-item-primary-content ~ .u-list-item-icon.u-btn-borderless {
+  margin-right: -$u-list-item-padding / 2;
+  margin-left: $u-list-item-padding / 2;
 }
 
-.list-item-primary-content {
+.u-list-item-primary-content {
   display: flex;
   flex-grow: 1;
   align-items: center;
-  font-size: $list-item-font-size;
+  font-size: $u-list-item-font-size;
   font-weight: $font-regular;
-  line-height: $list-item-font-size;
+  line-height: $u-list-item-font-size;
 
   .secondary-text {
     font-size: .875rem;
   }
 }
 
-.list-item-secondary-content {
-  margin-left: $list-item-padding;
+.u-list-item-secondary-content {
+  margin-left: $u-list-item-padding;
 
-  .list-item-icon {
+  .u-list-item-icon {
     text-align: center;
   }
 }
 
-.list-item-hover {
+.u-list-item-hover {
   @include selectable-background-before();
 
   position: absolute;
@@ -144,85 +153,85 @@
   left: 0;
 }
 
-.list-group {
+.u-list-group {
   display: flex;
 }
 
-.list-group-items {
+.u-list-group-items {
   flex-grow: 1;
   overflow: hidden;
 }
 
-.list-index {
+.u-list-index {
   position: sticky;
   top: 0;
   display: flex;
   align-items: center;
-  width: $list-index-width;
-  min-width: $list-index-width;
-  height: $list-item-min-height;
-  padding: $list-item-padding;
-  font-size: $list-index-font-size;
+  width: $u-list-index-width;
+  min-width: $u-list-index-width;
+  height: $u-list-item-min-height;
+  padding: $u-list-item-padding;
+  font-size: $u-list-index-font-size;
   font-weight: $font-medium;
 }
 
 .dense-layout {
-  .list {
-    padding-top: $list-dense-vertical-padding;
-    padding-bottom: $list-dense-vertical-padding;
+  .u-list {
+    padding-top: $u-list-dense-vertical-padding;
+    padding-bottom: $u-list-dense-vertical-padding;
   }
 
-  .list-item {
-    min-height: $list-item-dense-min-height;
-    padding-top: $list-item-dense-padding;
-    padding-bottom: $list-item-dense-padding;
+  .u-list-item {
+    min-height: $u-list-item-dense-min-height;
+    padding-top: $u-list-item-dense-padding;
+    padding-bottom: $u-list-item-dense-padding;
   }
 
-  .list-item-primary-content {
-    font-size: $list-item-dense-font-size;
+  .u-list-item-primary-content {
+    font-size: $u-list-item-dense-font-size;
   }
 
-  .list-item-icon {
-    font-size: $list-dense-icon-size;
+  .u-list-item-icon {
+    font-size: $u-list-dense-icon-size;
   }
 
-  .list-item-icon.u-btn-borderless {
-    width: $btn-dense-size;
+  .u-list-item-icon.u-btn-borderless {
+    width: $u-btn-dense-size;
   }
 
-  .list-item-primary-content,
-  .list-item-icon {
-    line-height: $list-item-dense-font-size;
+  .u-list-item-primary-content,
+  .u-list-item-icon {
+    line-height: $u-list-item-dense-font-size;
   }
 
-  .list-index {
-    font-size: $list-index-dense-font-size;
+  .u-list-index {
+    font-size: $u-list-index-dense-font-size;
   }
 }
 
 .rtl,
 [dir="rtl"] {
-  .list-item-icon + .list-item-primary-content {
-    margin-right: $list-icon-avatar-text-left-distance - $list-icon-size - $list-item-padding;
+  .u-list-item-icon + .u-list-item-primary-content {
+    margin-right: $u-list-icon-avatar-text-left-distance - $u-list-icon-size - $u-list-item-padding;
     margin-left: 0;
   }
 
-  .list-item-avatar + .list-item-primary-content {
-    margin-right: $list-icon-avatar-text-left-distance - $list-avatar-size - $list-item-padding;
+  .u-list-item-avatar + .u-list-item-primary-content {
+    margin-right: $u-list-icon-avatar-text-left-distance - $u-list-avatar-size - $u-list-item-padding;
     margin-left: 0;
   }
 }
 
 @mixin list-theme($dark-theme) {
-  $color: $list-item-color-light-theme;
-  $icon-color: $list-icon-color-light-theme;
+  $color: $u-list-item-color-light-theme;
+  $icon-color: $u-list-icon-color-light-theme;
 
   @if ($dark-theme) {
-    $color: $list-item-color-dark-theme;
-    $icon-color: $list-icon-color-dark-theme;
+    $color: $u-list-item-color-dark-theme;
+    $icon-color: $u-list-icon-color-dark-theme;
   }
 
-  .list-item {
+  .u-list-item {
     color: $color;
 
     @include hover-focus {
@@ -230,12 +239,12 @@
     }
   }
 
-  .list-item-icon,
-  .list-item-avatar {
+  .u-list-item-icon,
+  .u-list-item-avatar {
     color: $icon-color;
   }
 
-  .list-index {
+  .u-list-index {
     color: $icon-color;
   }
 }

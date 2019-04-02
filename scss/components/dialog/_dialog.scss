@@ -1,17 +1,22 @@
 @import "variables";
+@import "../../animations";
+@import "../../divider";
+@import "../../zindex";
+@import "../../typography/variables";
+@import "../../mixins";
 @import "uwp-dialog";
 
-// .dialog-open      - body class for killing the scroll
-// .dialog           - container to scroll within
-// .dialog-dialog    - positioning shell for the actual dialog
-// .dialog-content   - actual dialog w/ bg and corners and stuff
+// .u-dialog-open      - body class for killing the scroll
+// .u-dialog           - container to scroll within
+// .u-dialog-dialog    - positioning shell for the actual dialog
+// .u-dialog-content   - actual dialog w/ bg and corners and stuff
 
 // Kill the scroll on the body
-.dialog-open {
+.u-dialog-open {
   overflow: hidden;
 }
 
-.dialog-content {
+.u-dialog-content {
   display: flex;
   flex-direction: column;
   min-width: $dialog-min-width;
@@ -23,7 +28,7 @@
   transform: scale3d(0, 0, 1);
 }
 
-.dialog {
+.u-dialog {
   position: fixed;
   top: 0;
   left: 0;
@@ -36,6 +41,7 @@
   height: 100%;
   padding: $dialog-padding;
   overflow: hidden;
+  font-family: $u-font-family-base;
   // Prevent Chrome on Windows from adding a focus outline. For details, see
   // https://github.com/twbs/bootstrap/pull/10951.
   pointer-events: none;
@@ -45,11 +51,11 @@
   // See also https://github.com/twbs/bootstrap/issues/17695
 
   // When fading in the dialog, animate it to slide down
-  //&.fade .dialog-dialog {
+  //&.fade .u-dialog-dialog {
   //  transition: $dialog-transition;
   //  transform: translate(0, -25%);
   //}
-  //&.show .dialog-dialog { transform: translate(0, 0); }
+  //&.show .u-dialog-dialog { transform: translate(0, 0); }
   opacity: 0;
 
   &.show {
@@ -57,7 +63,7 @@
     opacity: 1;
     animation: fade-in 250ms;
 
-    .dialog-content {
+    .u-dialog-content {
       transform: scale3d(1, 1, 1);
       animation: zoom-in 250ms $awesome-cubic-bezier;
     }
@@ -66,13 +72,13 @@
   &.hide {
     animation: fade-out 150ms;
 
-    .dialog-content {
+    .u-dialog-content {
       transform: scale3d(1, 1, 1);
     }
   }
 }
 
-.dialog-backdrop {
+.u-dialog-backdrop {
   position: fixed;
   top: 0;
   right: 0;
@@ -89,7 +95,7 @@
   //&.show { opacity: $dialog-backdrop-opacity; }
 }
 
-.dialog-body {
+.u-dialog-body {
   @include umd-typography(body1);
   position: relative;
   padding: $dialog-padding;
@@ -97,8 +103,8 @@
   overflow-y: auto;
 }
 
-.dialog-body-top-divider .dialog-title::before {
-  @include divider;
+.u-dialog-body-top-divider .u-dialog-title::before {
+  @extend %divider;
   position: absolute;
   bottom: $dialog-padding - $dialog-title-body-distance;
   left: 0;
@@ -106,8 +112,8 @@
   content: "";
 }
 
-.dialog-body-bottom-divider .dialog-actions::before {
-  @include divider;
+.u-dialog-body-bottom-divider .u-dialog-actions::before {
+  @extend %divider;
   position: absolute;
   top: 0;
   left: 0;
@@ -115,18 +121,18 @@
   content: "";
 }
 
-.dialog-title {
+.u-dialog-title {
   @include umd-typography(headline6);
   position: relative;
   padding: $dialog-padding;
 
-  & + .dialog-body {
+  & + .u-dialog-body {
     padding-top: 0;
     margin-top: $dialog-title-body-distance - $dialog-padding;
   }
 }
 
-.dialog-actions {
+.u-dialog-actions {
   position: relative;
   display: flex;
   flex-shrink: 0;
@@ -138,8 +144,8 @@
   }
 }
 
-.dialog-progress {
-  .dialog-body {
+.u-dialog-progress {
+  .u-dialog-body {
     display: flex;
     align-items: center;
   }
@@ -147,17 +153,17 @@
   .preloader-wrapper {
     flex-shrink: 0;
   }
-  //.dialog-content {
+  //.u-dialog-content {
   //  width: auto;
   //}
 
-  .dialog-progress-message {
+  .u-dialog-progress-message {
     margin-left: $dialog-progress-margin;
   }
 }
 
 @include media-breakpoint-up(md) {
-  .dialog-content {
+  .u-dialog-content {
     max-width: $dialog-desktop-max-width;
   }
 }
@@ -205,11 +211,11 @@
     $color: $text-low-contrast-dark-theme;
   }
 
-  .dialog-content {
+  .u-dialog-content {
     background-color: $background-color;
   }
 
-  .dialog-body {
+  .u-dialog-body {
     color: $color;
   }
 

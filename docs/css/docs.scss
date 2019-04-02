@@ -6,7 +6,7 @@
   border-right: 1px solid rgba(0, 0, 0, .12);
 }
 
-.u-drawer .toolbar {
+.u-drawer .u-toolbar {
   border-bottom: 1px solid rgba(0, 0, 0, .12);
 }
 
@@ -17,16 +17,16 @@
   overflow: auto;
   background: $gray-300;
 
-  .toolbar {
+  .u-toolbar {
     background: $gray-300;
   }
 
 
-  .floating-action-area {
+  .u-floating-action-area {
     position: static;
   }
 
-  .floating-menu {
+  .u-floating-menu {
     position: relative;
     margin-top: 200px;
   }
@@ -43,7 +43,7 @@
   overflow: auto;
 }
 
-.example-box .chip-avatar {
+.example-box .u-chip-avatar {
   background: rgba(0, 0, 0, .54);
 }
 
@@ -59,7 +59,7 @@
 
   }
 
-  .toolbar {
+  .u-toolbar {
     background-color: #fff;
   }
 }

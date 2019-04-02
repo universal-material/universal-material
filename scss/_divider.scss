@@ -1,0 +1,10 @@
+@import "colors";
+
+$u-divider-height: .0625rem !default;
+$u-divider-color: $base-semi-transparent-color !default;
+
+%divider {
+  width: 100%;
+  height: $u-divider-height;
+  background-color: $u-divider-color;
+}

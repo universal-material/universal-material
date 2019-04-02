@@ -35,7 +35,7 @@ export abstract class QuickDialog<T extends QuickDialogConfig> {
     const dialogContainer = document.createElement('div');
     dialogContainer.innerHTML = this._template;
 
-    const dialogElement = dialogContainer.querySelector<HTMLElement>('.dialog');
+    const dialogElement = dialogContainer.querySelector<HTMLElement>('.u-dialog');
     this._configureDialog(dialogElement);
 
     document.body.appendChild(dialogContainer);
@@ -56,7 +56,7 @@ export abstract class QuickDialog<T extends QuickDialogConfig> {
 
     if (this._config.closeOnBackdropClick) {
       dialogElement
-        .querySelector('.dialog-backdrop')
+        .querySelector('.u-dialog-backdrop')
         .addEventListener('click', () => this._innerDialog.close(), true);
     }
   }

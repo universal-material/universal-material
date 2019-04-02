@@ -22,8 +22,8 @@ const confirmDialogTemplate = `
     <div class="dialog-title"></div>
     <div class="dialog-body"></div>
     <div class="dialog-actions">
-      <button type="button" class="btn-flat btn-primary" cancelButton></button>
-      <button type="button" class="btn-flat btn-primary" confirmButton></button>
+      <button type="button" class="u-btn-flat btn-primary" cancelButton></button>
+      <button type="button" class="u-btn-flat btn-primary" confirmButton></button>
     </div>
   </div>
 </div>`;
@@ -43,14 +43,14 @@ export class ConfirmDialog extends QuickDialog<ConfirmDialogConfig> {
   }
 
   protected  _configureDialog(dialogElement: HTMLElement): void {
-    const titleElement = dialogElement.querySelector<HTMLElement>('.dialog-title');
+    const titleElement = dialogElement.querySelector<HTMLElement>('.u-dialog-title');
 
     if (this._config.title) {
       titleElement.innerText = this._config.title;
     } else {
       titleElement.parentNode.removeChild(titleElement);
     }
-    dialogElement.querySelector<HTMLElement>('.dialog-body').innerText = this._config['_message'];
+    dialogElement.querySelector<HTMLElement>('.u-dialog-body').innerText = this._config['_message'];
 
     const confirmButton = dialogElement.querySelector<HTMLElement>('[confirmButton]');
     const cancelButton = dialogElement.querySelector<HTMLElement>('[cancelButton]');

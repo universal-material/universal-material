@@ -1,0 +1,32 @@
+$enable-grid-classes:       true !default;
+$grid-columns:                12 !default;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
+
+//Margin and guttters
+$margin-gutter-8dp: .5rem !default;
+$margin-gutter-16dp: 1rem !default;
+$margin-gutter-24dp: 1.5rem !default;
+$margin-gutter-40dp: 2.5rem !default;
+$margin-gutter-default: $margin-gutter-16dp !default;
+
+$margins-and-gutters: (
+  default: $margin-gutter-default,
+  none: 0,
+  8: $margin-gutter-8dp,
+  16: $margin-gutter-16dp,
+  24: $margin-gutter-24dp,
+  40: $margin-gutter-40dp) !default;
+
+// Grid columns
+//
+// Set the number of columns and specify the width of the gutters.
+
+$grid-gutter-width: $margin-gutter-default !default;
+

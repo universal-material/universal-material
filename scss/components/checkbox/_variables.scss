@@ -1,14 +1,16 @@
-$checkbox-label-margin: .25rem !default;
-$checkbox-click-size: 2.5rem !default;
-$checkbox-disabled-opacity: .47 !default;
+@import "../../colors";
 
-$checkbox-border-width: .125rem !default;
-$checkbox-border: $checkbox-border-width solid currentColor !default;
-$checkbox-color-light-theme: rgba(0, 0, 0, .54) !default;
-$checkbox-color-dark-theme: rgba(255, 255, 255, .7) !default;
-$checkbox-mark-color-light-theme: $bg-light !default;
-$checkbox-mark-color-dark-theme: $bg-dark !default;
+$u-checkbox-label-margin: .25rem !default;
+$u-checkbox-click-size: 2.5rem !default;
+$u-checkbox-disabled-opacity: .47 !default;
 
-$checkbox-border-radius: .125rem !default;
-$checkbox-size: 1rem !default;
-$check-animation-step-duration: 175ms !default;
+$u-checkbox-border-width: .125rem !default;
+$u-checkbox-border: $u-checkbox-border-width solid currentColor !default;
+$u-checkbox-color-light-theme: rgba(0, 0, 0, .54) !default;
+$u-checkbox-color-dark-theme: rgba(255, 255, 255, .7) !default;
+$u-checkbox-mark-color-light-theme: $bg-light !default;
+$u-checkbox-mark-color-dark-theme: $bg-dark !default;
+
+$u-checkbox-border-radius: .125rem !default;
+$u-checkbox-size: 1rem !default;
+$u-checkbox-animation-step-duration: 175ms !default;

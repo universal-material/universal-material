@@ -1,18 +1,18 @@
 extends ../layout
 
 block content
-  h4.headline4.chapter-title Tabs
+  h4.u-headline4.chapter-title Tabs
 
-  h5.headline5.article-title Button colors
+  h5.u-headline5.article-title Button colors
   .example-box
     .example-box-header
-      .toolbar.example-toolbar
-        .toolbar-row
-          .toolbar-navigation.u-btn-borderless.u-btn-default
+      .u-toolbar.example-toolbar
+        .u-toolbar-row
+          .u-toolbar-navigation.u-btn-borderless.u-btn-default
             i.u-btn-icon.mdi.mdi-menu
 
-          .toolbar-title Page title
-          .toolbar-actions
+          .u-toolbar-title Page title
+          .u-toolbar-actions
             .u-btn-borderless.u-btn-default
               i.u-btn-icon.mdi.mdi-magnify
 
@@ -21,25 +21,25 @@ block content
 
             .u-btn-borderless.u-btn-default
               i.u-btn-icon.mdi.mdi-dots-vertical
-        .tab-bar.toolbar-icon-padding
-          .tab.active
-            .tab-content
-              .tab-text Item one
-          .tab
-            .tab-content
-              .tab-text Item two
-          .tab
-            .tab-content
-              .tab-text Item three
-          .tab
-            .tab-content
-              .tab-text Item four Item four Item four
-          .tab-indicator
+        .u-tab-bar.u-toolbar-icon-padding
+          .u-tab.active
+            .u-tab-content
+              .u-tab-text Item one
+          .u-tab
+            .u-tab-content
+              .u-tab-text Item two
+          .u-tab
+            .u-tab-content
+              .u-tab-text Item three
+          .u-tab
+            .u-tab-content
+              .u-tab-text Item four Item four Item four
+          .u-tab-indicator
 
     pre
       code.html
-        = '<button class="btn-solid btn-default">Default</button>\n'
-        = '<button class="btn-solid btn-primary">Primary</button>\n'
-        = '<button class="btn-solid btn-secondary">Secondary</button>\n'
-        = '<button class="btn-solid btn-danger">Danger</button>\n'
-        = '<button class="btn-solid btn-primary" disabled>Disabled</button>'
+        = '<button class="u-btn-solid u-btn-default">Default</button>\n'
+        = '<button class="u-btn-solid u-btn-primary">Primary</button>\n'
+        = '<button class="u-btn-solid u-btn-secondary">Secondary</button>\n'
+        = '<button class="u-btn-solid u-btn-danger">Danger</button>\n'
+        = '<button class="u-btn-solid u-btn-primary" disabled>Disabled</button>'

@@ -1,11 +1,13 @@
 @import "variables";
+@import "../../divider";
+@import "../../font";
 
-.step-indicator {
+.u-step-indicator {
   display: flex;
   align-items: center;
 }
 
-.step-circle {
+.u-step-circle {
   width: $step-circle-size;
   height: $step-circle-size;
   font-size: $step-number-font-size;
@@ -16,51 +18,51 @@
   border-radius: 50%;
 }
 
-.step-label {
+.u-step-label {
   font-weight: $step-label-font-weight;
   line-height: $step-circle-size;
 }
 
-.step-content {
+.u-step-content {
   display: flex;
   flex-direction: column;
 }
 
-.step {
+.u-step {
   display: flex;
 
   &.active {
-    .step-label {
+    .u-step-label {
       font-weight: $active-step-weight;
     }
   }
 
   &:not(.active) {
-    .step-label {
+    .u-step-label {
       opacity: .47;
     }
   }
 
   &.active,
   &.completed {
-    .step-circle {
+    .u-step-circle {
       color: $step-circle-active-text-color;
       background: $step-circle-active-background;
     }
   }
 
   &.disabled {
-    .step-label {
+    .u-step-label {
       color: $step-label-disabled-color;
     }
   }
 
-  .step-content {
+  .u-step-content {
     flex-grow: 1;
   }
 }
 
-.step-actions {
+.u-step-actions {
   display: flex;
   align-items: center;
   height: $step-actions-height;
@@ -71,29 +73,30 @@
   }
 }
 
-.step-line {
+.u-step-line {
   flex-grow: 1;
-  background: $divider-color;
+  background: $u-divider-color;
 }
 
-.stepper {
+.u-stepper {
   display: flex;
   padding: $stepper-padding;
+  font-family: $u-font-family-base;
 }
 
 .horizontal-stepper {
 
   align-items: center;
 
-  .step {
+  .u-step {
     flex-shrink: 0;
   }
 
-  .step-indicator {
+  .u-step-indicator {
     margin-right: $step-content-margin;
   }
 
-  .step-line {
+  .u-step-line {
     flex: 1;
     height: $step-line-size;
     margin-right: $step-line-margin;
@@ -104,27 +107,27 @@
 .vertical-stepper {
   flex-direction: column;
 
-  .step:last-child .step-content {
+  .u-step:last-child .u-step-content {
     padding-bottom: 0;
   }
 
-  .step-indicator {
+  .u-step-indicator {
     flex-direction: column;
   }
 
-  .step-line {
+  .u-step-line {
     width: $step-line-size;
     margin-top: $step-line-margin;
     margin-bottom: $step-line-margin;
   }
 
-  .step-content {
+  .u-step-content {
     padding-bottom: $vertical-step-space;
     margin-right: $stepper-padding;
     margin-left: $step-content-margin;
   }
 
-  .step-label {
+  .u-step-label {
     margin-bottom: $step-label-margin;
   }
 }

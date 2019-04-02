@@ -44,7 +44,7 @@
   }
 }
 
-//.u-btn-group > .u-btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+//.u-btn-group > .u-btn:not(:first-child):not(:last-child):not(.u-dropdown-toggle) {
 //  border-radius: 0;
 //}
 
@@ -52,13 +52,13 @@
 //.u-btn-group > .u-btn:first-child {
 //  margin-left: 0;
 //
-//  &:not(:last-child):not(.dropdown-toggle) {
+//  &:not(:last-child):not(.u-dropdown-toggle) {
 //    @include border-right-radius(0);
 //  }
 //}
-// Need .dropdown-toggle since :last-child doesn't apply given a .dropdown-menu immediately after it
+// Need .u-dropdown-toggle since :last-child doesn't apply given a .u-dropdown-menu immediately after it
 //.u-btn-group > .u-btn:last-child:not(:first-child),
-//.u-btn-group > .dropdown-toggle:not(:first-child) {
+//.u-btn-group > .u-dropdown-toggle:not(:first-child) {
 //  @include border-left-radius(0);
 //}
 
@@ -71,7 +71,7 @@
 //}
 //.u-btn-group > .u-btn-group:first-child:not(:last-child) {
 //  > .u-btn:last-child,
-//  > .dropdown-toggle {
+//  > .u-dropdown-toggle {
 //    @include border-right-radius(0);
 //  }
 //}
@@ -92,7 +92,7 @@
 // Split button dropdowns
 //
 
-.u-btn + .dropdown-toggle-split {
+.u-btn + .u-dropdown-toggle-split {
   padding-right: $input-btn-padding-x * .75;
   padding-left: $input-btn-padding-x * .75;
 
@@ -101,12 +101,12 @@
   }
 }
 
-//.u-btn-sm + .dropdown-toggle-split {
+//.u-btn-sm + .u-dropdown-toggle-split {
 //  padding-right: $input-btn-padding-x-sm * .75;
 //  padding-left: $input-btn-padding-x-sm * .75;
 //}
 //
-//.u-btn-lg + .dropdown-toggle-split {
+//.u-btn-lg + .u-dropdown-toggle-split {
 //  padding-right: $input-btn-padding-x-lg * .75;
 //  padding-left: $input-btn-padding-x-lg * .75;
 //}
@@ -114,7 +114,7 @@
 
 // The clickable button for toggling the menu
 // Set the same inset shadow as the :active state
-.u-btn-group.show .dropdown-toggle {
+.u-btn-group.show .u-dropdown-toggle {
   //@include box-shadow($btn-active-box-shadow);
 
   // Show no shadow for `.u-btn-link` since it has no other button styles.
@@ -164,7 +164,7 @@
 //}
 //.u-btn-group-vertical > .u-btn-group:first-child:not(:last-child) {
 //  > .u-btn:last-child,
-//  > .dropdown-toggle {
+//  > .u-dropdown-toggle {
 //    @include border-bottom-radius(0);
 //  }
 //}

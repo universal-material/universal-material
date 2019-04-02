@@ -1,9 +1,11 @@
 @import "variables";
+@import "../../font";
 
-.banner {
+.u-banner {
   flex-shrink: 0;
   max-height: 0;
   overflow: hidden;
+  font-family: $u-font-family-base;
   background: #fff;
   transition: max-height 450ms ease-out;
 
@@ -13,30 +15,30 @@
   }
 }
 
-.banner-content {
+.u-banner-content {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
 }
 
-.banner-text {
+.u-banner-text {
   display: inline-block;
-  padding-right: $banner-text-horizontal-padding;
-  padding-left: $banner-text-horizontal-padding;
-  margin-top: $banner-text-margin-top;
-  margin-bottom: $banner-text-margin-bottom;
+  padding-right: $u-banner-text-horizontal-padding;
+  padding-left: $u-banner-text-horizontal-padding;
+  margin-top: $u-banner-text-margin-top;
+  margin-bottom: $u-banner-text-margin-bottom;
   font-size: .875rem;
   font-weight: 500;
 }
 
-.banner-actions {
-  padding: $banner-actions-padding;
+.u-banner-actions {
+  padding: $u-banner-actions-padding;
   margin-left: auto;
 }
 
 .rtl,
 [dir="rtl"] {
-  .banner-actions {
+  .u-banner-actions {
     margin-right: auto;
     margin-left: 0;
   }

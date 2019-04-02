@@ -1,12 +1,14 @@
 @import "variables";
+@import "../../font";
+@import "../../mixins";
 
-.floating-action-area {
+.u-floating-action-area {
   position: fixed;
-  right: $floating-action-area-margin;
-  bottom: $floating-action-area-margin;
+  right: $u-floating-action-area-margin;
+  bottom: $u-floating-action-area-margin;
 }
 
-.floating-menu-toggle {
+.u-floating-menu-toggle {
   transition: opacity 150ms 100ms !important;
 
   .u-btn-icon {
@@ -14,7 +16,7 @@
   }
 }
 
-.floating-menu-items {
+.u-floating-menu-items {
   position: absolute;
   right: 0;
   bottom: 0;
@@ -23,14 +25,14 @@
   pointer-events: none;
 }
 
-.floating-menu-item {
+.u-floating-menu-item {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
   opacity: 0;
 
-  + .floating-menu-item {
+  + .u-floating-menu-item {
     margin-bottom: 1rem;
   }
 
@@ -44,25 +46,26 @@
   }
 }
 
-.floating-menu-label {
+.u-floating-menu-label {
   @include elevate("2dp");
 
   display: flex;
   align-items: center;
-  height: $floating-menu-label-height;
-  padding-right: $floating-menu-label-padding;
-  padding-left: $floating-menu-label-padding;
-  margin-right: $floating-menu-label-margin;
-  border-radius: $floating-menu-label-border-radius;
+  height: $u-floating-menu-label-height;
+  padding-right: $u-floating-menu-label-padding;
+  padding-left: $u-floating-menu-label-padding;
+  margin-right: $u-floating-menu-label-margin;
+  font-family: $u-font-family-base;
+  border-radius: $u-floating-menu-label-border-radius;
 }
 
-.floating-menu-action {
-  width: $btn-floating-size;
+.u-floating-menu-action {
+  width: $u-btn-floating-size;
   text-align: center;
 }
 
-.floating-menu:hover .floating-menu-toggle,
-.floating-menu-toggle:focus {
+.u-floating-menu:hover .u-floating-menu-toggle,
+.u-floating-menu-toggle:focus {
   opacity: 0;
   transition-delay: 0ms;
 
@@ -71,12 +74,12 @@
   }
 }
 
-.floating-menu:hover .floating-menu-items,
-.floating-menu-toggle:focus + .floating-menu-items {
+.u-floating-menu:hover .u-floating-menu-items,
+.u-floating-menu-toggle:focus + .u-floating-menu-items {
   pointer-events: auto;
   opacity: 1;
 
-  .floating-menu-item:nth-child(1) {
+  .u-floating-menu-item:nth-child(1) {
     opacity: 1;
     transition-delay: 100ms;
 
@@ -86,21 +89,21 @@
     }
   }
 
-  .floating-menu-item:not(:nth-child(1)) {
+  .u-floating-menu-item:not(:nth-child(1)) {
     animation: floating-menu-item-appear 250ms;
     animation-fill-mode: forwards;
 
-    .floating-menu-action {
+    .u-floating-menu-action {
       animation: floating-menu-action-appear 250ms;
       animation-fill-mode: forwards;
     }
   }
 
   @for $i from 3 through 10 {
-    .floating-menu-item:nth-child(#{$i}n) {
+    .u-floating-menu-item:nth-child(#{$i}n) {
       animation-delay: #{$i * 25}ms;
 
-      .floating-menu-action {
+      .u-floating-menu-action {
         animation-delay: #{$i * 25}ms;
       }
     }
@@ -129,30 +132,30 @@
 
 .rtl,
 [dir="rtl"] {
-  .floating-action-area {
+  .u-floating-action-area {
     right: auto;
-    left: $floating-action-area-margin;
+    left: $u-floating-action-area-margin;
   }
 
-  .floating-menu-items {
+  .u-floating-menu-items {
     right: auto;
     left: 0;
   }
 
-  .floating-menu-label {
+  .u-floating-menu-label {
     margin-right: 0;
-    margin-left: $floating-menu-label-margin;
+    margin-left: $u-floating-menu-label-margin;
   }
 }
 
 @mixin floating-action-button-theme($dark-theme) {
-  $floating-menu-label-bg: $floating-menu-label-bg-light-theme;
+  $u-floating-menu-label-bg: $u-floating-menu-label-bg-light-theme;
 
   @if ($dark-theme) {
-    $floating-menu-label-bg: $floating-menu-label-bg-dark-theme;
+    $u-floating-menu-label-bg: $u-floating-menu-label-bg-dark-theme;
   }
 
-  .floating-menu-label {
-    background: $floating-menu-label-bg;
+  .u-floating-menu-label {
+    background: $u-floating-menu-label-bg;
   }
 }

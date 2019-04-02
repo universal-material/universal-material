@@ -7,8 +7,8 @@ export class DialogConfig {
 }
 
 const closedEvent = new CustomEvent('closed');
-const dialogBodyTopDividerClassName = 'dialog-body-top-divider';
-const dialogBodyBottomDividerClassName = 'dialog-body-bottom-divider';
+const dialogBodyTopDividerClassName = 'u-dialog-body-top-divider';
+const dialogBodyBottomDividerClassName = 'u-dialog-body-bottom-divider';
 
 export class Dialog {
   private static readonly _animationEvents = ["webkitAnimationEnd", "oanimationend", "msAnimationEnd", "animationend"];
@@ -19,7 +19,7 @@ export class Dialog {
   constructor(private readonly _dialogElement: HTMLElement,
               dialogConfig: DialogConfig) {
     this._dialogConfig = {...DialogConfig.default, ...dialogConfig};
-    this._dialogBodyElement = this._dialogElement.querySelector<HTMLElement>('.dialog-body');
+    this._dialogBodyElement = this._dialogElement.querySelector<HTMLElement>('.u-dialog-body');
 
     if (this._dialogBodyElement) {
       this._setBodyDividers();

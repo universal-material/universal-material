@@ -1,5 +1,5 @@
 @mixin uwp-dialog($theme-colors) {
-  .dialog-content {
+  .u-dialog-content {
     border: $uwp-dialog-border-width solid map-get($theme-colors, "primary");
     border-radius: 0;
   }

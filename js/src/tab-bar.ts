@@ -9,7 +9,7 @@ export class TabBar {
   currentTabIndex: number;
 
   constructor(private readonly _tabBarElement: HTMLElement) {
-    this._tabIndicatorElement = _tabBarElement.querySelector('.tab-indicator');
+    this._tabIndicatorElement = _tabBarElement.querySelector('.u-tab-indicator');
     this._setTabInfoMap();
     this.setActiveTab(0);
 
@@ -59,7 +59,7 @@ export class TabBar {
 
   private _setTabInfoMap() {
 
-    const tabs = this._tabBarElement.querySelectorAll('.tab');
+    const tabs = this._tabBarElement.querySelectorAll('.u-tab');
 
     for (let i = 0; i < tabs.length; i++) {
       const tab = tabs[i] as TabElement;
@@ -76,7 +76,7 @@ export class TabBar {
   }
 
   static initializeTabBars(): void {
-    const tabBars = document.querySelectorAll('.tab-bar');
+    const tabBars = document.querySelectorAll('.u-tab-bar');
     for (let i = 0; i < tabBars.length; i++) {
       const tabBar = tabBars[i] as HTMLElement;
       TabBar.attach(tabBar);

@@ -2,31 +2,31 @@
 @import "../button/buttons";
 @import "uwp-snackbar";
 
-.snackbar {
+.u-snackbar {
   position: fixed;
-  right: $snackbar-margin;
-  bottom: $snackbar-margin;
-  left: $snackbar-margin;
+  right: $u-snackbar-margin;
+  bottom: $u-snackbar-margin;
+  left: $u-snackbar-margin;
   z-index: $zindex-snackbar;
   display: flex;
   align-items: center;
-  min-height: $snackbar-height;
-  font-size: $snackbar-font-size;
-  border-radius: $snackbar-border-radius;
+  min-height: $u-snackbar-height;
+  font-size: $u-snackbar-font-size;
+  border-radius: $u-snackbar-border-radius;
   animation-name: snackbar-fade-in;
   animation-duration: 450ms;
   animation-timing-function: $awesome-cubic-bezier;
   animation-fill-mode: forwards;
 
   .u-btn {
-    margin: $snackbar-btn-margin;
+    margin: $u-snackbar-btn-margin;
   }
 
-  &.snackbar-vertical {
+  &.u-snackbar-vertical {
     flex-direction: column;
     align-items: flex-end;
 
-    .snackbar-text {
+    .u-snackbar-text {
       align-self: flex-start;
     }
   }
@@ -36,27 +36,27 @@
   }
 }
 
-.snackbar-text {
+.u-snackbar-text {
   flex: 1;
-  margin: $snackbar-text-vertical-margin $snackbar-horizontal-padding;
+  margin: $u-snackbar-text-vertical-margin $u-snackbar-horizontal-padding;
   overflow: hidden;
-  font-weight: $snackbar-font-weight;
+  font-weight: $u-snackbar-font-weight;
 }
 
 
 @include media-breakpoint-up(md) {
-  .snackbar {
+  .u-snackbar {
     right: auto;
-    bottom: $snackbar-tabled-margin;
-    left: $snackbar-tabled-margin;
-    min-width: $snackbar-tablet-min-width;
-    max-width: $snackbar-tablet-max-width;
+    bottom: $u-snackbar-tabled-margin;
+    left: $u-snackbar-tabled-margin;
+    min-width: $u-snackbar-tablet-min-width;
+    max-width: $u-snackbar-tablet-max-width;
   }
 
   .rtl,
   [dir="rtl"] {
-    .snackbar {
-      right: $snackbar-tabled-margin;
+    .u-snackbar {
+      right: $u-snackbar-tabled-margin;
       left: auto;
     }
   }
@@ -91,19 +91,19 @@
   $dark-theme: map-get($theme, "dark");
   $uwp-style: map-get($theme, "uwp-style");
 
-  $background-color: $snackbar-background-color-light-theme;
-  $color: $snackbar-text-color-light-theme;
+  $background-color: $u-snackbar-background-color-light-theme;
+  $color: $u-snackbar-text-color-light-theme;
 
   @if ($dark-theme) {
-    $background-color: $snackbar-background-color-dark-theme;
-    $color: $snackbar-text-color-dark-theme;
+    $background-color: $u-snackbar-background-color-dark-theme;
+    $color: $u-snackbar-text-color-dark-theme;
   }
 
-  .snackbar {
+  .u-snackbar {
     background-color: $background-color;
   }
 
-  .snackbar-text {
+  .u-snackbar-text {
     color: $color;
   }
 
@@ -111,7 +111,7 @@
     @include uwp-snackbar($dark-theme);
 
     @if (mixin_exists(uwp-button)) {
-      .snackbar {
+      .u-snackbar {
         @include uwp-button(not $dark-theme);
       }
     }

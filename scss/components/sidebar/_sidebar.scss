@@ -1,3 +1,10 @@
+@import "variables";
+@import "../../animations";
+@import "../../colors";
+@import "../../grid/variables";
+@import "../../zindex";
+@import "../../mixins";
+
 .u-drawer-backdrop {
   position: absolute;
   top: 0;
@@ -122,9 +129,9 @@
   .u-drawer-content {
     background-color: $background-color;
 
-    .list-item.active {
+    .u-list-item.active {
       &,
-      .list-item-icon {
+      .u-list-item-icon {
         color: $primary-color;
       }
 

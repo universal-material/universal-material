@@ -1,20 +1,21 @@
 @import "variables";
 
 .u-form-field {
-  margin-bottom: $form-field-margin;
+  margin-bottom: $u-form-field-margin;
 }
 
 .u-text-field-container {
   display: flex;
   flex-direction: column;
+  font-family: $u-font-family-base;
 }
 
 .u-text-field-helper-text {
   position: relative;
-  margin-top: $text-field-helper-text-margin;
+  margin-top: $u-text-field-helper-text-margin;
   overflow: hidden;
-  font-size: $text-field-helper-text-font-size;
-  line-height: $text-field-helper-text-line-height;
+  font-size: $u-text-field-helper-text-font-size;
+  line-height: $u-text-field-helper-text-line-height;
 }
 
 .u-text-field-helper-text-invalid {
@@ -55,11 +56,11 @@
 .u-text-field-leading-icon,
 .u-text-field-trailing-icon {
   position: absolute;
-  bottom: $text-field-icon-bottom;
+  bottom: $u-text-field-icon-bottom;
   width: 1em;
   height: 1em;
   margin-bottom: -.5em;
-  font-size: $text-field-icon-size;
+  font-size: $u-text-field-icon-size;
   line-height: 1em;
   text-align: center;
 }
@@ -68,7 +69,7 @@
   left: 0;
 
   ~ .u-text-input {
-    padding-left: $text-input-padding + $text-field-icon-size;
+    padding-left: $u-text-input-padding + $u-text-field-icon-size;
   }
 }
 
@@ -76,23 +77,23 @@
   right: 0;
 
   ~ .u-text-input {
-    padding-right: $text-input-padding + $text-field-icon-size;
+    padding-right: $u-text-input-padding + $u-text-field-icon-size;
   }
 }
 
 .u-text-input {
   box-sizing: content-box;
-  padding-top: $text-input-padding;
-  padding-bottom: $text-input-padding - $text-field-border-width;
-  font-size: $text-input-font-size;
-  line-height: $text-input-line-height;
+  padding-top: $u-text-input-padding;
+  padding-bottom: $u-text-input-padding - $u-text-field-border-width;
+  font-size: $u-text-input-font-size;
+  line-height: $u-text-input-line-height;
   background: transparent;
   border: none;
-  border-bottom: $text-input-border;
+  border-bottom: $u-text-input-border;
   border-radius: inherit;
 
   &:not(textarea) {
-    height: $text-input-height;
+    height: $u-text-input-height;
   }
 
   &:focus {
@@ -107,10 +108,10 @@
 
   label {
     align-self: flex-start;
-    height: $text-field-label-height;
-    margin-bottom: $text-field-label-margin;
-    font-size: $text-field-label-font-size;
-    line-height: $text-field-label-line-height;
+    height: $u-text-field-label-height;
+    margin-bottom: $u-text-field-label-margin;
+    font-size: $u-text-field-label-font-size;
+    line-height: $u-text-field-label-line-height;
   }
 
   &::before {
@@ -118,10 +119,10 @@
     right: 0;
     bottom: 0;
     left: 0;
-    height: $text-field-focus-border-width;
+    height: $u-text-field-focus-border-width;
     pointer-events: none;
     content: "";
-    border-bottom: $text-field-focus-border-width solid currentColor;
+    border-bottom: $u-text-field-focus-border-width solid currentColor;
     transition: transform 350ms $awesome-cubic-bezier;
     transform: scale3d(0, 1, 1);
     will-change: transform;
@@ -154,9 +155,9 @@
 
   &.empty:not(.focus) {
     label {
-      font-size: $text-input-font-size;
+      font-size: $u-text-input-font-size;
       pointer-events: none;
-      transform: translate3d(0, ($text-field-label-height / 2) + $text-field-label-margin + ($text-input-height / 2) + $text-input-padding, 0);
+      transform: translate3d(0, ($u-text-field-label-height / 2) + $u-text-field-label-margin + ($u-text-input-height / 2) + $u-text-input-padding, 0);
     }
 
     .u-text-input::placeholder,
@@ -168,29 +169,29 @@
 }
 
 .u-text-field-box {
-  border-radius: $text-field-box-border-radius;
+  border-radius: $u-text-field-box-border-radius;
 
   label {
-    height: $text-field-box-label-height;
-    padding-left: $text-field-box-padding;
+    height: $u-text-field-box-label-height;
+    padding-left: $u-text-field-box-padding;
     margin-bottom: 0;
-    line-height: $text-field-box-label-line-height;
+    line-height: $u-text-field-box-label-line-height;
   }
 
   .u-text-input {
-    padding: $text-field-box-label-height $text-field-box-padding calc(#{$text-field-box-padding} - #{$text-field-border-width});
-    margin-top: -$text-field-box-label-height;
+    padding: $u-text-field-box-label-height $u-text-field-box-padding calc(#{$u-text-field-box-padding} - #{$u-text-field-border-width});
+    margin-top: -$u-text-field-box-label-height;
   }
 
   &.empty:not(.focus) {
     label {
-      transform: translate3d(0, ($text-field-box-height / 2) - (1.75rem / 2), 0) !important;
+      transform: translate3d(0, ($u-text-field-box-height / 2) - (1.75rem / 2), 0) !important;
     }
   }
 
   ~ .u-text-field-helper-text {
-    margin-right: $text-field-box-padding;
-    margin-left: $text-field-box-padding;
+    margin-right: $u-text-field-box-padding;
+    margin-left: $u-text-field-box-padding;
   }
 
   .u-text-field-leading-icon,
@@ -199,56 +200,56 @@
   }
 
   .u-text-field-leading-icon {
-    left: $text-field-icon-margin;
+    left: $u-text-field-icon-margin;
 
     ~ .u-text-input,
     ~ label {
-      padding-left: calc(#{$text-field-icon-margin + $text-field-box-padding} + #{$text-field-icon-size});
+      padding-left: calc(#{$u-text-field-icon-margin + $u-text-field-box-padding} + #{$u-text-field-icon-size});
     }
   }
 
   .u-text-field-trailing-icon {
-    right: $text-field-icon-margin;
+    right: $u-text-field-icon-margin;
 
     ~ .u-text-input,
     ~ label {
-      padding-right: calc(#{$text-field-icon-margin + $text-field-box-padding} + #{$text-field-icon-size});
+      padding-right: calc(#{$u-text-field-icon-margin + $u-text-field-box-padding} + #{$u-text-field-icon-size});
     }
   }
 }
 
 .u-text-field-outline {
   label {
-    height: $text-field-outline-label-height;
-    padding-right: $text-field-outline-label-padding;
-    padding-left: $text-field-outline-label-padding;
+    height: $u-text-field-outline-label-height;
+    padding-right: $u-text-field-outline-label-padding;
+    padding-left: $u-text-field-outline-label-padding;
     margin-bottom: 0;
-    margin-left: $text-field-outline-padding - $text-field-outline-label-padding;
-    line-height: $text-field-outline-label-line-height;
-    transform: translate3d(0, -$text-field-outline-label-height / 2, 0);
+    margin-left: $u-text-field-outline-padding - $u-text-field-outline-label-padding;
+    line-height: $u-text-field-outline-label-line-height;
+    transform: translate3d(0, -$u-text-field-outline-label-height / 2, 0);
   }
 
   .u-text-input {
-    padding: $text-field-outline-label-height $text-field-outline-padding calc(#{$text-field-outline-padding-bottom} - #{$text-field-border-width});
-    margin-top: -$text-field-outline-label-height;
+    padding: $u-text-field-outline-label-height $u-text-field-outline-padding calc(#{$u-text-field-outline-padding-bottom} - #{$u-text-field-border-width});
+    margin-top: -$u-text-field-outline-label-height;
     border-color: transparent !important;
   }
 
   &.empty:not(.focus) {
     label {
-      transform: translate3d(0, ($text-field-outline-height / 2) - ($text-field-outline-label-height / 2), 0) !important;
+      transform: translate3d(0, ($u-text-field-outline-height / 2) - ($u-text-field-outline-label-height / 2), 0) !important;
     }
 
     .u-text-field-leading-icon ~ label {
-      transform: translate3d(calc(#{$text-field-icon-margin} + #{$text-field-icon-size}), ($text-field-outline-height / 2) - ($text-field-outline-label-height / 2), 0) !important;
+      transform: translate3d(calc(#{$u-text-field-icon-margin} + #{$u-text-field-icon-size}), ($u-text-field-outline-height / 2) - ($u-text-field-outline-label-height / 2), 0) !important;
     }
   }
 
   &::before {
     top: 0;
     height: auto;
-    border: $text-field-border-width solid;
-    border-radius: $text-field-outline-border-radius;
+    border: $u-text-field-border-width solid;
+    border-radius: $u-text-field-outline-border-radius;
     transition: none;
     transform: none;
   }
@@ -256,13 +257,13 @@
   &.focus,
   &.invalid {
     &::before {
-      border-width: $text-field-focus-border-width;
+      border-width: $u-text-field-focus-border-width;
     }
   }
 
   ~ .u-text-field-helper-text {
-    margin-right: $text-field-outline-padding;
-    margin-left: $text-field-outline-padding;
+    margin-right: $u-text-field-outline-padding;
+    margin-left: $u-text-field-outline-padding;
   }
 
   .u-text-field-leading-icon,
@@ -271,25 +272,25 @@
   }
 
   .u-text-field-leading-icon {
-    left: $text-field-icon-margin;
+    left: $u-text-field-icon-margin;
 
     ~ .u-text-input {
-      margin-left: calc(#{$text-field-icon-margin} + #{$text-field-icon-size});
+      margin-left: calc(#{$u-text-field-icon-margin} + #{$u-text-field-icon-size});
     }
   }
 
   .u-text-field-trailing-icon {
-    right: $text-field-icon-margin;
+    right: $u-text-field-icon-margin;
 
     ~ .u-text-input,
     ~ label {
-      margin-right: calc(#{$text-field-icon-margin} + #{$text-field-icon-size});
+      margin-right: calc(#{$u-text-field-icon-margin} + #{$u-text-field-icon-size});
     }
   }
 }
 
 .u-search-field {
-  border-radius: $text-field-elevated-border-radius;
+  border-radius: $u-text-field-elevated-border-radius;
 
   &::before {
     content: none;
@@ -301,30 +302,30 @@
   }
 
   .u-text-input {
-    padding: $text-field-elevated-padding;
+    padding: $u-text-field-elevated-padding;
     border: none;
   }
 
   .u-text-field-leading-icon {
-    left: $text-field-icon-margin;
+    left: $u-text-field-icon-margin;
 
     ~ .u-text-input {
-      margin-left: calc(#{$text-field-icon-margin} + #{$text-field-icon-size});
+      margin-left: calc(#{$u-text-field-icon-margin} + #{$u-text-field-icon-size});
     }
   }
 
   .u-text-field-trailing-icon {
-    right: $text-field-icon-margin;
+    right: $u-text-field-icon-margin;
 
     ~ .u-text-input,
     ~ label {
-      margin-right: calc(#{$text-field-icon-margin} + #{$text-field-icon-size});
+      margin-right: calc(#{$u-text-field-icon-margin} + #{$u-text-field-icon-size});
     }
   }
 }
 
 .u-search-field-elevated {
-  box-shadow: $text-field-elevated-box-shadow;
+  box-shadow: $u-text-field-elevated-box-shadow;
 }
 
 .text-area-outline {
@@ -345,44 +346,44 @@
   $primary-color: map-get($theme-colors, "primary");
   $danger-color: map-get($theme-colors, "danger");
 
-  $text-field-label-color: $text-field-label-color-light-theme;
-  $text-field-divider-color: $text-field-divider-color-light-theme;
-  $text-field-divider-color-hover: $text-field-divider-color-hover-light-theme;
-  $text-field-divider-color-disabled: $text-field-divider-color-disabled-light-theme;
-  $text-field-box-background: $text-input-box-bg-light-theme;
-  $text-field-elevated-background: $text-field-elevated-bg-light-theme;
-  $text-input-color: $text-input-color-light-theme;
-  $text-input-placeholder-color: $text-input-placeholder-color-light-theme;
-  $text-input-disabled-color: $text-input-disabled-color-light-theme;
-  $text-input-icon-color: $text-input-icon-color-light-theme;
-  //$text-input-affix-color: $text-input-affix-color-light-theme;
-  $text-field-helper-text-color: $text-field-helper-text-color-light-theme;
-  $text-field-outline-label-background: $bg-light;
+  $u-text-field-label-color: $u-text-field-label-color-light-theme;
+  $u-text-field-divider-color: $u-text-field-divider-color-light-theme;
+  $u-text-field-divider-color-hover: $u-text-field-divider-color-hover-light-theme;
+  $u-text-field-divider-color-disabled: $u-text-field-divider-color-disabled-light-theme;
+  $u-text-field-box-background: $u-text-input-box-bg-light-theme;
+  $u-text-field-elevated-background: $u-text-field-elevated-bg-light-theme;
+  $u-text-input-color: $u-text-input-color-light-theme;
+  $u-text-input-placeholder-color: $u-text-input-placeholder-color-light-theme;
+  $u-text-input-disabled-color: $u-text-input-disabled-color-light-theme;
+  $u-text-input-icon-color: $u-text-input-icon-color-light-theme;
+  //$u-text-input-affix-color: $u-text-input-affix-color-light-theme;
+  $u-text-field-helper-text-color: $u-text-field-helper-text-color-light-theme;
+  $u-text-field-outline-label-background: $bg-light;
 
   @if ($dark-theme) {
-    $text-field-label-color: $text-field-label-color-dark-theme;
-    $text-field-divider-color: $text-field-divider-color-dark-theme;
-    $text-field-divider-color-hover: $text-field-divider-color-hover-dark-theme;
-    $text-field-divider-color-disabled: $text-field-divider-color-disabled-dark-theme;
-    $text-field-box-background: $text-input-box-bg-dark-theme;
-    $text-field-elevated-background: $text-field-elevated-bg-dark-theme;
-    $text-input-color: $text-input-color-dark-theme;
-    $text-input-placeholder-color: $text-input-placeholder-color-dark-theme;
-  //  $text-input-disabled-color: $text-input-disabled-color-dark-theme;
-    $text-input-icon-color: $text-input-icon-color-dark-theme;
-  //  $text-input-affix-color: $text-input-affix-color-dark-theme;
-    $text-field-helper-text-color: $text-field-helper-text-color-dark-theme;
-    $text-field-outline-label-background: $bg-dark;
+    $u-text-field-label-color: $u-text-field-label-color-dark-theme;
+    $u-text-field-divider-color: $u-text-field-divider-color-dark-theme;
+    $u-text-field-divider-color-hover: $u-text-field-divider-color-hover-dark-theme;
+    $u-text-field-divider-color-disabled: $u-text-field-divider-color-disabled-dark-theme;
+    $u-text-field-box-background: $u-text-input-box-bg-dark-theme;
+    $u-text-field-elevated-background: $u-text-field-elevated-bg-dark-theme;
+    $u-text-input-color: $u-text-input-color-dark-theme;
+    $u-text-input-placeholder-color: $u-text-input-placeholder-color-dark-theme;
+  //  $u-text-input-disabled-color: $u-text-input-disabled-color-dark-theme;
+    $u-text-input-icon-color: $u-text-input-icon-color-dark-theme;
+  //  $u-text-input-affix-color: $u-text-input-affix-color-dark-theme;
+    $u-text-field-helper-text-color: $u-text-field-helper-text-color-dark-theme;
+    $u-text-field-outline-label-background: $bg-dark;
   }
 
   .u-text-field-leading-icon,
   .u-text-field-trailing-icon {
-    color: $text-input-icon-color;
+    color: $u-text-input-icon-color;
   }
 
   .u-text-field {
     label {
-      color: $text-field-label-color;
+      color: $u-text-field-label-color;
     }
 
     &.focus {
@@ -398,56 +399,56 @@
 
     &:hover {
       .u-text-input:not(:disabled) {
-        border-color: $text-field-divider-color-hover;
+        border-color: $u-text-field-divider-color-hover;
       }
     }
   }
 
   .u-text-field-box {
-    background: $text-field-box-background;
+    background: $u-text-field-box-background;
   }
 
   .u-text-field-outline {
     label {
-      background: $text-field-outline-label-background;
+      background: $u-text-field-outline-label-background;
     }
 
     &:not(.focus):not(.invalid) {
       &::before {
-        border-color: $text-field-divider-color;
+        border-color: $u-text-field-divider-color;
       }
 
       &:hover::before {
-        border-color: $text-field-divider-color-hover;
+        border-color: $u-text-field-divider-color-hover;
       }
     }
   }
 
   .u-search-field {
-    background: $text-field-box-background;
+    background: $u-text-field-box-background;
   }
 
   .u-search-field-elevated {
-    background: $text-field-elevated-background;
+    background: $u-text-field-elevated-background;
   }
 
   .u-text-input {
-    color: $text-input-color;
-    border-color: $text-field-divider-color;
+    color: $u-text-input-color;
+    border-color: $u-text-field-divider-color;
 
     &:disabled {
-      color: $text-input-disabled-color;
-      border-color: $text-field-divider-color-disabled;
+      color: $u-text-input-disabled-color;
+      border-color: $u-text-field-divider-color-disabled;
     }
   }
 
   .u-text-field-helper-text {
-    color: $text-field-helper-text-color;
+    color: $u-text-field-helper-text-color;
   }
 
   .u-text-input::placeholder,
   .u-text-input-placeholder {
-    color: $text-input-placeholder-color;
+    color: $u-text-input-placeholder-color;
   }
 }
 

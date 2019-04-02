@@ -31,6 +31,7 @@ h6, .h6 { font-size: $h6-font-size; }
 @each $style in map-keys($typography-styles) {
   .u-#{$style} {
     @include umd-typography($style);
+    font-family: $u-font-family-base;
   }
 }
 

@@ -1,26 +1,26 @@
 extends ../layout
 
 block content
-  h4.headline4.chapter-title Dialogs
+  h4.u-headline4.chapter-title Dialogs
 
 
   button.u-btn.u-btn-raised.u-btn-primary Launch dialog
 
-  .dialog
-    .dialog-backdrop
-    .dialog-content
-      .dialog-title Dialog example
-      .dialog-body
+  .u-dialog
+    .u-dialog-backdrop
+    .u-dialog-content
+      .u-dialog-title Dialog example
+      .u-dialog-body
         p Content
-      .dialog-actions
+      .u-dialog-actions
         button.u-btn-flat.u-btn-primary Cancel
         button.u-btn-flat.u-btn-primary Ok
 block scripts
   script.
     (function () {
-      var dialog = umd.Dialog.attach(document.querySelector(".dialog"));
+      var dialog = umd.Dialog.attach(document.querySelector(".u-dialog"));
 
-      document.querySelector(".dialog-backdrop").addEventListener("click", function () { dialog.toggle() });
+      document.querySelector(".u-dialog-backdrop").addEventListener("click", function () { dialog.toggle() });
       var buttons = document.querySelectorAll("button");
       buttons.forEach(function (button) {
         button.addEventListener("click", function () { dialog.toggle() });
@@ -35,7 +35,7 @@ block scripts
       //   }
       // }
       //
-      // document.querySelector(".dialog-backdrop").addEventListener("click", toggleDialogVisibility);
+      // document.querySelector(".u-dialog-backdrop").addEventListener("click", toggleDialogVisibility);
       // var buttons = document.querySelectorAll("button");
       // buttons.forEach(function (button) {
       //   button.addEventListener("click", toggleDialogVisibility);

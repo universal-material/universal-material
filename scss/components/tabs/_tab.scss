@@ -1,87 +1,91 @@
 @import "variables";
+@import "../../grid/variables";
+@import "../../font";
+@import "../../mixins";
 
-.tab-bar {
+.u-tab-bar {
   position: relative;
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: $tab-height;
+  height: $u-tab-height;
 }
 
-.tab {
+.u-tab {
   display: flex;
   flex: 1;
   flex-direction: row;
   align-items: center;
-  padding-right: $tab-horizontal-padding;
-  padding-left: $tab-horizontal-padding;
+  padding-right: $u-tab-horizontal-padding;
+  padding-left: $u-tab-horizontal-padding;
+  font-family: $u-font-family-base;
   cursor: pointer;
   @include selectable-background-before;
 }
 
-.tab-indicator {
+.u-tab-indicator {
   position: absolute;
   bottom: 0;
-  height: $tab-indicator-height;
+  height: $u-tab-indicator-height;
   content: "";
-  transition: .5s cubic-bezier(.35, 0, .25, 1);
+  transition: 350ms cubic-bezier(.35, 0, .25, 1);
 }
 
-.tab-content {
+.u-tab-content {
   width: 100%;
   text-align: center;
 }
 
-.tab-text {
+.u-tab-text {
   position: relative;
   display: inline-block;
-  font-size: $tab-font-size;
-  font-weight: $tab-font-weight;
+  font-size: $u-tab-font-size;
+  font-weight: $u-tab-font-weight;
   text-transform: uppercase;
 }
 
 @include media-breakpoint-up(md) {
-  .tab-bar {
-    min-width: $tab-min-width;
-    max-width: $tab-max-width;
+  .u-tab-bar {
+    min-width: $u-tab-min-width;
+    max-width: $u-tab-max-width;
   }
 
-  .tab {
+  .u-tab {
     flex: none;
   }
 }
 
-.tab-bar-scrollable {
+.u-tab-bar-scrollable {
   justify-content: flex-start;
 
-  .tab {
+  .u-tab {
     flex: none;
 
     &:first-child {
-      margin-left: $tab-bar-scrollable-margin;
+      margin-left: $u-tab-bar-scrollable-margin;
     }
   }
 }
 
 @mixin tab-text-color($theme-colors, $dark-background) {
-  $tab-text-color: $tab-text-color-light-theme;
-  $tab-text-color-active: map-get($theme-colors, "primary");
+  $u-tab-text-color: $u-tab-text-color-light-theme;
+  $u-tab-text-color-active: map-get($theme-colors, "primary");
 
   @if ($dark-background) {
-    $tab-text-color: $tab-text-color-dark-theme;
-    $tab-text-color-active: $tab-text-color-active-dark-theme;
+    $u-tab-text-color: $u-tab-text-color-dark-theme;
+    $u-tab-text-color-active: $u-tab-text-color-active-dark-theme;
   }
 
-  .tab {
-    color: $tab-text-color;
+  .u-tab {
+    color: $u-tab-text-color;
   }
 
-  .tab.active {
-    color: $tab-text-color-active;
+  .u-tab.active {
+    color: $u-tab-text-color-active;
   }
 
-  .tab-indicator {
-    background-color: $tab-text-color-active;
+  .u-tab-indicator {
+    background-color: $u-tab-text-color-active;
   }
 }
 

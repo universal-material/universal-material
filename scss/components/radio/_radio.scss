@@ -1,42 +1,50 @@
 @import "variables";
+@import "../../font";
+@import "../../mixins";
 
-.radio {
+.u-radio {
   display: inline-flex;
   align-items: center;
   margin-bottom: 0;
+  font-family: $u-font-family-base;
   cursor: pointer;
+
+  &,
+  & * {
+    box-sizing: border-box;
+  }
 
   @include hide-native-input;
 
-  .selection-control {
+  .u-selection-control {
     @include selectable-background-before;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: $radio-click-size;
-    height: $radio-click-size;
+    width: $u-radio-click-size;
+    height: $u-radio-click-size;
     border-radius: 50%;
   }
 
-  .selection-control-label {
-    margin-left: $radio-label-margin;
+  .u-selection-control-label {
+    margin-left: $u-radio-label-margin;
   }
 
-  .check-indicator {
+  .u-check-indicator {
     position: relative;
-    width: $radio-size;
-    height: $radio-size;
-    border: $radio-border;
+    width: $u-radio-size;
+    height: $u-radio-size;
+    border: $u-radio-border;
     border-radius: 50%;
 
     &::before {
       position: absolute;
       top: 50%;
       left: 50%;
-      width: $radio-check-mark-size;
-      height: $radio-check-mark-size;
-      margin-top: -$radio-check-mark-size / 2;
-      margin-left: -$radio-check-mark-size / 2;
+      width: $u-radio-check-mark-size;
+      height: $u-radio-check-mark-size;
+      margin-top: -$u-radio-check-mark-size / 2;
+      margin-left: -$u-radio-check-mark-size / 2;
       content: "";
       background: currentColor;
       border-radius: 50%;
@@ -45,8 +53,8 @@
     }
   }
 
-  &.checked .check-indicator,
-  input:checked ~ .selection-control .check-indicator {
+  &.checked .u-check-indicator,
+  input:checked ~ .u-selection-control .u-check-indicator {
     color: inherit;
 
     &::before {
@@ -54,27 +62,27 @@
     }
   }
 
-  &.disabled .selection-control,
-  input:disabled ~ .selection-control {
-    opacity: $radio-disabled-opacity;
+  &.disabled .u-selection-control,
+  input:disabled ~ .u-selection-control {
+    opacity: $u-radio-disabled-opacity;
   }
 }
 
 @mixin radio-theme($theme-colors, $dark-theme) {
   $primary-color: map-get($theme-colors, "primary");
-  $radio-color: $radio-color-light-theme;
+  $u-radio-color: $u-radio-color-light-theme;
 
   @if ($dark-theme) {
-    $radio-color: $radio-color-dark-theme;
+    $u-radio-color: $u-radio-color-dark-theme;
   }
 
-  .radio {
-    .check-indicator {
-      color: $radio-color;
+  .u-radio {
+    .u-check-indicator {
+      color: $u-radio-color;
     }
 
-    &.checked:not(.disabled) .selection-control,
-    input:checked:not(:disabled) ~ .selection-control {
+    &.checked:not(.disabled) .u-selection-control,
+    input:checked:not(:disabled) ~ .u-selection-control {
       color: $primary-color;
     }
   }

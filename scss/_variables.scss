@@ -1,8 +1,10 @@
 @import "animations";
 @import "base-sizes";
 @import "colors";
-@import "font-weight";
+@import "font";
+@import "grid/variables";
 @import "elevation";
+@import "zindex";
 
 //// This variable affects the `.h-*` and `.w-*` classes.
 //$sizes: (
@@ -22,35 +24,6 @@
 
 $link-color:            $primary-color !default;
 
-//Margin and guttters
-$margin-gutter-8dp: .5rem !default;
-$margin-gutter-16dp: 1rem !default;
-$margin-gutter-24dp: 1.5rem !default;
-$margin-gutter-40dp: 2.5rem !default;
-$margin-gutter-default: $margin-gutter-16dp !default;
-
-$margins-and-gutters: (
-  default: $margin-gutter-default,
-  none: 0,
-  8: $margin-gutter-8dp,
-  16: $margin-gutter-16dp,
-  24: $margin-gutter-24dp,
-  40: $margin-gutter-40dp) !default;
-
-// Grid columns
-//
-// Set the number of columns and specify the width of the gutters.
-
-$grid-gutter-width: $margin-gutter-default !default;
-
-// Fonts
-//
-// Font, line-height, and color for body text, headings, and more.
-
-$font-family-base: "Roboto", -apple-system, "BlinkMacSystemFont", "Segoe UI", "Helvetica Neue", "Arial", sans-serif !default; //Universal Material custom code
-
-$font-size-base: .875rem !default;
-
 // Buttons
 //
 // For each of Bootstrap's buttons, define text, background and border color.
@@ -67,7 +40,6 @@ $font-size-base: .875rem !default;
 //$enable-hover-media-query: false !default;
 //
 //Avatar
-$avatar-size: 2.5rem !default;
 
 //Badges
 $badge-size: 1.125rem !default;
@@ -103,22 +75,5 @@ $spinner-height-small: $spinner-height * .75 !default;
 $spinner-height-x-small: $spinner-height * .5 !default;
 $spinner-height-big: $spinner-height / 3 * 4 !default;
 
-//Sidebar
-$sidebar-width: 16rem !default;
-$sidebar-background-color-light-theme: #fff !default;
-$sidebar-background-color-dark-theme: #424242 !default;
-
-$sidebar-backdrop-bg: $black !default;
-$sidebar-backdrop-opacity: .5 !default;
-
 $text-muted: $text-low-contrast-light-theme !default;
 
-//Z-index
-$zindex-dropdown: 1000 !default;
-$zindex-fixed: 1030 !default;
-$zindex-sticky: 1030 !default;
-$zindex-toolbar-fixed: 1030 !default;
-$zindex-sidebar: 1040 !default;
-$zindex-dialog-background: 1050 !default;
-$zindex-dialog: 1060 !default;
-$zindex-snackbar: 1070 !default;

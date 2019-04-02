@@ -1,82 +1,82 @@
 extends ../layout
 
 block content
-  h4.headline4.chapter-title Toolbars
+  h4.u-headline4.chapter-title Toolbars
 
-  h5.headline5.article-title Simple toolbar
+  h5.u-headline5.article-title Simple toolbar
   .example-box
     .example-box-header
-      .toolbar
-        .toolbar-row
-          .toolbar-start
-            .toolbar-navigation.u-btn-borderless.u-btn-default
+      .u-toolbar
+        .u-toolbar-row
+          .u-toolbar-start
+            .u-toolbar-navigation.u-btn-borderless.u-btn-default
               i.u-btn-icon.mdi.mdi-menu
 
-          .toolbar-title Title here
+          .u-toolbar-title Title here
 
-          .toolbar-end
-            .toolbar-actions
-              button.toolbar-action.u-btn-borderless.u-btn-default(type="button" disabled="")
+          .u-toolbar-end
+            .u-toolbar-actions
+              button.u-toolbar-action.u-btn-borderless.u-btn-default(type="button" disabled="")
                 i.u-btn-icon.mdi.mdi-phone
-              .toolbar-action.dropdown
-                button.u-btn-borderless.u-btn-default.dropdown-toggle(type="button")
+              .u-toolbar-action.u-dropdown
+                button.u-btn-borderless.u-btn-default.u-dropdown-toggle(type="button")
                   i.u-btn-icon.mdi.mdi-dots-vertical
 
-                .dropdown-menu.down-left
-                  .dropdown-content
-                    a.dropdown-item.text-nowrap(href="#") Item A
-                    a.dropdown-item.text-nowrap(href="#") Item B
-                    a.dropdown-item.text-nowrap(href="#") Item C
+                .u-dropdown-menu.down-left
+                  .u-dropdown-content
+                    a.u-dropdown-item.text-nowrap(href="#") Item A
+                    a.u-dropdown-item.text-nowrap(href="#") Item B
+                    a.u-dropdown-item.text-nowrap(href="#") Item C
     pre
       code.html
-        = '<div class="toolbar">\n'
-        = '  <div class="toolbar-row">\n'
-        = '    <div class="toolbar-navigation btn-borderless btn-default">\n'
-        = '      <i class="btn-icon mdi mdi-menu"></i>\n'
+        = '<div class="u-toolbar">\n'
+        = '  <div class="u-toolbar-row">\n'
+        = '    <div class="u-toolbar-navigation btn-borderless btn-default">\n'
+        = '      <i class="u-btn-icon mdi mdi-menu"></i>\n'
         = '     </div>\n'
-        = '    <div class="toolbar-title">Title here</div>\n'
-        = '    <div class="toolbar-actions">\n'
-        = '      <button type="button" disabled="" class="btn-borderless btn-default">\n'
-        = '        <i class="btn-icon mdi mdi-phone"></i>\n'
+        = '    <div class="u-toolbar-title">Title here</div>\n'
+        = '    <div class="u-toolbar-actions">\n'
+        = '      <button type="button" disabled="" class="u-btn-borderless btn-default">\n'
+        = '        <i class="u-btn-icon mdi mdi-phone"></i>\n'
         = '      </button>\n'
-        = '      <button type="button" class="btn-borderless btn-default">\n'
-        = '        <i class="btn-icon mdi mdi-dots-vertical"></i>\n'
+        = '      <button type="button" class="u-btn-borderless btn-default">\n'
+        = '        <i class="u-btn-icon mdi mdi-dots-vertical"></i>\n'
         = '      </button>\n'
         = '    </div>\n'
         = '  </div>\n'
         = '</div>'
 
-  h5.headline5.article-title Toolbar with tabs
+  h5.u-headline5.article-title Toolbar with tabs
   .example-box
     .example-box-header
-      .toolbar
-        .toolbar-row
-          .toolbar-start
-            .toolbar-navigation.u-btn-borderless.u-btn-default
+      .u-toolbar
+        .u-toolbar-row
+          .u-toolbar-start
+            .u-toolbar-navigation.u-btn-borderless.u-btn-default
               i.u-btn-icon.mdi.mdi-menu
-          .toolbar-title Title here
-          .toolbar-end
-            .toolbar-actions
-              button.toolbar-action.u-btn-borderless.u-btn-default(type="button")
+          .u-toolbar-title Title here
+          .u-toolbar-end
+            .u-toolbar-actions
+              button.u-toolbar-action.u-btn-borderless.u-btn-default(type="button")
                 i.u-btn-icon.mdi.mdi-dots-vertical
-        .tab-bar.toolbar-icon-padding
-          .tab.active
-            .tab-content
-              .tab-text Item one
-          .tab
-            .tab-content
-              .tab-text Item two
-          .tab
-            .tab-content
-              .tab-text Item three
+        .u-tab-bar.u-toolbar-icon-padding
+          .u-tab.active
+            .u-tab-content
+              .u-tab-text Item one
+          .u-tab
+            .u-tab-content
+              .u-tab-text Item two
+          .u-tab
+            .u-tab-content
+              .u-tab-text Item three
     pre
       code.html
-        = '<div class="toolbar">\n'
-        = '  <div class="toolbar-row">\n'
-        = '    <div class="toolbar-navigation btn-borderless btn-default"><i class="btn-icon mdi mdi-menu"></i></div>\n'
-        = '    <div class="toolbar-title">Title here</div>\n'
-        = '    <button class="btn-borderless btn-default">\n'
-        = '      <i class="btn-icon mdi mdi-dots-vertical"></i>\n'
+        = '<div class="u-toolbar">\n'
+        = '  <div class="u-toolbar-row">\n'
+        = '    <div class="u-toolbar-navigation btn-borderless btn-default"><i class="u-btn-icon mdi mdi-menu"></i></div>\n'
+        = '    <div class="u-toolbar-title">Title here</div>\n'
+        = '    <button class="u-btn-borderless btn-default">\n'
+        = '      <i class="u-btn-icon mdi mdi-dots-vertical"></i>\n'
         = '    </button>\n'
         = '  </div>\n'
         = '  <div class="tab-bar toolbar-icon-padding">\n'

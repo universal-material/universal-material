@@ -1,17 +1,20 @@
 @import "variables";
+@import "../../font";
+@import "../../mixins";
 
-.chip {
+.u-chip {
   position: relative;
   display: inline-flex;
   flex-direction: row;
   align-items: center;
-  height: $chip-height;
-  margin-top: $chip-margin-vertical;
-  margin-right: $chip-margin;
-  margin-bottom: $chip-margin-vertical;
+  height: $u-chip-height;
+  margin-top: $u-chip-margin-vertical;
+  margin-right: $u-chip-margin;
+  margin-bottom: $u-chip-margin-vertical;
   overflow: hidden;
-  font-size: $chip-font-size;
-  border-radius: $chip-height / 2;
+  font-family: $u-font-family-base;
+  font-size: $u-chip-font-size;
+  border-radius: $u-chip-height / 2;
 
   &::before {
     position: absolute;
@@ -25,44 +28,44 @@
   }
 }
 
-.chip-outline {
-  border: $chip-outline-border-width solid;
+.u-chip-outline {
+  border: $u-chip-outline-border-width solid;
 
   &::before {
     opacity: .12;
   }
 }
 
-.chip-label {
+.u-chip-label {
   font-weight: $font-medium;
 
   &:first-child {
-    margin-left: $chip-label-margin;
+    margin-left: $u-chip-label-margin;
   }
 
   &:last-child {
-    margin-right: $chip-label-margin;
+    margin-right: $u-chip-label-margin;
   }
 }
 
-.chip-avatar {
-  @include size($chip-avatar-size);
+.u-chip-avatar {
+  @include size($u-chip-avatar-size);
 
-  margin-right: $chip-avatar-margin;
-  margin-left: $chip-avatar-margin-start;
-  font-size: $chip-avatar-font-size;
-  line-height: $chip-avatar-size;
+  margin-right: $u-chip-avatar-margin;
+  margin-left: $u-chip-avatar-margin-start;
+  font-size: $u-chip-avatar-font-size;
+  line-height: $u-chip-avatar-size;
   border-radius: 50%;
 }
 
-.chip-remove {
-  margin: 0 $chip-remove-margin;
-  font-size: $chip-remove-size;
-  line-height: $chip-remove-size;
+.u-chip-remove {
+  margin: 0 $u-chip-remove-margin;
+  font-size: $u-chip-remove-size;
+  line-height: $u-chip-remove-size;
   text-align: center;
   cursor: pointer;
 
-  @include size($chip-remove-size);
+  @include size($u-chip-remove-size);
   @include selectable-background-before;
 
   &::before,
@@ -70,16 +73,16 @@
     position: absolute;
     top: 50% !important;
     left: 50% !important;
-    width: $chip-remove-hover-size;
-    height: $chip-remove-hover-size;
-    margin-top: -$chip-remove-hover-size / 2;
-    margin-left: -$chip-remove-hover-size / 2;
+    width: $u-chip-remove-hover-size;
+    height: $u-chip-remove-hover-size;
+    margin-top: -$u-chip-remove-hover-size / 2;
+    margin-left: -$u-chip-remove-hover-size / 2;
     content: "";
     border-radius: 50% !important;
   }
 }
 
-.chip-hover {
+.u-chip-hover {
   @include selectable-background-before;
   position: absolute;
   top: 0;
@@ -90,10 +93,10 @@
   content: "";
 }
 
-.chip-input {
+.u-chip-input {
   flex-wrap: wrap;
   align-items: center;
-  min-height: $chip-height + $chip-margin-vertical * 2;
+  min-height: $u-chip-height + $u-chip-margin-vertical * 2;
 
   input {
     background: transparent;
@@ -104,32 +107,32 @@
 
 .rtl,
 [dir="rtl"] {
-  .chip {
+  .u-chip {
     margin-right: 0;
-    margin-left: $chip-margin;
+    margin-left: $u-chip-margin;
   }
 
-  .chip-avatar {
-    margin-right: $chip-avatar-margin-start;
-    margin-left: $chip-avatar-margin;
+  .u-chip-avatar {
+    margin-right: $u-chip-avatar-margin-start;
+    margin-left: $u-chip-avatar-margin;
   }
 }
 
 @mixin chip-theme($theme-colors, $dark-theme) {
-  $background-color: $chip-background-color-light-theme;
-  $chip-outline-border-color: $chip-outline-border-color-light-theme;
+  $background-color: $u-chip-background-color-light-theme;
+  $u-chip-outline-border-color: $u-chip-outline-border-color-light-theme;
 
   @if ($dark-theme) {
-    $background-color: $chip-background-color-dark-theme;
-    $chip-outline-border-color: $chip-outline-border-color-dark-theme;
+    $background-color: $u-chip-background-color-dark-theme;
+    $u-chip-outline-border-color: $u-chip-outline-border-color-dark-theme;
   }
 
-  .chip-outline {
-    border-color: $chip-outline-border-color;
+  .u-chip-outline {
+    border-color: $u-chip-outline-border-color;
   }
 
   @each $color, $value in $theme-colors {
-    .chip-#{$color} {
+    .u-chip-#{$color} {
       color: $value;
     }
   }

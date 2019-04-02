@@ -1,16 +1,17 @@
 @import "variables";
 @import "../../colors";
-@import "../../bootstrap/mixins";
+@import "../../font";
 @import "uwp-card";
 @import "../../mixins";
 
 .u-card {
-  border-radius: $card-border-radius;
-  box-shadow: $card-shadow;
+  font-family: $u-font-family-base;
+  border-radius: $u-card-border-radius;
+  box-shadow: $u-card-shadow;
 }
 
 .u-card-outline {
-  border: $card-outline-border;
+  border: $u-card-outline-border;
   box-shadow: none;
 }
 
@@ -57,15 +58,15 @@
 }
 
 .u-card-content {
-  padding: $card-padding $card-padding;
+  padding: $u-card-padding $u-card-padding;
 }
 
 .u-card-actions {
   display: flex;
-  padding: $card-actions-padding;
+  padding: $u-card-actions-padding;
 
   .u-btn + .u-btn {
-    margin-left: $card-actions-padding;
+    margin-left: $u-card-actions-padding;
   }
 }
 
@@ -74,10 +75,10 @@
   $dark-theme: map-get($theme, "dark");
   $uwp-style: map-get($theme, "uwp-style");
 
-  $background-color: $card-bg-light-theme;
+  $background-color: $u-card-bg-light-theme;
 
   @if ($dark-theme) {
-    $background-color: $card-bg-dark-theme;
+    $background-color: $u-card-bg-dark-theme;
   }
 
   .u-card {

@@ -1,17 +1,19 @@
+@import "../../colors";
+
 //Toolbar
-$toolbar-height: 3.5rem !default;
-$toolbar-navigation-size: 2.5rem !default;
-$toolbar-navigation-margin: 8px !default;
-$toolbar-title-margin: 16px !default;
+$u-toolbar-height: 3.5rem !default;
+$u-toolbar-navigation-size: 2.5rem !default;
+$u-toolbar-navigation-margin: 8px !default;
+$u-toolbar-title-margin: 16px !default;
 
-$toolbar-actions-padding: 8px !default;
-$toolbar-action-size: 2.5rem !default;
-$toolbar-action-margin: 8px !default;
+$u-toolbar-actions-padding: 8px !default;
+$u-toolbar-action-size: 2.5rem !default;
+$u-toolbar-action-margin: 8px !default;
 
-$toolbar-action-icon-size: 1.5rem !default;
+$u-toolbar-action-icon-size: 1.5rem !default;
 
-$toolbar-icon-color-light-theme: $text-low-contrast-light-theme !default;
-$toolbar-icon-color-dark-theme: $white !default;
+$u-toolbar-icon-color-light-theme: $text-low-contrast-light-theme !default;
+$u-toolbar-icon-color-dark-theme: $white !default;
 
 //Toolbar dense
-$toolbar-dense-height: 3rem !default;
+$u-toolbar-dense-height: 3rem !default;

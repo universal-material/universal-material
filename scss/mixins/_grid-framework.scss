@@ -1,35 +1,64 @@
-@mixin make-margins($margins: $margins-and-gutters, $breakpoints: $grid-breakpoints) {
-  .container {
-    @each $breakpoint in map-keys($breakpoints) {
-      $infix: breakpoint-infix($breakpoint, $breakpoints);
+// Framework grid generation
+//
+// Used only by Bootstrap to generate the correct number of grid classes given
+// any value of `$grid-columns`.
 
-      @include media-breakpoint-up($breakpoint, $breakpoints) {
-        @each $margin, $value in $margins {
-          &.margin#{$infix}-#{$margin} {
-            padding-left: $value;
-            padding-right: $value;
-          }
-        }
+@mixin make-grid-columns($columns: $grid-columns, $gutter: $grid-gutter-width, $breakpoints: $grid-breakpoints) {
+  // Common properties for all breakpoints
+  %grid-column {
+    position: relative;
+    width: 100%;
+    min-height: 1px; // Prevent columns from collapsing when empty
+    padding-right: ($gutter / 2);
+    padding-left: ($gutter / 2);
+  }
+
+  @each $breakpoint in map-keys($breakpoints) {
+    $infix: breakpoint-infix($breakpoint, $breakpoints);
+
+    // Allow columns to stretch full width below their breakpoints
+    @for $i from 1 through $columns {
+      .u-col#{$infix}-#{$i} {
+        @extend %grid-column;
       }
     }
-  }
-}
+    .u-col#{$infix},
+    .u-col#{$infix}-auto {
+      @extend %grid-column;
+    }
 
-@mixin make-gutters($gutters: $margins-and-gutters, $breakpoints: $grid-breakpoints) {
-  .row {
-    @each $breakpoint in map-keys($breakpoints) {
-      $infix: breakpoint-infix($breakpoint, $breakpoints);
+    @include media-breakpoint-up($breakpoint, $breakpoints) {
+      // Provide basic `.col-{bp}` classes for equal-width flexbox columns
+      .u-col#{$infix} {
+        flex-basis: 0;
+        flex-grow: 1;
+        max-width: 100%;
+      }
+      .u-col#{$infix}-auto {
+        flex: 0 0 auto;
+        width: auto;
+        max-width: none; // Reset earlier grid tiers
+      }
 
-      @include media-breakpoint-up($breakpoint, $breakpoints) {
-        @each $gutter, $value in $gutters {
-          &.gutter#{$infix}-#{$gutter} {
-            margin-right: ($value / -2);
-            margin-left: ($value / -2);
+      @for $i from 1 through $columns {
+        .u-col#{$infix}-#{$i} {
+          @include make-col($i, $columns);
+        }
+      }
 
-            > .col, >[class^=col-] {
-              padding-right: ($value / 2);
-              padding-left:  ($value / 2);
-            }
+      .u-order#{$infix}-first { order: -1; }
+
+      .u-order#{$infix}-last { order: $columns + 1; }
+
+      @for $i from 0 through $columns {
+        .u-order#{$infix}-#{$i} { order: $i; }
+      }
+
+      // `$columns - 1` because offsetting by the width of an entire row isn't possible
+      @for $i from 0 through ($columns - 1) {
+        @if not ($infix == "" and $i == 0) { // Avoid emitting useless .offset-0
+          .u-offset#{$infix}-#{$i} {
+            @include make-col-offset($i, $columns);
           }
         }
       }

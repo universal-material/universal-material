@@ -1,44 +1,48 @@
 @import "variables";
+@import "../../font";
+@import "../../mixins";
 
 //Inspiration: https://codepen.io/abottega/pen/vNzQMo/
 
-.checkbox {
+.u-checkbox {
   display: inline-flex;
   align-items: center;
   margin-bottom: 0;
+  font-family: $u-font-family-base;
   cursor: pointer;
 
   @include hide-native-input;
 
-  .selection-control {
-    @include selectable-background-before-custom-size($checkbox-click-size, $checkbox-click-size, 50%);
+  .u-selection-control {
+    @include selectable-background-before-custom-size($u-checkbox-click-size, $u-checkbox-click-size, 50%);
     display: inline-flex;
     justify-content: center;
-    width: $checkbox-size;
-    height: $checkbox-size;
-    margin: ($checkbox-click-size - $checkbox-size) / 2;
-    border-radius: $checkbox-border-radius;
-    box-shadow: 0 0 0 $checkbox-border-width currentColor inset;
-    transition: box-shadow $check-animation-step-duration $check-animation-step-duration, color $check-animation-step-duration ($check-animation-step-duration * 2);
+    width: $u-checkbox-size;
+    height: $u-checkbox-size;
+    margin: ($u-checkbox-click-size - $u-checkbox-size) / 2;
+    border-radius: $u-checkbox-border-radius;
+    box-shadow: 0 0 0 $u-checkbox-border-width currentColor inset;
+    transition: box-shadow $u-checkbox-animation-step-duration $u-checkbox-animation-step-duration, color $u-checkbox-animation-step-duration ($u-checkbox-animation-step-duration * 2);
   }
 
-  .selection-control-label {
-    margin-left: $checkbox-label-margin;
+  .u-selection-control-label {
+    margin-left: $u-checkbox-label-margin;
   }
 
-  .check-indicator {
+  .u-check-indicator {
     position: absolute;
     display: flex;
     justify-content: center;
     width: 100%;
     height: 100%;
     overflow: hidden;
-    clip: rect(0, 0, $checkbox-size, 0);
-    transition: clip $check-animation-step-duration;
+    clip: rect(0, 0, $u-checkbox-size, 0);
+    transition: clip $u-checkbox-animation-step-duration;
 
     &::before {
       position: relative;
       top: 25%;
+      box-sizing: border-box;
       display: block;
       width: .75rem;
       height: .35rem;
@@ -50,24 +54,24 @@
     }
   }
 
-  &.checked .selection-control,
-  input:checked ~ .selection-control {
-    box-shadow: 0 0 0 $checkbox-size / 2 currentColor inset;
-    transition: box-shadow $check-animation-step-duration, color $check-animation-step-duration $check-animation-step-duration;
+  &.checked .u-selection-control,
+  input:checked ~ .u-selection-control {
+    box-shadow: 0 0 0 $u-checkbox-size / 2 currentColor inset;
+    transition: box-shadow $u-checkbox-animation-step-duration, color $u-checkbox-animation-step-duration $u-checkbox-animation-step-duration;
 
-    .check-indicator {
-      clip: rect(0, $checkbox-size, $checkbox-size, 0);
-      transition: clip $check-animation-step-duration $check-animation-step-duration;
+    .u-check-indicator {
+      clip: rect(0, $u-checkbox-size, $u-checkbox-size, 0);
+      transition: clip $u-checkbox-animation-step-duration $u-checkbox-animation-step-duration;
     }
   }
 
-  &.disabled .selection-control,
-  input:disabled ~ .selection-control {
-    opacity: $checkbox-disabled-opacity;
+  &.disabled .u-selection-control,
+  input:disabled ~ .u-selection-control {
+    opacity: $u-checkbox-disabled-opacity;
   }
 }
 
-@keyframes checkbox-on {
+@keyframes u-checkbox-on {
   0% {
     box-shadow: 0 0 0 .625rem currentColor, .625rem -.625rem 0 .625rem currentColor, 2rem 0 0 1.25rem currentColor, 0 2rem 0 1.25rem currentColor, -.3125rem .3125rem 0 .625rem currentColor, .9375rem .125rem 0 .6875rem;
     opacity: 0;
@@ -81,7 +85,7 @@
   }
 }
 
-@keyframes checkbox-off {
+@keyframes u-checkbox-off {
   0% {
     top: 0;
     left: 0;
@@ -106,25 +110,25 @@
 
 @mixin selection-controls-theme($theme-colors, $dark-theme) {
   $primary-color: map-get($theme-colors, "primary");
-  $check-color: $checkbox-color-light-theme;
-  $checkbox-mark-color-theme: $checkbox-mark-color-light-theme;
+  $check-color: $u-checkbox-color-light-theme;
+  $u-checkbox-mark-color-theme: $u-checkbox-mark-color-light-theme;
 
   @if ($dark-theme) {
-    $check-color: $checkbox-color-dark-theme;
-    $checkbox-mark-color-theme: $checkbox-mark-color-dark-theme;
+    $check-color: $u-checkbox-color-dark-theme;
+    $u-checkbox-mark-color-theme: $u-checkbox-mark-color-dark-theme;
   }
 
-  .checkbox {
-    .selection-control {
+  .u-checkbox {
+    .u-selection-control {
       color: $check-color;
     }
 
-    .check-indicator::before {
-      border-color: $checkbox-mark-color-theme;
+    .u-check-indicator::before {
+      border-color: $u-checkbox-mark-color-theme;
     }
 
-    &.checked:not(.disabled) .selection-control,
-    input:checked:not(:disabled) ~ .selection-control {
+    &.checked:not(.disabled) .u-selection-control,
+    input:checked:not(:disabled) ~ .u-selection-control {
       color: $primary-color;
     }
   }

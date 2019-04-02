@@ -66,8 +66,8 @@
       return DialogConfig;
   }());
   var closedEvent = new CustomEvent('closed');
-  var dialogBodyTopDividerClassName = 'dialog-body-top-divider';
-  var dialogBodyBottomDividerClassName = 'dialog-body-bottom-divider';
+  var dialogBodyTopDividerClassName = 'u-dialog-body-top-divider';
+  var dialogBodyBottomDividerClassName = 'u-dialog-body-bottom-divider';
   var Dialog = /** @class */ (function () {
       function Dialog(_dialogElement, dialogConfig) {
           var _this = this;
@@ -97,7 +97,7 @@
               _this.addAnimationEndEvents();
           };
           this._dialogConfig = __assign({}, DialogConfig["default"], dialogConfig);
-          this._dialogBodyElement = this._dialogElement.querySelector('.dialog-body');
+          this._dialogBodyElement = this._dialogElement.querySelector('.u-dialog-body');
           if (this._dialogBodyElement) {
               this._setBodyDividers();
               this._setDialogBodyScrollHandler();
@@ -163,8 +163,8 @@
               _this._showing = false;
               _this._dropdownElement.dispatchEvent(closeEvent);
           };
-          this._dropdownToggle = _dropdownElement.querySelector('.dropdown-toggle');
-          this._dropdownMenu = _dropdownElement.querySelector('.dropdown-menu');
+          this._dropdownToggle = _dropdownElement.querySelector('.u-dropdown-toggle');
+          this._dropdownMenu = _dropdownElement.querySelector('.u-dropdown-menu');
           if (!this._dropdownToggle || !this._dropdownToggle)
               return;
           this._dropdownConfig = __assign({}, DropdownConfig["default"], dropdownConfig);
@@ -199,7 +199,7 @@
           });
       };
       Dropdown.initializeDropdowns = function () {
-          var dropdowns = document.querySelectorAll('.dropdown');
+          var dropdowns = document.querySelectorAll('.u-dropdown');
           for (var i = 0; i < dropdowns.length; i++) {
               var dropdown = dropdowns[i];
               Dropdown.attach(dropdown);
@@ -237,7 +237,7 @@
           var _this = this;
           var dialogContainer = document.createElement('div');
           dialogContainer.innerHTML = this._template;
-          var dialogElement = dialogContainer.querySelector('.dialog');
+          var dialogElement = dialogContainer.querySelector('.u-dialog');
           this._configureDialog(dialogElement);
           document.body.appendChild(dialogContainer);
           dialogElement.addEventListener('closed', function () {
@@ -253,7 +253,7 @@
           }
           if (this._config.closeOnBackdropClick) {
               dialogElement
-                  .querySelector('.dialog-backdrop')
+                  .querySelector('.u-dialog-backdrop')
                   .addEventListener('click', function () { return _this._innerDialog.close(); }, true);
           }
       };
@@ -275,11 +275,11 @@
       '.u-btn-raised',
       '.u-btn-outline',
       '.u-btn-floating',
-      '.tab',
-      '.dropdown-item',
-      '.chip-remove',
-      '.chip-hover',
-      '.u-text-input.dropdown-toggle'
+      '.u-tab',
+      '.u-dropdown-item',
+      '.u-chip-remove',
+      '.u-chip-hover',
+      '.u-text-input.u-dropdown-toggle'
   ].join(',');
   var RippleConfig = /** @class */ (function () {
       function RippleConfig() {
@@ -292,28 +292,28 @@
   };
   var RippleConfigMap = [
       {
-          selector: '.list-hover',
-          subSelector: '.list-item',
+          selector: '.u-list-hover',
+          subSelector: '.u-list-item',
           config: null
       },
       {
-          selector: '.list-item',
-          subSelector: '.list-item-hover',
+          selector: '.u-list-item',
+          subSelector: '.u-list-item-hover',
           config: null
       },
       {
-          selector: '.radio',
-          subSelector: '.selection-control',
+          selector: '.u-radio',
+          subSelector: '.u-selection-control',
           config: null
       },
       {
-          selector: '.switch',
-          subSelector: '.check-indicator',
+          selector: '.u-switch',
+          subSelector: '.u-check-indicator',
           config: null
       },
       {
-          selector: '.checkbox',
-          subSelector: '.selection-control',
+          selector: '.u-checkbox',
+          subSelector: '.u-selection-control',
           config: roundClickableConfig
       },
       {
@@ -426,7 +426,7 @@
       ConfirmDialogConfig["default"] = __assign({ confirmLabel: "Ok", cancelLabel: "Cancel" }, QuickDialogConfig["default"]);
       return ConfirmDialogConfig;
   }(QuickDialogConfig));
-  var confirmDialogTemplate = "\n<div class=\"dialog show\">\n  <div class=\"dialog-backdrop\"></div>\n  <div class=\"dialog-content\">\n    <div class=\"dialog-title\"></div>\n    <div class=\"dialog-body\"></div>\n    <div class=\"dialog-actions\">\n      <button type=\"button\" class=\"btn-flat btn-primary\" cancelButton></button>\n      <button type=\"button\" class=\"btn-flat btn-primary\" confirmButton></button>\n    </div>\n  </div>\n</div>";
+  var confirmDialogTemplate = "\n<div class=\"dialog show\">\n  <div class=\"dialog-backdrop\"></div>\n  <div class=\"dialog-content\">\n    <div class=\"dialog-title\"></div>\n    <div class=\"dialog-body\"></div>\n    <div class=\"dialog-actions\">\n      <button type=\"button\" class=\"u-btn-flat btn-primary\" cancelButton></button>\n      <button type=\"button\" class=\"u-btn-flat btn-primary\" confirmButton></button>\n    </div>\n  </div>\n</div>";
   var ConfirmDialog = /** @class */ (function (_super) {
       __extends(ConfirmDialog, _super);
       function ConfirmDialog(message, config) {
@@ -439,14 +439,14 @@
       };
       ConfirmDialog.prototype._configureDialog = function (dialogElement) {
           var _this = this;
-          var titleElement = dialogElement.querySelector('.dialog-title');
+          var titleElement = dialogElement.querySelector('.u-dialog-title');
           if (this._config.title) {
               titleElement.innerText = this._config.title;
           }
           else {
               titleElement.parentNode.removeChild(titleElement);
           }
-          dialogElement.querySelector('.dialog-body').innerText = this._config['_message'];
+          dialogElement.querySelector('.u-dialog-body').innerText = this._config['_message'];
           var confirmButton = dialogElement.querySelector('[confirmButton]');
           var cancelButton = dialogElement.querySelector('[cancelButton]');
           confirmButton.innerText = this._config.confirmLabel;
@@ -489,10 +489,10 @@
       ProgressDialog.prototype._configureDialog = function (dialogElement) {
           var message = this._config['_message'];
           if (message) {
-              dialogElement.querySelector('.dialog-progress-message').innerText = message;
+              dialogElement.querySelector('.u-dialog-progress-message').innerText = message;
           }
           else {
-              dialogElement.querySelector('.dialog-progress-message').style.display = 'none';
+              dialogElement.querySelector('.u-dialog-progress-message').style.display = 'none';
           }
       };
       return ProgressDialog;
@@ -540,19 +540,19 @@
       };
       Snackbar.createSnackbar = function () {
           var snackbar = document.createElement("div");
-          snackbar.className = "snackbar";
+          snackbar.className = "u-snackbar";
           return snackbar;
       };
       Snackbar.createSnackbarText = function (text) {
           var snackbarText = document.createElement("div");
           snackbarText.innerText = text;
-          snackbarText.className = "snackbar-text";
+          snackbarText.className = "u-snackbar-text";
           return snackbarText;
       };
       Snackbar.createButton = function (buttonDefinition) {
           var snackbarButton = document.createElement("button");
           snackbarButton.type = "button";
-          snackbarButton.className = "btn-flat btn-secondary";
+          snackbarButton.className = "u-btn-flat u-btn-secondary";
           snackbarButton.innerText = buttonDefinition.text;
           new Ripple(snackbarButton);
           if (buttonDefinition.action) {
@@ -600,7 +600,7 @@
               var tab = event.currentTarget;
               _this.setActiveTab(tab.index);
           };
-          this._tabIndicatorElement = _tabBarElement.querySelector('.tab-indicator');
+          this._tabIndicatorElement = _tabBarElement.querySelector('.u-tab-indicator');
           this._setTabInfoMap();
           this.setActiveTab(0);
           if (window) {
@@ -636,7 +636,7 @@
           this._tabIndicatorElement.style.width = tabBounds.width + 'px';
       };
       TabBar.prototype._setTabInfoMap = function () {
-          var tabs = this._tabBarElement.querySelectorAll('.tab');
+          var tabs = this._tabBarElement.querySelectorAll('.u-tab');
           for (var i = 0; i < tabs.length; i++) {
               var tab = tabs[i];
               tab.removeEventListener('click', this._tabClick);
@@ -649,7 +649,7 @@
           return new TabBar(tabBarElement);
       };
       TabBar.initializeTabBars = function () {
-          var tabBars = document.querySelectorAll('.tab-bar');
+          var tabBars = document.querySelectorAll('.u-tab-bar');
           for (var i = 0; i < tabBars.length; i++) {
               var tabBar = tabBars[i];
               TabBar.attach(tabBar);

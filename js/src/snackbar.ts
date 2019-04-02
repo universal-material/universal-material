@@ -54,7 +54,7 @@ export class Snackbar {
 
   private static createSnackbar(): HTMLElement {
     const snackbar = document.createElement("div");
-    snackbar.className = "snackbar";
+    snackbar.className = "u-snackbar";
 
     return snackbar;
   }
@@ -62,7 +62,7 @@ export class Snackbar {
   private static createSnackbarText(text: string): HTMLElement {
     const snackbarText = document.createElement("div");
     snackbarText.innerText = text;
-    snackbarText.className = "snackbar-text";
+    snackbarText.className = "u-snackbar-text";
 
     return snackbarText;
   }
@@ -71,7 +71,7 @@ export class Snackbar {
 
     const snackbarButton = document.createElement("button") as HTMLButtonElement;
     snackbarButton.type = "button";
-    snackbarButton.className = "btn-flat btn-secondary";
+    snackbarButton.className = "u-btn-flat u-btn-secondary";
     snackbarButton.innerText = buttonDefinition.text;
 
     new Ripple(snackbarButton);

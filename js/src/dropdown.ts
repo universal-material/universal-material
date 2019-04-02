@@ -18,8 +18,8 @@ export class Dropdown {
 
   constructor(private readonly _dropdownElement: HTMLElement,
               dropdownConfig: DropdownConfig) {
-    this._dropdownToggle = _dropdownElement.querySelector('.dropdown-toggle');
-    this._dropdownMenu = _dropdownElement.querySelector('.dropdown-menu');
+    this._dropdownToggle = _dropdownElement.querySelector('.u-dropdown-toggle');
+    this._dropdownMenu = _dropdownElement.querySelector('.u-dropdown-menu');
     if (!this._dropdownToggle || !this._dropdownToggle) return;
 
     this._dropdownConfig = {...DropdownConfig.default, ...dropdownConfig};
@@ -75,7 +75,7 @@ export class Dropdown {
   };
 
   static initializeDropdowns(): void {
-    const dropdowns = document.querySelectorAll('.dropdown');
+    const dropdowns = document.querySelectorAll('.u-dropdown');
     for (let i = 0; i < dropdowns.length; i++) {
       const dropdown = dropdowns[i] as HTMLElement;
       Dropdown.attach(dropdown);

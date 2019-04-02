@@ -1,6 +1,6 @@
 // stylelint-disable declaration-no-important
 
-@mixin uwp-text-fields($text-input-placeholder-color) {
+@mixin uwp-text-fields($u-text-input-placeholder-color) {
 
   //.u-text-field-border {
   //  position: absolute;
@@ -52,14 +52,14 @@
       margin-bottom: .25rem;
     }
 
-    &.floating-label {
+    &.u-floating-label {
       label {
-        font-size: $text-field-label-font-size;
+        font-size: $u-text-field-label-font-size;
         transform: none !important;
       }
 
       .u-text-input::placeholder {
-        color: $text-input-placeholder-color;
+        color: $u-text-input-placeholder-color;
         transition: none;
       }
     }

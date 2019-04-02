@@ -1,15 +1,18 @@
+@import "../../colors";
+@import "../../font";
+
 //Tabs
-$tab-min-width: 90px !default;
-$tab-max-width: 360px !default;
-$tab-height: 3rem !default;
-$tab-indicator-height: 2px !default;
-$tab-font-size: $font-size-base !default;
-$tab-font-weight: $font-medium !default;
+$u-tab-min-width: 90px !default;
+$u-tab-max-width: 360px !default;
+$u-tab-height: 3rem !default;
+$u-tab-indicator-height: 2px !default;
+$u-tab-font-size: $font-size-base !default;
+$u-tab-font-weight: $font-medium !default;
 
-$tab-horizontal-padding: 16px !default;
-$tab-bar-scrollable-margin: 56px !default;
+$u-tab-horizontal-padding: 16px !default;
+$u-tab-bar-scrollable-margin: 56px !default;
 
-$tab-text-color-light-theme: $text-low-contrast-light-theme !default;
+$u-tab-text-color-light-theme: $text-low-contrast-light-theme !default;
 
-$tab-text-color-dark-theme: $text-low-contrast-dark-theme !default;
-$tab-text-color-active-dark-theme: $body-color-dark-theme !default;
+$u-tab-text-color-dark-theme: $text-low-contrast-dark-theme !default;
+$u-tab-text-color-active-dark-theme: $body-color-dark-theme !default;

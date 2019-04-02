@@ -49,9 +49,9 @@ export class ProgressDialog extends QuickDialog<ProgressDialogConfig> {
     const message = this._config['_message'];
 
     if (message) {
-      dialogElement.querySelector<HTMLElement>('.dialog-progress-message').innerText = message;
+      dialogElement.querySelector<HTMLElement>('.u-dialog-progress-message').innerText = message;
     } else {
-      dialogElement.querySelector<HTMLElement>('.dialog-progress-message').style.display = 'none';
+      dialogElement.querySelector<HTMLElement>('.u-dialog-progress-message').style.display = 'none';
     }
   }
 }

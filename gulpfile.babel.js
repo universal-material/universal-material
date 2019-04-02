@@ -40,6 +40,28 @@ gulp.task("sass:compressed", function () {
     .pipe(gulp.dest("./dist/css"));
 });
 
+gulp.task("sass-no-reboot:normal", function () {
+  return gulp.src("./scss/universal-material-no-reboot.scss")
+    .pipe(sourcemaps.init())
+    .pipe(sass().on("error", sass.logError))
+    .pipe(autoprefixer())
+    .pipe(sourcemaps.write("./"))
+    .pipe(gulp.dest("./dist/css"))
+    .pipe(gulp.dest("./docs/css"));
+});
+
+gulp.task("sass-no-reboot:compressed", function () {
+  return gulp.src("./scss/universal-material-no-reboot.scss")
+    .pipe(sourcemaps.init())
+    .pipe(sass({
+      outputStyle: "compressed"
+    }).on("error", sass.logError))
+    .pipe(autoprefixer())
+    .pipe(rename("universal-material-no-reboot.min.css"))
+    .pipe(sourcemaps.write("./"))
+    .pipe(gulp.dest("./dist/css"));
+});
+
 
 gulp.task("sass:docs", function () {
   return gulp.src("./docs/css/docs.scss")
@@ -63,7 +85,7 @@ gulp.task('pug:docs', function () {
     .pipe(gulp.dest("./docs")); // tell gulp our output folder
 });
 
-gulp.task("sass", ["sass:normal", "sass:compressed"]);
+gulp.task("sass", ["sass:normal", "sass:compressed","sass-no-reboot:normal", "sass-no-reboot:compressed"]);
 
 gulp.task('scripts', [
   'ts-compile-typings',

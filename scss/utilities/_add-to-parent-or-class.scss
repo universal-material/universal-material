@@ -1,6 +1,6 @@
 @mixin add-to-parent-or-class($class) {
   @if & {
-    @content
+    @content;
   }
   @else {
     .#{$class} {

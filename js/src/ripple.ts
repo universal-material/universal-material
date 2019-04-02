@@ -6,11 +6,11 @@ export const RippleContainersSelector =
     '.u-btn-raised',
     '.u-btn-outline',
     '.u-btn-floating',
-    '.tab',
-    '.dropdown-item',
-    '.chip-remove',
-    '.chip-hover',
-    '.u-text-input.dropdown-toggle'
+    '.u-tab',
+    '.u-dropdown-item',
+    '.u-chip-remove',
+    '.u-chip-hover',
+    '.u-text-input.u-dropdown-toggle'
   ].join(',');
 
 export class RippleConfig {
@@ -25,28 +25,28 @@ const roundClickableConfig = {
 
 export const RippleConfigMap = [
   {
-    selector: '.list-hover',
-    subSelector: '.list-item',
+    selector: '.u-list-hover',
+    subSelector: '.u-list-item',
     config: null
   },
   {
-    selector: '.list-item',
-    subSelector: '.list-item-hover',
+    selector: '.u-list-item',
+    subSelector: '.u-list-item-hover',
     config: null
   },
   {
-    selector: '.radio',
-    subSelector: '.selection-control',
+    selector: '.u-radio',
+    subSelector: '.u-selection-control',
     config: null
   },
   {
-    selector: '.switch',
-    subSelector: '.check-indicator',
+    selector: '.u-switch',
+    subSelector: '.u-check-indicator',
     config: null
   },
   {
-    selector: '.checkbox',
-    subSelector: '.selection-control',
+    selector: '.u-checkbox',
+    subSelector: '.u-selection-control',
     config: roundClickableConfig
   },
   {

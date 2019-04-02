@@ -1,4 +1,5 @@
 @import "../colors";
+@import "../components/button/variables";
 @import "./text-emphasis";
 
 @mixin dark-background-colors {
@@ -8,7 +9,7 @@
 
   @if (mixin_exists(button-borderless-variant)) {
     .u-btn-borderless.u-btn-default {
-      @include button-borderless-variant($btn-borderless-color-dark-theme);
+      @include button-borderless-variant($u-btn-borderless-color-dark-theme);
     }
   }
 }
@@ -20,7 +21,7 @@
 
   @if (mixin_exists(button-borderless-variant)) {
     .u-btn-borderless.u-btn-default {
-      @include button-borderless-variant($btn-borderless-color-light-theme);
+      @include button-borderless-variant($u-btn-borderless-color-light-theme);
     }
   }
 }

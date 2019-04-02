@@ -68,7 +68,7 @@
   }
 
   function setActiveNavigationItem() {
-    const navItems = document.querySelectorAll('nav .list-item');
+    const navItems = document.querySelectorAll('nav .u-list-item');
 
     for (let i = 0; i < navItems.length; i++) {
       const navItem = navItems[i];
@@ -87,7 +87,7 @@ function showSnackbar() {
   const text = document.getElementById('snackbarText').value;
   const buttonText = document.getElementById('snackbarButtonText').value;
 
-  umd.Snackbar.show(document.getElementById('snackbarText').value, umd.SnackbarDuration.long, buttonText ? {
+  umd.Snackbar.show(text, umd.SnackbarDuration.long, buttonText ? {
     text: buttonText,
     action: function () {
       alert('Snackbar action!')
@@ -96,4 +96,3 @@ function showSnackbar() {
 }
 
 hljs.initHighlightingOnLoad();
-

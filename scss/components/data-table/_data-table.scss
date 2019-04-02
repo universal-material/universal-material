@@ -1,8 +1,11 @@
 @import "variables";
+@import "../../font";
 
 // stylelint-disable selector-no-qualifying-type
 
 .u-data-table {
+  font-family: $u-font-family-base;
+
   table {
     min-width: 100%;
   }
@@ -22,6 +25,7 @@
   th {
     font-size: $data-table-column-header-font-size;
     font-weight: $data-table-column-header-font-weight;
+    text-align: initial;
   }
 
   td {
@@ -29,7 +33,7 @@
     font-weight: $data-table-content-font-weight;
   }
 
-  td.dropdown {
+  td.u-dropdown {
     padding-top: 0;
     padding-bottom: 0;
   }
@@ -58,7 +62,7 @@
     overflow: visible;
   }
 
-  .dropdown-toggle:not(.u-btn-borderless) {
+  .u-dropdown-toggle:not(.u-btn-borderless) {
     width: 100%;
     padding: 0;
     text-align: left;
@@ -69,11 +73,11 @@
     }
   }
 
-  .dropdown-menu {
+  .u-dropdown-menu {
     padding: 0;
   }
 
-  .dropdown-item {
+  .u-dropdown-item {
     font-size: $data-table-content-font-size;
     font-weight: $data-table-content-font-weight;
   }
@@ -91,7 +95,7 @@
 
   @include horizontal-padding($data-table-horizontal-padding);
 
-  //@extend .toolbar;
+  //@extend .u-toolbar;
 
   .u-data-table-actions {
     margin-left: 2rem;

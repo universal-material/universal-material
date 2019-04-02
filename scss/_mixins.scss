@@ -1,6 +1,6 @@
 //Utilities
 @import "mixins/background";
-@import "mixins/divider";
+@import "mixins/breakpoints";
 @import "mixins/elevation";
 @import "mixins/spacing";
 @import "mixins/size";
@@ -8,13 +8,14 @@
 @import "mixins/selectable-background";
 
 @import "mixins/text-color";
+@import "mixins/text-truncate";
 
 @import "mixins/buttons";
 @import "mixins/selection-controls";
 @import "mixins/toolbar";
-@import "mixins/toolbar";
 
 // Layout
+@import "mixins/grid";
 @import "mixins/grid-framework";
 
 @import "mixins/themes";

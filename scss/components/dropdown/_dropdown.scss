@@ -1,15 +1,20 @@
-@import "_variables";
+@import "variables";
+@import "../../animations";
+@import "../../font";
+@import "../../zindex";
+@import "../../mixins";
 
-.dropdown-menu {
+.u-dropdown-menu {
   @include elevate("2dp");
 
   position: absolute;
   z-index: $zindex-dropdown;
-  min-width: $dropdown-menu-min-width;
-  padding-top: $dropdown-menu-padding;
-  padding-bottom: $dropdown-menu-padding;
+  min-width: $u-dropdown-menu-min-width;
+  padding-top: $u-dropdown-menu-padding;
+  padding-bottom: $u-dropdown-menu-padding;
   overflow: hidden;
-  border-radius: $dropdown-menu-border-radius;
+  font-family: $u-font-family-base;
+  border-radius: $u-dropdown-menu-border-radius;
   opacity: 0;
   transition: transform 350ms $awesome-cubic-bezier 350ms, opacity 350ms;
   transform: scale3d(0, 0, 1);
@@ -59,18 +64,19 @@
   }
 }
 
-.dropdown-content {
+.u-dropdown-content {
   opacity: 0;
   transition: opacity 1ms 400ms;
 }
 
-.dropdown-item {
+.u-dropdown-item {
   display: flex;
   align-items: center;
   width: 100%;
-  height: $dropdown-item-height;
-  padding: 0 $dropdown-item-padding;
-  font-size: $dropdown-item-font-size;
+  height: $u-dropdown-item-height;
+  padding: 0 $u-dropdown-item-padding;
+  font-size: $u-dropdown-item-font-size;
+  text-decoration: none;
   background: none;
   border: none;
   outline: 0;
@@ -80,56 +86,55 @@
   &.active,
   &:active {
     &::before {
-      opacity: $dropdown-item-focus-background-opacity;
+      opacity: $u-dropdown-item-focus-background-opacity;
     }
   }
 
   @include hover-focus {
-    text-decoration: none;
     outline: 0;
   }
 }
 
-.dropdown-toggle {
+.u-dropdown-toggle {
   display: flex;
   align-items: center;
 }
 
-.dropdown-toggle-label {
+.u-dropdown-toggle-label {
   flex-grow: 1;
 }
 
-.dropdown-toggle-icon {
+.u-dropdown-toggle-icon {
   &::before {
     display: block;
     width: 0;
     height: 0;
     content: "";
-    border-top: $dropdown-icon-size solid;
-    border-right: $dropdown-icon-size solid transparent;
-    border-left: $dropdown-icon-size solid transparent;
+    border-top: $u-dropdown-icon-size solid;
+    border-right: $u-dropdown-icon-size solid transparent;
+    border-left: $u-dropdown-icon-size solid transparent;
   }
 }
 
-.dropdown {
+.u-dropdown {
   position: relative;
 }
 
-.dropdown-menu.show {
+.u-dropdown-menu.show {
   opacity: 1;
   transition: transform 350ms $awesome-cubic-bezier, opacity 250ms;
   transform: scale3d(1, 1, 1);
 
-  .dropdown-content {
+  .u-dropdown-content {
     opacity: 1;
     transition: opacity 300ms 150ms;
   }
 }
 
 .dense-layout {
-  .dropdown-item {
-    height: $dropdown-item-dense-height;
-    font-size: $dropdown-item-dense-font-size;
+  .u-dropdown-item {
+    height: $u-dropdown-item-dense-height;
+    font-size: $u-dropdown-item-dense-font-size;
   }
 }
 
@@ -137,23 +142,23 @@
 
   $dark-theme: map-get($theme, "dark");
 
-  $background: $dropdown-menu-bg-light-theme;
-  $background-in-data-table: $dropdown-in-data-table-bg-light-theme;
-  $color: $dropdown-item-color-light-theme;
-  $dropdown-icon-color: $dropdown-icon-color-light-theme;
+  $background: $u-dropdown-menu-bg-light-theme;
+  $background-in-data-table: $u-dropdown-in-data-table-bg-light-theme;
+  $color: $u-dropdown-item-color-light-theme;
+  $u-dropdown-icon-color: $u-dropdown-icon-color-light-theme;
 
   @if ($dark-theme) {
-    $background: $dropdown-menu-bg-dark-theme;
-    $background-in-data-table: $dropdown-in-data-table-bg-dark-theme;
-    $color: $dropdown-item-color-dark-theme;
-    $dropdown-icon-color: $dropdown-icon-color-dark-theme;
+    $background: $u-dropdown-menu-bg-dark-theme;
+    $background-in-data-table: $u-dropdown-in-data-table-bg-dark-theme;
+    $color: $u-dropdown-item-color-dark-theme;
+    $u-dropdown-icon-color: $u-dropdown-icon-color-dark-theme;
   }
 
-  .dropdown-menu {
+  .u-dropdown-menu {
     background: $background;
   }
 
-  .dropdown-item {
+  .u-dropdown-item {
     color: $color;
     @include hover-focus {
       color: $color;
@@ -161,12 +166,12 @@
   }
 
   .data-table {
-    .dropdown-menu {
+    .u-dropdown-menu {
       background-color: $background-in-data-table;
     }
   }
 
-  .dropdown-toggle-icon::before {
-    border-top-color: $dropdown-icon-color;
+  .u-dropdown-toggle-icon::before {
+    border-top-color: $u-dropdown-icon-color;
   }
 }

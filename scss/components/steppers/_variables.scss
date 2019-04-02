@@ -1,3 +1,9 @@
+@import "../../base-sizes";
+@import "../../colors";
+@import "../../divider";
+@import "../../font";
+@import "../../mixins";
+
 //Steppers
 $stepper-padding: 1.5rem !default;
 $step-number-font-size: .75rem !default;
@@ -22,6 +28,6 @@ $active-step-weight: $font-medium !default;
 
 $vertical-step-space: 3rem !default;
 
-$step-line-color: $divider-color !default;
+$step-line-color: $u-divider-color !default;
 $step-line-size: 1px !default;
 $step-line-margin: 8px !default;

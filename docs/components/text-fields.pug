@@ -1,7 +1,7 @@
 extends ../layout
 
 block content
-  h4.headline4.chapter-title Text fields
+  h4.u-headline4.chapter-title Text fields
   .u-text-field-container.u-form-field
     .u-text-field
       input.u-text-input(type="text" placeholder="Placeholder" id="text-field-standard" aria-describedby="standardHelper")
@@ -69,14 +69,14 @@ block content
     small#textAreaOutline.u-text-field-helper-text Text area outline
 
   .u-text-field-container.u-form-field
-    .u-text-field.u-text-field-box.dropdown
+    .u-text-field.u-text-field-box.u-dropdown
       .u-text-field-trailing-icon
         .mdi.mdi-menu-down
-      button.u-text-input.dropdown-toggle(type="button" disabled)
+      button.u-text-input.u-dropdown-toggle(type="button" disabled)
         .u-text-input-placeholder No value
-      .dropdown-menu.up.w-100
-        .dropdown-content
-          button.dropdown-item(type="button") Option A
-          button.dropdown-item(type="button") Option B
-          button.dropdown-item(type="button") Option C
+      .u-dropdown-menu.up.w-100
+        .u-dropdown-content
+          button.u-dropdown-item(type="button") Option A
+          button.u-dropdown-item(type="button") Option B
+          button.u-dropdown-item(type="button") Option C
       label Dropdown

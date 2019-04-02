@@ -1,102 +1,107 @@
 @import "variables";
+@import "../../zindex";
+@import "../../typography/variables";
+@import "../../mixins";
+@import "../../utilities/add-to-parent-or-class";
 @import "ios-toolbar";
 
-.toolbar {
+.u-toolbar {
   z-index: 1;
   width: 100%;
+  font-family: $u-font-family-base;
 }
 
-.toolbar-row {
+.u-toolbar-row {
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: $toolbar-height;
+  height: $u-toolbar-height;
 }
 
-.toolbar-start {
+.u-toolbar-start {
   display: inline-flex;
   justify-content: flex-start;
 }
 
-.toolbar-end {
+.u-toolbar-end {
   display: inline-flex;
   justify-content: flex-end;
 }
 
-.toolbar-start + .toolbar-end {
+.u-toolbar-start + .u-toolbar-end {
   margin-left: auto;
 }
 
-.toolbar-title {
+.u-toolbar-title {
   @include umd-typography(headline6);
   @include text-truncate;
   flex-grow: 1;
-  margin-left: $toolbar-title-margin;
+  margin-left: $u-toolbar-title-margin;
   font-weight: 400;
   text-align: start;
 }
 
-.toolbar-icon,
-.toolbar-action {
-  font-size: $toolbar-action-icon-size;
+.u-toolbar-icon,
+.u-toolbar-action {
+  font-size: $u-toolbar-action-icon-size;
 }
 
-.toolbar-navigation {
+.u-toolbar-navigation {
   &,
   &.u-btn-borderless {
-    width: $toolbar-navigation-size;
-    height: $toolbar-navigation-size;
+    width: $u-toolbar-navigation-size;
+    height: $u-toolbar-navigation-size;
   }
 
-  margin-right: $toolbar-navigation-margin;
-  margin-left: $toolbar-navigation-margin;
+  margin-right: $u-toolbar-navigation-margin;
+  margin-left: $u-toolbar-navigation-margin;
 }
 
-.toolbar-actions {
+.u-toolbar-actions {
   display: flex;
   align-items: center;
-  padding: $toolbar-actions-padding;
+  padding: $u-toolbar-actions-padding;
 }
 
-.toolbar-action {
+.u-toolbar-action {
   text-align: center;
 
   &,
   &.u-btn-borderless {
-    width: $toolbar-action-size;
-    height: $toolbar-action-size;
+    width: $u-toolbar-action-size;
+    height: $u-toolbar-action-size;
 
-    + .toolbar-action {
-      margin-left: $toolbar-action-margin;
+    + .u-toolbar-action {
+      margin-left: $u-toolbar-action-margin;
     }
   }
 }
 
-.toolbar-fixed {
+.u-toolbar-fixed {
   position: fixed;
   z-index: $zindex-toolbar-fixed;
 }
 
-.toolbar-layout {
+.u-toolbar-layout {
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
 .dense-layout {
-  .toolbar-row {
-    height: $toolbar-dense-height;
+  .u-toolbar-row {
+    height: $u-toolbar-dense-height;
   }
 }
 
 .rtl,
 [dir="rtl"] {
-  .toolbar-title {
-    margin-right: $toolbar-title-margin;
+  .u-toolbar-title {
+    margin-right: $u-toolbar-title-margin;
     margin-left: 0;
   }
 
-  .toolbar-start + .toolbar-end {
+  .u-toolbar-start + .u-toolbar-end {
     margin-right: auto;
     margin-left: 0;
   }
@@ -105,11 +110,11 @@
 @mixin toolbar-theme($theme-colors, $dark-theme) {
 
   $color: $body-color-light-theme;
-  $button-borderless-color: $toolbar-icon-color-light-theme;
+  $button-borderless-color: $u-toolbar-icon-color-light-theme;
 
   @if ($dark-theme) {
     $color: $body-color-dark-theme;
-    $button-borderless-color: $toolbar-icon-color-dark-theme;
+    $button-borderless-color: $u-toolbar-icon-color-dark-theme;
   }
 
   @include add-to-parent-or-class("toolbar") {
@@ -121,11 +126,11 @@
   }
 
   @if & == null {
-    $toolbar-primary: map_get($theme-colors, "primary");
-    $dark-background: is-dark-background($toolbar-primary);
+    $u-toolbar-primary: map_get($theme-colors, "primary");
+    $dark-background: is-dark-background($u-toolbar-primary);
 
-    .toolbar-primary {
-      @include toolbar-variant($theme-colors, $toolbar-primary);
+    .u-toolbar-primary {
+      @include toolbar-variant($theme-colors, $u-toolbar-primary);
       //@include button-borderless-theme((), $dark-background);
     }
   }

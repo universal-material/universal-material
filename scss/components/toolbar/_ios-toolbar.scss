@@ -1,19 +1,19 @@
 @mixin ios-toolbar() {
-  .toolbar-start,
-  .toolbar-end {
+  .u-toolbar-start,
+  .u-toolbar-end {
     display: inline-flex;
     flex: 2;
   }
 
-  .toolbar-start {
+  .u-toolbar-start {
     align-items: flex-start;
   }
 
-  .toolbar-end {
+  .u-toolbar-end {
     align-items: flex-end;
   }
 
-  .toolbar-title {
+  .u-toolbar-title {
     margin-left: 0;
     text-align: center;
   }
