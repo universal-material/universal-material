@@ -14,6 +14,11 @@ block content
       label(for="text-field-floating-label") Standard floating label
     small#standardWithFloatinglabelHelper.u-text-field-helper-text Standard text field with floating label
 
+  .u-text-field-container.u-form-field.disabled
+    .u-text-field.u-text-field-floating-label
+      input.u-text-input(type="text" placeholder="Placeholder" disabled aria-describedby="standardWithFloatinglabelHelper")
+      label(for="text-field-floating-label") Standard floating label
+
   .u-text-field-container.u-form-field
     .u-text-field.u-text-field-box
       .u-text-field-leading-icon
@@ -31,6 +36,16 @@ block content
         span 0 / 10
 
   .u-text-field-container.u-form-field
+    .u-text-field.u-text-field-box.disabled
+      .u-text-field-leading-icon
+        i.mdi.mdi-calendar
+      .u-text-field-trailing-icon
+        i.mdi.mdi-calendar
+
+      input.u-text-input(type="text" placeholder="Placeholder" disabled aria-describedby="textFieldBox")
+      label Text field box
+
+  .u-text-field-container.u-form-field
     .u-text-field.u-text-field-outline
       .u-text-field-leading-icon
         i.mdi.mdi-calendar
@@ -39,6 +54,15 @@ block content
       input.u-text-input(type="text" placeholder="Placeholder" id="text-field-outline" aria-describedby="textFieldOutline")
       label(for="text-field-outline") Text field outline
     small#textFieldOutline.u-text-field-helper-text Text field outline
+
+  .u-text-field-container.u-form-field
+    .u-text-field.u-text-field-outline.disabled
+      .u-text-field-leading-icon
+        i.mdi.mdi-calendar
+      .u-text-field-trailing-icon
+        i.mdi.mdi-calendar
+      input.u-text-input(type="text" placeholder="Placeholder" disabled)
+      label(for="text-field-outline") Text field outline
 
   .u-text-field-container.u-form-field
     .u-text-field.u-search-field
@@ -71,7 +95,7 @@ block content
   .u-text-field-container.u-form-field
     .u-text-field.u-text-field-box.u-dropdown
       .u-text-field-trailing-icon
-        .mdi.mdi-menu-down
+        .u-dropdown-toggle-icon
       button.u-text-input.u-dropdown-toggle(type="button" disabled)
         .u-text-input-placeholder No value
       .u-dropdown-menu.up.w-100

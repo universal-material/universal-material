@@ -69,8 +69,12 @@
   display: inline-block;
   width: $spinner-height;
   height: $spinner-height;
-
   animation: container-rotate 1568ms linear infinite;
+
+  &,
+  & * {
+    box-sizing: border-box;
+  }
 
   &.small {
     width: $spinner-height-small;

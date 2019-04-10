@@ -16,10 +16,13 @@ $u-text-field-box-horizontal-padding: .75rem !default;
 $u-text-field-box-height: 3.5rem !default;
 $u-text-field-box-label-height: 1.75rem !default;
 $u-text-field-box-label-line-height: $u-text-field-box-label-height !default;
-$u-text-field-box-padding: 12px !default;
+$u-text-field-box-padding-horizontal: 12px !default;
+$u-text-field-box-no-label-padding-vertical: 20px !default;
 $u-text-field-box-border-radius: .25rem .25rem 0 0 !default;
 $u-text-input-box-bg-light-theme: rgba(0, 0, 0, .06) !default;
-$u-text-input-box-bg-dark-theme: rgba(255, 255, 255, .05) !default;
+$u-text-input-box-disabled-bg-light-theme: rgba(0, 0, 0, .02) !default;
+$u-text-input-box-bg-dark-theme: rgba(255, 255, 255, .1) !default;
+$u-text-input-box-disabled-bg-dark-theme: rgba(255, 255, 255, .05) !default;
 
 $u-text-field-outline-horizontal-padding: .75rem !default;
 $u-text-field-outline-height: 3.5rem !default;
@@ -41,7 +44,7 @@ $u-text-field-divider-color-dark-theme: $color-low-contrast-dark-theme !default;
 $u-text-field-divider-color-hover-light-theme: $color-high-contrast-light-theme !default;
 $u-text-field-divider-color-hover-dark-theme: $color-high-contrast-dark-theme !default;
 $u-text-field-divider-color-disabled-light-theme: rgba(0, 0, 0, .2) !default;
-$u-text-field-divider-color-disabled-dark-theme: $u-text-field-divider-color-dark-theme !default;
+$u-text-field-divider-color-disabled-dark-theme: rgba(255, 255, 255, .05) !default;
 
 $u-text-input-color-light-theme: $text-high-contrast-light-theme !default;
 $u-text-input-color-dark-theme: $text-high-contrast-dark-theme !default;

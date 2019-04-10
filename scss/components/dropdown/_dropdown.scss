@@ -106,11 +106,12 @@
 
 .u-dropdown-toggle-icon {
   &::before {
-    display: block;
+    display: inline-block;
     width: 0;
     height: 0;
+    vertical-align: middle;
     content: "";
-    border-top: $u-dropdown-icon-size solid;
+    border-top: $u-dropdown-icon-size solid currentColor;
     border-right: $u-dropdown-icon-size solid transparent;
     border-left: $u-dropdown-icon-size solid transparent;
   }
@@ -169,9 +170,5 @@
     .u-dropdown-menu {
       background-color: $background-in-data-table;
     }
-  }
-
-  .u-dropdown-toggle-icon::before {
-    border-top-color: $u-dropdown-icon-color;
   }
 }

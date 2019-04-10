@@ -81,7 +81,8 @@
   }
 }
 
-.u-text-input {
+.u-text-input,
+input.u-text-input {
   box-sizing: content-box;
   padding-top: $u-text-input-padding;
   padding-bottom: $u-text-input-padding - $u-text-field-border-width;
@@ -139,6 +140,11 @@
       transform: scale3d(1, 1, 1);
     }
   }
+
+  &.disabled .u-text-input,
+  input.u-text-input[disabled] {
+    border-bottom-style: dashed !important;
+  }
 }
 
 .u-text-field.u-text-field-floating-label,
@@ -173,14 +179,20 @@
 
   label {
     height: $u-text-field-box-label-height;
-    padding-left: $u-text-field-box-padding;
+    padding-left: $u-text-field-box-padding-horizontal;
     margin-bottom: 0;
     line-height: $u-text-field-box-label-line-height;
   }
 
   .u-text-input {
-    padding: $u-text-field-box-label-height $u-text-field-box-padding calc(#{$u-text-field-box-padding} - #{$u-text-field-border-width});
+    padding: $u-text-field-box-label-height $u-text-field-box-padding-horizontal calc(#{$u-text-field-box-padding-horizontal} - #{$u-text-field-border-width});
     margin-top: -$u-text-field-box-label-height;
+  }
+
+  &.u-text-field-no-label .u-text-input {
+    padding-top: $u-text-field-box-no-label-padding-vertical;
+    padding-bottom: calc(#{$u-text-field-box-no-label-padding-vertical} - #{$u-text-field-border-width});
+    margin-top: 0;
   }
 
   &.empty:not(.focus) {
@@ -190,8 +202,8 @@
   }
 
   ~ .u-text-field-helper-text {
-    margin-right: $u-text-field-box-padding;
-    margin-left: $u-text-field-box-padding;
+    margin-right: $u-text-field-box-padding-horizontal;
+    margin-left: $u-text-field-box-padding-horizontal;
   }
 
   .u-text-field-leading-icon,
@@ -204,7 +216,7 @@
 
     ~ .u-text-input,
     ~ label {
-      padding-left: calc(#{$u-text-field-icon-margin + $u-text-field-box-padding} + #{$u-text-field-icon-size});
+      padding-left: calc(#{$u-text-field-icon-margin + $u-text-field-box-padding-horizontal} + #{$u-text-field-icon-size});
     }
   }
 
@@ -213,8 +225,13 @@
 
     ~ .u-text-input,
     ~ label {
-      padding-right: calc(#{$u-text-field-icon-margin + $u-text-field-box-padding} + #{$u-text-field-icon-size});
+      padding-right: calc(#{$u-text-field-icon-margin + $u-text-field-box-padding-horizontal} + #{$u-text-field-icon-size});
     }
+  }
+
+  &.disabled .u-text-input,
+  input.u-text-input[disabled] {
+    border-bottom-style: solid !important;
   }
 }
 
@@ -328,7 +345,7 @@
   box-shadow: $u-text-field-elevated-box-shadow;
 }
 
-.text-area-outline {
+.u-text-area-outline {
   @extend .u-text-field-outline;
 
   label {
@@ -351,6 +368,7 @@
   $u-text-field-divider-color-hover: $u-text-field-divider-color-hover-light-theme;
   $u-text-field-divider-color-disabled: $u-text-field-divider-color-disabled-light-theme;
   $u-text-field-box-background: $u-text-input-box-bg-light-theme;
+  $u-text-field-box-disabled-background: $u-text-input-box-disabled-bg-light-theme;
   $u-text-field-elevated-background: $u-text-field-elevated-bg-light-theme;
   $u-text-input-color: $u-text-input-color-light-theme;
   $u-text-input-placeholder-color: $u-text-input-placeholder-color-light-theme;
@@ -366,10 +384,11 @@
     $u-text-field-divider-color-hover: $u-text-field-divider-color-hover-dark-theme;
     $u-text-field-divider-color-disabled: $u-text-field-divider-color-disabled-dark-theme;
     $u-text-field-box-background: $u-text-input-box-bg-dark-theme;
+    $u-text-field-box-disabled-background: $u-text-input-box-disabled-bg-dark-theme;
     $u-text-field-elevated-background: $u-text-field-elevated-bg-dark-theme;
     $u-text-input-color: $u-text-input-color-dark-theme;
     $u-text-input-placeholder-color: $u-text-input-placeholder-color-dark-theme;
-  //  $u-text-input-disabled-color: $u-text-input-disabled-color-dark-theme;
+    $u-text-input-disabled-color: $u-text-input-disabled-color-dark-theme;
     $u-text-input-icon-color: $u-text-input-icon-color-dark-theme;
   //  $u-text-input-affix-color: $u-text-input-affix-color-dark-theme;
     $u-text-field-helper-text-color: $u-text-field-helper-text-color-dark-theme;
@@ -381,6 +400,15 @@
     color: $u-text-input-icon-color;
   }
 
+
+
+
+  .u-text-input,
+  input.u-text-input {
+    color: $u-text-input-color;
+    border-color: $u-text-field-divider-color;
+  }
+
   .u-text-field {
     label {
       color: $u-text-field-label-color;
@@ -388,6 +416,24 @@
 
     &.focus {
       color: $primary-color;
+    }
+
+    &.disabled {
+      label,
+      .u-text-field-leading-icon,
+      .u-text-field-trailing-icon,
+      + .u-text-field-helper-text {
+        &,
+        .u-text-field-helper-text-default {
+          color: $u-text-input-disabled-color;
+        }
+      }
+    }
+
+    &.disabled .u-text-input,
+    .u-text-input:disabled {
+      color: $u-text-input-disabled-color;
+      border-color: $u-text-field-divider-color-disabled;
     }
 
     &.invalid,
@@ -406,6 +452,10 @@
 
   .u-text-field-box {
     background: $u-text-field-box-background;
+
+    &.disabled {
+      background: $u-text-field-box-disabled-background;
+    }
   }
 
   .u-text-field-outline {
@@ -413,7 +463,7 @@
       background: $u-text-field-outline-label-background;
     }
 
-    &:not(.focus):not(.invalid) {
+    &:not(.focus):not(.invalid):not(.disabled) {
       &::before {
         border-color: $u-text-field-divider-color;
       }
@@ -421,6 +471,10 @@
       &:hover::before {
         border-color: $u-text-field-divider-color-hover;
       }
+    }
+
+    &.disabled::before {
+      border-color: $u-text-field-divider-color-disabled;
     }
   }
 
@@ -430,16 +484,6 @@
 
   .u-search-field-elevated {
     background: $u-text-field-elevated-background;
-  }
-
-  .u-text-input {
-    color: $u-text-input-color;
-    border-color: $u-text-field-divider-color;
-
-    &:disabled {
-      color: $u-text-input-disabled-color;
-      border-color: $u-text-field-divider-color-disabled;
-    }
   }
 
   .u-text-field-helper-text {

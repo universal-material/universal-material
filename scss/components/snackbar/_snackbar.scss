@@ -11,12 +11,18 @@
   display: flex;
   align-items: center;
   min-height: $u-snackbar-height;
+  font-family: $u-font-family-base;
   font-size: $u-snackbar-font-size;
   border-radius: $u-snackbar-border-radius;
   animation-name: snackbar-fade-in;
   animation-duration: 450ms;
   animation-timing-function: $awesome-cubic-bezier;
   animation-fill-mode: forwards;
+
+  &,
+  & * {
+    box-sizing: border-box;
+  }
 
   .u-btn {
     margin: $u-snackbar-btn-margin;

@@ -4349,12 +4349,12 @@ mark,
   white-space: nowrap;
   vertical-align: middle;
   cursor: pointer;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
   background: transparent;
   border: none;
   border-radius: 0.25rem;
@@ -5715,13 +5715,14 @@ mark,
           flex-grow: 1; }
 
 .u-dropdown-toggle-icon::before {
-  display: block;
+  display: inline-block;
   width: 0;
   height: 0;
+  vertical-align: middle;
   content: "";
-  border-top: 0.3rem solid;
-  border-right: 0.3rem solid transparent;
-  border-left: 0.3rem solid transparent; }
+  border-top: 0.2em solid currentColor;
+  border-right: 0.2em solid transparent;
+  border-left: 0.2em solid transparent; }
 
 .u-dropdown {
   position: relative; }
@@ -6309,6 +6310,10 @@ mark,
   height: 3rem;
   -webkit-animation: container-rotate 1568ms linear infinite;
           animation: container-rotate 1568ms linear infinite; }
+  .preloader-wrapper,
+  .preloader-wrapper * {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box; }
   .preloader-wrapper.small {
     width: 2.25rem;
     height: 2.25rem; }
@@ -6784,12 +6789,12 @@ mark,
   white-space: nowrap;
   vertical-align: middle;
   cursor: pointer;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
   background: transparent;
   border: none;
   border-radius: 0.25rem;
@@ -6934,6 +6939,7 @@ mark,
       -ms-flex-align: center;
           align-items: center;
   min-height: 3rem;
+  font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 0.875rem;
   border-radius: 0.25rem;
   -webkit-animation-name: snackbar-fade-in;
@@ -6944,6 +6950,10 @@ mark,
           animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards; }
+  .u-snackbar,
+  .u-snackbar * {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box; }
   .u-snackbar .u-btn, .u-snackbar .u-btn-flat, .u-snackbar .u-btn-outline,
   .u-snackbar .u-btn-solid, .u-snackbar .u-btn-raised, .u-snackbar .u-btn-floating, .u-snackbar .u-btn-borderless {
     margin: 0.375rem 0.5rem; }
@@ -7099,7 +7109,8 @@ mark,
   .u-text-field-trailing-icon ~ .u-text-input {
     padding-right: 2rem; }
 
-.u-text-input {
+.u-text-input,
+input.u-text-input {
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
   padding-top: 0.5rem;
@@ -7110,9 +7121,11 @@ mark,
   border: none;
   border-bottom: 0.0625rem solid;
   border-radius: inherit; }
-  .u-text-input:not(textarea) {
+  .u-text-input:not(textarea),
+  input.u-text-input:not(textarea) {
     height: 1rem; }
-  .u-text-input:focus {
+  .u-text-input:focus,
+  input.u-text-input:focus {
     outline: 0; }
 
 .u-text-field {
@@ -7152,11 +7165,14 @@ mark,
   .u-text-field.focus::before, .u-text-field.invalid::before {
     -webkit-transform: scale3d(1, 1, 1);
             transform: scale3d(1, 1, 1); }
+  .u-text-field.disabled .u-text-input,
+  .u-text-field input.u-text-input[disabled] {
+    border-bottom-style: dashed !important; }
 
 .u-text-field.u-text-field-floating-label label,
 .u-text-field-box label,
 .u-text-field-outline label,
-.text-area-outline label {
+.u-text-area-outline label {
   -webkit-transition: font-size 200ms, -webkit-transform 200ms;
   transition: font-size 200ms, -webkit-transform 200ms;
   transition: transform 200ms, font-size 200ms;
@@ -7167,9 +7183,9 @@ mark,
 .u-text-field-box .u-text-input::-webkit-input-placeholder,
 .u-text-field-box .u-text-input-placeholder,
 .u-text-field-outline .u-text-input::-webkit-input-placeholder,
-.text-area-outline .u-text-input::-webkit-input-placeholder,
+.u-text-area-outline .u-text-input::-webkit-input-placeholder,
 .u-text-field-outline .u-text-input-placeholder,
-.text-area-outline .u-text-input-placeholder {
+.u-text-area-outline .u-text-input-placeholder {
   -webkit-transition: color 150ms;
   transition: color 150ms; }
 
@@ -7178,9 +7194,9 @@ mark,
 .u-text-field-box .u-text-input:-ms-input-placeholder,
 .u-text-field-box .u-text-input-placeholder,
 .u-text-field-outline .u-text-input:-ms-input-placeholder,
-.text-area-outline .u-text-input:-ms-input-placeholder,
+.u-text-area-outline .u-text-input:-ms-input-placeholder,
 .u-text-field-outline .u-text-input-placeholder,
-.text-area-outline .u-text-input-placeholder {
+.u-text-area-outline .u-text-input-placeholder {
   -webkit-transition: color 150ms;
   transition: color 150ms; }
 
@@ -7189,16 +7205,16 @@ mark,
 .u-text-field-box .u-text-input::placeholder,
 .u-text-field-box .u-text-input-placeholder,
 .u-text-field-outline .u-text-input::placeholder,
-.text-area-outline .u-text-input::placeholder,
+.u-text-area-outline .u-text-input::placeholder,
 .u-text-field-outline .u-text-input-placeholder,
-.text-area-outline .u-text-input-placeholder {
+.u-text-area-outline .u-text-input-placeholder {
   -webkit-transition: color 150ms;
   transition: color 150ms; }
 
 .u-text-field.u-text-field-floating-label.empty:not(.focus) label,
 .u-text-field-box.empty:not(.focus) label,
 .u-text-field-outline.empty:not(.focus) label,
-.empty.text-area-outline:not(.focus) label {
+.empty.u-text-area-outline:not(.focus) label {
   font-size: 1rem;
   pointer-events: none;
   -webkit-transform: translate3d(0, 1.625rem, 0);
@@ -7209,9 +7225,9 @@ mark,
 .u-text-field-box.empty:not(.focus) .u-text-input::-webkit-input-placeholder,
 .u-text-field-box.empty:not(.focus) .u-text-input-placeholder,
 .u-text-field-outline.empty:not(.focus) .u-text-input::-webkit-input-placeholder,
-.empty.text-area-outline:not(.focus) .u-text-input::-webkit-input-placeholder,
+.empty.u-text-area-outline:not(.focus) .u-text-input::-webkit-input-placeholder,
 .u-text-field-outline.empty:not(.focus) .u-text-input-placeholder,
-.empty.text-area-outline:not(.focus) .u-text-input-placeholder {
+.empty.u-text-area-outline:not(.focus) .u-text-input-placeholder {
   color: transparent;
   -webkit-transition: color 150ms 100ms;
   transition: color 150ms 100ms; }
@@ -7221,9 +7237,9 @@ mark,
 .u-text-field-box.empty:not(.focus) .u-text-input:-ms-input-placeholder,
 .u-text-field-box.empty:not(.focus) .u-text-input-placeholder,
 .u-text-field-outline.empty:not(.focus) .u-text-input:-ms-input-placeholder,
-.empty.text-area-outline:not(.focus) .u-text-input:-ms-input-placeholder,
+.empty.u-text-area-outline:not(.focus) .u-text-input:-ms-input-placeholder,
 .u-text-field-outline.empty:not(.focus) .u-text-input-placeholder,
-.empty.text-area-outline:not(.focus) .u-text-input-placeholder {
+.empty.u-text-area-outline:not(.focus) .u-text-input-placeholder {
   color: transparent;
   -webkit-transition: color 150ms 100ms;
   transition: color 150ms 100ms; }
@@ -7233,9 +7249,9 @@ mark,
 .u-text-field-box.empty:not(.focus) .u-text-input::placeholder,
 .u-text-field-box.empty:not(.focus) .u-text-input-placeholder,
 .u-text-field-outline.empty:not(.focus) .u-text-input::placeholder,
-.empty.text-area-outline:not(.focus) .u-text-input::placeholder,
+.empty.u-text-area-outline:not(.focus) .u-text-input::placeholder,
 .u-text-field-outline.empty:not(.focus) .u-text-input-placeholder,
-.empty.text-area-outline:not(.focus) .u-text-input-placeholder {
+.empty.u-text-area-outline:not(.focus) .u-text-input-placeholder {
   color: transparent;
   -webkit-transition: color 150ms 100ms;
   transition: color 150ms 100ms; }
@@ -7250,6 +7266,10 @@ mark,
   .u-text-field-box .u-text-input {
     padding: 1.75rem 12px calc(12px - 0.0625rem);
     margin-top: -1.75rem; }
+  .u-text-field-box.u-text-field-no-label .u-text-input {
+    padding-top: 20px;
+    padding-bottom: calc(20px - 0.0625rem);
+    margin-top: 0; }
   .u-text-field-box.empty:not(.focus) label {
     -webkit-transform: translate3d(0, 0.875rem, 0) !important;
             transform: translate3d(0, 0.875rem, 0) !important; }
@@ -7269,10 +7289,13 @@ mark,
     .u-text-field-box .u-text-field-trailing-icon ~ .u-text-input,
     .u-text-field-box .u-text-field-trailing-icon ~ label {
       padding-right: calc(20px + 1.5rem); }
+  .u-text-field-box.disabled .u-text-input,
+  .u-text-field-box input.u-text-input[disabled] {
+    border-bottom-style: solid !important; }
 
 
 .u-text-field-outline label,
-.text-area-outline label {
+.u-text-area-outline label {
   height: 1.25rem;
   padding-right: 0.125rem;
   padding-left: 0.125rem;
@@ -7282,22 +7305,22 @@ mark,
   -webkit-transform: translate3d(0, -0.625rem, 0);
           transform: translate3d(0, -0.625rem, 0); }
 
-.u-text-field-outline .u-text-input, .text-area-outline .u-text-input {
+.u-text-field-outline .u-text-input, .u-text-area-outline .u-text-input {
   padding: 1.25rem 0.75rem calc(1.25rem - 0.0625rem);
   margin-top: -1.25rem;
   border-color: transparent !important; }
 
 
 .u-text-field-outline.empty:not(.focus) label,
-.empty.text-area-outline:not(.focus) label {
+.empty.u-text-area-outline:not(.focus) label {
   -webkit-transform: translate3d(0, 1.125rem, 0) !important;
           transform: translate3d(0, 1.125rem, 0) !important; }
 
-.u-text-field-outline.empty:not(.focus) .u-text-field-leading-icon ~ label, .empty.text-area-outline:not(.focus) .u-text-field-leading-icon ~ label {
+.u-text-field-outline.empty:not(.focus) .u-text-field-leading-icon ~ label, .empty.u-text-area-outline:not(.focus) .u-text-field-leading-icon ~ label {
   -webkit-transform: translate3d(calc(8px + 1.5rem), 1.125rem, 0) !important;
           transform: translate3d(calc(8px + 1.5rem), 1.125rem, 0) !important; }
 
-.u-text-field-outline::before, .text-area-outline::before {
+.u-text-field-outline::before, .u-text-area-outline::before {
   top: 0;
   height: auto;
   border: 0.0625rem solid;
@@ -7307,30 +7330,30 @@ mark,
   -webkit-transform: none;
           transform: none; }
 
-.u-text-field-outline.focus::before, .focus.text-area-outline::before, .u-text-field-outline.invalid::before, .invalid.text-area-outline::before {
+.u-text-field-outline.focus::before, .focus.u-text-area-outline::before, .u-text-field-outline.invalid::before, .invalid.u-text-area-outline::before {
   border-width: 0.125rem; }
 
-.u-text-field-outline ~ .u-text-field-helper-text, .text-area-outline ~ .u-text-field-helper-text {
+.u-text-field-outline ~ .u-text-field-helper-text, .u-text-area-outline ~ .u-text-field-helper-text {
   margin-right: 0.75rem;
   margin-left: 0.75rem; }
 
-.u-text-field-outline .u-text-field-leading-icon, .text-area-outline .u-text-field-leading-icon,
+.u-text-field-outline .u-text-field-leading-icon, .u-text-area-outline .u-text-field-leading-icon,
 .u-text-field-outline .u-text-field-trailing-icon,
-.text-area-outline .u-text-field-trailing-icon {
+.u-text-area-outline .u-text-field-trailing-icon {
   bottom: 50%; }
 
-.u-text-field-outline .u-text-field-leading-icon, .text-area-outline .u-text-field-leading-icon {
+.u-text-field-outline .u-text-field-leading-icon, .u-text-area-outline .u-text-field-leading-icon {
   left: 8px; }
-  .u-text-field-outline .u-text-field-leading-icon ~ .u-text-input, .text-area-outline .u-text-field-leading-icon ~ .u-text-input {
+  .u-text-field-outline .u-text-field-leading-icon ~ .u-text-input, .u-text-area-outline .u-text-field-leading-icon ~ .u-text-input {
     margin-left: calc(8px + 1.5rem); }
 
 
 .u-text-field-outline .u-text-field-trailing-icon,
-.text-area-outline .u-text-field-trailing-icon {
+.u-text-area-outline .u-text-field-trailing-icon {
   right: 8px; }
-  .u-text-field-outline .u-text-field-trailing-icon ~ .u-text-input, .text-area-outline .u-text-field-trailing-icon ~ .u-text-input,
+  .u-text-field-outline .u-text-field-trailing-icon ~ .u-text-input, .u-text-area-outline .u-text-field-trailing-icon ~ .u-text-input,
   .u-text-field-outline .u-text-field-trailing-icon ~ label,
-  .text-area-outline .u-text-field-trailing-icon ~ label {
+  .u-text-area-outline .u-text-field-trailing-icon ~ label {
     margin-right: calc(8px + 1.5rem); }
 
 .u-search-field {
@@ -7357,7 +7380,7 @@ mark,
   -webkit-box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
           box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
 
-.text-area-outline label {
+.u-text-area-outline label {
   background: transparent !important;
   -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0); }
@@ -7842,9 +7865,6 @@ mark,
 .data-table .u-dropdown-menu {
   background-color: #fafafa; }
 
-.u-dropdown-toggle-icon::before {
-  border-top-color: rgba(0, 0, 0, 0.42); }
-
 .u-chip-outline {
   border-color: rgba(0, 0, 0, 0.12); }
 
@@ -7921,11 +7941,31 @@ mark,
 .u-text-field-trailing-icon {
   color: rgba(0, 0, 0, 0.54); }
 
+.u-text-input,
+input.u-text-input {
+  color: rgba(0, 0, 0, 0.87);
+  border-color: rgba(0, 0, 0, 0.42); }
+
 .u-text-field label {
   color: rgba(0, 0, 0, 0.54); }
 
 .u-text-field.focus {
   color: #6200ee; }
+
+.u-text-field.disabled label,
+.u-text-field.disabled label .u-text-field-helper-text-default,
+.u-text-field.disabled .u-text-field-leading-icon,
+.u-text-field.disabled .u-text-field-leading-icon .u-text-field-helper-text-default,
+.u-text-field.disabled .u-text-field-trailing-icon,
+.u-text-field.disabled .u-text-field-trailing-icon .u-text-field-helper-text-default,
+.u-text-field.disabled + .u-text-field-helper-text,
+.u-text-field.disabled + .u-text-field-helper-text .u-text-field-helper-text-default {
+  color: rgba(0, 0, 0, 0.42); }
+
+.u-text-field.disabled .u-text-input,
+.u-text-field .u-text-input:disabled {
+  color: rgba(0, 0, 0, 0.42);
+  border-color: rgba(0, 0, 0, 0.2); }
 
 .u-text-field.invalid,
 .u-text-field.invalid .u-text-field-leading-icon,
@@ -7938,30 +7978,28 @@ mark,
 
 .u-text-field-box {
   background: rgba(0, 0, 0, 0.06); }
+  .u-text-field-box.disabled {
+    background: rgba(0, 0, 0, 0.02); }
 
 
 .u-text-field-outline label,
-.text-area-outline label {
+.u-text-area-outline label {
   background: #f5f5f5; }
 
-.u-text-field-outline:not(.focus):not(.invalid)::before, .text-area-outline:not(.focus):not(.invalid)::before {
+.u-text-field-outline:not(.focus):not(.invalid):not(.disabled)::before, .u-text-area-outline:not(.focus):not(.invalid):not(.disabled)::before {
   border-color: rgba(0, 0, 0, 0.42); }
 
-.u-text-field-outline:not(.focus):not(.invalid):hover::before, .text-area-outline:not(.focus):not(.invalid):hover::before {
+.u-text-field-outline:not(.focus):not(.invalid):not(.disabled):hover::before, .u-text-area-outline:not(.focus):not(.invalid):not(.disabled):hover::before {
   border-color: rgba(0, 0, 0, 0.87); }
+
+.u-text-field-outline.disabled::before, .disabled.u-text-area-outline::before {
+  border-color: rgba(0, 0, 0, 0.2); }
 
 .u-search-field {
   background: rgba(0, 0, 0, 0.06); }
 
 .u-search-field-elevated {
   background: #fff; }
-
-.u-text-input {
-  color: rgba(0, 0, 0, 0.87);
-  border-color: rgba(0, 0, 0, 0.42); }
-  .u-text-input:disabled {
-    color: rgba(0, 0, 0, 0.42);
-    border-color: rgba(0, 0, 0, 0.2); }
 
 .u-text-field-helper-text {
   color: rgba(0, 0, 0, 0.54); }
