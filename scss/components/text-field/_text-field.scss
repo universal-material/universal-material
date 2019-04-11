@@ -86,6 +86,7 @@ input.u-text-input {
   box-sizing: content-box;
   padding-top: $u-text-input-padding;
   padding-bottom: $u-text-input-padding - $u-text-field-border-width;
+  padding-left: 0;
   font-size: $u-text-input-font-size;
   line-height: $u-text-input-line-height;
   background: transparent;

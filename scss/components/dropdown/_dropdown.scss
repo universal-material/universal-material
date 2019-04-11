@@ -119,6 +119,11 @@
 
 .u-dropdown {
   position: relative;
+
+  &,
+  & * {
+    box-sizing: border-box;
+  }
 }
 
 .u-dropdown-menu.show {

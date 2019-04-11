@@ -93,15 +93,39 @@
   content: "";
 }
 
-.u-chip-input {
+.u-chip-field {
+  .u-text-input {
+    height: auto;
+  }
+}
+
+.u-chip-set {
+  display: flex;
   flex-wrap: wrap;
   align-items: center;
-  min-height: $u-chip-height + $u-chip-margin-vertical * 2;
+  min-height: $u-chip-height;
+  margin-top: -$u-chip-margin-vertical;
+  margin-bottom: -$u-chip-margin-vertical;
+}
 
-  input {
-    background: transparent;
-    border: none;
-    outline: 0;
+.u-chip-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: 0;
+}
+
+.u-text-field-outline {
+
+  .u-chip-input {
+    height: $u-chip-height;
+    margin-top: $u-chip-margin-vertical;
+    margin-bottom: $u-chip-margin-vertical;
+  }
+
+  .u-chip-set {
+    margin-top: -12px;
+    margin-bottom: -12px;
   }
 }
 
