@@ -9,6 +9,11 @@
   z-index: 1;
   width: 100%;
   font-family: $u-font-family-base;
+
+  &,
+  * {
+    box-sizing: border-box;
+  }
 }
 
 .u-toolbar-row {
@@ -86,6 +91,11 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+
+  &,
+  * {
+    box-sizing: border-box;
+  }
 }
 
 .dense-layout {

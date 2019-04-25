@@ -1,3 +1,5 @@
+@import "../mixins";
+
 // stylelint-disable declaration-no-important
 
 // Responsive alignment
@@ -6,22 +8,28 @@
   @include media-breakpoint-up($breakpoint) {
     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
 
-    .text#{$infix}-start {
+    .u-text#{$infix}-start {
       text-align: left !important;
       text-align: start !important;
     }
-    .text#{$infix}-end {
+
+    .u-text#{$infix}-center {
+      text-align: center !important;
+    }
+
+    .u-text#{$infix}-end {
       text-align: right !important;
       text-align: end !important;
     }
 
     .rtl,
     [dir="rtl"] {
-      .text#{$infix}-start {
+      .u-text#{$infix}-start {
         text-align: right !important;
         text-align: start !important;
       }
-      .text#{$infix}-end {
+
+      .u-text#{$infix}-end {
         text-align: left !important;
         text-align: end !important;
       }
@@ -38,8 +46,8 @@
     $text-high-contrast: $text-high-contrast-dark-theme;
   }
 
-  @include text-emphasis-variant(".text-primary", map-get($theme-colors, "primary"));
-  @include text-emphasis-variant(".text-secondary", map-get($theme-colors, "secondary"));
-  @include text-emphasis-variant(".text-low-contrast", $text-low-contrast);
-  @include text-emphasis-variant(".text-high-contrast", $text-high-contrast);
+  @include text-emphasis-variant(".u-text-primary", map-get($theme-colors, "primary"));
+  @include text-emphasis-variant(".u-text-secondary", map-get($theme-colors, "secondary"));
+  @include text-emphasis-variant(".u-text-low-contrast", $text-low-contrast);
+  @include text-emphasis-variant(".u-text-high-contrast", $text-high-contrast);
 }

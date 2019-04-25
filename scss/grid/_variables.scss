@@ -1,6 +1,8 @@
 $enable-grid-classes:       true !default;
 $grid-columns:                12 !default;
 
+$container-width: 960px !default;
+
 $grid-breakpoints: (
   xs: 0,
   sm: 576px,
