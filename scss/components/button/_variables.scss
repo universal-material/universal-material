@@ -8,6 +8,7 @@ $u-btn-disabled-color-dark-theme: rgba(255, 255, 255, .3) !default;
 $u-btn-side-padding: 1rem !default;
 $u-btn-material-line-height: 1.5 !default;
 $u-btn-height: 2.25rem !default;
+$u-btn-set-margin: 8px !default;
 $u-btn-border-radius: .25rem !default;
 $u-btn-default-background-light: $white !default;
 $u-btn-default-background-dark: $gray-800 !default;
@@ -30,9 +31,7 @@ $u-floating-menu-label-bg-light-theme: #fff !default;
 $u-floating-menu-label-bg-dark-theme: #424242 !default;
 
 $u-btn-borderless-font-size: $base-icon-size !default;
-$u-btn-borderless-margin: 1rem !default;
-$u-btn-borderless-size: 1.5rem !default;
-$u-btn-borderless-action-size: 2.5rem !default;
+$u-btn-borderless-size: 2.5rem !default;
 $u-btn-borderless-icon-size: 1.5rem !default;
 
 $u-btn-outline-border-width: .0625rem !default;

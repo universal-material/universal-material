@@ -18,6 +18,8 @@
   align-items: center;
   padding-right: $u-tab-horizontal-padding;
   padding-left: $u-tab-horizontal-padding;
+  min-width: $u-tab-min-width;
+  max-width: $u-tab-max-width;
   font-family: $u-font-family-base;
   cursor: pointer;
   @include selectable-background-before;
@@ -45,10 +47,6 @@
 }
 
 @include media-breakpoint-up(md) {
-  .u-tab-bar {
-    min-width: $u-tab-min-width;
-    max-width: $u-tab-max-width;
-  }
 
   .u-tab {
     flex: none;

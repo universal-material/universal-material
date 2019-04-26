@@ -26,7 +26,7 @@
   border: none; //Universal Material custom code
   border-radius: $u-btn-border-radius; //Universal Material custom code
 
-  @include selectable-background-before(0);
+  @include selectable-background-before();
 
   // Share hover and focus styles
   @include hover-focus {
@@ -49,6 +49,14 @@
   &.disabled,
   &:disabled {
     cursor: default;
+  }
+}
+
+.u-btn-set {
+  display: inline-flex;
+
+  .u-btn + .u-btn {
+    margin-left: $u-btn-set-margin;
   }
 }
 
@@ -98,25 +106,11 @@
   overflow: visible;
   border-radius: 50%;
 
-  + .u-btn-borderless {
-    margin-left: $u-btn-borderless-margin;
-  }
-
   .u-btn-icon {
     width: $u-btn-borderless-icon-size;
     height: $u-btn-borderless-icon-size;
     margin: 0;
     font-size: $u-btn-borderless-icon-size;
-  }
-
-  &::before {
-    top: 50%;
-    left: 50%;
-    width: $u-btn-borderless-action-size;
-    height: $u-btn-borderless-action-size;
-    margin-top: -$u-btn-borderless-action-size / 2;
-    margin-left: -$u-btn-borderless-action-size / 2;
-    border-radius: 50%;
   }
 }
 
@@ -177,6 +171,13 @@
     .u-btn-icon {
       margin-right: $u-btn-floating-extended-icon-margin - $u-btn-floating-extended-padding;
       margin-left: $u-btn-floating-extended-icon-margin;
+    }
+  }
+
+  .u-btn-set {
+    .u-btn + .u-btn {
+      margin-left: 0;
+      margin-right: $u-btn-set-margin;
     }
   }
 }

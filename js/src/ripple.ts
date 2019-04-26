@@ -6,6 +6,7 @@ export const RippleContainersSelector =
     '.u-btn-raised',
     '.u-btn-outline',
     '.u-btn-floating',
+    '.u-btn-borderless',
     '.u-tab',
     '.u-dropdown-item',
     '.u-chip-remove',
@@ -47,10 +48,6 @@ export const RippleConfigMap = [
   {
     selector: '.u-checkbox',
     subSelector: '.u-selection-control',
-    config: roundClickableConfig
-  },
-  {
-    selector: '.u-btn-borderless',
     config: roundClickableConfig
   }
 ];
