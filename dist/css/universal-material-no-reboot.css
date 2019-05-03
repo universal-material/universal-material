@@ -3918,13 +3918,13 @@ mark,
   width: 1.125rem;
   height: 1.125rem;
   position: absolute;
-  background-color: #03dac6;
-  color: rgba(0, 0, 0, 0.87);
-  border-radius: 50%;
   font-size: 75%;
   font-weight: 700;
   line-height: 1.125rem;
-  text-align: center; }
+  color: rgba(0, 0, 0, 0.87);
+  text-align: center;
+  background-color: #03dac6;
+  border-radius: 50%; }
 
 .u-badge-top-left {
   top: -0.625rem;
@@ -3939,8 +3939,8 @@ mark,
   left: -0.625rem; }
 
 .u-badge-bottom-right {
-  bottom: -0.625rem;
-  right: -0.625rem; }
+  right: -0.625rem;
+  bottom: -0.625rem; }
 
 .u-toolbar {
   z-index: 1;
@@ -5128,7 +5128,7 @@ mark,
   .u-card-actions .u-btn-borderless + .u-btn-solid, .u-card-actions .u-btn + .u-btn-raised, .u-card-actions .u-btn-flat + .u-btn-raised, .u-card-actions .u-btn-outline + .u-btn-raised, .u-card-actions .u-btn-solid + .u-btn-raised, .u-card-actions .u-btn-raised + .u-btn-raised, .u-card-actions .u-btn-floating + .u-btn-raised, .u-card-actions .u-btn-borderless + .u-btn-raised, .u-card-actions .u-btn + .u-btn-floating, .u-card-actions .u-btn-flat + .u-btn-floating, .u-card-actions .u-btn-outline + .u-btn-floating, .u-card-actions .u-btn-solid + .u-btn-floating, .u-card-actions .u-btn-raised + .u-btn-floating, .u-card-actions .u-btn-floating + .u-btn-floating, .u-card-actions .u-btn-borderless + .u-btn-floating, .u-card-actions .u-btn + .u-btn-borderless, .u-card-actions .u-btn-flat + .u-btn-borderless, .u-card-actions .u-btn-outline + .u-btn-borderless, .u-card-actions .u-btn-solid + .u-btn-borderless, .u-card-actions .u-btn-raised + .u-btn-borderless, .u-card-actions .u-btn-floating + .u-btn-borderless, .u-card-actions .u-btn-borderless + .u-btn-borderless {
     margin-left: 8px; }
 
-.u-dialog-body-top-divider .u-dialog-title::before, .u-dialog-body-bottom-divider .u-dialog-actions::before, .u-list-divider {
+.u-dialog-scroll-top-divider .u-dialog-header::before, .u-dialog-scroll-bottom-divider .u-dialog-actions::before, .u-list-divider {
   width: 100%;
   height: 0.0625rem;
   background-color: rgba(0, 0, 0, 0.12); }
@@ -5152,11 +5152,13 @@ mark,
   -webkit-box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2), 0 13px 19px 2px rgba(0, 0, 0, 0.14), 0 5px 24px 4px rgba(0, 0, 0, 0.12);
           box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2), 0 13px 19px 2px rgba(0, 0, 0, 0.14), 0 5px 24px 4px rgba(0, 0, 0, 0.12);
   -webkit-transform: scale3d(0, 0, 1);
-          transform: scale3d(0, 0, 1); }
+          transform: scale3d(0, 0, 1);
+  will-change: transform; }
 
 .u-dialog {
   position: fixed;
   top: 0;
+  right: 0;
   left: 0;
   z-index: 1060;
   display: -webkit-box;
@@ -5172,7 +5174,6 @@ mark,
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 100%;
   height: 100%;
   padding: 24px;
   overflow: hidden;
@@ -5196,6 +5197,10 @@ mark,
     .u-dialog.hide .u-dialog-content {
       -webkit-transform: scale3d(1, 1, 1);
               transform: scale3d(1, 1, 1); }
+  .u-dialog,
+  .u-dialog * {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box; }
 
 .u-dialog-backdrop {
   position: fixed;
@@ -5217,21 +5222,27 @@ mark,
   position: relative;
   padding: 24px;
   overflow-x: hidden;
-  overflow-y: auto; }
+  overflow-y: auto;
+  will-change: transform; }
 
-.u-dialog-body-top-divider .u-dialog-title::before {
+.u-dialog-scroll-top-divider .u-dialog-header::before {
   position: absolute;
-  bottom: 4px;
+  bottom: 0;
   left: 0;
   width: 100%;
   content: ""; }
 
-.u-dialog-body-bottom-divider .u-dialog-actions::before {
+.u-dialog-scroll-bottom-divider .u-dialog-actions::before {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   content: ""; }
+
+.u-dialog-header {
+  position: relative; }
+  .u-dialog-header + .u-dialog-body {
+    padding-top: 0; }
 
 .u-dialog-title {
   font-size: 1.25rem;
@@ -5240,11 +5251,8 @@ mark,
   letter-spacing: 0.0125em;
   text-decoration: inherit;
   text-transform: inherit;
-  position: relative;
-  padding: 24px; }
-  .u-dialog-title + .u-dialog-body {
-    padding-top: 0;
-    margin-top: -4px; }
+  padding: 17px 24px;
+  line-height: 1.5; }
 
 .u-dialog-actions {
   position: relative;
@@ -5264,7 +5272,8 @@ mark,
   .u-dialog-actions .u-btn-solid + .u-btn-solid,
   .u-dialog-actions .u-btn-raised + .u-btn-solid,
   .u-dialog-actions .u-btn-floating + .u-btn-solid,
-  .u-dialog-actions .u-btn-borderless + .u-btn-solid, .u-dialog-actions .u-btn + .u-btn-raised, .u-dialog-actions .u-btn-flat + .u-btn-raised, .u-dialog-actions .u-btn-outline + .u-btn-raised, .u-dialog-actions .u-btn-solid + .u-btn-raised, .u-dialog-actions .u-btn-raised + .u-btn-raised, .u-dialog-actions .u-btn-floating + .u-btn-raised, .u-dialog-actions .u-btn-borderless + .u-btn-raised, .u-dialog-actions .u-btn + .u-btn-floating, .u-dialog-actions .u-btn-flat + .u-btn-floating, .u-dialog-actions .u-btn-outline + .u-btn-floating, .u-dialog-actions .u-btn-solid + .u-btn-floating, .u-dialog-actions .u-btn-raised + .u-btn-floating, .u-dialog-actions .u-btn-floating + .u-btn-floating, .u-dialog-actions .u-btn-borderless + .u-btn-floating, .u-dialog-actions .u-btn + .u-btn-borderless, .u-dialog-actions .u-btn-flat + .u-btn-borderless, .u-dialog-actions .u-btn-outline + .u-btn-borderless, .u-dialog-actions .u-btn-solid + .u-btn-borderless, .u-dialog-actions .u-btn-raised + .u-btn-borderless, .u-dialog-actions .u-btn-floating + .u-btn-borderless, .u-dialog-actions .u-btn-borderless + .u-btn-borderless {
+  .u-dialog-actions .u-btn-borderless + .u-btn-solid, .u-dialog-actions .u-btn + .u-btn-raised, .u-dialog-actions .u-btn-flat + .u-btn-raised, .u-dialog-actions .u-btn-outline + .u-btn-raised, .u-dialog-actions .u-btn-solid + .u-btn-raised, .u-dialog-actions .u-btn-raised + .u-btn-raised, .u-dialog-actions .u-btn-floating + .u-btn-raised, .u-dialog-actions .u-btn-borderless + .u-btn-raised, .u-dialog-actions .u-btn + .u-btn-floating, .u-dialog-actions .u-btn-flat + .u-btn-floating, .u-dialog-actions .u-btn-outline + .u-btn-floating, .u-dialog-actions .u-btn-solid + .u-btn-floating, .u-dialog-actions .u-btn-raised + .u-btn-floating, .u-dialog-actions .u-btn-floating + .u-btn-floating, .u-dialog-actions .u-btn-borderless + .u-btn-floating, .u-dialog-actions .u-btn + .u-btn-borderless, .u-dialog-actions .u-btn-flat + .u-btn-borderless, .u-dialog-actions .u-btn-outline + .u-btn-borderless, .u-dialog-actions .u-btn-solid + .u-btn-borderless, .u-dialog-actions .u-btn-raised + .u-btn-borderless, .u-dialog-actions .u-btn-floating + .u-btn-borderless, .u-dialog-actions .u-btn-borderless + .u-btn-borderless,
+  .u-dialog-actions .u-dialog-action + .u-dialog-action {
     margin-left: 8px; }
 
 .u-dialog-progress .u-dialog-body {
@@ -5285,6 +5294,45 @@ mark,
 @media (min-width: 768px) {
   .u-dialog-content {
     max-width: 580px; } }
+
+.u-dialog-fullscreen {
+  padding: 0; }
+  .u-dialog-fullscreen .u-dialog-backdrop {
+    display: none; }
+  .u-dialog-fullscreen .u-dialog-content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+            box-shadow: none; }
+  .u-dialog-fullscreen.show .u-dialog-content {
+    -webkit-animation: none !important;
+            animation: none !important; }
+  .u-dialog-fullscreen .u-dialog-body {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1; }
+  .u-dialog-fullscreen .u-dialog-header,
+  .u-dialog-fullscreen .u-dialog-actions {
+    -webkit-transition: -webkit-box-shadow 250ms;
+    transition: -webkit-box-shadow 250ms;
+    transition: box-shadow 250ms;
+    transition: box-shadow 250ms, -webkit-box-shadow 250ms;
+    will-change: box-shadow; }
+  .u-dialog-fullscreen.u-dialog-scroll-top-divider .u-dialog-header {
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2); }
+    .u-dialog-fullscreen.u-dialog-scroll-top-divider .u-dialog-header::before {
+      content: none; }
+  .u-dialog-fullscreen.u-dialog-scroll-bottom-divider .u-dialog-actions {
+    -webkit-box-shadow: 0 -2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 -2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2); }
+    .u-dialog-fullscreen.u-dialog-scroll-bottom-divider .u-dialog-actions::before {
+      content: none; }
 
 @-webkit-keyframes fade-in {
   from {
@@ -5550,12 +5598,12 @@ mark,
   height: 2rem;
   font-size: 0.9375rem; }
 
-.u-dialog-body-top-divider .u-dialog-title::before, .u-dialog-body-bottom-divider .u-dialog-actions::before, .u-list-divider {
+.u-dialog-scroll-top-divider .u-dialog-header::before, .u-dialog-scroll-bottom-divider .u-dialog-actions::before, .u-list-divider {
   width: 100%;
   height: 0.0625rem;
   background-color: rgba(0, 0, 0, 0.12); }
 
-.u-dialog-body-top-divider .u-dialog-title::before, .u-dialog-body-bottom-divider .u-dialog-actions::before, .u-list-divider {
+.u-dialog-scroll-top-divider .u-dialog-header::before, .u-dialog-scroll-bottom-divider .u-dialog-actions::before, .u-list-divider {
   width: 100%;
   height: 0.0625rem;
   background-color: rgba(0, 0, 0, 0.12); }
@@ -5832,12 +5880,12 @@ mark,
   .u-data-table-footer .u-data-table-actions {
     margin-left: 2rem; }
 
-.u-dialog-body-top-divider .u-dialog-title::before, .u-dialog-body-bottom-divider .u-dialog-actions::before, .u-list-divider {
+.u-dialog-scroll-top-divider .u-dialog-header::before, .u-dialog-scroll-bottom-divider .u-dialog-actions::before, .u-list-divider {
   width: 100%;
   height: 0.0625rem;
   background-color: rgba(0, 0, 0, 0.12); }
 
-.u-dialog-body-top-divider .u-dialog-title::before, .u-dialog-body-bottom-divider .u-dialog-actions::before, .u-list-divider {
+.u-dialog-scroll-top-divider .u-dialog-header::before, .u-dialog-scroll-bottom-divider .u-dialog-actions::before, .u-list-divider {
   width: 100%;
   height: 0.0625rem;
   background-color: rgba(0, 0, 0, 0.12); }

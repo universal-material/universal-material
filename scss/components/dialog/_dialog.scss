@@ -26,18 +26,19 @@
   border-radius: $dialog-border-radius;
   box-shadow: 0 7px 8px -4px rgba(0, 0, 0, .2), 0 13px 19px 2px rgba(0, 0, 0, .14), 0 5px 24px 4px rgba(0, 0, 0, .12);
   transform: scale3d(0, 0, 1);
+  will-change: transform;
 }
 
 .u-dialog {
   position: fixed;
   top: 0;
+  right: 0;
   left: 0;
   z-index: $zindex-dialog;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
   height: 100%;
   padding: $dialog-padding;
   overflow: hidden;
@@ -76,6 +77,11 @@
       transform: scale3d(1, 1, 1);
     }
   }
+
+  &,
+  & * {
+    box-sizing: border-box;
+  }
 }
 
 .u-dialog-backdrop {
@@ -87,7 +93,7 @@
   //z-index: $zindex-dialog-backdrop;//Universal Material changes
   z-index: -1;
   background-color: $dialog-backdrop-bg;
-  opacity: $dialog-backdrop-opacity;//Universal Material changes
+  opacity: $dialog-backdrop-opacity; //Universal Material changes
 
 
   //// Fade for backdrop
@@ -101,18 +107,19 @@
   padding: $dialog-padding;
   overflow-x: hidden;
   overflow-y: auto;
+  will-change: transform;
 }
 
-.u-dialog-body-top-divider .u-dialog-title::before {
+.u-dialog-scroll-top-divider .u-dialog-header::before {
   @extend %divider;
   position: absolute;
-  bottom: $dialog-padding - $dialog-title-body-distance;
+  bottom: 0;
   left: 0;
   width: 100%;
   content: "";
 }
 
-.u-dialog-body-bottom-divider .u-dialog-actions::before {
+.u-dialog-scroll-bottom-divider .u-dialog-actions::before {
   @extend %divider;
   position: absolute;
   top: 0;
@@ -121,15 +128,19 @@
   content: "";
 }
 
+.u-dialog-header {
+  position: relative;
+
+  + .u-dialog-body {
+    padding-top: 0;
+  }
+}
+
 .u-dialog-title {
   @include umd-typography(headline6);
-  position: relative;
-  padding: $dialog-padding;
 
-  & + .u-dialog-body {
-    padding-top: 0;
-    margin-top: $dialog-title-body-distance - $dialog-padding;
-  }
+  padding: $dialog-header-padding;
+  line-height: 1.5;
 }
 
 .u-dialog-actions {
@@ -139,7 +150,8 @@
   justify-content: flex-end;
   padding: $dialog-actions-padding;
 
-  .u-btn + .u-btn {
+  .u-btn + .u-btn,
+  .u-dialog-action + .u-dialog-action {
     margin-left: $dialog-actions-padding;
   }
 }
@@ -153,9 +165,6 @@
   .preloader-wrapper {
     flex-shrink: 0;
   }
-  //.u-dialog-content {
-  //  width: auto;
-  //}
 
   .u-dialog-progress-message {
     margin-left: $dialog-progress-margin;
@@ -165,6 +174,55 @@
 @include media-breakpoint-up(md) {
   .u-dialog-content {
     max-width: $dialog-desktop-max-width;
+  }
+}
+
+.u-dialog-fullscreen {
+  padding: 0;
+
+  .u-dialog-backdrop {
+    display: none;
+  }
+
+  .u-dialog-content {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  &.show {
+    .u-dialog-content {
+      animation: none !important;
+    }
+  }
+
+  .u-dialog-body {
+    flex: 1;
+  }
+
+  .u-dialog-header,
+  .u-dialog-actions {
+    transition: box-shadow 250ms;
+    will-change: box-shadow;
+  }
+
+  &.u-dialog-scroll-top-divider .u-dialog-header {
+    @include elevate("2dp");
+
+    &::before {
+      content: none;
+    }
+  }
+
+  &.u-dialog-scroll-bottom-divider .u-dialog-actions {
+    box-shadow: 0 -2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .2);
+
+    &::before {
+      content: none;
+    }
   }
 }
 

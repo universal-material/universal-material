@@ -19,7 +19,9 @@ const confirmDialogTemplate = `
 <div class="u-dialog show">
   <div class="u-dialog-backdrop"></div>
   <div class="u-dialog-content">
-    <div class="u-dialog-title"></div>
+    <div class="u-dialog-header">
+      <div class="u-dialog-title"></div>
+    </div>    
     <div class="u-dialog-body"></div>
     <div class="u-dialog-actions">
       <button type="button" class="u-btn-flat u-btn-primary" cancelButton></button>

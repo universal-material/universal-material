@@ -7,8 +7,8 @@ export class DialogConfig {
 }
 
 const closedEvent = new CustomEvent('closed');
-const dialogBodyTopDividerClassName = 'u-dialog-body-top-divider';
-const dialogBodyBottomDividerClassName = 'u-dialog-body-bottom-divider';
+const dialogBodyTopDividerClassName = 'u-dialog-scroll-top-divider';
+const dialogBodyBottomDividerClassName = 'u-dialog-scroll-bottom-divider';
 
 export class Dialog {
   private static readonly _animationEvents = ["webkitAnimationEnd", "oanimationend", "msAnimationEnd", "animationend"];

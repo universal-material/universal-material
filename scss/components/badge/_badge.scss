@@ -6,13 +6,13 @@
   @include size($badge-size);
 
   position: absolute;
-  background-color: $secondary-color;
-  color: get-text-color-by-background-color($secondary-color);
-  border-radius: 50%;
   font-size: $badge-font-size;
   font-weight: $badge-font-weight;
   line-height: $badge-size;
+  color: get-text-color-by-background-color($secondary-color);
   text-align: center;
+  background-color: $secondary-color;
+  border-radius: 50%;
 }
 
 .u-badge-top-left {
@@ -31,16 +31,14 @@
 }
 
 .u-badge-bottom-right {
-  bottom: $badge-position;
   right: $badge-position;
+  bottom: $badge-position;
 }
 
 @if (mixin_exists(buttons-theme)) {
 
-  @debug 'bazinga';
-
   $btn-badge-position: $badge-position + ($u-btn-borderless-size - $u-btn-icon-size) / 2;
-  
+
   .u-btn-borderless {
     .u-badge-top-left {
       top: $btn-badge-position;
@@ -58,8 +56,8 @@
     }
 
     .u-badge-bottom-right {
-      bottom: $btn-badge-position;
       right: $btn-badge-position;
+      bottom: $btn-badge-position;
     }
   }
 }

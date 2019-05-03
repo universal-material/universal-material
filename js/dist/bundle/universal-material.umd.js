@@ -66,8 +66,8 @@
       return DialogConfig;
   }());
   var closedEvent = new CustomEvent('closed');
-  var dialogBodyTopDividerClassName = 'u-dialog-body-top-divider';
-  var dialogBodyBottomDividerClassName = 'u-dialog-body-bottom-divider';
+  var dialogBodyTopDividerClassName = 'u-dialog-scroll-top-divider';
+  var dialogBodyBottomDividerClassName = 'u-dialog-scroll-bottom-divider';
   var Dialog = /** @class */ (function () {
       function Dialog(_dialogElement, dialogConfig) {
           var _this = this;
@@ -423,7 +423,7 @@
       ConfirmDialogConfig["default"] = __assign({ confirmLabel: "Ok", cancelLabel: "Cancel" }, QuickDialogConfig["default"]);
       return ConfirmDialogConfig;
   }(QuickDialogConfig));
-  var confirmDialogTemplate = "\n<div class=\"u-dialog show\">\n  <div class=\"u-dialog-backdrop\"></div>\n  <div class=\"u-dialog-content\">\n    <div class=\"u-dialog-title\"></div>\n    <div class=\"u-dialog-body\"></div>\n    <div class=\"u-dialog-actions\">\n      <button type=\"button\" class=\"u-btn-flat u-btn-primary\" cancelButton></button>\n      <button type=\"button\" class=\"u-btn-flat u-btn-primary\" confirmButton></button>\n    </div>\n  </div>\n</div>";
+  var confirmDialogTemplate = "\n<div class=\"u-dialog show\">\n  <div class=\"u-dialog-backdrop\"></div>\n  <div class=\"u-dialog-content\">\n    <div class=\"u-dialog-header\">\n      <div class=\"u-dialog-title\"></div>\n    </div>    \n    <div class=\"u-dialog-body\"></div>\n    <div class=\"u-dialog-actions\">\n      <button type=\"button\" class=\"u-btn-flat u-btn-primary\" cancelButton></button>\n      <button type=\"button\" class=\"u-btn-flat u-btn-primary\" confirmButton></button>\n    </div>\n  </div>\n</div>";
   var ConfirmDialog = /** @class */ (function (_super) {
       __extends(ConfirmDialog, _super);
       function ConfirmDialog(message, config) {
