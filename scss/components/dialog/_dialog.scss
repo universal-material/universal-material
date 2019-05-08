@@ -261,20 +261,13 @@
   $uwp-style: map-get($theme, "uwp-style");
 
   $background-color: $dialog-background-light-theme;
-  $color: $text-low-contrast-light-theme;
-
 
   @if ($dark-theme) {
     $background-color: $dialog-background-dark-theme;
-    $color: $text-low-contrast-dark-theme;
   }
 
   .u-dialog-content {
     background-color: $background-color;
-  }
-
-  .u-dialog-body {
-    color: $color;
   }
 
   @if ($uwp-style) {
