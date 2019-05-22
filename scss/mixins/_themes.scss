@@ -49,6 +49,10 @@
     @include card-theme($theme);
   }
 
+  @if (mixin_exists(divider-theme)) {
+    @include divider-theme($dark-theme);
+  }
+
   @if (mixin_exists(dialog-theme)) {
     @include dialog-theme($theme);
   }
@@ -61,8 +65,8 @@
     @include chip-theme($theme-colors, $dark-theme);
   }
 
-  @if (mixin_exists(selection-controls-theme)) {
-    @include selection-controls-theme($theme-colors, $dark-theme);
+  @if (mixin_exists(checkbox-theme)) {
+    @include checkbox-theme($theme-colors, $dark-theme);
   }
 
   @if (mixin_exists(radio-theme)) {
@@ -99,6 +103,10 @@
 
   @if (mixin_exists(progress-theme)) {
     @include progress-theme($theme-colors);
+  }
+
+  @if (mixin_exists(datepicker-theme)) {
+    @include datepicker-theme($theme);
   }
 
   @if ($dark-theme) {

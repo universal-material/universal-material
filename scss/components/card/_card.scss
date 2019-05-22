@@ -87,8 +87,7 @@
 
   @if (mixin_exists(text-fields-theme)) {
     .u-card {
-      .u-text-field-outline label,
-      .u-text-area-outline label {
+      .u-text-field-outline label {
         background: $background-color;
       }
     }

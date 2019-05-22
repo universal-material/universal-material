@@ -53,9 +53,10 @@ $color-lower-contrast-light-theme: rgba(0, 0, 0, .42) !default;
 $color-low-contrast-light-theme: rgba(0, 0, 0, .42) !default;
 $color-low-contrast-dark-theme: rgba(255, 255, 255, .7) !default;
 
-$base-semi-transparent-color: rgba(0, 0, 0, .12) !default;
+$base-semi-transparent-color-light-theme: rgba(0, 0, 0, .12) !default;
+$base-semi-transparent-color-dark-theme: rgba(255, 255, 255, .12) !default;
 
-$base-hover-background-color: $base-semi-transparent-color !default;
+$base-hover-background-color: $base-semi-transparent-color-light-theme !default;
 $base-active-background-color: rgba(0, 0, 0, .2) !default;
 
 $hover-background-light-theme: rgba(0, 0, 0, .06) !default;

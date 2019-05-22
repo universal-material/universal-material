@@ -1,0 +1,28 @@
+@import "variables";
+@import "../../font";
+
+%u-chip {
+  position: relative;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  height: $u-chip-height;
+  margin-top: $u-chip-margin-vertical;
+  margin-right: $u-chip-margin;
+  margin-bottom: $u-chip-margin-vertical;
+  overflow: hidden;
+  font-family: $u-font-family-base;
+  font-size: $u-chip-font-size;
+  border-radius: $u-chip-height / 2;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    content: "";
+    background: currentColor;
+    opacity: .2;
+  }
+}

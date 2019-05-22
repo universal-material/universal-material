@@ -24,6 +24,6 @@
 }
 
 @mixin background-and-text-color($background-color) {
-  background-color: $background-color;
   color: get-text-color-by-background-color($background-color);
+  background-color: $background-color;
 }

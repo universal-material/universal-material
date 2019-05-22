@@ -200,15 +200,20 @@ input.u-text-input {
   }
 
   .u-text-input {
-    height: $u-text-field-box-height;
     padding: $u-text-field-box-label-height $u-text-field-box-padding-horizontal calc(#{$u-text-field-box-padding-horizontal} - #{$u-text-field-border-width});
     margin-top: -$u-text-field-box-label-height;
+
+    &:not(textarea) {
+      height: $u-text-field-box-height;
+    }
   }
 
-  &.u-text-field-no-label .u-text-input {
-    padding-top: $u-text-field-box-no-label-padding-vertical;
-    padding-bottom: $u-text-field-box-no-label-padding-vertical;
-    margin-top: 0;
+  &.u-text-field-no-label {
+    .u-text-input {
+      padding-top: $u-text-field-box-no-label-padding-vertical;
+      padding-bottom: $u-text-field-box-no-label-padding-vertical;
+      margin-top: 0;
+    }
   }
 
   &.empty:not(.focus) {
@@ -263,10 +268,17 @@ input.u-text-input {
   }
 
   .u-text-input {
-    height: $u-text-field-outline-height;
     padding: $u-text-field-outline-label-height $u-text-field-outline-padding calc(#{$u-text-field-outline-padding-bottom} - #{$u-text-field-border-width});
     margin-top: -$u-text-field-outline-label-height;
     border-color: transparent !important;
+
+    &:not(textarea) {
+      height: $u-text-field-outline-height;
+    }
+  }
+
+  &.u-text-field-no-label .u-text-input {
+    margin-top: 0;
   }
 
   &.empty:not(.focus) {
@@ -363,15 +375,6 @@ input.u-text-input {
   box-shadow: $u-search-field-elevated-box-shadow;
 }
 
-.u-text-area-outline {
-  @extend .u-text-field-outline;
-
-  label {
-    background: transparent !important;
-    transform: translate3d(0, 0, 0);
-  }
-}
-
 @mixin text-fields-theme($theme) {
 
   $theme-colors: map-get($theme, "colors");
@@ -417,9 +420,6 @@ input.u-text-input {
   .u-text-field-trailing-icon {
     color: $u-text-input-icon-color;
   }
-
-
-
 
   .u-text-input,
   input.u-text-input {
@@ -510,7 +510,11 @@ input.u-text-input {
 
   .u-text-input::placeholder,
   .u-text-input-placeholder {
-    color: $u-text-input-placeholder-color;
+    &,
+    .u-text-field-floating-label.empty.u-text-field-no-label &,
+    .u-text-field-outline.empty.u-text-field-no-label &,
+    .u-text-field-box.empty.u-text-field-no-label & {
+      color: $u-text-input-placeholder-color;
+    }
   }
 }
-

@@ -19,14 +19,9 @@ export class RippleConfig {
   borderRadius?: string;
 }
 
-const roundClickableConfig = {
-  size: 40,
-  borderRadius: '50%'
-};
-
 export const RippleConfigMap = [
   {
-    selector: '.u-list-hover',
+    selector: '.u-list-selectable',
     subSelector: '.u-list-item',
     config: null
   },
@@ -48,7 +43,7 @@ export const RippleConfigMap = [
   {
     selector: '.u-checkbox',
     subSelector: '.u-selection-control',
-    config: roundClickableConfig
+    config: null
   }
 ];
 

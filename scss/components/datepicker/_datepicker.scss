@@ -1,0 +1,101 @@
+@import "variables";
+@import "../button/button-base";
+@import "../../mixins";
+
+.u-datepicker {
+  display: inline-flex;
+  flex-direction: column;
+  min-width: $u-datepicker-min-width;
+  height: $u-datepicker-height;
+}
+
+.u-datepicker-header {
+  display: flex;
+  padding: 0 8px;
+}
+
+.u-datepicker-day {
+  @include u-btn;
+
+  width: $u-datepicker-day-width;
+  height: $u-datepicker-day-width;
+  font-weight: 400;
+  border-radius: 50%;
+}
+
+.u-datepicker-year-month-button {
+  @extend .u-btn;
+
+  height: $u-datepicker-year-month-button-height;
+  border-radius: $u-datepicker-year-month-button-height / 2;
+}
+
+.u-datepicker-weekdays {
+  display: flex;
+  line-height: 24px;
+  text-align: center;
+}
+
+.u-datepicker-weekday {
+  flex: 1;
+  width: 1rem;
+  font-weight: 500;
+}
+
+.u-datepicker-body {
+  height: 280px;
+  margin-top: 1rem;
+}
+
+.u-datepicker-week {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.u-datepicker-day-outside {
+  pointer-events: none;
+}
+
+.u-datepicker-year-group,
+.u-datepicker-month-group {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 8px;
+}
+
+@mixin datepicker-theme($theme) {
+
+  $theme-colors: map-get($theme, "colors");
+  $dark-theme: map-get($theme, "dark");
+  $primary-color: map-get($theme-colors, "primary");
+
+  $day-color: if($dark-theme, $body-color-dark-theme, $body-color-light-theme);
+  $low-contrast-color: if($dark-theme, $text-low-contrast-dark-theme, $text-low-contrast-light-theme);
+
+  $day-outside-month-color: if($dark-theme, $u-datepicker-day-outside-month-dark-theme, $u-datepicker-day-outside-month-light-theme);
+
+  .u-datepicker-day,
+  .u-datepicker-year-month-button {
+    color: $day-color;
+  }
+
+  .u-datepicker-weekday {
+    color: $low-contrast-color;
+  }
+
+  .u-datepicker-day-outside-month {
+    color: $day-outside-month-color;
+  }
+
+  .u-datepicker-day,
+  .u-datepicker-year-month-button {
+    &.active {
+      @include background-and-text-color($primary-color);
+    }
+  }
+
+  .u-datepicker-current-day {
+    border: 1px solid $low-contrast-color;
+  }
+}

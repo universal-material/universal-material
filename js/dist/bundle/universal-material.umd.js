@@ -287,13 +287,9 @@
       }
       return RippleConfig;
   }());
-  var roundClickableConfig = {
-      size: 40,
-      borderRadius: '50%'
-  };
   var RippleConfigMap = [
       {
-          selector: '.u-list-hover',
+          selector: '.u-list-selectable',
           subSelector: '.u-list-item',
           config: null
       },
@@ -315,7 +311,7 @@
       {
           selector: '.u-checkbox',
           subSelector: '.u-selection-control',
-          config: roundClickableConfig
+          config: null
       }
   ];
   var Ripple = /** @class */ (function () {

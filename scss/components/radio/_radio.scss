@@ -19,6 +19,7 @@
   .u-selection-control {
     @include selectable-background-before;
     display: inline-flex;
+    flex-shrink: 0;
     align-items: center;
     justify-content: center;
     width: $u-radio-click-size;
@@ -28,6 +29,7 @@
 
   .u-selection-control-label {
     margin-left: $u-radio-label-margin;
+    font-size: $u-radio-label-font-size;
   }
 
   .u-check-indicator {

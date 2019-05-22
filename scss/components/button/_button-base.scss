@@ -1,0 +1,55 @@
+@import "variables";
+@import "../../font";
+@import "../../mixins";
+
+@mixin u-btn {
+  @include umd-typography(button);
+  position: relative; //Universal Material custom code
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: $u-btn-height; //Universal Material custom code
+  padding: 0 $u-btn-side-padding; //Universal Material custom code
+  overflow: hidden;
+  font-family: $u-font-family-base;
+  line-height: $u-btn-material-line-height;
+  color: inherit;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  background: transparent; //Universal Material custom code
+  border: none; //Universal Material custom code
+  border-radius: $u-btn-border-radius; //Universal Material custom code
+
+  @include selectable-background-before();
+
+  // Share hover and focus styles
+  @include hover-focus {
+    text-decoration: none;
+  }
+
+
+  &:focus,
+  &.focus {
+    outline: 0;
+    //box-shadow: $u-btn-focus-box-shadow;
+  }
+
+  &:active,
+  &.active {
+    background-image: none;
+    //@include box-shadow($u-btn-focus-box-shadow, $u-btn-active-box-shadow);
+  }
+
+  &.disabled,
+  &:disabled {
+    cursor: default;
+  }
+
+  &,
+  & * {
+    box-sizing: border-box;
+  }
+}

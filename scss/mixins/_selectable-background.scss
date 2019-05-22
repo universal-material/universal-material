@@ -70,3 +70,19 @@
   //  background-color: $focus-background;
   //}
 }
+
+@mixin selectable-background-using-color() {
+  & {
+    background: currentColor;
+    opacity: 0;
+    transition: opacity 250ms linear;
+  }
+
+  &:hover::before {
+    opacity: .12;
+  }
+
+  &:active::before {
+    opacity: .2;
+  }
+}

@@ -3,53 +3,10 @@
 @import "../../elevation";
 @import "../../mixins";
 @import "uwp-buttons";
+@import "button-base";
 
 .u-btn {
-  @include umd-typography(button);
-  position: relative; //Universal Material custom code
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: $u-btn-height; //Universal Material custom code
-  padding: 0 $u-btn-side-padding; //Universal Material custom code
-  overflow: hidden;
-  font-family: $u-font-family-base;
-  line-height: $u-btn-material-line-height;
-  color: inherit;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  cursor: pointer;
-  box-sizing: border-box;
-  user-select: none;
-  background: transparent; //Universal Material custom code
-  border: none; //Universal Material custom code
-  border-radius: $u-btn-border-radius; //Universal Material custom code
-
-  @include selectable-background-before();
-
-  // Share hover and focus styles
-  @include hover-focus {
-    text-decoration: none;
-  }
-
-
-  &:focus,
-  &.focus {
-    outline: 0;
-    //box-shadow: $u-btn-focus-box-shadow;
-  }
-
-  &:active,
-  &.active {
-    background-image: none;
-    //@include box-shadow($u-btn-focus-box-shadow, $u-btn-active-box-shadow);
-  }
-
-  &.disabled,
-  &:disabled {
-    cursor: default;
-  }
+  @include u-btn;
 }
 
 .u-btn-set {
@@ -176,15 +133,15 @@
 
   .u-btn-set {
     .u-btn + .u-btn {
-      margin-left: 0;
       margin-right: $u-btn-set-margin;
+      margin-left: 0;
     }
   }
 }
 
-@mixin button-flat-theme($buttons-colors, $dark-theme) {
+@mixin button-flat-theme($buttons-colors, $dark-theme, $u-btn-flat-default-color) {
 
-  @each $color, $value in map-merge($buttons-colors, (default: inherit)) {
+  @each $color, $value in map-merge($buttons-colors, (default: $u-btn-flat-default-color)) {
     .u-btn-flat.u-btn-#{$color} {
       @include button-flat-variant($value);
     }
@@ -275,11 +232,12 @@
     }
   }
 
-  .u-btn-outline-gray-border {
+  .u-btn-outline-gray {
+    @extend .u-btn-outline;
     border-color: $u-btn-outline-gray-border-color;
   }
 
-  @include button-flat-theme($buttons-colors, $dark-theme);
+  @include button-flat-theme($buttons-colors, $dark-theme, $u-btn-flat-default-color);
   @include button-borderless-theme($buttons-colors, $dark-theme);
 
   @if ($uwp-style) {

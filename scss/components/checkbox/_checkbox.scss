@@ -14,27 +14,37 @@
   @include hide-native-input;
 
   .u-selection-control {
-    @include selectable-background-before-custom-size($u-checkbox-click-size, $u-checkbox-click-size, 50%);
+    @include selectable-background-before;
     display: inline-flex;
+    flex-shrink: 0;
     justify-content: center;
-    width: $u-checkbox-size;
-    height: $u-checkbox-size;
-    margin: ($u-checkbox-click-size - $u-checkbox-size) / 2;
-    border-radius: $u-checkbox-border-radius;
-    box-shadow: 0 0 0 $u-checkbox-border-width currentColor inset;
-    transition: box-shadow $u-checkbox-animation-step-duration $u-checkbox-animation-step-duration, color $u-checkbox-animation-step-duration ($u-checkbox-animation-step-duration * 2);
+    width: $u-checkbox-click-size;
+    height: $u-checkbox-click-size;
+    padding: ($u-checkbox-click-size - $u-checkbox-size) / 2;
+    border-radius: 50%;
+
+    &::after {
+      display: inline-block;
+      width: $u-checkbox-size;
+      height: $u-checkbox-size;
+      content: "";
+      border-radius: $u-checkbox-border-radius;
+      box-shadow: 0 0 0 $u-checkbox-border-width currentColor inset;
+      transition: box-shadow $u-checkbox-animation-step-duration $u-checkbox-animation-step-duration, color $u-checkbox-animation-step-duration ($u-checkbox-animation-step-duration * 2);
+    }
   }
 
   .u-selection-control-label {
     margin-left: $u-checkbox-label-margin;
+    font-size: $u-checkbox-label-font-size;
   }
 
   .u-check-indicator {
     position: absolute;
     display: flex;
     justify-content: center;
-    width: 100%;
-    height: 100%;
+    width: $u-checkbox-size;
+    height: $u-checkbox-size;
     overflow: hidden;
     clip: rect(0, 0, $u-checkbox-size, 0);
     transition: clip $u-checkbox-animation-step-duration;
@@ -56,8 +66,10 @@
 
   &.checked .u-selection-control,
   input:checked ~ .u-selection-control {
-    box-shadow: 0 0 0 $u-checkbox-size / 2 currentColor inset;
-    transition: box-shadow $u-checkbox-animation-step-duration, color $u-checkbox-animation-step-duration $u-checkbox-animation-step-duration;
+    &::after {
+      box-shadow: 0 0 0 $u-checkbox-size / 2 currentColor inset;
+      transition: box-shadow $u-checkbox-animation-step-duration, color $u-checkbox-animation-step-duration $u-checkbox-animation-step-duration;
+    }
 
     .u-check-indicator {
       clip: rect(0, $u-checkbox-size, $u-checkbox-size, 0);
@@ -71,44 +83,7 @@
   }
 }
 
-@keyframes u-checkbox-on {
-  0% {
-    box-shadow: 0 0 0 .625rem currentColor, .625rem -.625rem 0 .625rem currentColor, 2rem 0 0 1.25rem currentColor, 0 2rem 0 1.25rem currentColor, -.3125rem .3125rem 0 .625rem currentColor, .9375rem .125rem 0 .6875rem;
-    opacity: 0;
-  }
-  50% {
-    box-shadow: 0 0 0 .625rem currentColor, .625rem -.625rem 0 .625rem currentColor, 2rem 0 0 1.25rem currentColor, 0 2rem 0 1.25rem currentColor, -.3125rem .3125rem 0 .625rem currentColor, 1.25rem .125rem 0 .6875rem;
-  }
-  100% {
-    box-shadow: 0 0 0 .625rem currentColor, .625rem -.625rem 0 .625rem currentColor, 2rem 0 0 1.25rem currentColor, 0 2rem 0 1.25rem currentColor, -.3125rem .3125rem 0 .625rem currentColor, 1.25rem -.75rem 0 .6875rem;
-    opacity: 1;
-  }
-}
-
-@keyframes u-checkbox-off {
-  0% {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    margin-top: 0;
-    margin-left: 0;
-    box-shadow: 0 0 0 .625rem inset currentColor;
-    transform: rotate(0deg);
-  }
-  100% {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    margin-top: 0;
-    margin-left: 0;
-    box-shadow: 0 0 0 0 inset;
-    transform: rotate(0deg);
-  }
-}
-
-@mixin selection-controls-theme($theme-colors, $dark-theme) {
+@mixin checkbox-theme($theme-colors, $dark-theme) {
   $primary-color: map-get($theme-colors, "primary");
   $check-color: $u-checkbox-color-light-theme;
   $u-checkbox-mark-color-theme: $u-checkbox-mark-color-light-theme;

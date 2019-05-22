@@ -352,13 +352,9 @@ var umd;
         return RippleConfig;
     }());
     umd.RippleConfig = RippleConfig;
-    var roundClickableConfig = {
-        size: 40,
-        borderRadius: '50%'
-    };
     umd.RippleConfigMap = [
         {
-            selector: '.u-list-hover',
+            selector: '.u-list-selectable',
             subSelector: '.u-list-item',
             config: null
         },
@@ -380,7 +376,7 @@ var umd;
         {
             selector: '.u-checkbox',
             subSelector: '.u-selection-control',
-            config: roundClickableConfig
+            config: null
         }
     ];
     var Ripple = (function () {

@@ -1,31 +1,8 @@
-@import "variables";
-@import "../../font";
+@import "chip-base";
 @import "../../mixins";
 
 .u-chip {
-  position: relative;
-  display: inline-flex;
-  flex-direction: row;
-  align-items: center;
-  height: $u-chip-height;
-  margin-top: $u-chip-margin-vertical;
-  margin-right: $u-chip-margin;
-  margin-bottom: $u-chip-margin-vertical;
-  overflow: hidden;
-  font-family: $u-font-family-base;
-  font-size: $u-chip-font-size;
-  border-radius: $u-chip-height / 2;
-
-  &::before {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    content: "";
-    background: currentColor;
-    opacity: .2;
-  }
+  @extend %u-chip;
 }
 
 .u-chip-outline {
@@ -37,21 +14,15 @@
 }
 
 .u-chip-label {
+  margin-right: $u-chip-label-margin;
+  margin-left: $u-chip-label-margin;
   font-weight: $font-medium;
-
-  &:first-child {
-    margin-left: $u-chip-label-margin;
-  }
-
-  &:last-child {
-    margin-right: $u-chip-label-margin;
-  }
 }
 
 .u-chip-avatar {
   @include size($u-chip-avatar-size);
 
-  margin-right: $u-chip-avatar-margin;
+  margin-right: $u-chip-avatar-margin-end;
   margin-left: $u-chip-avatar-margin-start;
   font-size: $u-chip-avatar-font-size;
   line-height: $u-chip-avatar-size;
@@ -59,7 +30,8 @@
 }
 
 .u-chip-remove {
-  margin: 0 $u-chip-remove-margin;
+  margin-right: $u-chip-remove-margin-end;
+  margin-left: $u-chip-remove-margin-start;
   font-size: $u-chip-remove-size;
   line-height: $u-chip-remove-size;
   text-align: center;
@@ -138,7 +110,7 @@
 
   .u-chip-avatar {
     margin-right: $u-chip-avatar-margin-start;
-    margin-left: $u-chip-avatar-margin;
+    margin-left: $u-chip-avatar-margin-end;
   }
 }
 

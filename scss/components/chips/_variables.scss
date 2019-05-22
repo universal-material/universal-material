@@ -9,13 +9,14 @@ $u-chip-outline-border-color-dark-theme: $u-chip-background-color-dark-theme !de
 $u-chip-outline-border-width: .0625rem !default;
 
 $u-chip-remove-size: 1.125rem !default;
-$u-chip-remove-margin: 8px !default;
+$u-chip-remove-margin-start: -4px !default;
+$u-chip-remove-margin-end: 8px !default;
 $u-chip-remove-hover-size: 2.5rem !default;
 
 $u-chip-avatar-size: 1.5rem !default;
 $u-chip-avatar-margin-start: 4px !default;
+$u-chip-avatar-margin-end: -4px !default;
 $u-chip-avatar-font-size: 1rem !default;
-$u-chip-avatar-margin: 8px !default;
 
 $u-chip-font-size: .8125rem !default;
 $u-chip-font-weight: 400 !default;

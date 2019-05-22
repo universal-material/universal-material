@@ -6,10 +6,7 @@ export declare class RippleConfig {
 export declare const RippleConfigMap: {
     selector: string;
     subSelector: string;
-    config: {
-        size: number;
-        borderRadius: string;
-    };
+    config: any;
 }[];
 export declare class Ripple {
     private readonly _config;

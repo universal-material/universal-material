@@ -30,17 +30,12 @@
     }
   }
 
-  &.u-list-hover {
+  &.u-list-selectable {
     .u-list-item {
+      cursor: pointer;
       @include selectable-background-before();
     }
   }
-}
-
-.u-list-divider {
-  @extend %divider;
-  margin-top: $u-list-vertical-margin;
-  margin-bottom: $u-list-vertical-margin;
 }
 
 .u-list-item {
@@ -98,19 +93,13 @@
   min-width: $u-list-icon-size;
   line-height: $u-list-item-font-size;
 }
-//
-//.u-list-item-icon.u-btn-borderless {
-//  width: $btn-borderless-size;
-//  margin-top: -$u-list-item-padding / 2;
-//  margin-bottom: -$u-list-item-padding / 2;
-//}
 
 .u-list-item-icon + .u-list-item-primary-content {
-  margin-left: $u-list-icon-avatar-text-left-distance - $u-list-icon-size - $u-list-item-padding;
+  margin-left: $u-list-icon-avatar-margin;
 }
 
 .u-list-item-avatar + .u-list-item-primary-content {
-  margin-left: $u-list-icon-avatar-text-left-distance - $u-list-avatar-size - $u-list-item-padding;
+  margin-left: $u-list-icon-avatar-margin;
 }
 
 .u-list-item-primary-content ~ .u-list-item-icon {
@@ -175,6 +164,11 @@
   font-weight: $font-medium;
 }
 
+.u-list-section-title {
+  padding: $u-list-item-padding;
+  line-height: 1;
+}
+
 .dense-layout {
   .u-list {
     padding-top: $u-list-dense-vertical-padding;
@@ -212,12 +206,12 @@
 .rtl,
 [dir="rtl"] {
   .u-list-item-icon + .u-list-item-primary-content {
-    margin-right: $u-list-icon-avatar-text-left-distance - $u-list-icon-size - $u-list-item-padding;
+    margin-right: $u-list-icon-avatar-margin;
     margin-left: 0;
   }
 
   .u-list-item-avatar + .u-list-item-primary-content {
-    margin-right: $u-list-icon-avatar-text-left-distance - $u-list-avatar-size - $u-list-item-padding;
+    margin-right: $u-list-icon-avatar-margin;
     margin-left: 0;
   }
 }
@@ -225,10 +219,12 @@
 @mixin list-theme($dark-theme) {
   $color: $u-list-item-color-light-theme;
   $icon-color: $u-list-icon-color-light-theme;
+  $section-color: $text-low-contrast-light-theme;
 
   @if ($dark-theme) {
     $color: $u-list-item-color-dark-theme;
     $icon-color: $u-list-icon-color-dark-theme;
+    $section-color: $text-low-contrast-dark-theme;
   }
 
   .u-list-item {
@@ -246,5 +242,9 @@
 
   .u-list-index {
     color: $icon-color;
+  }
+
+  .u-list-section-title {
+    color: $section-color;
   }
 }

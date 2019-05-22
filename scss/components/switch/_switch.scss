@@ -13,6 +13,7 @@
 
   .u-selection-control {
     position: relative;
+    flex-shrink: 0;
     width: $u-switch-width;
     height: $u-switch-height;
 
@@ -32,6 +33,7 @@
 
   .u-selection-control-label {
     margin-left: $u-switch-label-margin;
+    font-size: $u-switch-label-font-size;
   }
 
   .u-check-indicator {

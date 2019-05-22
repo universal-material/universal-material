@@ -2420,8 +2420,8 @@ a.text-secondary-variant:hover, a.text-secondary-variant:focus {
     text-shadow: none !important;
     -webkit-box-shadow: none !important;
             box-shadow: none !important; }
-  a:not(.u-btn):not(.u-btn-flat):not(.u-btn-outline):not(
-  .u-btn-solid):not(.u-btn-raised):not(.u-btn-floating):not(.u-btn-borderless) {
+  a:not(.u-btn):not(.u-btn-flat):not(.u-btn-outline):not(.u-btn-outline-gray):not(
+  .u-btn-solid):not(.u-btn-raised):not(.u-btn-floating):not(.u-btn-borderless):not(.u-datepicker-year-month-button) {
     text-decoration: underline; }
   abbr[title]::after {
     content: " (" attr(title) ")"; }
@@ -2781,7 +2781,7 @@ h6, .h6 {
   font-size: 6rem;
   line-height: 6rem;
   font-weight: 300;
-  letter-spacing: -0.01562em;
+  letter-spacing: -0.01563em;
   text-decoration: inherit;
   text-transform: inherit;
   font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; }
@@ -4305,8 +4305,8 @@ mark,
   margin-right: auto;
   margin-left: 0; }
 
-.u-btn, .u-btn-flat, .u-btn-outline,
-.u-btn-solid, .u-btn-raised, .u-btn-floating, .u-btn-borderless {
+.u-btn, .u-btn-flat, .u-btn-outline, .u-btn-outline-gray,
+.u-btn-solid, .u-btn-raised, .u-btn-floating, .u-btn-borderless, .u-datepicker-year-month-button {
   font-size: 0.875rem;
   line-height: 2.25rem;
   font-weight: 500;
@@ -4333,8 +4333,6 @@ mark,
   white-space: nowrap;
   vertical-align: middle;
   cursor: pointer;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -4343,8 +4341,8 @@ mark,
   border: none;
   border-radius: 0.25rem;
   position: relative; }
-  .u-btn::before, .u-btn-flat::before, .u-btn-outline::before,
-  .u-btn-solid::before, .u-btn-raised::before, .u-btn-floating::before, .u-btn-borderless::before {
+  .u-btn::before, .u-btn-flat::before, .u-btn-outline::before, .u-btn-outline-gray::before,
+  .u-btn-solid::before, .u-btn-raised::before, .u-btn-floating::before, .u-btn-borderless::before, .u-datepicker-year-month-button::before {
     position: absolute;
     top: 0;
     right: 0;
@@ -4356,44 +4354,59 @@ mark,
     opacity: 0;
     -webkit-transition: opacity 250ms linear;
     transition: opacity 250ms linear; }
-  .u-btn:hover::before, .u-btn-flat:hover::before, .u-btn-outline:hover::before,
-  .u-btn-solid:hover::before, .u-btn-raised:hover::before, .u-btn-floating:hover::before, .u-btn-borderless:hover::before {
+  .u-btn:hover::before, .u-btn-flat:hover::before, .u-btn-outline:hover::before, .u-btn-outline-gray:hover::before,
+  .u-btn-solid:hover::before, .u-btn-raised:hover::before, .u-btn-floating:hover::before, .u-btn-borderless:hover::before, .u-datepicker-year-month-button:hover::before {
     opacity: .12; }
-  .u-btn:active::before, .u-btn-flat:active::before, .u-btn-outline:active::before,
-  .u-btn-solid:active::before, .u-btn-raised:active::before, .u-btn-floating:active::before, .u-btn-borderless:active::before {
+  .u-btn:active::before, .u-btn-flat:active::before, .u-btn-outline:active::before, .u-btn-outline-gray:active::before,
+  .u-btn-solid:active::before, .u-btn-raised:active::before, .u-btn-floating:active::before, .u-btn-borderless:active::before, .u-datepicker-year-month-button:active::before {
     opacity: .2; }
-  .u-btn:hover, .u-btn-flat:hover, .u-btn-outline:hover,
-  .u-btn-solid:hover, .u-btn-raised:hover, .u-btn-floating:hover, .u-btn-borderless:hover, .u-btn:focus, .u-btn-flat:focus, .u-btn-outline:focus,
-  .u-btn-solid:focus, .u-btn-raised:focus, .u-btn-floating:focus, .u-btn-borderless:focus {
+  .u-btn:hover, .u-btn-flat:hover, .u-btn-outline:hover, .u-btn-outline-gray:hover,
+  .u-btn-solid:hover, .u-btn-raised:hover, .u-btn-floating:hover, .u-btn-borderless:hover, .u-datepicker-year-month-button:hover, .u-btn:focus, .u-btn-flat:focus, .u-btn-outline:focus, .u-btn-outline-gray:focus,
+  .u-btn-solid:focus, .u-btn-raised:focus, .u-btn-floating:focus, .u-btn-borderless:focus, .u-datepicker-year-month-button:focus {
     text-decoration: none; }
-  .u-btn:focus, .u-btn-flat:focus, .u-btn-outline:focus,
-  .u-btn-solid:focus, .u-btn-raised:focus, .u-btn-floating:focus, .u-btn-borderless:focus, .u-btn.focus, .focus.u-btn-flat, .focus.u-btn-outline,
-  .focus.u-btn-solid, .focus.u-btn-raised, .focus.u-btn-floating, .focus.u-btn-borderless {
+  .u-btn:focus, .u-btn-flat:focus, .u-btn-outline:focus, .u-btn-outline-gray:focus,
+  .u-btn-solid:focus, .u-btn-raised:focus, .u-btn-floating:focus, .u-btn-borderless:focus, .u-datepicker-year-month-button:focus, .u-btn.focus, .focus.u-btn-flat, .focus.u-btn-outline, .focus.u-btn-outline-gray,
+  .focus.u-btn-solid, .focus.u-btn-raised, .focus.u-btn-floating, .focus.u-btn-borderless, .focus.u-datepicker-year-month-button {
     outline: 0; }
-  .u-btn:active, .u-btn-flat:active, .u-btn-outline:active,
-  .u-btn-solid:active, .u-btn-raised:active, .u-btn-floating:active, .u-btn-borderless:active, .u-btn.active, .active.u-btn-flat, .active.u-btn-outline,
-  .active.u-btn-solid, .active.u-btn-raised, .active.u-btn-floating, .active.u-btn-borderless {
+  .u-btn:active, .u-btn-flat:active, .u-btn-outline:active, .u-btn-outline-gray:active,
+  .u-btn-solid:active, .u-btn-raised:active, .u-btn-floating:active, .u-btn-borderless:active, .u-datepicker-year-month-button:active, .u-btn.active, .active.u-btn-flat, .active.u-btn-outline, .active.u-btn-outline-gray,
+  .active.u-btn-solid, .active.u-btn-raised, .active.u-btn-floating, .active.u-btn-borderless, .active.u-datepicker-year-month-button {
     background-image: none; }
-  .u-btn.disabled, .disabled.u-btn-flat, .disabled.u-btn-outline,
-  .disabled.u-btn-solid, .disabled.u-btn-raised, .disabled.u-btn-floating, .disabled.u-btn-borderless, .u-btn:disabled, .u-btn-flat:disabled, .u-btn-outline:disabled,
-  .u-btn-solid:disabled, .u-btn-raised:disabled, .u-btn-floating:disabled, .u-btn-borderless:disabled {
+  .u-btn.disabled, .disabled.u-btn-flat, .disabled.u-btn-outline, .disabled.u-btn-outline-gray,
+  .disabled.u-btn-solid, .disabled.u-btn-raised, .disabled.u-btn-floating, .disabled.u-btn-borderless, .disabled.u-datepicker-year-month-button, .u-btn:disabled, .u-btn-flat:disabled, .u-btn-outline:disabled, .u-btn-outline-gray:disabled,
+  .u-btn-solid:disabled, .u-btn-raised:disabled, .u-btn-floating:disabled, .u-btn-borderless:disabled, .u-datepicker-year-month-button:disabled {
     cursor: default; }
+  .u-btn, .u-btn-flat, .u-btn-outline, .u-btn-outline-gray,
+  .u-btn-solid, .u-btn-raised, .u-btn-floating, .u-btn-borderless, .u-datepicker-year-month-button,
+  .u-btn *,
+  .u-btn-flat *,
+  .u-btn-outline *,
+  .u-btn-outline-gray *,
+  .u-btn-solid *,
+  .u-btn-raised *,
+  .u-btn-floating *,
+  .u-btn-borderless *,
+  .u-datepicker-year-month-button * {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box; }
 
 .u-btn-set {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex; }
-  .u-btn-set .u-btn + .u-btn, .u-btn-set .u-btn-flat + .u-btn, .u-btn-set .u-btn-outline + .u-btn, .u-btn-set .u-btn-solid + .u-btn, .u-btn-set .u-btn-raised + .u-btn, .u-btn-set .u-btn-floating + .u-btn, .u-btn-set .u-btn-borderless + .u-btn, .u-btn-set .u-btn + .u-btn-flat, .u-btn-set .u-btn-flat + .u-btn-flat, .u-btn-set .u-btn-outline + .u-btn-flat, .u-btn-set .u-btn-solid + .u-btn-flat, .u-btn-set .u-btn-raised + .u-btn-flat, .u-btn-set .u-btn-floating + .u-btn-flat, .u-btn-set .u-btn-borderless + .u-btn-flat, .u-btn-set .u-btn + .u-btn-outline, .u-btn-set .u-btn-flat + .u-btn-outline, .u-btn-set .u-btn-outline + .u-btn-outline, .u-btn-set .u-btn-solid + .u-btn-outline, .u-btn-set .u-btn-raised + .u-btn-outline, .u-btn-set .u-btn-floating + .u-btn-outline, .u-btn-set .u-btn-borderless + .u-btn-outline,
+  .u-btn-set .u-btn + .u-btn, .u-btn-set .u-btn-flat + .u-btn, .u-btn-set .u-btn-outline + .u-btn, .u-btn-set .u-btn-outline-gray + .u-btn, .u-btn-set .u-btn-solid + .u-btn, .u-btn-set .u-btn-raised + .u-btn, .u-btn-set .u-btn-floating + .u-btn, .u-btn-set .u-btn-borderless + .u-btn, .u-btn-set .u-datepicker-year-month-button + .u-btn, .u-btn-set .u-btn + .u-btn-flat, .u-btn-set .u-btn-flat + .u-btn-flat, .u-btn-set .u-btn-outline + .u-btn-flat, .u-btn-set .u-btn-outline-gray + .u-btn-flat, .u-btn-set .u-btn-solid + .u-btn-flat, .u-btn-set .u-btn-raised + .u-btn-flat, .u-btn-set .u-btn-floating + .u-btn-flat, .u-btn-set .u-btn-borderless + .u-btn-flat, .u-btn-set .u-datepicker-year-month-button + .u-btn-flat, .u-btn-set .u-btn + .u-btn-outline, .u-btn-set .u-btn-flat + .u-btn-outline, .u-btn-set .u-btn-outline + .u-btn-outline, .u-btn-set .u-btn-outline-gray + .u-btn-outline, .u-btn-set .u-btn-solid + .u-btn-outline, .u-btn-set .u-btn-raised + .u-btn-outline, .u-btn-set .u-btn-floating + .u-btn-outline, .u-btn-set .u-btn-borderless + .u-btn-outline, .u-btn-set .u-datepicker-year-month-button + .u-btn-outline, .u-btn-set .u-btn + .u-btn-outline-gray, .u-btn-set .u-btn-flat + .u-btn-outline-gray, .u-btn-set .u-btn-outline + .u-btn-outline-gray, .u-btn-set .u-btn-outline-gray + .u-btn-outline-gray, .u-btn-set .u-btn-solid + .u-btn-outline-gray, .u-btn-set .u-btn-raised + .u-btn-outline-gray, .u-btn-set .u-btn-floating + .u-btn-outline-gray, .u-btn-set .u-btn-borderless + .u-btn-outline-gray, .u-btn-set .u-datepicker-year-month-button + .u-btn-outline-gray,
   .u-btn-set .u-btn + .u-btn-solid,
   .u-btn-set .u-btn-flat + .u-btn-solid,
   .u-btn-set .u-btn-outline + .u-btn-solid,
+  .u-btn-set .u-btn-outline-gray + .u-btn-solid,
   .u-btn-set .u-btn-solid + .u-btn-solid,
   .u-btn-set .u-btn-raised + .u-btn-solid,
   .u-btn-set .u-btn-floating + .u-btn-solid,
-  .u-btn-set .u-btn-borderless + .u-btn-solid, .u-btn-set .u-btn + .u-btn-raised, .u-btn-set .u-btn-flat + .u-btn-raised, .u-btn-set .u-btn-outline + .u-btn-raised, .u-btn-set .u-btn-solid + .u-btn-raised, .u-btn-set .u-btn-raised + .u-btn-raised, .u-btn-set .u-btn-floating + .u-btn-raised, .u-btn-set .u-btn-borderless + .u-btn-raised, .u-btn-set .u-btn + .u-btn-floating, .u-btn-set .u-btn-flat + .u-btn-floating, .u-btn-set .u-btn-outline + .u-btn-floating, .u-btn-set .u-btn-solid + .u-btn-floating, .u-btn-set .u-btn-raised + .u-btn-floating, .u-btn-set .u-btn-floating + .u-btn-floating, .u-btn-set .u-btn-borderless + .u-btn-floating, .u-btn-set .u-btn + .u-btn-borderless, .u-btn-set .u-btn-flat + .u-btn-borderless, .u-btn-set .u-btn-outline + .u-btn-borderless, .u-btn-set .u-btn-solid + .u-btn-borderless, .u-btn-set .u-btn-raised + .u-btn-borderless, .u-btn-set .u-btn-floating + .u-btn-borderless, .u-btn-set .u-btn-borderless + .u-btn-borderless {
+  .u-btn-set .u-btn-borderless + .u-btn-solid,
+  .u-btn-set .u-datepicker-year-month-button + .u-btn-solid, .u-btn-set .u-btn + .u-btn-raised, .u-btn-set .u-btn-flat + .u-btn-raised, .u-btn-set .u-btn-outline + .u-btn-raised, .u-btn-set .u-btn-outline-gray + .u-btn-raised, .u-btn-set .u-btn-solid + .u-btn-raised, .u-btn-set .u-btn-raised + .u-btn-raised, .u-btn-set .u-btn-floating + .u-btn-raised, .u-btn-set .u-btn-borderless + .u-btn-raised, .u-btn-set .u-datepicker-year-month-button + .u-btn-raised, .u-btn-set .u-btn + .u-btn-floating, .u-btn-set .u-btn-flat + .u-btn-floating, .u-btn-set .u-btn-outline + .u-btn-floating, .u-btn-set .u-btn-outline-gray + .u-btn-floating, .u-btn-set .u-btn-solid + .u-btn-floating, .u-btn-set .u-btn-raised + .u-btn-floating, .u-btn-set .u-btn-floating + .u-btn-floating, .u-btn-set .u-btn-borderless + .u-btn-floating, .u-btn-set .u-datepicker-year-month-button + .u-btn-floating, .u-btn-set .u-btn + .u-btn-borderless, .u-btn-set .u-btn-flat + .u-btn-borderless, .u-btn-set .u-btn-outline + .u-btn-borderless, .u-btn-set .u-btn-outline-gray + .u-btn-borderless, .u-btn-set .u-btn-solid + .u-btn-borderless, .u-btn-set .u-btn-raised + .u-btn-borderless, .u-btn-set .u-btn-floating + .u-btn-borderless, .u-btn-set .u-btn-borderless + .u-btn-borderless, .u-btn-set .u-datepicker-year-month-button + .u-btn-borderless, .u-btn-set .u-btn + .u-datepicker-year-month-button, .u-btn-set .u-btn-flat + .u-datepicker-year-month-button, .u-btn-set .u-btn-outline + .u-datepicker-year-month-button, .u-btn-set .u-btn-outline-gray + .u-datepicker-year-month-button, .u-btn-set .u-btn-solid + .u-datepicker-year-month-button, .u-btn-set .u-btn-raised + .u-datepicker-year-month-button, .u-btn-set .u-btn-floating + .u-datepicker-year-month-button, .u-btn-set .u-btn-borderless + .u-datepicker-year-month-button, .u-btn-set .u-datepicker-year-month-button + .u-datepicker-year-month-button {
     margin-left: 8px; }
 
-.u-btn-outline {
+.u-btn-outline, .u-btn-outline-gray {
   border: 0.0625rem solid currentColor; }
 
 .u-btn-raised, .u-btn-floating {
@@ -4456,9 +4469,9 @@ mark,
   width: 2.5rem;
   height: 2.5rem; }
 
-.dense-layout .u-btn, .dense-layout .u-btn-flat, .dense-layout .u-btn-outline,
-.dense-layout .u-btn-solid, .dense-layout .u-btn-raised, .dense-layout .u-btn-floating, .dense-layout .u-btn-borderless, .dense.u-btn, .dense.u-btn-flat, .dense.u-btn-outline,
-.dense.u-btn-solid, .dense.u-btn-raised, .dense.u-btn-floating, .dense.u-btn-borderless {
+.dense-layout .u-btn, .dense-layout .u-btn-flat, .dense-layout .u-btn-outline, .dense-layout .u-btn-outline-gray,
+.dense-layout .u-btn-solid, .dense-layout .u-btn-raised, .dense-layout .u-btn-floating, .dense-layout .u-btn-borderless, .dense-layout .u-datepicker-year-month-button, .dense.u-btn, .dense.u-btn-flat, .dense.u-btn-outline, .dense.u-btn-outline-gray,
+.dense.u-btn-solid, .dense.u-btn-raised, .dense.u-btn-floating, .dense.u-btn-borderless, .dense.u-datepicker-year-month-button {
   height: 2rem;
   font-size: 0.8125rem; }
 
@@ -4474,65 +4487,99 @@ mark,
   margin-right: -8px;
   margin-left: 12px; }
 
-.rtl .u-btn-set .u-btn + .u-btn, .rtl .u-btn-set .u-btn-flat + .u-btn, .rtl .u-btn-set .u-btn-outline + .u-btn, .rtl .u-btn-set .u-btn-solid + .u-btn, .rtl .u-btn-set .u-btn-raised + .u-btn, .rtl .u-btn-set .u-btn-floating + .u-btn, .rtl .u-btn-set .u-btn-borderless + .u-btn, .rtl .u-btn-set .u-btn + .u-btn-flat, .rtl .u-btn-set .u-btn-flat + .u-btn-flat, .rtl .u-btn-set .u-btn-outline + .u-btn-flat, .rtl .u-btn-set .u-btn-solid + .u-btn-flat, .rtl .u-btn-set .u-btn-raised + .u-btn-flat, .rtl .u-btn-set .u-btn-floating + .u-btn-flat, .rtl .u-btn-set .u-btn-borderless + .u-btn-flat, .rtl .u-btn-set .u-btn + .u-btn-outline, .rtl .u-btn-set .u-btn-flat + .u-btn-outline, .rtl .u-btn-set .u-btn-outline + .u-btn-outline, .rtl .u-btn-set .u-btn-solid + .u-btn-outline, .rtl .u-btn-set .u-btn-raised + .u-btn-outline, .rtl .u-btn-set .u-btn-floating + .u-btn-outline, .rtl .u-btn-set .u-btn-borderless + .u-btn-outline,
+.rtl .u-btn-set .u-btn + .u-btn, .rtl .u-btn-set .u-btn-flat + .u-btn, .rtl .u-btn-set .u-btn-outline + .u-btn, .rtl .u-btn-set .u-btn-outline-gray + .u-btn, .rtl .u-btn-set .u-btn-solid + .u-btn, .rtl .u-btn-set .u-btn-raised + .u-btn, .rtl .u-btn-set .u-btn-floating + .u-btn, .rtl .u-btn-set .u-btn-borderless + .u-btn, .rtl .u-btn-set .u-datepicker-year-month-button + .u-btn, .rtl .u-btn-set .u-btn + .u-btn-flat, .rtl .u-btn-set .u-btn-flat + .u-btn-flat, .rtl .u-btn-set .u-btn-outline + .u-btn-flat, .rtl .u-btn-set .u-btn-outline-gray + .u-btn-flat, .rtl .u-btn-set .u-btn-solid + .u-btn-flat, .rtl .u-btn-set .u-btn-raised + .u-btn-flat, .rtl .u-btn-set .u-btn-floating + .u-btn-flat, .rtl .u-btn-set .u-btn-borderless + .u-btn-flat, .rtl .u-btn-set .u-datepicker-year-month-button + .u-btn-flat, .rtl .u-btn-set .u-btn + .u-btn-outline, .rtl .u-btn-set .u-btn-flat + .u-btn-outline, .rtl .u-btn-set .u-btn-outline + .u-btn-outline, .rtl .u-btn-set .u-btn-outline-gray + .u-btn-outline, .rtl .u-btn-set .u-btn-solid + .u-btn-outline, .rtl .u-btn-set .u-btn-raised + .u-btn-outline, .rtl .u-btn-set .u-btn-floating + .u-btn-outline, .rtl .u-btn-set .u-btn-borderless + .u-btn-outline, .rtl .u-btn-set .u-datepicker-year-month-button + .u-btn-outline, .rtl .u-btn-set .u-btn + .u-btn-outline-gray, .rtl .u-btn-set .u-btn-flat + .u-btn-outline-gray, .rtl .u-btn-set .u-btn-outline + .u-btn-outline-gray, .rtl .u-btn-set .u-btn-outline-gray + .u-btn-outline-gray, .rtl .u-btn-set .u-btn-solid + .u-btn-outline-gray, .rtl .u-btn-set .u-btn-raised + .u-btn-outline-gray, .rtl .u-btn-set .u-btn-floating + .u-btn-outline-gray, .rtl .u-btn-set .u-btn-borderless + .u-btn-outline-gray, .rtl .u-btn-set .u-datepicker-year-month-button + .u-btn-outline-gray,
 .rtl .u-btn-set .u-btn + .u-btn-solid,
 .rtl .u-btn-set .u-btn-flat + .u-btn-solid,
 .rtl .u-btn-set .u-btn-outline + .u-btn-solid,
+.rtl .u-btn-set .u-btn-outline-gray + .u-btn-solid,
 .rtl .u-btn-set .u-btn-solid + .u-btn-solid,
 .rtl .u-btn-set .u-btn-raised + .u-btn-solid,
 .rtl .u-btn-set .u-btn-floating + .u-btn-solid,
-.rtl .u-btn-set .u-btn-borderless + .u-btn-solid, .rtl .u-btn-set .u-btn + .u-btn-raised, .rtl .u-btn-set .u-btn-flat + .u-btn-raised, .rtl .u-btn-set .u-btn-outline + .u-btn-raised, .rtl .u-btn-set .u-btn-solid + .u-btn-raised, .rtl .u-btn-set .u-btn-raised + .u-btn-raised, .rtl .u-btn-set .u-btn-floating + .u-btn-raised, .rtl .u-btn-set .u-btn-borderless + .u-btn-raised, .rtl .u-btn-set .u-btn + .u-btn-floating, .rtl .u-btn-set .u-btn-flat + .u-btn-floating, .rtl .u-btn-set .u-btn-outline + .u-btn-floating, .rtl .u-btn-set .u-btn-solid + .u-btn-floating, .rtl .u-btn-set .u-btn-raised + .u-btn-floating, .rtl .u-btn-set .u-btn-floating + .u-btn-floating, .rtl .u-btn-set .u-btn-borderless + .u-btn-floating, .rtl .u-btn-set .u-btn + .u-btn-borderless, .rtl .u-btn-set .u-btn-flat + .u-btn-borderless, .rtl .u-btn-set .u-btn-outline + .u-btn-borderless, .rtl .u-btn-set .u-btn-solid + .u-btn-borderless, .rtl .u-btn-set .u-btn-raised + .u-btn-borderless, .rtl .u-btn-set .u-btn-floating + .u-btn-borderless, .rtl .u-btn-set .u-btn-borderless + .u-btn-borderless,
+.rtl .u-btn-set .u-btn-borderless + .u-btn-solid,
+.rtl .u-btn-set .u-datepicker-year-month-button + .u-btn-solid, .rtl .u-btn-set .u-btn + .u-btn-raised, .rtl .u-btn-set .u-btn-flat + .u-btn-raised, .rtl .u-btn-set .u-btn-outline + .u-btn-raised, .rtl .u-btn-set .u-btn-outline-gray + .u-btn-raised, .rtl .u-btn-set .u-btn-solid + .u-btn-raised, .rtl .u-btn-set .u-btn-raised + .u-btn-raised, .rtl .u-btn-set .u-btn-floating + .u-btn-raised, .rtl .u-btn-set .u-btn-borderless + .u-btn-raised, .rtl .u-btn-set .u-datepicker-year-month-button + .u-btn-raised, .rtl .u-btn-set .u-btn + .u-btn-floating, .rtl .u-btn-set .u-btn-flat + .u-btn-floating, .rtl .u-btn-set .u-btn-outline + .u-btn-floating, .rtl .u-btn-set .u-btn-outline-gray + .u-btn-floating, .rtl .u-btn-set .u-btn-solid + .u-btn-floating, .rtl .u-btn-set .u-btn-raised + .u-btn-floating, .rtl .u-btn-set .u-btn-floating + .u-btn-floating, .rtl .u-btn-set .u-btn-borderless + .u-btn-floating, .rtl .u-btn-set .u-datepicker-year-month-button + .u-btn-floating, .rtl .u-btn-set .u-btn + .u-btn-borderless, .rtl .u-btn-set .u-btn-flat + .u-btn-borderless, .rtl .u-btn-set .u-btn-outline + .u-btn-borderless, .rtl .u-btn-set .u-btn-outline-gray + .u-btn-borderless, .rtl .u-btn-set .u-btn-solid + .u-btn-borderless, .rtl .u-btn-set .u-btn-raised + .u-btn-borderless, .rtl .u-btn-set .u-btn-floating + .u-btn-borderless, .rtl .u-btn-set .u-btn-borderless + .u-btn-borderless, .rtl .u-btn-set .u-datepicker-year-month-button + .u-btn-borderless, .rtl .u-btn-set .u-btn + .u-datepicker-year-month-button, .rtl .u-btn-set .u-btn-flat + .u-datepicker-year-month-button, .rtl .u-btn-set .u-btn-outline + .u-datepicker-year-month-button, .rtl .u-btn-set .u-btn-outline-gray + .u-datepicker-year-month-button, .rtl .u-btn-set .u-btn-solid + .u-datepicker-year-month-button, .rtl .u-btn-set .u-btn-raised + .u-datepicker-year-month-button, .rtl .u-btn-set .u-btn-floating + .u-datepicker-year-month-button, .rtl .u-btn-set .u-btn-borderless + .u-datepicker-year-month-button, .rtl .u-btn-set .u-datepicker-year-month-button + .u-datepicker-year-month-button,
 [dir="rtl"] .u-btn-set .u-btn + .u-btn,
 [dir="rtl"] .u-btn-set .u-btn-flat + .u-btn,
 [dir="rtl"] .u-btn-set .u-btn-outline + .u-btn,
+[dir="rtl"] .u-btn-set .u-btn-outline-gray + .u-btn,
 [dir="rtl"] .u-btn-set .u-btn-solid + .u-btn,
 [dir="rtl"] .u-btn-set .u-btn-raised + .u-btn,
 [dir="rtl"] .u-btn-set .u-btn-floating + .u-btn,
 [dir="rtl"] .u-btn-set .u-btn-borderless + .u-btn,
+[dir="rtl"] .u-btn-set .u-datepicker-year-month-button + .u-btn,
 [dir="rtl"] .u-btn-set .u-btn + .u-btn-flat,
 [dir="rtl"] .u-btn-set .u-btn-flat + .u-btn-flat,
 [dir="rtl"] .u-btn-set .u-btn-outline + .u-btn-flat,
+[dir="rtl"] .u-btn-set .u-btn-outline-gray + .u-btn-flat,
 [dir="rtl"] .u-btn-set .u-btn-solid + .u-btn-flat,
 [dir="rtl"] .u-btn-set .u-btn-raised + .u-btn-flat,
 [dir="rtl"] .u-btn-set .u-btn-floating + .u-btn-flat,
 [dir="rtl"] .u-btn-set .u-btn-borderless + .u-btn-flat,
+[dir="rtl"] .u-btn-set .u-datepicker-year-month-button + .u-btn-flat,
 [dir="rtl"] .u-btn-set .u-btn + .u-btn-outline,
 [dir="rtl"] .u-btn-set .u-btn-flat + .u-btn-outline,
 [dir="rtl"] .u-btn-set .u-btn-outline + .u-btn-outline,
+[dir="rtl"] .u-btn-set .u-btn-outline-gray + .u-btn-outline,
 [dir="rtl"] .u-btn-set .u-btn-solid + .u-btn-outline,
 [dir="rtl"] .u-btn-set .u-btn-raised + .u-btn-outline,
 [dir="rtl"] .u-btn-set .u-btn-floating + .u-btn-outline,
 [dir="rtl"] .u-btn-set .u-btn-borderless + .u-btn-outline,
+[dir="rtl"] .u-btn-set .u-datepicker-year-month-button + .u-btn-outline,
+[dir="rtl"] .u-btn-set .u-btn + .u-btn-outline-gray,
+[dir="rtl"] .u-btn-set .u-btn-flat + .u-btn-outline-gray,
+[dir="rtl"] .u-btn-set .u-btn-outline + .u-btn-outline-gray,
+[dir="rtl"] .u-btn-set .u-btn-outline-gray + .u-btn-outline-gray,
+[dir="rtl"] .u-btn-set .u-btn-solid + .u-btn-outline-gray,
+[dir="rtl"] .u-btn-set .u-btn-raised + .u-btn-outline-gray,
+[dir="rtl"] .u-btn-set .u-btn-floating + .u-btn-outline-gray,
+[dir="rtl"] .u-btn-set .u-btn-borderless + .u-btn-outline-gray,
+[dir="rtl"] .u-btn-set .u-datepicker-year-month-button + .u-btn-outline-gray,
 [dir="rtl"] .u-btn-set .u-btn + .u-btn-solid,
 [dir="rtl"] .u-btn-set .u-btn-flat + .u-btn-solid,
 [dir="rtl"] .u-btn-set .u-btn-outline + .u-btn-solid,
+[dir="rtl"] .u-btn-set .u-btn-outline-gray + .u-btn-solid,
 [dir="rtl"] .u-btn-set .u-btn-solid + .u-btn-solid,
 [dir="rtl"] .u-btn-set .u-btn-raised + .u-btn-solid,
 [dir="rtl"] .u-btn-set .u-btn-floating + .u-btn-solid,
 [dir="rtl"] .u-btn-set .u-btn-borderless + .u-btn-solid,
+[dir="rtl"] .u-btn-set .u-datepicker-year-month-button + .u-btn-solid,
 [dir="rtl"] .u-btn-set .u-btn + .u-btn-raised,
 [dir="rtl"] .u-btn-set .u-btn-flat + .u-btn-raised,
 [dir="rtl"] .u-btn-set .u-btn-outline + .u-btn-raised,
+[dir="rtl"] .u-btn-set .u-btn-outline-gray + .u-btn-raised,
 [dir="rtl"] .u-btn-set .u-btn-solid + .u-btn-raised,
 [dir="rtl"] .u-btn-set .u-btn-raised + .u-btn-raised,
 [dir="rtl"] .u-btn-set .u-btn-floating + .u-btn-raised,
 [dir="rtl"] .u-btn-set .u-btn-borderless + .u-btn-raised,
+[dir="rtl"] .u-btn-set .u-datepicker-year-month-button + .u-btn-raised,
 [dir="rtl"] .u-btn-set .u-btn + .u-btn-floating,
 [dir="rtl"] .u-btn-set .u-btn-flat + .u-btn-floating,
 [dir="rtl"] .u-btn-set .u-btn-outline + .u-btn-floating,
+[dir="rtl"] .u-btn-set .u-btn-outline-gray + .u-btn-floating,
 [dir="rtl"] .u-btn-set .u-btn-solid + .u-btn-floating,
 [dir="rtl"] .u-btn-set .u-btn-raised + .u-btn-floating,
 [dir="rtl"] .u-btn-set .u-btn-floating + .u-btn-floating,
 [dir="rtl"] .u-btn-set .u-btn-borderless + .u-btn-floating,
+[dir="rtl"] .u-btn-set .u-datepicker-year-month-button + .u-btn-floating,
 [dir="rtl"] .u-btn-set .u-btn + .u-btn-borderless,
 [dir="rtl"] .u-btn-set .u-btn-flat + .u-btn-borderless,
 [dir="rtl"] .u-btn-set .u-btn-outline + .u-btn-borderless,
+[dir="rtl"] .u-btn-set .u-btn-outline-gray + .u-btn-borderless,
 [dir="rtl"] .u-btn-set .u-btn-solid + .u-btn-borderless,
 [dir="rtl"] .u-btn-set .u-btn-raised + .u-btn-borderless,
 [dir="rtl"] .u-btn-set .u-btn-floating + .u-btn-borderless,
-[dir="rtl"] .u-btn-set .u-btn-borderless + .u-btn-borderless {
-  margin-left: 0;
-  margin-right: 8px; }
+[dir="rtl"] .u-btn-set .u-btn-borderless + .u-btn-borderless,
+[dir="rtl"] .u-btn-set .u-datepicker-year-month-button + .u-btn-borderless,
+[dir="rtl"] .u-btn-set .u-btn + .u-datepicker-year-month-button,
+[dir="rtl"] .u-btn-set .u-btn-flat + .u-datepicker-year-month-button,
+[dir="rtl"] .u-btn-set .u-btn-outline + .u-datepicker-year-month-button,
+[dir="rtl"] .u-btn-set .u-btn-outline-gray + .u-datepicker-year-month-button,
+[dir="rtl"] .u-btn-set .u-btn-solid + .u-datepicker-year-month-button,
+[dir="rtl"] .u-btn-set .u-btn-raised + .u-datepicker-year-month-button,
+[dir="rtl"] .u-btn-set .u-btn-floating + .u-datepicker-year-month-button,
+[dir="rtl"] .u-btn-set .u-btn-borderless + .u-datepicker-year-month-button,
+[dir="rtl"] .u-btn-set .u-datepicker-year-month-button + .u-datepicker-year-month-button {
+  margin-right: 8px;
+  margin-left: 0; }
 
 .u-floating-action-area {
   position: fixed;
@@ -4813,55 +4860,65 @@ mark,
   display: -ms-inline-flexbox;
   display: inline-flex;
   vertical-align: middle; }
-  .u-btn-group > .u-btn, .u-btn-group > .u-btn-flat, .u-btn-group > .u-btn-outline,
-  .u-btn-group > .u-btn-solid, .u-btn-group > .u-btn-raised, .u-btn-group > .u-btn-floating, .u-btn-group > .u-btn-borderless,
+  .u-btn-group > .u-btn, .u-btn-group > .u-btn-flat, .u-btn-group > .u-btn-outline, .u-btn-group > .u-btn-outline-gray,
+  .u-btn-group > .u-btn-solid, .u-btn-group > .u-btn-raised, .u-btn-group > .u-btn-floating, .u-btn-group > .u-btn-borderless, .u-btn-group > .u-datepicker-year-month-button,
   .u-btn-group-vertical > .u-btn,
   .u-btn-group-vertical > .u-btn-flat,
   .u-btn-group-vertical > .u-btn-outline,
+  .u-btn-group-vertical > .u-btn-outline-gray,
   .u-btn-group-vertical > .u-btn-solid,
   .u-btn-group-vertical > .u-btn-raised,
   .u-btn-group-vertical > .u-btn-floating,
-  .u-btn-group-vertical > .u-btn-borderless {
+  .u-btn-group-vertical > .u-btn-borderless,
+  .u-btn-group-vertical > .u-datepicker-year-month-button {
     position: relative;
     -webkit-box-flex: 0;
         -ms-flex: 0 1 auto;
             flex: 0 1 auto;
     margin-bottom: 0; }
-    .u-btn-group > .u-btn:hover, .u-btn-group > .u-btn-flat:hover, .u-btn-group > .u-btn-outline:hover,
-    .u-btn-group > .u-btn-solid:hover, .u-btn-group > .u-btn-raised:hover, .u-btn-group > .u-btn-floating:hover, .u-btn-group > .u-btn-borderless:hover,
+    .u-btn-group > .u-btn:hover, .u-btn-group > .u-btn-flat:hover, .u-btn-group > .u-btn-outline:hover, .u-btn-group > .u-btn-outline-gray:hover,
+    .u-btn-group > .u-btn-solid:hover, .u-btn-group > .u-btn-raised:hover, .u-btn-group > .u-btn-floating:hover, .u-btn-group > .u-btn-borderless:hover, .u-btn-group > .u-datepicker-year-month-button:hover,
     .u-btn-group-vertical > .u-btn:hover,
     .u-btn-group-vertical > .u-btn-flat:hover,
     .u-btn-group-vertical > .u-btn-outline:hover,
+    .u-btn-group-vertical > .u-btn-outline-gray:hover,
     .u-btn-group-vertical > .u-btn-solid:hover,
     .u-btn-group-vertical > .u-btn-raised:hover,
     .u-btn-group-vertical > .u-btn-floating:hover,
-    .u-btn-group-vertical > .u-btn-borderless:hover {
+    .u-btn-group-vertical > .u-btn-borderless:hover,
+    .u-btn-group-vertical > .u-datepicker-year-month-button:hover {
       z-index: 2; }
-    .u-btn-group > .u-btn:focus, .u-btn-group > .u-btn-flat:focus, .u-btn-group > .u-btn-outline:focus,
-    .u-btn-group > .u-btn-solid:focus, .u-btn-group > .u-btn-raised:focus, .u-btn-group > .u-btn-floating:focus, .u-btn-group > .u-btn-borderless:focus, .u-btn-group > .u-btn:active, .u-btn-group > .u-btn-flat:active, .u-btn-group > .u-btn-outline:active,
-    .u-btn-group > .u-btn-solid:active, .u-btn-group > .u-btn-raised:active, .u-btn-group > .u-btn-floating:active, .u-btn-group > .u-btn-borderless:active, .u-btn-group > .u-btn.active, .u-btn-group > .active.u-btn-flat, .u-btn-group > .active.u-btn-outline,
-    .u-btn-group > .active.u-btn-solid, .u-btn-group > .active.u-btn-raised, .u-btn-group > .active.u-btn-floating, .u-btn-group > .active.u-btn-borderless,
+    .u-btn-group > .u-btn:focus, .u-btn-group > .u-btn-flat:focus, .u-btn-group > .u-btn-outline:focus, .u-btn-group > .u-btn-outline-gray:focus,
+    .u-btn-group > .u-btn-solid:focus, .u-btn-group > .u-btn-raised:focus, .u-btn-group > .u-btn-floating:focus, .u-btn-group > .u-btn-borderless:focus, .u-btn-group > .u-datepicker-year-month-button:focus, .u-btn-group > .u-btn:active, .u-btn-group > .u-btn-flat:active, .u-btn-group > .u-btn-outline:active, .u-btn-group > .u-btn-outline-gray:active,
+    .u-btn-group > .u-btn-solid:active, .u-btn-group > .u-btn-raised:active, .u-btn-group > .u-btn-floating:active, .u-btn-group > .u-btn-borderless:active, .u-btn-group > .u-datepicker-year-month-button:active, .u-btn-group > .u-btn.active, .u-btn-group > .active.u-btn-flat, .u-btn-group > .active.u-btn-outline, .u-btn-group > .active.u-btn-outline-gray,
+    .u-btn-group > .active.u-btn-solid, .u-btn-group > .active.u-btn-raised, .u-btn-group > .active.u-btn-floating, .u-btn-group > .active.u-btn-borderless, .u-btn-group > .active.u-datepicker-year-month-button,
     .u-btn-group-vertical > .u-btn:focus,
     .u-btn-group-vertical > .u-btn-flat:focus,
     .u-btn-group-vertical > .u-btn-outline:focus,
+    .u-btn-group-vertical > .u-btn-outline-gray:focus,
     .u-btn-group-vertical > .u-btn-solid:focus,
     .u-btn-group-vertical > .u-btn-raised:focus,
     .u-btn-group-vertical > .u-btn-floating:focus,
     .u-btn-group-vertical > .u-btn-borderless:focus,
+    .u-btn-group-vertical > .u-datepicker-year-month-button:focus,
     .u-btn-group-vertical > .u-btn:active,
     .u-btn-group-vertical > .u-btn-flat:active,
     .u-btn-group-vertical > .u-btn-outline:active,
+    .u-btn-group-vertical > .u-btn-outline-gray:active,
     .u-btn-group-vertical > .u-btn-solid:active,
     .u-btn-group-vertical > .u-btn-raised:active,
     .u-btn-group-vertical > .u-btn-floating:active,
     .u-btn-group-vertical > .u-btn-borderless:active,
+    .u-btn-group-vertical > .u-datepicker-year-month-button:active,
     .u-btn-group-vertical > .u-btn.active,
     .u-btn-group-vertical > .active.u-btn-flat,
     .u-btn-group-vertical > .active.u-btn-outline,
+    .u-btn-group-vertical > .active.u-btn-outline-gray,
     .u-btn-group-vertical > .active.u-btn-solid,
     .u-btn-group-vertical > .active.u-btn-raised,
     .u-btn-group-vertical > .active.u-btn-floating,
-    .u-btn-group-vertical > .active.u-btn-borderless {
+    .u-btn-group-vertical > .active.u-btn-borderless,
+    .u-btn-group-vertical > .active.u-datepicker-year-month-button {
       z-index: 2; }
 
 .u-btn-toolbar {
@@ -4879,10 +4936,10 @@ mark,
 .u-btn-group > .u-btn-group {
   float: left; }
 
-.u-btn + .u-dropdown-toggle-split, .u-btn-flat + .u-dropdown-toggle-split, .u-btn-outline + .u-dropdown-toggle-split, .u-btn-solid + .u-dropdown-toggle-split, .u-btn-raised + .u-dropdown-toggle-split, .u-btn-floating + .u-dropdown-toggle-split, .u-btn-borderless + .u-dropdown-toggle-split {
+.u-btn + .u-dropdown-toggle-split, .u-btn-flat + .u-dropdown-toggle-split, .u-btn-outline + .u-dropdown-toggle-split, .u-btn-outline-gray + .u-dropdown-toggle-split, .u-btn-solid + .u-dropdown-toggle-split, .u-btn-raised + .u-dropdown-toggle-split, .u-btn-floating + .u-dropdown-toggle-split, .u-btn-borderless + .u-dropdown-toggle-split, .u-datepicker-year-month-button + .u-dropdown-toggle-split {
   padding-right: 0.5625rem;
   padding-left: 0.5625rem; }
-  .u-btn + .u-dropdown-toggle-split::after, .u-btn-flat + .u-dropdown-toggle-split::after, .u-btn-outline + .u-dropdown-toggle-split::after, .u-btn-solid + .u-dropdown-toggle-split::after, .u-btn-raised + .u-dropdown-toggle-split::after, .u-btn-floating + .u-dropdown-toggle-split::after, .u-btn-borderless + .u-dropdown-toggle-split::after {
+  .u-btn + .u-dropdown-toggle-split::after, .u-btn-flat + .u-dropdown-toggle-split::after, .u-btn-outline + .u-dropdown-toggle-split::after, .u-btn-outline-gray + .u-dropdown-toggle-split::after, .u-btn-solid + .u-dropdown-toggle-split::after, .u-btn-raised + .u-dropdown-toggle-split::after, .u-btn-floating + .u-dropdown-toggle-split::after, .u-btn-borderless + .u-dropdown-toggle-split::after, .u-datepicker-year-month-button + .u-dropdown-toggle-split::after {
     margin-left: 0; }
 
 .u-btn-group-vertical {
@@ -4899,33 +4956,39 @@ mark,
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center; }
-  .u-btn-group-vertical .u-btn, .u-btn-group-vertical .u-btn-flat, .u-btn-group-vertical .u-btn-outline,
-  .u-btn-group-vertical .u-btn-solid, .u-btn-group-vertical .u-btn-raised, .u-btn-group-vertical .u-btn-floating, .u-btn-group-vertical .u-btn-borderless,
+  .u-btn-group-vertical .u-btn, .u-btn-group-vertical .u-btn-flat, .u-btn-group-vertical .u-btn-outline, .u-btn-group-vertical .u-btn-outline-gray,
+  .u-btn-group-vertical .u-btn-solid, .u-btn-group-vertical .u-btn-raised, .u-btn-group-vertical .u-btn-floating, .u-btn-group-vertical .u-btn-borderless, .u-btn-group-vertical .u-datepicker-year-month-button,
   .u-btn-group-vertical .u-btn-group {
     width: 100%; }
 
-[data-toggle="buttons"] > .u-btn input[type="radio"], [data-toggle="buttons"] > .u-btn-flat input[type="radio"], [data-toggle="buttons"] > .u-btn-outline input[type="radio"], [data-toggle="buttons"] > .u-btn-solid input[type="radio"], [data-toggle="buttons"] > .u-btn-raised input[type="radio"], [data-toggle="buttons"] > .u-btn-floating input[type="radio"], [data-toggle="buttons"] > .u-btn-borderless input[type="radio"],
+[data-toggle="buttons"] > .u-btn input[type="radio"], [data-toggle="buttons"] > .u-btn-flat input[type="radio"], [data-toggle="buttons"] > .u-btn-outline input[type="radio"], [data-toggle="buttons"] > .u-btn-outline-gray input[type="radio"], [data-toggle="buttons"] > .u-btn-solid input[type="radio"], [data-toggle="buttons"] > .u-btn-raised input[type="radio"], [data-toggle="buttons"] > .u-btn-floating input[type="radio"], [data-toggle="buttons"] > .u-btn-borderless input[type="radio"], [data-toggle="buttons"] > .u-datepicker-year-month-button input[type="radio"],
 [data-toggle="buttons"] > .u-btn input[type="checkbox"],
 [data-toggle="buttons"] > .u-btn-flat input[type="checkbox"],
 [data-toggle="buttons"] > .u-btn-outline input[type="checkbox"],
+[data-toggle="buttons"] > .u-btn-outline-gray input[type="checkbox"],
 [data-toggle="buttons"] > .u-btn-solid input[type="checkbox"],
 [data-toggle="buttons"] > .u-btn-raised input[type="checkbox"],
 [data-toggle="buttons"] > .u-btn-floating input[type="checkbox"],
 [data-toggle="buttons"] > .u-btn-borderless input[type="checkbox"],
+[data-toggle="buttons"] > .u-datepicker-year-month-button input[type="checkbox"],
 [data-toggle="buttons"] > .u-btn-group > .u-btn input[type="radio"],
 [data-toggle="buttons"] > .u-btn-group > .u-btn-flat input[type="radio"],
 [data-toggle="buttons"] > .u-btn-group > .u-btn-outline input[type="radio"],
+[data-toggle="buttons"] > .u-btn-group > .u-btn-outline-gray input[type="radio"],
 [data-toggle="buttons"] > .u-btn-group > .u-btn-solid input[type="radio"],
 [data-toggle="buttons"] > .u-btn-group > .u-btn-raised input[type="radio"],
 [data-toggle="buttons"] > .u-btn-group > .u-btn-floating input[type="radio"],
 [data-toggle="buttons"] > .u-btn-group > .u-btn-borderless input[type="radio"],
+[data-toggle="buttons"] > .u-btn-group > .u-datepicker-year-month-button input[type="radio"],
 [data-toggle="buttons"] > .u-btn-group > .u-btn input[type="checkbox"],
 [data-toggle="buttons"] > .u-btn-group > .u-btn-flat input[type="checkbox"],
 [data-toggle="buttons"] > .u-btn-group > .u-btn-outline input[type="checkbox"],
+[data-toggle="buttons"] > .u-btn-group > .u-btn-outline-gray input[type="checkbox"],
 [data-toggle="buttons"] > .u-btn-group > .u-btn-solid input[type="checkbox"],
 [data-toggle="buttons"] > .u-btn-group > .u-btn-raised input[type="checkbox"],
 [data-toggle="buttons"] > .u-btn-group > .u-btn-floating input[type="checkbox"],
-[data-toggle="buttons"] > .u-btn-group > .u-btn-borderless input[type="checkbox"] {
+[data-toggle="buttons"] > .u-btn-group > .u-btn-borderless input[type="checkbox"],
+[data-toggle="buttons"] > .u-btn-group > .u-datepicker-year-month-button input[type="checkbox"] {
   position: absolute;
   clip: rect(0, 0, 0, 0);
   pointer-events: none; }
@@ -4997,19 +5060,15 @@ mark,
     display: -webkit-inline-box;
     display: -ms-inline-flexbox;
     display: inline-flex;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    width: 1rem;
-    height: 1rem;
-    margin: 0.75rem;
-    border-radius: 0.125rem;
-    -webkit-box-shadow: 0 0 0 0.125rem currentColor inset;
-            box-shadow: 0 0 0 0.125rem currentColor inset;
-    -webkit-transition: color 175ms 350ms, -webkit-box-shadow 175ms 175ms;
-    transition: color 175ms 350ms, -webkit-box-shadow 175ms 175ms;
-    transition: box-shadow 175ms 175ms, color 175ms 350ms;
-    transition: box-shadow 175ms 175ms, color 175ms 350ms, -webkit-box-shadow 175ms 175ms; }
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0.75rem;
+    border-radius: 50%; }
     .u-checkbox .u-selection-control::before {
       position: absolute;
       top: 0;
@@ -5018,7 +5077,7 @@ mark,
       left: 0;
       content: "";
       background: currentColor;
-      border-radius: 50%;
+      border-radius: inherit;
       opacity: 0;
       -webkit-transition: opacity 250ms linear;
       transition: opacity 250ms linear; }
@@ -5026,15 +5085,21 @@ mark,
       opacity: .12; }
     .u-checkbox .u-selection-control:active::before {
       opacity: .2; }
-    .u-checkbox .u-selection-control::before {
-      top: 50%;
-      left: 50%;
-      width: 2.5rem;
-      height: 2.5rem;
-      margin-top: -1.25rem;
-      margin-left: -1.25rem; }
+    .u-checkbox .u-selection-control::after {
+      display: inline-block;
+      width: 1rem;
+      height: 1rem;
+      content: "";
+      border-radius: 0.125rem;
+      -webkit-box-shadow: 0 0 0 0.125rem currentColor inset;
+              box-shadow: 0 0 0 0.125rem currentColor inset;
+      -webkit-transition: color 175ms 350ms, -webkit-box-shadow 175ms 175ms;
+      transition: color 175ms 350ms, -webkit-box-shadow 175ms 175ms;
+      transition: box-shadow 175ms 175ms, color 175ms 350ms;
+      transition: box-shadow 175ms 175ms, color 175ms 350ms, -webkit-box-shadow 175ms 175ms; }
   .u-checkbox .u-selection-control-label {
-    margin-left: 0.25rem; }
+    margin-left: 0.25rem;
+    font-size: 1rem; }
   .u-checkbox .u-check-indicator {
     position: absolute;
     display: -webkit-box;
@@ -5043,8 +5108,8 @@ mark,
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    width: 100%;
-    height: 100%;
+    width: 1rem;
+    height: 1rem;
     overflow: hidden;
     clip: rect(0, 0, 1rem, 0);
     -webkit-transition: clip 175ms;
@@ -5063,96 +5128,22 @@ mark,
       border-right-style: none;
       -webkit-transform: rotate(-45deg);
               transform: rotate(-45deg); }
-  .u-checkbox.checked .u-selection-control,
-  .u-checkbox input:checked ~ .u-selection-control {
+  .u-checkbox.checked .u-selection-control::after,
+  .u-checkbox input:checked ~ .u-selection-control::after {
     -webkit-box-shadow: 0 0 0 0.5rem currentColor inset;
             box-shadow: 0 0 0 0.5rem currentColor inset;
     -webkit-transition: color 175ms 175ms, -webkit-box-shadow 175ms;
     transition: color 175ms 175ms, -webkit-box-shadow 175ms;
     transition: box-shadow 175ms, color 175ms 175ms;
     transition: box-shadow 175ms, color 175ms 175ms, -webkit-box-shadow 175ms; }
-    .u-checkbox.checked .u-selection-control .u-check-indicator,
-    .u-checkbox input:checked ~ .u-selection-control .u-check-indicator {
-      clip: rect(0, 1rem, 1rem, 0);
-      -webkit-transition: clip 175ms 175ms;
-      transition: clip 175ms 175ms; }
+  .u-checkbox.checked .u-selection-control .u-check-indicator,
+  .u-checkbox input:checked ~ .u-selection-control .u-check-indicator {
+    clip: rect(0, 1rem, 1rem, 0);
+    -webkit-transition: clip 175ms 175ms;
+    transition: clip 175ms 175ms; }
   .u-checkbox.disabled .u-selection-control,
   .u-checkbox input:disabled ~ .u-selection-control {
     opacity: 0.47; }
-
-@-webkit-keyframes u-checkbox-on {
-  0% {
-    -webkit-box-shadow: 0 0 0 .625rem currentColor, .625rem -.625rem 0 .625rem currentColor, 2rem 0 0 1.25rem currentColor, 0 2rem 0 1.25rem currentColor, -.3125rem .3125rem 0 .625rem currentColor, .9375rem .125rem 0 .6875rem;
-            box-shadow: 0 0 0 .625rem currentColor, .625rem -.625rem 0 .625rem currentColor, 2rem 0 0 1.25rem currentColor, 0 2rem 0 1.25rem currentColor, -.3125rem .3125rem 0 .625rem currentColor, .9375rem .125rem 0 .6875rem;
-    opacity: 0; }
-  50% {
-    -webkit-box-shadow: 0 0 0 .625rem currentColor, .625rem -.625rem 0 .625rem currentColor, 2rem 0 0 1.25rem currentColor, 0 2rem 0 1.25rem currentColor, -.3125rem .3125rem 0 .625rem currentColor, 1.25rem .125rem 0 .6875rem;
-            box-shadow: 0 0 0 .625rem currentColor, .625rem -.625rem 0 .625rem currentColor, 2rem 0 0 1.25rem currentColor, 0 2rem 0 1.25rem currentColor, -.3125rem .3125rem 0 .625rem currentColor, 1.25rem .125rem 0 .6875rem; }
-  100% {
-    -webkit-box-shadow: 0 0 0 .625rem currentColor, .625rem -.625rem 0 .625rem currentColor, 2rem 0 0 1.25rem currentColor, 0 2rem 0 1.25rem currentColor, -.3125rem .3125rem 0 .625rem currentColor, 1.25rem -.75rem 0 .6875rem;
-            box-shadow: 0 0 0 .625rem currentColor, .625rem -.625rem 0 .625rem currentColor, 2rem 0 0 1.25rem currentColor, 0 2rem 0 1.25rem currentColor, -.3125rem .3125rem 0 .625rem currentColor, 1.25rem -.75rem 0 .6875rem;
-    opacity: 1; } }
-
-@keyframes u-checkbox-on {
-  0% {
-    -webkit-box-shadow: 0 0 0 .625rem currentColor, .625rem -.625rem 0 .625rem currentColor, 2rem 0 0 1.25rem currentColor, 0 2rem 0 1.25rem currentColor, -.3125rem .3125rem 0 .625rem currentColor, .9375rem .125rem 0 .6875rem;
-            box-shadow: 0 0 0 .625rem currentColor, .625rem -.625rem 0 .625rem currentColor, 2rem 0 0 1.25rem currentColor, 0 2rem 0 1.25rem currentColor, -.3125rem .3125rem 0 .625rem currentColor, .9375rem .125rem 0 .6875rem;
-    opacity: 0; }
-  50% {
-    -webkit-box-shadow: 0 0 0 .625rem currentColor, .625rem -.625rem 0 .625rem currentColor, 2rem 0 0 1.25rem currentColor, 0 2rem 0 1.25rem currentColor, -.3125rem .3125rem 0 .625rem currentColor, 1.25rem .125rem 0 .6875rem;
-            box-shadow: 0 0 0 .625rem currentColor, .625rem -.625rem 0 .625rem currentColor, 2rem 0 0 1.25rem currentColor, 0 2rem 0 1.25rem currentColor, -.3125rem .3125rem 0 .625rem currentColor, 1.25rem .125rem 0 .6875rem; }
-  100% {
-    -webkit-box-shadow: 0 0 0 .625rem currentColor, .625rem -.625rem 0 .625rem currentColor, 2rem 0 0 1.25rem currentColor, 0 2rem 0 1.25rem currentColor, -.3125rem .3125rem 0 .625rem currentColor, 1.25rem -.75rem 0 .6875rem;
-            box-shadow: 0 0 0 .625rem currentColor, .625rem -.625rem 0 .625rem currentColor, 2rem 0 0 1.25rem currentColor, 0 2rem 0 1.25rem currentColor, -.3125rem .3125rem 0 .625rem currentColor, 1.25rem -.75rem 0 .6875rem;
-    opacity: 1; } }
-
-@-webkit-keyframes u-checkbox-off {
-  0% {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    margin-top: 0;
-    margin-left: 0;
-    -webkit-box-shadow: 0 0 0 .625rem inset currentColor;
-            box-shadow: 0 0 0 .625rem inset currentColor;
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg); }
-  100% {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    margin-top: 0;
-    margin-left: 0;
-    -webkit-box-shadow: 0 0 0 0 inset;
-            box-shadow: 0 0 0 0 inset;
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg); } }
-
-@keyframes u-checkbox-off {
-  0% {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    margin-top: 0;
-    margin-left: 0;
-    -webkit-box-shadow: 0 0 0 .625rem inset currentColor;
-            box-shadow: 0 0 0 .625rem inset currentColor;
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg); }
-  100% {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    margin-top: 0;
-    margin-left: 0;
-    -webkit-box-shadow: 0 0 0 0 inset;
-            box-shadow: 0 0 0 0 inset;
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg); } }
 
 .u-radio {
   display: -webkit-inline-box;
@@ -5183,6 +5174,8 @@ mark,
     display: -webkit-inline-box;
     display: -ms-inline-flexbox;
     display: inline-flex;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
@@ -5209,7 +5202,8 @@ mark,
     .u-radio .u-selection-control:active::before {
       opacity: .2; }
   .u-radio .u-selection-control-label {
-    margin-left: 0.25rem; }
+    margin-left: 0.25rem;
+    font-size: 1rem; }
   .u-radio .u-check-indicator {
     position: relative;
     width: 1.25rem;
@@ -5266,6 +5260,8 @@ mark,
             appearance: none; }
   .u-switch .u-selection-control {
     position: relative;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
     width: 2.25rem;
     height: 0.875rem; }
     .u-switch .u-selection-control::before {
@@ -5281,7 +5277,8 @@ mark,
       -webkit-transition: background 300ms;
       transition: background 300ms; }
   .u-switch .u-selection-control-label {
-    margin-left: 0.5rem; }
+    margin-left: 0.5rem;
+    font-size: 1rem; }
   .u-switch .u-check-indicator {
     position: relative;
     position: absolute;
@@ -5408,17 +5405,19 @@ mark,
   display: -ms-flexbox;
   display: flex;
   padding: 8px; }
-  .u-card-actions .u-btn + .u-btn, .u-card-actions .u-btn-flat + .u-btn, .u-card-actions .u-btn-outline + .u-btn, .u-card-actions .u-btn-solid + .u-btn, .u-card-actions .u-btn-raised + .u-btn, .u-card-actions .u-btn-floating + .u-btn, .u-card-actions .u-btn-borderless + .u-btn, .u-card-actions .u-btn + .u-btn-flat, .u-card-actions .u-btn-flat + .u-btn-flat, .u-card-actions .u-btn-outline + .u-btn-flat, .u-card-actions .u-btn-solid + .u-btn-flat, .u-card-actions .u-btn-raised + .u-btn-flat, .u-card-actions .u-btn-floating + .u-btn-flat, .u-card-actions .u-btn-borderless + .u-btn-flat, .u-card-actions .u-btn + .u-btn-outline, .u-card-actions .u-btn-flat + .u-btn-outline, .u-card-actions .u-btn-outline + .u-btn-outline, .u-card-actions .u-btn-solid + .u-btn-outline, .u-card-actions .u-btn-raised + .u-btn-outline, .u-card-actions .u-btn-floating + .u-btn-outline, .u-card-actions .u-btn-borderless + .u-btn-outline,
+  .u-card-actions .u-btn + .u-btn, .u-card-actions .u-btn-flat + .u-btn, .u-card-actions .u-btn-outline + .u-btn, .u-card-actions .u-btn-outline-gray + .u-btn, .u-card-actions .u-btn-solid + .u-btn, .u-card-actions .u-btn-raised + .u-btn, .u-card-actions .u-btn-floating + .u-btn, .u-card-actions .u-btn-borderless + .u-btn, .u-card-actions .u-datepicker-year-month-button + .u-btn, .u-card-actions .u-btn + .u-btn-flat, .u-card-actions .u-btn-flat + .u-btn-flat, .u-card-actions .u-btn-outline + .u-btn-flat, .u-card-actions .u-btn-outline-gray + .u-btn-flat, .u-card-actions .u-btn-solid + .u-btn-flat, .u-card-actions .u-btn-raised + .u-btn-flat, .u-card-actions .u-btn-floating + .u-btn-flat, .u-card-actions .u-btn-borderless + .u-btn-flat, .u-card-actions .u-datepicker-year-month-button + .u-btn-flat, .u-card-actions .u-btn + .u-btn-outline, .u-card-actions .u-btn-flat + .u-btn-outline, .u-card-actions .u-btn-outline + .u-btn-outline, .u-card-actions .u-btn-outline-gray + .u-btn-outline, .u-card-actions .u-btn-solid + .u-btn-outline, .u-card-actions .u-btn-raised + .u-btn-outline, .u-card-actions .u-btn-floating + .u-btn-outline, .u-card-actions .u-btn-borderless + .u-btn-outline, .u-card-actions .u-datepicker-year-month-button + .u-btn-outline, .u-card-actions .u-btn + .u-btn-outline-gray, .u-card-actions .u-btn-flat + .u-btn-outline-gray, .u-card-actions .u-btn-outline + .u-btn-outline-gray, .u-card-actions .u-btn-outline-gray + .u-btn-outline-gray, .u-card-actions .u-btn-solid + .u-btn-outline-gray, .u-card-actions .u-btn-raised + .u-btn-outline-gray, .u-card-actions .u-btn-floating + .u-btn-outline-gray, .u-card-actions .u-btn-borderless + .u-btn-outline-gray, .u-card-actions .u-datepicker-year-month-button + .u-btn-outline-gray,
   .u-card-actions .u-btn + .u-btn-solid,
   .u-card-actions .u-btn-flat + .u-btn-solid,
   .u-card-actions .u-btn-outline + .u-btn-solid,
+  .u-card-actions .u-btn-outline-gray + .u-btn-solid,
   .u-card-actions .u-btn-solid + .u-btn-solid,
   .u-card-actions .u-btn-raised + .u-btn-solid,
   .u-card-actions .u-btn-floating + .u-btn-solid,
-  .u-card-actions .u-btn-borderless + .u-btn-solid, .u-card-actions .u-btn + .u-btn-raised, .u-card-actions .u-btn-flat + .u-btn-raised, .u-card-actions .u-btn-outline + .u-btn-raised, .u-card-actions .u-btn-solid + .u-btn-raised, .u-card-actions .u-btn-raised + .u-btn-raised, .u-card-actions .u-btn-floating + .u-btn-raised, .u-card-actions .u-btn-borderless + .u-btn-raised, .u-card-actions .u-btn + .u-btn-floating, .u-card-actions .u-btn-flat + .u-btn-floating, .u-card-actions .u-btn-outline + .u-btn-floating, .u-card-actions .u-btn-solid + .u-btn-floating, .u-card-actions .u-btn-raised + .u-btn-floating, .u-card-actions .u-btn-floating + .u-btn-floating, .u-card-actions .u-btn-borderless + .u-btn-floating, .u-card-actions .u-btn + .u-btn-borderless, .u-card-actions .u-btn-flat + .u-btn-borderless, .u-card-actions .u-btn-outline + .u-btn-borderless, .u-card-actions .u-btn-solid + .u-btn-borderless, .u-card-actions .u-btn-raised + .u-btn-borderless, .u-card-actions .u-btn-floating + .u-btn-borderless, .u-card-actions .u-btn-borderless + .u-btn-borderless {
+  .u-card-actions .u-btn-borderless + .u-btn-solid,
+  .u-card-actions .u-datepicker-year-month-button + .u-btn-solid, .u-card-actions .u-btn + .u-btn-raised, .u-card-actions .u-btn-flat + .u-btn-raised, .u-card-actions .u-btn-outline + .u-btn-raised, .u-card-actions .u-btn-outline-gray + .u-btn-raised, .u-card-actions .u-btn-solid + .u-btn-raised, .u-card-actions .u-btn-raised + .u-btn-raised, .u-card-actions .u-btn-floating + .u-btn-raised, .u-card-actions .u-btn-borderless + .u-btn-raised, .u-card-actions .u-datepicker-year-month-button + .u-btn-raised, .u-card-actions .u-btn + .u-btn-floating, .u-card-actions .u-btn-flat + .u-btn-floating, .u-card-actions .u-btn-outline + .u-btn-floating, .u-card-actions .u-btn-outline-gray + .u-btn-floating, .u-card-actions .u-btn-solid + .u-btn-floating, .u-card-actions .u-btn-raised + .u-btn-floating, .u-card-actions .u-btn-floating + .u-btn-floating, .u-card-actions .u-btn-borderless + .u-btn-floating, .u-card-actions .u-datepicker-year-month-button + .u-btn-floating, .u-card-actions .u-btn + .u-btn-borderless, .u-card-actions .u-btn-flat + .u-btn-borderless, .u-card-actions .u-btn-outline + .u-btn-borderless, .u-card-actions .u-btn-outline-gray + .u-btn-borderless, .u-card-actions .u-btn-solid + .u-btn-borderless, .u-card-actions .u-btn-raised + .u-btn-borderless, .u-card-actions .u-btn-floating + .u-btn-borderless, .u-card-actions .u-btn-borderless + .u-btn-borderless, .u-card-actions .u-datepicker-year-month-button + .u-btn-borderless, .u-card-actions .u-btn + .u-datepicker-year-month-button, .u-card-actions .u-btn-flat + .u-datepicker-year-month-button, .u-card-actions .u-btn-outline + .u-datepicker-year-month-button, .u-card-actions .u-btn-outline-gray + .u-datepicker-year-month-button, .u-card-actions .u-btn-solid + .u-datepicker-year-month-button, .u-card-actions .u-btn-raised + .u-datepicker-year-month-button, .u-card-actions .u-btn-floating + .u-datepicker-year-month-button, .u-card-actions .u-btn-borderless + .u-datepicker-year-month-button, .u-card-actions .u-datepicker-year-month-button + .u-datepicker-year-month-button {
     margin-left: 8px; }
 
-.u-dialog-scroll-top-divider .u-dialog-header::before, .u-dialog-scroll-bottom-divider .u-dialog-actions::before, .u-list-divider {
+.u-dialog-scroll-top-divider .u-dialog-header::before, .u-dialog-scroll-bottom-divider .u-dialog-actions::before {
   width: 100%;
   height: 0.0625rem;
   background-color: rgba(0, 0, 0, 0.12); }
@@ -5555,14 +5554,16 @@ mark,
       -ms-flex-pack: end;
           justify-content: flex-end;
   padding: 8px; }
-  .u-dialog-actions .u-btn + .u-btn, .u-dialog-actions .u-btn-flat + .u-btn, .u-dialog-actions .u-btn-outline + .u-btn, .u-dialog-actions .u-btn-solid + .u-btn, .u-dialog-actions .u-btn-raised + .u-btn, .u-dialog-actions .u-btn-floating + .u-btn, .u-dialog-actions .u-btn-borderless + .u-btn, .u-dialog-actions .u-btn + .u-btn-flat, .u-dialog-actions .u-btn-flat + .u-btn-flat, .u-dialog-actions .u-btn-outline + .u-btn-flat, .u-dialog-actions .u-btn-solid + .u-btn-flat, .u-dialog-actions .u-btn-raised + .u-btn-flat, .u-dialog-actions .u-btn-floating + .u-btn-flat, .u-dialog-actions .u-btn-borderless + .u-btn-flat, .u-dialog-actions .u-btn + .u-btn-outline, .u-dialog-actions .u-btn-flat + .u-btn-outline, .u-dialog-actions .u-btn-outline + .u-btn-outline, .u-dialog-actions .u-btn-solid + .u-btn-outline, .u-dialog-actions .u-btn-raised + .u-btn-outline, .u-dialog-actions .u-btn-floating + .u-btn-outline, .u-dialog-actions .u-btn-borderless + .u-btn-outline,
+  .u-dialog-actions .u-btn + .u-btn, .u-dialog-actions .u-btn-flat + .u-btn, .u-dialog-actions .u-btn-outline + .u-btn, .u-dialog-actions .u-btn-outline-gray + .u-btn, .u-dialog-actions .u-btn-solid + .u-btn, .u-dialog-actions .u-btn-raised + .u-btn, .u-dialog-actions .u-btn-floating + .u-btn, .u-dialog-actions .u-btn-borderless + .u-btn, .u-dialog-actions .u-datepicker-year-month-button + .u-btn, .u-dialog-actions .u-btn + .u-btn-flat, .u-dialog-actions .u-btn-flat + .u-btn-flat, .u-dialog-actions .u-btn-outline + .u-btn-flat, .u-dialog-actions .u-btn-outline-gray + .u-btn-flat, .u-dialog-actions .u-btn-solid + .u-btn-flat, .u-dialog-actions .u-btn-raised + .u-btn-flat, .u-dialog-actions .u-btn-floating + .u-btn-flat, .u-dialog-actions .u-btn-borderless + .u-btn-flat, .u-dialog-actions .u-datepicker-year-month-button + .u-btn-flat, .u-dialog-actions .u-btn + .u-btn-outline, .u-dialog-actions .u-btn-flat + .u-btn-outline, .u-dialog-actions .u-btn-outline + .u-btn-outline, .u-dialog-actions .u-btn-outline-gray + .u-btn-outline, .u-dialog-actions .u-btn-solid + .u-btn-outline, .u-dialog-actions .u-btn-raised + .u-btn-outline, .u-dialog-actions .u-btn-floating + .u-btn-outline, .u-dialog-actions .u-btn-borderless + .u-btn-outline, .u-dialog-actions .u-datepicker-year-month-button + .u-btn-outline, .u-dialog-actions .u-btn + .u-btn-outline-gray, .u-dialog-actions .u-btn-flat + .u-btn-outline-gray, .u-dialog-actions .u-btn-outline + .u-btn-outline-gray, .u-dialog-actions .u-btn-outline-gray + .u-btn-outline-gray, .u-dialog-actions .u-btn-solid + .u-btn-outline-gray, .u-dialog-actions .u-btn-raised + .u-btn-outline-gray, .u-dialog-actions .u-btn-floating + .u-btn-outline-gray, .u-dialog-actions .u-btn-borderless + .u-btn-outline-gray, .u-dialog-actions .u-datepicker-year-month-button + .u-btn-outline-gray,
   .u-dialog-actions .u-btn + .u-btn-solid,
   .u-dialog-actions .u-btn-flat + .u-btn-solid,
   .u-dialog-actions .u-btn-outline + .u-btn-solid,
+  .u-dialog-actions .u-btn-outline-gray + .u-btn-solid,
   .u-dialog-actions .u-btn-solid + .u-btn-solid,
   .u-dialog-actions .u-btn-raised + .u-btn-solid,
   .u-dialog-actions .u-btn-floating + .u-btn-solid,
-  .u-dialog-actions .u-btn-borderless + .u-btn-solid, .u-dialog-actions .u-btn + .u-btn-raised, .u-dialog-actions .u-btn-flat + .u-btn-raised, .u-dialog-actions .u-btn-outline + .u-btn-raised, .u-dialog-actions .u-btn-solid + .u-btn-raised, .u-dialog-actions .u-btn-raised + .u-btn-raised, .u-dialog-actions .u-btn-floating + .u-btn-raised, .u-dialog-actions .u-btn-borderless + .u-btn-raised, .u-dialog-actions .u-btn + .u-btn-floating, .u-dialog-actions .u-btn-flat + .u-btn-floating, .u-dialog-actions .u-btn-outline + .u-btn-floating, .u-dialog-actions .u-btn-solid + .u-btn-floating, .u-dialog-actions .u-btn-raised + .u-btn-floating, .u-dialog-actions .u-btn-floating + .u-btn-floating, .u-dialog-actions .u-btn-borderless + .u-btn-floating, .u-dialog-actions .u-btn + .u-btn-borderless, .u-dialog-actions .u-btn-flat + .u-btn-borderless, .u-dialog-actions .u-btn-outline + .u-btn-borderless, .u-dialog-actions .u-btn-solid + .u-btn-borderless, .u-dialog-actions .u-btn-raised + .u-btn-borderless, .u-dialog-actions .u-btn-floating + .u-btn-borderless, .u-dialog-actions .u-btn-borderless + .u-btn-borderless,
+  .u-dialog-actions .u-btn-borderless + .u-btn-solid,
+  .u-dialog-actions .u-datepicker-year-month-button + .u-btn-solid, .u-dialog-actions .u-btn + .u-btn-raised, .u-dialog-actions .u-btn-flat + .u-btn-raised, .u-dialog-actions .u-btn-outline + .u-btn-raised, .u-dialog-actions .u-btn-outline-gray + .u-btn-raised, .u-dialog-actions .u-btn-solid + .u-btn-raised, .u-dialog-actions .u-btn-raised + .u-btn-raised, .u-dialog-actions .u-btn-floating + .u-btn-raised, .u-dialog-actions .u-btn-borderless + .u-btn-raised, .u-dialog-actions .u-datepicker-year-month-button + .u-btn-raised, .u-dialog-actions .u-btn + .u-btn-floating, .u-dialog-actions .u-btn-flat + .u-btn-floating, .u-dialog-actions .u-btn-outline + .u-btn-floating, .u-dialog-actions .u-btn-outline-gray + .u-btn-floating, .u-dialog-actions .u-btn-solid + .u-btn-floating, .u-dialog-actions .u-btn-raised + .u-btn-floating, .u-dialog-actions .u-btn-floating + .u-btn-floating, .u-dialog-actions .u-btn-borderless + .u-btn-floating, .u-dialog-actions .u-datepicker-year-month-button + .u-btn-floating, .u-dialog-actions .u-btn + .u-btn-borderless, .u-dialog-actions .u-btn-flat + .u-btn-borderless, .u-dialog-actions .u-btn-outline + .u-btn-borderless, .u-dialog-actions .u-btn-outline-gray + .u-btn-borderless, .u-dialog-actions .u-btn-solid + .u-btn-borderless, .u-dialog-actions .u-btn-raised + .u-btn-borderless, .u-dialog-actions .u-btn-floating + .u-btn-borderless, .u-dialog-actions .u-btn-borderless + .u-btn-borderless, .u-dialog-actions .u-datepicker-year-month-button + .u-btn-borderless, .u-dialog-actions .u-btn + .u-datepicker-year-month-button, .u-dialog-actions .u-btn-flat + .u-datepicker-year-month-button, .u-dialog-actions .u-btn-outline + .u-datepicker-year-month-button, .u-dialog-actions .u-btn-outline-gray + .u-datepicker-year-month-button, .u-dialog-actions .u-btn-solid + .u-datepicker-year-month-button, .u-dialog-actions .u-btn-raised + .u-datepicker-year-month-button, .u-dialog-actions .u-btn-floating + .u-datepicker-year-month-button, .u-dialog-actions .u-btn-borderless + .u-datepicker-year-month-button, .u-dialog-actions .u-datepicker-year-month-button + .u-datepicker-year-month-button,
   .u-dialog-actions .u-dialog-action + .u-dialog-action {
     margin-left: 8px; }
 
@@ -5888,12 +5889,12 @@ mark,
   height: 2rem;
   font-size: 0.9375rem; }
 
-.u-dialog-scroll-top-divider .u-dialog-header::before, .u-dialog-scroll-bottom-divider .u-dialog-actions::before, .u-list-divider {
+.u-dialog-scroll-top-divider .u-dialog-header::before, .u-dialog-scroll-bottom-divider .u-dialog-actions::before {
   width: 100%;
   height: 0.0625rem;
   background-color: rgba(0, 0, 0, 0.12); }
 
-.u-dialog-scroll-top-divider .u-dialog-header::before, .u-dialog-scroll-bottom-divider .u-dialog-actions::before, .u-list-divider {
+.u-dialog-scroll-top-divider .u-dialog-header::before, .u-dialog-scroll-bottom-divider .u-dialog-actions::before {
   width: 100%;
   height: 0.0625rem;
   background-color: rgba(0, 0, 0, 0.12); }
@@ -6141,8 +6142,8 @@ mark,
     padding: 0;
     text-align: left;
     text-transform: none; }
-    .u-data-table .u-dropdown-toggle:not(.u-btn-borderless).u-btn::before, .u-data-table .u-dropdown-toggle.u-btn-flat:not(.u-btn-borderless)::before, .u-data-table .u-dropdown-toggle.u-btn-outline:not(.u-btn-borderless)::before,
-    .u-data-table .u-dropdown-toggle.u-btn-solid:not(.u-btn-borderless)::before, .u-data-table .u-dropdown-toggle.u-btn-raised:not(.u-btn-borderless)::before, .u-data-table .u-dropdown-toggle.u-btn-floating:not(.u-btn-borderless)::before, .u-data-table .u-dropdown-toggle.u-btn-borderless:not(.u-btn-borderless)::before {
+    .u-data-table .u-dropdown-toggle:not(.u-btn-borderless).u-btn::before, .u-data-table .u-dropdown-toggle.u-btn-flat:not(.u-btn-borderless)::before, .u-data-table .u-dropdown-toggle.u-btn-outline:not(.u-btn-borderless)::before, .u-data-table .u-dropdown-toggle.u-btn-outline-gray:not(.u-btn-borderless)::before,
+    .u-data-table .u-dropdown-toggle.u-btn-solid:not(.u-btn-borderless)::before, .u-data-table .u-dropdown-toggle.u-btn-raised:not(.u-btn-borderless)::before, .u-data-table .u-dropdown-toggle.u-btn-floating:not(.u-btn-borderless)::before, .u-data-table .u-dropdown-toggle.u-btn-borderless:not(.u-btn-borderless)::before, .u-data-table .u-dropdown-toggle.u-datepicker-year-month-button:not(.u-btn-borderless)::before {
       content: none; }
   .u-data-table .u-dropdown-menu {
     padding: 0; }
@@ -6170,12 +6171,12 @@ mark,
   .u-data-table-footer .u-data-table-actions {
     margin-left: 2rem; }
 
-.u-dialog-scroll-top-divider .u-dialog-header::before, .u-dialog-scroll-bottom-divider .u-dialog-actions::before, .u-list-divider {
+.u-dialog-scroll-top-divider .u-dialog-header::before, .u-dialog-scroll-bottom-divider .u-dialog-actions::before {
   width: 100%;
   height: 0.0625rem;
   background-color: rgba(0, 0, 0, 0.12); }
 
-.u-dialog-scroll-top-divider .u-dialog-header::before, .u-dialog-scroll-bottom-divider .u-dialog-actions::before, .u-list-divider {
+.u-dialog-scroll-top-divider .u-dialog-header::before, .u-dialog-scroll-bottom-divider .u-dialog-actions::before {
   width: 100%;
   height: 0.0625rem;
   background-color: rgba(0, 0, 0, 0.12); }
@@ -6199,9 +6200,10 @@ mark,
       height: 0.0625rem;
       content: "";
       background: rgba(0, 0, 0, 0.2); }
-  .u-list.u-list-hover .u-list-item {
+  .u-list.u-list-selectable .u-list-item {
+    cursor: pointer;
     position: relative; }
-    .u-list.u-list-hover .u-list-item::before {
+    .u-list.u-list-selectable .u-list-item::before {
       position: absolute;
       top: 0;
       right: 0;
@@ -6213,14 +6215,10 @@ mark,
       opacity: 0;
       -webkit-transition: opacity 250ms linear;
       transition: opacity 250ms linear; }
-    .u-list.u-list-hover .u-list-item:hover::before {
+    .u-list.u-list-selectable .u-list-item:hover::before {
       opacity: .12; }
-    .u-list.u-list-hover .u-list-item:active::before {
+    .u-list.u-list-selectable .u-list-item:active::before {
       opacity: .2; }
-
-.u-list-divider {
-  margin-top: 8px;
-  margin-bottom: 8px; }
 
 .u-list-item {
   position: relative;
@@ -6237,7 +6235,7 @@ mark,
       -ms-flex-align: center;
           align-items: center;
   min-height: 3rem;
-  padding: 1rem;
+  padding: 16px;
   text-decoration: none; }
   .u-list-item:hover, .u-list-item:focus, .u-list-item.focus {
     text-decoration: none;
@@ -6271,17 +6269,17 @@ mark,
   line-height: 1rem; }
 
 .u-list-item-icon + .u-list-item-primary-content {
-  margin-left: 2rem; }
+  margin-left: 32px; }
 
 .u-list-item-avatar + .u-list-item-primary-content {
-  margin-left: 1rem; }
+  margin-left: 32px; }
 
 .u-list-item-primary-content ~ .u-list-item-icon {
-  margin-left: 1rem; }
+  margin-left: 16px; }
 
 .u-list-item-primary-content ~ .u-list-item-icon.u-btn-borderless {
-  margin-right: -0.5rem;
-  margin-left: 0.5rem; }
+  margin-right: -8px;
+  margin-left: 8px; }
 
 .u-list-item-primary-content {
   display: -webkit-box;
@@ -6300,7 +6298,7 @@ mark,
     font-size: .875rem; }
 
 .u-list-item-secondary-content {
-  margin-left: 1rem; }
+  margin-left: 16px; }
   .u-list-item-secondary-content .u-list-item-icon {
     text-align: center; }
 
@@ -6352,9 +6350,13 @@ mark,
   width: 3.5rem;
   min-width: 3.5rem;
   height: 3rem;
-  padding: 1rem;
+  padding: 16px;
   font-size: 1.25rem;
   font-weight: 500; }
+
+.u-list-section-title {
+  padding: 16px;
+  line-height: 1; }
 
 .dense-layout .u-list {
   padding-top: 0.25rem;
@@ -6383,12 +6385,12 @@ mark,
 
 .rtl .u-list-item-icon + .u-list-item-primary-content,
 [dir="rtl"] .u-list-item-icon + .u-list-item-primary-content {
-  margin-right: 2rem;
+  margin-right: 32px;
   margin-left: 0; }
 
 .rtl .u-list-item-avatar + .u-list-item-primary-content,
 [dir="rtl"] .u-list-item-avatar + .u-list-item-primary-content {
-  margin-right: 1rem;
+  margin-right: 32px;
   margin-left: 0; }
 
 .progress-indicator {
@@ -6904,8 +6906,8 @@ mark,
         -webkit-transform: translateX(100%);
                 transform: translateX(100%); } }
 
-.u-btn, .u-btn-flat, .u-btn-outline,
-.u-btn-solid, .u-btn-raised, .u-btn-floating, .u-btn-borderless {
+.u-btn, .u-btn-flat, .u-btn-outline, .u-btn-outline-gray,
+.u-btn-solid, .u-btn-raised, .u-btn-floating, .u-btn-borderless, .u-datepicker-year-month-button {
   font-size: 0.875rem;
   line-height: 2.25rem;
   font-weight: 500;
@@ -6932,8 +6934,6 @@ mark,
   white-space: nowrap;
   vertical-align: middle;
   cursor: pointer;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -6942,8 +6942,8 @@ mark,
   border: none;
   border-radius: 0.25rem;
   position: relative; }
-  .u-btn::before, .u-btn-flat::before, .u-btn-outline::before,
-  .u-btn-solid::before, .u-btn-raised::before, .u-btn-floating::before, .u-btn-borderless::before {
+  .u-btn::before, .u-btn-flat::before, .u-btn-outline::before, .u-btn-outline-gray::before,
+  .u-btn-solid::before, .u-btn-raised::before, .u-btn-floating::before, .u-btn-borderless::before, .u-datepicker-year-month-button::before {
     position: absolute;
     top: 0;
     right: 0;
@@ -6955,44 +6955,59 @@ mark,
     opacity: 0;
     -webkit-transition: opacity 250ms linear;
     transition: opacity 250ms linear; }
-  .u-btn:hover::before, .u-btn-flat:hover::before, .u-btn-outline:hover::before,
-  .u-btn-solid:hover::before, .u-btn-raised:hover::before, .u-btn-floating:hover::before, .u-btn-borderless:hover::before {
+  .u-btn:hover::before, .u-btn-flat:hover::before, .u-btn-outline:hover::before, .u-btn-outline-gray:hover::before,
+  .u-btn-solid:hover::before, .u-btn-raised:hover::before, .u-btn-floating:hover::before, .u-btn-borderless:hover::before, .u-datepicker-year-month-button:hover::before {
     opacity: .12; }
-  .u-btn:active::before, .u-btn-flat:active::before, .u-btn-outline:active::before,
-  .u-btn-solid:active::before, .u-btn-raised:active::before, .u-btn-floating:active::before, .u-btn-borderless:active::before {
+  .u-btn:active::before, .u-btn-flat:active::before, .u-btn-outline:active::before, .u-btn-outline-gray:active::before,
+  .u-btn-solid:active::before, .u-btn-raised:active::before, .u-btn-floating:active::before, .u-btn-borderless:active::before, .u-datepicker-year-month-button:active::before {
     opacity: .2; }
-  .u-btn:hover, .u-btn-flat:hover, .u-btn-outline:hover,
-  .u-btn-solid:hover, .u-btn-raised:hover, .u-btn-floating:hover, .u-btn-borderless:hover, .u-btn:focus, .u-btn-flat:focus, .u-btn-outline:focus,
-  .u-btn-solid:focus, .u-btn-raised:focus, .u-btn-floating:focus, .u-btn-borderless:focus {
+  .u-btn:hover, .u-btn-flat:hover, .u-btn-outline:hover, .u-btn-outline-gray:hover,
+  .u-btn-solid:hover, .u-btn-raised:hover, .u-btn-floating:hover, .u-btn-borderless:hover, .u-datepicker-year-month-button:hover, .u-btn:focus, .u-btn-flat:focus, .u-btn-outline:focus, .u-btn-outline-gray:focus,
+  .u-btn-solid:focus, .u-btn-raised:focus, .u-btn-floating:focus, .u-btn-borderless:focus, .u-datepicker-year-month-button:focus {
     text-decoration: none; }
-  .u-btn:focus, .u-btn-flat:focus, .u-btn-outline:focus,
-  .u-btn-solid:focus, .u-btn-raised:focus, .u-btn-floating:focus, .u-btn-borderless:focus, .u-btn.focus, .focus.u-btn-flat, .focus.u-btn-outline,
-  .focus.u-btn-solid, .focus.u-btn-raised, .focus.u-btn-floating, .focus.u-btn-borderless {
+  .u-btn:focus, .u-btn-flat:focus, .u-btn-outline:focus, .u-btn-outline-gray:focus,
+  .u-btn-solid:focus, .u-btn-raised:focus, .u-btn-floating:focus, .u-btn-borderless:focus, .u-datepicker-year-month-button:focus, .u-btn.focus, .focus.u-btn-flat, .focus.u-btn-outline, .focus.u-btn-outline-gray,
+  .focus.u-btn-solid, .focus.u-btn-raised, .focus.u-btn-floating, .focus.u-btn-borderless, .focus.u-datepicker-year-month-button {
     outline: 0; }
-  .u-btn:active, .u-btn-flat:active, .u-btn-outline:active,
-  .u-btn-solid:active, .u-btn-raised:active, .u-btn-floating:active, .u-btn-borderless:active, .u-btn.active, .active.u-btn-flat, .active.u-btn-outline,
-  .active.u-btn-solid, .active.u-btn-raised, .active.u-btn-floating, .active.u-btn-borderless {
+  .u-btn:active, .u-btn-flat:active, .u-btn-outline:active, .u-btn-outline-gray:active,
+  .u-btn-solid:active, .u-btn-raised:active, .u-btn-floating:active, .u-btn-borderless:active, .u-datepicker-year-month-button:active, .u-btn.active, .active.u-btn-flat, .active.u-btn-outline, .active.u-btn-outline-gray,
+  .active.u-btn-solid, .active.u-btn-raised, .active.u-btn-floating, .active.u-btn-borderless, .active.u-datepicker-year-month-button {
     background-image: none; }
-  .u-btn.disabled, .disabled.u-btn-flat, .disabled.u-btn-outline,
-  .disabled.u-btn-solid, .disabled.u-btn-raised, .disabled.u-btn-floating, .disabled.u-btn-borderless, .u-btn:disabled, .u-btn-flat:disabled, .u-btn-outline:disabled,
-  .u-btn-solid:disabled, .u-btn-raised:disabled, .u-btn-floating:disabled, .u-btn-borderless:disabled {
+  .u-btn.disabled, .disabled.u-btn-flat, .disabled.u-btn-outline, .disabled.u-btn-outline-gray,
+  .disabled.u-btn-solid, .disabled.u-btn-raised, .disabled.u-btn-floating, .disabled.u-btn-borderless, .disabled.u-datepicker-year-month-button, .u-btn:disabled, .u-btn-flat:disabled, .u-btn-outline:disabled, .u-btn-outline-gray:disabled,
+  .u-btn-solid:disabled, .u-btn-raised:disabled, .u-btn-floating:disabled, .u-btn-borderless:disabled, .u-datepicker-year-month-button:disabled {
     cursor: default; }
+  .u-btn, .u-btn-flat, .u-btn-outline, .u-btn-outline-gray,
+  .u-btn-solid, .u-btn-raised, .u-btn-floating, .u-btn-borderless, .u-datepicker-year-month-button,
+  .u-btn *,
+  .u-btn-flat *,
+  .u-btn-outline *,
+  .u-btn-outline-gray *,
+  .u-btn-solid *,
+  .u-btn-raised *,
+  .u-btn-floating *,
+  .u-btn-borderless *,
+  .u-datepicker-year-month-button * {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box; }
 
 .u-btn-set {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex; }
-  .u-btn-set .u-btn + .u-btn, .u-btn-set .u-btn-flat + .u-btn, .u-btn-set .u-btn-outline + .u-btn, .u-btn-set .u-btn-solid + .u-btn, .u-btn-set .u-btn-raised + .u-btn, .u-btn-set .u-btn-floating + .u-btn, .u-btn-set .u-btn-borderless + .u-btn, .u-btn-set .u-btn + .u-btn-flat, .u-btn-set .u-btn-flat + .u-btn-flat, .u-btn-set .u-btn-outline + .u-btn-flat, .u-btn-set .u-btn-solid + .u-btn-flat, .u-btn-set .u-btn-raised + .u-btn-flat, .u-btn-set .u-btn-floating + .u-btn-flat, .u-btn-set .u-btn-borderless + .u-btn-flat, .u-btn-set .u-btn + .u-btn-outline, .u-btn-set .u-btn-flat + .u-btn-outline, .u-btn-set .u-btn-outline + .u-btn-outline, .u-btn-set .u-btn-solid + .u-btn-outline, .u-btn-set .u-btn-raised + .u-btn-outline, .u-btn-set .u-btn-floating + .u-btn-outline, .u-btn-set .u-btn-borderless + .u-btn-outline,
+  .u-btn-set .u-btn + .u-btn, .u-btn-set .u-btn-flat + .u-btn, .u-btn-set .u-btn-outline + .u-btn, .u-btn-set .u-btn-outline-gray + .u-btn, .u-btn-set .u-btn-solid + .u-btn, .u-btn-set .u-btn-raised + .u-btn, .u-btn-set .u-btn-floating + .u-btn, .u-btn-set .u-btn-borderless + .u-btn, .u-btn-set .u-datepicker-year-month-button + .u-btn, .u-btn-set .u-btn + .u-btn-flat, .u-btn-set .u-btn-flat + .u-btn-flat, .u-btn-set .u-btn-outline + .u-btn-flat, .u-btn-set .u-btn-outline-gray + .u-btn-flat, .u-btn-set .u-btn-solid + .u-btn-flat, .u-btn-set .u-btn-raised + .u-btn-flat, .u-btn-set .u-btn-floating + .u-btn-flat, .u-btn-set .u-btn-borderless + .u-btn-flat, .u-btn-set .u-datepicker-year-month-button + .u-btn-flat, .u-btn-set .u-btn + .u-btn-outline, .u-btn-set .u-btn-flat + .u-btn-outline, .u-btn-set .u-btn-outline + .u-btn-outline, .u-btn-set .u-btn-outline-gray + .u-btn-outline, .u-btn-set .u-btn-solid + .u-btn-outline, .u-btn-set .u-btn-raised + .u-btn-outline, .u-btn-set .u-btn-floating + .u-btn-outline, .u-btn-set .u-btn-borderless + .u-btn-outline, .u-btn-set .u-datepicker-year-month-button + .u-btn-outline, .u-btn-set .u-btn + .u-btn-outline-gray, .u-btn-set .u-btn-flat + .u-btn-outline-gray, .u-btn-set .u-btn-outline + .u-btn-outline-gray, .u-btn-set .u-btn-outline-gray + .u-btn-outline-gray, .u-btn-set .u-btn-solid + .u-btn-outline-gray, .u-btn-set .u-btn-raised + .u-btn-outline-gray, .u-btn-set .u-btn-floating + .u-btn-outline-gray, .u-btn-set .u-btn-borderless + .u-btn-outline-gray, .u-btn-set .u-datepicker-year-month-button + .u-btn-outline-gray,
   .u-btn-set .u-btn + .u-btn-solid,
   .u-btn-set .u-btn-flat + .u-btn-solid,
   .u-btn-set .u-btn-outline + .u-btn-solid,
+  .u-btn-set .u-btn-outline-gray + .u-btn-solid,
   .u-btn-set .u-btn-solid + .u-btn-solid,
   .u-btn-set .u-btn-raised + .u-btn-solid,
   .u-btn-set .u-btn-floating + .u-btn-solid,
-  .u-btn-set .u-btn-borderless + .u-btn-solid, .u-btn-set .u-btn + .u-btn-raised, .u-btn-set .u-btn-flat + .u-btn-raised, .u-btn-set .u-btn-outline + .u-btn-raised, .u-btn-set .u-btn-solid + .u-btn-raised, .u-btn-set .u-btn-raised + .u-btn-raised, .u-btn-set .u-btn-floating + .u-btn-raised, .u-btn-set .u-btn-borderless + .u-btn-raised, .u-btn-set .u-btn + .u-btn-floating, .u-btn-set .u-btn-flat + .u-btn-floating, .u-btn-set .u-btn-outline + .u-btn-floating, .u-btn-set .u-btn-solid + .u-btn-floating, .u-btn-set .u-btn-raised + .u-btn-floating, .u-btn-set .u-btn-floating + .u-btn-floating, .u-btn-set .u-btn-borderless + .u-btn-floating, .u-btn-set .u-btn + .u-btn-borderless, .u-btn-set .u-btn-flat + .u-btn-borderless, .u-btn-set .u-btn-outline + .u-btn-borderless, .u-btn-set .u-btn-solid + .u-btn-borderless, .u-btn-set .u-btn-raised + .u-btn-borderless, .u-btn-set .u-btn-floating + .u-btn-borderless, .u-btn-set .u-btn-borderless + .u-btn-borderless {
+  .u-btn-set .u-btn-borderless + .u-btn-solid,
+  .u-btn-set .u-datepicker-year-month-button + .u-btn-solid, .u-btn-set .u-btn + .u-btn-raised, .u-btn-set .u-btn-flat + .u-btn-raised, .u-btn-set .u-btn-outline + .u-btn-raised, .u-btn-set .u-btn-outline-gray + .u-btn-raised, .u-btn-set .u-btn-solid + .u-btn-raised, .u-btn-set .u-btn-raised + .u-btn-raised, .u-btn-set .u-btn-floating + .u-btn-raised, .u-btn-set .u-btn-borderless + .u-btn-raised, .u-btn-set .u-datepicker-year-month-button + .u-btn-raised, .u-btn-set .u-btn + .u-btn-floating, .u-btn-set .u-btn-flat + .u-btn-floating, .u-btn-set .u-btn-outline + .u-btn-floating, .u-btn-set .u-btn-outline-gray + .u-btn-floating, .u-btn-set .u-btn-solid + .u-btn-floating, .u-btn-set .u-btn-raised + .u-btn-floating, .u-btn-set .u-btn-floating + .u-btn-floating, .u-btn-set .u-btn-borderless + .u-btn-floating, .u-btn-set .u-datepicker-year-month-button + .u-btn-floating, .u-btn-set .u-btn + .u-btn-borderless, .u-btn-set .u-btn-flat + .u-btn-borderless, .u-btn-set .u-btn-outline + .u-btn-borderless, .u-btn-set .u-btn-outline-gray + .u-btn-borderless, .u-btn-set .u-btn-solid + .u-btn-borderless, .u-btn-set .u-btn-raised + .u-btn-borderless, .u-btn-set .u-btn-floating + .u-btn-borderless, .u-btn-set .u-btn-borderless + .u-btn-borderless, .u-btn-set .u-datepicker-year-month-button + .u-btn-borderless, .u-btn-set .u-btn + .u-datepicker-year-month-button, .u-btn-set .u-btn-flat + .u-datepicker-year-month-button, .u-btn-set .u-btn-outline + .u-datepicker-year-month-button, .u-btn-set .u-btn-outline-gray + .u-datepicker-year-month-button, .u-btn-set .u-btn-solid + .u-datepicker-year-month-button, .u-btn-set .u-btn-raised + .u-datepicker-year-month-button, .u-btn-set .u-btn-floating + .u-datepicker-year-month-button, .u-btn-set .u-btn-borderless + .u-datepicker-year-month-button, .u-btn-set .u-datepicker-year-month-button + .u-datepicker-year-month-button {
     margin-left: 8px; }
 
-.u-btn-outline {
+.u-btn-outline, .u-btn-outline-gray {
   border: 0.0625rem solid currentColor; }
 
 .u-btn-raised, .u-btn-floating {
@@ -7055,9 +7070,9 @@ mark,
   width: 2.5rem;
   height: 2.5rem; }
 
-.dense-layout .u-btn, .dense-layout .u-btn-flat, .dense-layout .u-btn-outline,
-.dense-layout .u-btn-solid, .dense-layout .u-btn-raised, .dense-layout .u-btn-floating, .dense-layout .u-btn-borderless, .dense.u-btn, .dense.u-btn-flat, .dense.u-btn-outline,
-.dense.u-btn-solid, .dense.u-btn-raised, .dense.u-btn-floating, .dense.u-btn-borderless {
+.dense-layout .u-btn, .dense-layout .u-btn-flat, .dense-layout .u-btn-outline, .dense-layout .u-btn-outline-gray,
+.dense-layout .u-btn-solid, .dense-layout .u-btn-raised, .dense-layout .u-btn-floating, .dense-layout .u-btn-borderless, .dense-layout .u-datepicker-year-month-button, .dense.u-btn, .dense.u-btn-flat, .dense.u-btn-outline, .dense.u-btn-outline-gray,
+.dense.u-btn-solid, .dense.u-btn-raised, .dense.u-btn-floating, .dense.u-btn-borderless, .dense.u-datepicker-year-month-button {
   height: 2rem;
   font-size: 0.8125rem; }
 
@@ -7073,65 +7088,99 @@ mark,
   margin-right: -8px;
   margin-left: 12px; }
 
-.rtl .u-btn-set .u-btn + .u-btn, .rtl .u-btn-set .u-btn-flat + .u-btn, .rtl .u-btn-set .u-btn-outline + .u-btn, .rtl .u-btn-set .u-btn-solid + .u-btn, .rtl .u-btn-set .u-btn-raised + .u-btn, .rtl .u-btn-set .u-btn-floating + .u-btn, .rtl .u-btn-set .u-btn-borderless + .u-btn, .rtl .u-btn-set .u-btn + .u-btn-flat, .rtl .u-btn-set .u-btn-flat + .u-btn-flat, .rtl .u-btn-set .u-btn-outline + .u-btn-flat, .rtl .u-btn-set .u-btn-solid + .u-btn-flat, .rtl .u-btn-set .u-btn-raised + .u-btn-flat, .rtl .u-btn-set .u-btn-floating + .u-btn-flat, .rtl .u-btn-set .u-btn-borderless + .u-btn-flat, .rtl .u-btn-set .u-btn + .u-btn-outline, .rtl .u-btn-set .u-btn-flat + .u-btn-outline, .rtl .u-btn-set .u-btn-outline + .u-btn-outline, .rtl .u-btn-set .u-btn-solid + .u-btn-outline, .rtl .u-btn-set .u-btn-raised + .u-btn-outline, .rtl .u-btn-set .u-btn-floating + .u-btn-outline, .rtl .u-btn-set .u-btn-borderless + .u-btn-outline,
+.rtl .u-btn-set .u-btn + .u-btn, .rtl .u-btn-set .u-btn-flat + .u-btn, .rtl .u-btn-set .u-btn-outline + .u-btn, .rtl .u-btn-set .u-btn-outline-gray + .u-btn, .rtl .u-btn-set .u-btn-solid + .u-btn, .rtl .u-btn-set .u-btn-raised + .u-btn, .rtl .u-btn-set .u-btn-floating + .u-btn, .rtl .u-btn-set .u-btn-borderless + .u-btn, .rtl .u-btn-set .u-datepicker-year-month-button + .u-btn, .rtl .u-btn-set .u-btn + .u-btn-flat, .rtl .u-btn-set .u-btn-flat + .u-btn-flat, .rtl .u-btn-set .u-btn-outline + .u-btn-flat, .rtl .u-btn-set .u-btn-outline-gray + .u-btn-flat, .rtl .u-btn-set .u-btn-solid + .u-btn-flat, .rtl .u-btn-set .u-btn-raised + .u-btn-flat, .rtl .u-btn-set .u-btn-floating + .u-btn-flat, .rtl .u-btn-set .u-btn-borderless + .u-btn-flat, .rtl .u-btn-set .u-datepicker-year-month-button + .u-btn-flat, .rtl .u-btn-set .u-btn + .u-btn-outline, .rtl .u-btn-set .u-btn-flat + .u-btn-outline, .rtl .u-btn-set .u-btn-outline + .u-btn-outline, .rtl .u-btn-set .u-btn-outline-gray + .u-btn-outline, .rtl .u-btn-set .u-btn-solid + .u-btn-outline, .rtl .u-btn-set .u-btn-raised + .u-btn-outline, .rtl .u-btn-set .u-btn-floating + .u-btn-outline, .rtl .u-btn-set .u-btn-borderless + .u-btn-outline, .rtl .u-btn-set .u-datepicker-year-month-button + .u-btn-outline, .rtl .u-btn-set .u-btn + .u-btn-outline-gray, .rtl .u-btn-set .u-btn-flat + .u-btn-outline-gray, .rtl .u-btn-set .u-btn-outline + .u-btn-outline-gray, .rtl .u-btn-set .u-btn-outline-gray + .u-btn-outline-gray, .rtl .u-btn-set .u-btn-solid + .u-btn-outline-gray, .rtl .u-btn-set .u-btn-raised + .u-btn-outline-gray, .rtl .u-btn-set .u-btn-floating + .u-btn-outline-gray, .rtl .u-btn-set .u-btn-borderless + .u-btn-outline-gray, .rtl .u-btn-set .u-datepicker-year-month-button + .u-btn-outline-gray,
 .rtl .u-btn-set .u-btn + .u-btn-solid,
 .rtl .u-btn-set .u-btn-flat + .u-btn-solid,
 .rtl .u-btn-set .u-btn-outline + .u-btn-solid,
+.rtl .u-btn-set .u-btn-outline-gray + .u-btn-solid,
 .rtl .u-btn-set .u-btn-solid + .u-btn-solid,
 .rtl .u-btn-set .u-btn-raised + .u-btn-solid,
 .rtl .u-btn-set .u-btn-floating + .u-btn-solid,
-.rtl .u-btn-set .u-btn-borderless + .u-btn-solid, .rtl .u-btn-set .u-btn + .u-btn-raised, .rtl .u-btn-set .u-btn-flat + .u-btn-raised, .rtl .u-btn-set .u-btn-outline + .u-btn-raised, .rtl .u-btn-set .u-btn-solid + .u-btn-raised, .rtl .u-btn-set .u-btn-raised + .u-btn-raised, .rtl .u-btn-set .u-btn-floating + .u-btn-raised, .rtl .u-btn-set .u-btn-borderless + .u-btn-raised, .rtl .u-btn-set .u-btn + .u-btn-floating, .rtl .u-btn-set .u-btn-flat + .u-btn-floating, .rtl .u-btn-set .u-btn-outline + .u-btn-floating, .rtl .u-btn-set .u-btn-solid + .u-btn-floating, .rtl .u-btn-set .u-btn-raised + .u-btn-floating, .rtl .u-btn-set .u-btn-floating + .u-btn-floating, .rtl .u-btn-set .u-btn-borderless + .u-btn-floating, .rtl .u-btn-set .u-btn + .u-btn-borderless, .rtl .u-btn-set .u-btn-flat + .u-btn-borderless, .rtl .u-btn-set .u-btn-outline + .u-btn-borderless, .rtl .u-btn-set .u-btn-solid + .u-btn-borderless, .rtl .u-btn-set .u-btn-raised + .u-btn-borderless, .rtl .u-btn-set .u-btn-floating + .u-btn-borderless, .rtl .u-btn-set .u-btn-borderless + .u-btn-borderless,
+.rtl .u-btn-set .u-btn-borderless + .u-btn-solid,
+.rtl .u-btn-set .u-datepicker-year-month-button + .u-btn-solid, .rtl .u-btn-set .u-btn + .u-btn-raised, .rtl .u-btn-set .u-btn-flat + .u-btn-raised, .rtl .u-btn-set .u-btn-outline + .u-btn-raised, .rtl .u-btn-set .u-btn-outline-gray + .u-btn-raised, .rtl .u-btn-set .u-btn-solid + .u-btn-raised, .rtl .u-btn-set .u-btn-raised + .u-btn-raised, .rtl .u-btn-set .u-btn-floating + .u-btn-raised, .rtl .u-btn-set .u-btn-borderless + .u-btn-raised, .rtl .u-btn-set .u-datepicker-year-month-button + .u-btn-raised, .rtl .u-btn-set .u-btn + .u-btn-floating, .rtl .u-btn-set .u-btn-flat + .u-btn-floating, .rtl .u-btn-set .u-btn-outline + .u-btn-floating, .rtl .u-btn-set .u-btn-outline-gray + .u-btn-floating, .rtl .u-btn-set .u-btn-solid + .u-btn-floating, .rtl .u-btn-set .u-btn-raised + .u-btn-floating, .rtl .u-btn-set .u-btn-floating + .u-btn-floating, .rtl .u-btn-set .u-btn-borderless + .u-btn-floating, .rtl .u-btn-set .u-datepicker-year-month-button + .u-btn-floating, .rtl .u-btn-set .u-btn + .u-btn-borderless, .rtl .u-btn-set .u-btn-flat + .u-btn-borderless, .rtl .u-btn-set .u-btn-outline + .u-btn-borderless, .rtl .u-btn-set .u-btn-outline-gray + .u-btn-borderless, .rtl .u-btn-set .u-btn-solid + .u-btn-borderless, .rtl .u-btn-set .u-btn-raised + .u-btn-borderless, .rtl .u-btn-set .u-btn-floating + .u-btn-borderless, .rtl .u-btn-set .u-btn-borderless + .u-btn-borderless, .rtl .u-btn-set .u-datepicker-year-month-button + .u-btn-borderless, .rtl .u-btn-set .u-btn + .u-datepicker-year-month-button, .rtl .u-btn-set .u-btn-flat + .u-datepicker-year-month-button, .rtl .u-btn-set .u-btn-outline + .u-datepicker-year-month-button, .rtl .u-btn-set .u-btn-outline-gray + .u-datepicker-year-month-button, .rtl .u-btn-set .u-btn-solid + .u-datepicker-year-month-button, .rtl .u-btn-set .u-btn-raised + .u-datepicker-year-month-button, .rtl .u-btn-set .u-btn-floating + .u-datepicker-year-month-button, .rtl .u-btn-set .u-btn-borderless + .u-datepicker-year-month-button, .rtl .u-btn-set .u-datepicker-year-month-button + .u-datepicker-year-month-button,
 [dir="rtl"] .u-btn-set .u-btn + .u-btn,
 [dir="rtl"] .u-btn-set .u-btn-flat + .u-btn,
 [dir="rtl"] .u-btn-set .u-btn-outline + .u-btn,
+[dir="rtl"] .u-btn-set .u-btn-outline-gray + .u-btn,
 [dir="rtl"] .u-btn-set .u-btn-solid + .u-btn,
 [dir="rtl"] .u-btn-set .u-btn-raised + .u-btn,
 [dir="rtl"] .u-btn-set .u-btn-floating + .u-btn,
 [dir="rtl"] .u-btn-set .u-btn-borderless + .u-btn,
+[dir="rtl"] .u-btn-set .u-datepicker-year-month-button + .u-btn,
 [dir="rtl"] .u-btn-set .u-btn + .u-btn-flat,
 [dir="rtl"] .u-btn-set .u-btn-flat + .u-btn-flat,
 [dir="rtl"] .u-btn-set .u-btn-outline + .u-btn-flat,
+[dir="rtl"] .u-btn-set .u-btn-outline-gray + .u-btn-flat,
 [dir="rtl"] .u-btn-set .u-btn-solid + .u-btn-flat,
 [dir="rtl"] .u-btn-set .u-btn-raised + .u-btn-flat,
 [dir="rtl"] .u-btn-set .u-btn-floating + .u-btn-flat,
 [dir="rtl"] .u-btn-set .u-btn-borderless + .u-btn-flat,
+[dir="rtl"] .u-btn-set .u-datepicker-year-month-button + .u-btn-flat,
 [dir="rtl"] .u-btn-set .u-btn + .u-btn-outline,
 [dir="rtl"] .u-btn-set .u-btn-flat + .u-btn-outline,
 [dir="rtl"] .u-btn-set .u-btn-outline + .u-btn-outline,
+[dir="rtl"] .u-btn-set .u-btn-outline-gray + .u-btn-outline,
 [dir="rtl"] .u-btn-set .u-btn-solid + .u-btn-outline,
 [dir="rtl"] .u-btn-set .u-btn-raised + .u-btn-outline,
 [dir="rtl"] .u-btn-set .u-btn-floating + .u-btn-outline,
 [dir="rtl"] .u-btn-set .u-btn-borderless + .u-btn-outline,
+[dir="rtl"] .u-btn-set .u-datepicker-year-month-button + .u-btn-outline,
+[dir="rtl"] .u-btn-set .u-btn + .u-btn-outline-gray,
+[dir="rtl"] .u-btn-set .u-btn-flat + .u-btn-outline-gray,
+[dir="rtl"] .u-btn-set .u-btn-outline + .u-btn-outline-gray,
+[dir="rtl"] .u-btn-set .u-btn-outline-gray + .u-btn-outline-gray,
+[dir="rtl"] .u-btn-set .u-btn-solid + .u-btn-outline-gray,
+[dir="rtl"] .u-btn-set .u-btn-raised + .u-btn-outline-gray,
+[dir="rtl"] .u-btn-set .u-btn-floating + .u-btn-outline-gray,
+[dir="rtl"] .u-btn-set .u-btn-borderless + .u-btn-outline-gray,
+[dir="rtl"] .u-btn-set .u-datepicker-year-month-button + .u-btn-outline-gray,
 [dir="rtl"] .u-btn-set .u-btn + .u-btn-solid,
 [dir="rtl"] .u-btn-set .u-btn-flat + .u-btn-solid,
 [dir="rtl"] .u-btn-set .u-btn-outline + .u-btn-solid,
+[dir="rtl"] .u-btn-set .u-btn-outline-gray + .u-btn-solid,
 [dir="rtl"] .u-btn-set .u-btn-solid + .u-btn-solid,
 [dir="rtl"] .u-btn-set .u-btn-raised + .u-btn-solid,
 [dir="rtl"] .u-btn-set .u-btn-floating + .u-btn-solid,
 [dir="rtl"] .u-btn-set .u-btn-borderless + .u-btn-solid,
+[dir="rtl"] .u-btn-set .u-datepicker-year-month-button + .u-btn-solid,
 [dir="rtl"] .u-btn-set .u-btn + .u-btn-raised,
 [dir="rtl"] .u-btn-set .u-btn-flat + .u-btn-raised,
 [dir="rtl"] .u-btn-set .u-btn-outline + .u-btn-raised,
+[dir="rtl"] .u-btn-set .u-btn-outline-gray + .u-btn-raised,
 [dir="rtl"] .u-btn-set .u-btn-solid + .u-btn-raised,
 [dir="rtl"] .u-btn-set .u-btn-raised + .u-btn-raised,
 [dir="rtl"] .u-btn-set .u-btn-floating + .u-btn-raised,
 [dir="rtl"] .u-btn-set .u-btn-borderless + .u-btn-raised,
+[dir="rtl"] .u-btn-set .u-datepicker-year-month-button + .u-btn-raised,
 [dir="rtl"] .u-btn-set .u-btn + .u-btn-floating,
 [dir="rtl"] .u-btn-set .u-btn-flat + .u-btn-floating,
 [dir="rtl"] .u-btn-set .u-btn-outline + .u-btn-floating,
+[dir="rtl"] .u-btn-set .u-btn-outline-gray + .u-btn-floating,
 [dir="rtl"] .u-btn-set .u-btn-solid + .u-btn-floating,
 [dir="rtl"] .u-btn-set .u-btn-raised + .u-btn-floating,
 [dir="rtl"] .u-btn-set .u-btn-floating + .u-btn-floating,
 [dir="rtl"] .u-btn-set .u-btn-borderless + .u-btn-floating,
+[dir="rtl"] .u-btn-set .u-datepicker-year-month-button + .u-btn-floating,
 [dir="rtl"] .u-btn-set .u-btn + .u-btn-borderless,
 [dir="rtl"] .u-btn-set .u-btn-flat + .u-btn-borderless,
 [dir="rtl"] .u-btn-set .u-btn-outline + .u-btn-borderless,
+[dir="rtl"] .u-btn-set .u-btn-outline-gray + .u-btn-borderless,
 [dir="rtl"] .u-btn-set .u-btn-solid + .u-btn-borderless,
 [dir="rtl"] .u-btn-set .u-btn-raised + .u-btn-borderless,
 [dir="rtl"] .u-btn-set .u-btn-floating + .u-btn-borderless,
-[dir="rtl"] .u-btn-set .u-btn-borderless + .u-btn-borderless {
-  margin-left: 0;
-  margin-right: 8px; }
+[dir="rtl"] .u-btn-set .u-btn-borderless + .u-btn-borderless,
+[dir="rtl"] .u-btn-set .u-datepicker-year-month-button + .u-btn-borderless,
+[dir="rtl"] .u-btn-set .u-btn + .u-datepicker-year-month-button,
+[dir="rtl"] .u-btn-set .u-btn-flat + .u-datepicker-year-month-button,
+[dir="rtl"] .u-btn-set .u-btn-outline + .u-datepicker-year-month-button,
+[dir="rtl"] .u-btn-set .u-btn-outline-gray + .u-datepicker-year-month-button,
+[dir="rtl"] .u-btn-set .u-btn-solid + .u-datepicker-year-month-button,
+[dir="rtl"] .u-btn-set .u-btn-raised + .u-datepicker-year-month-button,
+[dir="rtl"] .u-btn-set .u-btn-floating + .u-datepicker-year-month-button,
+[dir="rtl"] .u-btn-set .u-btn-borderless + .u-datepicker-year-month-button,
+[dir="rtl"] .u-btn-set .u-datepicker-year-month-button + .u-datepicker-year-month-button {
+  margin-right: 8px;
+  margin-left: 0; }
 
 .u-snackbar {
   position: fixed;
@@ -7161,8 +7210,8 @@ mark,
   .u-snackbar * {
     -webkit-box-sizing: border-box;
             box-sizing: border-box; }
-  .u-snackbar .u-btn, .u-snackbar .u-btn-flat, .u-snackbar .u-btn-outline,
-  .u-snackbar .u-btn-solid, .u-snackbar .u-btn-raised, .u-snackbar .u-btn-floating, .u-snackbar .u-btn-borderless {
+  .u-snackbar .u-btn, .u-snackbar .u-btn-flat, .u-snackbar .u-btn-outline, .u-snackbar .u-btn-outline-gray,
+  .u-snackbar .u-btn-solid, .u-snackbar .u-btn-raised, .u-snackbar .u-btn-floating, .u-snackbar .u-btn-borderless, .u-snackbar .u-datepicker-year-month-button {
     margin: 0.375rem 0.5rem; }
   .u-snackbar.u-snackbar-vertical {
     -webkit-box-orient: vertical;
@@ -7389,8 +7438,7 @@ input.u-text-input {
 
 .u-text-field.u-text-field-floating-label label,
 .u-text-field-box label,
-.u-text-field-outline label,
-.u-text-area-outline label {
+.u-text-field-outline label {
   -webkit-transition: font-size 200ms, -webkit-transform 200ms;
   transition: font-size 200ms, -webkit-transform 200ms;
   transition: transform 200ms, font-size 200ms;
@@ -7401,9 +7449,7 @@ input.u-text-input {
 .u-text-field-box .u-text-input::-webkit-input-placeholder,
 .u-text-field-box .u-text-input-placeholder,
 .u-text-field-outline .u-text-input::-webkit-input-placeholder,
-.u-text-area-outline .u-text-input::-webkit-input-placeholder,
-.u-text-field-outline .u-text-input-placeholder,
-.u-text-area-outline .u-text-input-placeholder {
+.u-text-field-outline .u-text-input-placeholder {
   -webkit-transition: color 150ms;
   transition: color 150ms; }
 
@@ -7412,9 +7458,7 @@ input.u-text-input {
 .u-text-field-box .u-text-input:-ms-input-placeholder,
 .u-text-field-box .u-text-input-placeholder,
 .u-text-field-outline .u-text-input:-ms-input-placeholder,
-.u-text-area-outline .u-text-input:-ms-input-placeholder,
-.u-text-field-outline .u-text-input-placeholder,
-.u-text-area-outline .u-text-input-placeholder {
+.u-text-field-outline .u-text-input-placeholder {
   -webkit-transition: color 150ms;
   transition: color 150ms; }
 
@@ -7423,16 +7467,13 @@ input.u-text-input {
 .u-text-field-box .u-text-input::placeholder,
 .u-text-field-box .u-text-input-placeholder,
 .u-text-field-outline .u-text-input::placeholder,
-.u-text-area-outline .u-text-input::placeholder,
-.u-text-field-outline .u-text-input-placeholder,
-.u-text-area-outline .u-text-input-placeholder {
+.u-text-field-outline .u-text-input-placeholder {
   -webkit-transition: color 150ms;
   transition: color 150ms; }
 
 .u-text-field.u-text-field-floating-label.empty:not(.focus) label,
 .u-text-field-box.empty:not(.focus) label,
-.u-text-field-outline.empty:not(.focus) label,
-.empty.u-text-area-outline:not(.focus) label {
+.u-text-field-outline.empty:not(.focus) label {
   font-size: 1rem;
   pointer-events: none;
   -webkit-transform: translate3d(0, 1.625rem, 0);
@@ -7443,9 +7484,7 @@ input.u-text-input {
 .u-text-field-box.empty:not(.focus) .u-text-input::-webkit-input-placeholder,
 .u-text-field-box.empty:not(.focus) .u-text-input-placeholder,
 .u-text-field-outline.empty:not(.focus) .u-text-input::-webkit-input-placeholder,
-.empty.u-text-area-outline:not(.focus) .u-text-input::-webkit-input-placeholder,
-.u-text-field-outline.empty:not(.focus) .u-text-input-placeholder,
-.empty.u-text-area-outline:not(.focus) .u-text-input-placeholder {
+.u-text-field-outline.empty:not(.focus) .u-text-input-placeholder {
   color: transparent;
   -webkit-transition: color 150ms 100ms;
   transition: color 150ms 100ms; }
@@ -7455,9 +7494,7 @@ input.u-text-input {
 .u-text-field-box.empty:not(.focus) .u-text-input:-ms-input-placeholder,
 .u-text-field-box.empty:not(.focus) .u-text-input-placeholder,
 .u-text-field-outline.empty:not(.focus) .u-text-input:-ms-input-placeholder,
-.empty.u-text-area-outline:not(.focus) .u-text-input:-ms-input-placeholder,
-.u-text-field-outline.empty:not(.focus) .u-text-input-placeholder,
-.empty.u-text-area-outline:not(.focus) .u-text-input-placeholder {
+.u-text-field-outline.empty:not(.focus) .u-text-input-placeholder {
   color: transparent;
   -webkit-transition: color 150ms 100ms;
   transition: color 150ms 100ms; }
@@ -7467,9 +7504,7 @@ input.u-text-input {
 .u-text-field-box.empty:not(.focus) .u-text-input::placeholder,
 .u-text-field-box.empty:not(.focus) .u-text-input-placeholder,
 .u-text-field-outline.empty:not(.focus) .u-text-input::placeholder,
-.empty.u-text-area-outline:not(.focus) .u-text-input::placeholder,
-.u-text-field-outline.empty:not(.focus) .u-text-input-placeholder,
-.empty.u-text-area-outline:not(.focus) .u-text-input-placeholder {
+.u-text-field-outline.empty:not(.focus) .u-text-input-placeholder {
   color: transparent;
   -webkit-transition: color 150ms 100ms;
   transition: color 150ms 100ms; }
@@ -7482,9 +7517,10 @@ input.u-text-input {
     margin-bottom: 0;
     line-height: 1.75rem; }
   .u-text-field-box .u-text-input {
-    height: 3.5rem;
     padding: 1.75rem 12px calc(12px - 0.0625rem);
     margin-top: -1.75rem; }
+    .u-text-field-box .u-text-input:not(textarea) {
+      height: 3.5rem; }
   .u-text-field-box.u-text-field-no-label .u-text-input {
     padding-top: 20px;
     padding-bottom: 20px;
@@ -7512,9 +7548,7 @@ input.u-text-input {
   .u-text-field-box input.u-text-input[disabled] {
     border-bottom-style: solid !important; }
 
-
-.u-text-field-outline label,
-.u-text-area-outline label {
+.u-text-field-outline label {
   height: 1.25rem;
   padding-right: 0.125rem;
   padding-left: 0.125rem;
@@ -7524,23 +7558,25 @@ input.u-text-input {
   -webkit-transform: translate3d(0, -0.625rem, 0);
           transform: translate3d(0, -0.625rem, 0); }
 
-.u-text-field-outline .u-text-input, .u-text-area-outline .u-text-input {
-  height: 3.5rem;
+.u-text-field-outline .u-text-input {
   padding: 1.25rem 0.75rem calc(1.25rem - 0.0625rem);
   margin-top: -1.25rem;
   border-color: transparent !important; }
+  .u-text-field-outline .u-text-input:not(textarea) {
+    height: 3.5rem; }
 
+.u-text-field-outline.u-text-field-no-label .u-text-input {
+  margin-top: 0; }
 
-.u-text-field-outline.empty:not(.focus) label,
-.empty.u-text-area-outline:not(.focus) label {
+.u-text-field-outline.empty:not(.focus) label {
   -webkit-transform: translate3d(0, 1.125rem, 0) !important;
           transform: translate3d(0, 1.125rem, 0) !important; }
 
-.u-text-field-outline.empty:not(.focus) .u-text-field-leading-icon ~ label, .empty.u-text-area-outline:not(.focus) .u-text-field-leading-icon ~ label {
+.u-text-field-outline.empty:not(.focus) .u-text-field-leading-icon ~ label {
   -webkit-transform: translate3d(calc(8px + 1.5rem), 1.125rem, 0) !important;
           transform: translate3d(calc(8px + 1.5rem), 1.125rem, 0) !important; }
 
-.u-text-field-outline::before, .u-text-area-outline::before {
+.u-text-field-outline::before {
   top: 0;
   height: auto;
   border: 0.0625rem solid;
@@ -7550,30 +7586,26 @@ input.u-text-input {
   -webkit-transform: none;
           transform: none; }
 
-.u-text-field-outline.focus::before, .focus.u-text-area-outline::before, .u-text-field-outline.invalid::before, .invalid.u-text-area-outline::before {
+.u-text-field-outline.focus::before, .u-text-field-outline.invalid::before {
   border-width: 0.125rem; }
 
-.u-text-field-outline ~ .u-text-field-helper-text, .u-text-area-outline ~ .u-text-field-helper-text {
+.u-text-field-outline ~ .u-text-field-helper-text {
   margin-right: 0.75rem;
   margin-left: 0.75rem; }
 
-.u-text-field-outline .u-text-field-leading-icon, .u-text-area-outline .u-text-field-leading-icon,
-.u-text-field-outline .u-text-field-trailing-icon,
-.u-text-area-outline .u-text-field-trailing-icon {
+.u-text-field-outline .u-text-field-leading-icon,
+.u-text-field-outline .u-text-field-trailing-icon {
   bottom: 50%; }
 
-.u-text-field-outline .u-text-field-leading-icon, .u-text-area-outline .u-text-field-leading-icon {
+.u-text-field-outline .u-text-field-leading-icon {
   left: 8px; }
-  .u-text-field-outline .u-text-field-leading-icon ~ .u-text-input, .u-text-area-outline .u-text-field-leading-icon ~ .u-text-input {
+  .u-text-field-outline .u-text-field-leading-icon ~ .u-text-input {
     margin-left: calc(8px + 1.5rem); }
 
-
-.u-text-field-outline .u-text-field-trailing-icon,
-.u-text-area-outline .u-text-field-trailing-icon {
+.u-text-field-outline .u-text-field-trailing-icon {
   right: 8px; }
-  .u-text-field-outline .u-text-field-trailing-icon ~ .u-text-input, .u-text-area-outline .u-text-field-trailing-icon ~ .u-text-input,
-  .u-text-field-outline .u-text-field-trailing-icon ~ label,
-  .u-text-area-outline .u-text-field-trailing-icon ~ label {
+  .u-text-field-outline .u-text-field-trailing-icon ~ .u-text-input,
+  .u-text-field-outline .u-text-field-trailing-icon ~ label {
     margin-right: calc(8px + 1.5rem); }
 
 .u-search-field {
@@ -7600,11 +7632,6 @@ input.u-text-input {
 .u-search-field-elevated {
   -webkit-box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
           box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
-
-.u-text-area-outline label {
-  background: transparent !important;
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0); }
 
 .u-chip {
   position: relative;
@@ -7642,23 +7669,22 @@ input.u-text-input {
     opacity: .12; }
 
 .u-chip-label {
+  margin-right: 12px;
+  margin-left: 12px;
   font-weight: 500; }
-  .u-chip-label:first-child {
-    margin-left: 12px; }
-  .u-chip-label:last-child {
-    margin-right: 12px; }
 
 .u-chip-avatar {
   width: 1.5rem;
   height: 1.5rem;
-  margin-right: 8px;
+  margin-right: -4px;
   margin-left: 4px;
   font-size: 1rem;
   line-height: 1.5rem;
   border-radius: 50%; }
 
 .u-chip-remove {
-  margin: 0 8px;
+  margin-right: 8px;
+  margin-left: -4px;
   font-size: 1.125rem;
   line-height: 1.125rem;
   text-align: center;
@@ -7744,12 +7770,12 @@ input.u-text-input {
   border: none;
   outline: 0; }
 
-.u-text-field-outline .u-chip-input, .u-text-area-outline .u-chip-input {
+.u-text-field-outline .u-chip-input {
   height: 2rem;
   margin-top: 4px;
   margin-bottom: 4px; }
 
-.u-text-field-outline .u-chip-set, .u-text-area-outline .u-chip-set {
+.u-text-field-outline .u-chip-set {
   margin-top: -12px;
   margin-bottom: -12px; }
 
@@ -7761,7 +7787,134 @@ input.u-text-input {
 .rtl .u-chip-avatar,
 [dir="rtl"] .u-chip-avatar {
   margin-right: 4px;
-  margin-left: 8px; }
+  margin-left: -4px; }
+
+.u-datepicker {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-width: 296px;
+  height: 360px; }
+
+.u-datepicker-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 8px; }
+
+.u-datepicker-day {
+  font-size: 0.875rem;
+  line-height: 2.25rem;
+  font-weight: 500;
+  letter-spacing: 0.08929em;
+  text-decoration: none;
+  text-transform: uppercase;
+  position: relative;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 2.25rem;
+  padding: 0 1rem;
+  overflow: hidden;
+  font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  line-height: 1.5;
+  color: inherit;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background: transparent;
+  border: none;
+  border-radius: 0.25rem;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  font-weight: 400;
+  border-radius: 50%; }
+  .u-datepicker-day::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    content: "";
+    background: currentColor;
+    border-radius: inherit;
+    opacity: 0;
+    -webkit-transition: opacity 250ms linear;
+    transition: opacity 250ms linear; }
+  .u-datepicker-day:hover::before {
+    opacity: .12; }
+  .u-datepicker-day:active::before {
+    opacity: .2; }
+  .u-datepicker-day:hover, .u-datepicker-day:focus {
+    text-decoration: none; }
+  .u-datepicker-day:focus, .u-datepicker-day.focus {
+    outline: 0; }
+  .u-datepicker-day:active, .u-datepicker-day.active {
+    background-image: none; }
+  .u-datepicker-day.disabled, .u-datepicker-day:disabled {
+    cursor: default; }
+  .u-datepicker-day,
+  .u-datepicker-day * {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box; }
+
+.u-datepicker-year-month-button {
+  height: 2.25rem;
+  border-radius: 1.125rem; }
+
+.u-datepicker-weekdays {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  line-height: 24px;
+  text-align: center; }
+
+.u-datepicker-weekday {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  width: 1rem;
+  font-weight: 500; }
+
+.u-datepicker-body {
+  height: 280px;
+  margin-top: 1rem; }
+
+.u-datepicker-week {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  text-align: center; }
+
+.u-datepicker-day-outside {
+  pointer-events: none; }
+
+.u-datepicker-year-group,
+.u-datepicker-month-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-top: 8px; }
 
 .u-ripple-wrapper,
 .u-ripple {
@@ -7949,95 +8102,99 @@ input.u-text-input {
   background-color: rgba(0, 0, 0, 0.12); }
 
 .u-btn-solid.u-btn-default, .u-btn-default.u-btn-raised, .u-btn-default.u-btn-floating {
-  background-color: #fff;
-  color: rgba(0, 0, 0, 0.87); }
+  color: rgba(0, 0, 0, 0.87);
+  background-color: #fff; }
   .u-btn-solid.u-btn-default:hover, .u-btn-default.u-btn-raised:hover, .u-btn-default.u-btn-floating:hover, .u-btn-solid.u-btn-default:focus, .u-btn-default.u-btn-raised:focus, .u-btn-default.u-btn-floating:focus {
     color: rgba(0, 0, 0, 0.87); }
 
 .u-btn-solid.u-btn-primary, .u-btn-primary.u-btn-raised, .u-btn-primary.u-btn-floating {
-  background-color: #6200ee;
-  color: #fff; }
+  color: #fff;
+  background-color: #6200ee; }
   .u-btn-solid.u-btn-primary:hover, .u-btn-primary.u-btn-raised:hover, .u-btn-primary.u-btn-floating:hover, .u-btn-solid.u-btn-primary:focus, .u-btn-primary.u-btn-raised:focus, .u-btn-primary.u-btn-floating:focus {
     color: #fff; }
 
 .u-btn-solid.u-btn-primary-variant, .u-btn-primary-variant.u-btn-raised, .u-btn-primary-variant.u-btn-floating {
-  background-color: #3700b3;
-  color: #fff; }
+  color: #fff;
+  background-color: #3700b3; }
   .u-btn-solid.u-btn-primary-variant:hover, .u-btn-primary-variant.u-btn-raised:hover, .u-btn-primary-variant.u-btn-floating:hover, .u-btn-solid.u-btn-primary-variant:focus, .u-btn-primary-variant.u-btn-raised:focus, .u-btn-primary-variant.u-btn-floating:focus {
     color: #fff; }
 
 .u-btn-solid.u-btn-secondary, .u-btn-secondary.u-btn-raised, .u-btn-secondary.u-btn-floating {
-  background-color: #03dac6;
-  color: rgba(0, 0, 0, 0.87); }
+  color: rgba(0, 0, 0, 0.87);
+  background-color: #03dac6; }
   .u-btn-solid.u-btn-secondary:hover, .u-btn-secondary.u-btn-raised:hover, .u-btn-secondary.u-btn-floating:hover, .u-btn-solid.u-btn-secondary:focus, .u-btn-secondary.u-btn-raised:focus, .u-btn-secondary.u-btn-floating:focus {
     color: rgba(0, 0, 0, 0.87); }
 
 .u-btn-solid.u-btn-secondary-variant, .u-btn-secondary-variant.u-btn-raised, .u-btn-secondary-variant.u-btn-floating {
-  background-color: #018786;
-  color: #fff; }
+  color: #fff;
+  background-color: #018786; }
   .u-btn-solid.u-btn-secondary-variant:hover, .u-btn-secondary-variant.u-btn-raised:hover, .u-btn-secondary-variant.u-btn-floating:hover, .u-btn-solid.u-btn-secondary-variant:focus, .u-btn-secondary-variant.u-btn-raised:focus, .u-btn-secondary-variant.u-btn-floating:focus {
     color: #fff; }
 
 .u-btn-solid.u-btn-danger, .u-btn-danger.u-btn-raised, .u-btn-danger.u-btn-floating {
-  background-color: #b00020;
-  color: #fff; }
+  color: #fff;
+  background-color: #b00020; }
   .u-btn-solid.u-btn-danger:hover, .u-btn-danger.u-btn-raised:hover, .u-btn-danger.u-btn-floating:hover, .u-btn-solid.u-btn-danger:focus, .u-btn-danger.u-btn-raised:focus, .u-btn-danger.u-btn-floating:focus {
     color: #fff; }
 
-.u-btn.disabled, .disabled.u-btn-flat, .disabled.u-btn-outline,
-.disabled.u-btn-solid, .disabled.u-btn-raised, .disabled.u-btn-floating, .disabled.u-btn-borderless, .u-btn:disabled, .u-btn-flat:disabled, .u-btn-outline:disabled,
-.u-btn-solid:disabled, .u-btn-raised:disabled, .u-btn-floating:disabled, .u-btn-borderless:disabled {
+.u-btn.disabled, .disabled.u-btn-flat, .disabled.u-btn-outline, .disabled.u-btn-outline-gray,
+.disabled.u-btn-solid, .disabled.u-btn-raised, .disabled.u-btn-floating, .disabled.u-btn-borderless, .disabled.u-datepicker-year-month-button, .u-btn:disabled, .u-btn-flat:disabled, .u-btn-outline:disabled, .u-btn-outline-gray:disabled,
+.u-btn-solid:disabled, .u-btn-raised:disabled, .u-btn-floating:disabled, .u-btn-borderless:disabled, .u-datepicker-year-month-button:disabled {
   color: rgba(0, 0, 0, 0.26) !important;
   background-color: rgba(0, 0, 0, 0.12);
   -webkit-box-shadow: none;
           box-shadow: none; }
-  .u-btn.disabled::before, .disabled.u-btn-flat::before, .disabled.u-btn-outline::before,
-  .disabled.u-btn-solid::before, .disabled.u-btn-raised::before, .disabled.u-btn-floating::before, .disabled.u-btn-borderless::before, .u-btn:disabled::before, .u-btn-flat:disabled::before, .u-btn-outline:disabled::before,
-  .u-btn-solid:disabled::before, .u-btn-raised:disabled::before, .u-btn-floating:disabled::before, .u-btn-borderless:disabled::before {
+  .u-btn.disabled::before, .disabled.u-btn-flat::before, .disabled.u-btn-outline::before, .disabled.u-btn-outline-gray::before,
+  .disabled.u-btn-solid::before, .disabled.u-btn-raised::before, .disabled.u-btn-floating::before, .disabled.u-btn-borderless::before, .disabled.u-datepicker-year-month-button::before, .u-btn:disabled::before, .u-btn-flat:disabled::before, .u-btn-outline:disabled::before, .u-btn-outline-gray:disabled::before,
+  .u-btn-solid:disabled::before, .u-btn-raised:disabled::before, .u-btn-floating:disabled::before, .u-btn-borderless:disabled::before, .u-datepicker-year-month-button:disabled::before {
     background-color: transparent !important; }
 
 .u-btn-borderless.disabled, .u-btn-borderless.disabled::before, .u-btn-borderless:disabled, .u-btn-borderless:disabled::before,
 .u-btn-flat.disabled,
 .disabled.u-btn-outline,
+.disabled.u-btn-outline-gray,
 .u-btn-flat.disabled::before,
 .disabled.u-btn-outline::before,
+.disabled.u-btn-outline-gray::before,
 .u-btn-flat:disabled,
 .u-btn-outline:disabled,
+.u-btn-outline-gray:disabled,
 .u-btn-flat:disabled::before,
-.u-btn-outline:disabled::before {
+.u-btn-outline:disabled::before,
+.u-btn-outline-gray:disabled::before {
   background-color: transparent; }
 
-.u-btn-outline-gray-border {
+.u-btn-outline-gray {
   border-color: rgba(0, 0, 0, 0.12); }
 
-.u-btn-flat.u-btn-default, .u-btn-default.u-btn-outline {
-  color: inherit; }
-  .u-btn-flat.u-btn-default:hover, .u-btn-default.u-btn-outline:hover, .u-btn-flat.u-btn-default:focus, .u-btn-default.u-btn-outline:focus {
-    color: inherit; }
+.u-btn-flat.u-btn-default, .u-btn-default.u-btn-outline, .u-btn-default.u-btn-outline-gray {
+  color: rgba(0, 0, 0, 0.87); }
+  .u-btn-flat.u-btn-default:hover, .u-btn-default.u-btn-outline:hover, .u-btn-default.u-btn-outline-gray:hover, .u-btn-flat.u-btn-default:focus, .u-btn-default.u-btn-outline:focus, .u-btn-default.u-btn-outline-gray:focus {
+    color: rgba(0, 0, 0, 0.87); }
 
-.u-btn-flat.u-btn-primary, .u-btn-primary.u-btn-outline {
+.u-btn-flat.u-btn-primary, .u-btn-primary.u-btn-outline, .u-btn-primary.u-btn-outline-gray {
   color: #6200ee; }
-  .u-btn-flat.u-btn-primary:hover, .u-btn-primary.u-btn-outline:hover, .u-btn-flat.u-btn-primary:focus, .u-btn-primary.u-btn-outline:focus {
+  .u-btn-flat.u-btn-primary:hover, .u-btn-primary.u-btn-outline:hover, .u-btn-primary.u-btn-outline-gray:hover, .u-btn-flat.u-btn-primary:focus, .u-btn-primary.u-btn-outline:focus, .u-btn-primary.u-btn-outline-gray:focus {
     color: #6200ee; }
 
-.u-btn-flat.u-btn-primary-variant, .u-btn-primary-variant.u-btn-outline {
+.u-btn-flat.u-btn-primary-variant, .u-btn-primary-variant.u-btn-outline, .u-btn-primary-variant.u-btn-outline-gray {
   color: #3700b3; }
-  .u-btn-flat.u-btn-primary-variant:hover, .u-btn-primary-variant.u-btn-outline:hover, .u-btn-flat.u-btn-primary-variant:focus, .u-btn-primary-variant.u-btn-outline:focus {
+  .u-btn-flat.u-btn-primary-variant:hover, .u-btn-primary-variant.u-btn-outline:hover, .u-btn-primary-variant.u-btn-outline-gray:hover, .u-btn-flat.u-btn-primary-variant:focus, .u-btn-primary-variant.u-btn-outline:focus, .u-btn-primary-variant.u-btn-outline-gray:focus {
     color: #3700b3; }
 
-.u-btn-flat.u-btn-secondary, .u-btn-secondary.u-btn-outline {
+.u-btn-flat.u-btn-secondary, .u-btn-secondary.u-btn-outline, .u-btn-secondary.u-btn-outline-gray {
   color: #03dac6; }
-  .u-btn-flat.u-btn-secondary:hover, .u-btn-secondary.u-btn-outline:hover, .u-btn-flat.u-btn-secondary:focus, .u-btn-secondary.u-btn-outline:focus {
+  .u-btn-flat.u-btn-secondary:hover, .u-btn-secondary.u-btn-outline:hover, .u-btn-secondary.u-btn-outline-gray:hover, .u-btn-flat.u-btn-secondary:focus, .u-btn-secondary.u-btn-outline:focus, .u-btn-secondary.u-btn-outline-gray:focus {
     color: #03dac6; }
 
-.u-btn-flat.u-btn-secondary-variant, .u-btn-secondary-variant.u-btn-outline {
+.u-btn-flat.u-btn-secondary-variant, .u-btn-secondary-variant.u-btn-outline, .u-btn-secondary-variant.u-btn-outline-gray {
   color: #018786; }
-  .u-btn-flat.u-btn-secondary-variant:hover, .u-btn-secondary-variant.u-btn-outline:hover, .u-btn-flat.u-btn-secondary-variant:focus, .u-btn-secondary-variant.u-btn-outline:focus {
+  .u-btn-flat.u-btn-secondary-variant:hover, .u-btn-secondary-variant.u-btn-outline:hover, .u-btn-secondary-variant.u-btn-outline-gray:hover, .u-btn-flat.u-btn-secondary-variant:focus, .u-btn-secondary-variant.u-btn-outline:focus, .u-btn-secondary-variant.u-btn-outline-gray:focus {
     color: #018786; }
 
-.u-btn-flat.u-btn-danger, .u-btn-danger.u-btn-outline {
+.u-btn-flat.u-btn-danger, .u-btn-danger.u-btn-outline, .u-btn-danger.u-btn-outline-gray {
   color: #b00020; }
-  .u-btn-flat.u-btn-danger:hover, .u-btn-danger.u-btn-outline:hover, .u-btn-flat.u-btn-danger:focus, .u-btn-danger.u-btn-outline:focus {
+  .u-btn-flat.u-btn-danger:hover, .u-btn-danger.u-btn-outline:hover, .u-btn-danger.u-btn-outline-gray:hover, .u-btn-flat.u-btn-danger:focus, .u-btn-danger.u-btn-outline:focus, .u-btn-danger.u-btn-outline-gray:focus {
     color: #b00020; }
 
 .u-btn-borderless.u-btn-default {
@@ -8098,12 +8255,17 @@ input.u-text-input {
 .u-list-index {
   color: rgba(0, 0, 0, 0.54); }
 
+.u-list-section-title {
+  color: rgba(0, 0, 0, 0.54); }
+
 .u-card {
   background-color: #fff; }
 
-.u-card .u-text-field-outline label, .u-card .u-text-area-outline label,
-.u-card .u-text-area-outline label {
+.u-card .u-text-field-outline label {
   background: #fff; }
+
+.u-divider {
+  background-color: rgba(0, 0, 0, 0.12); }
 
 .u-dialog-content {
   background-color: #fff; }
@@ -8235,18 +8397,16 @@ input.u-text-input {
   .u-text-field-box.disabled {
     background: rgba(0, 0, 0, 0.02); }
 
-
-.u-text-field-outline label,
-.u-text-area-outline label {
+.u-text-field-outline label {
   background: #f5f5f5; }
 
-.u-text-field-outline:not(.focus):not(.invalid):not(.disabled)::before, .u-text-area-outline:not(.focus):not(.invalid):not(.disabled)::before {
+.u-text-field-outline:not(.focus):not(.invalid):not(.disabled)::before {
   border-color: rgba(0, 0, 0, 0.42); }
 
-.u-text-field-outline:not(.focus):not(.invalid):not(.disabled):hover::before, .u-text-area-outline:not(.focus):not(.invalid):not(.disabled):hover::before {
+.u-text-field-outline:not(.focus):not(.invalid):not(.disabled):hover::before {
   border-color: rgba(0, 0, 0, 0.87); }
 
-.u-text-field-outline.disabled::before, .disabled.u-text-area-outline::before {
+.u-text-field-outline.disabled::before {
   border-color: rgba(0, 0, 0, 0.2); }
 
 .u-search-field {
@@ -8259,14 +8419,41 @@ input.u-text-input {
   color: rgba(0, 0, 0, 0.54); }
 
 .u-text-input::-webkit-input-placeholder,
+.u-text-field-floating-label.empty.u-text-field-no-label .u-text-input::-webkit-input-placeholder,
+.u-text-field-outline.empty.u-text-field-no-label .u-text-input::-webkit-input-placeholder,
+.u-text-field-box.empty.u-text-field-no-label .u-text-input::-webkit-input-placeholder,
+.u-text-input-placeholder,
+.u-text-field-floating-label.empty.u-text-field-no-label
+.u-text-input-placeholder,
+.u-text-field-outline.empty.u-text-field-no-label
+.u-text-input-placeholder,
+.u-text-field-box.empty.u-text-field-no-label
 .u-text-input-placeholder {
   color: rgba(0, 0, 0, 0.42); }
 
 .u-text-input:-ms-input-placeholder,
+.u-text-field-floating-label.empty.u-text-field-no-label .u-text-input:-ms-input-placeholder,
+.u-text-field-outline.empty.u-text-field-no-label .u-text-input:-ms-input-placeholder,
+.u-text-field-box.empty.u-text-field-no-label .u-text-input:-ms-input-placeholder,
+.u-text-input-placeholder,
+.u-text-field-floating-label.empty.u-text-field-no-label
+.u-text-input-placeholder,
+.u-text-field-outline.empty.u-text-field-no-label
+.u-text-input-placeholder,
+.u-text-field-box.empty.u-text-field-no-label
 .u-text-input-placeholder {
   color: rgba(0, 0, 0, 0.42); }
 
 .u-text-input::placeholder,
+.u-text-field-floating-label.empty.u-text-field-no-label .u-text-input::placeholder,
+.u-text-field-outline.empty.u-text-field-no-label .u-text-input::placeholder,
+.u-text-field-box.empty.u-text-field-no-label .u-text-input::placeholder,
+.u-text-input-placeholder,
+.u-text-field-floating-label.empty.u-text-field-no-label
+.u-text-input-placeholder,
+.u-text-field-outline.empty.u-text-field-no-label
+.u-text-input-placeholder,
+.u-text-field-box.empty.u-text-field-no-label
 .u-text-input-placeholder {
   color: rgba(0, 0, 0, 0.42); }
 
@@ -8338,6 +8525,24 @@ a.u-text-high-contrast:hover, a.u-text-high-contrast:focus {
 .progress,
 .preloader-wrapper {
   color: #6200ee; }
+
+.u-datepicker-day,
+.u-datepicker-year-month-button {
+  color: rgba(0, 0, 0, 0.87); }
+
+.u-datepicker-weekday {
+  color: rgba(0, 0, 0, 0.54); }
+
+.u-datepicker-day-outside-month {
+  color: rgba(0, 0, 0, 0.2); }
+
+.u-datepicker-day.active,
+.u-datepicker-year-month-button.active {
+  color: #fff;
+  background-color: #6200ee; }
+
+.u-datepicker-current-day {
+  border: 1px solid rgba(0, 0, 0, 0.54); }
 
 body {
   color: rgba(0, 0, 0, 0.87);
