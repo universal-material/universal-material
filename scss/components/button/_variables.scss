@@ -12,7 +12,7 @@ $u-btn-set-margin: 8px !default;
 $u-btn-border-radius: .25rem !default;
 $u-btn-default-background-light: $white !default;
 $u-btn-default-background-dark: $gray-800 !default;
-$u-btn-borderless-color-light-theme: $text-low-contrast-light-theme !default;
+$u-btn-borderless-color-light-theme: $u-text-low-contrast-light-theme !default;
 $u-btn-borderless-color-dark-theme: $white !default;
 
 $u-floating-action-area-margin: 1.25rem !default;
@@ -44,7 +44,7 @@ $u-btn-icon-margin-end: 8px !default;
 
 $uwp-btn-border-radius: 0 !default;
 $uwp-btn-hover-border-width: $uwp-border-width !default;
-$uwp-btn-active-background-color-light-theme: $color-low-contrast-light-theme !default;
+$uwp-btn-active-background-color-light-theme: $u-color-low-contrast-light-theme !default;
 $uwp-btn-active-background-color-dark-theme: rgba(204, 204, 204, .54) !default;
 $uwp-btn-flat-active-background-color-light-theme: $hover-background-light-theme !default;
 $uwp-btn-flat-active-background-color-dark-theme: $uwp-btn-active-background-color-dark-theme !default;

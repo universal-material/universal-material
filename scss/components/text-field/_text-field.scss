@@ -67,12 +67,19 @@
 .u-text-field-trailing-icon {
   position: absolute;
   bottom: $u-text-field-icon-bottom;
-  width: 1em;
-  height: 1em;
+  width: $u-text-field-icon-size;
+  height: $u-text-field-icon-size;
   margin-bottom: -.5em;
   font-size: $u-text-field-icon-size;
   line-height: 1em;
   text-align: center;
+
+  @if (mixin_exists(buttons-theme)) {
+    .u-btn-borderless {
+      margin-top: -($u-btn-borderless-size - $u-text-field-icon-size) / 2;
+      margin-left: -($u-btn-borderless-size - $u-text-field-icon-size) / 2;
+    }
+  }
 }
 
 .u-text-field-leading-icon {

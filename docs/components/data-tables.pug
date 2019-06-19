@@ -2,153 +2,27 @@ extends ../layout
 
 block content
   h4.u-headline4.chapter-title Data tables
-  .u-card
-    .u-data-table.u-data-table-hover
-      table
-        tbody
-          tr
-            th Nome
-            td Eric Kono
-          tr
-            th Email
-            td eric.kono@impeto.com.br
 
-  h4.u-headline4.chapter-title Data tables
-  .u-card
-    .u-data-table.u-data-table-hover
-      table
-        thead
-          tr
-            th Dessert (100g serving)&#x200E;
-            th.text-end Calories
-            th.text-end Fat (g)&#x200E;
-            th.text-end Carbs(g)&#x200E;
-        tbody
-          tr
-            td Frozen yogurt
-            td.text-end 159
-            td.text-end 6.0
-            td.text-end 24
-          tr
-            td Ice cream sandwich
-            td.text-end 237
-            td.text-end 9.0
-            td.text-end 37
-          tr
-            td Eclair
-            td.text-end 262
-            td.text-end 16.0
-            td.text-end 24
+  h5.u-headline5.article-title Simple tables
+  .example-box
+    .example-box-header
+      include data-tables/simple-table.html
 
-  .u-card
-    .u-data-table.u-data-table-hover
-      .u-toolbar
-        .u-toolbar-row
-          .u-toolbar-title Nutrients
-          .u-toolbar-end
-            .u-toolbar-actions
-              button.u-toolbar-action.u-btn-borderless.u-btn-default(disabled)
-                i.u-btn-icon.mdi.mdi-phone
+    pre
+      code.html
 
-              button.u-toolbar-action.u-btn-borderless.u-btn-default
-                i.u-btn-icon.mdi.mdi-dots-vertical
-      table
-        thead
-          tr
-            tr
-              th Dessert (100g serving)&#x200E;
-              th.text-end Calories
-              th.text-end Fat (g)&#x200E;
-              th.text-end Carbs(g)&#x200E;
-          tbody
-            tr
-              td Frozen yogurt
-              td.text-end 159
-              td.text-end 6.0
-              td.text-end 24
-            tr
-              td Ice cream sandwich
-              td.text-end 237
-              td.text-end 9.0
-              td.text-end 37
-            tr
-              td Eclair
-              td.text-end 262
-              td.text-end 16.0
-              td.text-end 24
+  h5.u-headline5.article-title Table header
+  .example-box
+    .example-box-header
+      include data-tables/table-header.html
 
+    pre
+      code.html
 
-  .u-card
-    .u-data-table.u-data-table-hover
-      .u-data-table-header
-        .u-toolbar
-          .u-toolbar-row
-            .u-toolbar-title Nutrients
-            .u-toolbar-end
-              .u-toolbar-actions
-                button.u-toolbar-action.u-btn-borderless.u-btn-default(disabled)
-                  i.u-btn-icon.mdi.mdi-phone
+  h5.u-headline5.article-title Table footer
+  .example-box
+    .example-box-header
+      include data-tables/table-footer.html
 
-                button.u-toolbar-action.u-btn-borderless.u-btn-default
-                  i.u-btn-icon.mdi.mdi-dots-vertical
-      .u-data-table-content
-        table
-          thead
-            tr
-              th.text-nowrap Dessert (100g serving)&#x200E;
-              th Type
-              th.text-end Calories
-              th.text-end Fat (g)&#x200E;
-              th.text-end Carbs(g)&#x200E;
-          tbody
-            tr
-              td.text-nowrap Frozen yogurt
-              td.text-nowrap.u-dropdown
-                button.u-btn-flat.u-btn-default.u-dropdown-toggle
-                  .u-dropdown-toggle-label Ice cream
-                  .u-dropdown-toggle-icon
-
-                .u-dropdown-menu.down-right.fit-width
-                  .u-dropdown-content
-                    .u-dropdown-item Ice cream
-                    .u-dropdown-item Pastry
-                    .u-dropdown-item Other
-
-              td.text-end 159
-              td.text-end 6.0
-              td.text-end 24
-            tr
-              td.text-nowrap Ice cream sandwich
-              td.text-nowrap.u-dropdown
-                button.u-btn-flat.u-btn-default.u-dropdown-toggle
-                  .u-dropdown-toggle-label Ice cream
-                  .u-dropdown-toggle-icon
-
-                .u-dropdown-menu.up-right.fit-width
-                  .u-dropdown-content
-                    .u-dropdown-item Ice cream
-                    .u-dropdown-item Pastry
-                    .u-dropdown-item Other
-              td.text-end 237
-              td.text-end 9.0
-              td.text-end 37
-            tr
-              td.text-nowrap Eclair
-              td.text-nowrap.u-dropdown
-                button.u-btn-flat.u-btn-default.u-dropdown-toggle
-                  .u-dropdown-toggle-label Pastry
-                  .u-dropdown-toggle-icon
-
-                .u-dropdown-menu.up-right.fit-width
-                  .u-dropdown-content
-                    .u-dropdown-item Ice cream
-                    .u-dropdown-item Pastry
-                    .u-dropdown-item Other
-              td.text-end 262
-              td.text-end 16.0
-              td.text-end 24
-      .u-data-table-footer
-        button.u-btn-borderless.u-btn-default
-          i.u-btn-icon.mdi.mdi-chevron-left
-        button.u-btn-borderless.u-btn-default
-          i.u-btn-icon.mdi.mdi-chevron-right
+    pre
+      code.html

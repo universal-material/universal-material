@@ -6,45 +6,32 @@ block content
   h5.u-headline5.article-title Determinate
   .example-box
     .example-box-header
-      .progress.show
-        .progress-indicator(style="width: 30%")
+      include progress/determinate-progress.html
+
     pre
       code.html
-        = '<div class="progress show">\n'
-        = '  <div style="width: 30%" class="progress-indicator"></div>\n'
-        = '</div>'
 
   h5.u-headline5.article-title Indeterminate
   .example-box
     .example-box-header
-      .progress.indeterminate.show
-        .progress-indicator
+      include progress/indeterminate-progress.html
+
     pre
       code.html
-        = '<div class="progress indeterminate show">\n'
-        = '  <div class="progress-indicator"></div>\n'
-        = '</div>'
 
   h5.u-headline5.article-title Changing color
   p Just set progress color and the magic is done
   .example-box
     .example-box-header
-      .progress.indeterminate.show.text-secondary
-        .progress-indicator
+      include progress/progress-color.html
+
     pre
       code.html
-        = '<div class="progress indeterminate show text-secondary">\n'
-        = '  <div class="progress-indicator"></div>\n'
-        = '</div>'
 
   h5.u-headline5.article-title Circular progress
   .example-box
-    .example-box-header.text-center
-      .preloader-wrapper
-        .spinner-layer
-          .circle-clipper.left
-            .circle
-          .gap-patch
-            .circle
-          .circle-clipper.right
-            .circle
+    .example-box-header
+      include progress/circular-progress.html
+
+    pre
+      code.html

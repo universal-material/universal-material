@@ -1,0 +1,14 @@
+@import "../../colors";
+
+//Progress
+$u-progress-height: .25rem !default;
+$u-progress-border-radius: .0625rem !default;
+$u-progress-border-width: .0625rem !default;
+$u-progress-indeterminate-animation-duration: 2100ms !default;
+
+//Spinner
+$u-spinner-color: $u-primary-color !default;
+$u-spinner-height: 3rem !default;
+$u-spinner-height-small: $u-spinner-height * .75 !default;
+$u-spinner-height-x-small: $u-spinner-height * .5 !default;
+$u-spinner-height-big: $u-spinner-height / 3 * 4 !default;

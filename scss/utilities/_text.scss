@@ -38,12 +38,12 @@
 }
 
 @mixin text-theme($theme-colors, $dark-theme) {
-  $text-low-contrast: $text-low-contrast-light-theme;
-  $text-high-contrast: $text-high-contrast-light-theme;
+  $text-low-contrast: $u-text-low-contrast-light-theme;
+  $text-high-contrast: $u-text-high-contrast-light-theme;
 
   @if ($dark-theme) {
-    $text-low-contrast: $text-low-contrast-dark-theme;
-    $text-high-contrast: $text-high-contrast-dark-theme;
+    $text-low-contrast: $u-text-low-contrast-dark-theme;
+    $text-high-contrast: $u-text-high-contrast-dark-theme;
   }
 
   @include text-emphasis-variant(".u-text-primary", map-get($theme-colors, "primary"));

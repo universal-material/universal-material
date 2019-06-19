@@ -4,7 +4,7 @@
     --#{$color}: #{$value};
   }
 
-  @each $color, $value in $theme-colors {
+  @each $color, $value in $u-theme-colors {
     --#{$color}: #{$value};
   }
 

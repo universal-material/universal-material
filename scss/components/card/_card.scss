@@ -63,11 +63,12 @@
 
 .u-card-actions {
   display: flex;
+  justify-content: flex-end;
   padding: $u-card-actions-padding;
+}
 
-  .u-btn + .u-btn {
-    margin-left: $u-card-actions-padding;
-  }
+.u-card-action + .u-card-action {
+  margin-left: $u-card-actions-padding;
 }
 
 @mixin card-theme($theme) {

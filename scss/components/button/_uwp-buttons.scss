@@ -1,11 +1,11 @@
 @mixin uwp-button($dark-theme) {
 
-  $btn-active-background-color: $uwp-btn-active-background-color-light-theme;
-  $btn-flat-active-background-color: $uwp-btn-flat-active-background-color-light-theme;
+  $u-btn-active-background-color: $uwp-btn-active-background-color-light-theme;
+  $u-btn-flat-active-background-color: $uwp-btn-flat-active-background-color-light-theme;
 
   @if ($dark-theme) {
-    $btn-active-background-color: $uwp-btn-active-background-color-dark-theme;
-    $btn-flat-active-background-color: $uwp-btn-flat-active-background-color-dark-theme;
+    $u-btn-active-background-color: $uwp-btn-active-background-color-dark-theme;
+    $u-btn-flat-active-background-color: $uwp-btn-flat-active-background-color-dark-theme;
   }
 
   .u-btn {
@@ -21,7 +21,7 @@
     //}
 
     &:hover:not(:disabled):not(.disabled) {
-      box-shadow: 0 0 0 $uwp-btn-hover-border-width $btn-active-background-color inset;
+      box-shadow: 0 0 0 $uwp-btn-hover-border-width $u-btn-active-background-color inset;
     }
   }
 
@@ -34,13 +34,13 @@
 
   .u-btn-outline {
     &:hover:not(:disabled):not(.disabled) {
-      box-shadow: 0 0 0 $uwp-btn-hover-border-width - $btn-outline-border-width currentColor inset;
+      box-shadow: 0 0 0 $uwp-btn-hover-border-width - $u-btn-outline-border-width currentColor inset;
     }
   }
 
   .u-btn-outline-gray-border {
     &:hover:not(:disabled):not(.disabled) {
-      box-shadow: 0 0 0 $uwp-btn-hover-border-width $btn-active-background-color inset;
+      box-shadow: 0 0 0 $uwp-btn-hover-border-width $u-btn-active-background-color inset;
     }
   }
 }

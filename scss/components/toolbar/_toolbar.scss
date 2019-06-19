@@ -7,7 +7,7 @@
 
 .u-toolbar {
   z-index: 1;
-  width: 100%;
+  display: block;
   font-family: $u-font-family-base;
 
   &,
@@ -46,11 +46,6 @@
   text-align: start;
 }
 
-.u-toolbar-icon,
-.u-toolbar-action {
-  font-size: $u-toolbar-action-icon-size;
-}
-
 .u-toolbar-navigation {
   &,
   &.u-btn-borderless {
@@ -71,31 +66,17 @@
 .u-toolbar-action {
   text-align: center;
 
-  &,
-  &.u-btn-borderless {
-    width: $u-toolbar-action-size;
-    height: $u-toolbar-action-size;
-
-    + .u-toolbar-action {
-      margin-left: $u-toolbar-action-margin;
-    }
+  + .u-toolbar-action {
+    margin-left: $u-toolbar-action-margin;
   }
 }
 
 .u-toolbar-fixed {
   position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
   z-index: $zindex-toolbar-fixed;
-}
-
-.u-toolbar-layout {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-
-  &,
-  * {
-    box-sizing: border-box;
-  }
 }
 
 .dense-layout {
@@ -119,12 +100,10 @@
 
 @mixin toolbar-theme($theme-colors, $dark-theme) {
 
-  $color: $body-color-light-theme;
-  $button-borderless-color: $u-toolbar-icon-color-light-theme;
+  $color: $u-body-color-light-theme;
 
   @if ($dark-theme) {
-    $color: $body-color-dark-theme;
-    $button-borderless-color: $u-toolbar-icon-color-dark-theme;
+    $color: $u-body-color-dark-theme;
   }
 
   @include add-to-parent-or-class("toolbar") {
@@ -141,7 +120,6 @@
 
     .u-toolbar-primary {
       @include toolbar-variant($theme-colors, $u-toolbar-primary);
-      //@include button-borderless-theme((), $dark-background);
     }
   }
 }

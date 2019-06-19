@@ -3,41 +3,41 @@
 @import "../../mixins";
 
 .u-badge {
-  @include size($badge-size);
+  @include size($u-badge-size);
 
   position: absolute;
-  font-size: $badge-font-size;
-  font-weight: $badge-font-weight;
-  line-height: $badge-size;
-  color: get-text-color-by-background-color($secondary-color);
+  font-size: $u-badge-font-size;
+  font-weight: $u-badge-font-weight;
+  line-height: $u-badge-size;
+  color: get-text-color-by-background-color($u-secondary-color);
   text-align: center;
-  background-color: $secondary-color;
+  background-color: $u-secondary-color;
   border-radius: 50%;
 }
 
 .u-badge-top-left {
-  top: $badge-position;
-  left: $badge-position;
+  top: $u-badge-position;
+  left: $u-badge-position;
 }
 
 .u-badge-top-right {
-  top: $badge-position;
-  right: $badge-position;
+  top: $u-badge-position;
+  right: $u-badge-position;
 }
 
 .u-badge-bottom-left {
-  bottom: $badge-position;
-  left: $badge-position;
+  bottom: $u-badge-position;
+  left: $u-badge-position;
 }
 
 .u-badge-bottom-right {
-  right: $badge-position;
-  bottom: $badge-position;
+  right: $u-badge-position;
+  bottom: $u-badge-position;
 }
 
 @if (mixin_exists(buttons-theme)) {
 
-  $btn-badge-position: $badge-position + ($u-btn-borderless-size - $u-btn-icon-size) / 2;
+  $btn-badge-position: $u-badge-position + ($u-btn-borderless-size - $u-btn-icon-size) / 2;
 
   .u-btn-borderless {
     .u-badge-top-left {

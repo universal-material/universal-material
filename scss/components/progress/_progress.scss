@@ -1,23 +1,25 @@
-.progress-indicator {
+@import "variables";
+
+.u-progress-indicator {
   position: relative;
   width: 0;
-  height: $progress-height;
+  height: $u-progress-height;
   transition: width 250ms;
 }
 
-.progress {
+.u-progress {
   position: relative;
   height: 0;
   overflow: hidden;
-  border-radius: $progress-border-radius;
+  border-radius: $u-progress-border-radius;
   transition: height 350ms;
 
   &.show {
-    height: $progress-height;
+    height: $u-progress-height;
   }
 
   &.indeterminate {
-    .progress-indicator {
+    .u-progress-indicator {
       width: 100%;
       background-color: transparent;
 
@@ -28,7 +30,7 @@
         bottom: 0;
         width: 20%;
         content: "";
-        animation-duration: $progress-indeterminate-animation-duration;
+        animation-duration: $u-progress-indeterminate-animation-duration;
         animation-timing-function: linear;
         animation-iteration-count: infinite;
       }
@@ -57,18 +59,18 @@
   }
 }
 
-.progress::before,
-.progress-indicator,
-.progress.indeterminate .progress-indicator::after,
-.progress.indeterminate .progress-indicator::before {
+.u-progress::before,
+.u-progress-indicator,
+.u-progress.indeterminate .u-progress-indicator::after,
+.u-progress.indeterminate .u-progress-indicator::before {
   background-color: currentColor;
 }
 
 .preloader-wrapper {
   position: relative;
   display: inline-block;
-  width: $spinner-height;
-  height: $spinner-height;
+  width: $u-spinner-height;
+  height: $u-spinner-height;
   animation: container-rotate 1568ms linear infinite;
 
   &,
@@ -77,18 +79,18 @@
   }
 
   &.small {
-    width: $spinner-height-small;
-    height: $spinner-height-small;
+    width: $u-spinner-height-small;
+    height: $u-spinner-height-small;
   }
 
   &.x-small {
-    width: $spinner-height-x-small;
-    height: $spinner-height-x-small;
+    width: $u-spinner-height-x-small;
+    height: $u-spinner-height-x-small;
   }
 
   &.big {
-    width: $spinner-height-big;
-    height: $spinner-height-big;
+    width: $u-spinner-height-big;
+    height: $u-spinner-height-big;
   }
 }
 
@@ -272,7 +274,7 @@
 @mixin progress-theme($theme-colors) {
   $primary-color: map-get($theme-colors, "primary");
 
-  .progress,
+  .u-progress,
   .preloader-wrapper {
     color: $primary-color;
   }

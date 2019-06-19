@@ -219,12 +219,12 @@
 @mixin list-theme($dark-theme) {
   $color: $u-list-item-color-light-theme;
   $icon-color: $u-list-icon-color-light-theme;
-  $section-color: $text-low-contrast-light-theme;
+  $section-color: $u-text-low-contrast-light-theme;
 
   @if ($dark-theme) {
     $color: $u-list-item-color-dark-theme;
     $icon-color: $u-list-icon-color-dark-theme;
-    $section-color: $text-low-contrast-dark-theme;
+    $section-color: $u-text-low-contrast-dark-theme;
   }
 
   .u-list-item {

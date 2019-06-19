@@ -11,19 +11,19 @@ $u-dropdown-item-padding: 16px !default;
 $u-dropdown-item-focus-background-opacity: .12 !default;
 $u-dropdown-item-font-size: 1rem !default;
 
-$u-dropdown-item-color-light-theme: $body-color-light-theme !default;
-$u-dropdown-item-color-dark-theme: $body-color-dark-theme !default;
+$u-dropdown-item-color-light-theme: $u-body-color-light-theme !default;
+$u-dropdown-item-color-dark-theme: $u-body-color-dark-theme !default;
 
 $u-dropdown-in-data-table-bg-light-theme: #fafafa !default;
 $u-dropdown-in-data-table-bg-dark-theme: $gray-700 !default;
 
 $u-dropdown-in-data-table-toggle-icon-size: 22px !default;
 $u-dropdown-icon-size: .2em !default;
-$u-dropdown-icon-color-light-theme: $color-low-contrast-light-theme !default;
-$u-dropdown-icon-color-dark-theme: $color-low-contrast-dark-theme !default;
+$u-dropdown-icon-color-light-theme: $u-color-low-contrast-light-theme !default;
+$u-dropdown-icon-color-dark-theme: $u-color-low-contrast-dark-theme !default;
 
 $uwp-dropdown-border-width: .0625rem !default;
-$uwp-dropdown-border-color-light-theme: $base-semi-transparent-color-light-theme !default;
+$uwp-dropdown-border-color-light-theme: $u-base-semi-transparent-color-light-theme !default;
 $uwp-dropdown-border-color-dark-theme: rgba(204, 204, 204, .54) !default;
 
 $u-dropdown-item-dense-height: 2rem !default;

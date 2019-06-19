@@ -1,13 +1,13 @@
 @import "variables";
 @import "mixins";
-
+//
 @import "bootstrap-imports";
 @import "reboot";
 
 @import "universal-material/scaffolding";
 @import "typography/typography";
 @import "grid/grid";
-@import "universal-material/elevation";
+@import "utilities/elevation";
 
 @import "components/toolbar/toolbar";
 @import "components/button/buttons";
@@ -21,13 +21,13 @@
 @import "components/card/card";
 @import "components/dialog/dialog";
 @import "components/navigation-drawer/navigation-drawer";
-@import "universal-material/expansion-panel";
+@import "components/expansion-panel/expansion-panel";
 @import "components/dropdown/dropdown";
 @import "components/steppers/steppers";
 @import "components/tabs/tab";
 @import "components/data-table/data-table";
 @import "components/list/list";
-@import "universal-material/progress";
+@import "components/progress/progress";
 @import "components/sidebar/sidebar";
 @import "components/snackbar/snackbar";
 @import "components/text-field/text-field";
@@ -38,7 +38,7 @@
 //Utilities
 @import "utilities";
 
-$theme:(colors: $theme-colors, dark: $default-theme-dark, uwp-style: $default-uwp-style);
+$theme:(colors: $u-theme-colors, dark: $u-default-theme-dark, uwp-style: $u-default-uwp-style);
 
 @include create-theme($theme);
 @include create-dense-layout();

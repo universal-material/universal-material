@@ -3,31 +3,26 @@ extends ../layout
 block content
   h4.u-headline4.chapter-title Selection controls
 
-  div
-    label.u-checkbox
-      input(type="checkbox")
-      span.u-selection-control
-        span.u-check-indicator
-      span.u-selection-control-label Checkbox
-  div
-    label.u-radio
-      input(type="radio", name="radio")
-      span.u-selection-control
-        span.u-check-indicator
-      span.u-selection-control-label Radio A
-    label.u-radio
-      input(type="radio", name="radio")
-      span.u-selection-control
-        span.u-check-indicator
-      span.u-selection-control-label Radio B
-    label.u-radio
-      input(type="radio", name="radio")
-      span.u-selection-control
-        span.u-check-indicator
-      span.u-selection-control-label Radio C
-  div
-    label.u-switch
-      input(type="checkbox")
-      span.u-selection-control
-        span.u-check-indicator
-      span.u-selection-control-label Switch
+  h5.u-headline5.article-title Checkbox
+  .example-box
+    .example-box-header
+      include selection-controls/checkbox.html
+
+    pre
+      code.html
+
+  h5.u-headline5.article-title Radio
+  .example-box
+    .example-box-header
+      include selection-controls/radio-button.html
+
+    pre
+      code.html
+
+  h5.u-headline5.article-title Switch
+  .example-box
+    .example-box-header
+      include selection-controls/switch.html
+
+    pre
+      code.html

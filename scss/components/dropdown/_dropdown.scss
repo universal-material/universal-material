@@ -5,7 +5,7 @@
 @import "../../mixins";
 
 .u-dropdown-menu {
-  @include elevate("2dp");
+  @include u-elevation(2);
 
   position: absolute;
   z-index: $zindex-dropdown;
@@ -161,6 +161,7 @@
   }
 
   .u-dropdown-menu {
+    color: $u-dropdown-item-color-light-theme;
     background: $background;
   }
 

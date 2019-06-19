@@ -11,11 +11,11 @@ $step-number-font-size: .75rem !default;
 $step-circle-size: $base-icon-size !default;
 $step-circle-default-background: rgba(0, 0, 0, .38) !default;
 $step-circle-default-text-color: #fff !default;
-$step-circle-active-background: $primary-color !default;
-$step-circle-active-text-color: get-text-color-by-background-color($step-circle-active-background, $text-low-contrast-light-theme) !default;
+$step-circle-active-background: $u-primary-color !default;
+$step-circle-active-text-color: get-text-color-by-background-color($step-circle-active-background, $u-text-low-contrast-light-theme) !default;
 
 $step-label-margin: 1rem !default;
-$step-label-disabled-color: $text-low-contrast-light-theme !default;
+$step-label-disabled-color: $u-text-low-contrast-light-theme !default;
 $step-label-font-weight: $font-medium !default;
 
 $step-content-margin: .75rem !default;

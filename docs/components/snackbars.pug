@@ -2,13 +2,25 @@ extends ../layout
 
 block content
   h4.u-headline4.chapter-title Snackbars
-  .u-text-field-container
-    .u-text-field.u-text-field-box
-      input.u-text-input#snackbarText
-      label Snackbar text
-  .u-text-field-container
-    .u-text-field.u-text-field-box
-      input.u-text-input#snackbarButtonText
-      label Snackbar button text
-  .text-end
-    button.u-btn-raised.u-btn-primary(onclick="showSnackbar()") Show snackbar
+
+  h5.u-headline5.article-title Example
+  .example-box
+    .example-box-header
+      include snackbar/example.html
+
+    pre
+      code.html
+block scripts
+  script.
+    function showSnackbar() {
+
+      const text = document.getElementById('snackbarText').value;
+      const buttonText = document.getElementById('snackbarButtonText').value;
+
+      umd.Snackbar.show(text, umd.SnackbarDuration.long, buttonText ? {
+        text: buttonText,
+        action: function () {
+          alert('Snackbar action!')
+        }
+      } : null);
+    }

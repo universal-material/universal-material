@@ -5,6 +5,7 @@
 //Inspiration: https://codepen.io/abottega/pen/vNzQMo/
 
 .u-checkbox {
+  box-sizing: border-box;
   display: inline-flex;
   align-items: center;
   margin-bottom: 0;
@@ -22,6 +23,11 @@
     height: $u-checkbox-click-size;
     padding: ($u-checkbox-click-size - $u-checkbox-size) / 2;
     border-radius: 50%;
+
+    &,
+    & * {
+      box-sizing: border-box;
+    }
 
     &::after {
       display: inline-block;

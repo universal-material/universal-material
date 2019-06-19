@@ -3,43 +3,10 @@ extends ../layout
 block content
   h4.u-headline4.chapter-title Tabs
 
-  h5.u-headline5.article-title Button colors
+  h5.u-headline5.article-title
   .example-box
     .example-box-header
-      .u-toolbar.example-toolbar
-        .u-toolbar-row
-          .u-toolbar-navigation.u-btn-borderless.u-btn-default
-            i.u-btn-icon.mdi.mdi-menu
-
-          .u-toolbar-title Page title
-          .u-toolbar-actions
-            .u-btn-borderless.u-btn-default
-              i.u-btn-icon.mdi.mdi-magnify
-
-            .u-btn-borderless.u-btn-default
-              i.u-btn-icon.mdi.mdi-phone
-
-            .u-btn-borderless.u-btn-default
-              i.u-btn-icon.mdi.mdi-dots-vertical
-        .u-tab-bar.u-toolbar-icon-padding
-          .u-tab.active
-            .u-tab-content
-              .u-tab-text Item one
-          .u-tab
-            .u-tab-content
-              .u-tab-text Item two
-          .u-tab
-            .u-tab-content
-              .u-tab-text Item three
-          .u-tab
-            .u-tab-content
-              .u-tab-text Item four Item four Item four
-          .u-tab-indicator
+      include tabs/example.html
 
     pre
       code.html
-        = '<button class="u-btn-solid u-btn-default">Default</button>\n'
-        = '<button class="u-btn-solid u-btn-primary">Primary</button>\n'
-        = '<button class="u-btn-solid u-btn-secondary">Secondary</button>\n'
-        = '<button class="u-btn-solid u-btn-danger">Danger</button>\n'
-        = '<button class="u-btn-solid u-btn-primary" disabled>Disabled</button>'

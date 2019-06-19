@@ -1,13 +1,24 @@
 @import "../../scss/variables";
+@import "../../scss/mixins";
 
-.u-drawer {
+.u-drawer-content {
   height: 100%;
   overflow: auto;
   border-right: 1px solid rgba(0, 0, 0, .12);
+
+  .u-toolbar {
+    border-bottom: 1px solid rgba(0, 0, 0, .12);
+  }
 }
 
-.u-drawer .u-toolbar {
-  border-bottom: 1px solid rgba(0, 0, 0, .12);
+#main-content {
+  padding-top: 56px;
+}
+
+@include media-breakpoint-up(lg) {
+  #app-bar {
+    left: 256px;
+  }
 }
 
 .example-box {
@@ -17,9 +28,9 @@
   overflow: auto;
   background: $gray-300;
 
-  .u-toolbar {
-    background: $gray-300;
-  }
+  //.u-toolbar {
+  //  background: $gray-300;
+  //}
 
 
   .u-floating-action-area {
@@ -84,7 +95,7 @@
   margin-bottom: 48px;
   font-size: 2rem;
   font-weight: 400;
-  color: $primary-color;
+  color: $u-primary-color;
 }
 
 .article-title {

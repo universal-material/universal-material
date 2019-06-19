@@ -1,141 +1,60 @@
 extends ../layout
 
 block content
-  .u-container
-    h4.u-headline4.chapter-title Buttons
+  h4.u-headline4.chapter-title Buttons
 
-    h5.u-headline5.article-title Button colors
-    .example-box
-      .example-box-header
-        button.u-btn-solid.u-btn-default Default
-        button.u-btn-solid.u-btn-primary Primary
-        button.u-btn-solid.u-btn-primary-variant Primary
-        button.u-btn-solid.u-btn-secondary Secondary
-        button.u-btn-solid.u-btn-secondary-variant Secondary
-        button.u-btn-solid.u-btn-danger Danger
-        button.u-btn-solid.u-btn-primary(disabled) Disabled
+  h5.u-headline5.article-title Button colors
+  .example-box
+    .example-box-header
+      include buttons/button-colors.html
 
-      pre
-        code.html
-         = '<button class="u-btn-solid u-btn-default">Default</button>\n'
-         = '<button class="u-btn-solid u-btn-primary">Primary</button>\n'
-         = '<button class="u-btn-solid u-btn-secondary">Secondary</button>\n'
-         = '<button class="u-btn-solid u-btn-danger">Danger</button>\n'
-         = '<button class="u-btn-solid u-btn-primary" disabled>Disabled</button>'
+    pre
+      code.html
 
-    h5.u-headline5.article-title Solid buttons
-    .example-box
-      .example-box-header
-        button.u-btn-solid.u-btn-default Solid button
-        button.u-btn-solid.u-btn-default
-          i.u-btn-icon.mdi.mdi-heart
-          | Solid button
-        button.u-btn-solid.u-btn-default(disabled) Solid button
+  h5.u-headline5.article-title Solid buttons
+  .example-box
+    .example-box-header
+      include buttons/solid-buttons.html
 
-      pre
-        code.html
-          = '<button class="u-btn-solid u-btn-default">Solid button</button>\n'
-          = '<button class="u-btn-solid u-btn-default">\n'
-          = '  <i class="u-btn-icon mdi mdi-heart"></i>Solid button\n'
-          = '</button>\n'
-          = '<button class="u-btn-solid u-btn-default" disabled>Solid button</button>'
+    pre
+      code.html
 
-    h5.u-headline5.article-title Raised buttons
-    .example-box
-      .example-box-header
-        button.u-btn-raised.u-btn-default Raised button
-        button.u-btn-raised.u-btn-default
-          i.u-btn-icon.mdi.mdi-heart
-          | Raised button
-        button.u-btn-raised.u-btn-default(disabled) Raised button
+  h5.u-headline5.article-title Raised buttons
+  .example-box
+    .example-box-header
+      include buttons/raised-buttons.html
 
-      pre
-        code.html
-          = '<button class="u-btn-raised u-btn-default">Raised button</button>\n'
-          = '<button class="u-btn-raised u-btn-default">\n'
-          = '  <i class="u-btn-icon mdi mdi-heart"></i>Raised button\n'
-          = '</button>\n'
-          = '<button class="u-btn-raised u-btn-default" disabled>Raised button</button>'
+    pre
+      code.html
 
-    h5.u-headline5.article-title Flat buttons
-    .example-box
-      .example-box-header
-        button.u-btn-flat.u-btn-default Flat button
-        button.u-btn-flat.u-btn-default
-          i.u-btn-icon.mdi.mdi-heart
-          | Flat button
-        button.u-btn-flat.u-btn-default(disabled) Flat button
+  h5.u-headline5.article-title Flat buttons
+  .example-box
+    .example-box-header
+      include buttons/flat-buttons.html
 
-      pre
-        code.html
-          = '<button class="u-btn-flat u-btn-default">Flat button</button>\n'
-          = '<button class="u-btn-flat u-btn-default">\n'
-          = '  <i class="u-btn-icon mdi mdi-heart"></i>Flat button\n'
-          = '</button>\n'
-          = '<button class="u-btn-flat u-btn-default" disabled>Flat button</button>'
+    pre
+      code.html
 
-    h5.u-headline5.article-title Outline buttons
-    .example-box
-      .example-box-header
-        button.u-btn-outline.u-btn-default Outline button
-        button.u-btn-outline.u-btn-default
-          i.u-btn-icon.mdi.mdi-heart
-          | Outline button
-        button.u-btn-outline.u-btn-default(disabled) Outline button
+  h5.u-headline5.article-title Outline buttons
+  .example-box
+    .example-box-header
+      include buttons/outline-buttons.html
 
-      pre
-        code.html
-          = '<button class="u-btn-outline u-btn-default">Outline button</button>\n'
-          = '<button class="u-btn-outline u-btn-default">\n'
-          = '  <i class="u-btn-icon mdi mdi-heart"></i>Outline button\n'
-          = '</button>\n'
-          = '<button class="u-btn-outline u-btn-default" disabled>Outline button</button>'
+    pre
+      code.html
 
-    h5.u-headline5.article-title Outline buttons (gray border)
-    .example-box
-      .example-box-header
-        button.u-btn-outline-gray.u-btn-default Outline button
-        button.u-btn-outline-gray.u-btn-default
-          i.u-btn-icon.mdi.mdi-heart
-          | Outline button
-        button.u-btn-outline-gray.u-btn-default(disabled) Outline button
+  h5.u-headline5.article-title Outline buttons (gray border)
+  .example-box
+    .example-box-header
+      include buttons/outline-buttons-gray.html
 
-      pre
-        code.html
-          = '<button class="u-btn-outline-gray u-btn-default">Outline button</button>\n'
-          = '<button class="u-btn-outline-gray u-btn-default">\n'
-          = '  <i class="u-btn-icon mdi mdi-heart"></i>Outline button\n'
-          = '</button>\n'
-          = '<button class="u-btn-outline-gray u-btn-default" disabled>Outline button</button>'
+    pre
+      code.html
 
-    h5.u-headline5.article-title Borderless buttons
-    .example-box
-      .example-box-header
-        button.u-btn-borderless.u-btn-default
-          i.u-btn-icon.mdi.mdi-heart
-        button.u-btn-borderless.u-btn-primary
-          i.u-btn-icon.mdi.mdi-heart
-        button.u-btn-borderless.u-btn-secondary
-          i.u-btn-icon.mdi.mdi-heart
-        button.u-btn-borderless.u-btn-danger
-          i.u-btn-icon.mdi.mdi-heart
-        button.u-btn-borderless.u-btn-primary(disabled)
-          i.u-btn-icon.mdi.mdi-heart
+  h5.u-headline5.article-title Borderless buttons
+  .example-box
+    .example-box-header
+      include buttons/borderless-buttons.html
 
-      pre
-        code.html
-          = '<button class="u-btn-borderless u-btn-default">\n'
-          = '  <i class="u-btn-icon mdi mdi-heart"></i>\n'
-          = '</button>\n'
-          = '<button class="u-btn-borderless u-btn-primary">\n'
-          = '  <i class="u-btn-icon mdi mdi-heart"></i>\n'
-          = '</button>\n'
-          = '<button class="u-btn-borderless u-btn-secondary">\n'
-          = '  <i class="u-btn-icon mdi mdi-heart"></i>\n'
-          = '</button>\n'
-          = '<button class="u-btn-borderless u-btn-danger">\n'
-          = '  <i class="u-btn-icon mdi mdi-heart"></i>\n'
-          = '</button>\n'
-          = '<button class="u-btn-borderless u-btn-primary" disabled>\n'
-          = '  <i class="u-btn-icon mdi mdi-heart"></i>\n'
-          = '</button>'
+    pre
+      code.html

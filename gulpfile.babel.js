@@ -1,7 +1,6 @@
 import autoprefixer from 'gulp-autoprefixer';
 import gulp from 'gulp';
 import concat from 'gulp-concat';
-import debug from 'gulp-debug';
 import insert from 'gulp-insert';
 import notify from "gulp-notify";
 import pug from 'gulp-pug';
@@ -14,7 +13,6 @@ import uglify from 'gulp-uglify';
 import rollupTypescript from 'rollup-plugin-typescript2';
 const rollup = require('rollup');
 
-const tsProjectTypings = ts.createProject('./js/src/tsconfig.types.json');
 const tsProjectBrowser = ts.createProject('./js/src/tsconfig.browser.json', {outFile: 'universal-material.js'});
 const tsProjectBrowserUglify = ts.createProject('./js/src/tsconfig.browser.json', {outFile: 'universal-material.min.js'});
 
@@ -88,18 +86,10 @@ gulp.task('pug:docs', function () {
 gulp.task("sass", ["sass:normal", "sass:compressed","sass-no-reboot:normal", "sass-no-reboot:compressed"]);
 
 gulp.task('scripts', [
-  'ts-compile-typings',
   'js-compile-bundle',
   'js-compile-browser',
   'js-compile-browser-uglify'
 ]);
-
-gulp.task('ts-compile-typings', function () {
-  const tsResult = gulp.src('./js/src/*.ts')
-    .pipe(debug({title: 'typings: '}))
-    .pipe(tsProjectTypings());
-    tsResult.dts.pipe(gulp.dest("./js/dist/typings"))
-});
 
 gulp.task('js-compile-bundle', () => {
   return rollup.rollup({

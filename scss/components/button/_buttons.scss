@@ -1,12 +1,12 @@
 @import "variables";
 @import "../../typography/variables";
-@import "../../elevation";
 @import "../../mixins";
 @import "uwp-buttons";
 @import "button-base";
 
 .u-btn {
   @include u-btn;
+  transition: color 150ms ease-in-out, background-color 150ms ease-in-out, box-shadow 150ms ease-in-out;
 }
 
 .u-btn-set {
@@ -30,10 +30,10 @@
 .u-btn-raised {
   @extend .u-btn-solid;
 
-  @include elevate("2dp");
+  @include u-elevation(2);
 
   &:active {
-    @include elevate("4dp");
+    @include u-elevation(4);
   }
 
   transition: box-shadow 250ms;
@@ -189,7 +189,7 @@
 
   $u-btn-disabled-color: $u-btn-disabled-color-light-theme;
   $u-btn-disabled-background-color: $u-btn-disabled-background-light-theme;
-  $u-btn-flat-default-color: $body-color-light-theme;
+  $u-btn-flat-default-color: $u-body-color-light-theme;
   $u-btn-borderless-color: $u-btn-borderless-color-light-theme;
   $u-btn-outline-gray-border-color: $u-btn-outline-gray-border-color-light-theme;
 
@@ -197,7 +197,7 @@
     $buttons-colors: map-merge($buttons-colors, (default: $u-btn-default-background-dark));
     $u-btn-disabled-color: $u-btn-disabled-color-dark-theme;
     $u-btn-disabled-background-color: $u-btn-disabled-background-dark-theme;
-    $u-btn-flat-default-color: $body-color-dark-theme;
+    $u-btn-flat-default-color: $u-body-color-dark-theme;
     $u-btn-borderless-color: $u-btn-borderless-color-dark-theme;
     $u-btn-outline-gray-border-color: $u-btn-outline-gray-border-color-dark-theme;
   }

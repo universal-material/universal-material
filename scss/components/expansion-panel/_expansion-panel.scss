@@ -1,0 +1,81 @@
+@import "variables";
+@import "../../colors";
+@import "../../font";
+@import "../../mixins";
+
+.u-expansion-panel {
+  @include u-elevation(2);
+
+  position: relative;
+  width: 100%;
+  overflow: auto;
+  background: #fff;
+  transition: margin 150ms ease-out;
+
+  &:first-child,
+  &.open,
+  &.open + .u-expansion-panel {
+    border-top-left-radius: $u-expansion-panel-border-radius;
+    border-top-right-radius: $u-expansion-panel-border-radius;
+  }
+
+  &:last-child,
+  &.open,
+  &.before-opened {
+    border-bottom-right-radius: $u-expansion-panel-border-radius;
+    border-bottom-left-radius: $u-expansion-panel-border-radius;
+  }
+
+  &.open {
+    margin-bottom: $u-expansion-panel-content-margin;
+
+    .u-expansion-panel-content {
+      max-height: 120vh;
+      margin-top: $u-expansion-panel-content-margin;
+      margin-bottom: $u-expansion-panel-content-margin;
+    }
+
+    .u-expansion-toggle-icon {
+      transform: rotateX(180deg);
+    }
+  }
+
+  &:not(:first-of-type).open {
+    margin-top: $u-expansion-panel-content-margin;
+  }
+}
+
+.u-expansion-panel-label {
+  font-size: $u-expansion-panel-label-font-size;
+  font-weight: $font-regular;
+  line-height: $u-expansion-panel-label-height;
+
+  + .u-expansion-panel-label {
+    margin-left: $u-expansion-panel-content-margin;
+    color: $u-text-low-contrast-light-theme;
+  }
+}
+
+.u-expansion-panel-header {
+  @include selectable-background-before;
+  display: flex;
+  align-items: center;
+  padding: 0 $u-expansion-panel-horizontal-padding;
+  cursor: pointer;
+}
+
+.u-expansion-panel-content {
+  max-height: 0;
+  padding: 0 $u-expansion-panel-horizontal-padding;
+  margin-bottom: 0;
+  overflow: hidden;
+  clear: both;
+  transition: max-height 200ms ease, margin 200ms ease;
+}
+
+.u-expansion-toggle-icon {
+  margin-left: auto;
+  font-size: $u-expansion-panel-switch-size;
+  color: $u-text-low-contrast-light-theme;
+  transition: transform 150ms;
+}

@@ -5,7 +5,7 @@
     }
   } @else {
     body {
-      color: $body-color-light-theme;
+      color: $u-body-color-light-theme;
       background-color: $bg-light;
     }
   }
@@ -18,7 +18,7 @@
     }
   } @else {
     body {
-      color: $body-color-dark-theme;
+      color: $u-body-color-dark-theme;
       background-color: $bg-dark;
     }
   }

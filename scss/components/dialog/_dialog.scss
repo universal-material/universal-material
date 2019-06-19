@@ -19,11 +19,11 @@
 .u-dialog-content {
   display: flex;
   flex-direction: column;
-  min-width: $dialog-min-width;
+  min-width: $u-dialog-min-width;
   max-width: 100%;
   margin: 0 auto;
   overflow: hidden;
-  border-radius: $dialog-border-radius;
+  border-radius: $u-dialog-border-radius;
   box-shadow: 0 7px 8px -4px rgba(0, 0, 0, .2), 0 13px 19px 2px rgba(0, 0, 0, .14), 0 5px 24px 4px rgba(0, 0, 0, .12);
   transform: scale3d(0, 0, 1);
   will-change: transform;
@@ -40,7 +40,7 @@
   align-items: center;
   justify-content: center;
   height: 100%;
-  padding: $dialog-padding;
+  padding: $u-dialog-padding;
   overflow: hidden;
   font-family: $u-font-family-base;
   // Prevent Chrome on Windows from adding a focus outline. For details, see
@@ -53,7 +53,7 @@
 
   // When fading in the dialog, animate it to slide down
   //&.fade .u-dialog-dialog {
-  //  transition: $dialog-transition;
+  //  transition: $u-dialog-transition;
   //  transform: translate(0, -25%);
   //}
   //&.show .u-dialog-dialog { transform: translate(0, 0); }
@@ -92,19 +92,19 @@
   left: 0;
   //z-index: $zindex-dialog-backdrop;//Universal Material changes
   z-index: -1;
-  background-color: $dialog-backdrop-bg;
-  opacity: $dialog-backdrop-opacity; //Universal Material changes
+  background-color: $u-dialog-backdrop-bg;
+  opacity: $u-dialog-backdrop-opacity; //Universal Material changes
 
 
   //// Fade for backdrop
   //&.fade { opacity: 0; }
-  //&.show { opacity: $dialog-backdrop-opacity; }
+  //&.show { opacity: $u-dialog-backdrop-opacity; }
 }
 
 .u-dialog-body {
   @include umd-typography(body1);
   position: relative;
-  padding: $dialog-padding;
+  padding: $u-dialog-padding;
   overflow-x: hidden;
   overflow-y: auto;
   will-change: transform;
@@ -139,7 +139,7 @@
 .u-dialog-title {
   @include umd-typography(headline6);
 
-  padding: $dialog-header-padding;
+  padding: $u-dialog-header-padding;
   line-height: 1.5;
 }
 
@@ -148,11 +148,11 @@
   display: flex;
   flex-shrink: 0;
   justify-content: flex-end;
-  padding: $dialog-actions-padding;
+  padding: $u-dialog-actions-padding;
 
   .u-btn + .u-btn,
   .u-dialog-action + .u-dialog-action {
-    margin-left: $dialog-actions-padding;
+    margin-left: $u-dialog-actions-padding;
   }
 }
 
@@ -167,13 +167,13 @@
   }
 
   .u-dialog-progress-message {
-    margin-left: $dialog-progress-margin;
+    margin-left: $u-dialog-progress-margin;
   }
 }
 
 @include media-breakpoint-up(md) {
   .u-dialog-content {
-    max-width: $dialog-desktop-max-width;
+    max-width: $u-dialog-desktop-max-width;
   }
 }
 
@@ -210,7 +210,7 @@
   }
 
   &.u-dialog-scroll-top-divider .u-dialog-header {
-    @include elevate("2dp");
+    @include u-elevation(2);
 
     &::before {
       content: none;
@@ -260,10 +260,10 @@
   $dark-theme: map-get($theme, "dark");
   $uwp-style: map-get($theme, "uwp-style");
 
-  $background-color: $dialog-background-light-theme;
+  $background-color: $u-dialog-background-light-theme;
 
   @if ($dark-theme) {
-    $background-color: $dialog-background-dark-theme;
+    $background-color: $u-dialog-background-dark-theme;
   }
 
   .u-dialog-content {

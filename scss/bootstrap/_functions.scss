@@ -69,7 +69,7 @@
 }
 
 @function theme-color($key: "primary") {
-  @return map-get($theme-colors, $key);
+  @return map-get($u-theme-colors, $key);
 }
 
 @function gray($key: "100") {

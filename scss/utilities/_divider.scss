@@ -1,7 +1,7 @@
 @import "../colors";
 
 $divider-height: .0625rem !default;
-$divider-color: $base-semi-transparent-color-light-theme !default;
+$divider-color: $u-base-semi-transparent-color-light-theme !default;
 
 .u-divider {
   width: 100%;
@@ -11,6 +11,6 @@ $divider-color: $base-semi-transparent-color-light-theme !default;
 
 @mixin divider-theme($dark-theme) {
   .u-divider {
-    background-color: if($dark-theme, $base-semi-transparent-color-dark-theme, $base-semi-transparent-color-light-theme);
+    background-color: if($dark-theme, $u-base-semi-transparent-color-dark-theme, $u-base-semi-transparent-color-light-theme);
   }
 }

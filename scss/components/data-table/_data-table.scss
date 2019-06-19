@@ -11,26 +11,26 @@
   }
 
   thead th {
-    padding-top: $data-table-column-header-vertical-padding;
-    padding-bottom: $data-table-column-header-vertical-padding;
-    line-height: $data-table-column-header-line-height;
+    padding-top: $u-data-table-column-header-vertical-padding;
+    padding-bottom: $u-data-table-column-header-vertical-padding;
+    line-height: $u-data-table-column-header-line-height;
   }
 
   td,
   tbody th {
-    padding-top: $data-table-column-vertical-padding;
-    padding-bottom: $data-table-column-vertical-padding;
+    padding-top: $u-data-table-column-vertical-padding;
+    padding-bottom: $u-data-table-column-vertical-padding;
   }
 
   th {
-    font-size: $data-table-column-header-font-size;
-    font-weight: $data-table-column-header-font-weight;
+    font-size: $u-data-table-column-header-font-size;
+    font-weight: $u-data-table-column-header-font-weight;
     text-align: initial;
   }
 
   td {
-    font-size: $data-table-content-font-size;
-    font-weight: $data-table-content-font-weight;
+    font-size: $u-data-table-content-font-size;
+    font-weight: $u-data-table-content-font-weight;
   }
 
   td.u-dropdown {
@@ -42,13 +42,13 @@
   thead + tbody {
     th,
     td {
-      border-top: $data-table-border;
+      border-top: $u-data-table-border;
     }
   }
 
   th,
   td {
-    @include horizontal-padding($data-table-horizontal-padding);
+    @include horizontal-padding($u-data-table-horizontal-padding);
 
     vertical-align: top;
 
@@ -78,8 +78,8 @@
   }
 
   .u-dropdown-item {
-    font-size: $data-table-content-font-size;
-    font-weight: $data-table-content-font-weight;
+    font-size: $u-data-table-content-font-size;
+    font-weight: $u-data-table-content-font-weight;
   }
 }
 
@@ -87,13 +87,13 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  height: $data-table-card-footer-height;
-  font-size: $data-table-card-footer-font-size;
-  font-weight: $data-table-card-footer-font-weight;
-  color: $data-table-card-footer-font-color;
-  border-top: $data-table-border;
+  height: $u-data-table-card-footer-height;
+  font-size: $u-data-table-card-footer-font-size;
+  font-weight: $u-data-table-card-footer-font-weight;
+  color: $u-data-table-card-footer-font-color;
+  border-top: $u-data-table-border;
 
-  @include horizontal-padding($data-table-horizontal-padding);
+  @include horizontal-padding($u-data-table-horizontal-padding);
 
   //@extend .u-toolbar;
 
@@ -108,29 +108,29 @@
 
 @mixin data-table-theme($dark-theme) {
 
-  $data-table-column-header-color: $data-table-column-header-color-light-theme;
-  $data-table-row-selected-bg: $data-table-row-selected-bg-light-theme;
-  $data-table-row-hover-background-color: $data-table-row-hover-background-color-light-theme;
+  $u-data-table-column-header-color: $u-data-table-column-header-color-light-theme;
+  $u-data-table-row-selected-bg: $u-data-table-row-selected-bg-light-theme;
+  $u-data-table-row-hover-background-color: $u-data-table-row-hover-background-color-light-theme;
 
   @if ($dark-theme) {
-    $data-table-column-header-color: $data-table-column-header-color-dark-theme;
-    $data-table-row-selected-bg: $data-table-row-selected-bg-dark-theme;
-    $data-table-row-hover-background-color: $data-table-row-hover-background-color-dark-theme;
+    $u-data-table-column-header-color: $u-data-table-column-header-color-dark-theme;
+    $u-data-table-row-selected-bg: $u-data-table-row-selected-bg-dark-theme;
+    $u-data-table-row-hover-background-color: $u-data-table-row-hover-background-color-dark-theme;
   }
 
   .u-data-table {
     th {
-      color: $data-table-column-header-color;
+      color: $u-data-table-column-header-color;
     }
 
     tr.selected {
-      background-color: $data-table-row-selected-bg;
+      background-color: $u-data-table-row-selected-bg;
     }
   }
 
   .u-data-table-hover tbody tr {
     &:hover {
-      background-color: $data-table-row-hover-background-color;
+      background-color: $u-data-table-row-hover-background-color;
     }
   }
 }

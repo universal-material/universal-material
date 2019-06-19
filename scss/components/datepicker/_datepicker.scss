@@ -70,8 +70,8 @@
   $dark-theme: map-get($theme, "dark");
   $primary-color: map-get($theme-colors, "primary");
 
-  $day-color: if($dark-theme, $body-color-dark-theme, $body-color-light-theme);
-  $low-contrast-color: if($dark-theme, $text-low-contrast-dark-theme, $text-low-contrast-light-theme);
+  $day-color: if($dark-theme, $u-body-color-dark-theme, $u-body-color-light-theme);
+  $low-contrast-color: if($dark-theme, $u-text-low-contrast-dark-theme, $u-text-low-contrast-light-theme);
 
   $day-outside-month-color: if($dark-theme, $u-datepicker-day-outside-month-dark-theme, $u-datepicker-day-outside-month-light-theme);
 

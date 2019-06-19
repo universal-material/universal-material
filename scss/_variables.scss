@@ -3,7 +3,6 @@
 @import "colors";
 @import "font";
 @import "grid/variables";
-@import "elevation";
 @import "zindex";
 
 //// This variable affects the `.h-*` and `.w-*` classes.
@@ -22,7 +21,7 @@
 //
 // Style anchor elements.
 
-$link-color:            $primary-color !default;
+$link-color: $u-primary-color !default;
 
 // Buttons
 //
@@ -41,29 +40,5 @@ $link-color:            $primary-color !default;
 //
 //Avatar
 
-//Expansion panel
-$expansion-panel-divider-width: .0625rem !default;
-$expansion-panel-border-radius: .25rem !default;
-
-$expansion-panel-label-height: 3rem !default;
-$expansion-panel-label-font-size: .9375rem !default;
-
-$expansion-panel-horizontal-padding: 1rem !default;
-$expansion-panel-content-margin: 1rem !default;
-$expansion-panel-switch-size: 1.5rem !default;
-
-//Progress
-$progress-height: .25rem !default;
-$progress-border-radius: .0625rem !default;
-$progress-border-width: .0625rem !default;
-$progress-indeterminate-animation-duration: 2100ms !default;
-
-//Spinner
-$spinner-color: $primary-color !default;
-$spinner-height: 3rem !default;
-$spinner-height-small: $spinner-height * .75 !default;
-$spinner-height-x-small: $spinner-height * .5 !default;
-$spinner-height-big: $spinner-height / 3 * 4 !default;
-
-$text-muted: $text-low-contrast-light-theme !default;
+$text-muted: $u-text-low-contrast-light-theme !default;
 

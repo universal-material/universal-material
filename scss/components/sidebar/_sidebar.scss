@@ -13,20 +13,20 @@
   left: 0;
   z-index: -1;
   content: "";
-  background-color: $sidebar-backdrop-bg;
+  background-color: $u-drawer-backdrop-bg;
   opacity: 0;
   transition: opacity 375ms linear, z-index 0ms 375ms;
 }
 
 .u-drawer-content {
-  @include elevate("2dp");
+  @include u-elevation(2);
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   z-index: $zindex-sidebar;
   flex-shrink: 0;
-  width: $sidebar-width;
+  width: $u-drawer-sidebar-width;
   max-width: 85%;
   overflow-y: auto;
   transition: transform 375ms $awesome-cubic-bezier;
@@ -42,7 +42,7 @@
 
     .u-drawer-backdrop {
       z-index: $zindex-sidebar - 1;
-      opacity: $sidebar-backdrop-opacity;
+      opacity: $u-drawer-backdrop-opacity;
       transition: opacity 375ms linear;
     }
   }
@@ -62,10 +62,10 @@
   @include media-breakpoint-up($breakpoint) {
     .u-drawer#{$infix}-permanent,
     .u-drawer#{$infix}-dismissible {
-      padding-left: $sidebar-width;
+      padding-left: $u-drawer-sidebar-width;
 
       .u-drawer-content {
-        @include elevate("0");
+        @include u-elevation(0);
         transform: none;
       }
 
@@ -91,7 +91,7 @@
       .u-drawer#{$infix}-dismissible,
       &.u-drawer#{$infix}-permanent,
       &.u-drawer#{$infix}-dismissible {
-        padding-right: $sidebar-width;
+        padding-right: $u-drawer-sidebar-width;
         padding-left: 0;
       }
 
@@ -118,12 +118,12 @@
   $dark-theme: map-get($theme, "dark");
   $primary-color: map-get($theme-colors, "primary");
 
-  $background-color: $sidebar-background-color-light-theme;
-  $color: $body-color-light-theme;
+  $background-color: $u-drawer-background-color-light-theme;
+  $color: $u-body-color-light-theme;
 
   @if ($dark-theme) {
-    $background-color: $sidebar-background-color-dark-theme;
-    $color: $body-color-dark-theme;
+    $background-color: $u-drawer-background-color-dark-theme;
+    $color: $u-body-color-dark-theme;
   }
 
   .u-drawer-content {
