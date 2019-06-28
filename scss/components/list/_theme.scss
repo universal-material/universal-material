@@ -1,0 +1,35 @@
+@import "variables";
+@import "../../mixins";
+
+@mixin list-theme($dark-theme) {
+  $color: $u-list-item-color-light-theme;
+  $icon-color: $u-list-icon-color-light-theme;
+  $section-color: $u-text-low-contrast-light-theme;
+
+  @if ($dark-theme) {
+    $color: $u-list-item-color-dark-theme;
+    $icon-color: $u-list-icon-color-dark-theme;
+    $section-color: $u-text-low-contrast-dark-theme;
+  }
+
+  .u-list-item {
+    color: $color;
+
+    @include hover-focus {
+      color: $color;
+    }
+  }
+
+  .u-list-item-icon,
+  .u-list-item-avatar {
+    color: $icon-color;
+  }
+
+  .u-list-index {
+    color: $icon-color;
+  }
+
+  .u-list-section-title {
+    color: $section-color;
+  }
+}

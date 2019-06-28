@@ -1,4 +1,5 @@
 @import "variables";
+@import "theme";
 @import "../../zindex";
 @import "../../typography/variables";
 @import "../../mixins";
@@ -97,31 +98,3 @@
     margin-left: 0;
   }
 }
-
-@mixin toolbar-theme($theme-colors, $dark-theme) {
-
-  $color: $u-body-color-light-theme;
-
-  @if ($dark-theme) {
-    $color: $u-body-color-dark-theme;
-  }
-
-  @include add-to-parent-or-class("toolbar") {
-    color: $color;
-
-    @if (mixin_exists(tab-text-color)) {
-      @include tab-text-color($theme-colors, $dark-theme);
-    }
-  }
-
-  @if & == null {
-    $u-toolbar-primary: map_get($theme-colors, "primary");
-    $dark-background: is-dark-background($u-toolbar-primary);
-
-    .u-toolbar-primary {
-      @include toolbar-variant($theme-colors, $u-toolbar-primary);
-    }
-  }
-}
-
-//@include ios-toolbar;

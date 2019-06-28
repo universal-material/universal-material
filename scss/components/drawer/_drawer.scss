@@ -1,4 +1,5 @@
 @import "variables";
+@import "theme";
 @import "../../animations";
 @import "../../colors";
 @import "../../grid/variables";
@@ -107,41 +108,6 @@
             transform: translateX(100%);
           }
         }
-      }
-    }
-  }
-}
-
-@mixin sidebar-theme($theme) {
-
-  $theme-colors: map-get($theme, "colors");
-  $dark-theme: map-get($theme, "dark");
-  $primary-color: map-get($theme-colors, "primary");
-
-  $background-color: $u-drawer-background-color-light-theme;
-  $color: $u-body-color-light-theme;
-
-  @if ($dark-theme) {
-    $background-color: $u-drawer-background-color-dark-theme;
-    $color: $u-body-color-dark-theme;
-  }
-
-  .u-drawer-content {
-    background-color: $background-color;
-
-    .u-list-item.active {
-      &,
-      .u-list-item-icon {
-        color: $primary-color;
-      }
-
-      &:hover::before,
-      &::before {
-        opacity: .2;
-      }
-
-      &:focus::before {
-        opacity: .3;
       }
     }
   }

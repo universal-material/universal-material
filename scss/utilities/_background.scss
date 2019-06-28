@@ -1,5 +1,17 @@
 @import "../mixins";
 
+@each $color, $value in $u-theme-colors {
+  @include u-bg-variant(".u-bg-#{$color}", $value);
+}
+
+.u-bg-white {
+  background-color: $white !important;
+}
+
+.u-bg-transparent {
+  background-color: transparent !important;
+}
+
 .u-bg-light {
   @include light-background-colors;
 }

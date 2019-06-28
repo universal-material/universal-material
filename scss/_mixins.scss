@@ -1,5 +1,6 @@
 //Utilities
 @import "mixins/background";
+@import "mixins/background-variant";
 @import "mixins/breakpoints";
 @import "mixins/elevation";
 @import "mixins/spacing";
@@ -12,7 +13,6 @@
 
 @import "mixins/buttons";
 @import "mixins/selection-controls";
-@import "mixins/toolbar";
 @import "mixins/typography";
 
 // Layout

@@ -1,4 +1,5 @@
 @import "variables";
+@import "theme";
 @import "../../grid/variables";
 @import "../../font";
 @import "../../mixins";
@@ -63,30 +64,4 @@
       margin-left: $u-tab-bar-scrollable-margin;
     }
   }
-}
-
-@mixin tab-text-color($theme-colors, $dark-background) {
-  $u-tab-text-color: $u-tab-text-color-light-theme;
-  $u-tab-text-color-active: map-get($theme-colors, "primary");
-
-  @if ($dark-background) {
-    $u-tab-text-color: $u-tab-text-color-dark-theme;
-    $u-tab-text-color-active: $u-tab-text-color-active-dark-theme;
-  }
-
-  .u-tab {
-    color: $u-tab-text-color;
-  }
-
-  .u-tab.active {
-    color: $u-tab-text-color-active;
-  }
-
-  .u-tab-indicator {
-    background-color: $u-tab-text-color-active;
-  }
-}
-
-@mixin tab-theme($theme-colors, $dark-theme) {
-  @include tab-text-color($theme-colors, $dark-theme);
 }

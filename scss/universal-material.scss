@@ -4,6 +4,7 @@
 @import "bootstrap-imports";
 @import "reboot";
 
+@import "placeholders";
 @import "universal-material/scaffolding";
 @import "typography/typography";
 @import "grid/grid";
@@ -28,7 +29,7 @@
 @import "components/data-table/data-table";
 @import "components/list/list";
 @import "components/progress/progress";
-@import "components/sidebar/sidebar";
+@import "components/drawer/drawer";
 @import "components/snackbar/snackbar";
 @import "components/text-field/text-field";
 @import "components/chips/chips";

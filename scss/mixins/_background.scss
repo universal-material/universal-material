@@ -22,8 +22,8 @@
 
 @mixin light-background-colors {
   color: $u-body-color-light-theme;
-  @include text-emphasis-variant(".text-low-contrast", $u-text-low-contrast-light-theme);
-  @include text-emphasis-variant(".text-high-contrast", $u-text-high-contrast-light-theme);
+  @include text-emphasis-variant(".u-text-low-contrast", $u-text-low-contrast-light-theme);
+  @include text-emphasis-variant(".u-text-high-contrast", $u-text-high-contrast-light-theme);
 
   @if (mixin_exists(button-borderless-variant)) {
     .u-btn-borderless.u-btn-default {

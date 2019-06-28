@@ -1,0 +1,34 @@
+@import "variables";
+
+@mixin tab-text-color($dark-background) {
+  $u-tab-text-color: $u-tab-text-color-light-theme;
+
+  @if ($dark-background) {
+    $u-tab-text-color: $u-tab-text-color-dark-theme;
+  }
+
+  .u-tab {
+    color: $u-tab-text-color;
+  }
+}
+
+@mixin u-tab-theme($theme) {
+
+  $theme-colors: map-get($theme, "colors");
+  $dark-theme: map-get($theme, "dark");
+  $primary-color: map_get($theme-colors, "primary");
+
+  @include tab-text-color($dark-theme);
+
+  @each $color, $value in $theme-colors {
+    .u-tab-bar-#{$color} {
+      .u-tab.active {
+        color: $value;
+      }
+
+      .u-tab-indicator {
+        background-color: $value;
+      }
+    }
+  }
+}

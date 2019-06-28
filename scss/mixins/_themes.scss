@@ -37,8 +37,8 @@
     @include floating-action-button-theme($dark-theme);
   }
 
-  @if (mixin_exists(sidebar-theme)) {
-    @include sidebar-theme($theme);
+  @if (mixin_exists(drawer-theme)) {
+    @include drawer-theme($theme);
   }
 
   @if (mixin_exists(list-theme)) {
@@ -81,8 +81,8 @@
     @include snackbar-theme($theme);
   }
 
-  @if (mixin_exists(tab-theme)) {
-    @include tab-theme($theme-colors, $dark-theme);
+  @if (mixin_exists(u-tab-theme)) {
+    @include u-tab-theme($theme);
   }
 
   @if (mixin_exists(text-fields-theme)) {
@@ -93,8 +93,8 @@
     @include data-table-theme($dark-theme);
   }
 
-  @if (mixin_exists(toolbar-theme)) {
-    @include toolbar-theme($theme-colors, $dark-theme);
+  @if (mixin_exists(u-toolbar-theme)) {
+    @include u-toolbar-theme($theme);
   }
 
   @if (mixin_exists(text-theme)) {
