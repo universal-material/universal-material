@@ -5537,6 +5537,9 @@ mark,
   margin-top: 0;
   margin-bottom: 0; }
 
+.u-navigation-drawer ~ .u-drawer-backdrop {
+  position: fixed; }
+
 .u-expansion-panel {
   -webkit-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
           box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
@@ -6605,9 +6608,6 @@ mark,
   -webkit-transition: opacity 375ms linear;
   transition: opacity 375ms linear; }
 
-.u-drawer .u-toolbar-fixed {
-  left: 16rem; }
-
 .rtl .u-drawer-content,
 [dir="rtl"] .u-drawer-content {
   right: 0;
@@ -6632,6 +6632,9 @@ mark,
   .u-drawer-permanent .u-drawer-backdrop,
   .u-drawer-dismissible .u-drawer-backdrop {
     display: none; }
+  .u-drawer-permanent .u-toolbar-fixed,
+  .u-drawer-dismissible .u-toolbar-fixed {
+    left: 16rem; }
 
 .u-drawer-dismissible {
   -webkit-transition: padding-left 375ms cubic-bezier(0.19, 1, 0.22, 1);
@@ -6682,6 +6685,9 @@ mark,
     .u-drawer-sm-permanent .u-drawer-backdrop,
     .u-drawer-sm-dismissible .u-drawer-backdrop {
       display: none; }
+    .u-drawer-sm-permanent .u-toolbar-fixed,
+    .u-drawer-sm-dismissible .u-toolbar-fixed {
+      left: 16rem; }
   .u-drawer-sm-dismissible {
     -webkit-transition: padding-left 375ms cubic-bezier(0.19, 1, 0.22, 1);
     transition: padding-left 375ms cubic-bezier(0.19, 1, 0.22, 1); }
@@ -6729,6 +6735,9 @@ mark,
     .u-drawer-md-permanent .u-drawer-backdrop,
     .u-drawer-md-dismissible .u-drawer-backdrop {
       display: none; }
+    .u-drawer-md-permanent .u-toolbar-fixed,
+    .u-drawer-md-dismissible .u-toolbar-fixed {
+      left: 16rem; }
   .u-drawer-md-dismissible {
     -webkit-transition: padding-left 375ms cubic-bezier(0.19, 1, 0.22, 1);
     transition: padding-left 375ms cubic-bezier(0.19, 1, 0.22, 1); }
@@ -6776,6 +6785,9 @@ mark,
     .u-drawer-lg-permanent .u-drawer-backdrop,
     .u-drawer-lg-dismissible .u-drawer-backdrop {
       display: none; }
+    .u-drawer-lg-permanent .u-toolbar-fixed,
+    .u-drawer-lg-dismissible .u-toolbar-fixed {
+      left: 16rem; }
   .u-drawer-lg-dismissible {
     -webkit-transition: padding-left 375ms cubic-bezier(0.19, 1, 0.22, 1);
     transition: padding-left 375ms cubic-bezier(0.19, 1, 0.22, 1); }
@@ -6823,6 +6835,9 @@ mark,
     .u-drawer-xl-permanent .u-drawer-backdrop,
     .u-drawer-xl-dismissible .u-drawer-backdrop {
       display: none; }
+    .u-drawer-xl-permanent .u-toolbar-fixed,
+    .u-drawer-xl-dismissible .u-toolbar-fixed {
+      left: 16rem; }
   .u-drawer-xl-dismissible {
     -webkit-transition: padding-left 375ms cubic-bezier(0.19, 1, 0.22, 1);
     transition: padding-left 375ms cubic-bezier(0.19, 1, 0.22, 1); }

@@ -47,10 +47,6 @@
       transition: opacity 375ms linear;
     }
   }
-
-  .u-toolbar-fixed {
-    left: $u-drawer-sidebar-width;
-  }
 }
 
 .rtl,
@@ -84,6 +80,10 @@
 
       .u-drawer-backdrop {
         display: none;
+      }
+
+      .u-toolbar-fixed {
+        left: $u-drawer-sidebar-width;
       }
     }
 
