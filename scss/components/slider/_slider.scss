@@ -14,8 +14,14 @@
     height: $u-slider-action-size;
     padding: 0;
     margin-top: -$u-slider-action-size / 2;
+    cursor: pointer;
     background: transparent; /* Otherwise white in Chrome */
+    opacity: 0;
     -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  }
+
+  input[type="range"]::-ms-tooltip {
+    display: none;
   }
 
   input[type="range"]::-webkit-slider-thumb {
@@ -26,52 +32,120 @@
     outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
   }
 
-  .u-slider-track {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    height: $u-slider-track-size;
-    margin-top: -$u-slider-track-size / 2;
-    pointer-events: none;
-    background: currentColor;
-    opacity: .5;
+  input[type="range"]:disabled {
+    cursor: default;
+
+    ~ .u-slider-track-container {
+      &::before {
+        width: ($u-slider-disabled-thumb-margin * 2) + $u-slider-thumb-size;
+      }
+
+      .u-slider-track {
+        margin-left: -($u-slider-disabled-thumb-margin + ($u-slider-thumb-size / 2));
+      }
+    }
   }
 }
 
-.u-slider-thumb {
+.u-slider-track-marker-container {
   position: absolute;
   top: 50%;
-  width: $u-slider-action-size;
-  height: $u-slider-action-size;
-  margin-top: -$u-slider-action-size / 2;
-  margin-left: -$u-slider-action-size / 2;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: $u-slider-track-size;
+  margin-top: -$u-slider-track-size / 2;
+}
+
+.u-slider-track-marker {
+  width: $u-slider-track-size;
+  height: $u-slider-track-size;
+  background: currentColor;
+}
+
+.u-slider-track-container {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  display: flex;
+  width: 100%;
+  height: $u-slider-track-size;
+  margin-top: -$u-slider-track-size / 2;
   overflow: hidden;
   pointer-events: none;
-  border-radius: 50%;
+
+  &::before {
+    display: block;
+    flex-shrink: 1;
+    order: 1;
+    width: 0;
+    height: 100%;
+    content: "";
+    background: transparent;
+    transition: width 150ms;
+    will-change: width;
+  }
+
+  &::after {
+    display: block;
+    flex-shrink: 1;
+    flex-grow: 1;
+    order: 2;
+    height: 100%;
+    content: "";
+    background: currentColor;
+    opacity: .25;
+  }
+}
+
+.u-slider-track {
+  flex-shrink: 0;
+  height: 100%;
+  background: currentColor;
+  transition: margin-left 150ms;
+}
+
+.u-slider-thumb-container {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: $u-slider-action-size;
+  margin-top: -$u-slider-action-size / 2;
+  margin-right: -$u-slider-action-size / 2;
+  pointer-events: none;
+}
+
+.u-slider-thumb {
+  position: relative;
+  height: 100%;
 
   &::before {
     position: absolute;
     top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    right: -$u-slider-action-size / 2;
+    width: $u-slider-action-size;
+    height: $u-slider-action-size;
     content: "";
     background: currentColor;
-    opacity: 0;
+    border-radius: 50%;
+    opacity: .5;
+    transition: transform 150ms;
+    transform: scale3d(0, 0, 1);
   }
 
   &::after {
     position: absolute;
     top: 50%;
-    left: 50%;
+    right: -$u-slider-thumb-size / 2;
     width: $u-slider-thumb-size;
     height: $u-slider-thumb-size;
     margin-top: -$u-slider-thumb-size / 2;
-    margin-left: -$u-slider-thumb-size / 2;
     content: "";
     background: currentColor;
     border-radius: 50%;
+    transition: transform 150ms;
   }
 }
 
@@ -92,7 +166,7 @@
     width: $u-slider-action-size;
     height: $u-slider-action-size;
     cursor: pointer;
-    background: red;
+    background: transparent;
     -webkit-appearance: none;
   }
 
@@ -102,22 +176,44 @@
     width: $u-slider-action-size;
     height: $u-slider-action-size;
     cursor: pointer;
-    background: red;
+    background: transparent;
     border: none;
   }
 
   input[type="range"] {
-    &:focus + .u-slider-thumb::before,
-    &:hover + .u-slider-thumb::before {
-      opacity: .2;
+    &:hover:not(:disabled) + .u-slider-thumb-container .u-slider-thumb::before {
+      transform: scale3d(1, 1, 1);
     }
 
-    &:focus+ .u-slider-thumb::after,
-    &:active + .u-slider-thumb::after {
-      width: $u-slider-thumb-size-active;
-      height: $u-slider-thumb-size-active;
-      margin-top: -$u-slider-thumb-size-active / 2;
-      margin-left: -$u-slider-thumb-size-active / 2;
+    &:focus:not(:disabled) + .u-slider-thumb-container .u-slider-thumb::before {
+      transform: scale3d(1.5, 1.5, 1);
     }
+
+    &:focus:not(:disabled) + .u-slider-thumb-container .u-slider-thumb::after,
+    &:active:not(:disabled) + .u-slider-thumb-container .u-slider-thumb::after {
+      transform: scale3d(1.5, 1.5, 1);
+    }
+  }
+}
+
+.rtl,
+[dir="rtl"] {
+  .u-slider-thumb {
+    right: 0;
+
+    &::before {
+      right: auto;
+      left: -$u-slider-action-size / 2;
+    }
+
+    &::after {
+      right: auto;
+      left: -$u-slider-thumb-size / 2;
+    }
+  }
+
+  .u-slider-track {
+    right: 0;
+    left: auto;
   }
 }

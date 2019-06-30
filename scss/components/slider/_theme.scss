@@ -1,10 +1,23 @@
+@import "variables";
+
 @mixin slider-theme($theme) {
+  $theme-colors: map-get($theme, "colors");
   $primary-color: map_get($theme-colors, "primary");
 
   .u-slider {
     &,
     input[type="range"] {
       color: $primary-color;
+
+      &:disabled {
+        ~ .u-slider-thumb-container .u-slider-thumb,
+        ~ .u-slider-track-container {
+          .u-slider-track,
+          &::after {
+            background: $u-slider-disabled-color;
+          }
+        }
+      }
     }
   }
 }

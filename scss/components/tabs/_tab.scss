@@ -31,7 +31,8 @@
   bottom: 0;
   height: $u-tab-indicator-height;
   content: "";
-  transition: 350ms cubic-bezier(.35, 0, .25, 1);
+  transition: left 200ms ease-out, width 200ms ease-out;
+  will-change: left;
 }
 
 .u-tab-content {
