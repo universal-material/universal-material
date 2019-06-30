@@ -77,6 +77,10 @@
     @include switch-theme($theme-colors, $dark-theme);
   }
 
+  @if (mixin_exists(slider-theme)) {
+    @include slider-theme($theme);
+  }
+
   @if (mixin_exists(snackbar-theme)) {
     @include snackbar-theme($theme);
   }

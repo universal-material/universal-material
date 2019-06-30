@@ -584,6 +584,33 @@
       return SnackbarButtonDefinition;
   }());
 
+  var Slider = /** @class */ (function () {
+      function Slider(_sliderElement) {
+          var _this = this;
+          this._sliderElement = _sliderElement;
+          this._sliderThumb = _sliderElement.querySelector('.u-slider-thumb');
+          this._sliderInputElement = _sliderElement.querySelector('input[type=range]');
+          this._sliderInputElement.addEventListener(window.navigator.userAgent.indexOf('Trident/') > -1 ? 'change' : 'input', function () { return _this._setThumbAndTrack(); });
+          this._setThumbAndTrack();
+      }
+      Slider.prototype._setThumbAndTrack = function () {
+          var value = this._sliderInputElement.valueAsNumber;
+          var min = parseInt(this._sliderInputElement.min, 10);
+          var max = parseInt(this._sliderInputElement.max, 10);
+          var offset = max - min;
+          value -= min;
+          this._sliderThumb.style.left = Math.round(value * 100 / offset) + '%';
+      };
+      Slider.initializeSliders = function () {
+          var sliders = document.querySelectorAll('.u-slider');
+          for (var i = 0; i < sliders.length; i++) {
+              var slider = sliders[i];
+              new Slider(slider);
+          }
+      };
+      return Slider;
+  }());
+
   var TabBar = /** @class */ (function () {
       function TabBar(_tabBarElement) {
           var _this = this;
@@ -725,6 +752,7 @@
   exports.Snackbar = Snackbar;
   exports.SnackbarDefinition = SnackbarDefinition;
   exports.SnackbarButtonDefinition = SnackbarButtonDefinition;
+  exports.Slider = Slider;
   exports.TabBar = TabBar;
   exports.TextField = TextField;
 

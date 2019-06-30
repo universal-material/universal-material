@@ -1,0 +1,10 @@
+@mixin slider-theme($theme) {
+  $primary-color: map_get($theme-colors, "primary");
+
+  .u-slider {
+    &,
+    input[type="range"] {
+      color: $primary-color;
+    }
+  }
+}

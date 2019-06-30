@@ -120,7 +120,6 @@ const jsCompileBrowserConfig = (tsProject) => {
 
 gulp.task('js-compile-browser', function () {
   return jsCompileBrowserConfig(tsProjectBrowser)
-    .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest("./dist/js"))
     .pipe(gulp.dest("./docs/js"))
 });
@@ -128,7 +127,6 @@ gulp.task('js-compile-browser', function () {
 gulp.task('js-compile-browser-uglify', function () {
   return jsCompileBrowserConfig(tsProjectBrowserUglify)
     .pipe(uglify())
-    .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest("./dist/js"))
 });
 
