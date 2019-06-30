@@ -4,7 +4,7 @@
 
 .u-slider {
   position: relative;
-  height: $u-slider-thumb-size-active;
+  height: $u-slider-action-size;
 
   input[type="range"] {
     position: absolute;
@@ -26,14 +26,14 @@
     outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
   }
 
-  &::after {
+  .u-slider-track {
     position: absolute;
     top: 50%;
     left: 0;
     width: 100%;
-    height: 2px;
-    margin-top: -1px;
-    content: "";
+    height: $u-slider-track-size;
+    margin-top: -$u-slider-track-size / 2;
+    pointer-events: none;
     background: currentColor;
     opacity: .5;
   }
@@ -95,7 +95,6 @@
     background: red;
     -webkit-appearance: none;
   }
-
 
   input[type="range"]::-moz-range-thumb {
     position: relative;
