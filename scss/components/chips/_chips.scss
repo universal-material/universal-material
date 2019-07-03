@@ -1,5 +1,6 @@
 @import "chip-base";
 @import "../../mixins";
+@import "../../theming";
 
 .u-chip {
   @extend %u-chip;
@@ -16,7 +17,7 @@
 .u-chip-label {
   margin-right: $u-chip-label-margin;
   margin-left: $u-chip-label-margin;
-  font-weight: $font-medium;
+  font-weight: $u-font-medium;
 }
 
 .u-chip-avatar {
@@ -114,7 +115,10 @@
   }
 }
 
-@mixin chip-theme($theme-colors, $dark-theme) {
+@mixin u-chip-theme() {
+  $dark-theme: map-get($u-theme, "dark");
+  $theme-colors: map-get($u-theme, "colors");
+
   $background-color: $u-chip-background-color-light-theme;
   $u-chip-outline-border-color: $u-chip-outline-border-color-light-theme;
 

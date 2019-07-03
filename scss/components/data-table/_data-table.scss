@@ -1,5 +1,6 @@
 @import "variables";
 @import "../../font";
+@import "../../theming";
 
 // stylelint-disable selector-no-qualifying-type
 
@@ -106,7 +107,8 @@
   }
 }
 
-@mixin data-table-theme($dark-theme) {
+@mixin u-data-table-theme() {
+  $dark-theme: map-get($u-theme, "dark");
 
   $u-data-table-column-header-color: $u-data-table-column-header-color-light-theme;
   $u-data-table-row-selected-bg: $u-data-table-row-selected-bg-light-theme;

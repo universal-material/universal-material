@@ -3,6 +3,7 @@
 @import "../../font";
 @import "../../zindex";
 @import "../../mixins";
+@import "../../theming";
 
 .u-dropdown-menu {
   @include u-elevation(2);
@@ -144,9 +145,9 @@
   }
 }
 
-@mixin dropdown-theme($theme) {
+@mixin u-dropdown-theme() {
 
-  $dark-theme: map-get($theme, "dark");
+  $dark-theme: map-get($u-theme, "dark");
 
   $background: $u-dropdown-menu-bg-light-theme;
   $background-in-data-table: $u-dropdown-in-data-table-bg-light-theme;

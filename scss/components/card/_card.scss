@@ -3,6 +3,7 @@
 @import "../../font";
 @import "uwp-card";
 @import "../../mixins";
+@import "../../theming";
 
 .u-card {
   font-family: $u-font-family-base;
@@ -71,10 +72,10 @@
   margin-left: $u-card-actions-padding;
 }
 
-@mixin card-theme($theme) {
+@mixin u-card-theme() {
 
-  $dark-theme: map-get($theme, "dark");
-  $uwp-style: map-get($theme, "uwp-style");
+  $dark-theme: map-get($u-theme, "dark");
+  $uwp-style: map-get($u-theme, "uwp-style");
 
   $background-color: $u-card-bg-light-theme;
 
@@ -86,7 +87,7 @@
     background-color: $background-color;
   }
 
-  @if (mixin_exists(text-fields-theme)) {
+  @if (mixin_exists(u-text-fields-theme)) {
     .u-card {
       .u-text-field-outline label {
         background: $background-color;

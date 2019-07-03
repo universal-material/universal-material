@@ -1,7 +1,8 @@
 @import "variables";
+@import "../../theming";
 
-@mixin slider-theme($theme) {
-  $theme-colors: map-get($theme, "colors");
+@mixin u-slider-theme() {
+  $theme-colors: map-get($u-theme, "colors");
   $primary-color: map_get($theme-colors, "primary");
 
   .u-slider {

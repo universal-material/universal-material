@@ -21,8 +21,8 @@
 
 %u-bg-dark {
   color: $u-body-color-dark-theme;
-  @include text-emphasis-variant(".text-low-contrast", $u-text-low-contrast-dark-theme);
-  @include text-emphasis-variant(".text-high-contrast", $u-text-high-contrast-dark-theme);
+  @include text-emphasis-variant(".u-text-low-contrast", $u-text-low-contrast-dark-theme);
+  @include text-emphasis-variant(".u-text-high-contrast", $u-text-high-contrast-dark-theme);
 
   @if (mixin_exists(button-borderless-variant)) {
     .u-btn-borderless.u-btn-default {

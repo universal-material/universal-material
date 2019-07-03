@@ -1,7 +1,10 @@
 @import "variables";
 @import "../../mixins";
+@import "../../theming";
 
-@mixin list-theme($dark-theme) {
+@mixin u-list-theme() {
+  $dark-theme: map-get($u-theme, "dark");
+
   $color: $u-list-item-color-light-theme;
   $icon-color: $u-list-icon-color-light-theme;
   $section-color: $u-text-low-contrast-light-theme;

@@ -35,7 +35,7 @@
   bottom: $u-badge-position;
 }
 
-@if (mixin_exists(buttons-theme)) {
+@if (mixin_exists(u-buttons-theme)) {
 
   $btn-badge-position: $u-badge-position + ($u-btn-borderless-size - $u-btn-icon-size) / 2;
 

@@ -1,5 +1,8 @@
 @import "variables";
 @import "../button/buttons";
+@import "../../animations";
+@import "../../theming";
+@import "../../zindex";
 @import "uwp-snackbar";
 
 .u-snackbar {
@@ -92,10 +95,10 @@
   }
 }
 
-@mixin snackbar-theme($theme) {
+@mixin u-snackbar-theme() {
 
-  $dark-theme: map-get($theme, "dark");
-  $uwp-style: map-get($theme, "uwp-style");
+  $dark-theme: map-get($u-theme, "dark");
+  $uwp-style: map-get($u-theme, "uwp-style");
 
   $background-color: $u-snackbar-background-color-light-theme;
   $color: $u-snackbar-text-color-light-theme;

@@ -1,6 +1,7 @@
 @import "variables";
 @import "../../mixins";
 @import "../../font";
+@import "../../theming";
 
 .u-switch {
   display: inline-flex;
@@ -77,7 +78,10 @@
   }
 }
 
-@mixin switch-theme($theme-colors, $dark-theme) {
+@mixin u-switch-theme() {
+  $dark-theme: map-get($u-theme, "dark");
+  $theme-colors: map-get($u-theme, "colors");
+
   $primary-color: map-get($theme-colors, "primary");
   $u-switch-toggle-color: $u-switch-toggle-color-light-theme;
 

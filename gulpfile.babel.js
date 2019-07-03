@@ -23,7 +23,7 @@ gulp.task("sass:normal", function () {
     .pipe(autoprefixer())
     .pipe(sourcemaps.write("./"))
     .pipe(gulp.dest("./dist/css"))
-    .pipe(gulp.dest("./docs/css"));
+    .pipe(gulp.dest("./docs/dist/css"));
 });
 
 gulp.task("sass:compressed", function () {
@@ -45,7 +45,6 @@ gulp.task("sass-no-reboot:normal", function () {
     .pipe(autoprefixer())
     .pipe(sourcemaps.write("./"))
     .pipe(gulp.dest("./dist/css"))
-    .pipe(gulp.dest("./docs/css"));
 });
 
 gulp.task("sass-no-reboot:compressed", function () {
@@ -62,14 +61,14 @@ gulp.task("sass-no-reboot:compressed", function () {
 
 
 gulp.task("sass:docs", function () {
-  return gulp.src("./docs/css/docs.scss")
+  return gulp.src("./docs/src/css/docs.scss")
     .pipe(sass().on("error", sass.logError))
     .pipe(autoprefixer())
-    .pipe(gulp.dest("./docs/css"));
+    .pipe(gulp.dest("./docs/dist/css"));
 });
 
 gulp.task('pug:docs', function () {
-  return gulp.src(["./docs/**/*.pug", "!./docs/layout.pug"])
+  return gulp.src(["./docs/src/**/*.pug", "!./docs/src/layout.pug"])
     .pipe(pug({
       data: {
         debug: true,
@@ -80,7 +79,7 @@ gulp.task('pug:docs', function () {
     }).on("error", notify.onError(function (error) {
       return "An error occurred while compiling pug.\nLook in the console for details.\n" + error;
     })))
-    .pipe(gulp.dest("./docs")); // tell gulp our output folder
+    .pipe(gulp.dest("./docs/dist")); // tell gulp our output folder
 });
 
 gulp.task("sass", ["sass:normal", "sass:compressed","sass-no-reboot:normal", "sass-no-reboot:compressed"]);
@@ -121,7 +120,7 @@ const jsCompileBrowserConfig = (tsProject) => {
 gulp.task('js-compile-browser', function () {
   return jsCompileBrowserConfig(tsProjectBrowser)
     .pipe(gulp.dest("./dist/js"))
-    .pipe(gulp.dest("./docs/js"))
+    .pipe(gulp.dest("./docs/dist/js"))
 });
 
 gulp.task('js-compile-browser-uglify', function () {
@@ -131,9 +130,9 @@ gulp.task('js-compile-browser-uglify', function () {
 });
 
 gulp.task('watch', function () {
-  gulp.watch('./docs/**/*.pug', ['pug:docs']);
+  gulp.watch('./docs/src/**/*.pug', ['pug:docs']);
   gulp.watch('./scss/**/*.scss', ['sass']);
-  gulp.watch('./docs/css/**/*.scss', ['sass:docs']);
+  gulp.watch('./docs/src/css/**/*.scss', ['sass:docs']);
   gulp.watch('./js/src/*.ts', ['scripts']);
 });
 

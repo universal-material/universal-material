@@ -1,6 +1,6 @@
 {
   "name": "@universal-material/core",
-  "version": "0.76.0",
+  "version": "0.80.1",
   "keywords": [
     "css",
     "sass",
@@ -23,7 +23,7 @@
   ],
   "scripts": {
     "start": "gulp default",
-    "docs": "http-server ./docs -p 8081 -o http://localhost:8081",
+    "docs": "http-server ./docs/dist -p 8081 -o http://localhost:8081",
     "ts-compile": ""
   },
   "main": "./js/dist/bundle/universal-material.umd.js",

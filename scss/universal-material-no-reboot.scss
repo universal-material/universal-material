@@ -36,7 +36,5 @@
 //Utilities
 @import "utilities";
 
-$theme:(colors: $u-theme-colors, dark: $u-default-theme-dark, uwp-style: $u-default-uwp-style);
-
-@include create-theme($theme);
+@include u-create-theme;
 @include create-dense-layout();

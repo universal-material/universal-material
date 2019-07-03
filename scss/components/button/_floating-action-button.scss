@@ -1,6 +1,7 @@
 @import "variables";
 @import "../../font";
 @import "../../mixins";
+@import "../../theming";
 
 .u-floating-action-area {
   position: fixed;
@@ -149,7 +150,9 @@
   }
 }
 
-@mixin floating-action-button-theme($dark-theme) {
+@mixin u-floating-action-button-theme() {
+  $dark-theme: map-get($u-theme, "dark");
+
   $u-floating-menu-label-bg: $u-floating-menu-label-bg-light-theme;
 
   @if ($dark-theme) {

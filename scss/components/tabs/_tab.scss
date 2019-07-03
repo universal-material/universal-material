@@ -17,10 +17,10 @@
   flex: 1;
   flex-direction: row;
   align-items: center;
-  padding-right: $u-tab-horizontal-padding;
-  padding-left: $u-tab-horizontal-padding;
   min-width: $u-tab-min-width;
   max-width: $u-tab-max-width;
+  padding-right: $u-tab-horizontal-padding;
+  padding-left: $u-tab-horizontal-padding;
   font-family: $u-font-family-base;
   cursor: pointer;
   @include selectable-background-before;

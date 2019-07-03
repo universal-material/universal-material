@@ -1,9 +1,10 @@
 @import "variables";
+@import "../../theming";
+@import "../../placeholders";
 
-@mixin drawer-theme($theme) {
-
-  $theme-colors: map-get($theme, "colors");
-  $dark-theme: map-get($theme, "dark");
+@mixin u-drawer-content {
+  $theme-colors: map-get($u-theme, "colors");
+  $dark-theme: map-get($u-theme, "dark");
   $primary-color: map-get($theme-colors, "primary");
 
   $background-color: $u-drawer-background-color-light-theme;
@@ -14,7 +15,12 @@
     $color: $u-body-color-dark-theme;
   }
 
-  .u-drawer-content {
+  & {
+    @if ($dark-theme) {
+      @extend %u-bg-dark;
+    } @else {
+      @extend %u-bg-light;
+    }
     background-color: $background-color;
 
     .u-list-item.active {
@@ -31,6 +37,20 @@
       &:focus::before {
         opacity: .3;
       }
+    }
+  }
+}
+
+@mixin u-drawer-theme() {
+
+  @if & {
+    &.u-drawer-content,
+    .u-drawer-content {
+      @include u-drawer-content;
+    }
+  } @else {
+    .u-drawer-content {
+      @include u-drawer-content;
     }
   }
 }

@@ -1,11 +1,9 @@
 @import "../mixins";
-
-@each $color, $value in $u-theme-colors {
-  @include u-bg-variant(".u-bg-#{$color}", $value);
-}
+@import "../placeholders/background";
 
 .u-bg-white {
   background-color: $white !important;
+  @extend %u-bg-light;
 }
 
 .u-bg-transparent {
@@ -13,10 +11,10 @@
 }
 
 .u-bg-light {
-  @include light-background-colors;
+  @extend %u-bg-light;
 }
 .u-bg-dark {
-  @include dark-background-colors;
+  @extend %u-bg-dark;
 }
 
 .u-selectable-background {

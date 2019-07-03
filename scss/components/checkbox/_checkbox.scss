@@ -1,6 +1,7 @@
 @import "variables";
 @import "../../font";
 @import "../../mixins";
+@import "../../theming";
 
 //Inspiration: https://codepen.io/abottega/pen/vNzQMo/
 
@@ -89,7 +90,10 @@
   }
 }
 
-@mixin checkbox-theme($theme-colors, $dark-theme) {
+@mixin u-checkbox-theme() {
+  $dark-theme: map-get($u-theme, "dark");
+  $theme-colors: map-get($u-theme, "colors");
+
   $primary-color: map-get($theme-colors, "primary");
   $check-color: $u-checkbox-color-light-theme;
   $u-checkbox-mark-color-theme: $u-checkbox-mark-color-light-theme;

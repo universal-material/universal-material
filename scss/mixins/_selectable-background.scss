@@ -1,3 +1,5 @@
+@import "../colors";
+
 @mixin selectable-background-before($border-radius: inherit, $set-position: true) {
   @if ($set-position) {
     position: relative;
@@ -43,15 +45,9 @@
   cursor: pointer;
 
   $hover-background: $hover-background-light-theme;
-  //$focus-background: $focus-background-light-theme;
 
   @if ($dark-theme) {
     $hover-background: $hover-background-dark-theme;
-    //$focus-background: $focus-background-dark-theme;
-  }
-
-  @if ($border-radius == null) {
-    $border-radius: inherit;
   }
 
   transition: background-color 250ms linear;
@@ -63,14 +59,6 @@
   &:active {
     background-color: $hover-background;
   }
-
-  //&:active {
-  //  background-color: $focus-background;
-  //}
-
-  //&.active {
-  //  background-color: $focus-background;
-  //}
 }
 
 @mixin selectable-background-using-color() {

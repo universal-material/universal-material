@@ -1,6 +1,7 @@
 @import "variables";
 @import "../../font";
 @import "../../mixins";
+@import "../../theming";
 
 .u-radio {
   display: inline-flex;
@@ -70,7 +71,10 @@
   }
 }
 
-@mixin radio-theme($theme-colors, $dark-theme) {
+@mixin u-radio-theme {
+  $dark-theme: map-get($u-theme, "dark");
+  $theme-colors: map-get($u-theme, "colors");
+
   $primary-color: map-get($theme-colors, "primary");
   $u-radio-color: $u-radio-color-light-theme;
 

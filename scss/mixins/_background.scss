@@ -4,8 +4,8 @@
 
 @mixin dark-background-colors {
   color: $u-body-color-dark-theme;
-  @include text-emphasis-variant(".text-low-contrast", $u-text-low-contrast-dark-theme);
-  @include text-emphasis-variant(".text-high-contrast", $u-text-high-contrast-dark-theme);
+  @include text-emphasis-variant(".u-text-low-contrast", $u-text-low-contrast-dark-theme);
+  @include text-emphasis-variant(".u-text-high-contrast", $u-text-high-contrast-dark-theme);
 
   @if (mixin_exists(button-borderless-variant)) {
     .u-btn-borderless.u-btn-default {
@@ -34,6 +34,41 @@
   @if (mixin_exists(button-flat-variant)) {
     .u-btn-flat.u-btn-default {
       @include button-flat-variant($u-body-color-light-theme);
+    }
+  }
+}
+
+@mixin ensure-bg-colors-theme {
+  $bg-colors-created: map-get($u-theme, "bg-colors-created");
+  $theme-colors: map-get($u-theme, "colors");
+
+  @if ($bg-colors-created == null) {
+    @each $color, $value in $theme-colors {
+      @include u-bg-variant(".u-bg-#{$color}", $value);
+
+      $is-dark-background: is-dark-background($value);
+
+      .u-bg-#{$color} {
+        @if ($is-dark-background) {
+          @extend %u-bg-dark;
+        } @else {
+          @extend %u-bg-light;
+        }
+      }
+    }
+
+    $u-theme: map-merge($u-theme, ("bg-colors-created": true)) !global;
+  }
+}
+
+@mixin extend-bg-colors($prefix) {
+  @include ensure-bg-colors-theme;
+
+  $theme-colors: map-get($u-theme, "colors");
+
+  @each $color, $value in $theme-colors {
+    #{$prefix}#{$color} {
+      @extend .u-bg-#{$color};
     }
   }
 }

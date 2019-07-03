@@ -172,11 +172,11 @@
   }
 }
 
-@mixin buttons-theme($theme) {
+@mixin u-buttons-theme() {
 
-  $theme-colors: map-get($theme, "colors");
-  $dark-theme: map-get($theme, "dark");
-  $uwp-style: map-get($theme, "uwp-style");
+  $theme-colors: map-get($u-theme, "colors");
+  $dark-theme: map-get($u-theme, "dark");
+  $uwp-style: map-get($u-theme, "uwp-style");
 
   $buttons-colors: (
     default: $u-btn-default-background-light,

@@ -16,7 +16,7 @@ $step-circle-active-text-color: get-text-color-by-background-color($step-circle-
 
 $step-label-margin: 1rem !default;
 $step-label-disabled-color: $u-text-low-contrast-light-theme !default;
-$step-label-font-weight: $font-medium !default;
+$step-label-font-weight: $u-font-medium !default;
 
 $step-content-margin: .75rem !default;
 
@@ -24,7 +24,7 @@ $step-actions-height: 3rem !default;
 $step-actions-buttons-margin: 8px !default;
 $step-actions-margin: 16px !default;
 
-$active-step-weight: $font-medium !default;
+$active-step-weight: $u-font-medium !default;
 
 $vertical-step-space: 3rem !default;
 

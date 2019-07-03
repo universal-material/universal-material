@@ -1,4 +1,5 @@
 @import "variables";
+@import "../../theming";
 
 .u-form-field {
   margin-bottom: $u-form-field-margin;
@@ -74,7 +75,7 @@
   line-height: 1em;
   text-align: center;
 
-  @if (mixin_exists(buttons-theme)) {
+  @if (mixin_exists(u-buttons-theme)) {
     .u-btn-borderless {
       margin-top: -($u-btn-borderless-size - $u-text-field-icon-size) / 2;
       margin-left: -($u-btn-borderless-size - $u-text-field-icon-size) / 2;
@@ -382,11 +383,11 @@ input.u-text-input {
   box-shadow: $u-search-field-elevated-box-shadow;
 }
 
-@mixin text-fields-theme($theme) {
+@mixin u-text-fields-theme {
 
-  $theme-colors: map-get($theme, "colors");
-  $dark-theme: map-get($theme, "dark");
-  $uwp-style: map-get($theme, "uwp-style");
+  $theme-colors: map-get($u-theme, "colors");
+  $dark-theme: map-get($u-theme, "dark");
+  $uwp-style: map-get($u-theme, "uwp-style");
 
   $primary-color: map-get($theme-colors, "primary");
   $danger-color: map-get($theme-colors, "danger");

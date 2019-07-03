@@ -117,7 +117,7 @@
   flex-grow: 1;
   align-items: center;
   font-size: $u-list-item-font-size;
-  font-weight: $font-regular;
+  font-weight: $u-font-regular;
   line-height: $u-list-item-font-size;
 
   .secondary-text {
@@ -162,7 +162,7 @@
   height: $u-list-item-min-height;
   padding: $u-list-item-padding;
   font-size: $u-list-index-font-size;
-  font-weight: $font-medium;
+  font-weight: $u-font-medium;
 }
 
 .u-list-section-title {

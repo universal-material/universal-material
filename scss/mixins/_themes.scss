@@ -1,4 +1,6 @@
-@mixin create-light-theme() {
+@import "../theming";
+
+@mixin create-light-theme {
   @if & {
     & {
       background-color: $bg-light;
@@ -11,7 +13,7 @@
   }
 }
 
-@mixin create-dark-theme() {
+@mixin create-dark-theme {
   @if & {
     & {
       background-color: $bg-dark;
@@ -24,94 +26,93 @@
   }
 }
 
-@mixin create-theme($theme) {
+@mixin u-create-theme() {
 
-  $theme-colors: map-get($theme, "colors");
-  $dark-theme: map-get($theme, "dark");
-
-  @if (mixin_exists(buttons-theme)) {
-    @include buttons-theme($theme);
+  @if (mixin_exists(u-buttons-theme)) {
+    @include u-buttons-theme;
   }
 
-  @if (mixin_exists(floating-action-button-theme)) {
-    @include floating-action-button-theme($dark-theme);
+  @if (mixin_exists(u-floating-action-button-theme)) {
+    @include u-floating-action-button-theme;
   }
 
-  @if (mixin_exists(drawer-theme)) {
-    @include drawer-theme($theme);
+  @if (mixin_exists(u-drawer-theme)) {
+    @include u-drawer-theme;
   }
 
-  @if (mixin_exists(list-theme)) {
-    @include list-theme($dark-theme);
+  @if (mixin_exists(u-list-theme)) {
+    @include u-list-theme;
   }
 
-  @if (mixin_exists(card-theme)) {
-    @include card-theme($theme);
+  @if (mixin_exists(u-card-theme)) {
+    @include u-card-theme;
   }
 
-  @if (mixin_exists(divider-theme)) {
-    @include divider-theme($dark-theme);
+  @if (mixin_exists(u-divider-theme)) {
+    @include u-divider-theme;
   }
 
-  @if (mixin_exists(dialog-theme)) {
-    @include dialog-theme($theme);
+  @if (mixin_exists(u-dialog-theme)) {
+    @include u-dialog-theme;
   }
 
-  @if (mixin_exists(dropdown-theme)) {
-    @include dropdown-theme($theme);
+  @if (mixin_exists(u-dropdown-theme)) {
+    @include u-dropdown-theme;
   }
 
-  @if (mixin_exists(chip-theme)) {
-    @include chip-theme($theme-colors, $dark-theme);
+  @if (mixin_exists(u-chip-theme)) {
+    @include u-chip-theme;
   }
 
-  @if (mixin_exists(checkbox-theme)) {
-    @include checkbox-theme($theme-colors, $dark-theme);
+  @if (mixin_exists(u-checkbox-theme)) {
+    @include u-checkbox-theme;
   }
 
-  @if (mixin_exists(radio-theme)) {
-    @include radio-theme($theme-colors, $dark-theme);
+  @if (mixin_exists(u-radio-theme)) {
+    @include u-radio-theme;
   }
 
-  @if (mixin_exists(switch-theme)) {
-    @include switch-theme($theme-colors, $dark-theme);
+  @if (mixin_exists(u-switch-theme)) {
+    @include u-switch-theme;
   }
 
-  @if (mixin_exists(slider-theme)) {
-    @include slider-theme($theme);
+  @if (mixin_exists(u-slider-theme)) {
+    @include u-slider-theme;
   }
 
-  @if (mixin_exists(snackbar-theme)) {
-    @include snackbar-theme($theme);
+  @if (mixin_exists(u-snackbar-theme)) {
+    @include u-snackbar-theme;
   }
 
   @if (mixin_exists(u-tab-theme)) {
-    @include u-tab-theme($theme);
+    @include u-tab-theme;
   }
 
-  @if (mixin_exists(text-fields-theme)) {
-    @include text-fields-theme($theme);
+  @if (mixin_exists(u-text-fields-theme)) {
+    @include u-text-fields-theme;
   }
 
-  @if (mixin_exists(data-table-theme)) {
-    @include data-table-theme($dark-theme);
+  @if (mixin_exists(u-data-table-theme)) {
+    @include u-data-table-theme;
   }
 
   @if (mixin_exists(u-toolbar-theme)) {
-    @include u-toolbar-theme($theme);
+    @include u-toolbar-theme;
   }
 
-  @if (mixin_exists(text-theme)) {
-    @include text-theme($theme-colors, $dark-theme);
+  @if (mixin_exists(u-text-theme)) {
+    @include u-text-theme;
   }
 
-  @if (mixin_exists(progress-theme)) {
-    @include progress-theme($theme-colors);
+  @if (mixin_exists(u-progress-theme)) {
+    @include u-progress-theme;
   }
 
-  @if (mixin_exists(datepicker-theme)) {
-    @include datepicker-theme($theme);
+  @if (mixin_exists(u-datepicker-theme)) {
+    @include u-datepicker-theme;
   }
+
+  $dark-theme: map-get($u-theme, "dark");
 
   @if ($dark-theme) {
     @include create-dark-theme;
