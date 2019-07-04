@@ -1,3 +1,6 @@
 @import "colors";
 
-$u-theme: (colors: $u-theme-colors, dark: $u-default-theme-dark, uwp-style: $u-default-uwp-style) !default;
+$u-theme: (
+  colors: $u-theme-colors,
+  dark: $u-default-theme-dark,
+  default-style: $u-default-style) !default;

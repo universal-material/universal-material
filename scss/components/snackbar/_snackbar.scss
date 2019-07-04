@@ -98,7 +98,7 @@
 @mixin u-snackbar-theme() {
 
   $dark-theme: map-get($u-theme, "dark");
-  $uwp-style: map-get($u-theme, "uwp-style");
+  $default-style: map-get($u-theme, "default-style");
 
   $background-color: $u-snackbar-background-color-light-theme;
   $color: $u-snackbar-text-color-light-theme;
@@ -116,7 +116,7 @@
     color: $color;
   }
 
-  @if ($uwp-style) {
+  @if ($default-style == "uwp") {
     @include uwp-snackbar($dark-theme);
 
     @if (mixin_exists(uwp-button)) {

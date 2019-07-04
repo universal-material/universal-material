@@ -75,7 +75,7 @@
 @mixin u-card-theme() {
 
   $dark-theme: map-get($u-theme, "dark");
-  $uwp-style: map-get($u-theme, "uwp-style");
+  $default-style: map-get($u-theme, "default-style");
 
   $background-color: $u-card-bg-light-theme;
 
@@ -95,7 +95,7 @@
     }
   }
 
-  @if ($uwp-style) {
+  @if ($default-style == "uwp") {
     @include uwp-card;
 
     @if (mixin_exists(uwp-button)) {

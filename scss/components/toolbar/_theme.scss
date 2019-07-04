@@ -2,12 +2,13 @@
 @import "../../theming";
 @import "../../placeholders/background";
 @import "../../utilities/background";
+@import "ios-toolbar";
 
 @mixin u-toolbar-theme {
 
   $theme-colors: map-get($u-theme, "colors");
   $dark-theme: map-get($u-theme, "dark");
-  $uwp-style: map-get($u-theme, "uwp-style");
+  $default-style: map-get($u-theme, "default-style");
 
   $color: $u-body-color-light-theme;
 
@@ -15,12 +16,28 @@
     $color: $u-body-color-dark-theme;
   }
 
-  $u-toolbar-primary: map_get($theme-colors, "primary");
+  $u-toolbar-primary: map-get($theme-colors, "primary");
 
-  @include extend-bg-colors(".u-toolbar-");
+  @if ($default-style == "android" or $default-style == "uwp") {
+    @include extend-bg-colors(".u-toolbar-");
+  } @else if ($default-style == "ios") {
+    @include ios-toolbar;
+
+    .u-toolbar {
+      background: #fafafa;
+    }
+
+    @each $color, $value in $theme-colors {
+      .u-toolbar-#{$color} {
+        .u-btn-default {
+          @extend .u-btn-#{$color};
+        }
+      }
+    }
+  }
 }
 
-@mixin u-toolbar-variant($background-color) {
+@mixin u-toolbar-background-color-variant($background-color) {
 
   $dark-background: is-dark-background($background-color);
 

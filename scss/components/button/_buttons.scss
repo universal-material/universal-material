@@ -181,7 +181,7 @@
 
   $theme-colors: map-get($u-theme, "colors");
   $dark-theme: map-get($u-theme, "dark");
-  $uwp-style: map-get($u-theme, "uwp-style");
+  $default-style: map-get($u-theme, "default-style");
 
   $buttons-colors: (
     default: $u-btn-default-background-light,
@@ -245,7 +245,7 @@
   @include button-flat-theme($buttons-colors, $dark-theme, $u-btn-flat-default-color);
   @include button-borderless-theme($buttons-colors, $dark-theme);
 
-  @if ($uwp-style) {
+  @if ($default-style == "uwp") {
     @include uwp-button($dark-theme);
   }
 }
