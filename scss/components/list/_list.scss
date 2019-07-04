@@ -34,7 +34,7 @@
   &.u-list-selectable {
     .u-list-item {
       cursor: pointer;
-      @include selectable-background-before();
+      @include selectable-background-before;
     }
   }
 }
@@ -119,10 +119,6 @@
   font-size: $u-list-item-font-size;
   font-weight: $u-font-regular;
   line-height: $u-list-item-font-size;
-
-  .secondary-text {
-    font-size: .875rem;
-  }
 }
 
 .u-list-item-secondary-content {
@@ -134,7 +130,7 @@
 }
 
 .u-list-item-hover {
-  @include selectable-background-before();
+  @include selectable-background-before;
 
   position: absolute;
   top: 0;
@@ -165,7 +161,7 @@
   font-weight: $u-font-medium;
 }
 
-.u-list-section-title {
+.u-list-section {
   padding: $u-list-item-padding;
   line-height: 1;
 }
@@ -213,6 +209,11 @@
 
   .u-list-item-avatar + .u-list-item-primary-content {
     margin-right: $u-list-icon-avatar-margin;
+    margin-left: 0;
+  }
+
+  .u-list-item-primary-content ~ .u-list-item-icon {
+    margin-right: $u-list-item-padding;
     margin-left: 0;
   }
 }

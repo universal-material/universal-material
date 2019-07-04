@@ -7,180 +7,61 @@ block content
     h5.u-headline5.article-title Down
     .example-box
       .example-box-header
-        .u-toolbar
-          .u-toolbar-row
-            .u-toolbar-actions
-              .u-toolbar-action.u-dropdown
-                button.u-btn-borderless.u-btn-default.u-dropdown-toggle
-                  i.u-btn-icon.mdi.mdi-dots-vertical
-
-                .u-dropdown-menu.down
-                  .u-dropdown-content
-                    a.u-dropdown-item.text-nowrap(href="#") Item A
-                    a.u-dropdown-item.text-nowrap(href="#") Item B
-                    a.u-dropdown-item.text-nowrap(href="#") Item C
+        include dropdown-menus/down.html
       pre
         code.html
-          = '<div class="u-dropdown">\n'
-          = '  <button class="u-btn-borderless u-btn-default dropdown-toggle">\n'
-          = '    <i class="mdi mdi-dots-vertical"></i>\n'
-          = '  </button>\n'
-          = '  <div class="u-dropdown-menu down">\n'
-          = '    <div class="u-dropdown-content">\n'
-          = '      <a href="#" class="u-dropdown-item text-nowrap">Item A</a>\n'
-          = '      <a href="#" class="u-dropdown-item text-nowrap">Item B</a>\n'
-          = '      <a href="#" class="u-dropdown-item text-nowrap">Item C</a>\n'
-          = '  </div>\n'
-          = '</div>'
+    h5.u-headline5.article-title Down left
+    .example-box
+      .example-box-header
+        include dropdown-menus/down-left.html
+      pre
+        code.html
+    h5.u-headline5.article-title Down right
+    .example-box
+      .example-box-header
+        include dropdown-menus/down-right.html
+      pre
+        code.html
+    h5.u-headline5.article-title Down start
+    .example-box
+      .example-box-header
+        include dropdown-menus/down-start.html
+      pre
+        code.html
+    h5.u-headline5.article-title Down end
+    .example-box
+      .example-box-header
+        include dropdown-menus/down-end.html
+      pre
+        code.html
 
     h5.u-headline5.article-title Up
     .example-box
       .example-box-header.d-flex.align-items-end
-        .u-toolbar
-          .u-toolbar-row
-            .u-toolbar-actions
-              .u-toolbar-action.u-dropdown
-                button.u-btn-borderless.u-btn-default.u-dropdown-toggle
-                  i.u-btn-icon.mdi.mdi-dots-vertical
-
-                .u-dropdown-menu.up
-                  .u-dropdown-content
-                    a.u-dropdown-item.text-nowrap(href="#") Item A
-                    a.u-dropdown-item.text-nowrap(href="#") Item B
-                    a.u-dropdown-item.text-nowrap(href="#") Item C
+        include dropdown-menus/up.html
       pre
         code.html
-          = '<div class="u-dropdown">\n'
-          = '  <button class="u-btn-borderless u-btn-default dropdown-toggle">\n'
-          = '    <i class="mdi mdi-dots-vertical"></i>\n'
-          = '  </button>\n'
-          = '  <div class="u-dropdown-menu up">\n'
-          = '    <div class="u-dropdown-content">\n'
-          = '      <a href="#" class="u-dropdown-item text-nowrap">Item A</a>\n'
-          = '      <a href="#" class="u-dropdown-item text-nowrap">Item B</a>\n'
-          = '      <a href="#" class="u-dropdown-item text-nowrap">Item C</a>\n'
-          = '  </div>\n'
-          = '</div>'
-
-
-    h5.u-headline5.article-title Down right
-    .example-box
-      .example-box-header
-        .u-toolbar
-          .u-toolbar-row
-            .u-toolbar-actions
-              .u-toolbar-action.u-dropdown
-                button.u-btn-borderless.u-btn-default.u-dropdown-toggle
-                  i.u-btn-icon.mdi.mdi-dots-vertical
-
-                .u-dropdown-menu.down-right
-                  .u-dropdown-content
-                    a.u-dropdown-item.text-nowrap(href="#") Item A
-                    a.u-dropdown-item.text-nowrap(href="#") Item B
-                    a.u-dropdown-item.text-nowrap(href="#") Item C
-      pre
-        code.html
-          | &lt;div class=&quot;u-dropdown&quot;&gt;
-          |   &lt;button class=&quot;btn-borderless u-btn-default&quot;&gt;
-          |     &lt;i class=&quot;mdi mdi-dots-vertial&quot;&nbsp;/&gt;
-          |   &lt;/button&gt;
-          |   &lt;div class=&quot;u-dropdown-menu down-right&quot;&gt;
-          |     &lt;div class=&quot;u-dropdown-content&quot;&gt;
-          |       &lt;a class=&quot;u-dropdown-item text-nowrap&quot;&gt;Item A&lt;/a&gt;
-          |       &lt;a class=&quot;u-dropdown-item text-nowrap&quot;&gt;Item B&lt;/a&gt;
-          |       &lt;a class=&quot;u-dropdown-item text-nowrap&quot;&gt;Item C&lt;/a&gt;
-          |     &lt;/div&gt;
-          |   &lt;/div&gt;
-          | &lt;/div&gt;
-
-    h5.u-headline5.article-title Down left
-    .example-box
-      .example-box-header
-        .u-toolbar
-          .u-toolbar-row
-            .u-toolbar-actions
-              .u-toolbar-actions.u-dropdown
-                button.u-btn-borderless.u-btn-default.u-dropdown-toggle
-                  i.u-btn-icon.mdi.mdi-dots-vertical
-
-                .u-dropdown-menu.down-left
-                  .u-dropdown-content
-                    a.u-dropdown-item.text-nowrap(href="#") Item A
-                    a.u-dropdown-item.text-nowrap(href="#") Item B
-                    a.u-dropdown-item.text-nowrap(href="#") Item C
-
-      pre
-        code.html
-          | &lt;div class=&quot;u-dropdown&quot;&gt;
-          |   &lt;button class=&quot;btn-borderless u-btn-default&quot;&gt;
-          |     &lt;i class=&quot;mdi mdi-dots-vertial&quot;&nbsp;/&gt;
-          |   &lt;/button&gt;
-          |   &lt;div class=&quot;u-dropdown-menu down-left&quot;&gt;
-          |     &lt;div class=&quot;u-dropdown-content&quot;&gt;
-          |       &lt;a class=&quot;u-dropdown-item text-nowrap&quot;&gt;Item A&lt;/a&gt;
-          |       &lt;a class=&quot;u-dropdown-item text-nowrap&quot;&gt;Item B&lt;/a&gt;
-          |       &lt;a class=&quot;u-dropdown-item text-nowrap&quot;&gt;Item C&lt;/a&gt;
-          |     &lt;/div&gt;
-          |   &lt;/div&gt;
-          | &lt;/div&gt;
-
-    h5.u-headline5.article-title Up right
-    .example-box
-      .example-box-header.d-flex.align-items-end
-        .u-toolbar
-          .u-toolbar-row
-            .u-toolbar-actions
-              .u-toolbar-action.u-dropdown
-                button.u-btn-borderless.u-btn-default.u-dropdown-toggle
-                  i.u-btn-icon.mdi.mdi-dots-vertical
-
-                .u-dropdown-menu.up-right
-                  .u-dropdown-content
-                    a.u-dropdown-item.text-nowrap(href="#") Item A
-                    a.u-dropdown-item.text-nowrap(href="#") Item B
-                    a.u-dropdown-item.text-nowrap(href="#") Item C
-      pre
-        code.html
-          | &lt;div class=&quot;u-dropdown&quot;&gt;
-          |   &lt;button class=&quot;btn-borderless u-btn-default&quot;&gt;
-          |     &lt;i class=&quot;mdi mdi-dots-vertial&quot;&nbsp;/&gt;
-          |   &lt;/button&gt;
-          |   &lt;div class=&quot;u-dropdown-menu up-right&quot;&gt;
-          |     &lt;div class=&quot;u-dropdown-content&quot;&gt;
-          |       &lt;a class=&quot;u-dropdown-item text-nowrap&quot;&gt;Item A&lt;/a&gt;
-          |       &lt;a class=&quot;u-dropdown-item text-nowrap&quot;&gt;Item B&lt;/a&gt;
-          |       &lt;a class=&quot;u-dropdown-item text-nowrap&quot;&gt;Item C&lt;/a&gt;
-          |     &lt;/div&gt;
-          |   &lt;/div&gt;
-          | &lt;/div&gt;
-
     h5.u-headline5.article-title Up left
     .example-box
       .example-box-header.d-flex.align-items-end
-        .u-toolbar
-          .u-toolbar-row
-            .u-toolbar-title
-            .u-dropdown
-              button.u-btn-borderless.u-btn-default.u-dropdown-toggle
-                i.u-btn-icon.mdi.mdi-dots-vertical
-
-              .u-dropdown-menu.up-left
-                .u-dropdown-content
-                  a.u-dropdown-item.text-nowrap(href="#") Item A
-                  a.u-dropdown-item.text-nowrap(href="#") Item B
-                  a.u-dropdown-item.text-nowrap(href="#") Item C
-
+        include dropdown-menus/up-left.html
       pre
         code.html
-          | &lt;div class=&quot;u-dropdown&quot;&gt;
-          |   &lt;button class=&quot;btn-borderless u-btn-default&quot;&gt;
-          |     &lt;i class=&quot;mdi mdi-dots-vertial&quot;&nbsp;/&gt;
-          |   &lt;/button&gt;
-          |   &lt;div class=&quot;u-dropdown-menu up-left&quot;&gt;
-          |     &lt;div class=&quot;u-dropdown-content&quot;&gt;
-          |       &lt;a class=&quot;u-dropdown-item text-nowrap&quot;&gt;Item A&lt;/a&gt;
-          |       &lt;a class=&quot;u-dropdown-item text-nowrap&quot;&gt;Item B&lt;/a&gt;
-          |       &lt;a class=&quot;u-dropdown-item text-nowrap&quot;&gt;Item C&lt;/a&gt;
-          |     &lt;/div&gt;
-          |   &lt;/div&gt;
-          | &lt;/div&gt;
+    h5.u-headline5.article-title Up right
+    .example-box
+      .example-box-header.d-flex.align-items-end
+        include dropdown-menus/up-right.html
+      pre
+        code.html
+    h5.u-headline5.article-title Up start
+    .example-box
+      .example-box-header.d-flex.align-items-end
+        include dropdown-menus/up-start.html
+      pre
+        code.html
+    h5.u-headline5.article-title Up end
+    .example-box
+      .example-box-header.d-flex.align-items-end
+        include dropdown-menus/up-end.html
+      pre
+        code.html

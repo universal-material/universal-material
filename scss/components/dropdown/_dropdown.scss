@@ -35,25 +35,29 @@
     transform-origin: bottom;
   }
 
-  &.down-right {
+  &.down-right,
+  &.down-end {
     top: 100%;
     left: 0;
     transform-origin: top left;
   }
 
-  &.down-left {
+  &.down-left,
+  &.down-start {
     top: 100%;
     right: 0;
     transform-origin: top right;
   }
 
-  &.up-right {
+  &.up-right,
+  &.up-end {
     bottom: 100%;
     left: 0;
     transform-origin: bottom left;
   }
 
-  &.up-left {
+  &.up-left,
+  &.up-start {
     right: 0;
     bottom: 100%;
     transform-origin: bottom right;
@@ -82,7 +86,7 @@
   border: none;
   outline: 0;
 
-  @include selectable-background-before();
+  @include selectable-background-before;
 
   &.active,
   &:active {
@@ -92,6 +96,7 @@
   }
 
   @include hover-focus {
+    text-decoration: none;
     outline: 0;
   }
 }
@@ -142,6 +147,36 @@
   .u-dropdown-item {
     height: $u-dropdown-item-dense-height;
     font-size: $u-dropdown-item-dense-font-size;
+  }
+}
+
+.rtl,
+[dir="rtl"] {
+  .u-dropdown-menu {
+
+    &.up-start {
+      right: auto;
+      left: 0;
+      transform-origin: bottom left;
+    }
+
+    &.up-end {
+      right: 0;
+      left: auto;
+      transform-origin: bottom right;
+    }
+
+    &.down-start {
+      right: auto;
+      left: 0;
+      transform-origin: top left;
+    }
+
+    &.down-end {
+      right: 0;
+      left: auto;
+      transform-origin: top right;
+    }
   }
 }
 

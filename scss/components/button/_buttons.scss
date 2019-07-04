@@ -1,11 +1,16 @@
 @import "variables";
 @import "../../typography/variables";
 @import "../../mixins";
+@import "../../placeholders";
 @import "uwp-buttons";
 @import "button-base";
 
 .u-btn {
-  @include u-btn;
+  @extend %u-button-base;
+  height: $u-btn-height;
+  padding: 0 $u-btn-side-padding;
+  line-height: $u-btn-material-line-height;
+  border-radius: $u-btn-border-radius;
   transition: color 150ms ease-in-out, background-color 150ms ease-in-out, box-shadow 150ms ease-in-out;
 }
 

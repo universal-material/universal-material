@@ -7,125 +7,39 @@ block content
     h5.u-headline5.article-title Floating buttons
     .example-box
       .example-box-header
-        button.u-btn-floating.u-btn-default
-          i.u-btn-icon.mdi.mdi-plus
-        button.u-btn-floating.u-btn-default(disabled)
-          i.u-btn-icon.mdi.mdi-plus
+        include floating-action-buttons/simple-floating-buttons.html
 
       pre
         code.html
-          = '<button class="u-btn-floating btn-default">\n'
-          = '  <i class="u-btn-icon mdi mdi-plus"></i>\n'
-          = '</button>\n'
-          = '<button class="u-btn-floating btn-default" disabled>\n'
-          = '  <i class="u-btn-icon mdi mdi-plus"></i>\n'
-          = '</button>'
 
     h5.u-headline5.article-title Small floating buttons
     .example-box
       .example-box-header
-        button.u-btn-floating.u-btn-floating-sm.u-btn-default
-          i.u-btn-icon.mdi.mdi-plus
-        button.u-btn-floating.u-btn-floating-sm.u-btn-default(disabled)
-          i.u-btn-icon.mdi.mdi-plus
+        include floating-action-buttons/small-floating-buttons.html
 
       pre
         code.html
-          = '<button class="u-btn-floating btn-floating-sm btn-default">\n'
-          = '  <i class="u-btn-icon mdi mdi-plus"></i>\n'
-          = '</button>\n'
-          = '<button class="u-btn-floating btn-floating-sm btn-default" disabled>\n'
-          = '  <i class="u-btn-icon mdi mdi-plus"></i>\n'
-          = '</button>'
 
     h5.u-headline5.article-title Floating extended buttons
     .example-box
       .example-box-header
-        button.u-btn-floating.u-btn-floating-extended.u-btn-default
-          i.u-btn-icon.mdi.mdi-plus
-          | Floating extended
-        button.u-btn-floating.u-btn-floating-extended.u-btn-default(disabled)
-          i.u-btn-icon.mdi.mdi-plus
-          | Floating extended
+        include floating-action-buttons/small-floating-buttons.html
 
       pre
         code.html
-          = '<button class="u-btn-floating btn-floating-extended btn-default">\n'
-          = '  <i class="u-btn-icon mdi mdi-plus"></i>Floating extended\n'
-          = '</button>\n'
-          = '<button class="u-btn-floating btn-floating-extended btn-default" disabled>\n'
-          = '  <i class="u-btn-icon mdi mdi-plus"></i>Floating extended\n'
-          = '</button>'
 
     h5.u-headline5.article-title Floating action area
     .example-box
       .example-box-header
-        .u-floating-action-area.u-text-end
-          button.u-btn-floating.u-btn-primary
-            i.u-btn-icon.mdi.mdi-plus
+        include floating-action-buttons/floating-action-area.html
 
       pre
         code.html
-          = '<div class="u-floating-action-area">\n'
-          = '  <button class="u-btn-floating btn-primary">\n'
-          = '    <i class="u-btn-icon mdi mdi-plus"></i>\n'
-          = '  </button>\n'
-          = '</div>'
 
     h5.u-headline5.article-title Floating menu
     .example-box
-      .example-box-header
-        .u-floating-action-area.u-floating-menu.u-text-end
-          span.u-btn-floating.u-btn-danger.u-floating-menu-toggle(tabindex="1")
-            i.u-btn-icon.mdi.mdi-plus
-          .u-floating-menu-items
-            .u-floating-menu-item
-              .u-floating-menu-label Write
-              .u-floating-menu-action
-                button.u-btn-floating.u-btn-danger
-                  i.u-btn-icon.mdi.mdi-pencil
-            .u-floating-menu-item
-              .u-floating-menu-label Reminder
-              .u-floating-menu-action
-                button.u-btn-floating.u-btn-floating-sm.u-btn-primary
-                  i.u-btn-icon.mdi.mdi-reminder
-            .u-floating-menu-item
-              .u-floating-menu-label Checklist
-              .u-floating-menu-action
-                button.u-btn-floating.u-btn-floating-sm.u-btn-default
-                  i.u-btn-icon.mdi.mdi-format-list-checkbox
+      .example-box-header.u-text-end
+        include floating-action-buttons/floating-menu.html
 
       pre
         code.html
-          = '<div class="u-floating-action-area u-floating-menu">\n'
-          = '  <span class="u-btn-floating btn-danger u-floating-menu-toggle" tabindex="1">\n'
-          = '    <i class="u-btn-icon mdi mdi-plus"></i>\n'
-          = '  </span>\n'
-          = '  <div class="u-floating-menu-items">\n'
-          = '    <div class="u-floating-menu-item">\n'
-          = '      <div class="u-floating-menu-label">Write</div>\n'
-          = '      <div class="u-floating-menu-action">\n'
-          = '        <button class="u-btn-floating btn-danger">\n'
-          = '          <i class="u-btn-icon mdi mdi-pencil"></i>\n'
-          = '         </button>\n'
-          = '      </div>\n'
-          = '    </div>\n'
-          = '    <div class="u-floating-menu-item">\n'
-          = '      <div class="u-floating-menu-label">Reminder</div>\n'
-          = '      <div class="u-floating-menu-action">\n'
-          = '        <button class="u-btn-floating btn-floating-sm btn-primary">\n'
-          = '          <i class="u-btn-icon mdi mdi-reminder"></i>\n'
-          = '         </button>\n'
-          = '      </div>\n'
-          = '    </div>\n'
-          = '    <div class="u-floating-menu-item">\n'
-          = '      <div class="u-floating-menu-label">Checklist</div>\n'
-          = '      <div class="u-floating-menu-action">\n'
-          = '        <button class="u-btn-floating btn-floating-sm btn-default">\n'
-          = '          <i class="u-btn-icon mdi mdi-format-list-checkbox"></i>\n'
-          = '         </button>\n'
-          = '      </div>\n'
-          = '    </div>\n'
-          = '  </div>\n'
-          = '</div>'
-

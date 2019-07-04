@@ -32,9 +32,6 @@
 .u-toolbar-end {
   display: inline-flex;
   justify-content: flex-end;
-}
-
-.u-toolbar-start + .u-toolbar-end {
   margin-left: auto;
 }
 
@@ -93,7 +90,7 @@
     margin-left: 0;
   }
 
-  .u-toolbar-start + .u-toolbar-end {
+  .u-toolbar-end {
     margin-right: auto;
     margin-left: 0;
   }

@@ -2,141 +2,93 @@ extends ../layout
 
 block content
   h4.u-headline4.chapter-title Lists
-
+  h5.u-headline5.article-title Simple list
   .example-box
     .example-box-header
-      .u-list
-        .u-list-item
-          .u-list-item-primary-content Item A
-        .u-list-item
-          .u-list-item-primary-content Item B
-        .u-list-item
-          .u-list-item-primary-content Item C
+      include lists/simple-list.html
 
+    pre
+      code.html
+  h5.u-headline5.article-title List dividers
   .example-box
     .example-box-header
-      ul.u-list.u-list-selectable
-        li.u-list-item.u-list-item-two-lines
-          .u-list-item-primary-content Item A
-            .secondary-text.text-low-contrast Subtitle
+      include lists/list-dividers.html
 
+    pre
+      code.html
+  h5.u-headline5.article-title List custom divider
   .example-box
     .example-box-header
-      .u-list.u-list-selectable
-        .u-list-item
-          .u-list-item-primary-content Item A
-        .u-list-item
-          .u-list-item-primary-content Item B
-        .u-list-item
-          .u-list-item-primary-content Item C
+      include lists/list-custom-dividers.html
 
+    pre
+      code.html
+  h5.u-headline5.article-title List hover
   .example-box
     .example-box-header
-      ul.u-list.u-list-selectable.u-list-item-dividers
-        li.u-list-item
-          .u-list-item-primary-content Item A
-        li.u-list-item
-          .u-list-item-primary-content Item B
-        li.u-list-item
-          .u-list-item-primary-content Item C
-
-
+      include lists/list-hover.html
+    pre
+      code.html
+  h5.u-headline5.article-title List with two lines
   .example-box
     .example-box-header
-      ul.u-list
-        li.u-list-item
-          .u-list-item-hover
-          .u-list-item-primary-content Item A
-          .u-list-item-icon.u-btn-borderless.u-btn-default
-            i.u-btn-icon.mdi.mdi-star
-        li.u-list-item
-          .u-list-item-hover
-          .u-list-item-primary-content Item B
-          .u-list-item-icon.u-btn-borderless.u-btn-default
-            i.u-btn-icon.mdi.mdi-star
-        li.u-list-item
-          .u-list-item-hover
-          .u-list-item-primary-content Item C
-          .u-list-item-icon.u-btn-borderless.u-btn-default
-            i.u-btn-icon.mdi.mdi-star
+      include lists/list-two-lines.html
 
+    pre
+      code.html
+  h5.u-headline5.article-title List with three lines
+  .example-box
+    .example-box-header
+      include lists/list-three-lines.html
+
+    pre
+      code.html
+  h5.u-headline5.article-title List with dynamic content
+  .example-box
+    .example-box-header
+      include lists/list-dynamic.html
+
+    pre
+      code.html
+  h5.u-headline5.article-title List avatar
+  .example-box
+    .example-box-header
+      include lists/list-avatars.html
+
+    pre
+      code.html
+  h5.u-headline5.article-title List icons
+  .example-box
+    .example-box-header
+      include lists/list-icons.html
+
+    pre
+      code.html
+  h5.u-headline5.article-title List with activated item
+  .example-box
+    .example-box-header
+      include lists/list-with-activated-item.html
+
+    pre
+      code.html
+  h5.u-headline5.article-title List with action
+  .example-box
+    .example-box-header
+      include lists/list-with-action.html
+
+    pre
+      code.html
+  h5.u-headline5.article-title List sections
+  .example-box
+    .example-box-header
+      include lists/list-sections.html
+
+    pre
+      code.html
+  h5.u-headline5.article-title List indexed
   .example-box
     .example-box-header.limited-height
-      ul.u-list.u-list-indexed
-        li.u-list-group
-          .u-list-index A
-          .u-list-group-items
-            .u-list-item
-              .u-list-item-primary-content Angelita Kellar  
-            .u-list-item
-              .u-list-item-primary-content Ayesha Commons  
-        li.u-list-group
-          .u-list-index B
-          .u-list-group-items
-            .u-list-item
-              .u-list-item-primary-content Bella Drayton  
-        li.u-list-group
-          .u-list-index C
-          .u-list-group-items
-            .u-list-item
-              .u-list-item-primary-content Carlita Baum  
-            .u-list-item
-              .u-list-item-primary-content Collette Morena  
-            .u-list-item
-              .u-list-item-primary-content Corliss Vaughan  
-        li.u-list-group
-          .u-list-index E
-          .u-list-group-items
-            .u-list-item
-              .u-list-item-primary-content Earline Marcoux  
-            .u-list-item
-              .u-list-item-primary-content Eilene Mcarthur  
-        li.u-list-group
-          .u-list-index J
-          .u-list-group-items
-            .u-list-item
-              .u-list-item-primary-content Jerold Sancho  
-            .u-list-item
-              .u-list-item-primary-content Josef Ariza  
-            .u-list-item
-              .u-list-item-primary-content Jospeh Wooten
-        li.u-list-group
-          .u-list-index L
-          .u-list-group-items
-            .u-list-item
-              .u-list-item-primary-content Lupe Kerry
-        li.u-list-group
-          .u-list-index M
-          .u-list-group-items
-            .u-list-item
-              .u-list-item-primary-content Marin Whitwell  
-            .u-list-item
-              .u-list-item-primary-content Matt Tugwell
-        li.u-list-group
-          .u-list-index N
-          .u-list-group-items
-            .u-list-item
-              .u-list-item-primary-content Norine Woodell  
-            .u-list-item
-        li.u-list-group
-          .u-list-index O
-          .u-list-group-items
-            .u-list-item
-              .u-list-item-primary-content Olen Beumer
-        li.u-list-group
-          .u-list-index S
-          .u-list-group-items
-            .u-list-item
-              .u-list-item-primary-content Shannan Mathews
-            .u-list-item
-              .u-list-item-primary-content Stephaine Fraise  
-        li.u-list-group
-          .u-list-index T
-          .u-list-group-items
-            .u-list-item
-              .u-list-item-primary-content Timika Soller
-        li.u-list-group
-          .u-list-index V
-          .u-list-group-items
-            .u-list-item
-              .u-list-item-primary-content Vannessa Armer
+      include lists/list-indexed.html
+
+    pre
+      code.html

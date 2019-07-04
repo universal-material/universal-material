@@ -3,6 +3,7 @@
 @import "../../grid/variables";
 @import "../../font";
 @import "../../mixins";
+@import "../../placeholders";
 
 .u-tab-bar {
   position: relative;
@@ -13,6 +14,7 @@
 }
 
 .u-tab {
+  @extend %u-button-base;
   display: flex;
   flex: 1;
   flex-direction: row;

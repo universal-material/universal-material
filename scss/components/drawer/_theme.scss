@@ -22,22 +22,6 @@
       @extend %u-bg-light;
     }
     background-color: $background-color;
-
-    .u-list-item.active {
-      &,
-      .u-list-item-icon {
-        color: $primary-color;
-      }
-
-      &:hover::before,
-      &::before {
-        opacity: .2;
-      }
-
-      &:focus::before {
-        opacity: .3;
-      }
-    }
   }
 }
 

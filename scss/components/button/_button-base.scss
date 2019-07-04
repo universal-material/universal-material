@@ -23,7 +23,7 @@
   border: none; //Universal Material custom code
   border-radius: $u-btn-border-radius; //Universal Material custom code
 
-  @include selectable-background-before();
+  @include selectable-background-before;
 
   // Share hover and focus styles
   @include hover-focus {

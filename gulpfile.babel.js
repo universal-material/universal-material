@@ -130,7 +130,7 @@ gulp.task('js-compile-browser-uglify', function () {
 });
 
 gulp.task('watch', function () {
-  gulp.watch('./docs/src/**/*.pug', ['pug:docs']);
+  gulp.watch(['./docs/src/**/*.pug', './docs/src/**/*.html'], ['pug:docs']);
   gulp.watch('./scss/**/*.scss', ['sass']);
   gulp.watch('./docs/src/css/**/*.scss', ['sass:docs']);
   gulp.watch('./js/src/*.ts', ['scripts']);

@@ -1,9 +1,6 @@
 @import "../colors";
 
-@mixin selectable-background-before($border-radius: inherit, $set-position: true) {
-  @if ($set-position) {
-    position: relative;
-  }
+@mixin selectable-background-before {
 
   &::before {
     position: absolute;
@@ -13,7 +10,7 @@
     left: 0;
     content: "";
     background: currentColor;
-    border-radius: $border-radius;
+    border-radius: inherit;
     opacity: 0;
     transition: opacity 250ms linear;
   }
@@ -22,21 +19,12 @@
     opacity: .12;
   }
 
+  &:focus::before {
+    opacity: .12;
+  }
+
   &:active::before {
     opacity: .2;
-  }
-}
-
-@mixin selectable-background-before-custom-size($width, $height, $border-radius: inherit) {
-  @include selectable-background-before($border-radius);
-
-  &::before {
-    top: 50%;
-    left: 50%;
-    width: $width;
-    height: $height;
-    margin-top: -$height / 2;
-    margin-left: -$width / 2;
   }
 }
 

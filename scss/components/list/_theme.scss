@@ -5,6 +5,9 @@
 @mixin u-list-theme() {
   $dark-theme: map-get($u-theme, "dark");
 
+  $theme-colors: map-get($u-theme, "colors");
+  $primary-color: map-get($theme-colors, "primary");
+
   $color: $u-list-item-color-light-theme;
   $icon-color: $u-list-icon-color-light-theme;
   $section-color: $u-text-low-contrast-light-theme;
@@ -21,6 +24,26 @@
     @include hover-focus {
       color: $color;
     }
+
+    &.active {
+      color: $primary-color;
+
+      .u-list-item-activity-icon {
+        color: currentColor;
+      }
+    }
+  }
+
+  .u-list-item.active,
+  .u-list.u-list-selectable .u-list-item.active {
+    &:hover::before,
+    &::before {
+      opacity: .2;
+    }
+
+    &:focus::before {
+      opacity: .3;
+    }
   }
 
   .u-list-item-icon,
@@ -32,7 +55,7 @@
     color: $icon-color;
   }
 
-  .u-list-section-title {
+  .u-list-section {
     color: $section-color;
   }
 }

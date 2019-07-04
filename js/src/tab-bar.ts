@@ -4,14 +4,46 @@ interface TabElement extends HTMLElement {
 
 export class TabBar {
 
+  private static _attachedKeyEvents = false;
   private readonly _tabIndicatorElement: HTMLElement;
   private readonly _tabMap: TabElement[] = [];
   currentTabIndex: number;
 
-  constructor(private readonly _tabBarElement: HTMLElement) {
+  protected constructor(private readonly _tabBarElement: HTMLElement) {
+
+    if (!TabBar._attachedKeyEvents) {
+      document.addEventListener('keydown', e => {
+        const tabBar = document.activeElement.parentElement && document.activeElement.parentElement['tabBar'] as TabBar;
+
+        if (!tabBar) {
+          return;
+        }
+
+        let tabFocusIndex = (document.activeElement as TabElement).index;
+
+        if (e.keyCode === 37) {
+          tabFocusIndex--;
+
+          if (tabFocusIndex < 0) {
+            tabFocusIndex = tabBar._tabMap.length - 1;
+          }
+        }  else if (e.keyCode === 39) {
+          tabFocusIndex++;
+
+          if (tabFocusIndex >= tabBar._tabMap.length) {
+            tabFocusIndex = 0
+          }
+        }
+
+        console.log(tabFocusIndex);
+        tabBar._tabMap[tabFocusIndex].focus();
+      });
+    }
+
     this._tabIndicatorElement = _tabBarElement.querySelector('.u-tab-indicator');
-    this._setTabInfoMap();
+    this._setTabs();
     this.setActiveTab(0);
+    _tabBarElement['tabBar'] = this;
 
     if (window) {
       window.addEventListener('resize', () => {
@@ -23,6 +55,8 @@ export class TabBar {
   setActiveTab(tabIndex: number) {
     if (!isNaN(this.currentTabIndex)) {
       this._tabMap[this.currentTabIndex].classList.remove('active');
+      this._tabMap[this.currentTabIndex].setAttribute('tabindex', '-1');
+      this._tabMap[this.currentTabIndex].setAttribute('aria-selected', 'false');
     }
 
     this.currentTabIndex = tabIndex;
@@ -33,13 +67,15 @@ export class TabBar {
     }));
 
     this._tabMap[this.currentTabIndex].classList.add('active');
+    this._tabMap[this.currentTabIndex].setAttribute('tabindex', '0');
+    this._tabMap[this.currentTabIndex].setAttribute('aria-selected', 'true');
 
     setTimeout(() => this._updateTabIndicator(), 100);
   }
 
   recalculateBounds() {
     this._tabMap.length = 0;
-    this._setTabInfoMap();
+    this._setTabs();
     this._updateTabIndicator();
   }
 
@@ -57,7 +93,7 @@ export class TabBar {
     this.setActiveTab(tab.index);
   }
 
-  private _setTabInfoMap() {
+  private _setTabs() {
 
     const tabs = this._tabBarElement.querySelectorAll('.u-tab');
 
@@ -65,6 +101,9 @@ export class TabBar {
       const tab = tabs[i] as TabElement;
       tab.removeEventListener('click', this._tabClick);
       tab.addEventListener('click', this._tabClick);
+      tab.setAttribute('tabindex', i === this.currentTabIndex ? '0' : '-1');
+      tab.setAttribute('aria-selected',
+        i === this.currentTabIndex ? 'true' : 'false');
 
       tab.index = i;
       this._tabMap.push(tab);
@@ -72,6 +111,7 @@ export class TabBar {
   }
 
   static attach(tabBarElement: HTMLElement): TabBar {
+
     return new TabBar(tabBarElement);
   }
 

@@ -47,6 +47,10 @@
   padding: 1rem;
   margin-bottom: .5rem;
   background: $gray-100;
+
+  .u-toolbar {
+    width: 100%;
+  }
 }
 
 .limited-height {
@@ -85,6 +89,11 @@
   background-size: cover;
 }
 
+.u-list-item-avatar {
+  background: url("/img/woman-avatar.jpg") center;
+  background-size: cover;
+}
+
 .chapter,
 .article-title {
   margin-top: 80px;
@@ -108,6 +117,7 @@ pre {
 }
 
 code {
+  unicode-bidi: plaintext;
   padding: 1rem !important;
   background: transparent !important;
 }
