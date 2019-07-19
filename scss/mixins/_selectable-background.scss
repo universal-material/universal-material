@@ -1,6 +1,7 @@
 @import "../colors";
 
 @mixin selectable-background-before {
+  position: relative;
 
   &::before {
     position: absolute;

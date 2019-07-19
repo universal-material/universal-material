@@ -1,0 +1,44 @@
+@import "variables";
+
+%u-chevron {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  line-height: 1;
+
+  &::before {
+    position: relative;
+    display: inline-block;
+    width: .375em;
+    height: .375em;
+    vertical-align: middle;
+    content: "";
+    border-color: currentColor;
+    border-style: solid;
+    border-width: .075em .075em 0 0;
+    transform: rotate(-45deg);
+    transform-origin: center;
+  }
+}
+
+.u-chevron-right {
+  @extend %u-chevron;
+  transform: rotate(90deg);
+  transform-origin: center;
+}
+
+.u-chevron-up {
+  @extend %u-chevron;
+}
+
+.u-chevron-down {
+  @extend %u-chevron;
+  transform: rotate(180deg);
+  transform-origin: center;
+}
+
+.u-chevron-left {
+  @extend %u-chevron;
+  transform: rotate(270deg);
+  transform-origin: center;
+}

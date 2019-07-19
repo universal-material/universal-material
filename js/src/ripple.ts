@@ -81,7 +81,9 @@ export class Ripple {
   }
 
   createRipple(rippleContainer: Element, releaseEventName: string, releaseCallback: Function, pageX: number, pageY: number) {
-    if (this.disabled) return;
+    if (this.disabled ||
+      rippleContainer.hasAttribute('disabled') ||
+      rippleContainer.classList.contains('disabled')) return;
 
     const rippleWrapper = document.createElement('DIV');
     rippleWrapper.classList.add('u-ripple-wrapper');

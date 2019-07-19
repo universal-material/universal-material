@@ -1,20 +1,7 @@
-@import "../mixins";
-@import "../placeholders/background";
-
-.u-bg-white {
-  background-color: $white !important;
-  @extend %u-bg-light;
-}
+@import "../placeholders";
 
 .u-bg-transparent {
   background-color: transparent !important;
-}
-
-.u-bg-light {
-  @extend %u-bg-light;
-}
-.u-bg-dark {
-  @extend %u-bg-dark;
 }
 
 .u-selectable-background {

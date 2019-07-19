@@ -144,17 +144,12 @@
   line-height: 1.5;
 }
 
+@include u-extend-action-set("u-dialog");
+
 .u-dialog-actions {
-  position: relative;
-  display: flex;
   flex-shrink: 0;
   justify-content: flex-end;
   padding: $u-dialog-actions-padding;
-
-  .u-btn + .u-btn,
-  .u-dialog-action + .u-dialog-action {
-    margin-left: $u-dialog-actions-padding;
-  }
 }
 
 .u-dialog-progress {

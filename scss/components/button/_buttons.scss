@@ -38,7 +38,7 @@
   @include u-elevation(2);
 
   &:active {
-    @include u-elevation(4);
+    @include u-elevation(6);
   }
 
   transition: box-shadow 250ms;
@@ -127,97 +127,46 @@
   }
 }
 
-.rtl,
-[dir="rtl"] {
-  .u-btn-floating-extended {
-    .u-btn-icon {
-      margin-right: $u-btn-floating-extended-icon-margin - $u-btn-floating-extended-padding;
-      margin-left: $u-btn-floating-extended-icon-margin;
-    }
-  }
-
-  .u-btn-set {
-    .u-btn + .u-btn {
-      margin-right: $u-btn-set-margin;
-      margin-left: 0;
-    }
-  }
-}
-
-@mixin button-flat-theme($buttons-colors, $dark-theme, $u-btn-flat-default-color) {
-
-  @each $color, $value in map-merge($buttons-colors, (default: $u-btn-flat-default-color)) {
-    .u-btn-flat.u-btn-#{$color} {
-      @include button-flat-variant($value);
-    }
-  }
-}
-
-@mixin button-borderless-theme($buttons-colors, $dark-theme) {
-
-  $u-btn-borderless-color: $u-btn-borderless-color-light-theme;
-  $u-btn-disabled-color: $u-btn-disabled-color-light-theme;
-
-  @if ($dark-theme) {
-    $u-btn-borderless-color: $u-btn-borderless-color-dark-theme;
-    $u-btn-disabled-color: $u-btn-disabled-color-dark-theme;
-  }
-
-  @each $color, $value in map-merge($buttons-colors, (default: $u-btn-borderless-color)) {
-    .u-btn-borderless.u-btn-#{$color} {
-      @include button-flat-variant($value);
-    }
-  }
-
-  .u-btn-borderless {
-    &:disabled,
-    &.disabled {
-      color: $u-btn-disabled-color !important;
-    }
-  }
-}
-
-@mixin u-buttons-theme() {
-
-  $theme-colors: map-get($u-theme, "colors");
-  $dark-theme: map-get($u-theme, "dark");
-  $default-style: map-get($u-theme, "default-style");
-
-  $buttons-colors: (
-    default: $u-btn-default-background-light,
-    primary: map-get($theme-colors, "primary"),
-    primary-variant: map-get($theme-colors, "primary-variant"),
-    secondary: map-get($theme-colors, "secondary"),
-    secondary-variant: map-get($theme-colors, "secondary-variant"),
-    danger: map-get($theme-colors, "danger")
-  );
-
-  $u-btn-disabled-color: $u-btn-disabled-color-light-theme;
-  $u-btn-disabled-background-color: $u-btn-disabled-background-light-theme;
-  $u-btn-flat-default-color: $u-body-color-light-theme;
-  $u-btn-borderless-color: $u-btn-borderless-color-light-theme;
-  $u-btn-outline-gray-border-color: $u-btn-outline-gray-border-color-light-theme;
-
-  @if ($dark-theme) {
-    $buttons-colors: map-merge($buttons-colors, (default: $u-btn-default-background-dark));
-    $u-btn-disabled-color: $u-btn-disabled-color-dark-theme;
-    $u-btn-disabled-background-color: $u-btn-disabled-background-dark-theme;
-    $u-btn-flat-default-color: $u-body-color-dark-theme;
-    $u-btn-borderless-color: $u-btn-borderless-color-dark-theme;
-    $u-btn-outline-gray-border-color: $u-btn-outline-gray-border-color-dark-theme;
-  }
-
-  @each $color, $value in $buttons-colors {
-    .u-btn-solid.u-btn-#{$color} {
-      @include button-solid-variant($value);
-    }
-  }
-
+%u-bg-light {
   .u-btn {
     &.disabled,
     &:disabled {
-      color: $u-btn-disabled-color !important;
-      background-color: $u-btn-disabled-background-color;
+      color: $u-btn-disabled-color-light-theme !important;
+      background-color: $u-btn-disabled-background-light-theme !important;
+      box-shadow: none;
+
+      &::before {
+        background-color: transparent !important;
+      }
+    }
+  }
+
+  .u-btn-borderless,
+  .u-btn-flat {
+    &.disabled,
+    &:disabled {
+      &,
+      &::before {
+        background-color: transparent !important;
+      }
+    }
+  }
+
+  .u-btn-flat.u-btn-default {
+    color: $u-btn-flat-default-background-light-theme;
+  }
+
+  .u-btn-borderless.u-btn-default {
+    color: $u-btn-borderless-default-color-light-theme;
+  }
+}
+
+%u-bg-dark {
+  .u-btn {
+    &.disabled,
+    &:disabled {
+      color: $u-btn-disabled-color-dark-theme !important;
+      background-color: $u-btn-disabled-background-dark-theme;
       box-shadow: none;
 
       &::before {
@@ -237,13 +186,94 @@
     }
   }
 
+  .u-btn-flat.u-btn-default {
+    color: $u-btn-flat-default-background-dark-theme;
+  }
+
+  .u-btn-borderless.u-btn-default {
+    color: $u-btn-borderless-default-color-dark-theme;
+  }
+}
+
+.rtl,
+[dir="rtl"] {
+  .u-btn-floating-extended {
+    .u-btn-icon {
+      margin-right: $u-btn-floating-extended-icon-margin - $u-btn-floating-extended-padding;
+      margin-left: $u-btn-floating-extended-icon-margin;
+    }
+  }
+
+  .u-btn-set {
+    .u-btn + .u-btn {
+      margin-right: $u-btn-set-margin;
+      margin-left: 0;
+    }
+  }
+}
+
+@mixin button-flat-theme($buttons-colors) {
+
+  @each $color, $value in $buttons-colors {
+    .u-btn-flat.u-btn-#{$color} {
+      @include button-flat-variant($value);
+    }
+  }
+}
+
+@mixin button-borderless-theme($buttons-colors) {
+  @each $color, $value in $buttons-colors {
+    .u-btn-borderless.u-btn-#{$color} {
+      @include button-flat-variant($value);
+    }
+  }
+}
+
+@mixin u-buttons-theme {
+
+  $theme-colors: map-get($u-theme, "colors");
+  $dark-theme: map-get($u-theme, "dark");
+  $default-style: map-get($u-theme, "default-style");
+
+  $buttons-colors: (
+    primary: map-get($theme-colors, "primary"),
+    primary-variant: map-get($theme-colors, "primary-variant"),
+    secondary: map-get($theme-colors, "secondary"),
+    secondary-variant: map-get($theme-colors, "secondary-variant"),
+    danger: map-get($theme-colors, "danger")
+  );
+
+  $u-btn-disabled-color: $u-btn-disabled-color-light-theme;
+  $u-btn-disabled-background-color: $u-btn-disabled-background-light-theme;
+  $u-btn-flat-default-color: $u-body-color-light-theme;
+  $u-btn-borderless-color: $u-btn-borderless-default-color-light-theme;
+  $u-btn-outline-gray-border-color: $u-btn-outline-gray-border-color-light-theme;
+
+  @if ($dark-theme) {
+    $u-btn-disabled-color: $u-btn-disabled-color-dark-theme;
+    $u-btn-disabled-background-color: $u-btn-disabled-background-dark-theme;
+    $u-btn-flat-default-color: $u-body-color-dark-theme;
+    $u-btn-borderless-color: $u-btn-borderless-default-color-dark-theme;
+    $u-btn-outline-gray-border-color: $u-btn-outline-gray-border-color-dark-theme;
+  }
+
+  .u-btn-solid.u-btn-default {
+    @include button-solid-variant(if($dark-theme, $u-btn-solid-default-background-dark-theme, $u-btn-solid-default-background-light-theme));
+  }
+
+  @each $color, $value in $buttons-colors {
+    .u-btn-solid.u-btn-#{$color} {
+      @include button-solid-variant($value);
+    }
+  }
+
   .u-btn-outline-gray {
     @extend .u-btn-outline;
     border-color: $u-btn-outline-gray-border-color;
   }
 
-  @include button-flat-theme($buttons-colors, $dark-theme, $u-btn-flat-default-color);
-  @include button-borderless-theme($buttons-colors, $dark-theme);
+  @include button-flat-theme($buttons-colors);
+  @include button-borderless-theme($buttons-colors);
 
   @if ($default-style == "uwp") {
     @include uwp-button($dark-theme);

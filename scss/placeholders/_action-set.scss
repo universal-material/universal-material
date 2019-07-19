@@ -1,0 +1,32 @@
+@import "../variables";
+
+$u-action-margin: 8px !default;
+
+@mixin u-action-set {
+  %u-action-set {
+    display: flex;
+    align-items: center;
+  }
+
+  %u-action + %u-action {
+    margin-left: $u-action-margin;
+  }
+
+  .rtl,
+  [dir="rtl"] {
+    %u-action + %u-action {
+      margin-right: $u-action-margin;
+      margin-left: 0;
+    }
+  }
+}
+
+@mixin u-extend-action-set($name) {
+  .#{$name}-actions {
+    @extend %u-action-set;
+  }
+
+  .#{$name}-action {
+    @extend %u-action;
+  }
+}

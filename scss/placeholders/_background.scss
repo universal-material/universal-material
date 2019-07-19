@@ -1,38 +1,19 @@
 @import "../colors";
 @import "../mixins";
 
-%u-bg-light {
-  color: $u-body-color-light-theme;
-  @include text-emphasis-variant(".u-text-low-contrast", $u-text-low-contrast-light-theme);
-  @include text-emphasis-variant(".u-text-high-contrast", $u-text-high-contrast-light-theme);
-
-  @if (mixin_exists(button-borderless-variant)) {
-    .u-btn-borderless.u-btn-default {
-      @include button-borderless-variant($u-btn-borderless-color-light-theme);
-    }
-  }
-
-  @if (mixin_exists(button-flat-variant)) {
-    .u-btn-flat.u-btn-default {
-      @include button-flat-variant($u-body-color-light-theme);
-    }
+@mixin u-bg-light {
+  %u-bg-light {
+    color: $u-body-color-light-theme;
+    @include text-emphasis-variant(".u-text-low-contrast", $u-text-low-contrast-light-theme);
+    @include text-emphasis-variant(".u-text-high-contrast", $u-text-high-contrast-light-theme);
   }
 }
 
-%u-bg-dark {
-  color: $u-body-color-dark-theme;
-  @include text-emphasis-variant(".u-text-low-contrast", $u-text-low-contrast-dark-theme);
-  @include text-emphasis-variant(".u-text-high-contrast", $u-text-high-contrast-dark-theme);
+@mixin u-bg-dark {
 
-  @if (mixin_exists(button-borderless-variant)) {
-    .u-btn-borderless.u-btn-default {
-      @include button-borderless-variant($u-btn-borderless-color-dark-theme);
-    }
-  }
-
-  @if (mixin_exists(button-flat-variant)) {
-    .u-btn-flat.u-btn-default {
-      @include button-flat-variant($u-body-color-dark-theme);
-    }
+  %u-bg-dark {
+    color: $u-body-color-dark-theme;
+    @include text-emphasis-variant(".u-text-low-contrast", $u-text-low-contrast-dark-theme);
+    @include text-emphasis-variant(".u-text-high-contrast", $u-text-high-contrast-dark-theme);
   }
 }

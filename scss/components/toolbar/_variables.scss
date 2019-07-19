@@ -1,10 +1,12 @@
 @import "../../colors";
 
 //Toolbar
+$u-toolbar-row-padding: 16px !default;
+$u-toolbar-section-margin: 16px !default;
+
 $u-toolbar-height: 3.5rem !default;
 $u-toolbar-navigation-size: 2.5rem !default;
 $u-toolbar-navigation-margin: 8px !default;
-$u-toolbar-title-margin: 16px !default;
 
 $u-toolbar-actions-padding: 8px !default;
 $u-toolbar-action-size: 2.5rem !default;

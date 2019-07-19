@@ -1,6 +1,8 @@
 @import "variables";
+@import "theme";
 @import "../../divider";
 @import "../../font";
+@import "../../colors";
 
 .u-step-indicator {
   display: flex;
@@ -14,11 +16,12 @@
   line-height: $step-circle-size;
   color: $step-circle-default-text-color;
   text-align: center;
-  background: $step-circle-default-background;
+  background: $step-circle-background;
   border-radius: 50%;
 }
 
 .u-step-label {
+  font-size: $step-label-font-size;
   font-weight: $step-label-font-weight;
   line-height: $step-circle-size;
 }
@@ -33,13 +36,7 @@
 
   &.active {
     .u-step-label {
-      font-weight: $active-step-weight;
-    }
-  }
-
-  &:not(.active) {
-    .u-step-label {
-      opacity: .47;
+      font-weight: $step-label-active-font-weight;
     }
   }
 
@@ -62,20 +59,14 @@
   }
 }
 
-.u-step-actions {
-  display: flex;
-  align-items: center;
-  height: $step-actions-height;
-  margin-top: $step-actions-margin;
+@include u-extend-action-set("u-step");
 
-  [class^="btn-"] + [class^="btn-"] {
-    margin-left: $step-actions-buttons-margin;
-  }
+.u-step-actions {
+  margin-top: $step-actions-margin;
 }
 
 .u-step-line {
   flex-grow: 1;
-  background: $u-divider-color;
 }
 
 .u-stepper {
@@ -84,7 +75,7 @@
   font-family: $u-font-family-base;
 }
 
-.horizontal-stepper {
+.u-horizontal-stepper {
 
   align-items: center;
 
@@ -104,7 +95,7 @@
   }
 }
 
-.vertical-stepper {
+.u-vertical-stepper {
   flex-direction: column;
 
   .u-step:last-child .u-step-content {

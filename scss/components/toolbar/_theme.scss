@@ -1,6 +1,6 @@
 @import "../../mixins";
 @import "../../theming";
-@import "../../placeholders/background";
+@import "../../placeholders";
 @import "../../utilities/background";
 @import "ios-toolbar";
 
@@ -16,8 +16,6 @@
     $color: $u-body-color-dark-theme;
   }
 
-  $u-toolbar-primary: map-get($theme-colors, "primary");
-
   @if ($default-style == "android" or $default-style == "uwp") {
     @include extend-bg-colors(".u-toolbar-");
   } @else if ($default-style == "ios") {
@@ -30,7 +28,7 @@
     @each $color, $value in $theme-colors {
       .u-toolbar-#{$color} {
         .u-btn-default {
-          @extend .u-btn-#{$color};
+          @extend .u-btn-#{$color} !optional;
         }
       }
     }

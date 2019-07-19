@@ -4,6 +4,7 @@
 @import "uwp-card";
 @import "../../mixins";
 @import "../../theming";
+@import "../../placeholders";
 
 .u-card {
   font-family: $u-font-family-base;
@@ -55,21 +56,17 @@
   border-bottom-right-radius: inherit;
   border-bottom-left-radius: inherit;
 
-  @include dark-background-colors;
+  @extend %u-bg-dark;
 }
 
 .u-card-content {
   padding: $u-card-padding $u-card-padding;
 }
 
-.u-card-actions {
-  display: flex;
-  justify-content: flex-end;
-  padding: $u-card-actions-padding;
-}
+@include u-extend-action-set("u-card");
 
-.u-card-action + .u-card-action {
-  margin-left: $u-card-actions-padding;
+.u-card-actions {
+  padding: $u-card-actions-padding;
 }
 
 @mixin u-card-theme() {

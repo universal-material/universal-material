@@ -31,6 +31,8 @@
   font-weight: 500;
 }
 
+@include u-extend-action-set("u-banner");
+
 .u-banner-actions {
   padding: $u-banner-actions-padding;
   margin-left: auto;

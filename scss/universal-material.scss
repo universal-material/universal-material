@@ -8,6 +8,7 @@
 @import "typography/typography";
 @import "grid/grid";
 @import "utilities/elevation";
+@import "icons";
 @import "placeholders";
 
 @import "components/toolbar/toolbar";
@@ -41,4 +42,4 @@
 @import "utilities";
 
 @include u-create-theme;
-@include create-dense-layout();
+//@include create-dense-layout;

@@ -4,6 +4,9 @@
 @import "font";
 @import "grid/variables";
 @import "zindex";
+@import "theming";
+
+$placeholders-already-imported: false !default;
 
 //// This variable affects the `.h-*` and `.w-*` classes.
 //$sizes: (

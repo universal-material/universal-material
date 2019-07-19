@@ -1,7 +1,9 @@
-$u-primary-color: #6200ee !default;
-$u-primary-variant-color: #3700b3 !default;
-$u-secondary-color: #03dac6 !default;
-$u-secondary-variant-color: #018786 !default;
+$u-primary-color: #3f51b5 !default;
+$u-primary-variant-color: #303f9f !default;
+$u-secondary-color: #f50057 !default;
+$u-secondary-variant-color: #c51162 !default;
+$u-success-color: #4caf50 !default;
+$u-warning-color: #fbc02d !default;
 $u-danger-color: #b00020 !default;
 $u-default-theme-dark: false !default;
 $u-default-style: "android" !default;
@@ -34,6 +36,8 @@ $u-theme-colors: (
   primary-variant: $u-primary-variant-color,
   secondary: $u-secondary-color,
   secondary-variant: $u-secondary-variant-color,
+  success: $u-success-color,
+  warning: $u-warning-color,
   danger: $u-danger-color
 ) !default;
 
@@ -55,6 +59,9 @@ $u-color-low-contrast-dark-theme: rgba(255, 255, 255, .7) !default;
 
 $u-base-semi-transparent-color-light-theme: rgba(0, 0, 0, .12) !default;
 $u-base-semi-transparent-color-dark-theme: rgba(255, 255, 255, .12) !default;
+
+$u-divider-color-light-theme: $u-base-semi-transparent-color-light-theme !default;
+$u-divider-color-dark-theme: $u-base-semi-transparent-color-dark-theme !default;
 
 $base-hover-background-color: $u-base-semi-transparent-color-light-theme !default;
 $base-active-background-color: rgba(0, 0, 0, .2) !default;

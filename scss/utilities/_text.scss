@@ -28,10 +28,6 @@
 
 .u-text-white { color: $white !important; }
 
-@each $color, $value in $u-theme-colors {
-  @include text-emphasis-variant(".u-text-#{$color}", $value);
-}
-
 .u-text-body { color: $body-color !important; }
 .u-text-muted { color: $text-muted !important; }
 
@@ -97,8 +93,10 @@
     $text-high-contrast: $u-text-high-contrast-dark-theme;
   }
 
-  @include text-emphasis-variant(".u-text-primary", map-get($theme-colors, "primary"));
-  @include text-emphasis-variant(".u-text-secondary", map-get($theme-colors, "secondary"));
+  @each $color, $value in $u-theme-colors {
+    @include text-emphasis-variant(".u-text-#{$color}", $value);
+  }
+
   @include text-emphasis-variant(".u-text-low-contrast", $text-low-contrast);
   @include text-emphasis-variant(".u-text-high-contrast", $text-high-contrast);
 }

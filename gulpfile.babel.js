@@ -136,5 +136,12 @@ gulp.task('watch', function () {
   gulp.watch('./js/src/*.ts', ['scripts']);
 });
 
+gulp.task('watch:docs', function () {
+  gulp.watch(['./docs/src/**/*.pug', './docs/src/**/*.html'], ['pug:docs']);
+  gulp.watch('./scss/**/*.scss', ['sass:normal']);
+  gulp.watch('./docs/src/css/**/*.scss', ['sass:docs']);
+});
+
+
 gulp.task('default', ['sass', 'scripts', 'pug:docs', 'sass:docs', 'watch']);
 

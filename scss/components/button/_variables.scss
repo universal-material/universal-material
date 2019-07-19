@@ -10,10 +10,12 @@ $u-btn-material-line-height: 1.5 !default;
 $u-btn-height: 2.25rem !default;
 $u-btn-set-margin: 8px !default;
 $u-btn-border-radius: .25rem !default;
-$u-btn-default-background-light: $white !default;
-$u-btn-default-background-dark: $gray-800 !default;
-$u-btn-borderless-color-light-theme: $u-text-low-contrast-light-theme !default;
-$u-btn-borderless-color-dark-theme: $white !default;
+$u-btn-solid-default-background-light-theme: $white !default;
+$u-btn-solid-default-background-dark-theme: $gray-800 !default;
+$u-btn-flat-default-background-light-theme: $u-body-color-light-theme !default;
+$u-btn-flat-default-background-dark-theme: $white !default;
+$u-btn-borderless-default-color-light-theme: $u-text-low-contrast-light-theme !default;
+$u-btn-borderless-default-color-dark-theme: $white !default;
 
 $u-floating-action-area-margin: 1.25rem !default;
 $u-btn-floating-size: 3.5rem !default;

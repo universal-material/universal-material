@@ -4,6 +4,7 @@
 @import "../../typography/variables";
 @import "../../mixins";
 @import "../../utilities/add-to-parent-or-class";
+@import "../../placeholders";
 
 .u-toolbar {
   z-index: 1;
@@ -21,51 +22,50 @@
   flex-direction: row;
   align-items: center;
   height: $u-toolbar-height;
+  padding-right: $u-toolbar-row-padding;
+  padding-left: $u-toolbar-row-padding;
+}
+
+@include u-extend-action-set("u-toolbar");
+
+.u-toolbar-actions {
+  padding: $u-toolbar-actions-padding;
 }
 
 .u-toolbar-start {
   display: inline-flex;
   justify-content: flex-start;
+
+  .u-toolbar-actions {
+    margin-right: $u-toolbar-section-margin;
+    margin-left: -$u-toolbar-row-padding;
+  }
 }
 
 .u-toolbar-end {
   display: inline-flex;
   justify-content: flex-end;
   margin-left: auto;
+
+  .u-toolbar-actions {
+    margin-right: -$u-toolbar-row-padding;
+    margin-left: $u-toolbar-section-margin;
+  }
+}
+
+.u-toolbar-center {
+  flex: 1;
+  min-width: 0; //prevents u-toolbar-center from growing too much
+
+  &:last-child {
+    margin-right: 0;
+  }
 }
 
 .u-toolbar-title {
   @include umd-typography(headline6);
   @include text-truncate;
-  flex-grow: 1;
-  margin-left: $u-toolbar-title-margin;
   font-weight: 400;
-  text-align: start;
-}
-
-.u-toolbar-navigation {
-  &,
-  &.u-btn-borderless {
-    width: $u-toolbar-navigation-size;
-    height: $u-toolbar-navigation-size;
-  }
-
-  margin-right: $u-toolbar-navigation-margin;
-  margin-left: $u-toolbar-navigation-margin;
-}
-
-.u-toolbar-actions {
-  display: flex;
-  align-items: center;
-  padding: $u-toolbar-actions-padding;
-}
-
-.u-toolbar-action {
-  text-align: center;
-
-  + .u-toolbar-action {
-    margin-left: $u-toolbar-action-margin;
-  }
 }
 
 .u-toolbar-fixed {
@@ -84,13 +84,29 @@
 
 .rtl,
 [dir="rtl"] {
-  .u-toolbar-title {
-    margin-right: $u-toolbar-title-margin;
-    margin-left: 0;
+  .u-toolbar-start {
+    .u-toolbar-actions {
+      margin-right: -$u-toolbar-row-padding;
+      margin-left: $u-toolbar-section-margin;
+    }
+  }
+
+  .u-toolbar-center {
+    margin-right: 0;
+    margin-left: $u-toolbar-section-margin;
+
+    &:last-child {
+      margin-left: 0;
+    }
   }
 
   .u-toolbar-end {
     margin-right: auto;
     margin-left: 0;
+
+    .u-toolbar-actions {
+      margin-right: $u-toolbar-section-margin;
+      margin-left: -$u-toolbar-row-padding;
+    }
   }
 }

@@ -117,7 +117,7 @@
   flex-grow: 1;
   align-items: center;
   font-size: $u-list-item-font-size;
-  font-weight: $u-font-regular;
+  font-weight: $u-font-weight-regular;
   line-height: $u-list-item-font-size;
 }
 
@@ -158,7 +158,7 @@
   height: $u-list-item-min-height;
   padding: $u-list-item-padding;
   font-size: $u-list-index-font-size;
-  font-weight: $u-font-medium;
+  font-weight: $u-font-weight-medium;
 }
 
 .u-list-section {

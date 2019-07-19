@@ -5,7 +5,12 @@ block content
 
   h5.u-headline5.article-title Horizontal stepper
   .u-card
-    .u-stepper.horizontal-stepper
+    .u-stepper.u-horizontal-stepper
+      .u-step.completed
+        .u-step-indicator
+          .u-step-circle 1
+        .u-step-label Step 1
+      .u-step-line
       .u-step.active
         .u-step-indicator
           .u-step-circle 1
@@ -28,19 +33,25 @@ block content
 
   h5.u-headline5.article-title Vertical stepper
   .u-card
-    .u-stepper.vertical-stepper
-      .u-step.active
+    .u-stepper.u-vertical-stepper
+      .u-step.completed
         .u-step-indicator
           .u-step-circle 1
           .u-step-line
         .u-step-content
           .u-step-label Step 1
-          .example-step-content
-          .u-step-actions
-            button.u-btn-solid.u-btn-primary Continue
-            button.u-btn-flat.u-btn-default Cancel
-      .u-step
+      .u-step.active
         .u-step-indicator
           .u-step-circle 2
+          .u-step-line
         .u-step-content
           .u-step-label Step 2
+          .example-step-content
+          .u-step-actions
+            button.u-step-action.u-btn-solid.u-btn-primary Continue
+            button.u-step-action.u-btn-flat.u-btn-default Cancel
+      .u-step
+        .u-step-indicator
+          .u-step-circle 3
+        .u-step-content
+          .u-step-label Step 3

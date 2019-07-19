@@ -1,32 +1,38 @@
 @import "../theming";
 
 @mixin create-light-theme {
+
   @if & {
     & {
       background-color: $bg-light;
+      @extend %u-bg-light;
     }
   } @else {
     body {
       color: $u-body-color-light-theme;
       background-color: $bg-light;
+      @extend %u-bg-light;
     }
   }
 }
 
 @mixin create-dark-theme {
+
   @if & {
     & {
       background-color: $bg-dark;
+      @extend %u-bg-dark;
     }
   } @else {
     body {
       color: $u-body-color-dark-theme;
       background-color: $bg-dark;
+      @extend %u-bg-dark;
     }
   }
 }
 
-@mixin u-create-theme() {
+@mixin u-create-theme {
 
   @if (mixin_exists(u-buttons-theme)) {
     @include u-buttons-theme;
@@ -110,6 +116,14 @@
 
   @if (mixin_exists(u-datepicker-theme)) {
     @include u-datepicker-theme;
+  }
+
+  @if (mixin_exists(u-stepper-theme)) {
+    @include u-stepper-theme;
+  }
+
+  @if (mixin_exists(u-divider-theme)) {
+    @include u-divider-theme;
   }
 
   $dark-theme: map-get($u-theme, "dark");

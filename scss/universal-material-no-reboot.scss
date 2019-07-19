@@ -6,12 +6,13 @@
 @import "typography/typography";
 @import "grid/grid";
 @import "utilities/elevation";
+@import "icons";
 @import "placeholders";
 
-@import "components/badge/badge";
 @import "components/toolbar/toolbar";
 @import "components/button/buttons";
 @import "components/button/floating-action-button";
+@import "components/badge/badge";
 @import "universal-material/button-group";
 @import "components/banner/banner";
 @import "components/checkbox/checkbox";
@@ -28,6 +29,7 @@
 @import "components/list/list";
 @import "components/progress/progress";
 @import "components/drawer/drawer";
+@import "components/slider/slider";
 @import "components/snackbar/snackbar";
 @import "components/text-field/text-field";
 @import "components/chips/chips";
@@ -38,4 +40,4 @@
 @import "utilities";
 
 @include u-create-theme;
-@include create-dense-layout();
+@include create-dense-layout;

@@ -1,7 +1,7 @@
 @import "variables";
-@import "../button/button-base";
 @import "../../mixins";
 @import "../../theming";
+@import "../../placeholders";
 
 .u-datepicker {
   display: inline-flex;
@@ -16,7 +16,7 @@
 }
 
 .u-datepicker-day {
-  // @include u-btn;
+  @extend %u-button-base;
 
   width: $u-datepicker-day-width;
   height: $u-datepicker-day-width;
@@ -76,11 +76,6 @@
 
   $day-outside-month-color: if($dark-theme, $u-datepicker-day-outside-month-dark-theme, $u-datepicker-day-outside-month-light-theme);
 
-  .u-datepicker-day,
-  .u-datepicker-year-month-button {
-    color: $day-color;
-  }
-
   .u-datepicker-weekday {
     color: $low-contrast-color;
   }
@@ -91,6 +86,8 @@
 
   .u-datepicker-day,
   .u-datepicker-year-month-button {
+    color: $day-color;
+
     &.active {
       @include background-and-text-color($primary-color);
     }

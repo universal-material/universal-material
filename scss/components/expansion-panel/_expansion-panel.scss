@@ -13,20 +13,20 @@
   transition: margin 150ms ease-out;
 
   &:first-child,
-  &.open,
-  &.open + .u-expansion-panel {
+  &.expanded,
+  &.expanded + .u-expansion-panel {
     border-top-left-radius: $u-expansion-panel-border-radius;
     border-top-right-radius: $u-expansion-panel-border-radius;
   }
 
   &:last-child,
-  &.open,
+  &.expanded,
   &.before-opened {
     border-bottom-right-radius: $u-expansion-panel-border-radius;
     border-bottom-left-radius: $u-expansion-panel-border-radius;
   }
 
-  &.open {
+  &.expanded {
     margin-bottom: $u-expansion-panel-content-margin;
 
     .u-expansion-panel-content {
@@ -40,14 +40,24 @@
     }
   }
 
-  &:not(:first-of-type).open {
+  &:not(:first-of-type).expanded {
     margin-top: $u-expansion-panel-content-margin;
+  }
+
+  &.disabled {
+    .u-expansion-panel-header {
+      cursor: auto;
+
+      &::before {
+        content: none;
+      }
+    }
   }
 }
 
 .u-expansion-panel-label {
   font-size: $u-expansion-panel-label-font-size;
-  font-weight: $u-font-regular;
+  font-weight: $u-font-weight-regular;
   line-height: $u-expansion-panel-label-height;
 
   + .u-expansion-panel-label {

@@ -1,48 +1,50 @@
 @import "../font";
 @import "../mixins";
 
-%u-button-base {
-  @include umd-typography(button);
-  position: relative; //Universal Material custom code
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  font-family: $u-font-family-base;
-  color: inherit;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  cursor: pointer;
-  user-select: none;
-  background: transparent; //Universal Material custom code
-  border: none; //Universal Material custom code
+@mixin u-button-base {
+  %u-button-base {
+    @include umd-typography(button);
+    position: relative; //Universal Material custom code
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    font-family: $u-font-family-base;
+    color: inherit;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    background: transparent; //Universal Material custom code
+    border: none; //Universal Material custom code
 
-  @include selectable-background-before;
+    @include selectable-background-before;
 
-  // Share hover and focus styles
-  @include hover-focus {
-    text-decoration: none;
-  }
+    // Share hover and focus styles
+    @include hover-focus {
+      text-decoration: none;
+    }
 
 
-  &:focus,
-  &.focus {
-    outline: 0;
-  }
+    &:focus,
+    &.focus {
+      outline: 0;
+    }
 
-  &:active,
-  &.active {
-    background-image: none;
-  }
+    &:active,
+    &.active {
+      background-image: none;
+    }
 
-  &.disabled,
-  &:disabled {
-    cursor: default;
-  }
+    &.disabled,
+    &:disabled {
+      cursor: default;
+    }
 
-  &,
-  & * {
-    box-sizing: border-box;
+    &,
+    & * {
+      box-sizing: border-box;
+    }
   }
 }
