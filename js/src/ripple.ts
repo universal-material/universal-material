@@ -82,14 +82,19 @@ export class Ripple {
 
     let release: () => void;
     let cancel = false;
-    rippleContainer.addEventListener("touchmove", () => {
+    const touchMove = () => {
 
       cancel = true;
+
+      rippleContainer.removeEventListener("touchmove", touchMove);
 
       if (release) {
         release();
       }
-    });
+    };
+
+
+    rippleContainer.addEventListener("touchmove", touchMove);
 
     setTimeout(() => {
       if (cancel) {
@@ -122,12 +127,13 @@ export class Ripple {
 
       window.addEventListener(releaseEventName, release);
       rippleContainer.addEventListener("dragover", release);
+      rippleContainer.addEventListener("mouseleave", release);
 
       ripple.addEventListener('transitionend', () => {
         if (ripple.classList.contains('dismiss')) {
           rippleContainer.removeChild(rippleWrapper);
           rippleContainer.removeEventListener("dragover", release);
-          rippleContainer.addEventListener("touchmove", release);
+          rippleContainer.removeEventListener("mouseleave", release);
           window.removeEventListener(releaseEventName, release)
         }
       });
