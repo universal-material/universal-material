@@ -290,28 +290,23 @@
   var RippleConfigMap = [
       {
           selector: '.u-list-selectable',
-          subSelector: '.u-list-item',
-          config: null
+          subSelector: '.u-list-item'
       },
       {
           selector: '.u-list-item',
-          subSelector: '.u-list-item-hover',
-          config: null
+          subSelector: '.u-list-item-hover'
       },
       {
           selector: '.u-radio',
-          subSelector: '.u-selection-control',
-          config: null
+          subSelector: '.u-selection-control'
       },
       {
           selector: '.u-switch',
-          subSelector: '.u-check-indicator',
-          config: null
+          subSelector: '.u-check-indicator'
       },
       {
           selector: '.u-checkbox',
-          subSelector: '.u-selection-control',
-          config: null
+          subSelector: '.u-selection-control'
       }
   ];
   var Ripple = /** @class */ (function () {
@@ -346,44 +341,58 @@
               rippleContainer.hasAttribute('disabled') ||
               rippleContainer.classList.contains('disabled'))
               return;
-          var rippleWrapper = document.createElement('DIV');
-          rippleWrapper.classList.add('u-ripple-wrapper');
-          var ripple = document.createElement('DIV');
-          ripple.classList.add('u-ripple');
-          rippleWrapper.appendChild(ripple);
-          rippleContainer.insertAdjacentElement('afterbegin', rippleWrapper);
-          if (this._config.size) {
-              Ripple._setElementSquareSizeAndCenter(rippleWrapper, this._config.size);
-          }
-          if (this._config.borderRadius) {
-              rippleWrapper.style.borderRadius = this._config.borderRadius;
-          }
-          var release = function () {
-              ripple.classList.add('dismiss');
-              if (releaseCallback) {
-                  releaseCallback();
-              }
-          };
-          window.addEventListener(releaseEventName, release);
-          rippleContainer.addEventListener("dragover", release);
-          ripple.addEventListener('transitionend', function () {
-              if (ripple.classList.contains('dismiss')) {
-                  rippleContainer.removeChild(rippleWrapper);
-                  rippleContainer.removeEventListener("dragover", release);
-                  window.removeEventListener(releaseEventName, release);
+          var release;
+          var cancel = false;
+          rippleContainer.addEventListener("touchmove", function () {
+              cancel = true;
+              if (release) {
+                  release();
               }
           });
-          requestAnimationFrame(function () {
-              var clientRect = rippleContainer.getBoundingClientRect();
-              var largestDimensionSize = Math.max(rippleWrapper.clientWidth, rippleWrapper.clientHeight);
-              var rippleSize = _this._config.size || largestDimensionSize * 2;
-              Ripple._setElementSquareSizeAndCenter(ripple, rippleSize);
-              ripple.style.transitionDuration = (1080 * Math.pow(rippleSize, 0.3)) + 'ms, 750ms';
-              var x = (pageX - clientRect.left) + ((rippleSize - rippleContainer.clientWidth) / 2);
-              var y = (pageY - clientRect.top) + ((rippleSize - rippleContainer.clientHeight) / 2);
-              ripple.style.transformOrigin = x + "px " + y + "px";
-              ripple.classList.add('show');
-          });
+          setTimeout(function () {
+              if (cancel) {
+                  return;
+              }
+              var rippleWrapper = document.createElement('DIV');
+              rippleWrapper.classList.add('u-ripple-wrapper');
+              var ripple = document.createElement('DIV');
+              ripple.classList.add('u-ripple');
+              rippleWrapper.appendChild(ripple);
+              rippleContainer.insertAdjacentElement('afterbegin', rippleWrapper);
+              if (_this._config.size) {
+                  Ripple._setElementSquareSizeAndCenter(rippleWrapper, _this._config.size);
+              }
+              if (_this._config.borderRadius) {
+                  rippleWrapper.style.borderRadius = _this._config.borderRadius;
+              }
+              release = function () {
+                  ripple.classList.add('dismiss');
+                  if (releaseCallback) {
+                      releaseCallback();
+                  }
+              };
+              window.addEventListener(releaseEventName, release);
+              rippleContainer.addEventListener("dragover", release);
+              ripple.addEventListener('transitionend', function () {
+                  if (ripple.classList.contains('dismiss')) {
+                      rippleContainer.removeChild(rippleWrapper);
+                      rippleContainer.removeEventListener("dragover", release);
+                      rippleContainer.addEventListener("touchmove", release);
+                      window.removeEventListener(releaseEventName, release);
+                  }
+              });
+              requestAnimationFrame(function () {
+                  var clientRect = rippleContainer.getBoundingClientRect();
+                  var largestDimensionSize = Math.max(rippleWrapper.clientWidth, rippleWrapper.clientHeight);
+                  var rippleSize = _this._config.size || largestDimensionSize * 2;
+                  Ripple._setElementSquareSizeAndCenter(ripple, rippleSize);
+                  ripple.style.transitionDuration = (1080 * Math.pow(rippleSize, 0.3)) + 'ms, 750ms';
+                  var x = (pageX - clientRect.left) + ((rippleSize - rippleContainer.clientWidth) / 2);
+                  var y = (pageY - clientRect.top) + ((rippleSize - rippleContainer.clientHeight) / 2);
+                  ripple.style.transformOrigin = x + "px " + y + "px";
+                  ripple.classList.add('show');
+              });
+          }, 100);
       };
       Ripple._setElementSquareSizeAndCenter = function (element, size) {
           element.style.top = "50%";
@@ -407,7 +416,7 @@
               if (rippleConfig.subSelector) {
                   selector = [selector, rippleConfig.subSelector].join(' ');
               }
-              Ripple._initilizeRipples(selector, rippleConfig.config);
+              Ripple._initilizeRipples(selector);
           }
       };
       return Ripple;

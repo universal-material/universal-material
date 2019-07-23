@@ -22,28 +22,23 @@ export class RippleConfig {
 export const RippleConfigMap = [
   {
     selector: '.u-list-selectable',
-    subSelector: '.u-list-item',
-    config: null
+    subSelector: '.u-list-item'
   },
   {
     selector: '.u-list-item',
-    subSelector: '.u-list-item-hover',
-    config: null
+    subSelector: '.u-list-item-hover'
   },
   {
     selector: '.u-radio',
-    subSelector: '.u-selection-control',
-    config: null
+    subSelector: '.u-selection-control'
   },
   {
     selector: '.u-switch',
-    subSelector: '.u-check-indicator',
-    config: null
+    subSelector: '.u-check-indicator'
   },
   {
     selector: '.u-checkbox',
-    subSelector: '.u-selection-control',
-    config: null
+    subSelector: '.u-selection-control'
   }
 ];
 
@@ -85,54 +80,72 @@ export class Ripple {
       rippleContainer.hasAttribute('disabled') ||
       rippleContainer.classList.contains('disabled')) return;
 
-    const rippleWrapper = document.createElement('DIV');
-    rippleWrapper.classList.add('u-ripple-wrapper');
+    let release: () => void;
+    let cancel = false;
+    rippleContainer.addEventListener("touchmove", () => {
 
-    const ripple = document.createElement('DIV');
-    ripple.classList.add('u-ripple');
-    rippleWrapper.appendChild(ripple);
-    rippleContainer.insertAdjacentElement('afterbegin', rippleWrapper);
+      cancel = true;
 
-    if (this._config.size) {
-      Ripple._setElementSquareSizeAndCenter(rippleWrapper, this._config.size);
-    }
-
-    if (this._config.borderRadius) {
-      rippleWrapper.style.borderRadius = this._config.borderRadius;
-    }
-
-    const release = function () {
-      ripple.classList.add('dismiss');
-
-      if (releaseCallback) {
-        releaseCallback();
-      }
-    };
-
-    window.addEventListener(releaseEventName, release);
-    rippleContainer.addEventListener("dragover", release);
-
-    ripple.addEventListener('transitionend', () => {
-      if (ripple.classList.contains('dismiss')) {
-        rippleContainer.removeChild(rippleWrapper);
-        rippleContainer.removeEventListener("dragover", release);
-        window.removeEventListener(releaseEventName, release)
+      if (release) {
+        release();
       }
     });
 
-    requestAnimationFrame(() => {
-      const clientRect = rippleContainer.getBoundingClientRect();
-      const largestDimensionSize = Math.max(rippleWrapper.clientWidth, rippleWrapper.clientHeight);
-      let rippleSize = this._config.size || largestDimensionSize * 2;
-      Ripple._setElementSquareSizeAndCenter(ripple, rippleSize);
-      ripple.style.transitionDuration = (1080 * Math.pow(rippleSize, 0.3)) + 'ms, 750ms';
+    setTimeout(() => {
+      if (cancel) {
+        return;
+      }
 
-      const x = (pageX - clientRect.left) + ((rippleSize - rippleContainer.clientWidth) / 2);
-      const y = (pageY - clientRect.top) + ((rippleSize - rippleContainer.clientHeight) / 2);
+      const rippleWrapper = document.createElement('DIV');
+      rippleWrapper.classList.add('u-ripple-wrapper');
 
-      ripple.style.transformOrigin = x + "px " + y + "px";
-      ripple.classList.add('show');
-    });
+      const ripple = document.createElement('DIV');
+      ripple.classList.add('u-ripple');
+      rippleWrapper.appendChild(ripple);
+      rippleContainer.insertAdjacentElement('afterbegin', rippleWrapper);
+
+      if (this._config.size) {
+        Ripple._setElementSquareSizeAndCenter(rippleWrapper, this._config.size);
+      }
+
+      if (this._config.borderRadius) {
+        rippleWrapper.style.borderRadius = this._config.borderRadius;
+      }
+
+      release = () => {
+        ripple.classList.add('dismiss');
+
+        if (releaseCallback) {
+          releaseCallback();
+        }
+      };
+
+      window.addEventListener(releaseEventName, release);
+      rippleContainer.addEventListener("dragover", release);
+
+      ripple.addEventListener('transitionend', () => {
+        if (ripple.classList.contains('dismiss')) {
+          rippleContainer.removeChild(rippleWrapper);
+          rippleContainer.removeEventListener("dragover", release);
+          rippleContainer.addEventListener("touchmove", release);
+          window.removeEventListener(releaseEventName, release)
+        }
+      });
+
+      requestAnimationFrame(() => {
+        const clientRect = rippleContainer.getBoundingClientRect();
+        const largestDimensionSize = Math.max(rippleWrapper.clientWidth, rippleWrapper.clientHeight);
+        let rippleSize = this._config.size || largestDimensionSize * 2;
+        Ripple._setElementSquareSizeAndCenter(ripple, rippleSize);
+        ripple.style.transitionDuration = (1080 * Math.pow(rippleSize, 0.3)) + 'ms, 750ms';
+
+        const x = (pageX - clientRect.left) + ((rippleSize - rippleContainer.clientWidth) / 2);
+        const y = (pageY - clientRect.top) + ((rippleSize - rippleContainer.clientHeight) / 2);
+
+        ripple.style.transformOrigin = x + "px " + y + "px";
+        ripple.classList.add('show');
+      });
+    }, 100);
   }
 
   private static _setElementSquareSizeAndCenter(element: HTMLElement, size: number) {
@@ -164,7 +177,7 @@ export class Ripple {
         selector = [selector, rippleConfig.subSelector].join(' ');
       }
 
-      Ripple._initilizeRipples(selector, rippleConfig.config);
+      Ripple._initilizeRipples(selector);
     }
   }
 }
