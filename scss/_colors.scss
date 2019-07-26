@@ -6,7 +6,6 @@ $u-success-color: #4caf50 !default;
 $u-warning-color: #fbc02d !default;
 $u-danger-color: #b00020 !default;
 $u-default-theme-dark: false !default;
-$u-default-style: "android" !default;
 
 $white:  #fff !default;
 $gray-100: #f5f5f5 !default;
@@ -45,6 +44,7 @@ $body-bg:       $gray-100 !default; //Universal Material changes
 $body-color:    rgba(#000, .87) !default;
 
 $bg-light:       $gray-100 !default; //Universal Material changes
+$bg-light-ios:  #efeff4 !default; //Universal Material changes
 $bg-dark:       #303030 !default; //Universal Material changes
 
 $u-body-color-light-theme:    $body-color !default; //Universal Material changes

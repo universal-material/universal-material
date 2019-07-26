@@ -1,8 +1,15 @@
-@mixin ios-toolbar() {
+$ios-toolbar-height: 2.75rem !default;
+$ios-toolbar-background-light-theme: #f7f7f7 !default;
+
+@mixin ios-toolbar($theme-colors) {
+  .u-toolbar {
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
+  }
+
   .u-toolbar-start,
   .u-toolbar-end {
     display: inline-flex;
-    flex: 2;
+    flex: 1;
   }
 
   .u-toolbar-start {
@@ -14,6 +21,24 @@
   }
 
   .u-toolbar-center {
+    flex: 2;
     text-align: center;
+  }
+
+  .u-toolbar-row {
+    height: $ios-toolbar-height;
+  }
+
+  @each $color, $value in $theme-colors {
+    .u-toolbar-#{$color} {
+      background: $ios-toolbar-background-light-theme;
+
+      .u-toolbar-action {
+        &.u-btn-default,
+        & .u-btn-default {
+          @extend .u-btn-#{$color} !optional;
+        }
+      }
+    }
   }
 }

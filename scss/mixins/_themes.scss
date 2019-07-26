@@ -1,16 +1,31 @@
 @import "../theming";
 
-@mixin create-light-theme {
-
+@mixin ampersand-or-body {
   @if & {
     & {
-      background-color: $bg-light;
+      @content;
+    }
+  } @else {
+    body {
+      @content;
+    }
+  }
+}
+
+@mixin create-light-theme {
+
+  $default-style: map-get($u-theme, "default-style");
+
+  $background-color: if($default-style == "android", $bg-light, $bg-light-ios);
+  @if & {
+    & {
+      background-color: $background-color;
       @extend %u-bg-light;
     }
   } @else {
     body {
       color: $u-body-color-light-theme;
-      background-color: $bg-light;
+      background-color: $background-color;
       @extend %u-bg-light;
     }
   }

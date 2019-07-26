@@ -16,21 +16,14 @@
     $color: $u-body-color-dark-theme;
   }
 
-  @if ($default-style == "android" or $default-style == "uwp") {
-    @include extend-bg-colors(".u-toolbar-");
-  } @else if ($default-style == "ios") {
-    @include ios-toolbar;
+  @include ampersand-or-body {
 
-    .u-toolbar {
-      background: #fafafa;
+    &.u-material {
+      @include extend-bg-colors(".u-toolbar-");
     }
 
-    @each $color, $value in $theme-colors {
-      .u-toolbar-#{$color} {
-        .u-btn-default {
-          @extend .u-btn-#{$color} !optional;
-        }
-      }
+    &.u-ios {
+      @include ios-toolbar($theme-colors);
     }
   }
 }
