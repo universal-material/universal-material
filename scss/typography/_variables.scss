@@ -113,12 +113,12 @@ $typography-styles: (
 
 $border-width:                1px !default;
 
-$h1-font-size:                $u-font-family-base * 2.5 !default;
-$h2-font-size:                $u-font-family-base * 2 !default;
-$h3-font-size:                $u-font-family-base * 1.75 !default;
-$h4-font-size:                $u-font-family-base * 1.5 !default;
-$h5-font-size:                $u-font-family-base * 1.25 !default;
-$h6-font-size:                $u-font-family-base !default;
+$h1-font-size:                $u-font-size-base * 2.5 !default;
+$h2-font-size:                $u-font-size-base * 2 !default;
+$h3-font-size:                $u-font-size-base * 1.75 !default;
+$h4-font-size:                $u-font-size-base * 1.5 !default;
+$h5-font-size:                $u-font-size-base * 1.25 !default;
+$h6-font-size:                $u-font-size-base !default;
 
 $headings-margin-bottom:      ($spacer / 2) !default;
 $headings-font-family:        inherit !default;

@@ -20,7 +20,7 @@ $margin-gutter-default: $margin-gutter-16dp !default;
 
 $margins-and-gutters: (
   default: $margin-gutter-default,
-  none: 0,
+  0: 0,
   8: $margin-gutter-8dp,
   16: $margin-gutter-16dp,
   24: $margin-gutter-24dp,
