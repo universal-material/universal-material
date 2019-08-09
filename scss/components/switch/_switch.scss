@@ -1,6 +1,8 @@
 @import "variables";
+@import "theme";
 @import "../../mixins";
 @import "../../font";
+@import "../../placeholders";
 @import "../../theming";
 
 .u-switch {
@@ -12,91 +14,130 @@
 
   @include hide-native-input;
 
-  .u-selection-control {
-    position: relative;
-    flex-shrink: 0;
-    width: $u-switch-width;
-    height: $u-switch-height;
-
-    &::before {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      content: "";
-      background: currentColor;
-      border-radius: $u-switch-border-radius;
-      opacity: .2;
-      transition: background 300ms;
-    }
-  }
-
   .u-selection-control-label {
     margin-left: $u-switch-label-margin;
-    font-size: $u-switch-label-font-size;
-  }
-
-  .u-check-indicator {
-    @include selectable-background-before;
-
-    position: absolute;
-    top: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: $u-switch-click-size;
-    height: $u-switch-click-size;
-    border-radius: 50%;
-    transition: transform 300ms;
-    transform: translate3d(-($u-switch-click-size - $u-switch-toggle-size) / 2, -50%, 0);
-
-    &::after {
-      width: $u-switch-toggle-size;
-      height: $u-switch-toggle-size;
-      content: "";
-      background: currentColor;
-      border-radius: 50%;
-      box-shadow: $u-switch-toggle-box-shadow;
-      transition: background 300ms;
-    }
-  }
-
-  &.checked .u-check-indicator,
-  input:checked ~ .u-selection-control .u-check-indicator {
-    color: inherit;
-    transform: translate3d($u-switch-width - $u-switch-click-size + (($u-switch-click-size - $u-switch-toggle-size) / 2), -50%, 0);
-
-    &::after {
-      background: currentColor;
-    }
-  }
-
-  &.disabled .u-selection-control,
-  input:disabled ~ .u-selection-control {
-    opacity: $u-switch-disabled-opacity;
   }
 }
 
-@mixin u-switch-theme() {
-  $dark-theme: map-get($u-theme, "dark");
-  $theme-colors: map-get($u-theme, "colors");
-
-  $primary-color: map-get($theme-colors, "primary");
-  $u-switch-toggle-color: $u-switch-toggle-color-light-theme;
-
-  @if ($dark-theme) {
-    $u-switch-toggle-color: $u-switch-toggle-color-dark-theme;
-  }
-
+.u-material {
   .u-switch {
-    .u-check-indicator::after {
-      background: $u-switch-toggle-color;
+    .u-selection-control {
+      position: relative;
+      flex-shrink: 0;
+      width: $u-switch-width;
+      height: $u-switch-height;
+
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        content: "";
+        background: currentColor;
+        border-radius: $u-switch-border-radius;
+        opacity: .2;
+        transition: background 300ms;
+      }
+    }
+
+    .u-selection-control-label {
+      font-size: $u-switch-label-font-size;
+    }
+
+    .u-check-indicator {
+      @extend %u-selectable-background-before;
+
+      position: absolute;
+      top: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: $u-switch-click-size;
+      height: $u-switch-click-size;
+      border-radius: 50%;
+      transition: transform 300ms;
+      transform: translate3d(-($u-switch-click-size - $u-switch-toggle-size) / 2, -50%, 0);
+
+      &::after {
+        width: $u-switch-toggle-size;
+        height: $u-switch-toggle-size;
+        content: "";
+        background: currentColor;
+        border-radius: 50%;
+        box-shadow: $u-switch-toggle-box-shadow;
+        transition: background 300ms;
+      }
+    }
+
+    &.checked .u-check-indicator,
+    input:checked ~ .u-selection-control .u-check-indicator {
+      color: inherit;
+      transform: translate3d($u-switch-width - $u-switch-click-size + (($u-switch-click-size - $u-switch-toggle-size) / 2), -50%, 0);
+
+      &::after {
+        background: currentColor;
+      }
+    }
+
+    &.disabled .u-selection-control,
+    input:disabled ~ .u-selection-control {
+      opacity: $u-switch-disabled-opacity;
+    }
+  }
+}
+
+.u-ios {
+  .u-switch {
+    .u-selection-control {
+      position: relative;
+      width: $u-ios-switch-width;
+      height: $u-ios-switch-height;
+      color: $u-ios-switch-active-color;
+      border: $u-ios-switch-border-size solid $u-ios-switch-border-color-light-theme;
+      border-radius: $u-ios-switch-height / 2;
+      box-shadow: 0 0 0 0 $u-ios-switch-border-color-light-theme inset;
+      transition: box-shadow 350ms, border-color 150ms;
+
+      &::before {
+        position: absolute;
+        top: -$u-ios-switch-border-size;
+        right: -$u-ios-switch-border-size;
+        bottom: -$u-ios-switch-border-size;
+        left: -$u-ios-switch-border-size;
+        content: "";
+        border-radius: 1.625rem;
+        box-shadow: 0 0 0 0 currentColor inset;
+        opacity: 0;
+        transition: box-shadow 350ms, opacity 150ms;
+      }
+    }
+
+    .u-check-indicator {
+      display: block;
+      width: $u-ios-switch-thumb-size;
+      height: $u-ios-switch-thumb-size;
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: $u-ios-switch-thumb-box-shadow-light-theme;
+      transition: transform 350ms;
+      will-change: transform;
+    }
+
+    &.checked .u-check-indicator,
+    input:checked ~ .u-selection-control .u-check-indicator {
+      transform: translate3d($u-ios-switch-width - $u-ios-switch-thumb-size -  (2 * $u-ios-switch-border-size), 0, 0);
     }
 
     &.checked .u-selection-control,
     input:checked ~ .u-selection-control {
-      color: $primary-color;
+      border-color: currentColor;
+      box-shadow: 0 0 0 ($u-ios-switch-width / 2) $u-ios-switch-border-color-light-theme inset;
+
+      &::before {
+        box-shadow: 0 0 0 ($u-ios-switch-width / 2) currentColor inset;
+        opacity: 1;
+      }
     }
   }
 }

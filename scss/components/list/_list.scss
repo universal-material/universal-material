@@ -3,6 +3,7 @@
 @import "../../divider";
 @import "../../font";
 @import "../../mixins";
+@import "../../placeholders";
 
 .u-list {
   padding-top: $u-list-vertical-margin;
@@ -34,7 +35,19 @@
   &.u-list-selectable {
     .u-list-item {
       cursor: pointer;
-      @include selectable-background-before;
+      @extend %u-selectable-background-before;
+    }
+  }
+
+  .u-list-item.active .u-list-item-hover,
+  &.u-list-selectable .u-list-item.active {
+    &:hover::before,
+    &::before {
+      opacity: .2;
+    }
+
+    &:focus::before {
+      opacity: .3;
     }
   }
 }
@@ -130,13 +143,14 @@
 }
 
 .u-list-item-hover {
-  @include selectable-background-before;
+  @extend %u-selectable-background-before;
 
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
+  border-radius: inherit;
 }
 
 .u-list-group {

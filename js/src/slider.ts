@@ -15,10 +15,10 @@ export class Slider {
     this._sliderInputElement = _sliderElement.querySelector('input[type=range]');
     this._sliderInputElement.addEventListener(window.navigator.userAgent.indexOf('Trident/') > -1 ? 'change' : 'input', () => this._setThumbAndTrack());
 
-    // this._sliderInputElement.setAttribute('aria-hidden', 'true');
-    // this._sliderElement.setAttribute('role', 'slider');
-    this._sliderInputElement.setAttribute('aria-valuemin', this._sliderInputElement.min);
-    this._sliderInputElement.setAttribute('aria-valuemax', this._sliderInputElement.max);
+    this._sliderInputElement.setAttribute('aria-hidden', 'true');
+    this._sliderElement.setAttribute('role', 'slider');
+    this._sliderElement.setAttribute('aria-valuemin', this._sliderInputElement.min);
+    this._sliderElement.setAttribute('aria-valuemax', this._sliderInputElement.max);
 
     this._sliderElement['slider'] = this;
 
@@ -47,8 +47,7 @@ export class Slider {
     const min = parseInt(this._sliderInputElement.min, 10);
     const max = parseInt(this._sliderInputElement.max, 10);
 
-    this._sliderInputElement.setAttribute('aria-valuenow', value.toString());
-
+    this._sliderElement.setAttribute('aria-valuenow', value.toString());
 
     const offset = max - min;
     value -= min;
@@ -60,10 +59,10 @@ export class Slider {
 
   setDisabled(disabled: boolean) {
     if (disabled) {
-      this._sliderInputElement.setAttribute('aria-disabled', disabled.toString());
+      this._sliderElement.setAttribute('aria-disabled', disabled.toString());
       this._sliderInputElement.setAttribute('disabled', '');
     } else {
-      this._sliderInputElement.removeAttribute('aria-disabled');
+      this._sliderElement.removeAttribute('aria-disabled');
       this._sliderInputElement.removeAttribute('disabled');
     }
   }

@@ -16,15 +16,12 @@
     $color: $u-body-color-dark-theme;
   }
 
-  @include ampersand-or-body {
+  @include ampersand-or-none("u-material") {
+    @include extend-bg-colors(".u-toolbar-");
+  }
 
-    &.u-material {
-      @include extend-bg-colors(".u-toolbar-");
-    }
-
-    &.u-ios {
-      @include ios-toolbar($theme-colors);
-    }
+  @include ampersand-or-none("u-ios") {
+    @include ios-toolbar($theme-colors);
   }
 }
 

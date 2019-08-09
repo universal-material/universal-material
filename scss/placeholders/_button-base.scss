@@ -19,7 +19,7 @@
     background: transparent; //Universal Material custom code
     border: none; //Universal Material custom code
 
-    @include selectable-background-before;
+    @extend %u-selectable-background-before;
 
     // Share hover and focus styles
     @include hover-focus {

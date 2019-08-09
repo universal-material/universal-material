@@ -1,6 +1,7 @@
 @import "variables";
 @import "../../font";
 @import "../../mixins";
+@import "../../placeholders";
 @import "../../theming";
 
 //Inspiration: https://codepen.io/abottega/pen/vNzQMo/
@@ -16,7 +17,7 @@
   @include hide-native-input;
 
   .u-selection-control {
-    @include selectable-background-before;
+    @extend %u-selectable-background-before;
     display: inline-flex;
     flex-shrink: 0;
     justify-content: center;

@@ -2,6 +2,7 @@
 @import "../../colors";
 @import "../../font";
 @import "../../mixins";
+@import "../../placeholders";
 
 .u-expansion-panel {
   @include u-elevation(2);
@@ -67,7 +68,7 @@
 }
 
 .u-expansion-panel-header {
-  @include selectable-background-before;
+  @extend %u-selectable-background-before;
   display: flex;
   align-items: center;
   padding: 0 $u-expansion-panel-horizontal-padding;

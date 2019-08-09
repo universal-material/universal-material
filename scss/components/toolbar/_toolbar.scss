@@ -5,6 +5,7 @@
 @import "../../mixins";
 @import "../../utilities/add-to-parent-or-class";
 @import "../../placeholders";
+@import "../../font";
 
 .u-toolbar {
   display: block;
@@ -64,7 +65,7 @@
 .u-toolbar-title {
   @include umd-typography(headline6);
   @include text-truncate;
-  font-weight: 400;
+  font-weight: $u-font-weight-regular;
 }
 
 .u-toolbar-fixed {
@@ -73,6 +74,10 @@
   right: 0;
   left: 0;
   z-index: $zindex-toolbar-fixed;
+}
+
+.u-toolbar-elevated {
+  @include u-elevation(2);
 }
 
 .dense-layout {

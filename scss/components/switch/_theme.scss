@@ -1,0 +1,27 @@
+@import "variables";
+@import "../../theming";
+
+@mixin u-switch-theme {
+  $dark-theme: map-get($u-theme, "dark");
+  $theme-colors: map-get($u-theme, "colors");
+
+  $primary-color: map-get($theme-colors, "primary");
+  $u-switch-toggle-color: $u-switch-toggle-color-light-theme;
+
+  @if ($dark-theme) {
+    $u-switch-toggle-color: $u-switch-toggle-color-dark-theme;
+  }
+
+  .u-material {
+    .u-switch {
+      .u-check-indicator::after {
+        background: $u-switch-toggle-color;
+      }
+
+      &.checked .u-selection-control,
+      input:checked ~ .u-selection-control {
+        color: $primary-color;
+      }
+    }
+  }
+}

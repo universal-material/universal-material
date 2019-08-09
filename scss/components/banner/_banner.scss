@@ -29,7 +29,7 @@
   margin-top: $u-banner-text-margin-top;
   margin-bottom: $u-banner-text-margin-bottom;
   font-size: .875rem;
-  font-weight: 500;
+  font-weight: $u-font-weight-medium;
 }
 
 @include u-extend-action-set("u-banner");

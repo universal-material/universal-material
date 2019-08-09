@@ -2,32 +2,7 @@
 @import "../components/button/variables";
 @import "./text-emphasis";
 
-@mixin ensure-bg-colors-theme {
-  $bg-colors-created: map-get($u-theme, "bg-colors-created");
-  $theme-colors: map-get($u-theme, "colors");
-
-  @if ($bg-colors-created == null) {
-    @each $color, $value in $theme-colors {
-      @include u-bg-variant(".u-bg-#{$color}", $value);
-
-      $is-dark-background: is-dark-background($value);
-
-      .u-bg-#{$color} {
-        @if ($is-dark-background) {
-          @extend %u-bg-dark;
-        } @else {
-          @extend %u-bg-light;
-        }
-      }
-    }
-
-    $u-theme: map-merge($u-theme, ("bg-colors-created": true)) !global;
-  }
-}
-
 @mixin extend-bg-colors($prefix) {
-  @include ensure-bg-colors-theme;
-
   $theme-colors: map-get($u-theme, "colors");
 
   @each $color, $value in $theme-colors {

@@ -1,12 +1,12 @@
 @import "../theming";
 
-@mixin ampersand-or-body {
+@mixin ampersand-or-none($name) {
   @if & {
-    & {
+    &.#{$name} {
       @content;
     }
   } @else {
-    body {
+    .#{$name} {
       @content;
     }
   }
@@ -48,6 +48,10 @@
 }
 
 @mixin u-create-theme {
+
+  @if (mixin_exists(background-colors-theme)) {
+    @include background-colors-theme;
+  }
 
   @if (mixin_exists(u-buttons-theme)) {
     @include u-buttons-theme;

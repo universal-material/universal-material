@@ -2,6 +2,7 @@
 @import "../../mixins";
 @import "../../theming";
 @import "../../placeholders";
+@import "../../font";
 
 .u-datepicker {
   display: inline-flex;
@@ -20,7 +21,7 @@
 
   width: $u-datepicker-day-width;
   height: $u-datepicker-day-width;
-  font-weight: 400;
+  font-weight: $u-font-weight-regular;
   border-radius: 50%;
 }
 
@@ -40,7 +41,7 @@
 .u-datepicker-weekday {
   flex: 1;
   width: 1rem;
-  font-weight: 500;
+  font-weight: $u-font-weight-medium;
 }
 
 .u-datepicker-body {

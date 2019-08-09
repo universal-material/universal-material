@@ -1,3 +1,5 @@
+@import "../../font";
+
 $u-chip-height: 2rem !default;
 $u-chip-margin: 8px !default;
 $u-chip-margin-vertical: 4px !default;
@@ -19,5 +21,5 @@ $u-chip-avatar-margin-end: -4px !default;
 $u-chip-avatar-font-size: 1rem !default;
 
 $u-chip-font-size: .8125rem !default;
-$u-chip-font-weight: 400 !default;
+$u-chip-font-weight: $u-font-weight-regular !default;
 $u-chip-label-margin: 12px !default;

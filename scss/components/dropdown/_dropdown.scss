@@ -3,6 +3,7 @@
 @import "../../font";
 @import "../../zindex";
 @import "../../mixins";
+@import "../../placeholders";
 @import "../../theming";
 
 .u-dropdown-menu {
@@ -86,7 +87,7 @@
   border: none;
   outline: 0;
 
-  @include selectable-background-before;
+  @extend %u-selectable-background-before;
 
   &.active,
   &:active {
@@ -180,25 +181,33 @@
   }
 }
 
-@mixin u-dropdown-theme() {
+@mixin u-dropdown-theme {
 
   $dark-theme: map-get($u-theme, "dark");
 
-  $background: $u-dropdown-menu-bg-light-theme;
-  $background-in-data-table: $u-dropdown-in-data-table-bg-light-theme;
-  $color: $u-dropdown-item-color-light-theme;
-  $u-dropdown-icon-color: $u-dropdown-icon-color-light-theme;
-
-  @if ($dark-theme) {
-    $background: $u-dropdown-menu-bg-dark-theme;
-    $background-in-data-table: $u-dropdown-in-data-table-bg-dark-theme;
-    $color: $u-dropdown-item-color-dark-theme;
-    $u-dropdown-icon-color: $u-dropdown-icon-color-dark-theme;
-  }
+  $background: if($dark-theme, $u-dropdown-menu-bg-dark-theme, $u-dropdown-menu-bg-light-theme);
+  $background-in-data-table: if($dark-theme, $u-dropdown-in-data-table-bg-dark-theme, $u-dropdown-in-data-table-bg-light-theme);
+  $color: if($dark-theme, $u-dropdown-item-color-dark-theme, $u-dropdown-item-color-light-theme);
+  $u-dropdown-icon-color: if($dark-theme, $u-dropdown-icon-color-dark-theme, $u-dropdown-icon-color-light-theme);
 
   .u-dropdown-menu {
-    color: $u-dropdown-item-color-light-theme;
     background: $background;
+
+    & .u-dropdown-content {
+      @if ($dark-theme) {
+        @extend %u-bg-dark;
+      } @else {
+        @extend %u-bg-light;
+      }
+    }
+  }
+
+  .u-material .u-toolbar .u-dropdown-menu {
+    @if ($dark-theme) {
+      @extend %u-bg-dark;
+    } @else {
+      @extend %u-bg-light;
+    }
   }
 
   .u-dropdown-item {
@@ -214,3 +223,4 @@
     }
   }
 }
+

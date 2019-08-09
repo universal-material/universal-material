@@ -1,4 +1,4 @@
-$ios-toolbar-height: 2.75rem !default;
+$ios-toolbar-height: 3rem !default;
 $ios-toolbar-background-light-theme: #f7f7f7 !default;
 
 @mixin ios-toolbar($theme-colors) {
@@ -27,6 +27,10 @@ $ios-toolbar-background-light-theme: #f7f7f7 !default;
 
   .u-toolbar-row {
     height: $ios-toolbar-height;
+  }
+
+  .u-toolbar-elevated {
+    box-shadow: none;
   }
 
   @each $color, $value in $theme-colors {

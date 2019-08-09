@@ -1,6 +1,7 @@
 @import "chip-base";
 @import "../../mixins";
 @import "../../theming";
+@import "../../placeholders";
 
 .u-chip {
   @extend %u-chip;
@@ -31,6 +32,7 @@
 }
 
 .u-chip-remove {
+  @extend %u-selectable-background-before;
   margin-right: $u-chip-remove-margin-end;
   margin-left: $u-chip-remove-margin-start;
   font-size: $u-chip-remove-size;
@@ -39,7 +41,6 @@
   cursor: pointer;
 
   @include size($u-chip-remove-size);
-  @include selectable-background-before;
 
   &::before,
   .u-ripple-wrapper {
@@ -56,7 +57,7 @@
 }
 
 .u-chip-hover {
-  @include selectable-background-before;
+  @extend %u-selectable-background-before;
   position: absolute;
   top: 0;
   right: 0;

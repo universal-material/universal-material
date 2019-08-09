@@ -235,13 +235,12 @@
   $dark-theme: map-get($u-theme, "dark");
   $default-style: map-get($u-theme, "default-style");
 
-  $buttons-colors: (
-    primary: map-get($theme-colors, "primary"),
-    primary-variant: map-get($theme-colors, "primary-variant"),
-    secondary: map-get($theme-colors, "secondary"),
-    secondary-variant: map-get($theme-colors, "secondary-variant"),
-    danger: map-get($theme-colors, "danger")
-  );
+  $buttons-colors: ();
+  @each $color, $value in $theme-colors {
+    @if ($color != default) {
+      $buttons-colors: map-merge($buttons-colors, ($color: $value));
+    }
+  }
 
   $u-btn-disabled-color: $u-btn-disabled-color-light-theme;
   $u-btn-disabled-background-color: $u-btn-disabled-background-light-theme;

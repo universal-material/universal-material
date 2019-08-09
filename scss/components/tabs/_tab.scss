@@ -25,7 +25,7 @@
   padding-left: $u-tab-horizontal-padding;
   font-family: $u-font-family-base;
   cursor: pointer;
-  @include selectable-background-before;
+  @extend %u-selectable-background-before;
 }
 
 .u-tab-indicator {

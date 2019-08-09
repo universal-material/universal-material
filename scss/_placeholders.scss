@@ -1,6 +1,7 @@
 @import "placeholders/action-set";
 @import "placeholders/background";
 @import "placeholders/button-base";
+@import "placeholders/selectable-background";
 @import "variables";
 
 @if (not $placeholders-already-imported) {
@@ -10,4 +11,5 @@
   @include u-button-base;
   @include u-bg-light;
   @include u-bg-dark;
+  @include u-selectable-background-before;
 }

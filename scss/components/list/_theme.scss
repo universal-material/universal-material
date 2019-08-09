@@ -34,18 +34,6 @@
     }
   }
 
-  .u-list-item.active,
-  .u-list.u-list-selectable .u-list-item.active {
-    &:hover::before,
-    &::before {
-      opacity: .2;
-    }
-
-    &:focus::before {
-      opacity: .3;
-    }
-  }
-
   .u-list-item-icon,
   .u-list-item-avatar {
     color: $icon-color;
