@@ -1,7 +1,7 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
   typeof define === 'function' && define.amd ? define(['exports'], factory) :
-  (factory((global['universal-material'] = {})));
+  (global = global || self, factory(global['universal-material'] = {}));
 }(this, (function (exports) { 'use strict';
 
   (function () {
@@ -815,24 +815,24 @@
       return TextField;
   }());
 
-  exports.DialogConfig = DialogConfig;
-  exports.Dialog = Dialog;
-  exports.DropdownConfig = DropdownConfig;
-  exports.Dropdown = Dropdown;
-  exports.ConfirmDialogConfig = ConfirmDialogConfig;
   exports.ConfirmDialog = ConfirmDialog;
-  exports.ProgressDialogConfig = ProgressDialogConfig;
+  exports.ConfirmDialogConfig = ConfirmDialogConfig;
+  exports.Dialog = Dialog;
+  exports.DialogConfig = DialogConfig;
+  exports.Dropdown = Dropdown;
+  exports.DropdownConfig = DropdownConfig;
   exports.ProgressDialog = ProgressDialog;
-  exports.QuickDialogConfig = QuickDialogConfig;
+  exports.ProgressDialogConfig = ProgressDialogConfig;
   exports.QuickDialog = QuickDialog;
-  exports.RippleContainersSelector = RippleContainersSelector;
+  exports.QuickDialogConfig = QuickDialogConfig;
+  exports.Ripple = Ripple;
   exports.RippleConfig = RippleConfig;
   exports.RippleConfigMap = RippleConfigMap;
-  exports.Ripple = Ripple;
-  exports.Snackbar = Snackbar;
-  exports.SnackbarDefinition = SnackbarDefinition;
-  exports.SnackbarButtonDefinition = SnackbarButtonDefinition;
+  exports.RippleContainersSelector = RippleContainersSelector;
   exports.Slider = Slider;
+  exports.Snackbar = Snackbar;
+  exports.SnackbarButtonDefinition = SnackbarButtonDefinition;
+  exports.SnackbarDefinition = SnackbarDefinition;
   exports.TabBar = TabBar;
   exports.TextField = TextField;
 

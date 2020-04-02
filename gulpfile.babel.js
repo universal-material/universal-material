@@ -1,8 +1,8 @@
 import autoprefixer from 'gulp-autoprefixer';
-import gulp from 'gulp';
+import { gulp, parallel, src, dest, watch } from 'gulp';
 import concat from 'gulp-concat';
 import insert from 'gulp-insert';
-import notify from "gulp-notify";
+import notify from 'gulp-notify';
 import pug from 'gulp-pug';
 import rename from 'gulp-rename';
 import replace from 'gulp-replace';
@@ -11,23 +11,23 @@ import sourcemaps from "gulp-sourcemaps";
 import ts from 'gulp-typescript';
 import uglify from 'gulp-uglify';
 import rollupTypescript from 'rollup-plugin-typescript2';
-const rollup = require('rollup');
+import { rollup } from 'rollup';
 
 const tsProjectBrowser = ts.createProject('./js/src/tsconfig.browser.json', {outFile: 'universal-material.js'});
 const tsProjectBrowserUglify = ts.createProject('./js/src/tsconfig.browser.json', {outFile: 'universal-material.min.js'});
 
-gulp.task("sass:normal", function () {
-  return gulp.src("./scss/universal-material.scss")
+exports['sass:normal'] = () => {
+  return src("./scss/universal-material.scss")
     .pipe(sourcemaps.init())
     .pipe(sass().on("error", sass.logError))
     .pipe(autoprefixer())
     .pipe(sourcemaps.write("./"))
-    .pipe(gulp.dest("./dist/css"))
-    .pipe(gulp.dest("./docs/dist/css"));
-});
+    .pipe(dest("./dist/css"))
+    .pipe(dest("./docs/dist/css"));
+}
 
-gulp.task("sass:compressed", function () {
-  return gulp.src("./scss/universal-material.scss")
+exports['sass:compressed'] = () => {
+  return src("./scss/universal-material.scss")
     .pipe(sourcemaps.init())
     .pipe(sass({
       outputStyle: "compressed"
@@ -35,20 +35,20 @@ gulp.task("sass:compressed", function () {
     .pipe(autoprefixer())
     .pipe(rename("universal-material.min.css"))
     .pipe(sourcemaps.write("./"))
-    .pipe(gulp.dest("./dist/css"));
-});
+    .pipe(dest("./dist/css"));
+}
 
-gulp.task("sass-no-reboot:normal", function () {
-  return gulp.src("./scss/universal-material-no-reboot.scss")
+exports['sass-no-reboot:normal'] = () => {
+  return src("./scss/universal-material-no-reboot.scss")
     .pipe(sourcemaps.init())
     .pipe(sass().on("error", sass.logError))
     .pipe(autoprefixer())
     .pipe(sourcemaps.write("./"))
-    .pipe(gulp.dest("./dist/css"))
-});
+    .pipe(dest("./dist/css"))
+}
 
-gulp.task("sass-no-reboot:compressed", function () {
-  return gulp.src("./scss/universal-material-no-reboot.scss")
+exports['sass-no-reboot:compressed'] = () => {
+  return src("./scss/universal-material-no-reboot.scss")
     .pipe(sourcemaps.init())
     .pipe(sass({
       outputStyle: "compressed"
@@ -56,19 +56,19 @@ gulp.task("sass-no-reboot:compressed", function () {
     .pipe(autoprefixer())
     .pipe(rename("universal-material-no-reboot.min.css"))
     .pipe(sourcemaps.write("./"))
-    .pipe(gulp.dest("./dist/css"));
-});
+    .pipe(dest("./dist/css"));
+}
 
 
-gulp.task("sass:docs", function () {
-  return gulp.src("./docs/src/css/docs.scss")
+exports['sass:docs'] = () => {
+  return src("./docs/src/css/docs.scss")
     .pipe(sass().on("error", sass.logError))
     .pipe(autoprefixer())
-    .pipe(gulp.dest("./docs/dist/css"));
-});
+    .pipe(dest("./docs/dist/css"));
+}
 
-gulp.task('pug:docs', function () {
-  return gulp.src(["./docs/src/**/*.pug", "!./docs/src/layout.pug"])
+exports['pug:docs'] = () => {
+  return src(["./docs/src/**/*.pug", "!./docs/src/layout.pug"])
     .pipe(pug({
       data: {
         debug: true,
@@ -79,19 +79,11 @@ gulp.task('pug:docs', function () {
     }).on("error", notify.onError(function (error) {
       return "An error occurred while compiling pug.\nLook in the console for details.\n" + error;
     })))
-    .pipe(gulp.dest("./docs/dist")); // tell gulp our output folder
-});
+    .pipe(dest("./docs/dist")); // tell gulp our output folder
+}
 
-gulp.task("sass", ["sass:normal", "sass:compressed","sass-no-reboot:normal", "sass-no-reboot:compressed"]);
-
-gulp.task('scripts', [
-  'js-compile-bundle',
-  'js-compile-browser',
-  'js-compile-browser-uglify'
-]);
-
-gulp.task('js-compile-bundle', () => {
-  return rollup.rollup({
+exports['js-compile-bundle'] = () => {
+  return rollup({
     input: './js/src/index.ts',
     plugins: [rollupTypescript({
       typescript: require('typescript')
@@ -104,10 +96,10 @@ gulp.task('js-compile-bundle', () => {
       sourcemap: true
     });
   });
-});
+}
 
 const jsCompileBrowserConfig = (tsProject) => {
-  return gulp.src(['./js/src/quick-dialog.ts', './js/src/*.ts', '!./js/src/index.ts'])
+  return src(['./js/src/quick-dialog.ts', './js/src/*.ts', '!./js/src/index.ts'])
     .pipe(replace(/import\s{.+}\sfrom\s['"].+['"];/g, ''))
     .pipe(sourcemaps.init())
     .pipe(concat('universal-material.ts'))
@@ -115,33 +107,48 @@ const jsCompileBrowserConfig = (tsProject) => {
       return `namespace umd { ${contents} }`;
     }))
     .pipe(tsProject());
-};
+}
 
-gulp.task('js-compile-browser', function () {
+exports['js-compile-browser'] = () => {
   return jsCompileBrowserConfig(tsProjectBrowser)
-    .pipe(gulp.dest("./dist/js"))
-    .pipe(gulp.dest("./docs/dist/js"))
-});
+    .pipe(dest("./dist/js"))
+    .pipe(dest("./docs/dist/js"))
+}
 
-gulp.task('js-compile-browser-uglify', function () {
+exports['js-compile-browser-uglify'] = () => {
   return jsCompileBrowserConfig(tsProjectBrowserUglify)
     .pipe(uglify())
-    .pipe(gulp.dest("./dist/js"))
-});
+    .pipe(dest("./dist/js"))
+}
 
-gulp.task('watch', function () {
-  gulp.watch(['./docs/src/**/*.pug', './docs/src/**/*.html'], ['pug:docs']);
-  gulp.watch('./scss/**/*.scss', ['sass']);
-  gulp.watch('./docs/src/css/**/*.scss', ['sass:docs']);
-  gulp.watch('./js/src/*.ts', ['scripts']);
-});
+exports['watch'] = () => {
+  watch(['./docs/src/**/*.pug', './docs/src/**/*.html'], exports['pug:docs']);
+  watch('./scss/**/*.scss', exports['sass']);
+  watch('./docs/src/css/**/*.scss', exports['sass:docs']);
+  watch('./js/src/*.ts', exports['scripts']);
+}
 
-gulp.task('watch:docs', function () {
-  gulp.watch(['./docs/src/**/*.pug', './docs/src/**/*.html'], ['pug:docs']);
-  gulp.watch('./scss/**/*.scss', ['sass:normal']);
-  gulp.watch('./docs/src/css/**/*.scss', ['sass:docs']);
-});
+exports['watch:docs'] = () => {
+  watch(['./docs/src/**/*.pug', './docs/src/**/*.html'], exports['pug:docs']);
+  watch('./scss/**/*.scss', exports['sass:normal']);
+  watch('./docs/src/css/**/*.scss', exports['sass:docs']);
+}
 
+exports.sass = parallel(
+  exports['sass:normal'],
+  exports['sass:compressed'],
+  exports['sass-no-reboot:normal'],
+  exports['sass-no-reboot:compressed'])
 
-gulp.task('default', ['sass', 'scripts', 'pug:docs', 'sass:docs', 'watch']);
+exports.scripts = parallel(
+  exports['js-compile-bundle'],
+  exports['js-compile-browser'],
+  exports['js-compile-browser-uglify'])
+
+exports.default = parallel(
+  exports['sass'],
+  exports['scripts'],
+  exports['pug:docs'],
+  exports['sass:docs'],
+  exports['watch'])
 
