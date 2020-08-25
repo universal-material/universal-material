@@ -9,8 +9,8 @@ $u-checkbox-border-width: .125rem !default;
 $u-checkbox-border: $u-checkbox-border-width solid currentColor !default;
 $u-checkbox-color-light-theme: rgba(0, 0, 0, .54) !default;
 $u-checkbox-color-dark-theme: rgba(255, 255, 255, .7) !default;
-$u-checkbox-mark-color-light-theme: $bg-light !default;
-$u-checkbox-mark-color-dark-theme: $bg-dark !default;
+$u-checkbox-mark-color-light-theme: $u-bg-light !default;
+$u-checkbox-mark-color-dark-theme: $u-bg-dark !default;
 
 $u-checkbox-border-radius: .125rem !default;
 $u-checkbox-size: 1rem !default;

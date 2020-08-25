@@ -10,13 +10,17 @@
   align-items: center;
   margin-bottom: 0;
   font-family: $u-font-family-base;
-  cursor: pointer;
 
   @include hide-native-input;
 
   .u-selection-control-label {
     margin-left: $u-switch-label-margin;
   }
+}
+
+.u-selection-control,
+.u-selection-control-label {
+  cursor: pointer;
 }
 
 .u-material {
@@ -83,6 +87,13 @@
     &.disabled .u-selection-control,
     input:disabled ~ .u-selection-control {
       opacity: $u-switch-disabled-opacity;
+    }
+
+    &.disabled .u-selection-control,
+    &.disabled .u-selection-control-label,
+    input:disabled ~ .u-selection-control,
+    input:disabled ~ .u-selection-control-label {
+      cursor: auto;
     }
   }
 }

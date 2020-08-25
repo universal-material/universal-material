@@ -1,6 +1,6 @@
 {
   "name": "@universal-material/core",
-  "version": "0.93.6",
+  "version": "0.95.3",
   "keywords": [
     "css",
     "sass",
@@ -24,8 +24,7 @@
   "scripts": {
     "start": "npm-run-all --parallel watch docs",
     "watch": "gulp default",
-    "docs": "http-server ./docs/dist -p 8081",
-    "ts-compile": ""
+    "docs": "http-server ./docs/dist -p 8081"
   },
   "main": "./js/dist/bundle/universal-material.umd.js",
   "sass": "./scss/universal-material.scss",

@@ -254,7 +254,7 @@
 
   $theme-colors: map-get($u-theme, "colors");
   $dark-theme: map-get($u-theme, "dark");
-  $default-style: map-get($u-theme, "default-style");
+  $theme-style: map-get($u-theme, "style");
 
   $background-color: $u-dialog-background-light-theme;
 
@@ -266,7 +266,7 @@
     background-color: $background-color;
   }
 
-  @if ($default-style == "uwp") {
+  @if ($theme-style == "uwp") {
     @include uwp-dialog($theme-colors);
   }
 }

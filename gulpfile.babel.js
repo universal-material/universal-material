@@ -1,5 +1,5 @@
 import autoprefixer from 'gulp-autoprefixer';
-import { gulp, parallel, src, dest, watch } from 'gulp';
+import { parallel, src, dest, watch } from 'gulp';
 import concat from 'gulp-concat';
 import insert from 'gulp-insert';
 import notify from 'gulp-notify';
@@ -16,7 +16,7 @@ import { rollup } from 'rollup';
 const tsProjectBrowser = ts.createProject('./js/src/tsconfig.browser.json', {outFile: 'universal-material.js'});
 const tsProjectBrowserUglify = ts.createProject('./js/src/tsconfig.browser.json', {outFile: 'universal-material.min.js'});
 
-exports['sass:normal'] = () => {
+const sassNormal = () => {
   return src("./scss/universal-material.scss")
     .pipe(sourcemaps.init())
     .pipe(sass().on("error", sass.logError))
@@ -26,7 +26,7 @@ exports['sass:normal'] = () => {
     .pipe(dest("./docs/dist/css"));
 }
 
-exports['sass:compressed'] = () => {
+const sassCompressed = () => {
   return src("./scss/universal-material.scss")
     .pipe(sourcemaps.init())
     .pipe(sass({
@@ -38,7 +38,7 @@ exports['sass:compressed'] = () => {
     .pipe(dest("./dist/css"));
 }
 
-exports['sass-no-reboot:normal'] = () => {
+const sassNoRebootNormal = () => {
   return src("./scss/universal-material-no-reboot.scss")
     .pipe(sourcemaps.init())
     .pipe(sass().on("error", sass.logError))
@@ -47,7 +47,7 @@ exports['sass-no-reboot:normal'] = () => {
     .pipe(dest("./dist/css"))
 }
 
-exports['sass-no-reboot:compressed'] = () => {
+const sassNoRebootCompressed = () => {
   return src("./scss/universal-material-no-reboot.scss")
     .pipe(sourcemaps.init())
     .pipe(sass({
@@ -59,15 +59,14 @@ exports['sass-no-reboot:compressed'] = () => {
     .pipe(dest("./dist/css"));
 }
 
-
-exports['sass:docs'] = () => {
+const sassDocs = () => {
   return src("./docs/src/css/docs.scss")
     .pipe(sass().on("error", sass.logError))
     .pipe(autoprefixer())
     .pipe(dest("./docs/dist/css"));
 }
 
-exports['pug:docs'] = () => {
+const pugDocs = () => {
   return src(["./docs/src/**/*.pug", "!./docs/src/layout.pug"])
     .pipe(pug({
       data: {
@@ -82,7 +81,7 @@ exports['pug:docs'] = () => {
     .pipe(dest("./docs/dist")); // tell gulp our output folder
 }
 
-exports['js-compile-bundle'] = () => {
+const jsCompileBundle = () => {
   return rollup({
     input: './js/src/index.ts',
     plugins: [rollupTypescript({
@@ -109,30 +108,46 @@ const jsCompileBrowserConfig = (tsProject) => {
     .pipe(tsProject());
 }
 
-exports['js-compile-browser'] = () => {
+const jsCompileBrowser = () => {
   return jsCompileBrowserConfig(tsProjectBrowser)
     .pipe(dest("./dist/js"))
     .pipe(dest("./docs/dist/js"))
 }
 
-exports['js-compile-browser-uglify'] = () => {
+const jsCompileBrowserUglify = () => {
   return jsCompileBrowserConfig(tsProjectBrowserUglify)
     .pipe(uglify())
     .pipe(dest("./dist/js"))
 }
 
-exports['watch'] = () => {
+const watchDefault = () => {
   watch(['./docs/src/**/*.pug', './docs/src/**/*.html'], exports['pug:docs']);
   watch('./scss/**/*.scss', exports['sass']);
   watch('./docs/src/css/**/*.scss', exports['sass:docs']);
   watch('./js/src/*.ts', exports['scripts']);
 }
 
-exports['watch:docs'] = () => {
+const watchDocs = () => {
   watch(['./docs/src/**/*.pug', './docs/src/**/*.html'], exports['pug:docs']);
   watch('./scss/**/*.scss', exports['sass:normal']);
   watch('./docs/src/css/**/*.scss', exports['sass:docs']);
 }
+
+exports['sass:normal'] = sassNormal;
+exports['sass:compressed'] = sassCompressed;
+exports['sass-no-reboot:normal'] = sassNoRebootNormal;
+exports['sass-no-reboot:compressed'] = sassNoRebootCompressed;
+exports['sass:docs'] = sassDocs;
+
+exports['pug:docs'] = pugDocs;
+
+exports['js-compile-bundle'] = jsCompileBundle;
+exports['js-compile-browser'] = jsCompileBrowser;
+exports['js-compile-browser-uglify'] = jsCompileBrowserUglify;
+
+
+exports['watch'] = watchDefault;
+exports['watch:docs'] = watchDocs;
 
 exports.sass = parallel(
   exports['sass:normal'],

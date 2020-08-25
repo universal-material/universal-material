@@ -6,9 +6,9 @@
 
 @mixin u-toolbar-theme {
 
-  $theme-colors: map-get($u-theme, "colors");
+  $toolbar-colors: map-get($u-theme, "toolbar-colors");
   $dark-theme: map-get($u-theme, "dark");
-  $default-style: map-get($u-theme, "default-style");
+  $theme-style: map-get($u-theme, "style");
 
   $color: $u-body-color-light-theme;
 
@@ -16,16 +16,20 @@
     $color: $u-body-color-dark-theme;
   }
 
-  @include ampersand-or-none("u-material") {
-    @include extend-bg-colors(".u-toolbar-");
+  .u-material {
+    @each $color, $value in $toolbar-colors {
+      .u-toolbar-#{$color} {
+        @extend .u-bg-#{$color} !optional;
+      }
+    }
   }
 
-  @include ampersand-or-none("u-ios") {
-    @include ios-toolbar($theme-colors);
+  .u-ios {
+    @include ios-toolbar($toolbar-colors);
   }
 }
 
-@mixin u-toolbar-background-color-variant($background-color) {
+@mixin u-toolbar-variant($background-color) {
 
   $dark-background: is-dark-background($background-color);
 

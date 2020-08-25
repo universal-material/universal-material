@@ -4,7 +4,7 @@ export class TextField {
   input: HTMLInputElement | HTMLTextAreaElement;
 
   constructor(element: Element) {
-    const input = element.querySelector('input, textarea, .u-text-input') as HTMLInputElement | HTMLTextAreaElement;
+    const input = element.querySelector('input, textarea') as HTMLInputElement | HTMLTextAreaElement;
 
     if (input) {
       input.addEventListener('focus', () => {

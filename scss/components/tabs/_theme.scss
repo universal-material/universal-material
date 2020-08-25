@@ -1,54 +1,24 @@
 @import "variables";
 @import "../../mixins";
-@import "../../theming";
-
-@mixin u-tab-text-color($dark-background) {
-  $u-tab-text-color: $u-tab-text-color-light-theme;
-
-  @if ($dark-background) {
-    $u-tab-text-color: $u-tab-text-color-dark-theme;
-  }
-
-  .u-tab {
-    color: $u-tab-text-color;
-  }
-}
 
 @mixin u-tab-theme {
 
   $theme-colors: map-get($u-theme, "colors");
   $dark-theme: map-get($u-theme, "dark");
 
-  @include u-tab-text-color($dark-theme);
-
   @each $color, $value in $theme-colors {
     .u-tab-bar-#{$color} {
-      .u-tab.active {
-        color: $value;
-      }
-
-      .u-tab-indicator {
-        background-color: $value;
-      }
+      @include u-tab-bar-variant($value);
     }
+  }
+}
 
-    .u-bg-#{$color} {
+@mixin u-tab-bar-variant($color) {
+  .u-tab.active {
+    color: $color;
+  }
 
-      $is-dark-background: is-dark-background($value);
-      @include u-tab-text-color($is-dark-background);
-
-      &.u-tab-bar-#{$color},
-      .u-tab-bar-#{$color} {
-        $active-color: if($is-dark-background, $u-text-high-contrast-dark-theme, $u-text-high-contrast-light-theme);
-
-        .u-tab.active {
-          color: $active-color;
-        }
-
-        .u-tab-indicator {
-          background-color: $active-color;
-        }
-      }
-    }
+  .u-tab-indicator {
+    background-color: $color;
   }
 }

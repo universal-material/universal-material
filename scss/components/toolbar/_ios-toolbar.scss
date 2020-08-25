@@ -3,6 +3,7 @@ $ios-toolbar-background-light-theme: #f7f7f7 !default;
 
 @mixin ios-toolbar($theme-colors) {
   .u-toolbar {
+    background: $ios-toolbar-background-light-theme;
     border-bottom: 1px solid rgba(0, 0, 0, .2);
   }
 
@@ -35,8 +36,6 @@ $ios-toolbar-background-light-theme: #f7f7f7 !default;
 
   @each $color, $value in $theme-colors {
     .u-toolbar-#{$color} {
-      background: $ios-toolbar-background-light-theme;
-
       .u-toolbar-action {
         &.u-btn-default,
         & .u-btn-default {

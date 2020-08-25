@@ -81,7 +81,47 @@
   }
 }
 
-@mixin u-text-theme() {
+%u-bg-light {
+  .u-text-low-contrast {
+    color: $u-text-low-contrast-light-theme;
+  }
+
+  .u-text-high-contrast {
+    color: $u-text-high-contrast-light-theme;
+  }
+}
+
+%u-bg-light-important {
+  .u-text-low-contrast {
+    color: $u-text-low-contrast-light-theme !important;
+  }
+
+  .u-text-high-contrast {
+    color: $u-text-high-contrast-light-theme !important;
+  }
+}
+
+%u-bg-dark {
+  .u-text-low-contrast {
+    color: $u-text-low-contrast-dark-theme;
+  }
+
+  .u-text-high-contrast {
+    color: $u-text-high-contrast-dark-theme;
+  }
+}
+
+%u-bg-dark-important {
+  .u-text-low-contrast {
+    color: $u-text-low-contrast-dark-theme !important;
+  }
+
+  .u-text-high-contrast {
+    color: $u-text-high-contrast-dark-theme !important;
+  }
+}
+
+@mixin u-text-theme {
   $dark-theme: map-get($u-theme, "dark");
   $theme-colors: map-get($u-theme, "colors");
 
@@ -96,7 +136,4 @@
   @each $color, $value in $u-theme-colors {
     @include text-emphasis-variant(".u-text-#{$color}", $value);
   }
-
-  @include text-emphasis-variant(".u-text-low-contrast", $text-low-contrast);
-  @include text-emphasis-variant(".u-text-high-contrast", $text-high-contrast);
 }

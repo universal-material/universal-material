@@ -761,7 +761,7 @@
   var TextField = /** @class */ (function () {
       function TextField(element) {
           var _this = this;
-          var input = element.querySelector('input, textarea, .u-text-input');
+          var input = element.querySelector('input, textarea');
           if (input) {
               input.addEventListener('focus', function () {
                   element.classList.add('focus');

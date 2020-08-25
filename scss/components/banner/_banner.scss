@@ -19,15 +19,12 @@
 .u-banner-content {
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-end;
+  align-items: center;
 }
 
 .u-banner-text {
   display: inline-block;
-  padding-right: $u-banner-text-horizontal-padding;
-  padding-left: $u-banner-text-horizontal-padding;
-  margin-top: $u-banner-text-margin-top;
-  margin-bottom: $u-banner-text-margin-bottom;
+  padding: $u-banner-text-vertical-padding $u-banner-text-horizontal-padding;
   font-size: .875rem;
   font-weight: $u-font-weight-medium;
 }

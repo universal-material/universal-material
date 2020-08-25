@@ -56,7 +56,7 @@
   border-bottom-right-radius: inherit;
   border-bottom-left-radius: inherit;
 
-  @extend %u-bg-dark;
+  @extend %u-bg-dark-important;
 }
 
 .u-card-content {
@@ -69,20 +69,28 @@
   padding: $u-card-actions-padding;
 }
 
-@mixin u-card-theme() {
+@mixin u-card-theme {
 
   $dark-theme: map-get($u-theme, "dark");
-  $default-style: map-get($u-theme, "default-style");
+  $theme-style: map-get($u-theme, "style");
 
   $background-color: $u-card-bg-light-theme;
 
   @if ($dark-theme) {
     $background-color: $u-card-bg-dark-theme;
+    .u-card {
+      @extend %u-bg-dark-important;
+    }
+  } @else {
+    .u-card {
+      @extend %u-bg-light-important;
+    }
   }
 
   .u-card {
     background-color: $background-color;
   }
+
 
   @if (mixin_exists(u-text-fields-theme)) {
     .u-card {
@@ -92,7 +100,7 @@
     }
   }
 
-  @if ($default-style == "uwp") {
+  @if ($theme-style == "uwp") {
     @include uwp-card;
 
     @if (mixin_exists(uwp-button)) {

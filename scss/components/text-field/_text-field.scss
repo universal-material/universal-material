@@ -99,24 +99,43 @@
   }
 }
 
+.u-text-input input,
+.u-text-input textarea,
+.u-text-input button {
+  flex: 1;
+}
+
+.u-text-input input,
+.u-text-input textarea,
+.u-text-input button,
+input.u-text-input,
+textarea.u-text-input,
+button.u-text-input {
+  padding: 0;
+  background: transparent;
+  border: none;
+
+  &:focus {
+    outline: 0;
+  }
+}
+
 .u-text-input,
-input.u-text-input {
+input.u-text-input,
+textarea.u-text-input,
+button.u-text-input {
+  display: flex;
+  align-items: center;
   padding-top: $u-text-input-padding;
   padding-bottom: $u-text-input-padding - $u-text-field-border-width;
   padding-left: 0;
   font-size: $u-text-input-font-size;
   line-height: $u-text-input-line-height;
-  background: transparent;
-  border: none;
   border-bottom: $u-text-input-border;
   border-radius: inherit;
 
   &:not(textarea) {
     height: $u-text-input-height + $u-text-input-padding * 2;
-  }
-
-  &:focus {
-    outline: 0;
   }
 }
 
@@ -182,7 +201,11 @@ input.u-text-input {
     transition: color 150ms;
   }
 
-  &.empty:not(.focus) {
+  .u-text-input * {
+    transition: opacity 150ms;
+  }
+
+  &.empty:not(.focus):not(.u-text-field-no-label) {
     label {
       font-size: $u-text-input-font-size;
       pointer-events: none;
@@ -193,6 +216,11 @@ input.u-text-input {
     .u-text-input-placeholder {
       color: transparent;
       transition: color 150ms 100ms;
+    }
+
+    .u-text-input * {
+      opacity: 0;
+      transition: opacity 150ms 100ms;
     }
   }
 }
@@ -208,7 +236,7 @@ input.u-text-input {
   }
 
   .u-text-input {
-    padding: $u-text-field-box-label-height $u-text-field-box-padding-horizontal calc(#{$u-text-field-box-padding-horizontal} - #{$u-text-field-border-width});
+    padding: $u-text-field-box-padding-top $u-text-field-box-padding-horizontal calc(#{$u-text-field-box-padding-bottom} - #{$u-text-field-border-width});
     margin-top: -$u-text-field-box-label-height;
 
     &:not(textarea) {
@@ -383,6 +411,20 @@ input.u-text-input {
   box-shadow: $u-search-field-elevated-box-shadow;
 }
 
+%u-text-input-affix {
+  flex-shrink: 0;
+}
+
+.u-text-input-suffix {
+  @extend %u-text-input-affix;
+  margin-left: $u-text-input-affix-margin;
+}
+
+.u-text-input-prefix {
+  @extend %u-text-input-affix;
+  margin-right: $u-text-input-affix-margin;
+}
+
 @mixin u-text-fields-theme {
 
   $theme-colors: map-get($u-theme, "colors");
@@ -403,9 +445,9 @@ input.u-text-input {
   $u-text-input-placeholder-color: $u-text-input-placeholder-color-light-theme;
   $u-text-input-disabled-color: $u-text-input-disabled-color-light-theme;
   $u-text-input-icon-color: $u-text-input-icon-color-light-theme;
-  //$u-text-input-affix-color: $u-text-input-affix-color-light-theme;
+  $u-text-input-affix-color: $u-text-input-affix-color-light-theme;
   $u-text-field-helper-text-color: $u-text-field-helper-text-color-light-theme;
-  $u-text-field-outline-label-background: $bg-light;
+  $u-text-field-outline-label-background: $u-bg-light;
 
   @if ($dark-theme) {
     $u-text-field-label-color: $u-text-field-label-color-dark-theme;
@@ -419,9 +461,9 @@ input.u-text-input {
     $u-text-input-placeholder-color: $u-text-input-placeholder-color-dark-theme;
     $u-text-input-disabled-color: $u-text-input-disabled-color-dark-theme;
     $u-text-input-icon-color: $u-text-input-icon-color-dark-theme;
-  //  $u-text-input-affix-color: $u-text-input-affix-color-dark-theme;
+    $u-text-input-affix-color: $u-text-input-affix-color-dark-theme;
     $u-text-field-helper-text-color: $u-text-field-helper-text-color-dark-theme;
-    $u-text-field-outline-label-background: $bg-dark;
+    $u-text-field-outline-label-background: $u-bg-dark;
   }
 
   .u-text-field-leading-icon,
@@ -469,7 +511,7 @@ input.u-text-input {
       color: $danger-color;
     }
 
-    &:hover {
+    &:not(.disabled):hover {
       .u-text-input:not(:disabled) {
         border-color: $u-text-field-divider-color-hover;
       }
@@ -524,5 +566,9 @@ input.u-text-input {
     .u-text-field-box.empty.u-text-field-no-label & {
       color: $u-text-input-placeholder-color;
     }
+  }
+
+  %u-text-input-affix {
+    color: $u-text-input-affix-color;
   }
 }

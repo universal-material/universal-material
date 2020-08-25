@@ -1,6 +1,8 @@
 @import "variables";
+@import "theme";
 @import "../../typography/variables";
 @import "../../mixins";
+@import "../../utilities";
 @import "../../placeholders";
 @import "uwp-buttons";
 @import "button-base";
@@ -12,6 +14,15 @@
   line-height: $u-btn-material-line-height;
   border-radius: $u-btn-border-radius;
   transition: color 150ms ease-in-out, background-color 150ms ease-in-out, box-shadow 150ms ease-in-out;
+
+  &.disabled,
+  &:disabled {
+    box-shadow: none;
+
+    &::before {
+      display: none;
+    }
+  }
 }
 
 .u-btn-set {
@@ -30,6 +41,14 @@
 .u-btn-outline {
   @extend .u-btn-flat;
   border: $u-btn-outline-border-width solid currentColor;
+
+  &::before,
+  .u-ripple-wrapper {
+    top: -$u-btn-outline-border-width;
+    right: -$u-btn-outline-border-width;
+    bottom: -$u-btn-outline-border-width;
+    left: -$u-btn-outline-border-width;
+  }
 }
 
 .u-btn-raised {
@@ -51,7 +70,7 @@
   margin-right: $u-btn-icon-margin-end;
   margin-left: $u-btn-icon-margin-start;
   font-size: $u-btn-icon-size;
-  line-height: 1em;
+  line-height: $u-btn-icon-size;
 }
 
 .u-btn-icon-end {
@@ -73,6 +92,7 @@
     height: $u-btn-borderless-icon-size;
     margin: 0;
     font-size: $u-btn-borderless-icon-size;
+    line-height: $u-btn-borderless-icon-size;
   }
 }
 
@@ -87,6 +107,7 @@
     height: $u-btn-borderless-icon-size;
     margin: 0;
     font-size: $u-btn-borderless-icon-size;
+    line-height: $u-btn-borderless-icon-size;
   }
 }
 
@@ -127,31 +148,28 @@
   }
 }
 
-%u-bg-light {
+@mixin u-disabled-button($color, $background, $important: false) {
   .u-btn {
     &.disabled,
     &:disabled {
-      color: $u-btn-disabled-color-light-theme !important;
-      background-color: $u-btn-disabled-background-light-theme !important;
-      box-shadow: none;
+      color: $color #{important($important)};
 
-      &::before {
-        background-color: transparent !important;
+      @include hover-focus {
+        color: $color #{important($important)};
       }
     }
   }
 
-  .u-btn-borderless,
-  .u-btn-flat {
+  .u-btn-solid,
+  .u-btn-raised {
     &.disabled,
     &:disabled {
-      &,
-      &::before {
-        background-color: transparent !important;
-      }
+      background-color: $u-btn-disabled-background-light-theme #{important($important)};
     }
   }
+}
 
+%u-bg-light {
   .u-btn-flat.u-btn-default {
     color: $u-btn-flat-default-background-light-theme;
   }
@@ -159,33 +177,23 @@
   .u-btn-borderless.u-btn-default {
     color: $u-btn-borderless-default-color-light-theme;
   }
+
+  @include u-disabled-button($u-btn-disabled-color-light-theme, $u-btn-disabled-background-light-theme);
+}
+
+%u-bg-light-important {
+  .u-btn-flat.u-btn-default {
+    color: $u-btn-flat-default-background-light-theme !important;
+  }
+
+  .u-btn-borderless.u-btn-default {
+    color: $u-btn-borderless-default-color-light-theme !important;
+  }
+
+  @include u-disabled-button($u-btn-disabled-color-light-theme, $u-btn-disabled-background-light-theme, true);
 }
 
 %u-bg-dark {
-  .u-btn {
-    &.disabled,
-    &:disabled {
-      color: $u-btn-disabled-color-dark-theme !important;
-      background-color: $u-btn-disabled-background-dark-theme;
-      box-shadow: none;
-
-      &::before {
-        background-color: transparent !important;
-      }
-    }
-  }
-
-  .u-btn-borderless,
-  .u-btn-flat {
-    &.disabled,
-    &:disabled {
-      &,
-      &::before {
-        background-color: transparent;
-      }
-    }
-  }
-
   .u-btn-flat.u-btn-default {
     color: $u-btn-flat-default-background-dark-theme;
   }
@@ -193,6 +201,20 @@
   .u-btn-borderless.u-btn-default {
     color: $u-btn-borderless-default-color-dark-theme;
   }
+
+  @include u-disabled-button($u-btn-disabled-color-dark-theme, $u-btn-disabled-background-dark-theme);
+}
+
+%u-bg-dark-important {
+  .u-btn-flat.u-btn-default {
+    color: $u-btn-flat-default-background-dark-theme !important;
+  }
+
+  .u-btn-borderless.u-btn-default {
+    color: $u-btn-borderless-default-color-dark-theme !important;
+  }
+
+  @include u-disabled-button($u-btn-disabled-color-dark-theme, $u-btn-disabled-background-dark-theme, true);
 }
 
 .rtl,
@@ -209,72 +231,5 @@
       margin-right: $u-btn-set-margin;
       margin-left: 0;
     }
-  }
-}
-
-@mixin button-flat-theme($buttons-colors) {
-
-  @each $color, $value in $buttons-colors {
-    .u-btn-flat.u-btn-#{$color} {
-      @include button-flat-variant($value);
-    }
-  }
-}
-
-@mixin button-borderless-theme($buttons-colors) {
-  @each $color, $value in $buttons-colors {
-    .u-btn-borderless.u-btn-#{$color} {
-      @include button-flat-variant($value);
-    }
-  }
-}
-
-@mixin u-buttons-theme {
-
-  $theme-colors: map-get($u-theme, "colors");
-  $dark-theme: map-get($u-theme, "dark");
-  $default-style: map-get($u-theme, "default-style");
-
-  $buttons-colors: ();
-  @each $color, $value in $theme-colors {
-    @if ($color != default) {
-      $buttons-colors: map-merge($buttons-colors, ($color: $value));
-    }
-  }
-
-  $u-btn-disabled-color: $u-btn-disabled-color-light-theme;
-  $u-btn-disabled-background-color: $u-btn-disabled-background-light-theme;
-  $u-btn-flat-default-color: $u-body-color-light-theme;
-  $u-btn-borderless-color: $u-btn-borderless-default-color-light-theme;
-  $u-btn-outline-gray-border-color: $u-btn-outline-gray-border-color-light-theme;
-
-  @if ($dark-theme) {
-    $u-btn-disabled-color: $u-btn-disabled-color-dark-theme;
-    $u-btn-disabled-background-color: $u-btn-disabled-background-dark-theme;
-    $u-btn-flat-default-color: $u-body-color-dark-theme;
-    $u-btn-borderless-color: $u-btn-borderless-default-color-dark-theme;
-    $u-btn-outline-gray-border-color: $u-btn-outline-gray-border-color-dark-theme;
-  }
-
-  .u-btn-solid.u-btn-default {
-    @include button-solid-variant(if($dark-theme, $u-btn-solid-default-background-dark-theme, $u-btn-solid-default-background-light-theme));
-  }
-
-  @each $color, $value in $buttons-colors {
-    .u-btn-solid.u-btn-#{$color} {
-      @include button-solid-variant($value);
-    }
-  }
-
-  .u-btn-outline-gray {
-    @extend .u-btn-outline;
-    border-color: $u-btn-outline-gray-border-color;
-  }
-
-  @include button-flat-theme($buttons-colors);
-  @include button-borderless-theme($buttons-colors);
-
-  @if ($default-style == "uwp") {
-    @include uwp-button($dark-theme);
   }
 }

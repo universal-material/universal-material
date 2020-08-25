@@ -22,11 +22,6 @@ html
           .u-toolbar
             .u-toolbar-row
               .u-toolbar-title Material Design
-          nav.u-list
-            a.u-list-item(href="/")
-              .u-list-item-hover
-              .u-list-item-primary-content
-                | Introduction
           nav.u-list.u-list-selectable
             a.u-list-item(href="/")
               .u-list-item-primary-content
@@ -101,11 +96,11 @@ html
                 span Toolbars
 
         .u-drawer-backdrop.d-lg-none
-        .u-toolbar.u-toolbar-primary.u-toolbar-fixed#app-bar
+        .u-toolbar.u-toolbar-primary.u-bg-dark.u-toolbar-fixed#app-bar
           .u-toolbar-row
             .u-toolbar-start
               .u-toolbar-actions
-                button.u-btn-borderless.u-btn-default(type="button")#menu-toggle
+                button.u-toolbar-action.u-btn-borderless.u-btn-default(type="button")#menu-toggle
                   i.u-btn-icon.mdi.mdi-menu
             .u-toolbar-center
               .u-toolbar-title Material

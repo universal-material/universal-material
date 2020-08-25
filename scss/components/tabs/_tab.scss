@@ -20,6 +20,7 @@
   flex-direction: row;
   align-items: center;
   min-width: $u-tab-min-width;
+  min-width: fit-content;
   max-width: $u-tab-max-width;
   padding-right: $u-tab-horizontal-padding;
   padding-left: $u-tab-horizontal-padding;
@@ -67,4 +68,20 @@
       margin-left: $u-tab-bar-scrollable-margin;
     }
   }
+}
+
+%u-bg-light {
+  .u-tab {
+    color: $u-tab-text-color-light-theme;
+  }
+
+  @include u-tab-bar-variant($u-text-high-contrast-light-theme);
+}
+
+%u-bg-dark {
+  .u-tab {
+    color: $u-tab-text-color-dark-theme;
+  }
+
+  @include u-tab-bar-variant($u-text-high-contrast-dark-theme);
 }

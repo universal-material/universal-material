@@ -4,16 +4,6 @@
   background-color: transparent !important;
 }
 
-.u-bg-transparent-light {
-  background-color: transparent !important;
-  @extend %u-bg-light;
-}
-
-.u-bg-transparent-dark {
-  background-color: transparent !important;
-  @extend %u-bg-dark;
-}
-
 .u-selectable-background {
   @extend %u-selectable-background-before;
 }
@@ -23,15 +13,13 @@
 
   @each $color, $value in $theme-colors {
     @include u-bg-variant(".u-bg-#{$color}", $value);
-
-    $is-dark-background: is-dark-background($value);
-
-    .u-bg-#{$color} {
-      @if ($is-dark-background) {
-        @extend %u-bg-dark;
-      } @else {
-        @extend %u-bg-light;
-      }
-    }
   }
+}
+
+.u-bg-light {
+  @extend %u-bg-light;
+}
+
+.u-bg-dark {
+  @extend %u-bg-dark;
 }

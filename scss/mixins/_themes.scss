@@ -1,22 +1,10 @@
 @import "../theming";
 
-@mixin ampersand-or-none($name) {
-  @if & {
-    &.#{$name} {
-      @content;
-    }
-  } @else {
-    .#{$name} {
-      @content;
-    }
-  }
-}
-
 @mixin create-light-theme {
 
-  $default-style: map-get($u-theme, "default-style");
+  $theme-style: map-get($u-theme, "style");
 
-  $background-color: if($default-style == "android", $bg-light, $bg-light-ios);
+  $background-color: if($theme-style == "android", $u-bg-light, $u-bg-light-ios);
   @if & {
     & {
       background-color: $background-color;
@@ -24,7 +12,6 @@
     }
   } @else {
     body {
-      color: $u-body-color-light-theme;
       background-color: $background-color;
       @extend %u-bg-light;
     }
@@ -35,13 +22,12 @@
 
   @if & {
     & {
-      background-color: $bg-dark;
+      background-color: $u-bg-dark;
       @extend %u-bg-dark;
     }
   } @else {
     body {
-      color: $u-body-color-dark-theme;
-      background-color: $bg-dark;
+      background-color: $u-bg-dark;
       @extend %u-bg-dark;
     }
   }

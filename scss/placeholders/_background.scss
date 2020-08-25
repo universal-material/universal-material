@@ -2,18 +2,15 @@
 @import "../mixins";
 
 @mixin u-bg-light {
-  %u-bg-light {
+  %u-bg-light,
+  %u-bg-light-important {
     color: $u-body-color-light-theme;
-    @include text-emphasis-variant(".u-text-low-contrast", $u-text-low-contrast-light-theme);
-    @include text-emphasis-variant(".u-text-high-contrast", $u-text-high-contrast-light-theme);
   }
 }
 
 @mixin u-bg-dark {
-
-  %u-bg-dark {
+  %u-bg-dark,
+  %u-bg-dark-important {
     color: $u-body-color-dark-theme;
-    @include text-emphasis-variant(".u-text-low-contrast", $u-text-low-contrast-dark-theme);
-    @include text-emphasis-variant(".u-text-high-contrast", $u-text-high-contrast-dark-theme);
   }
 }

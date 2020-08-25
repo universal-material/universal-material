@@ -11,7 +11,7 @@
   border: $u-chip-outline-border-width solid;
 
   &::before {
-    opacity: .12;
+    content: none;
   }
 }
 
@@ -116,7 +116,7 @@
   }
 }
 
-@mixin u-chip-theme() {
+@mixin u-chip-theme {
   $dark-theme: map-get($u-theme, "dark");
   $theme-colors: map-get($u-theme, "colors");
 
@@ -132,9 +132,19 @@
     border-color: $u-chip-outline-border-color;
   }
 
+  %u-chip-outline-colored {
+    &::before {
+      content: "";
+    }
+  }
+
   @each $color, $value in $theme-colors {
     .u-chip-#{$color} {
       color: $value;
+    }
+
+    .u-chip-outline.u-chip-#{$color} {
+      @extend %u-chip-outline-colored;
     }
   }
 }

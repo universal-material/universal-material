@@ -1,8 +1,9 @@
 @import "colors";
 
-$u-default-style: "ios" !default;
+$u-theme-style: "ios" !default;
 
 $u-theme: (
   colors: $u-theme-colors,
+  toolbar-colors: $u-toolbar-colors,
   dark: $u-default-theme-dark,
-  default-style: $u-default-style) !default;
+  style: $u-theme-style) !default;

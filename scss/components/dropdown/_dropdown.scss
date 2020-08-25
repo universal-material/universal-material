@@ -83,6 +83,7 @@
   padding: 0 $u-dropdown-item-padding;
   font-size: $u-dropdown-item-font-size;
   text-decoration: none;
+  cursor: pointer;
   background: none;
   border: none;
   outline: 0;
@@ -193,20 +194,10 @@
   .u-dropdown-menu {
     background: $background;
 
-    & .u-dropdown-content {
-      @if ($dark-theme) {
-        @extend %u-bg-dark;
-      } @else {
-        @extend %u-bg-light;
-      }
-    }
-  }
-
-  .u-material .u-toolbar .u-dropdown-menu {
     @if ($dark-theme) {
-      @extend %u-bg-dark;
+      @extend %u-bg-dark-important;
     } @else {
-      @extend %u-bg-light;
+      @extend %u-bg-light-important;
     }
   }
 

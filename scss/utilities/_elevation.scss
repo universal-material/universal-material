@@ -1,15 +1,8 @@
 @import "../grid/variables";
 @import "../mixins";
 
-@each $breakpoint in map-keys($grid-breakpoints) {
-  @include media-breakpoint-up($breakpoint) {
-    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
-
-    @for $i from 1 to 25 {
-      .u-elevation#{$infix}-z#{$i} {
-        @include u-elevation($i);
-      }
-    }
+@for $i from 1 to 25 {
+  .u-elevation-z#{$i} {
+    @include u-elevation($i);
   }
 }
-
