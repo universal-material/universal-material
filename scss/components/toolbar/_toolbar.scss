@@ -81,12 +81,6 @@
   @include u-elevation(2);
 }
 
-.dense-layout {
-  .u-toolbar-row {
-    height: $u-toolbar-dense-height;
-  }
-}
-
 .rtl,
 [dir="rtl"] {
   .u-toolbar-start {

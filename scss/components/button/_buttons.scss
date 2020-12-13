@@ -2,17 +2,14 @@
 @import "theme";
 @import "../../typography/variables";
 @import "../../mixins";
-@import "../../utilities";
 @import "../../placeholders";
 @import "uwp-buttons";
 @import "button-base";
 
-.u-btn {
+[class*="u-btn-"]:not(.u-btn-icon) {
   @extend %u-button-base;
   height: $u-btn-height;
-  padding: 0 $u-btn-side-padding;
   line-height: $u-btn-material-line-height;
-  border-radius: $u-btn-border-radius;
   transition: color 150ms ease-in-out, background-color 150ms ease-in-out, box-shadow 150ms ease-in-out;
 
   &.disabled,
@@ -23,24 +20,25 @@
       display: none;
     }
   }
-}
 
-.u-btn-set {
-  display: inline-flex;
-
-  .u-btn + .u-btn {
+  + [class*="u-btn-"]:not(.u-btn-icon) {
     margin-left: $u-btn-set-margin;
   }
 }
 
+.u-btn-set {
+  display: inline-flex;
+}
+
 .u-btn-flat,
-.u-btn-solid {
-  @extend .u-btn;
+.u-btn-solid,
+.u-btn-outline {
+  padding: 0 $u-btn-side-padding;
+  border-radius: $u-btn-border-radius;
 }
 
 .u-btn-outline {
-  @extend .u-btn-flat;
-  border: $u-btn-outline-border-width solid currentColor;
+  border: $u-btn-outline-border-width solid currentColor !important;
 
   &::before,
   .u-ripple-wrapper {
@@ -79,8 +77,6 @@
 }
 
 .u-btn-borderless {
-  @extend .u-btn;
-
   width: $u-btn-borderless-size;
   height: $u-btn-borderless-size;
   padding: 0;
@@ -129,34 +125,11 @@
   height: $u-btn-floating-small-size;
 }
 
-.dense {
-  @at-root .dense-layout .u-btn,
-  &.u-btn {
-    height: $u-btn-dense-size;
-    font-size: $u-btn-dense-font-size;
-  }
-
-  @at-root .dense-layout .u-btn-borderless,
-  &.u-btn-borderless {
-    width: $u-btn-dense-size;
-    font-size: $base-dense-icon-size;
-  }
-
-  @at-root .dense-layout .u-btn-icon,
-  &.u-btn-icon {
-    font-size: $u-btn-icon-dense-size;
-  }
-}
-
 @mixin u-disabled-button($color, $background, $important: false) {
-  .u-btn {
+  [class*="u-btn-"] {
     &.disabled,
     &:disabled {
       color: $color #{important($important)};
-
-      @include hover-focus {
-        color: $color #{important($important)};
-      }
     }
   }
 
@@ -226,8 +199,8 @@
     }
   }
 
-  .u-btn-set {
-    .u-btn + .u-btn {
+  [class*="u-btn-"]:not(.u-btn-icon) {
+    + [class*="u-btn-"]:not(.u-btn-icon) {
       margin-right: $u-btn-set-margin;
       margin-left: 0;
     }

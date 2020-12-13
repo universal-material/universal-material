@@ -1,15 +1,7 @@
 @mixin button-borderless-variant($color) {
   color: $color;
-  @include hover-focus {
-    color: $color;
-  }
 }
 
 @mixin button-solid-variant($background) {
-
   @include background-and-text-color($background);
-
-  @include hover-focus {
-    color: get-text-color-by-background-color($background);
-  }
 }

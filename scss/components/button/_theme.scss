@@ -3,10 +3,6 @@
 
 @mixin button-flat-variant($color) {
   color: $color;
-
-  @include hover-focus {
-    color: $color;
-  }
 }
 
 @mixin button-flat-theme($buttons-colors) {
@@ -54,7 +50,7 @@
 
   .u-btn-outline-gray {
     @extend .u-btn-outline;
-    border-color: $u-btn-outline-gray-border-color;
+    border-color: $u-btn-outline-gray-border-color !important;
   }
 
   @include button-flat-theme($theme-colors);

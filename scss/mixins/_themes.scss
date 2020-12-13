@@ -8,12 +8,12 @@
   @if & {
     & {
       background-color: $background-color;
-      @extend %u-bg-light;
+      @extend %u-bg-light !optional;
     }
   } @else {
     body {
       background-color: $background-color;
-      @extend %u-bg-light;
+      @extend %u-bg-light !optional;
     }
   }
 }
@@ -23,12 +23,12 @@
   @if & {
     & {
       background-color: $u-bg-dark;
-      @extend %u-bg-dark;
+      @extend %u-bg-dark !optional;
     }
   } @else {
     body {
       background-color: $u-bg-dark;
-      @extend %u-bg-dark;
+      @extend %u-bg-dark !optional;
     }
   }
 }
