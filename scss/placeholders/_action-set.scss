@@ -7,18 +7,6 @@ $u-action-margin: 8px !default;
     display: flex;
     align-items: center;
   }
-
-  %u-action + %u-action {
-    margin-left: $u-action-margin;
-  }
-
-  .rtl,
-  [dir="rtl"] {
-    %u-action + %u-action {
-      margin-right: $u-action-margin;
-      margin-left: 0;
-    }
-  }
 }
 
 @mixin u-extend-action-set($name) {
@@ -26,7 +14,17 @@ $u-action-margin: 8px !default;
     @extend %u-action-set;
   }
 
-  .#{$name}-action {
-    @extend %u-action;
+  .#{$name}-action + .#{$name}-action{
+    margin-left: $u-action-margin;
+  }
+
+  .rtl,
+  [dir="rtl"] {
+    .#{$name}-action {
+      margin-left: 0;
+      &:not(:last-child) {
+        margin-right: $u-action-margin;
+      }
+    }
   }
 }

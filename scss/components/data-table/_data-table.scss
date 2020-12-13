@@ -9,6 +9,7 @@
 
   table {
     min-width: 100%;
+    border-collapse: collapse;
   }
 
   thead th {
@@ -34,11 +35,6 @@
     font-weight: $u-data-table-content-font-weight;
   }
 
-  td.u-dropdown {
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-
   tr:not(:first-child),
   thead + tbody {
     th,
@@ -62,26 +58,6 @@
   &.u-card {
     overflow: visible;
   }
-
-  .u-dropdown-toggle:not(.u-btn-borderless) {
-    width: 100%;
-    padding: 0;
-    text-align: left;
-    text-transform: none;
-
-    &.u-btn::before {
-      content: none;
-    }
-  }
-
-  .u-dropdown-menu {
-    padding: 0;
-  }
-
-  .u-dropdown-item {
-    font-size: $u-data-table-content-font-size;
-    font-weight: $u-data-table-content-font-weight;
-  }
 }
 
 .u-data-table-footer {
@@ -96,14 +72,8 @@
 
   @include horizontal-padding($u-data-table-horizontal-padding);
 
-  //@extend .u-toolbar;
-
   .u-data-table-actions {
     margin-left: 2rem;
-
-    //.data-table-action:first-child {
-    //  margin-left: -$toolbar-action-padding;
-    //}
   }
 }
 

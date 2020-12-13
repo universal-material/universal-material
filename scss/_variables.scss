@@ -3,6 +3,7 @@
 @import "colors";
 @import "font";
 @import "grid/variables";
+@import "typography/variables";
 @import "zindex";
 @import "theming";
 
@@ -36,8 +37,6 @@ $link-color: $u-primary-color !default;
 //
 //$bg-body: #fafafa !default;
 //
-//
-//$base-dense-color: rgba(0, 0, 0, 0.87) !default;
 //
 //$enable-hover-media-query: false !default;
 //

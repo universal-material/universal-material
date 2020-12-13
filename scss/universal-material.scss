@@ -12,6 +12,8 @@
 @import "placeholders";
 
 @import "components/toolbar/toolbar";
+@import "components/drawer/drawer";
+@import "components/navigation-drawer/navigation-drawer";
 @import "components/button/buttons";
 @import "components/button/floating-action-button";
 @import "components/badge/badge";
@@ -21,7 +23,6 @@
 @import "components/switch/switch";
 @import "components/card/card";
 @import "components/dialog/dialog";
-@import "components/navigation-drawer/navigation-drawer";
 @import "components/expansion-panel/expansion-panel";
 @import "components/dropdown/dropdown";
 @import "components/steppers/steppers";
@@ -29,7 +30,6 @@
 @import "components/data-table/data-table";
 @import "components/list/list";
 @import "components/progress/progress";
-@import "components/drawer/drawer";
 @import "components/slider/slider";
 @import "components/snackbar/snackbar";
 @import "components/text-field/text-field";
@@ -40,5 +40,4 @@
 //Utilities
 @import "utilities";
 
-@include u-create-theme;
-//@include create-dense-layout;
+@include u-create-default-theme;

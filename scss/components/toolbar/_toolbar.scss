@@ -84,13 +84,19 @@
 .rtl,
 [dir="rtl"] {
   .u-toolbar-start {
+    order: 2;
     .u-toolbar-actions {
       margin-right: -$u-toolbar-row-padding;
       margin-left: $u-toolbar-section-margin;
     }
   }
 
+  .u-toolbar-title {
+    text-align: right;
+  }
+
   .u-toolbar-center {
+    order: 1;
     margin-right: 0;
     margin-left: $u-toolbar-section-margin;
 
@@ -100,6 +106,7 @@
   }
 
   .u-toolbar-end {
+    order: 0;
     margin-right: auto;
     margin-left: 0;
 

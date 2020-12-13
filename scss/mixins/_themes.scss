@@ -33,7 +33,7 @@
   }
 }
 
-@mixin u-create-theme {
+@mixin u-create-default-theme {
 
   @if (mixin_exists(background-colors-theme)) {
     @include background-colors-theme;

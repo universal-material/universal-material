@@ -26,8 +26,9 @@
 }
 
 .u-datepicker-year-month-button {
-  @extend .u-btn;
+  @extend %u-button-base;
 
+  width: $u-datepicker-year-month-button-height;
   height: $u-datepicker-year-month-button-height;
   border-radius: $u-datepicker-year-month-button-height / 2;
 }

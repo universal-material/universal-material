@@ -20,14 +20,14 @@
       display: none;
     }
   }
-
-  + [class*="u-btn-"]:not(.u-btn-icon) {
-    margin-left: $u-btn-set-margin;
-  }
 }
 
 .u-btn-set {
   display: inline-flex;
+
+  [class*="u-btn-"]:not(.u-btn-icon) ~ [class*="u-btn-"]:not(.u-btn-icon) {
+    margin-left: $u-btn-set-margin;
+  }
 }
 
 .u-btn-flat,
@@ -77,8 +77,8 @@
 }
 
 .u-btn-borderless {
-  width: $u-btn-borderless-size;
-  height: $u-btn-borderless-size;
+  width: $u-btn-borderless-size !important;
+  height: $u-btn-borderless-size !important;
   padding: 0;
   overflow: visible;
   border-radius: 50%;
@@ -95,7 +95,7 @@
 .u-btn-floating {
   @extend .u-btn-raised;
   width: $u-btn-floating-size;
-  height: $u-btn-floating-size;
+  height: $u-btn-floating-size !important;
   border-radius: 50%;
 
   .u-btn-icon {
@@ -109,7 +109,7 @@
 
 .u-btn-floating-extended {
   width: auto;
-  height: $u-btn-floating-extended-height;
+  height: $u-btn-floating-extended-height !important;
   padding-right: $u-btn-floating-extended-padding;
   padding-left: $u-btn-floating-extended-padding;
   border-radius: $u-btn-floating-extended-border-radius;
@@ -122,7 +122,7 @@
 
 .u-btn-floating-sm {
   width: $u-btn-floating-small-size;
-  height: $u-btn-floating-small-size;
+  height: $u-btn-floating-small-size !important;
 }
 
 @mixin u-disabled-button($color, $background, $important: false) {
@@ -199,10 +199,14 @@
     }
   }
 
-  [class*="u-btn-"]:not(.u-btn-icon) {
-    + [class*="u-btn-"]:not(.u-btn-icon) {
+  .u-btn-set {
+    [class*="u-btn-"]:not(.u-btn-icon) {
       margin-right: $u-btn-set-margin;
       margin-left: 0;
+
+      &:last-child {
+        margin-right: 0;
+      }
     }
   }
 }

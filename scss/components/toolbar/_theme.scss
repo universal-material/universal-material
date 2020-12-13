@@ -1,7 +1,6 @@
 @import "../../mixins";
 @import "../../theming";
 @import "../../placeholders";
-@import "../../utilities/background";
 @import "ios-toolbar";
 
 @mixin u-toolbar-theme {
@@ -18,14 +17,14 @@
 
   .u-material {
     @each $color, $value in $toolbar-colors {
-      .u-toolbar-#{$color} {
-        @extend .u-bg-#{$color} !optional;
-      }
+      @include u-bg-variant(".u-toolbar-#{$color}", $value);
     }
   }
 
-  .u-ios {
-    @include ios-toolbar($toolbar-colors);
+  @if ($u-include-ios-styles) {
+    .u-ios {
+      @include ios-toolbar($toolbar-colors);
+    }
   }
 }
 

@@ -1,6 +1,7 @@
 @import "colors";
 
 $u-theme-style: "ios" !default;
+$u-include-ios-styles: false !default;
 
 $u-theme: (
   colors: $u-theme-colors,
