@@ -8,7 +8,8 @@
 @mixin button-flat-theme($buttons-colors) {
 
   @each $color, $value in $buttons-colors {
-    .u-btn-flat.u-btn-#{$color} {
+    .u-btn-flat.u-btn-#{$color},
+    .u-btn-outline.u-btn-#{$color} {
       @include button-flat-variant($value);
     }
   }

@@ -10,13 +10,11 @@
     justify-content: center;
     overflow: hidden;
     font-family: $u-font-family-base;
-    color: inherit;
     text-align: center;
     white-space: nowrap;
     vertical-align: middle;
     cursor: pointer;
     user-select: none;
-    background: transparent; //Universal Material custom code
     border: none; //Universal Material custom code
 
     @extend %u-selectable-background-before;

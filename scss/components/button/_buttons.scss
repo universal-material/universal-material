@@ -6,7 +6,7 @@
 @import "uwp-buttons";
 @import "button-base";
 
-[class*="u-btn-"]:not(.u-btn-icon) {
+[class*="u-btn-"]:not(.u-btn-icon):not(.u-btn-set) {
   @extend %u-button-base;
   height: $u-btn-height;
   line-height: $u-btn-material-line-height;
@@ -28,6 +28,13 @@
   [class*="u-btn-"]:not(.u-btn-icon) ~ [class*="u-btn-"]:not(.u-btn-icon) {
     margin-left: $u-btn-set-margin;
   }
+}
+
+.u-btn-flat,
+.u-btn-borderless,
+.u-btn-outline,
+.u-btn-outline-gray {
+  background: transparent;
 }
 
 .u-btn-flat,

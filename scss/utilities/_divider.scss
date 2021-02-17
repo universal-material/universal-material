@@ -1,16 +1,13 @@
+@import "variables";
 @import "../colors";
 @import "../theming";
 
-$divider-height: .0625rem !default;
-$divider-color: $u-base-semi-transparent-color-light-theme !default;
-
 .u-divider {
   width: 100%;
-  height: $divider-height;
-  background-color: $divider-color;
+  height: $u-divider-height;
 }
 
-@mixin u-divider-theme() {
+@mixin u-divider-theme {
   $dark-theme: map-get($u-theme, "dark");
 
   .u-divider {

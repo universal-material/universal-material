@@ -1,6 +1,6 @@
 @import "variables";
+@import "../../utilities/variables";
 @import "../../animations";
-@import "../../divider";
 @import "../../zindex";
 @import "../../typography/variables";
 @import "../../mixins";
@@ -113,20 +113,20 @@
 }
 
 .u-dialog-scroll-top-divider .u-dialog-header::before {
-  @extend %divider;
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
+  height: $u-divider-height;
   content: "";
 }
 
 .u-dialog-scroll-bottom-divider .u-dialog-actions::before {
-  @extend %divider;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
+  height: $u-divider-height;
   content: "";
 }
 
@@ -148,9 +148,11 @@
 @include u-extend-action-set("u-dialog");
 
 .u-dialog-actions {
+  position: relative;
   flex-shrink: 0;
   justify-content: flex-end;
   padding: $u-dialog-actions-padding;
+  margin-top: 0;
 }
 
 .u-dialog-progress {
@@ -256,15 +258,21 @@
   $theme-colors: map-get($u-theme, "colors");
   $dark-theme: map-get($u-theme, "dark");
   $theme-style: map-get($u-theme, "style");
-
+  $divider-color: $u-base-semi-transparent-color-light-theme;
   $background-color: $u-dialog-background-light-theme;
 
   @if ($dark-theme) {
+    $divider-color: $u-base-semi-transparent-color-dark-theme;
     $background-color: $u-dialog-background-dark-theme;
   }
 
   .u-dialog-content {
     background-color: $background-color;
+  }
+
+  .u-dialog-scroll-bottom-divider .u-dialog-actions::before,
+  .u-dialog-scroll-top-divider .u-dialog-header::before {
+    background: $divider-color;
   }
 
   @if ($theme-style == "uwp") {
