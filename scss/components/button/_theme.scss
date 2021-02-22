@@ -9,16 +9,9 @@
 
   @each $color, $value in $buttons-colors {
     .u-btn-flat.u-btn-#{$color},
-    .u-btn-outline.u-btn-#{$color} {
-      @include button-flat-variant($value);
-    }
-  }
-}
-
-@mixin button-borderless-theme($buttons-colors) {
-  @each $color, $value in $buttons-colors {
+    .u-btn-outline.u-btn-#{$color},
     .u-btn-borderless.u-btn-#{$color} {
-      @extend .u-btn-flat.u-btn-#{$color};
+      @include button-flat-variant($value);
     }
   }
 }
@@ -55,7 +48,6 @@
   }
 
   @include button-flat-theme($theme-colors);
-  @include button-borderless-theme($theme-colors);
 
   @if ($theme-style == "uwp") {
     @include uwp-button($dark-theme);

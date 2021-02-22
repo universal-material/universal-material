@@ -6,7 +6,8 @@ import notify from 'gulp-notify';
 import pug from 'gulp-pug';
 import rename from 'gulp-rename';
 import replace from 'gulp-replace';
-import sass from 'gulp-sass';
+import gulpSass from 'gulp-sass';
+import sass from 'sass';
 import sourcemaps from "gulp-sourcemaps";
 import ts from 'gulp-typescript';
 import uglify from 'gulp-uglify';
@@ -16,10 +17,12 @@ import { rollup } from 'rollup';
 const tsProjectBrowser = ts.createProject('./js/src/tsconfig.browser.json', {outFile: 'universal-material.js'});
 const tsProjectBrowserUglify = ts.createProject('./js/src/tsconfig.browser.json', {outFile: 'universal-material.min.js'});
 
+gulpSass.compiler = sass;
+
 const sassNormal = () => {
   return src("./scss/universal-material.scss")
     .pipe(sourcemaps.init())
-    .pipe(sass().on("error", sass.logError))
+    .pipe(gulpSass().on("error", gulpSass.logError))
     .pipe(autoprefixer())
     .pipe(sourcemaps.write("./"))
     .pipe(dest("./dist/css"))
@@ -29,9 +32,9 @@ const sassNormal = () => {
 const sassCompressed = () => {
   return src("./scss/universal-material.scss")
     .pipe(sourcemaps.init())
-    .pipe(sass({
+    .pipe(gulpSass({
       outputStyle: "compressed"
-    }).on("error", sass.logError))
+    }).on("error", gulpSass.logError))
     .pipe(autoprefixer())
     .pipe(rename("universal-material.min.css"))
     .pipe(sourcemaps.write("./"))
@@ -41,7 +44,7 @@ const sassCompressed = () => {
 const sassNoRebootNormal = () => {
   return src("./scss/universal-material-no-reboot.scss")
     .pipe(sourcemaps.init())
-    .pipe(sass().on("error", sass.logError))
+    .pipe(gulpSass().on("error", gulpSass.logError))
     .pipe(autoprefixer())
     .pipe(sourcemaps.write("./"))
     .pipe(dest("./dist/css"))
@@ -50,9 +53,9 @@ const sassNoRebootNormal = () => {
 const sassNoRebootCompressed = () => {
   return src("./scss/universal-material-no-reboot.scss")
     .pipe(sourcemaps.init())
-    .pipe(sass({
+    .pipe(gulpSass({
       outputStyle: "compressed"
-    }).on("error", sass.logError))
+    }).on("error", gulpSass.logError))
     .pipe(autoprefixer())
     .pipe(rename("universal-material-no-reboot.min.css"))
     .pipe(sourcemaps.write("./"))
@@ -61,7 +64,7 @@ const sassNoRebootCompressed = () => {
 
 const sassDocs = () => {
   return src("./docs/src/css/docs.scss")
-    .pipe(sass().on("error", sass.logError))
+    .pipe(gulpSass().on("error", gulpSass.logError))
     .pipe(autoprefixer())
     .pipe(dest("./docs/dist/css"));
 }
