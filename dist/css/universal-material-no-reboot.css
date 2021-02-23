@@ -9693,6 +9693,7 @@ button.u-text-input:not(textarea) {
   width: 40px;
   height: 40px;
   font-weight: 400;
+  background: transparent;
   border-radius: 50%;
 }
 
