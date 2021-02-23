@@ -2,9 +2,8 @@
 
 @mixin create-light-theme {
 
-  $theme-style: map-get($u-theme, "style");
+  $background-color: map-get($u-theme, "bg-light");
 
-  $background-color: if($theme-style == "android", $u-bg-light, $u-bg-light-ios);
   @if & {
     & {
       background-color: $background-color;
@@ -19,15 +18,16 @@
 }
 
 @mixin create-dark-theme {
+  $background-color: map-get($u-theme, "bg-dark");
 
   @if & {
     & {
-      background-color: $u-bg-dark;
+      background-color: $background-color;
       @extend %u-bg-dark !optional;
     }
   } @else {
     body {
-      background-color: $u-bg-dark;
+      background-color: $background-color;
       @extend %u-bg-dark !optional;
     }
   }

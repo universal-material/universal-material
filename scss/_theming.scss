@@ -4,6 +4,8 @@ $u-theme-style: "ios" !default;
 $u-include-ios-styles: false !default;
 
 $u-theme: (
+  bg-light: if($u-theme-style == "android", $u-bg-light, $u-bg-light-ios),
+  bg-dark: $u-bg-dark,
   colors: $u-theme-colors,
   toolbar-colors: $u-toolbar-colors,
   dark: $u-default-theme-dark,

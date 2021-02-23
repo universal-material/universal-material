@@ -172,6 +172,16 @@
       left: auto;
       transform-origin: top right;
     }
+
+    &.up {
+      right: 0;
+      left: auto;
+    }
+
+    &.down {
+      right: 0;
+      left: auto;
+    }
   }
 }
 
@@ -207,4 +217,3 @@
     }
   }
 }
-

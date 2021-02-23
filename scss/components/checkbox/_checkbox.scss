@@ -91,7 +91,7 @@
   }
 }
 
-@mixin u-checkbox-theme() {
+@mixin u-checkbox-theme {
   $dark-theme: map-get($u-theme, "dark");
   $theme-colors: map-get($u-theme, "colors");
 

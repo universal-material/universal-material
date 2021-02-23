@@ -446,7 +446,7 @@ button.u-text-input {
   $u-text-input-icon-color: $u-text-input-icon-color-light-theme;
   $u-text-input-affix-color: $u-text-input-affix-color-light-theme;
   $u-text-field-helper-text-color: $u-text-field-helper-text-color-light-theme;
-  $u-text-field-outline-label-background: $u-bg-light;
+  $u-text-field-outline-label-background: map-get($u-theme, "bg-light");
 
   @if ($dark-theme) {
     $u-text-field-label-color: $u-text-field-label-color-dark-theme;
@@ -462,7 +462,7 @@ button.u-text-input {
     $u-text-input-icon-color: $u-text-input-icon-color-dark-theme;
     $u-text-input-affix-color: $u-text-input-affix-color-dark-theme;
     $u-text-field-helper-text-color: $u-text-field-helper-text-color-dark-theme;
-    $u-text-field-outline-label-background: $u-bg-dark;
+    $u-text-field-outline-label-background: map-get($u-theme, "bg-dark");
   }
 
   .u-text-field-leading-icon,

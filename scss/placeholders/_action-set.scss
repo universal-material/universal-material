@@ -14,7 +14,7 @@ $u-action-margin: 8px !default;
     @extend %u-action-set;
   }
 
-  .#{$name}-action + .#{$name}-action{
+  .#{$name}-action:not(:first-child) {
     margin-left: $u-action-margin;
   }
 
@@ -22,7 +22,8 @@ $u-action-margin: 8px !default;
   [dir="rtl"] {
     .#{$name}-action {
       margin-left: 0;
-      &:not(:last-child) {
+
+      &:not(:first-child) {
         margin-right: $u-action-margin;
       }
     }

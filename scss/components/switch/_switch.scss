@@ -98,6 +98,16 @@
   }
 }
 
+.rtl,
+[dir="rtl"] {
+  .u-switch {
+    .u-selection-control-label {
+      margin-right: $u-switch-label-margin;
+      margin-left: 0;
+    }
+  }
+}
+
 @if ($u-include-ios-styles) {
   .u-ios {
     .u-switch {

@@ -6,7 +6,7 @@
 @import "uwp-buttons";
 @import "button-base";
 
-[class*="u-btn-"]:not(.u-btn-icon):not(.u-btn-set) {
+%u-all-buttons {
   @extend %u-button-base;
   height: $u-btn-height;
   line-height: $u-btn-material-line-height;
@@ -22,10 +22,20 @@
   }
 }
 
+.u-btn-raised,
+.u-btn-solid,
+.u-btn-flat,
+.u-btn-borderless,
+.u-btn-outline,
+.u-btn-outline-gray,
+.u-btn-floating {
+  @extend %u-all-buttons;
+}
+
 .u-btn-set {
   display: inline-flex;
 
-  [class*="u-btn-"]:not(.u-btn-icon) ~ [class*="u-btn-"]:not(.u-btn-icon) {
+  %u-all-buttons:not(:first-child) {
     margin-left: $u-btn-set-margin;
   }
 }
@@ -133,7 +143,7 @@
 }
 
 @mixin u-disabled-button($color, $background, $important: false) {
-  [class*="u-btn-"] {
+  %u-all-buttons {
     &.disabled,
     &:disabled {
       color: $color #{important($important)};
@@ -199,6 +209,23 @@
 
 .rtl,
 [dir="rtl"] {
+  .u-btn-icon {
+    margin-right: $u-btn-icon-margin-start;
+    margin-left: $u-btn-icon-margin-end;
+  }
+
+  .u-btn-icon-end {
+    margin-right: $u-btn-icon-margin-end;
+    margin-left: $u-btn-icon-margin-start;
+  }
+
+  .u-btn-floating,
+  .u-btn-borderless {
+    .u-btn-icon {
+      margin: 0;
+    }
+  }
+
   .u-btn-floating-extended {
     .u-btn-icon {
       margin-right: $u-btn-floating-extended-icon-margin - $u-btn-floating-extended-padding;
@@ -207,12 +234,10 @@
   }
 
   .u-btn-set {
-    [class*="u-btn-"]:not(.u-btn-icon) {
-      margin-right: $u-btn-set-margin;
+    %u-all-buttons {
       margin-left: 0;
-
-      &:last-child {
-        margin-right: 0;
+      &:not(:first-child) {
+        margin-right: $u-btn-set-margin;
       }
     }
   }

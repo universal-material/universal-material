@@ -1,6 +1,6 @@
 {
   "name": "@universal-material/core",
-  "version": "0.97.0",
+  "version": "0.98.0",
   "keywords": [
     "css",
     "sass",
@@ -40,6 +40,7 @@
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
     "@babel/register": "^7.9.0",
+    "fibers": "^5.0.0",
     "find-parent-dir": "^0.3.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^4.0.0",

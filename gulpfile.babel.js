@@ -1,3 +1,4 @@
+import fiber from 'fibers';
 import autoprefixer from 'gulp-autoprefixer';
 import { parallel, src, dest, watch } from 'gulp';
 import concat from 'gulp-concat';
@@ -22,7 +23,7 @@ gulpSass.compiler = sass;
 const sassNormal = () => {
   return src("./scss/universal-material.scss")
     .pipe(sourcemaps.init())
-    .pipe(gulpSass().on("error", gulpSass.logError))
+    .pipe(gulpSass({fiber: fiber}).on("error", gulpSass.logError))
     .pipe(autoprefixer())
     .pipe(sourcemaps.write("./"))
     .pipe(dest("./dist/css"))
@@ -33,6 +34,7 @@ const sassCompressed = () => {
   return src("./scss/universal-material.scss")
     .pipe(sourcemaps.init())
     .pipe(gulpSass({
+      fiber: fiber,
       outputStyle: "compressed"
     }).on("error", gulpSass.logError))
     .pipe(autoprefixer())
@@ -44,7 +46,7 @@ const sassCompressed = () => {
 const sassNoRebootNormal = () => {
   return src("./scss/universal-material-no-reboot.scss")
     .pipe(sourcemaps.init())
-    .pipe(gulpSass().on("error", gulpSass.logError))
+    .pipe(gulpSass({fiber: fiber}).on("error", gulpSass.logError))
     .pipe(autoprefixer())
     .pipe(sourcemaps.write("./"))
     .pipe(dest("./dist/css"))
@@ -54,6 +56,7 @@ const sassNoRebootCompressed = () => {
   return src("./scss/universal-material-no-reboot.scss")
     .pipe(sourcemaps.init())
     .pipe(gulpSass({
+      fiber: fiber,
       outputStyle: "compressed"
     }).on("error", gulpSass.logError))
     .pipe(autoprefixer())
@@ -64,7 +67,7 @@ const sassNoRebootCompressed = () => {
 
 const sassDocs = () => {
   return src("./docs/src/css/docs.scss")
-    .pipe(gulpSass().on("error", gulpSass.logError))
+    .pipe(gulpSass({fiber: fiber}).on("error", gulpSass.logError))
     .pipe(autoprefixer())
     .pipe(dest("./docs/dist/css"));
 }
