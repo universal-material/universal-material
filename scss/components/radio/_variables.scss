@@ -5,7 +5,6 @@ $u-radio-disabled-opacity: .47 !default;
 
 $u-radio-border-width: .125rem !default;
 $u-radio-border: $u-radio-border-width solid currentColor !default;
-$u-radio-color-light-theme: rgba(0, 0, 0, .54) !default;
-$u-radio-color-dark-theme: rgba(255, 255, 255, .7) !default;
+$u-radio-unchecked-opacity: .7 !default;
 $u-radio-size: 1.25rem !default;
 $u-radio-check-mark-size: $u-radio-size / 2 !default;

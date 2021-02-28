@@ -38,8 +38,10 @@
     position: relative;
     width: $u-radio-size;
     height: $u-radio-size;
+    color: currentColor;
     border: $u-radio-border;
     border-radius: 50%;
+    opacity: .7;
 
     &::before {
       position: absolute;
@@ -59,7 +61,7 @@
 
   &.checked .u-check-indicator,
   input:checked ~ .u-selection-control .u-check-indicator {
-    color: inherit;
+    opacity: 1;
 
     &::before {
       transform: scale3d(1, 1, 1);
@@ -72,25 +74,26 @@
   }
 }
 
+@mixin u-radio-variant($color) {
+  &.checked:not(.disabled) .u-selection-control,
+  input:checked:not(:disabled) ~ .u-selection-control {
+    color: $color;
+  }
+}
+
 @mixin u-radio-theme {
-  $dark-theme: map-get($u-theme, "dark");
   $theme-colors: map-get($u-theme, "colors");
 
-  $primary-color: map-get($theme-colors, "primary");
-  $u-radio-color: $u-radio-color-light-theme;
-
-  @if ($dark-theme) {
-    $u-radio-color: $u-radio-color-dark-theme;
-  }
-
   .u-radio {
-    .u-check-indicator {
-      color: $u-radio-color;
-    }
 
-    &.checked:not(.disabled) .u-selection-control,
-    input:checked:not(:disabled) ~ .u-selection-control {
-      color: $primary-color;
+    @each $color, $value in $theme-colors {
+      @if $color == "primary" {
+        @include u-radio-variant($value);
+      } @else {
+        &.u-radio-#{$color} {
+          @include u-radio-variant($value);
+        }
+      }
     }
   }
 }

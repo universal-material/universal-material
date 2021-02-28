@@ -256,23 +256,19 @@
 @mixin u-dialog-theme() {
 
   $theme-colors: map-get($u-theme, "colors");
-  $dark-theme: map-get($u-theme, "dark");
   $theme-style: map-get($u-theme, "style");
-  $divider-color: $u-base-semi-transparent-color-light-theme;
-  $background-color: $u-dialog-background-light-theme;
-
-  @if ($dark-theme) {
-    $divider-color: $u-base-semi-transparent-color-dark-theme;
-    $background-color: $u-dialog-background-dark-theme;
-  }
 
   .u-dialog-content {
-    background-color: $background-color;
+    @include inverted-mode($u-dialog-background-light-theme, $u-dialog-background-dark-theme) using ($color) {
+      background-color: $color;
+    }
   }
 
   .u-dialog-scroll-bottom-divider .u-dialog-actions::before,
   .u-dialog-scroll-top-divider .u-dialog-header::before {
-    background: $divider-color;
+    @include inverted-mode($u-base-semi-transparent-color-light-theme, $u-base-semi-transparent-color-dark-theme) using ($color) {
+      background: $color;
+    }
   }
 
   @if ($theme-style == "uwp") {

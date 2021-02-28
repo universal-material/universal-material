@@ -4,7 +4,24 @@
 @mixin u-tab-theme {
 
   $theme-colors: map-get($u-theme, "colors");
-  $dark-theme: map-get($u-theme, "dark");
+
+  .u-tab {
+    @include inverted-mode($u-tab-text-color-light-theme, $u-tab-text-color-dark-theme) using ($color) {
+      color: $color;
+    }
+  }
+
+  .u-tab.active {
+    @include inverted-mode($u-text-high-contrast-light-theme, $u-text-high-contrast-dark-theme) using ($color) {
+      color: $color;
+    }
+  }
+
+  .u-tab-indicator {
+    @include inverted-mode($u-text-high-contrast-light-theme, $u-text-high-contrast-dark-theme) using ($color) {
+      background-color: $color;
+    }
+  }
 
   @each $color, $value in $theme-colors {
     .u-tab-bar-#{$color} {
@@ -15,10 +32,10 @@
 
 @mixin u-tab-bar-variant($color) {
   .u-tab.active {
-    color: $color;
+    color: $color !important;
   }
 
   .u-tab-indicator {
-    background-color: $color;
+    background-color: $color !important;
   }
 }

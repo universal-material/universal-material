@@ -78,31 +78,25 @@
 }
 
 @mixin u-data-table-theme() {
-  $dark-theme: map-get($u-theme, "dark");
-
-  $u-data-table-column-header-color: $u-data-table-column-header-color-light-theme;
-  $u-data-table-row-selected-bg: $u-data-table-row-selected-bg-light-theme;
-  $u-data-table-row-hover-background-color: $u-data-table-row-hover-background-color-light-theme;
-
-  @if ($dark-theme) {
-    $u-data-table-column-header-color: $u-data-table-column-header-color-dark-theme;
-    $u-data-table-row-selected-bg: $u-data-table-row-selected-bg-dark-theme;
-    $u-data-table-row-hover-background-color: $u-data-table-row-hover-background-color-dark-theme;
-  }
-
   .u-data-table {
     th {
-      color: $u-data-table-column-header-color;
+      @include inverted-mode($u-data-table-column-header-color-light-theme, $u-data-table-column-header-color-dark-theme) using ($color) {
+        color: $color;
+      }
     }
 
     tr.selected {
-      background-color: $u-data-table-row-selected-bg;
+      @include inverted-mode($u-data-table-row-selected-bg-light-theme, $u-data-table-row-selected-bg-dark-theme) using ($color) {
+        background-color: $color;
+      }
     }
   }
 
   .u-data-table-hover tbody tr {
     &:hover {
-      background-color: $u-data-table-row-hover-background-color;
+      @include inverted-mode($u-data-table-row-hover-background-color-light-theme, $u-data-table-row-hover-background-color-dark-theme) using ($color) {
+        background-color: $color;
+      }
     }
   }
 }

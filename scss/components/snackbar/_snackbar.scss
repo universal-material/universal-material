@@ -101,20 +101,17 @@
   $dark-theme: map-get($u-theme, "dark");
   $theme-style: map-get($u-theme, "style");
 
-  $background-color: $u-snackbar-background-color-light-theme;
-  $color: $u-snackbar-text-color-light-theme;
-
-  @if ($dark-theme) {
-    $background-color: $u-snackbar-background-color-dark-theme;
-    $color: $u-snackbar-text-color-dark-theme;
-  }
 
   .u-snackbar {
-    background-color: $background-color;
+    @include inverted-mode($u-snackbar-background-color-light-theme, $u-snackbar-background-color-dark-theme) using($color) {
+      background-color: $color;
+    }
   }
 
   .u-snackbar-text {
-    color: $color;
+    @include inverted-mode($u-snackbar-text-color-light-theme, $u-snackbar-text-color-dark-theme) using($color) {
+      color: $color;
+    }
   }
 
   @if ($theme-style == "uwp") {

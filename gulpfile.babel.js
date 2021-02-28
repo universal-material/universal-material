@@ -139,6 +139,10 @@ const watchDocs = () => {
   watch('./docs/src/css/**/*.scss', exports['sass:docs']);
 }
 
+const watchNormalSass = () => {
+  watch('./scss/**/*.scss', exports['sass:normal']);
+}
+
 exports['sass:normal'] = sassNormal;
 exports['sass:compressed'] = sassCompressed;
 exports['sass-no-reboot:normal'] = sassNoRebootNormal;
@@ -154,6 +158,7 @@ exports['js-compile-browser-uglify'] = jsCompileBrowserUglify;
 
 exports['watch'] = watchDefault;
 exports['watch:docs'] = watchDocs;
+exports['watch:sass'] = watchNormalSass;
 
 exports.sass = parallel(
   exports['sass:normal'],

@@ -1,27 +1,34 @@
 @import "variables";
 @import "../../theming";
 
+@mixin u-switch-variant($color) {
+  &.checked .u-selection-control,
+  input:checked ~ .u-selection-control {
+    color: $color;
+  }
+}
+
 @mixin u-switch-theme {
-  $dark-theme: map-get($u-theme, "dark");
   $theme-colors: map-get($u-theme, "colors");
 
-  $primary-color: map-get($theme-colors, "primary");
-  $u-switch-toggle-color: $u-switch-toggle-color-light-theme;
-
-  @if ($dark-theme) {
-    $u-switch-toggle-color: $u-switch-toggle-color-dark-theme;
-  }
-
-  .u-material {
+  .u-android {
     .u-switch {
       .u-check-indicator::after {
-        background: $u-switch-toggle-color;
+        @include inverted-mode($u-switch-toggle-color-light-theme, $u-switch-toggle-color-dark-theme, false, true) using($color) {
+          background: $color;
+        }
       }
 
-      &.checked .u-selection-control,
-      input:checked ~ .u-selection-control {
-        color: $primary-color;
+      @each $color, $value in $theme-colors {
+        @if $color == "primary" {
+          @include u-switch-variant($value);
+        } @else {
+          &.u-switch-#{$color} {
+            @include u-switch-variant($value);
+          }
+        }
       }
     }
+
   }
 }

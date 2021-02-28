@@ -1,0 +1,75 @@
+@use "sass:list";
+@use "sass:string";
+@import "../theming";
+
+@function str-split($string, $separator) {
+  // empty array/list
+  $split-arr: ();
+  // first index of separator in string
+  $index : str-index($string, $separator);
+  // loop through string
+  @while $index != null {
+    // get the substring from the first character to the separator
+    $item: str-slice($string, 1, $index - 1);
+    // push item to array
+    $split-arr: append($split-arr, $item);
+    // remove item and separator from string
+    $string: str-slice($string, $index + 1);
+    // find new index of separator
+    $index : str-index($string, $separator);
+  }
+  // add the remaining string to list (the last item)
+  $split-arr: append($split-arr, $string);
+
+  @return $split-arr;
+}
+
+@mixin inverted-mode($light-mode-value, $dark-mode-value, $is-body: false, $has-system-selector: false) {
+  $default-mode-value: if($u-default-theme-dark, $dark-mode-value, $light-mode-value);
+  $inverse-mode-value: if($u-default-theme-dark, $light-mode-value, $dark-mode-value);
+  $default-mode-name: if($u-default-theme-dark, "dark", "light");
+  $inverse-mode-name: if($u-default-theme-dark, "light", "dark");
+
+  $original-selectors: str-split(#{&}, ",");
+  $default-mode-selectors: list.append((), (), $separator: comma);
+  $inverse-mode-selectors: list.append((), (), $separator: comma);
+
+  @each $original-selector in $original-selectors {
+
+    $default-mode-selectors: list.append($default-mode-selectors, $original-selector);
+    @if not $is-body {
+      @if $has-system-selector {
+        $compount-selector: string.insert($original-selector, " .u-bg-#{$default-mode-name}", string.index($original-selector, " "));
+        $default-mode-selectors: list.append($default-mode-selectors, $compount-selector);
+
+        $compount-selector: string.insert($compount-selector, "body.u-#{$inverse-mode-name}-mode", -200);
+        $default-mode-selectors: list.append($default-mode-selectors, $compount-selector);
+
+        $inverse-mode-selectors: list.append($inverse-mode-selectors, string.insert($original-selector, " .u-bg-#{$inverse-mode-name}", string.index($original-selector, " ")));
+
+      } @else {
+        $default-mode-selectors: list.append($default-mode-selectors, unquote(".u-bg-#{$default-mode-name} #{$original-selector}"));
+        $default-mode-selectors: list.append($default-mode-selectors, unquote("body.u-#{$inverse-mode-name}-mode .u-bg-#{$default-mode-name} #{$original-selector}"));
+        $inverse-mode-selectors: list.append($inverse-mode-selectors, ".u-bg-#{$inverse-mode-name} #{$original-selector}");
+      }
+    }
+
+    @if $is-body {
+      $inverse-mode-selectors: list.append($inverse-mode-selectors, "body.u-#{$inverse-mode-name}-mode");
+    } @else if $has-system-selector {
+
+      $inverse-mode-selectors: list.append($inverse-mode-selectors, "body.u-#{$inverse-mode-name}-mode#{$original-selector}");
+    } @else {
+      $inverse-mode-selectors: list.append($inverse-mode-selectors, "body.u-#{$inverse-mode-name}-mode #{$original-selector}");
+    }
+  }
+
+  @at-root #{$default-mode-selectors} {
+    @content($default-mode-value);
+  }
+
+
+  @at-root #{$inverse-mode-selectors} {
+    @content($inverse-mode-value);
+  }
+}

@@ -3,20 +3,8 @@
 @import "../../placeholders";
 
 @mixin u-drawer-content {
-  $theme-colors: map-get($u-theme, "colors");
-  $dark-theme: map-get($u-theme, "dark");
-  $primary-color: map-get($theme-colors, "primary");
-
-  $background-color: $u-drawer-background-color-light-theme;
-  $color: $u-body-color-light-theme;
-
-  @if ($dark-theme) {
-    $background-color: $u-drawer-background-color-dark-theme;
-    $color: $u-body-color-dark-theme;
-  }
-
-  & {
-    background-color: $background-color;
+  @include inverted-mode($u-drawer-background-color-light-theme, $u-drawer-background-color-dark-theme) using ($color) {
+    background-color: $color;
   }
 }
 

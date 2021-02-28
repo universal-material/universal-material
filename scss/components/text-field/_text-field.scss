@@ -433,33 +433,25 @@ button.u-text-input {
   $primary-color: map-get($theme-colors, "primary");
   $danger-color: map-get($theme-colors, "danger");
 
-  $u-text-field-label-color: $u-text-field-label-color-light-theme;
-  $u-text-field-divider-color: $u-text-field-divider-color-light-theme;
   $u-text-field-divider-color-hover: $u-text-field-divider-color-hover-light-theme;
   $u-text-field-divider-color-disabled: $u-text-field-divider-color-disabled-light-theme;
   $u-text-field-box-background: $u-text-input-box-bg-light-theme;
   $u-text-field-box-disabled-background: $u-text-input-box-disabled-bg-light-theme;
   $u-text-field-elevated-background: $u-search-field-elevated-bg-light-theme;
-  $u-text-input-color: $u-text-input-color-light-theme;
   $u-text-input-placeholder-color: $u-text-input-placeholder-color-light-theme;
   $u-text-input-disabled-color: $u-text-input-disabled-color-light-theme;
-  $u-text-input-icon-color: $u-text-input-icon-color-light-theme;
   $u-text-input-affix-color: $u-text-input-affix-color-light-theme;
   $u-text-field-helper-text-color: $u-text-field-helper-text-color-light-theme;
   $u-text-field-outline-label-background: map-get($u-theme, "bg-light");
 
   @if ($dark-theme) {
-    $u-text-field-label-color: $u-text-field-label-color-dark-theme;
-    $u-text-field-divider-color: $u-text-field-divider-color-dark-theme;
     $u-text-field-divider-color-hover: $u-text-field-divider-color-hover-dark-theme;
     $u-text-field-divider-color-disabled: $u-text-field-divider-color-disabled-dark-theme;
     $u-text-field-box-background: $u-text-input-box-bg-dark-theme;
     $u-text-field-box-disabled-background: $u-text-input-box-disabled-bg-dark-theme;
     $u-text-field-elevated-background: $u-search-field-elevated-bg-dark-theme;
-    $u-text-input-color: $u-text-input-color-dark-theme;
     $u-text-input-placeholder-color: $u-text-input-placeholder-color-dark-theme;
     $u-text-input-disabled-color: $u-text-input-disabled-color-dark-theme;
-    $u-text-input-icon-color: $u-text-input-icon-color-dark-theme;
     $u-text-input-affix-color: $u-text-input-affix-color-dark-theme;
     $u-text-field-helper-text-color: $u-text-field-helper-text-color-dark-theme;
     $u-text-field-outline-label-background: map-get($u-theme, "bg-dark");
@@ -467,22 +459,32 @@ button.u-text-input {
 
   .u-text-field-leading-icon,
   .u-text-field-trailing-icon {
-    color: $u-text-input-icon-color;
+    @include inverted-mode($u-text-input-icon-color-light-theme, $u-text-input-icon-color-dark-theme) using ($color) {
+      color: $color;
+    }
   }
 
   .u-text-input,
   input.u-text-input {
-    color: $u-text-input-color;
-    border-color: $u-text-field-divider-color;
+    @include inverted-mode($u-text-input-color-light-theme, $u-text-input-color-dark-theme) using ($color) {
+      color: $color;
+    }
+    @include inverted-mode($u-text-field-divider-color-light-theme, $u-text-field-divider-color-dark-theme) using ($color) {
+      border-color: $color;
+    }
   }
 
   .u-text-field {
     label {
-      color: $u-text-field-label-color;
+      @include inverted-mode($u-text-field-label-color-light-theme, $u-text-field-label-color-dark-theme) using ($color) {
+        color: $color;
+      }
     }
 
     &.focus {
-      color: $primary-color;
+      @include inverted-mode($primary-color, $primary-color) using ($color) {
+        color: $color;
+      }
     }
 
     &.disabled {
@@ -492,69 +494,97 @@ button.u-text-input {
       + .u-text-field-helper-text {
         &,
         .u-text-field-helper-text-default {
-          color: $u-text-input-disabled-color;
+          @include inverted-mode($u-text-input-disabled-color-light-theme, $u-text-input-disabled-color-dark-theme) using ($color) {
+            color: $color;
+          }
         }
       }
     }
 
     &.disabled .u-text-input,
     .u-text-input:disabled {
-      color: $u-text-input-disabled-color;
-      border-color: $u-text-field-divider-color-disabled;
+      @include inverted-mode($u-text-input-disabled-color-light-theme, $u-text-input-disabled-color-dark-theme) using ($color) {
+        color: $color;
+      }
+      @include inverted-mode($u-text-field-divider-color-disabled-light-theme, $u-text-field-divider-color-disabled-dark-theme) using ($color) {
+        border-color: $color;
+      }
     }
 
     &.invalid,
     &.invalid .u-text-field-leading-icon,
     &.invalid .u-text-field-trailing-icon,
     & ~ .u-text-field-helper-text .u-text-field-helper-text-invalid {
-      color: $danger-color;
+      @include inverted-mode($danger-color, $danger-color) using ($color) {
+        color: $color;
+      }
     }
 
     &:not(.disabled):hover {
       .u-text-input:not(:disabled) {
-        border-color: $u-text-field-divider-color-hover;
+        @include inverted-mode($u-text-field-divider-color-hover-light-theme, $u-text-field-divider-color-hover-dark-theme) using ($color) {
+          border-color: $color;
+        }
       }
     }
   }
 
   .u-text-field-box {
-    background: $u-text-field-box-background;
+    @include inverted-mode($u-text-input-box-bg-light-theme, $u-text-input-box-bg-dark-theme) using ($color) {
+      background: $color;
+    }
 
     &.disabled {
-      background: $u-text-field-box-disabled-background;
+      @include inverted-mode($u-text-input-box-disabled-bg-light-theme, $u-text-input-box-disabled-bg-dark-theme) using ($color) {
+        background: $color;
+      }
     }
   }
 
   .u-text-field-outline {
     label {
-      background: $u-text-field-outline-label-background;
+      @include inverted-mode($u-bg-light, $u-bg-dark) using ($color) {
+        background: $color;
+      }
     }
 
     &:not(.focus):not(.invalid):not(.disabled) {
       &::before {
-        border-color: $u-text-field-divider-color;
+        @include inverted-mode($u-text-field-divider-color-light-theme, $u-text-field-divider-color-dark-theme) using ($color) {
+          border-color: $color;
+        }
       }
 
       &:hover::before {
-        border-color: $u-text-field-divider-color-hover;
+        @include inverted-mode($u-text-field-divider-color-hover-light-theme, $u-text-field-divider-color-hover-dark-theme) using ($color) {
+          border-color: $color;
+        }
       }
     }
 
     &.disabled::before {
-      border-color: $u-text-field-divider-color-disabled;
+      @include inverted-mode($u-text-field-divider-color-disabled-light-theme, $u-text-field-divider-color-disabled-dark-theme) using ($color) {
+        border-color: $color;
+      }
     }
   }
 
   .u-search-field {
-    background: $u-text-field-box-background;
+    @include inverted-mode($u-text-input-box-bg-light-theme, $u-text-input-box-bg-dark-theme) using ($color) {
+      background: $color;
+    }
   }
 
   .u-search-field-elevated {
-    background: $u-text-field-elevated-background;
+    @include inverted-mode($u-search-field-elevated-bg-light-theme, $u-search-field-elevated-bg-dark-theme) using ($color) {
+      background: $color;
+    }
   }
 
   .u-text-field-helper-text {
-    color: $u-text-field-helper-text-color;
+    @include inverted-mode($u-text-field-helper-text-color-light-theme, $u-text-field-helper-text-color-dark-theme) using ($color) {
+      color: $color;
+    }
   }
 
   .u-text-input::placeholder,
@@ -563,11 +593,15 @@ button.u-text-input {
     .u-text-field-floating-label.empty.u-text-field-no-label &,
     .u-text-field-outline.empty.u-text-field-no-label &,
     .u-text-field-box.empty.u-text-field-no-label & {
-      color: $u-text-input-placeholder-color;
+      @include inverted-mode($u-text-input-placeholder-color-light-theme, $u-text-input-placeholder-color-dark-theme) using ($color) {
+        color: $color;
+      }
     }
   }
 
   %u-text-input-affix {
-    color: $u-text-input-affix-color;
+    @include inverted-mode($u-text-input-affix-color-light-theme, $u-text-input-affix-color-dark-theme) using ($color) {
+      color: $color;
+    }
   }
 }

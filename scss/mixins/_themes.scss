@@ -1,3 +1,5 @@
+@use "sass:list";
+
 @import "../theming";
 
 @mixin create-light-theme {
@@ -133,9 +135,16 @@
 
   $dark-theme: map-get($u-theme, "dark");
 
-  @if ($dark-theme) {
-    @include create-dark-theme;
-  } @else {
-    @include create-light-theme;
+  body {
+    @include inverted-mode($u-bg-light, $u-bg-dark, true) using($color) {
+      background-color: $color;
+    }
+    @include inverted-mode("%u-bg-light", "%u-bg-dark", true) using($selector) {
+      @extend #{$selector} !optional;
+    }
   }
+  .u-light-mode .u-bg-dark {
+    @extend .u-bg-dark;
+  }
+
 }

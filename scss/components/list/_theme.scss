@@ -3,30 +3,22 @@
 @import "../../theming";
 
 @mixin u-list-theme() {
-  $dark-theme: map-get($u-theme, "dark");
-
   $theme-colors: map-get($u-theme, "colors");
   $primary-color: map-get($theme-colors, "primary");
 
-  $color: $u-list-item-color-light-theme;
-  $icon-color: $u-list-icon-color-light-theme;
-  $section-color: $u-text-low-contrast-light-theme;
-
-  @if ($dark-theme) {
-    $color: $u-list-item-color-dark-theme;
-    $icon-color: $u-list-icon-color-dark-theme;
-    $section-color: $u-text-low-contrast-dark-theme;
-  }
-
   .u-list-item {
-    color: $color;
-
-    @include hover-focus {
+    @include inverted-mode($u-list-item-color-light-theme, $u-list-item-color-dark-theme) using ($color) {
       color: $color;
     }
 
+    @include hover-focus {
+      @include inverted-mode($u-list-item-color-light-theme, $u-list-item-color-dark-theme) using ($color) {
+        color: $color;
+      }
+    }
+
     &.active {
-      color: $primary-color;
+      color: $primary-color !important;
 
       .u-list-item-activity-icon {
         color: currentColor;
@@ -36,14 +28,20 @@
 
   .u-list-item-icon,
   .u-list-item-avatar {
-    color: $icon-color;
+    @include inverted-mode($u-list-icon-color-light-theme, $u-list-icon-color-dark-theme) using ($color) {
+      color: $color;
+    }
   }
 
   .u-list-index {
-    color: $icon-color;
+    @include inverted-mode($u-list-icon-color-light-theme, $u-list-icon-color-dark-theme) using ($color) {
+      color: $color;
+    }
   }
 
   .u-list-section {
-    color: $section-color;
+    @include inverted-mode($u-text-low-contrast-light-theme, $u-text-low-contrast-dark-theme) using ($color) {
+      color: $color;
+    }
   }
 }

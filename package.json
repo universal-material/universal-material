@@ -24,6 +24,7 @@
   "scripts": {
     "start": "npm-run-all --parallel watch docs",
     "watch": "gulp default",
+    "watch:sass": "gulp watch:sass",
     "docs": "http-server ./docs/dist -p 8081"
   },
   "main": "./js/dist/bundle/universal-material.umd.js",

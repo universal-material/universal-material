@@ -56,7 +56,7 @@
   border-bottom-right-radius: inherit;
   border-bottom-left-radius: inherit;
 
-  @extend %u-bg-dark-important;
+  @extend .u-bg-dark;
 }
 
 .u-card-content {
@@ -72,34 +72,22 @@
 
 @mixin u-card-theme {
 
-  $dark-theme: map-get($u-theme, "dark");
   $theme-style: map-get($u-theme, "style");
 
-  $background-color: $u-card-bg-light-theme;
-
-  @if ($dark-theme) {
-    $background-color: $u-card-bg-dark-theme;
-    .u-card {
-      @extend %u-bg-dark-important;
-    }
-  } @else {
-    .u-card {
-      @extend %u-bg-light-important;
-    }
-  }
-
   .u-card {
-    background-color: $background-color;
-  }
-
-
-  @if (mixin_exists(u-text-fields-theme)) {
-    .u-card {
-      .u-text-field-outline label {
-        background: $background-color;
-      }
+    @include inverted-mode($u-card-bg-light-theme, $u-card-bg-dark-theme) using ($color) {
+      background: $color;
     }
   }
+
+
+  //@if (mixin_exists(u-text-fields-theme)) {
+  //  .u-card {
+  //    .u-text-field-outline label {
+  //      background: $background-color;
+  //    }
+  //  }
+  //}
 
   @if ($theme-style == "uwp") {
     @include uwp-card;

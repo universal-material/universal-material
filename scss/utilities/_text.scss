@@ -8,7 +8,7 @@
 // Text
 //
 
-.u-text-monospace { font-family: $font-family-monospace; }
+//.u-text-monospace { font-family: $font-family-monospace; }
 
 // Alignment
 
@@ -36,9 +36,9 @@
 
 // Misc
 
-.u-text-hide {
-  @include text-hide($ignore-warning: true);
-}
+//.u-text-hide {
+//  @include text-hide($ignore-warning: true);
+//}
 
 // Responsive alignment
 

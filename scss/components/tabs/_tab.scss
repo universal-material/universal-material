@@ -70,18 +70,18 @@
   }
 }
 
-%u-bg-light {
-  .u-tab {
-    color: $u-tab-text-color-light-theme;
-  }
-
-  @include u-tab-bar-variant($u-text-high-contrast-light-theme);
-}
-
-%u-bg-dark {
-  .u-tab {
-    color: $u-tab-text-color-dark-theme;
-  }
-
-  @include u-tab-bar-variant($u-text-high-contrast-dark-theme);
-}
+//%u-bg-light {
+//  .u-tab {
+//    color: $u-tab-text-color-light-theme;
+//  }
+//
+//  @include u-tab-bar-variant($u-text-high-contrast-light-theme);
+//}
+//
+//%u-bg-dark {
+//  .u-tab {
+//    color: $u-tab-text-color-dark-theme;
+//  }
+//
+//  @include u-tab-bar-variant($u-text-high-contrast-dark-theme);
+//}

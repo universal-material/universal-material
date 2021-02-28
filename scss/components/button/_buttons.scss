@@ -49,6 +49,7 @@
 
 .u-btn-flat,
 .u-btn-solid,
+.u-btn-raised,
 .u-btn-outline {
   padding: 0 $u-btn-side-padding;
   border-radius: $u-btn-border-radius;
@@ -67,8 +68,6 @@
 }
 
 .u-btn-raised {
-  @extend .u-btn-solid;
-
   @include u-elevation(2);
 
   &:active {
@@ -110,7 +109,6 @@
 }
 
 .u-btn-floating {
-  @extend .u-btn-raised;
   width: $u-btn-floating-size;
   height: $u-btn-floating-size !important;
   border-radius: 50%;
@@ -150,60 +148,28 @@
     }
   }
 
-  .u-btn-solid,
-  .u-btn-raised {
-    &.disabled,
-    &:disabled {
-      background-color: $u-btn-disabled-background-light-theme #{important($important)};
-    }
-  }
+  //.u-btn-solid,
+  //.u-btn-raised {
+  //  &.disabled,
+  //  &:disabled {
+  //    background-color: $u-btn-disabled-background-light-theme #{important($important)};
+  //  }
+  //}
 }
 
-%u-bg-light {
-  .u-btn-flat.u-btn-default {
-    color: $u-btn-flat-default-background-light-theme;
-  }
-
-  .u-btn-borderless.u-btn-default {
-    color: $u-btn-borderless-default-color-light-theme;
-  }
-
+.u-bg-light {
   @include u-disabled-button($u-btn-disabled-color-light-theme, $u-btn-disabled-background-light-theme);
 }
 
 %u-bg-light-important {
-  .u-btn-flat.u-btn-default {
-    color: $u-btn-flat-default-background-light-theme !important;
-  }
-
-  .u-btn-borderless.u-btn-default {
-    color: $u-btn-borderless-default-color-light-theme !important;
-  }
-
   @include u-disabled-button($u-btn-disabled-color-light-theme, $u-btn-disabled-background-light-theme, true);
 }
 
-%u-bg-dark {
-  .u-btn-flat.u-btn-default {
-    color: $u-btn-flat-default-background-dark-theme;
-  }
-
-  .u-btn-borderless.u-btn-default {
-    color: $u-btn-borderless-default-color-dark-theme;
-  }
-
+.u-bg-dark {
   @include u-disabled-button($u-btn-disabled-color-dark-theme, $u-btn-disabled-background-dark-theme);
 }
 
 %u-bg-dark-important {
-  .u-btn-flat.u-btn-default {
-    color: $u-btn-flat-default-background-dark-theme !important;
-  }
-
-  .u-btn-borderless.u-btn-default {
-    color: $u-btn-borderless-default-color-dark-theme !important;
-  }
-
   @include u-disabled-button($u-btn-disabled-color-dark-theme, $u-btn-disabled-background-dark-theme, true);
 }
 

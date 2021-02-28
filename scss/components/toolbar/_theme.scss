@@ -15,7 +15,7 @@
     $color: $u-body-color-dark-theme;
   }
 
-  .u-material {
+  .u-android {
     @each $color, $value in $toolbar-colors {
       @include u-bg-variant(".u-toolbar-#{$color}", $value);
     }

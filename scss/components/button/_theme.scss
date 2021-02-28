@@ -19,32 +19,54 @@
 @mixin u-buttons-theme {
 
   $theme-colors: map-get($u-theme, "colors");
-  $dark-theme: map-get($u-theme, "dark");
   $theme-style: map-get($u-theme, "style");
 
-  $u-btn-disabled-color: $u-btn-disabled-color-light-theme;
-  $u-btn-disabled-background-color: $u-btn-disabled-background-light-theme;
-  $u-btn-outline-gray-border-color: $u-btn-outline-gray-border-color-light-theme;
-
-  @if ($dark-theme) {
-    $u-btn-disabled-color: $u-btn-disabled-color-dark-theme;
-    $u-btn-disabled-background-color: $u-btn-disabled-background-dark-theme;
-    $u-btn-outline-gray-border-color: $u-btn-outline-gray-border-color-dark-theme;
-  }
-
   @each $color, $value in $theme-colors {
-    .u-btn-solid.u-btn-#{$color} {
+    .u-btn-solid.u-btn-#{$color},
+    .u-btn-raised.u-btn-#{$color},
+    .u-btn-floating.u-btn-#{$color} {
       @include button-solid-variant($value);
     }
   }
 
-  .u-btn-solid.u-btn-default {
-    @include button-solid-variant(if($dark-theme, $u-btn-solid-default-background-dark-theme, $u-btn-solid-default-background-light-theme));
+  .u-btn-solid.u-btn-default,
+  .u-btn-raised.u-btn-default,
+  .u-btn-floating.u-btn-default {
+    @include inverted-mode($u-btn-solid-default-background-light-theme, $u-btn-solid-default-background-dark-theme) using ($color) {
+      @include button-solid-variant($color);
+    }
+  }
+
+  .u-btn-borderless.u-btn-default {
+    @include inverted-mode($u-btn-borderless-default-color-light-theme, $u-btn-borderless-default-color-dark-theme) using ($color) {
+      color: $color;
+    }
+  }
+
+  .u-btn-flat.u-btn-default,
+  .u-btn-outline.u-btn-default,
+  .u-btn-outline-gray.u-btn-default {
+    @include inverted-mode($u-btn-flat-default-background-light-theme, $u-btn-flat-default-background-dark-theme) using ($color) {
+      color: $color;
+    }
   }
 
   .u-btn-outline-gray {
     @extend .u-btn-outline;
-    border-color: $u-btn-outline-gray-border-color !important;
+    @include inverted-mode($u-btn-outline-gray-border-color-light-theme, $u-btn-outline-gray-border-color-dark-theme) using ($color) {
+      border-color: $color !important;
+    }
+  }
+
+  .u-btn-floating,
+  .u-btn-raised,
+  .u-btn-solid {
+    &.disabled,
+    &:disabled {
+      @include inverted-mode($u-btn-disabled-background-light-theme, $u-btn-disabled-background-dark-theme) using($color) {
+        background-color: $color;
+      }
+    }
   }
 
   @include button-flat-theme($theme-colors);

@@ -1,7 +1,9 @@
 @import "colors";
 
 $u-theme-style: "ios" !default;
-$u-include-ios-styles: false !default;
+$u-default-theme-dark: false !default;
+$u-include-ios-styles: true !default;
+$u-include-inverted-mode: true !default;
 
 $u-theme: (
   bg-light: if($u-theme-style == "android", $u-bg-light, $u-bg-light-ios),

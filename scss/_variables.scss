@@ -8,39 +8,6 @@
 @import "theming";
 
 $placeholders-already-imported: false !default;
-
-//// This variable affects the `.h-*` and `.w-*` classes.
-//$sizes: (
-//        25: 25%,
-//        50: 50%,
-//        75: 75%,
-//        100: 100%
-//) !default;
-
-// Body
-//
-// Settings for the `<body>` element.
-
-// Links
-//
-// Style anchor elements.
-
 $link-color: $u-primary-color !default;
-
-// Buttons
-//
-// For each of Bootstrap's buttons, define text, background and border color.
-
-
-//$danger-color: #d50000 !default;
-//
-//
-//$bg-body: #fafafa !default;
-//
-//
-//$enable-hover-media-query: false !default;
-//
-//Avatar
-
 $text-muted: $u-text-low-contrast-light-theme !default;
 

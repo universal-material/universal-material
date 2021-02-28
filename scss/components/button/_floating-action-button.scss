@@ -151,15 +151,9 @@
 }
 
 @mixin u-floating-action-button-theme() {
-  $dark-theme: map-get($u-theme, "dark");
-
-  $u-floating-menu-label-bg: $u-floating-menu-label-bg-light-theme;
-
-  @if ($dark-theme) {
-    $u-floating-menu-label-bg: $u-floating-menu-label-bg-dark-theme;
-  }
-
   .u-floating-menu-label {
-    background: $u-floating-menu-label-bg;
+    @include inverted-mode($u-floating-menu-label-bg-light-theme, $u-floating-menu-label-bg-dark-theme) using ($color) {
+      background: $color;
+    }
   }
 }

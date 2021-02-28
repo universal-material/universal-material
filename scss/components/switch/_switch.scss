@@ -23,7 +23,7 @@
   cursor: pointer;
 }
 
-.u-material {
+.u-android {
   .u-switch {
     .u-selection-control {
       position: relative;
@@ -80,13 +80,17 @@
       transform: translate3d($u-switch-width - $u-switch-click-size + (($u-switch-click-size - $u-switch-toggle-size) / 2), -50%, 0);
 
       &::after {
-        background: currentColor;
+        background: currentColor !important;
       }
     }
 
     &.disabled .u-selection-control,
     input:disabled ~ .u-selection-control {
       opacity: $u-switch-disabled-opacity;
+
+      .u-check-indicator::before {
+        display: none;
+      }
     }
 
     &.disabled .u-selection-control,
