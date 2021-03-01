@@ -1,0 +1,5 @@
+:root {
+  @each $color, $value in $u-theme-colors {
+    --u-#{$color}-color: #{$value};
+  }
+}

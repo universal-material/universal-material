@@ -1,0 +1,44 @@
+@use "sass:list";
+
+@mixin create-color-vars() {
+  @each $color, $value in $u-theme-colors {
+    --u-#{$color}-color: #{$value};
+  }
+}
+@mixin create-color-background-placeholders() {
+  @each $color, $value in $u-theme-colors {
+    $selector: "%u-bg-#{$color}";
+
+    @if list.index($u-bg-placeholders, $selector) == null {
+      $u-bg-placeholders: list.append($u-bg-placeholders, $selector) !global;
+
+      @at-root %u-bg-#{$color} {
+        background-color: var(--u-#{$color}-color);
+      }
+
+      @at-root %u-bg-#{$color}-important {
+        background-color: var(--u-#{$color}-color) !important;
+      }
+    }
+
+    %u-bg-#{$color} {
+      @if (is-dark-background($value)) {
+        @extend %u-bg-dark;
+      } @else {
+        @extend %u-bg-light;
+      }
+    }
+  }
+}
+
+@mixin theme-colors() {
+  @include create-color-background-placeholders();
+
+  @if & {
+    @include create-color-vars();
+  } @else {
+    :root {
+      @include create-color-vars();
+    }
+  }
+}

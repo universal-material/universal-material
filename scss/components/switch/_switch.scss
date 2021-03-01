@@ -3,7 +3,9 @@
 @import "../../mixins";
 @import "../../font";
 @import "../../placeholders";
-@import "../../theming";
+@import "../../theme";
+
+@include contrast-bg-var(--u-switch-toggle-color, $u-switch-toggle-color-light-theme, $u-switch-toggle-color-dark-theme);
 
 .u-switch {
   display: inline-flex;
@@ -67,7 +69,7 @@
         width: $u-switch-toggle-size;
         height: $u-switch-toggle-size;
         content: "";
-        background: currentColor;
+        background: var(--u-switch-toggle-color);
         border-radius: 50%;
         box-shadow: $u-switch-toggle-box-shadow;
         transition: background 300ms;

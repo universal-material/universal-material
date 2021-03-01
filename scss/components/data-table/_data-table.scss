@@ -1,6 +1,5 @@
 @import "variables";
 @import "../../font";
-@import "../../theming";
 
 // stylelint-disable selector-no-qualifying-type
 
@@ -28,6 +27,7 @@
     font-size: $u-data-table-column-header-font-size;
     font-weight: $u-data-table-column-header-font-weight;
     text-align: initial;
+    color: var(--u-text-low-contrast-color);
   }
 
   td {
@@ -77,26 +77,8 @@
   }
 }
 
-@mixin u-data-table-theme() {
-  .u-data-table {
-    th {
-      @include inverted-mode($u-data-table-column-header-color-light-theme, $u-data-table-column-header-color-dark-theme) using ($color) {
-        color: $color;
-      }
-    }
-
-    tr.selected {
-      @include inverted-mode($u-data-table-row-selected-bg-light-theme, $u-data-table-row-selected-bg-dark-theme) using ($color) {
-        background-color: $color;
-      }
-    }
-  }
-
-  .u-data-table-hover tbody tr {
-    &:hover {
-      @include inverted-mode($u-data-table-row-hover-background-color-light-theme, $u-data-table-row-hover-background-color-dark-theme) using ($color) {
-        background-color: $color;
-      }
-    }
+.u-data-table-hover tbody tr {
+  &:hover {
+    background-color: var(--u-hover-color);
   }
 }

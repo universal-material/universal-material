@@ -1,5 +1,8 @@
 @import "variables";
-@import "../../theming";
+
+@include contrast-bg-var(--u-text-input-box-bg, $u-text-input-box-bg-light-theme, $u-text-input-box-bg-dark-theme);
+@include contrast-bg-var(--u-text-field-disabled-divider-color, $u-text-field-divider-color-disabled-light-theme, $u-text-field-divider-color-disabled-dark-theme);
+@include contrast-bg-var(--u-text-input-box-disabled-bg-light-theme, $u-text-input-box-disabled-bg-light-theme, $u-text-input-box-disabled-bg-dark-theme);
 
 .u-form-field {
   margin-bottom: $u-form-field-margin;
@@ -27,6 +30,7 @@
   overflow: hidden;
   font-size: $u-text-field-helper-text-font-size;
   line-height: $u-text-field-helper-text-line-height;
+  color: var(--u-text-low-contrast-color)
 }
 
 .u-text-field-helper-text-invalid {
@@ -154,6 +158,7 @@ button.u-text-input {
     margin-bottom: $u-text-field-label-margin;
     font-size: $u-text-field-label-font-size;
     line-height: $u-text-field-label-line-height;
+    color: var(--u-text-low-contrast-color);
   }
 
   &::before {
@@ -168,6 +173,10 @@ button.u-text-input {
     transition: transform 350ms $awesome-cubic-bezier;
     transform: scale3d(0, 1, 1);
     will-change: transform;
+  }
+
+  &.focus {
+    color: var(--u-primary-color);
   }
 
   &.focus,
@@ -185,6 +194,37 @@ button.u-text-input {
   &.disabled .u-text-input,
   input.u-text-input[disabled] {
     border-bottom-style: dashed !important;
+  }
+
+  &.disabled {
+    label,
+    .u-text-field-leading-icon,
+    .u-text-field-trailing-icon,
+    + .u-text-field-helper-text {
+      &,
+      .u-text-field-helper-text-default {
+        color: var(--u-text-lower-contrast-color);
+      }
+    }
+  }
+
+  &.disabled .u-text-input,
+  .u-text-input:disabled {
+    color: var(--u-text-lower-contrast-color);
+    border-color: var(----u-text-field-disabled-divider-color);
+  }
+
+  &.invalid,
+  &.invalid .u-text-field-leading-icon,
+  &.invalid .u-text-field-trailing-icon,
+  & ~ .u-text-field-helper-text .u-text-field-helper-text-invalid {
+    color: var(--u-danger-color);
+  }
+
+  &:not(.disabled):hover {
+    .u-text-input:not(:disabled) {
+      border-color: var(--u-text-high-contrast-color);
+    }
   }
 }
 
@@ -225,7 +265,9 @@ button.u-text-input {
 }
 
 .u-text-field-box {
+  background: var(--u-text-input-box-bg);
   border-radius: $u-text-field-box-border-radius;
+
 
   label {
     height: $u-text-field-box-label-height;
@@ -285,6 +327,10 @@ button.u-text-input {
     }
   }
 
+  &.disabled {
+    background: var(--u-text-input-box-disabled-bg-light-theme);
+  }
+
   &.disabled .u-text-input,
   input.u-text-input[disabled] {
     border-bottom-style: solid !important;
@@ -299,6 +345,7 @@ button.u-text-input {
     margin-bottom: 0;
     margin-left: $u-text-field-outline-padding - $u-text-field-outline-label-padding;
     line-height: $u-text-field-outline-label-line-height;
+    background: var(--u-bg-color);
     transform: translate3d(0, -$u-text-field-outline-label-height / 2, 0);
   }
 
@@ -368,9 +415,24 @@ button.u-text-input {
       margin-right: calc(#{$u-text-field-icon-margin} + #{$u-text-field-icon-size});
     }
   }
+
+  &:not(.focus):not(.invalid):not(.disabled) {
+    &::before {
+      border-color: var(--u-text-low-contrast-color);
+    }
+
+    &:hover::before {
+      border-color: var(--u-text-high-contrast-color);
+    }
+  }
+
+  &.disabled::before {
+    border-color: var(--u-text-field-disabled-divider-color);
+  }
 }
 
 .u-search-field {
+  background-color: var(--u-text-input-box-bg);
   border-radius: $u-search-field-border-radius;
 
   &::before {
@@ -404,14 +466,24 @@ button.u-text-input {
       margin-right: calc(#{$u-text-field-icon-margin} + #{$u-text-field-icon-size});
     }
   }
+
+  &.disabled {
+    background: var(--u-text-input-box-disabled-bg-light-theme);
+
+    .u-text-input {
+      border: none !important
+    }
+  }
 }
 
 .u-search-field-elevated {
+  background-color: var(--u-surface-color);
   box-shadow: $u-search-field-elevated-box-shadow;
 }
 
 %u-text-input-affix {
   flex-shrink: 0;
+  color: var(--u-text-low-contrast-color);
 }
 
 .u-text-input-suffix {
@@ -424,184 +496,23 @@ button.u-text-input {
   margin-right: $u-text-input-affix-margin;
 }
 
-@mixin u-text-fields-theme {
+.u-text-field-leading-icon,
+.u-text-field-trailing-icon {
+  color: var(--u-text-low-contrast-color);
+}
 
-  $theme-colors: map-get($u-theme, "colors");
-  $dark-theme: map-get($u-theme, "dark");
-  $uwp-style: map-get($u-theme, "uwp-style");
+.u-text-input,
+input.u-text-input {
+  color: var(--u-text-high-contrast-color);
+  border-color: var(--u-text-low-contrast-color);
+}
 
-  $primary-color: map-get($theme-colors, "primary");
-  $danger-color: map-get($theme-colors, "danger");
-
-  $u-text-field-divider-color-hover: $u-text-field-divider-color-hover-light-theme;
-  $u-text-field-divider-color-disabled: $u-text-field-divider-color-disabled-light-theme;
-  $u-text-field-box-background: $u-text-input-box-bg-light-theme;
-  $u-text-field-box-disabled-background: $u-text-input-box-disabled-bg-light-theme;
-  $u-text-field-elevated-background: $u-search-field-elevated-bg-light-theme;
-  $u-text-input-placeholder-color: $u-text-input-placeholder-color-light-theme;
-  $u-text-input-disabled-color: $u-text-input-disabled-color-light-theme;
-  $u-text-input-affix-color: $u-text-input-affix-color-light-theme;
-  $u-text-field-helper-text-color: $u-text-field-helper-text-color-light-theme;
-  $u-text-field-outline-label-background: map-get($u-theme, "bg-light");
-
-  @if ($dark-theme) {
-    $u-text-field-divider-color-hover: $u-text-field-divider-color-hover-dark-theme;
-    $u-text-field-divider-color-disabled: $u-text-field-divider-color-disabled-dark-theme;
-    $u-text-field-box-background: $u-text-input-box-bg-dark-theme;
-    $u-text-field-box-disabled-background: $u-text-input-box-disabled-bg-dark-theme;
-    $u-text-field-elevated-background: $u-search-field-elevated-bg-dark-theme;
-    $u-text-input-placeholder-color: $u-text-input-placeholder-color-dark-theme;
-    $u-text-input-disabled-color: $u-text-input-disabled-color-dark-theme;
-    $u-text-input-affix-color: $u-text-input-affix-color-dark-theme;
-    $u-text-field-helper-text-color: $u-text-field-helper-text-color-dark-theme;
-    $u-text-field-outline-label-background: map-get($u-theme, "bg-dark");
-  }
-
-  .u-text-field-leading-icon,
-  .u-text-field-trailing-icon {
-    @include inverted-mode($u-text-input-icon-color-light-theme, $u-text-input-icon-color-dark-theme) using ($color) {
-      color: $color;
-    }
-  }
-
-  .u-text-input,
-  input.u-text-input {
-    @include inverted-mode($u-text-input-color-light-theme, $u-text-input-color-dark-theme) using ($color) {
-      color: $color;
-    }
-    @include inverted-mode($u-text-field-divider-color-light-theme, $u-text-field-divider-color-dark-theme) using ($color) {
-      border-color: $color;
-    }
-  }
-
-  .u-text-field {
-    label {
-      @include inverted-mode($u-text-field-label-color-light-theme, $u-text-field-label-color-dark-theme) using ($color) {
-        color: $color;
-      }
-    }
-
-    &.focus {
-      @include inverted-mode($primary-color, $primary-color) using ($color) {
-        color: $color;
-      }
-    }
-
-    &.disabled {
-      label,
-      .u-text-field-leading-icon,
-      .u-text-field-trailing-icon,
-      + .u-text-field-helper-text {
-        &,
-        .u-text-field-helper-text-default {
-          @include inverted-mode($u-text-input-disabled-color-light-theme, $u-text-input-disabled-color-dark-theme) using ($color) {
-            color: $color;
-          }
-        }
-      }
-    }
-
-    &.disabled .u-text-input,
-    .u-text-input:disabled {
-      @include inverted-mode($u-text-input-disabled-color-light-theme, $u-text-input-disabled-color-dark-theme) using ($color) {
-        color: $color;
-      }
-      @include inverted-mode($u-text-field-divider-color-disabled-light-theme, $u-text-field-divider-color-disabled-dark-theme) using ($color) {
-        border-color: $color;
-      }
-    }
-
-    &.invalid,
-    &.invalid .u-text-field-leading-icon,
-    &.invalid .u-text-field-trailing-icon,
-    & ~ .u-text-field-helper-text .u-text-field-helper-text-invalid {
-      @include inverted-mode($danger-color, $danger-color) using ($color) {
-        color: $color;
-      }
-    }
-
-    &:not(.disabled):hover {
-      .u-text-input:not(:disabled) {
-        @include inverted-mode($u-text-field-divider-color-hover-light-theme, $u-text-field-divider-color-hover-dark-theme) using ($color) {
-          border-color: $color;
-        }
-      }
-    }
-  }
-
-  .u-text-field-box {
-    @include inverted-mode($u-text-input-box-bg-light-theme, $u-text-input-box-bg-dark-theme) using ($color) {
-      background: $color;
-    }
-
-    &.disabled {
-      @include inverted-mode($u-text-input-box-disabled-bg-light-theme, $u-text-input-box-disabled-bg-dark-theme) using ($color) {
-        background: $color;
-      }
-    }
-  }
-
-  .u-text-field-outline {
-    label {
-      @include inverted-mode($u-bg-light, $u-bg-dark) using ($color) {
-        background: $color;
-      }
-    }
-
-    &:not(.focus):not(.invalid):not(.disabled) {
-      &::before {
-        @include inverted-mode($u-text-field-divider-color-light-theme, $u-text-field-divider-color-dark-theme) using ($color) {
-          border-color: $color;
-        }
-      }
-
-      &:hover::before {
-        @include inverted-mode($u-text-field-divider-color-hover-light-theme, $u-text-field-divider-color-hover-dark-theme) using ($color) {
-          border-color: $color;
-        }
-      }
-    }
-
-    &.disabled::before {
-      @include inverted-mode($u-text-field-divider-color-disabled-light-theme, $u-text-field-divider-color-disabled-dark-theme) using ($color) {
-        border-color: $color;
-      }
-    }
-  }
-
-  .u-search-field {
-    @include inverted-mode($u-text-input-box-bg-light-theme, $u-text-input-box-bg-dark-theme) using ($color) {
-      background: $color;
-    }
-  }
-
-  .u-search-field-elevated {
-    @include inverted-mode($u-search-field-elevated-bg-light-theme, $u-search-field-elevated-bg-dark-theme) using ($color) {
-      background: $color;
-    }
-  }
-
-  .u-text-field-helper-text {
-    @include inverted-mode($u-text-field-helper-text-color-light-theme, $u-text-field-helper-text-color-dark-theme) using ($color) {
-      color: $color;
-    }
-  }
-
-  .u-text-input::placeholder,
-  .u-text-input-placeholder {
-    &,
-    .u-text-field-floating-label.empty.u-text-field-no-label &,
-    .u-text-field-outline.empty.u-text-field-no-label &,
-    .u-text-field-box.empty.u-text-field-no-label & {
-      @include inverted-mode($u-text-input-placeholder-color-light-theme, $u-text-input-placeholder-color-dark-theme) using ($color) {
-        color: $color;
-      }
-    }
-  }
-
-  %u-text-input-affix {
-    @include inverted-mode($u-text-input-affix-color-light-theme, $u-text-input-affix-color-dark-theme) using ($color) {
-      color: $color;
-    }
+.u-text-input::placeholder,
+.u-text-input-placeholder {
+  &,
+  .u-text-field-floating-label.empty.u-text-field-no-label &,
+  .u-text-field-outline.empty.u-text-field-no-label &,
+  .u-text-field-box.empty.u-text-field-no-label & {
+    color: var(--u-text-lower-contrast-color);
   }
 }

@@ -7,6 +7,8 @@
 @import "mixins/spacing";
 @import "mixins/size";
 @import "mixins/hover";
+@import "mixins/css-vars";
+@import "mixins/mode-style";
 
 @import "mixins/text-color";
 @import "mixins/text-truncate";
@@ -15,6 +17,10 @@
 @import "mixins/selection-controls";
 @import "mixins/typography";
 @import "mixins/important";
+
+// Theme
+@import "mixins/theme-colors";
+@import "mixins/apply-style-bg-once";
 
 // Layout
 @import "mixins/grid";

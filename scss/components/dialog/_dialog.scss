@@ -4,9 +4,7 @@
 @import "../../zindex";
 @import "../../typography/variables";
 @import "../../mixins";
-@import "../../theming";
 @import "../../placeholders";
-@import "uwp-dialog";
 
 // .u-dialog-open      - body class for killing the scroll
 // .u-dialog           - container to scroll within
@@ -23,6 +21,7 @@
   flex-direction: column;
   min-width: $u-dialog-min-width;
   max-width: 100%;
+  background-color: var(--u-surface-color);
   margin: 0 auto;
   overflow: hidden;
   border-radius: $u-dialog-border-radius;
@@ -128,6 +127,11 @@
   width: 100%;
   height: $u-divider-height;
   content: "";
+}
+
+.u-dialog-scroll-bottom-divider .u-dialog-actions::before,
+.u-dialog-scroll-top-divider .u-dialog-header::before {
+  background: var(--u-divider-color);
 }
 
 .u-dialog-header {
@@ -250,28 +254,5 @@
 
   to {
     transform: scale3d(1, 1, 1);
-  }
-}
-
-@mixin u-dialog-theme() {
-
-  $theme-colors: map-get($u-theme, "colors");
-  $theme-style: map-get($u-theme, "style");
-
-  .u-dialog-content {
-    @include inverted-mode($u-dialog-background-light-theme, $u-dialog-background-dark-theme) using ($color) {
-      background-color: $color;
-    }
-  }
-
-  .u-dialog-scroll-bottom-divider .u-dialog-actions::before,
-  .u-dialog-scroll-top-divider .u-dialog-header::before {
-    @include inverted-mode($u-base-semi-transparent-color-light-theme, $u-base-semi-transparent-color-dark-theme) using ($color) {
-      background: $color;
-    }
-  }
-
-  @if ($theme-style == "uwp") {
-    @include uwp-dialog($theme-colors);
   }
 }

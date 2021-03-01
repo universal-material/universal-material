@@ -1,5 +1,4 @@
 @import "variables";
-@import "theme";
 @import "../../animations";
 @import "../../colors";
 @import "../../grid/variables";
@@ -30,6 +29,7 @@
   width: $u-drawer-sidebar-width;
   max-width: 85%;
   overflow-y: auto;
+  background: var(--u-surface-color);
   transition: transform 375ms $awesome-cubic-bezier;
   transform: translateX(-100%);
 }

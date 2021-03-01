@@ -2,7 +2,7 @@
 @import "../../font";
 @import "../../mixins";
 @import "../../placeholders";
-@import "../../theming";
+@import "../../theme";
 
 .u-radio {
   display: inline-flex;
@@ -77,21 +77,21 @@
 @mixin u-radio-variant($color) {
   &.checked:not(.disabled) .u-selection-control,
   input:checked:not(:disabled) ~ .u-selection-control {
-    color: $color;
+    color: var(--u-#{$color}-color);
   }
 }
 
 @mixin u-radio-theme {
-  $theme-colors: map-get($u-theme, "colors");
 
   .u-radio {
-
-    @each $color, $value in $theme-colors {
-      @if $color == "primary" {
-        @include u-radio-variant($value);
-      } @else {
-        &.u-radio-#{$color} {
-          @include u-radio-variant($value);
+    @each $color, $value in $u-theme-colors {
+      @include apply-style-bg-once("radio-#{$color}") {
+        @if $color == "primary" {
+          @include u-radio-variant($color);
+        } @else {
+          &.u-radio-#{$color} {
+            @include u-radio-variant($color);
+          }
         }
       }
     }

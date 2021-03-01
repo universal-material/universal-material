@@ -1,5 +1,4 @@
-@use "../../../scss/variables";
-@use "../../../scss/mixins";
+@use "../../../scss/universal-material";
 
 .u-drawer-content {
   height: 100%;
@@ -26,12 +25,7 @@
   flex-direction: column;
   padding: .5rem;
   overflow: auto;
-  background: $gray-300;
-
-  //.u-toolbar {
-  //  background: $gray-300;
-  //}
-
+  background: var(--u-text-inverse-low-contrast-color);
 
   .u-floating-action-area {
     position: static;
@@ -46,7 +40,7 @@
 .example-box-header {
   padding: 1rem;
   margin-bottom: .5rem;
-  background: $gray-100;
+  background: var(--u-text-inverse-high-contrast-color);
 
   .u-toolbar {
     width: 100%;
@@ -94,7 +88,7 @@
 }
 
 .u-list-item-avatar {
-  background: url("/img/woman-avatar.jpg") center;
+  background: var(--u-text-low-contrast-color);
   background-size: cover;
 }
 
@@ -108,7 +102,7 @@
   margin-bottom: 48px;
   font-size: 2rem;
   font-weight: 400;
-  color: $u-primary-color;
+  color: var(--u-primary-color);
 }
 
 .article-title {
@@ -121,7 +115,7 @@ pre {
 }
 
 code {
-  unicode-bidi: plaintext;
   padding: 1rem !important;
+  unicode-bidi: plaintext;
   background: transparent !important;
 }

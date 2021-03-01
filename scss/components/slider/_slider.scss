@@ -45,6 +45,19 @@
       }
     }
   }
+
+  &,
+  input[type="range"] {
+    &:disabled {
+      ~ .u-slider-thumb-container .u-slider-thumb,
+      ~ .u-slider-track-container {
+        .u-slider-track,
+        &::after {
+          background: $u-slider-disabled-color;
+        }
+      }
+    }
+  }
 }
 
 .u-slider-track-marker-container {

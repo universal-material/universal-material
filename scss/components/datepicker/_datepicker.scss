@@ -1,6 +1,5 @@
 @import "variables";
 @import "../../mixins";
-@import "../../theming";
 @import "../../placeholders";
 @import "../../font";
 
@@ -68,35 +67,23 @@
   margin-top: 8px;
 }
 
-@mixin u-datepicker-theme {
+.u-datepicker-weekday {
+  color: var(--u-text-low-contrast-color);
+}
 
-  $theme-colors: map-get($u-theme, "colors");
-  $dark-theme: map-get($u-theme, "dark");
-  $primary-color: map-get($theme-colors, "primary");
+.u-datepicker-day-outside-month {
+  color: var(--u-text-lower-contrast-color);
+}
 
-  $day-color: if($dark-theme, $u-body-color-dark-theme, $u-body-color-light-theme);
-  $low-contrast-color: if($dark-theme, $u-text-low-contrast-dark-theme, $u-text-low-contrast-light-theme);
+.u-datepicker-day,
+.u-datepicker-year-month-button {
+  color: var(--u-bg-color);
 
-  $day-outside-month-color: if($dark-theme, $u-datepicker-day-outside-month-dark-theme, $u-datepicker-day-outside-month-light-theme);
-
-  .u-datepicker-weekday {
-    color: $low-contrast-color;
+  &.active {
+    @extend %u-bg-primary;
   }
+}
 
-  .u-datepicker-day-outside-month {
-    color: $day-outside-month-color;
-  }
-
-  .u-datepicker-day,
-  .u-datepicker-year-month-button {
-    color: $day-color;
-
-    &.active {
-      @include background-and-text-color($primary-color);
-    }
-  }
-
-  .u-datepicker-current-day {
-    border: 1px solid $low-contrast-color;
-  }
+.u-datepicker-current-day {
+  border: 1px solid var(--u-text-low-contrast-color);
 }

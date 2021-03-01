@@ -1,35 +1,23 @@
 @import "variables";
-@import "../../theming";
+@import "../../theme";
 
 @mixin u-slider-variant($color) {
   &,
   input[type="range"] {
-    color: $color;
+    color: var(--u-#{$color}-color);
   }
 }
 
 @mixin u-slider-theme() {
-  $theme-colors: map-get($u-theme, "colors");
 
   .u-slider {
-    @each $color, $value in $theme-colors {
-      @if $color == "primary" {
-        @include u-slider-variant($value);
-      } @else {
-        &.u-slider-#{$color} {
-          @include u-slider-variant($value);
-        }
-      }
-    }
-
-    &,
-    input[type="range"] {
-      &:disabled {
-        ~ .u-slider-thumb-container .u-slider-thumb,
-        ~ .u-slider-track-container {
-          .u-slider-track,
-          &::after {
-            background: $u-slider-disabled-color;
+    @each $color, $value in $u-theme-colors {
+      @include apply-style-bg-once("slider-#{$color}") {
+        @if $color == "primary" {
+          @include u-slider-variant($color);
+        } @else {
+          &.u-slider-#{$color} {
+            @include u-slider-variant($color);
           }
         }
       }

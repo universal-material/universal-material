@@ -1,16 +1,11 @@
 @import "variables";
 @import "../colors";
-@import "../theming";
+@import "../theme";
 
 .u-divider {
   width: 100%;
   height: $u-divider-height;
+  background-color: var(--u-divider-color);
 }
 
-@mixin u-divider-theme {
-  $dark-theme: map-get($u-theme, "dark");
-
-  .u-divider {
-    background-color: if($dark-theme, $u-base-semi-transparent-color-dark-theme, $u-base-semi-transparent-color-light-theme);
-  }
-}
+@include contrast-bg-var(--u-divider-color, $u-base-semi-transparent-color-light-theme, $u-base-semi-transparent-color-dark-theme)

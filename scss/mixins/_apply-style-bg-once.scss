@@ -1,0 +1,8 @@
+@use "sass:list";
+
+@mixin apply-style-bg-once($id) {
+  @if list.index($u-unique-selector, $id) == null {
+    $u-unique-selector: list.append($u-unique-selector, $id) !global;
+    @content;
+  }
+}

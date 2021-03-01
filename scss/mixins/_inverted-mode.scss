@@ -1,6 +1,6 @@
 @use "sass:list";
 @use "sass:string";
-@import "../theming";
+@import "../theme";
 
 @function str-split($string, $separator) {
   // empty array/list
@@ -24,11 +24,39 @@
   @return $split-arr;
 }
 
+@mixin inverted-mode2($light-mode-value, $dark-mode-value) {
+  $default-mode-value: if($u-default-mode-dark, $dark-mode-value, $light-mode-value);
+  $inverse-mode-value: if($u-default-mode-dark, $light-mode-value, $dark-mode-value);
+  $default-mode-name: if($u-default-mode-dark, "dark", "light");
+  $inverse-mode-name: if($u-default-mode-dark, "light", "dark");
+
+
+  @content($default-mode-value);
+
+  @at-root .u-bg-#{$default-mode-name} & {
+    @content($default-mode-value);
+  }
+
+  @at-root .u-bg-#{$inverse-mode-name} & {
+    @content($inverse-mode-value);
+  }
+
+  @if $u-include-inverted-mode {
+    @at-root .u-#{$inverse-mode-name}-mode & {
+      @content($inverse-mode-value);
+    }
+
+    @at-root .u-#{$inverse-mode-name}-mode .u-bg-#{$default-mode-name} & {
+      @content($default-mode-value);
+    }
+  }
+}
+
 @mixin inverted-mode($light-mode-value, $dark-mode-value, $is-body: false, $has-system-selector: false) {
-  $default-mode-value: if($u-default-theme-dark, $dark-mode-value, $light-mode-value);
-  $inverse-mode-value: if($u-default-theme-dark, $light-mode-value, $dark-mode-value);
-  $default-mode-name: if($u-default-theme-dark, "dark", "light");
-  $inverse-mode-name: if($u-default-theme-dark, "light", "dark");
+  $default-mode-value: if($u-default-mode-dark, $dark-mode-value, $light-mode-value);
+  $inverse-mode-value: if($u-default-mode-dark, $light-mode-value, $dark-mode-value);
+  $default-mode-name: if($u-default-mode-dark, "dark", "light");
+  $inverse-mode-name: if($u-default-mode-dark, "light", "dark");
 
   $original-selectors: str-split(#{&}, ",");
   $default-mode-selectors: list.append((), (), $separator: comma);

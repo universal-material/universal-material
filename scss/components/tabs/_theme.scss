@@ -3,39 +3,21 @@
 
 @mixin u-tab-theme {
 
-  $theme-colors: map-get($u-theme, "colors");
-
-  .u-tab {
-    @include inverted-mode($u-tab-text-color-light-theme, $u-tab-text-color-dark-theme) using ($color) {
-      color: $color;
-    }
-  }
-
-  .u-tab.active {
-    @include inverted-mode($u-text-high-contrast-light-theme, $u-text-high-contrast-dark-theme) using ($color) {
-      color: $color;
-    }
-  }
-
-  .u-tab-indicator {
-    @include inverted-mode($u-text-high-contrast-light-theme, $u-text-high-contrast-dark-theme) using ($color) {
-      background-color: $color;
-    }
-  }
-
-  @each $color, $value in $theme-colors {
-    .u-tab-bar-#{$color} {
-      @include u-tab-bar-variant($value);
+  @each $color, $value in $u-theme-colors {
+    @include apply-style-bg-once("tab-bar-#{$color}") {
+      .u-tab-bar-#{$color} {
+        @include u-tab-bar-variant($color);
+      }
     }
   }
 }
 
 @mixin u-tab-bar-variant($color) {
   .u-tab.active {
-    color: $color !important;
+    color: var(--u-#{$color}-color) !important;
   }
 
   .u-tab-indicator {
-    background-color: $color !important;
+    background-color: var(--u-#{$color}-color) !important;
   }
 }

@@ -14,5 +14,6 @@
 
 //Utilities
 @import "utilities";
+@import "css-vars";
 
-@include u-create-default-theme();
+@include u-create-theme();

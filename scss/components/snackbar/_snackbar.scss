@@ -1,10 +1,10 @@
 @import "variables";
 @import "../../animations";
-@import "../../theming";
 @import "../../font";
 @import "../../mixins";
 @import "../../zindex";
-@import "uwp-snackbar";
+
+@include contrast-bg-var(--u-bg-snackbar, $u-snackbar-background-color-light-theme, $u-snackbar-background-color-dark-theme);
 
 .u-snackbar {
   position: fixed;
@@ -15,6 +15,7 @@
   display: flex;
   align-items: center;
   min-height: $u-snackbar-height;
+  background-color: var(--u-bg-snackbar);
   font-family: $u-font-family-base;
   font-size: $u-snackbar-font-size;
   border-radius: $u-snackbar-border-radius;
@@ -51,6 +52,7 @@
   margin: $u-snackbar-text-vertical-margin $u-snackbar-horizontal-padding;
   overflow: hidden;
   font-weight: $u-snackbar-font-weight;
+  color: var(--u-inverse-text-high-contrast-color);
 }
 
 
@@ -93,34 +95,5 @@
   100% {
     opacity: 0;
     transform: scale3d(.5, .5, 1);
-  }
-}
-
-@mixin u-snackbar-theme() {
-
-  $dark-theme: map-get($u-theme, "dark");
-  $theme-style: map-get($u-theme, "style");
-
-
-  .u-snackbar {
-    @include inverted-mode($u-snackbar-background-color-light-theme, $u-snackbar-background-color-dark-theme) using($color) {
-      background-color: $color;
-    }
-  }
-
-  .u-snackbar-text {
-    @include inverted-mode($u-snackbar-text-color-light-theme, $u-snackbar-text-color-dark-theme) using($color) {
-      color: $color;
-    }
-  }
-
-  @if ($theme-style == "uwp") {
-    @include uwp-snackbar($dark-theme);
-
-    @if (mixin_exists(uwp-button)) {
-      .u-snackbar {
-        @include uwp-button(not $dark-theme);
-      }
-    }
   }
 }

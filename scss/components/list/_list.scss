@@ -1,5 +1,4 @@
 @import "variables";
-@import "theme";
 @import "../../font";
 @import "../../mixins";
 @import "../../placeholders";
@@ -59,7 +58,12 @@
   align-items: center;
   min-height: $u-list-item-min-height;
   padding: $u-list-item-padding;
+  color: var(--u-text-high-contrast-color);
   text-decoration: none;
+
+  @include hover-focus() {
+    color: var(--u-text-high-contrast-color);
+  }
 
   &:hover,
   &:focus,
@@ -85,12 +89,21 @@
       align-self: baseline;
     }
   }
+
+  &.active {
+    color: var(--u-primary-color) !important;
+  }
+}
+
+.u-list-item-activity-icon {
+  color: currentColor;
 }
 
 .u-list-item-icon,
 .u-list-item-avatar {
   position: relative;
   font-size: $u-list-icon-size;
+  color: var(--u-text-low-contrast-color);
 }
 
 .u-list-item-avatar {
@@ -173,11 +186,13 @@
   padding: $u-list-item-padding;
   font-size: $u-list-index-font-size;
   font-weight: $u-font-weight-medium;
+  color: var(--u-primary-color);
 }
 
 .u-list-section {
   padding: $u-list-item-padding;
   line-height: 1;
+  color: var(--u-text-low-contrast-color);
 }
 
 .rtl,

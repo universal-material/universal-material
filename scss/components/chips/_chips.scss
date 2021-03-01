@@ -1,14 +1,16 @@
 @import "chip-base";
 @import "../../mixins";
-@import "../../theming";
+@import "../../theme";
 @import "../../placeholders";
 
 .u-chip {
   @extend %u-chip;
 }
 
+@include contrast-bg-var(--u-chip-outline-border-color, $u-chip-outline-border-color-light-theme, $u-chip-outline-border-color-dark-theme);
+
 .u-chip-outline {
-  border: $u-chip-outline-border-width solid;
+  border: $u-chip-outline-border-width solid var(--u-chip-outline-border-color);
 
   &::before {
     content: none;
@@ -117,20 +119,10 @@
 }
 
 @mixin u-chip-theme {
-  $dark-theme: map-get($u-theme, "dark");
-  $theme-colors: map-get($u-theme, "colors");
 
-  $background-color: $u-chip-background-color-light-theme;
-  $u-chip-outline-border-color: $u-chip-outline-border-color-light-theme;
-
-  @if ($dark-theme) {
-    $background-color: $u-chip-background-color-dark-theme;
-    $u-chip-outline-border-color: $u-chip-outline-border-color-dark-theme;
-  }
-
-  .u-chip-outline {
-    border-color: $u-chip-outline-border-color;
-  }
+  //.u-chip-outline {
+  //  border-color: $u-chip-outline-border-color;
+  //}
 
   %u-chip-outline-colored {
     &::before {
@@ -138,9 +130,11 @@
     }
   }
 
-  @each $color, $value in $theme-colors {
-    .u-chip-#{$color} {
-      color: $value;
+  @each $color, $value in $u-theme-colors {
+    @at-root .u-chip-#{$color} {
+      @include apply-style-bg-once("chip-#{$color}") {
+        color: var(--u-#{$color}-color);
+      }
     }
 
     .u-chip-outline.u-chip-#{$color} {

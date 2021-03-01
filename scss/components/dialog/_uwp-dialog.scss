@@ -1,6 +1,6 @@
-@mixin uwp-dialog($theme-colors) {
+@mixin uwp-dialog($u-theme-colors) {
   .u-dialog-content {
-    border: $uwp-dialog-border-width solid map-get($theme-colors, "primary");
+    border: $uwp-dialog-border-width solid map-get($u-theme-colors, "primary");
     border-radius: 0;
   }
 }

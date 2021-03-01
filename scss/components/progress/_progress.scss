@@ -1,5 +1,4 @@
 @import "variables";
-@import "../../theming";
 
 .u-progress-indicator {
   position: relative;
@@ -272,13 +271,7 @@
   }
 }
 
-@mixin u-progress-theme {
-
-  $theme-colors: map-get($u-theme, "colors");
-  $primary-color: map-get($theme-colors, "primary");
-
-  .u-progress,
-  .preloader-wrapper {
-    color: $primary-color;
-  }
+.u-progress,
+.preloader-wrapper {
+  color: var(--u-primary-color);
 }

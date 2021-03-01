@@ -1,5 +1,6 @@
 @import "../placeholders";
 
+
 .u-bg-transparent {
   background-color: transparent !important;
 }
@@ -8,11 +9,18 @@
   @extend %u-selectable-background-before;
 }
 
-@mixin background-colors-theme {
-  $theme-colors: map-get($u-theme, "colors");
+@include contrast-bg-var(--u-hover-color, $u-base-semi-transparent-color-light-theme, $u-base-semi-transparent-color-dark-theme);
 
-  @each $color, $value in $theme-colors {
-    @include u-bg-variant(".u-bg-#{$color}", $value);
+@mixin background-colors-theme {
+
+  @each $color, $value in $u-theme-colors {
+    .u-bg-#{$color} {
+      @include apply-style-bg-once("u-bg-#{$color}") {
+        @extend %u-bg-#{$color};
+        @extend %u-bg-#{$color}-important;
+        background-color: var(--u-#{$color}-color) !important;
+      }
+    }
   }
 }
 

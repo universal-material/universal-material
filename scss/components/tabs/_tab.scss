@@ -25,8 +25,14 @@
   padding-right: $u-tab-horizontal-padding;
   padding-left: $u-tab-horizontal-padding;
   font-family: $u-font-family-base;
+  color: var(--u-text-low-contrast-color);
   cursor: pointer;
+  background-color: transparent;
   @extend %u-selectable-background-before;
+
+  &.active {
+    color: var(--u-text-high-contrast-color);
+  }
 }
 
 .u-tab-indicator {
@@ -34,6 +40,7 @@
   bottom: 0;
   height: $u-tab-indicator-height;
   content: "";
+  background-color: var(--u-text-high-contrast-color);
   transition: left 200ms ease-out, width 200ms ease-out;
   will-change: left;
 }
@@ -69,19 +76,3 @@
     }
   }
 }
-
-//%u-bg-light {
-//  .u-tab {
-//    color: $u-tab-text-color-light-theme;
-//  }
-//
-//  @include u-tab-bar-variant($u-text-high-contrast-light-theme);
-//}
-//
-//%u-bg-dark {
-//  .u-tab {
-//    color: $u-tab-text-color-dark-theme;
-//  }
-//
-//  @include u-tab-bar-variant($u-text-high-contrast-dark-theme);
-//}

@@ -1,42 +1,10 @@
 @use "sass:list";
 
-@import "../theming";
+@import "../theme";
 
-@mixin create-light-theme {
+@mixin u-create-theme {
 
-  $background-color: map-get($u-theme, "bg-light");
-
-  @if & {
-    & {
-      background-color: $background-color;
-      @extend %u-bg-light !optional;
-    }
-  } @else {
-    body {
-      background-color: $background-color;
-      @extend %u-bg-light !optional;
-    }
-  }
-}
-
-@mixin create-dark-theme {
-  $background-color: map-get($u-theme, "bg-dark");
-
-  @if & {
-    & {
-      background-color: $background-color;
-      @extend %u-bg-dark !optional;
-    }
-  } @else {
-    body {
-      background-color: $background-color;
-      @extend %u-bg-dark !optional;
-    }
-  }
-}
-
-@mixin u-create-default-theme {
-
+  @include theme-colors();
   @if (mixin_exists(background-colors-theme)) {
     @include background-colors-theme;
   }
@@ -49,10 +17,6 @@
     @include u-floating-action-button-theme;
   }
 
-  @if (mixin_exists(u-drawer-theme)) {
-    @include u-drawer-theme;
-  }
-
   @if (mixin_exists(u-list-theme)) {
     @include u-list-theme;
   }
@@ -63,10 +27,6 @@
 
   @if (mixin_exists(u-divider-theme)) {
     @include u-divider-theme;
-  }
-
-  @if (mixin_exists(u-dialog-theme)) {
-    @include u-dialog-theme;
   }
 
   @if (mixin_exists(u-dropdown-theme)) {
@@ -133,8 +93,6 @@
     @include u-divider-theme;
   }
 
-  $dark-theme: map-get($u-theme, "dark");
-
   body {
     @include inverted-mode($u-bg-light, $u-bg-dark, true) using($color) {
       background-color: $color;
@@ -143,8 +101,4 @@
       @extend #{$selector} !optional;
     }
   }
-  .u-light-mode .u-bg-dark {
-    @extend .u-bg-dark;
-  }
-
 }

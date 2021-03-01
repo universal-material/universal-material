@@ -1,0 +1,12 @@
+@mixin mode-style($light-value, $dark-value) {
+  $default-value: if($u-default-mode-dark, $dark-value, $light-value);
+  $inverse-value: if($u-default-mode-dark, $light-value, $dark-value);
+
+  $inverse-mode-name: if($u-default-mode-dark, "light", "dark");
+
+  @content($default-value);
+
+  @at-root .u-#{$inverse-mode-name}-mode {
+    @content($inverse-value);
+  }
+}

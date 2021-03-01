@@ -3,9 +3,8 @@
 @import "./text-emphasis";
 
 @mixin extend-bg-colors($prefix) {
-  $theme-colors: map-get($u-theme, "colors");
 
-  @each $color, $value in $theme-colors {
+  @each $color, $value in $u-theme-colors {
     #{$prefix}#{$color} {
       @extend .u-bg-#{$color};
     }

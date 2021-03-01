@@ -2,7 +2,6 @@
 @import "../../font";
 @import "../../mixins";
 @import "../../placeholders";
-@import "../../theming";
 
 //Inspiration: https://codepen.io/abottega/pen/vNzQMo/
 
@@ -66,7 +65,7 @@
       width: .75rem;
       height: .35rem;
       content: "";
-      border: .125rem solid;
+      border: .125rem solid var(--u-bg-color);
       border-top-style: none;
       border-right-style: none;
       transform: rotate(-45deg);
@@ -96,28 +95,21 @@
 @mixin u-checkbox-variant($color) {
   &.checked:not(.disabled) .u-selection-control,
   input:checked:not(:disabled) ~ .u-selection-control {
-    color: $color;
+    color: var(--u-#{$color}-color);
   }
 }
 
 @mixin u-checkbox-theme {
-  $theme-colors: map-get($u-theme, "colors");
 
   .u-checkbox {
-    .u-check-indicator::before {
-      @include inverted-mode($u-checkbox-mark-color-light-theme, $u-checkbox-mark-color-dark-theme) using($color) {
-        border-color: $color;
-      }
-    }
-  }
-
-  .u-checkbox {
-    @each $color, $value in $theme-colors {
-      @if $color == "primary" {
-        @include u-checkbox-variant($value);
-      } @else {
-        &.u-checkbox-#{$color} {
-          @include u-checkbox-variant($value);
+    @each $color, $value in $u-theme-colors {
+      @include apply-style-bg-once("checkbox-#{$color}") {
+        @if $color == "primary" {
+          @include u-checkbox-variant($color);
+        } @else {
+          &.u-checkbox-#{$color} {
+            @include u-checkbox-variant($color);
+          }
         }
       }
     }

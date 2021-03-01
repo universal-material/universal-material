@@ -6,7 +6,22 @@
 @import "uwp-buttons";
 @import "button-base";
 
-%u-all-buttons {
+@mixin u-all-buttons() {
+  .u-btn-raised,
+  .u-btn-solid,
+  .u-btn-flat,
+  .u-btn-borderless,
+  .u-btn-outline,
+  .u-btn-outline-gray,
+  .u-btn-floating {
+    @content;
+  }
+}
+@include contrast-bg-var(--u-btn-disabled-color, $u-btn-disabled-color-light-theme, $u-btn-disabled-color-dark-theme);
+@include contrast-bg-var(--u-btn-solid-disabled-background, $u-btn-disabled-background-light-theme, $u-btn-disabled-background-dark-theme);
+@include contrast-bg-var(--u-btn-borderless-default-color, $u-btn-borderless-default-color-light-theme, $u-btn-borderless-default-color-dark-theme);
+
+@include u-all-buttons() {
   @extend %u-button-base;
   height: $u-btn-height;
   line-height: $u-btn-material-line-height;
@@ -14,6 +29,7 @@
 
   &.disabled,
   &:disabled {
+    color: var(--u-btn-disabled-color) !important;
     box-shadow: none;
 
     &::before {
@@ -22,21 +38,22 @@
   }
 }
 
+.u-btn-floating,
 .u-btn-raised,
-.u-btn-solid,
-.u-btn-flat,
-.u-btn-borderless,
-.u-btn-outline,
-.u-btn-outline-gray,
-.u-btn-floating {
-  @extend %u-all-buttons;
+.u-btn-solid {
+  &.disabled,
+  &:disabled {
+    background-color: var(--u-btn-solid-disabled-background) !important;
+  }
 }
 
 .u-btn-set {
   display: inline-flex;
 
-  %u-all-buttons:not(:first-child) {
-    margin-left: $u-btn-set-margin;
+  @include u-all-buttons() {
+    &:not(:first-child) {
+      margin-left: $u-btn-set-margin;
+    }
   }
 }
 
@@ -50,13 +67,15 @@
 .u-btn-flat,
 .u-btn-solid,
 .u-btn-raised,
-.u-btn-outline {
+.u-btn-outline,
+.u-btn-outline-gray {
   padding: 0 $u-btn-side-padding;
   border-radius: $u-btn-border-radius;
 }
 
-.u-btn-outline {
-  border: $u-btn-outline-border-width solid currentColor !important;
+.u-btn-outline,
+.u-btn-outline-gray {
+  border: $u-btn-outline-border-width solid currentColor;
 
   &::before,
   .u-ripple-wrapper {
@@ -67,6 +86,7 @@
   }
 }
 
+.u-btn-floating,
 .u-btn-raised {
   @include u-elevation(2);
 
@@ -140,37 +160,25 @@
   height: $u-btn-floating-small-size !important;
 }
 
-@mixin u-disabled-button($color, $background, $important: false) {
-  %u-all-buttons {
-    &.disabled,
-    &:disabled {
-      color: $color #{important($important)};
-    }
-  }
-
-  //.u-btn-solid,
-  //.u-btn-raised {
-  //  &.disabled,
-  //  &:disabled {
-  //    background-color: $u-btn-disabled-background-light-theme #{important($important)};
-  //  }
-  //}
+.u-btn-solid.u-btn-default,
+.u-btn-raised.u-btn-default,
+.u-btn-floating.u-btn-default {
+  color: var(--u-default-text-high-contrast-color);
+  background: var(--u-surface-color);
 }
 
-.u-bg-light {
-  @include u-disabled-button($u-btn-disabled-color-light-theme, $u-btn-disabled-background-light-theme);
+.u-btn-flat.u-btn-default,
+.u-btn-outline.u-btn-default,
+.u-btn-outline-gray.u-btn-default {
+  color: var(--u-text-high-contrast-color);
 }
 
-%u-bg-light-important {
-  @include u-disabled-button($u-btn-disabled-color-light-theme, $u-btn-disabled-background-light-theme, true);
+.u-btn-outline-gray {
+  border-color: var(--u-divider-color);
 }
 
-.u-bg-dark {
-  @include u-disabled-button($u-btn-disabled-color-dark-theme, $u-btn-disabled-background-dark-theme);
-}
-
-%u-bg-dark-important {
-  @include u-disabled-button($u-btn-disabled-color-dark-theme, $u-btn-disabled-background-dark-theme, true);
+.u-btn-borderless.u-btn-default {
+  color: var(--u-btn-borderless-default-color);
 }
 
 .rtl,
@@ -200,7 +208,7 @@
   }
 
   .u-btn-set {
-    %u-all-buttons {
+    @include u-all-buttons() {
       margin-left: 0;
       &:not(:first-child) {
         margin-right: $u-btn-set-margin;

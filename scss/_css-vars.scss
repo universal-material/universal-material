@@ -1,0 +1,29 @@
+@mixin create-bg-vars($is-default-mode, $bg-name, $inverse-bg-name, $bg-vars) {
+  @if ($u-default-mode-dark) {
+    :root,
+    %u-bg-#{$bg-name},
+    .u-#{$inverse-bg-name}-mode %u-bg-#{$bg-name} {
+      @include add-vars($bg-vars);
+    }
+  } @else {
+    .u-#{$bg-name}-mode,
+    %u-bg-#{$bg-name} {
+      @include add-vars($bg-vars);
+    }
+  }
+}
+
+@include create-bg-vars($u-default-mode-dark == false, "light", "dark", $u-bg-light-vars);
+@include create-bg-vars($u-default-mode-dark, "dark", "light", $u-bg-dark-vars);
+@include root-and-inverse-mode-var(--u-default-text-high-contrast-color, $u-text-high-contrast-light-theme, $u-text-high-contrast-dark-theme);
+@include root-and-inverse-mode-var(--u-inverse-text-high-contrast-color, $u-text-high-contrast-dark-theme, $u-text-high-contrast-light-theme);
+@include root-and-inverse-mode-var(--u-surface-color, $u-light-surface, $u-dark-surface);
+@include root-and-inverse-mode-var(--u-bg-color, $u-bg-light, $u-bg-dark);
+
+:root {
+  @include add-vars($u-root-vars);
+}
+
+#{$u-inverse-mode-name} {
+  @include add-vars($u-inverse-mode-vars);
+}

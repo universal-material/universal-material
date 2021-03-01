@@ -135,8 +135,7 @@ const watchDefault = () => {
 
 const watchDocs = () => {
   watch(['./docs/src/**/*.pug', './docs/src/**/*.html'], exports['pug:docs']);
-  watch('./scss/**/*.scss', exports['sass:normal']);
-  watch('./docs/src/css/**/*.scss', exports['sass:docs']);
+  watch(['./docs/src/css/**/*.scss', './scss/**/*.scss'], exports['sass:docs']);
 }
 
 const watchNormalSass = () => {

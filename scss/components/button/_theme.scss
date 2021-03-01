@@ -2,7 +2,7 @@
 @import "../../mixins";
 
 @mixin button-flat-variant($color) {
-  color: $color;
+  color: var(--u-#{$color}-color);
 }
 
 @mixin button-flat-theme($buttons-colors) {
@@ -10,68 +10,24 @@
   @each $color, $value in $buttons-colors {
     .u-btn-flat.u-btn-#{$color},
     .u-btn-outline.u-btn-#{$color},
+    .u-btn-outline-gray.u-btn-#{$color},
     .u-btn-borderless.u-btn-#{$color} {
-      @include button-flat-variant($value);
+      @include button-flat-variant($color);
     }
   }
 }
 
 @mixin u-buttons-theme {
 
-  $theme-colors: map-get($u-theme, "colors");
-  $theme-style: map-get($u-theme, "style");
-
-  @each $color, $value in $theme-colors {
+  @each $color, $value in $u-theme-colors {
     .u-btn-solid.u-btn-#{$color},
     .u-btn-raised.u-btn-#{$color},
     .u-btn-floating.u-btn-#{$color} {
-      @include button-solid-variant($value);
-    }
-  }
-
-  .u-btn-solid.u-btn-default,
-  .u-btn-raised.u-btn-default,
-  .u-btn-floating.u-btn-default {
-    @include inverted-mode($u-btn-solid-default-background-light-theme, $u-btn-solid-default-background-dark-theme) using ($color) {
-      @include button-solid-variant($color);
-    }
-  }
-
-  .u-btn-borderless.u-btn-default {
-    @include inverted-mode($u-btn-borderless-default-color-light-theme, $u-btn-borderless-default-color-dark-theme) using ($color) {
-      color: $color;
-    }
-  }
-
-  .u-btn-flat.u-btn-default,
-  .u-btn-outline.u-btn-default,
-  .u-btn-outline-gray.u-btn-default {
-    @include inverted-mode($u-btn-flat-default-background-light-theme, $u-btn-flat-default-background-dark-theme) using ($color) {
-      color: $color;
-    }
-  }
-
-  .u-btn-outline-gray {
-    @extend .u-btn-outline;
-    @include inverted-mode($u-btn-outline-gray-border-color-light-theme, $u-btn-outline-gray-border-color-dark-theme) using ($color) {
-      border-color: $color !important;
-    }
-  }
-
-  .u-btn-floating,
-  .u-btn-raised,
-  .u-btn-solid {
-    &.disabled,
-    &:disabled {
-      @include inverted-mode($u-btn-disabled-background-light-theme, $u-btn-disabled-background-dark-theme) using($color) {
-        background-color: $color;
+      @include apply-style-bg-once("btn-bg-#{$color}") {
+        @extend %u-bg-#{$color};
       }
     }
   }
 
-  @include button-flat-theme($theme-colors);
-
-  @if ($theme-style == "uwp") {
-    @include uwp-button($dark-theme);
-  }
+  @include button-flat-theme($u-theme-colors);
 }
