@@ -67,8 +67,10 @@ const sassNoRebootCompressed = () => {
 
 const sassDocs = () => {
   return src("./docs/src/css/docs.scss")
+    .pipe(sourcemaps.init())
     .pipe(gulpSass({fiber: fiber}).on("error", gulpSass.logError))
     .pipe(autoprefixer())
+    .pipe(sourcemaps.write("./"))
     .pipe(dest("./docs/dist/css"));
 }
 

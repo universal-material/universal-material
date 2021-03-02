@@ -7,13 +7,13 @@
 @import "zindex";
 @import "theme";
 
+$u-include-rtl: false !default;
+$u-include-ios-styles: false !default;
+
 $placeholders-already-imported: false !default;
 $link-color: $u-primary-color !default;
 $text-muted: $u-text-low-contrast-light-theme !default;
 
-$u-root-vars: () !default;
-$u-inverse-mode-vars: () !default;
-$u-theme-vars: () !default;
 $u-bg-light-vars: () !default;
 $u-bg-dark-vars: () !default;
 

@@ -58,11 +58,11 @@
   align-items: center;
   min-height: $u-list-item-min-height;
   padding: $u-list-item-padding;
-  color: var(--u-text-high-contrast-color);
+  color: var(--u-high-contrast-color);
   text-decoration: none;
 
   @include hover-focus() {
-    color: var(--u-text-high-contrast-color);
+    color: var(--u-high-contrast-color);
   }
 
   &:hover,
@@ -103,7 +103,7 @@
 .u-list-item-avatar {
   position: relative;
   font-size: $u-list-icon-size;
-  color: var(--u-text-low-contrast-color);
+  color: var(--u-low-contrast-color);
 }
 
 .u-list-item-avatar {
@@ -192,7 +192,7 @@
 .u-list-section {
   padding: $u-list-item-padding;
   line-height: 1;
-  color: var(--u-text-low-contrast-color);
+  color: var(--u-low-contrast-color);
 }
 
 .rtl,

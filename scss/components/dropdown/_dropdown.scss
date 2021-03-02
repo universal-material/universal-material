@@ -6,6 +6,8 @@
 @import "../../placeholders";
 
 .u-dropdown-menu {
+  @extend %surface-background;
+
   @include u-elevation(2);
 
   position: absolute;
@@ -15,7 +17,6 @@
   padding-bottom: $u-dropdown-menu-padding;
   overflow: hidden;
   font-family: $u-font-family-base;
-  background-color: var(--u-surface-color);
   border-radius: $u-dropdown-menu-border-radius;
   opacity: 0;
   transition: transform 350ms $awesome-cubic-bezier 350ms, opacity 350ms;
@@ -82,7 +83,7 @@
   height: $u-dropdown-item-height;
   padding: 0 $u-dropdown-item-padding;
   font-size: $u-dropdown-item-font-size;
-  color: var(--u-default-text-high-contrast-color);
+  color: var(--u-mode-high-contrast-color);
   text-decoration: none;
   cursor: pointer;
   background: none;
@@ -90,7 +91,7 @@
   outline: 0;
 
   @include hover-focus() {
-    color: var(--u-default-text-high-contrast-color);
+    color: var(--u-mode-high-contrast-color);
   }
 
   @extend %u-selectable-background-before;
@@ -188,27 +189,4 @@
       left: auto;
     }
   }
-}
-
-@mixin u-dropdown-theme {
-
-  //.u-dropdown-item {
-  //  @include inverted-mode($u-dropdown-item-color-light-theme, $u-dropdown-item-color-dark-theme) using ($color) {
-  //    color: $color;
-  //  }
-  //
-  //  @include hover-focus {
-  //    @include inverted-mode($u-dropdown-item-color-light-theme, $u-dropdown-item-color-dark-theme) using ($color) {
-  //      color: $color;
-  //    }
-  //  }
-  //}
-
-  //.u-data-table {
-  //  .u-dropdown-menu {
-  //    @include inverted-mode($u-dropdown-in-data-table-bg-light-theme, $u-dropdown-in-data-table-bg-dark-theme) using ($color) {
-  //      background-color: $color;
-  //    }
-  //  }
-  //}
 }

@@ -163,14 +163,14 @@
 .u-btn-solid.u-btn-default,
 .u-btn-raised.u-btn-default,
 .u-btn-floating.u-btn-default {
-  color: var(--u-default-text-high-contrast-color);
+  color: var(--u-mode-high-contrast-color);
   background: var(--u-surface-color);
 }
 
 .u-btn-flat.u-btn-default,
 .u-btn-outline.u-btn-default,
 .u-btn-outline-gray.u-btn-default {
-  color: var(--u-text-high-contrast-color);
+  color: var(--u-high-contrast-color);
 }
 
 .u-btn-outline-gray {

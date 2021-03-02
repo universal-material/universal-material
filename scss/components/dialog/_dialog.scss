@@ -17,11 +17,12 @@
 }
 
 .u-dialog-content {
+  @extend %surface-background;
+
   display: flex;
   flex-direction: column;
   min-width: $u-dialog-min-width;
   max-width: 100%;
-  background-color: var(--u-surface-color);
   margin: 0 auto;
   overflow: hidden;
   border-radius: $u-dialog-border-radius;

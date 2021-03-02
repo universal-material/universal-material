@@ -20,6 +20,8 @@
 }
 
 .u-drawer-content {
+  @extend %surface-background;
+
   position: fixed;
   top: 0;
   bottom: 0;
@@ -29,7 +31,6 @@
   width: $u-drawer-sidebar-width;
   max-width: 85%;
   overflow-y: auto;
-  background: var(--u-surface-color);
   transition: transform 375ms $awesome-cubic-bezier;
   transform: translateX(-100%);
 }

@@ -1,24 +1,8 @@
 @use "sass:map";
 
 @mixin contrast-bg-var($name, $value-to-light-bg, $value-to-dark-bg) {
-  $u-bg-light-vars: map.set($u-bg-light-vars, $name, $value-to-light-bg) !global;
-  $u-bg-dark-vars: map.set($u-bg-dark-vars, $name, $value-to-dark-bg) !global;
-}
-
-@mixin root-and-inverse-mode-var($name, $value-to-light-bg, $value-to-dark-bg) {
-  $default-value: if($u-default-mode-dark, $value-to-dark-bg, $value-to-light-bg);
-  $inverse-value: if($u-default-mode-dark, $value-to-light-bg, $value-to-dark-bg);
-
-  $u-root-vars: map.set($u-root-vars, $name, $default-value) !global;
-  $u-inverse-mode-vars: map.set($u-inverse-mode-vars, $name, $inverse-value) !global;
-}
-
-@mixin root-var($name, $value) {
-  $u-root-vars: map.set($u-root-vars, $name, $value) !global;
-}
-
-@mixin theme-var($name, $value) {
-  $u-theme-vars: map.set($u-root-vars, $name, $value) !global;
+  $u-bg-light-vars: map.merge($u-bg-light-vars, ($name: $value-to-light-bg)) !global;
+  $u-bg-dark-vars: map.merge($u-bg-dark-vars, ($name: $value-to-dark-bg)) !global;
 }
 
 @mixin add-vars($map) {

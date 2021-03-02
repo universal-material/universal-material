@@ -7,10 +7,11 @@
 @import "../../placeholders";
 
 .u-card {
+  @extend %surface-background;
+
   font-family: $u-font-family-base;
   border-radius: $u-card-border-radius;
   box-shadow: $u-card-shadow;
-  background-color: var(--u-surface-color);
 }
 
 .u-card-outline {
@@ -71,10 +72,9 @@
   padding: $u-card-actions-padding;
 }
 
-@if (mixin_exists(u-text-fields-theme)) {
-  .u-card {
-    .u-text-field-outline label {
-      background-color: var(--u-surface-color);
-    }
+.u-card {
+  .u-text-field-outline label {
+    background-color: var(--u-surface-color);
   }
 }
+

@@ -13,26 +13,6 @@
     @include u-buttons-theme;
   }
 
-  @if (mixin_exists(u-floating-action-button-theme)) {
-    @include u-floating-action-button-theme;
-  }
-
-  @if (mixin_exists(u-list-theme)) {
-    @include u-list-theme;
-  }
-
-  @if (mixin_exists(u-card-theme)) {
-    @include u-card-theme;
-  }
-
-  @if (mixin_exists(u-divider-theme)) {
-    @include u-divider-theme;
-  }
-
-  @if (mixin_exists(u-dropdown-theme)) {
-    @include u-dropdown-theme;
-  }
-
   @if (mixin_exists(u-chip-theme)) {
     @include u-chip-theme;
   }
@@ -53,20 +33,8 @@
     @include u-slider-theme;
   }
 
-  @if (mixin_exists(u-snackbar-theme)) {
-    @include u-snackbar-theme;
-  }
-
   @if (mixin_exists(u-tab-theme)) {
     @include u-tab-theme;
-  }
-
-  @if (mixin_exists(u-text-fields-theme)) {
-    @include u-text-fields-theme;
-  }
-
-  @if (mixin_exists(u-data-table-theme)) {
-    @include u-data-table-theme;
   }
 
   @if (mixin_exists(u-toolbar-theme)) {
@@ -75,30 +43,5 @@
 
   @if (mixin_exists(u-text-theme)) {
     @include u-text-theme;
-  }
-
-  @if (mixin_exists(u-progress-theme)) {
-    @include u-progress-theme;
-  }
-
-  @if (mixin_exists(u-datepicker-theme)) {
-    @include u-datepicker-theme;
-  }
-
-  @if (mixin_exists(u-stepper-theme)) {
-    @include u-stepper-theme;
-  }
-
-  @if (mixin_exists(u-divider-theme)) {
-    @include u-divider-theme;
-  }
-
-  body {
-    @include inverted-mode($u-bg-light, $u-bg-dark, true) using($color) {
-      background-color: $color;
-    }
-    @include inverted-mode("%u-bg-light", "%u-bg-dark", true) using($selector) {
-      @extend #{$selector} !optional;
-    }
   }
 }

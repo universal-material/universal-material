@@ -81,23 +81,26 @@
   }
 }
 
-@include contrast-bg-var(--u-text-low-contrast-color, $u-text-low-contrast-light-theme, $u-text-low-contrast-dark-theme);
-@include contrast-bg-var(--u-text-lower-contrast-color, $u-text-lower-contrast-light-theme, $u-text-lower-contrast-dark-theme);
-@include contrast-bg-var(--u-text-high-contrast-color, $u-text-high-contrast-light-theme, $u-text-high-contrast-dark-theme);
-@include contrast-bg-var(--u-text-inverse-low-contrast-color, $u-text-low-contrast-dark-theme, $u-text-low-contrast-light-theme);
-@include contrast-bg-var(--u-text-inverse-high-contrast-color, $u-text-high-contrast-dark-theme, $u-text-high-contrast-light-theme);
-@include contrast-bg-var(--u-text-inverse-lower-contrast-color, $u-text-lower-contrast-dark-theme, $u-text-lower-contrast-light-theme);
+@include contrast-bg-var(--u-low-contrast-color, $u-text-low-contrast-light-theme, $u-text-low-contrast-dark-theme);
+@include contrast-bg-var(--u-lower-contrast-color, $u-text-lower-contrast-light-theme, $u-text-lower-contrast-dark-theme);
+@include contrast-bg-var(--u-high-contrast-color, $u-text-high-contrast-light-theme, $u-text-high-contrast-dark-theme);
 
 .u-text-high-contrast {
-  color: var(--u-text-high-contrast-color);
+  color: var(--u-high-contrast-color) !important;
 }
 
 .u-text-low-contrast {
-  color: var(--u-text-low-contrast-color);
+  color: var(--u-low-contrast-color) !important;
+}
+
+.u-text-lower-contrast {
+  color: var(--u-lower-contrast-color) !important;
 }
 
 @mixin u-text-theme {
   @each $color, $value in $u-theme-colors {
-    @include text-emphasis-variant(".u-text-#{$color}", $value);
+    @include apply-style-bg-once("text-#{$color}") {
+      @include text-emphasis-variant(".u-text-#{$color}", $color);
+    }
   }
 }

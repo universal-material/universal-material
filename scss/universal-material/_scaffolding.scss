@@ -3,6 +3,11 @@ body {
   text-align: start;
 }
 
-body.rtl {
-  direction: rtl;
+body {
+  color: var(--u-high-contrast-color);
+  background-color: var(--u-bg-color);
+
+  &.rtl {
+    direction: rtl;
+  }
 }

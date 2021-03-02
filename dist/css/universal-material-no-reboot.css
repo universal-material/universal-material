@@ -5381,15 +5381,15 @@ mark,
           box-sizing: border-box;
 }
 
-body, .u-toolbar-warning, .u-btn-solid.u-btn-warning,
+.u-toolbar-warning, .u-btn-solid.u-btn-warning,
 .u-btn-raised.u-btn-warning,
 .u-btn-floating.u-btn-warning, .u-bg-warning, .u-toolbar-success, .u-btn-solid.u-btn-success,
 .u-btn-raised.u-btn-success,
-.u-btn-floating.u-btn-success, .u-bg-success, .u-bg-light {
+.u-btn-floating.u-btn-success, .u-bg-success, .u-bg-light, .u-toolbar-default, .u-card, .u-dropdown-menu, .u-dialog-content, .u-drawer-content {
   color: rgba(0, 0, 0, 0.87);
 }
 
-body.u-dark-mode, .u-toolbar-danger, .u-btn-solid.u-btn-danger,
+.u-toolbar-danger, .u-btn-solid.u-btn-danger,
 .u-btn-raised.u-btn-danger,
 .u-btn-floating.u-btn-danger, .u-bg-danger, .u-toolbar-secondary-variant, .u-btn-solid.u-btn-secondary-variant,
 .u-btn-raised.u-btn-secondary-variant,
@@ -5400,10 +5400,13 @@ body.u-dark-mode, .u-toolbar-danger, .u-btn-solid.u-btn-danger,
 .u-btn-floating.u-btn-primary-variant, .u-bg-primary-variant, .u-toolbar-primary, .u-btn-solid.u-btn-primary,
 .u-btn-raised.u-btn-primary,
 .u-btn-floating.u-btn-primary, .u-bg-primary, .u-datepicker-day.active,
-.u-datepicker-year-month-button.active, .u-bg-dark, .u-card-media-content {
+.u-datepicker-year-month-button.active, .u-bg-dark, .u-card-media-content, .u-dark-mode .u-toolbar-default, .u-dark-mode .u-card, .u-dark-mode .u-dropdown-menu, .u-dark-mode .u-dialog-content, .u-dark-mode .u-drawer-content {
   color: #fff;
 }
 
+.u-card, .u-dropdown-menu, .u-dialog-content, .u-drawer-content {
+  background-color: var(--u-surface-color);
+}
 .u-selectable-background, .u-chip-hover, .u-chip-remove, .u-list-item-hover, .u-list.u-list-selectable .u-list-item, .u-dropdown-item, .u-expansion-panel-header, .u-android .u-switch .u-check-indicator, .u-radio .u-selection-control, .u-checkbox .u-selection-control, .u-datepicker-year-month-button, .u-datepicker-day, .u-tab, .u-btn-raised,
 .u-btn-solid,
 .u-btn-flat,
@@ -5568,6 +5571,9 @@ body.u-dark-mode, .u-toolbar-danger, .u-btn-solid.u-btn-danger,
           box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 }
 
+.u-toolbar-default {
+  background-color: var(--u-surface-color);
+}
 .rtl .u-toolbar-start .u-toolbar-actions,
 [dir=rtl] .u-toolbar-start .u-toolbar-actions {
   margin-right: -16px;
@@ -5623,7 +5629,6 @@ body.u-dark-mode, .u-toolbar-danger, .u-btn-solid.u-btn-danger,
   width: 16rem;
   max-width: 85%;
   overflow-y: auto;
-  background: var(--u-surface-color);
   -webkit-transition: -webkit-transform 375ms cubic-bezier(0.19, 1, 0.22, 1);
   transition: -webkit-transform 375ms cubic-bezier(0.19, 1, 0.22, 1);
   transition: transform 375ms cubic-bezier(0.19, 1, 0.22, 1);
@@ -6332,14 +6337,14 @@ body.u-dark-mode, .u-toolbar-danger, .u-btn-solid.u-btn-danger,
 .u-btn-solid.u-btn-default,
 .u-btn-raised.u-btn-default,
 .u-btn-floating.u-btn-default {
-  color: var(--u-default-text-high-contrast-color);
+  color: var(--u-mode-high-contrast-color);
   background: var(--u-surface-color);
 }
 
 .u-btn-flat.u-btn-default,
 .u-btn-outline.u-btn-default,
 .u-btn-outline-gray.u-btn-default {
-  color: var(--u-text-high-contrast-color);
+  color: var(--u-high-contrast-color);
 }
 
 .u-btn-outline-gray {
@@ -6674,6 +6679,7 @@ body.u-dark-mode, .u-toolbar-danger, .u-btn-solid.u-btn-danger,
 [dir=rtl] .u-floating-menu-label {
   margin-right: 0;
   margin-left: 16px;
+  background-color: var(--u-surface-color);
 }
 
 .u-badge {
@@ -6733,7 +6739,7 @@ body.u-dark-mode, .u-toolbar-danger, .u-btn-solid.u-btn-danger,
   max-height: 0;
   overflow: hidden;
   font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  background: #fff;
+  background: var(--u-surface-color);
   -webkit-transition: max-height 450ms ease-out;
   transition: max-height 450ms ease-out;
 }
@@ -7113,7 +7119,6 @@ body.u-dark-mode, .u-toolbar-danger, .u-btn-solid.u-btn-danger,
           flex-direction: column;
   min-width: 280px;
   max-width: 100%;
-  background-color: var(--u-surface-color);
   margin: 0 auto;
   overflow: hidden;
   border-radius: 0.25rem;
@@ -7395,7 +7400,7 @@ body.u-dark-mode, .u-toolbar-danger, .u-btn-solid.u-btn-danger,
   position: relative;
   width: 100%;
   overflow: auto;
-  background: #fff;
+  background: var(--u-surface-color);
   -webkit-transition: margin 150ms ease-out;
   transition: margin 150ms ease-out;
 }
@@ -7436,7 +7441,7 @@ body.u-dark-mode, .u-toolbar-danger, .u-btn-solid.u-btn-danger,
 }
 .u-expansion-panel-label + .u-expansion-panel-label {
   margin-left: 16px;
-  color: rgba(0, 0, 0, 0.54);
+  color: var(--u-low-contrast-color);
 }
 
 .u-expansion-panel-header {
@@ -7463,7 +7468,7 @@ body.u-dark-mode, .u-toolbar-danger, .u-btn-solid.u-btn-danger,
 .u-expansion-toggle-icon {
   margin-left: auto;
   font-size: 1.5rem;
-  color: rgba(0, 0, 0, 0.54);
+  color: var(--u-low-contrast-color);
   -webkit-transition: -webkit-transform 150ms;
   transition: -webkit-transform 150ms;
   transition: transform 150ms;
@@ -7480,7 +7485,6 @@ body.u-dark-mode, .u-toolbar-danger, .u-btn-solid.u-btn-danger,
   padding-bottom: 8px;
   overflow: hidden;
   font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  background-color: var(--u-surface-color);
   border-radius: 0.25rem;
   opacity: 0;
   -webkit-transition: opacity 350ms, -webkit-transform 350ms cubic-bezier(0.19, 1, 0.22, 1) 350ms;
@@ -7554,7 +7558,7 @@ body.u-dark-mode, .u-toolbar-danger, .u-btn-solid.u-btn-danger,
   height: 3rem;
   padding: 0 16px;
   font-size: 1rem;
-  color: var(--u-default-text-high-contrast-color);
+  color: var(--u-mode-high-contrast-color);
   text-decoration: none;
   cursor: pointer;
   background: none;
@@ -7562,7 +7566,7 @@ body.u-dark-mode, .u-toolbar-danger, .u-btn-solid.u-btn-danger,
   outline: 0;
 }
 .u-dropdown-item:hover, .u-dropdown-item:focus {
-  color: var(--u-default-text-high-contrast-color);
+  color: var(--u-mode-high-contrast-color);
 }
 .u-dropdown-item.active::before, .u-dropdown-item:active::before {
   opacity: 0.12;
@@ -7684,7 +7688,7 @@ body.u-dark-mode, .u-toolbar-danger, .u-btn-solid.u-btn-danger,
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.5rem;
-  color: var(--u-text-low-contrast-color);
+  color: var(--u-low-contrast-color);
 }
 
 .u-step-content {
@@ -7707,7 +7711,7 @@ body.u-dark-mode, .u-toolbar-danger, .u-btn-solid.u-btn-danger,
   font-weight: 500;
 }
 .u-step.active .u-step-label {
-  color: var(--u-text-high-contrast-color);
+  color: var(--u-high-contrast-color);
 }
 .u-step.active .u-step-circle, .u-step.completed .u-step-circle {
   color: #fff;
@@ -7839,12 +7843,12 @@ body.u-dark-mode, .u-toolbar-danger, .u-btn-solid.u-btn-danger,
   padding-right: 16px;
   padding-left: 16px;
   font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  color: var(--u-text-low-contrast-color);
+  color: var(--u-low-contrast-color);
   cursor: pointer;
   background-color: transparent;
 }
 .u-tab.active {
-  color: var(--u-text-high-contrast-color);
+  color: var(--u-high-contrast-color);
 }
 
 .u-tab-indicator {
@@ -7852,7 +7856,7 @@ body.u-dark-mode, .u-toolbar-danger, .u-btn-solid.u-btn-danger,
   bottom: 0;
   height: 2px;
   content: "";
-  background-color: var(--u-text-high-contrast-color);
+  background-color: var(--u-high-contrast-color);
   -webkit-transition: left 200ms ease-out, width 200ms ease-out;
   transition: left 200ms ease-out, width 200ms ease-out;
   will-change: left;
@@ -7912,8 +7916,8 @@ body.u-dark-mode, .u-toolbar-danger, .u-btn-solid.u-btn-danger,
 .u-data-table th {
   font-size: 0.8125rem;
   font-weight: 500;
+  color: var(--u-low-contrast-color);
   text-align: initial;
-  color: var(--u-text-low-contrast-color);
 }
 .u-data-table td {
   font-size: 0.875rem;
@@ -8014,11 +8018,11 @@ body.u-dark-mode, .u-toolbar-danger, .u-btn-solid.u-btn-danger,
           align-items: center;
   min-height: 3rem;
   padding: 16px;
-  color: var(--u-text-high-contrast-color);
+  color: var(--u-high-contrast-color);
   text-decoration: none;
 }
 .u-list-item:hover, .u-list-item:focus {
-  color: var(--u-text-high-contrast-color);
+  color: var(--u-high-contrast-color);
 }
 .u-list-item:hover, .u-list-item:focus, .u-list-item.focus {
   text-decoration: none;
@@ -8048,7 +8052,7 @@ body.u-dark-mode, .u-toolbar-danger, .u-btn-solid.u-btn-danger,
 .u-list-item-avatar {
   position: relative;
   font-size: 1.5rem;
-  color: var(--u-text-low-contrast-color);
+  color: var(--u-low-contrast-color);
 }
 
 .u-list-item-avatar {
@@ -8149,7 +8153,7 @@ body.u-dark-mode, .u-toolbar-danger, .u-btn-solid.u-btn-danger,
 .u-list-section {
   padding: 16px;
   line-height: 1;
-  color: var(--u-text-low-contrast-color);
+  color: var(--u-low-contrast-color);
 }
 
 .rtl .u-list-item-icon + .u-list-item-primary-content,
@@ -8815,7 +8819,7 @@ body.u-dark-mode, .u-toolbar-danger, .u-btn-solid.u-btn-danger,
   margin: 0.75rem 1rem;
   overflow: hidden;
   font-weight: 500;
-  color: var(--u-inverse-text-high-contrast-color);
+  color: var(--u-inverse-mode-high-contrast-color);
 }
 
 @media (min-width: 768px) {
@@ -8910,7 +8914,7 @@ body.u-dark-mode, .u-toolbar-danger, .u-btn-solid.u-btn-danger,
   overflow: hidden;
   font-size: 0.75rem;
   line-height: 1em;
-  color: var(--u-text-low-contrast-color);
+  color: var(--u-low-contrast-color);
 }
 
 .u-text-field-helper-text-invalid {
@@ -9057,7 +9061,7 @@ button.u-text-input:not(textarea) {
   margin-bottom: 0.25rem;
   font-size: 0.75rem;
   line-height: 0.75rem;
-  color: var(--u-text-low-contrast-color);
+  color: var(--u-low-contrast-color);
 }
 .u-text-field::before {
   position: absolute;
@@ -9098,18 +9102,18 @@ button.u-text-input:not(textarea) {
 .u-text-field.disabled .u-text-field-trailing-icon .u-text-field-helper-text-default,
 .u-text-field.disabled + .u-text-field-helper-text,
 .u-text-field.disabled + .u-text-field-helper-text .u-text-field-helper-text-default {
-  color: var(--u-text-lower-contrast-color);
+  color: var(--u-lower-contrast-color);
 }
 .u-text-field.disabled .u-text-input,
 .u-text-field .u-text-input:disabled {
-  color: var(--u-text-lower-contrast-color);
+  color: var(--u-lower-contrast-color);
   border-color: var(----u-text-field-disabled-divider-color);
 }
 .u-text-field.invalid, .u-text-field.invalid .u-text-field-leading-icon, .u-text-field.invalid .u-text-field-trailing-icon, .u-text-field ~ .u-text-field-helper-text .u-text-field-helper-text-invalid {
   color: var(--u-danger-color);
 }
 .u-text-field:not(.disabled):hover .u-text-input:not(:disabled) {
-  border-color: var(--u-text-high-contrast-color);
+  border-color: var(--u-high-contrast-color);
 }
 
 .u-text-field.u-text-field-floating-label label,
@@ -9320,10 +9324,10 @@ button.u-text-input:not(textarea) {
   margin-right: calc(8px + 1.5rem);
 }
 .u-text-field-outline:not(.focus):not(.invalid):not(.disabled)::before {
-  border-color: var(--u-text-low-contrast-color);
+  border-color: var(--u-low-contrast-color);
 }
 .u-text-field-outline:not(.focus):not(.invalid):not(.disabled):hover::before {
-  border-color: var(--u-text-high-contrast-color);
+  border-color: var(--u-high-contrast-color);
 }
 .u-text-field-outline.disabled::before {
   border-color: var(--u-text-field-disabled-divider-color);
@@ -9374,7 +9378,7 @@ button.u-text-input:not(textarea) {
 .u-text-input-prefix, .u-text-input-suffix {
   -ms-flex-negative: 0;
       flex-shrink: 0;
-  color: var(--u-text-low-contrast-color);
+  color: var(--u-low-contrast-color);
 }
 
 .u-text-input-suffix {
@@ -9387,13 +9391,13 @@ button.u-text-input:not(textarea) {
 
 .u-text-field-leading-icon,
 .u-text-field-trailing-icon {
-  color: var(--u-text-low-contrast-color);
+  color: var(--u-low-contrast-color);
 }
 
 .u-text-input,
 input.u-text-input {
-  color: var(--u-text-high-contrast-color);
-  border-color: var(--u-text-low-contrast-color);
+  color: var(--u-high-contrast-color);
+  border-color: var(--u-low-contrast-color);
 }
 
 .u-text-input::-webkit-input-placeholder, .u-text-field-floating-label.empty.u-text-field-no-label .u-text-input::-webkit-input-placeholder, .u-text-field-outline.empty.u-text-field-no-label .u-text-input::-webkit-input-placeholder, .u-text-field-box.empty.u-text-field-no-label .u-text-input::-webkit-input-placeholder,
@@ -9401,7 +9405,7 @@ input.u-text-input {
 .u-text-field-floating-label.empty.u-text-field-no-label .u-text-input-placeholder,
 .u-text-field-outline.empty.u-text-field-no-label .u-text-input-placeholder,
 .u-text-field-box.empty.u-text-field-no-label .u-text-input-placeholder {
-  color: var(--u-text-lower-contrast-color);
+  color: var(--u-lower-contrast-color);
 }
 
 .u-text-input:-ms-input-placeholder, .u-text-field-floating-label.empty.u-text-field-no-label .u-text-input:-ms-input-placeholder, .u-text-field-outline.empty.u-text-field-no-label .u-text-input:-ms-input-placeholder, .u-text-field-box.empty.u-text-field-no-label .u-text-input:-ms-input-placeholder,
@@ -9409,7 +9413,7 @@ input.u-text-input {
 .u-text-field-floating-label.empty.u-text-field-no-label .u-text-input-placeholder,
 .u-text-field-outline.empty.u-text-field-no-label .u-text-input-placeholder,
 .u-text-field-box.empty.u-text-field-no-label .u-text-input-placeholder {
-  color: var(--u-text-lower-contrast-color);
+  color: var(--u-lower-contrast-color);
 }
 
 .u-text-input::placeholder, .u-text-field-floating-label.empty.u-text-field-no-label .u-text-input::placeholder, .u-text-field-outline.empty.u-text-field-no-label .u-text-input::placeholder, .u-text-field-box.empty.u-text-field-no-label .u-text-input::placeholder,
@@ -9417,7 +9421,7 @@ input.u-text-input {
 .u-text-field-floating-label.empty.u-text-field-no-label .u-text-input-placeholder,
 .u-text-field-outline.empty.u-text-field-no-label .u-text-input-placeholder,
 .u-text-field-box.empty.u-text-field-no-label .u-text-input-placeholder {
-  color: var(--u-text-lower-contrast-color);
+  color: var(--u-lower-contrast-color);
 }
 
 .u-card {
@@ -9425,7 +9429,6 @@ input.u-text-input {
   border-radius: 0.25rem;
   -webkit-box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
           box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-  background-color: var(--u-surface-color);
 }
 
 .u-card-outline {
@@ -9495,6 +9498,10 @@ input.u-text-input {
       -ms-flex-pack: end;
           justify-content: flex-end;
   padding: 8px;
+}
+
+.u-card .u-text-field-outline label {
+  background-color: var(--u-surface-color);
 }
 
 .u-chip {
@@ -9633,6 +9640,10 @@ input.u-text-input {
   margin-left: -4px;
 }
 
+.u-chip-outline.u-chip-danger::before, .u-chip-outline.u-chip-warning::before, .u-chip-outline.u-chip-success::before, .u-chip-outline.u-chip-secondary-variant::before, .u-chip-outline.u-chip-secondary::before, .u-chip-outline.u-chip-primary-variant::before, .u-chip-outline.u-chip-primary::before {
+  content: "";
+}
+
 .u-datepicker {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -9680,6 +9691,7 @@ input.u-text-input {
           flex: 1;
   width: 1rem;
   font-weight: 500;
+  color: var(--u-low-contrast-color);
 }
 
 .u-datepicker-body {
@@ -9710,20 +9722,16 @@ input.u-text-input {
   margin-top: 8px;
 }
 
-.u-datepicker-weekday {
-  color: var(--u-text-low-contrast-color);
-}
-
-.u-datepicker-day-outside-month {
-  color: var(--u-text-lower-contrast-color);
-}
-
 .u-datepicker-day,
 .u-datepicker-year-month-button {
-  color: var(--u-bg-color);
+  color: var(--u-high-contrast-color);
 }
+.u-datepicker-day-outside-month {
+  color: var(--u-lower-contrast-color);
+}
+
 .u-datepicker-current-day {
-  border: 1px solid var(--u-text-low-contrast-color);
+  border: 1px solid var(--u-low-contrast-color);
 }
 
 .u-ripple-wrapper,
@@ -10017,11 +10025,15 @@ input.u-text-input {
 }
 
 .u-text-high-contrast {
-  color: var(--u-text-high-contrast-color);
+  color: var(--u-high-contrast-color) !important;
 }
 
 .u-text-low-contrast {
-  color: var(--u-text-low-contrast-color);
+  color: var(--u-low-contrast-color) !important;
+}
+
+.u-text-lower-contrast {
+  color: var(--u-lower-contrast-color) !important;
 }
 
 .u-divider {
@@ -10030,19 +10042,7 @@ input.u-text-input {
   background-color: var(--u-divider-color);
 }
 
-.u-light-mode,
-body,
-.u-toolbar-warning,
-.u-btn-solid.u-btn-warning,
-.u-btn-raised.u-btn-warning,
-.u-btn-floating.u-btn-warning,
-.u-bg-warning,
-.u-toolbar-success,
-.u-btn-solid.u-btn-success,
-.u-btn-raised.u-btn-success,
-.u-btn-floating.u-btn-success,
-.u-bg-success,
-.u-bg-light {
+:root {
   --u-btn-disabled-color: rgba(0, 0, 0, 0.26);
   --u-btn-solid-disabled-background: rgba(0, 0, 0, 0.12);
   --u-btn-borderless-default-color: rgba(0, 0, 0, 0.54);
@@ -10053,46 +10053,59 @@ body,
   --u-text-input-box-disabled-bg-light-theme: rgba(0, 0, 0, 0.02);
   --u-chip-outline-border-color: rgba(0, 0, 0, 0.12);
   --u-hover-color: rgba(0, 0, 0, 0.12);
-  --u-text-low-contrast-color: rgba(0, 0, 0, 0.54);
-  --u-text-lower-contrast-color: rgba(0, 0, 0, 0.42);
-  --u-text-high-contrast-color: rgba(0, 0, 0, 0.87);
-  --u-text-inverse-low-contrast-color: rgba(255, 255, 255, 0.7);
-  --u-text-inverse-high-contrast-color: #fff;
-  --u-text-inverse-lower-contrast-color: rgba(255, 255, 255, 0.5);
+  --u-low-contrast-color: rgba(0, 0, 0, 0.54);
+  --u-lower-contrast-color: rgba(0, 0, 0, 0.42);
+  --u-high-contrast-color: rgba(0, 0, 0, 0.87);
+  --u-divider-color: rgba(0, 0, 0, 0.12);
+  --u-bg-color: #f5f5f5;
+  --u-surface-color: #fff;
+  --u-mode-high-contrast-color: rgba(0, 0, 0, 0.87);
+  --u-inverse-mode-high-contrast-color: #fff;
+  --u-high-contrast-color-light-mode: rgba(0, 0, 0, 0.87);
+  --u-high-contrast-color-dark-mode: #fff;
+}
+
+.u-dark-mode {
+  --u-bg-color: #303030;
+  --u-surface-color: #424242;
+  --u-mode-high-contrast-color: #fff;
+  --u-inverse-mode-high-contrast-color: rgba(0, 0, 0, 0.87);
+}
+
+.u-toolbar-warning, .u-btn-solid.u-btn-warning,
+.u-btn-raised.u-btn-warning,
+.u-btn-floating.u-btn-warning, .u-bg-warning, .u-toolbar-success, .u-btn-solid.u-btn-success,
+.u-btn-raised.u-btn-success,
+.u-btn-floating.u-btn-success, .u-bg-success, .u-toolbar-default, .u-drawer-content, .u-dialog-content, .u-dropdown-menu, .u-card, .u-bg-light {
+  --u-btn-disabled-color: rgba(0, 0, 0, 0.26);
+  --u-btn-solid-disabled-background: rgba(0, 0, 0, 0.12);
+  --u-btn-borderless-default-color: rgba(0, 0, 0, 0.54);
+  --u-switch-toggle-color: #fafafa;
+  --u-bg-snackbar: #323232;
+  --u-text-input-box-bg: rgba(0, 0, 0, 0.06);
+  --u-text-field-disabled-divider-color: rgba(0, 0, 0, 0.2);
+  --u-text-input-box-disabled-bg-light-theme: rgba(0, 0, 0, 0.02);
+  --u-chip-outline-border-color: rgba(0, 0, 0, 0.12);
+  --u-hover-color: rgba(0, 0, 0, 0.12);
+  --u-low-contrast-color: rgba(0, 0, 0, 0.54);
+  --u-lower-contrast-color: rgba(0, 0, 0, 0.42);
+  --u-high-contrast-color: rgba(0, 0, 0, 0.87);
   --u-divider-color: rgba(0, 0, 0, 0.12);
 }
 
-.u-dark-mode,
-body.u-dark-mode,
-.u-toolbar-danger,
-.u-btn-solid.u-btn-danger,
+.u-toolbar-danger, .u-btn-solid.u-btn-danger,
 .u-btn-raised.u-btn-danger,
-.u-btn-floating.u-btn-danger,
-.u-bg-danger,
-.u-toolbar-secondary-variant,
-.u-btn-solid.u-btn-secondary-variant,
+.u-btn-floating.u-btn-danger, .u-bg-danger, .u-toolbar-secondary-variant, .u-btn-solid.u-btn-secondary-variant,
 .u-btn-raised.u-btn-secondary-variant,
-.u-btn-floating.u-btn-secondary-variant,
-.u-bg-secondary-variant,
-.u-toolbar-secondary,
-.u-btn-solid.u-btn-secondary,
+.u-btn-floating.u-btn-secondary-variant, .u-bg-secondary-variant, .u-toolbar-secondary, .u-btn-solid.u-btn-secondary,
 .u-btn-raised.u-btn-secondary,
-.u-btn-floating.u-btn-secondary,
-.u-bg-secondary,
-.u-toolbar-primary-variant,
-.u-btn-solid.u-btn-primary-variant,
+.u-btn-floating.u-btn-secondary, .u-bg-secondary, .u-toolbar-primary-variant, .u-btn-solid.u-btn-primary-variant,
 .u-btn-raised.u-btn-primary-variant,
-.u-btn-floating.u-btn-primary-variant,
-.u-bg-primary-variant,
-.u-toolbar-primary,
-.u-btn-solid.u-btn-primary,
+.u-btn-floating.u-btn-primary-variant, .u-bg-primary-variant, .u-toolbar-primary, .u-btn-solid.u-btn-primary,
 .u-btn-raised.u-btn-primary,
-.u-btn-floating.u-btn-primary,
-.u-bg-primary,
-.u-datepicker-day.active,
-.u-datepicker-year-month-button.active,
-.u-bg-dark,
-.u-card-media-content {
+.u-btn-floating.u-btn-primary, .u-bg-primary, .u-datepicker-day.active,
+.u-datepicker-year-month-button.active, .u-dark-mode .u-toolbar-default, .u-dark-mode .u-drawer-content, .u-dark-mode .u-dialog-content, .u-dark-mode .u-dropdown-menu, .u-dark-mode .u-card, .u-bg-dark, .u-card-media-content,
+.u-dark-mode {
   --u-btn-disabled-color: rgba(255, 255, 255, 0.3);
   --u-btn-solid-disabled-background: rgba(255, 255, 255, 0.12);
   --u-btn-borderless-default-color: #fff;
@@ -10103,27 +10116,10 @@ body.u-dark-mode,
   --u-text-input-box-disabled-bg-light-theme: rgba(255, 255, 255, 0.04);
   --u-chip-outline-border-color: rgba(255, 255, 255, 0.1);
   --u-hover-color: rgba(255, 255, 255, 0.12);
-  --u-text-low-contrast-color: rgba(255, 255, 255, 0.7);
-  --u-text-lower-contrast-color: rgba(255, 255, 255, 0.5);
-  --u-text-high-contrast-color: #fff;
-  --u-text-inverse-low-contrast-color: rgba(0, 0, 0, 0.54);
-  --u-text-inverse-high-contrast-color: rgba(0, 0, 0, 0.87);
-  --u-text-inverse-lower-contrast-color: rgba(0, 0, 0, 0.42);
+  --u-low-contrast-color: rgba(255, 255, 255, 0.7);
+  --u-lower-contrast-color: rgba(255, 255, 255, 0.5);
+  --u-high-contrast-color: #fff;
   --u-divider-color: rgba(255, 255, 255, 0.12);
-}
-
-:root {
-  --u-default-text-high-contrast-color: rgba(0, 0, 0, 0.87);
-  --u-inverse-text-high-contrast-color: #fff;
-  --u-surface-color: #fff;
-  --u-bg-color: #f5f5f5;
-}
-
-.u-dark-mode {
-  --u-default-text-high-contrast-color: #fff;
-  --u-inverse-text-high-contrast-color: rgba(0, 0, 0, 0.87);
-  --u-surface-color: #424242;
-  --u-bg-color: #303030;
 }
 
 .u-toolbar-primary, .u-btn-solid.u-btn-primary,
@@ -10282,18 +10278,6 @@ body.u-dark-mode,
 .u-btn-outline-gray.u-btn-danger,
 .u-btn-borderless.u-btn-danger {
   color: var(--u-danger-color);
-}
-
-.u-floating-menu-label, .u-bg-light .u-floating-menu-label, body.u-dark-mode .u-bg-light .u-floating-menu-label {
-  background: #fff;
-}
-
-.u-bg-dark .u-floating-menu-label, .u-card-media-content .u-floating-menu-label, body.u-dark-mode .u-floating-menu-label {
-  background: #424242;
-}
-
-.u-chip-outline.u-chip-danger::before, .u-chip-outline.u-chip-warning::before, .u-chip-outline.u-chip-success::before, .u-chip-outline.u-chip-secondary-variant::before, .u-chip-outline.u-chip-secondary::before, .u-chip-outline.u-chip-primary-variant::before, .u-chip-outline.u-chip-primary::before {
-  content: "";
 }
 
 .u-chip-primary {
@@ -10490,66 +10474,30 @@ body.u-dark-mode,
 }
 
 .u-text-primary {
-  color: #3f51b5 !important;
-}
-
-a.u-text-primary:hover, a.u-text-primary:focus {
-  color: #32408f !important;
+  color: var(--u-primary-color) !important;
 }
 
 .u-text-primary-variant {
-  color: #303f9f !important;
-}
-
-a.u-text-primary-variant:hover, a.u-text-primary-variant:focus {
-  color: #242f78 !important;
+  color: var(--u-primary-variant-color) !important;
 }
 
 .u-text-secondary {
-  color: #f50057 !important;
-}
-
-a.u-text-secondary:hover, a.u-text-secondary:focus {
-  color: #c20045 !important;
+  color: var(--u-secondary-color) !important;
 }
 
 .u-text-secondary-variant {
-  color: #c51162 !important;
-}
-
-a.u-text-secondary-variant:hover, a.u-text-secondary-variant:focus {
-  color: #960d4b !important;
+  color: var(--u-secondary-variant-color) !important;
 }
 
 .u-text-success {
-  color: #4caf50 !important;
-}
-
-a.u-text-success:hover, a.u-text-success:focus {
-  color: #3d8b40 !important;
+  color: var(--u-success-color) !important;
 }
 
 .u-text-warning {
-  color: #fbc02d !important;
-}
-
-a.u-text-warning:hover, a.u-text-warning:focus {
-  color: #f0ad05 !important;
+  color: var(--u-warning-color) !important;
 }
 
 .u-text-danger {
-  color: #b00020 !important;
-}
-
-a.u-text-danger:hover, a.u-text-danger:focus {
-  color: #7d0017 !important;
-}
-
-body {
-  background-color: #f5f5f5;
-}
-
-body.u-dark-mode {
-  background-color: #303030;
+  color: var(--u-danger-color) !important;
 }
 /*# sourceMappingURL=universal-material-no-reboot.css.map */

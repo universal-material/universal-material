@@ -23,7 +23,7 @@
   font-size: $step-label-font-size;
   font-weight: $step-label-font-weight;
   line-height: $step-circle-size;
-  color: var(--u-text-low-contrast-color);
+  color: var(--u-low-contrast-color);
 }
 
 .u-step-content {
@@ -41,7 +41,7 @@
     }
 
     .u-step-label {
-      color: var(--u-text-high-contrast-color)
+      color: var(--u-high-contrast-color)
     }
   }
 

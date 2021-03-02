@@ -81,6 +81,15 @@
   @include u-elevation(2);
 }
 
+.u-toolbar-default {
+  @extend %u-bg-light;
+  background-color: var(--u-surface-color);
+
+  @at-root .u-dark-mode & {
+    @extend %u-bg-dark;
+  }
+}
+
 .rtl,
 [dir="rtl"] {
   .u-toolbar-start {

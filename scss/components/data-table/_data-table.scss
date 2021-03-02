@@ -26,8 +26,8 @@
   th {
     font-size: $u-data-table-column-header-font-size;
     font-weight: $u-data-table-column-header-font-weight;
+    color: var(--u-low-contrast-color);
     text-align: initial;
-    color: var(--u-text-low-contrast-color);
   }
 
   td {

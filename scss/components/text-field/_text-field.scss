@@ -30,7 +30,7 @@
   overflow: hidden;
   font-size: $u-text-field-helper-text-font-size;
   line-height: $u-text-field-helper-text-line-height;
-  color: var(--u-text-low-contrast-color)
+  color: var(--u-low-contrast-color)
 }
 
 .u-text-field-helper-text-invalid {
@@ -158,7 +158,7 @@ button.u-text-input {
     margin-bottom: $u-text-field-label-margin;
     font-size: $u-text-field-label-font-size;
     line-height: $u-text-field-label-line-height;
-    color: var(--u-text-low-contrast-color);
+    color: var(--u-low-contrast-color);
   }
 
   &::before {
@@ -203,14 +203,14 @@ button.u-text-input {
     + .u-text-field-helper-text {
       &,
       .u-text-field-helper-text-default {
-        color: var(--u-text-lower-contrast-color);
+        color: var(--u-lower-contrast-color);
       }
     }
   }
 
   &.disabled .u-text-input,
   .u-text-input:disabled {
-    color: var(--u-text-lower-contrast-color);
+    color: var(--u-lower-contrast-color);
     border-color: var(----u-text-field-disabled-divider-color);
   }
 
@@ -223,7 +223,7 @@ button.u-text-input {
 
   &:not(.disabled):hover {
     .u-text-input:not(:disabled) {
-      border-color: var(--u-text-high-contrast-color);
+      border-color: var(--u-high-contrast-color);
     }
   }
 }
@@ -418,11 +418,11 @@ button.u-text-input {
 
   &:not(.focus):not(.invalid):not(.disabled) {
     &::before {
-      border-color: var(--u-text-low-contrast-color);
+      border-color: var(--u-low-contrast-color);
     }
 
     &:hover::before {
-      border-color: var(--u-text-high-contrast-color);
+      border-color: var(--u-high-contrast-color);
     }
   }
 
@@ -483,7 +483,7 @@ button.u-text-input {
 
 %u-text-input-affix {
   flex-shrink: 0;
-  color: var(--u-text-low-contrast-color);
+  color: var(--u-low-contrast-color);
 }
 
 .u-text-input-suffix {
@@ -498,13 +498,13 @@ button.u-text-input {
 
 .u-text-field-leading-icon,
 .u-text-field-trailing-icon {
-  color: var(--u-text-low-contrast-color);
+  color: var(--u-low-contrast-color);
 }
 
 .u-text-input,
 input.u-text-input {
-  color: var(--u-text-high-contrast-color);
-  border-color: var(--u-text-low-contrast-color);
+  color: var(--u-high-contrast-color);
+  border-color: var(--u-low-contrast-color);
 }
 
 .u-text-input::placeholder,
@@ -513,6 +513,6 @@ input.u-text-input {
   .u-text-field-floating-label.empty.u-text-field-no-label &,
   .u-text-field-outline.empty.u-text-field-no-label &,
   .u-text-field-box.empty.u-text-field-no-label & {
-    color: var(--u-text-lower-contrast-color);
+    color: var(--u-lower-contrast-color);
   }
 }

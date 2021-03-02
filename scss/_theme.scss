@@ -1,7 +1,3 @@
 @import "colors";
 
-$u-theme-style: "ios" !default;
-$u-default-mode-dark: false !default;
-$u-include-ios-styles: false !default;
-$u-include-inverted-mode: true !default;
-$u-inverse-mode-name: ".u-#{if($u-default-mode-dark, "light", "dark")}-mode" !default;
+

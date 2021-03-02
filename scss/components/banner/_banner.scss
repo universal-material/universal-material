@@ -8,7 +8,7 @@
   max-height: 0;
   overflow: hidden;
   font-family: $u-font-family-base;
-  background: #fff;
+  background: var(--u-surface-color);
   transition: max-height 450ms ease-out;
 
   &.show {

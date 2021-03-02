@@ -118,17 +118,13 @@
   }
 }
 
-@mixin u-chip-theme {
-
-  //.u-chip-outline {
-  //  border-color: $u-chip-outline-border-color;
-  //}
-
-  %u-chip-outline-colored {
-    &::before {
-      content: "";
-    }
+%u-chip-outline-colored {
+  &::before {
+    content: "";
   }
+}
+
+@mixin u-chip-theme {
 
   @each $color, $value in $u-theme-colors {
     @at-root .u-chip-#{$color} {

@@ -43,6 +43,7 @@
   flex: 1;
   width: 1rem;
   font-weight: $u-font-weight-medium;
+  color: var(--u-low-contrast-color)
 }
 
 .u-datepicker-body {
@@ -67,23 +68,19 @@
   margin-top: 8px;
 }
 
-.u-datepicker-weekday {
-  color: var(--u-text-low-contrast-color);
-}
-
-.u-datepicker-day-outside-month {
-  color: var(--u-text-lower-contrast-color);
-}
-
 .u-datepicker-day,
 .u-datepicker-year-month-button {
-  color: var(--u-bg-color);
+  color: var(--u-high-contrast-color);
 
   &.active {
     @extend %u-bg-primary;
   }
 }
 
+.u-datepicker-day-outside-month {
+  color: var(--u-lower-contrast-color);
+}
+
 .u-datepicker-current-day {
-  border: 1px solid var(--u-text-low-contrast-color);
+  border: 1px solid var(--u-low-contrast-color);
 }

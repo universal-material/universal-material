@@ -10,7 +10,7 @@
   position: relative;
   width: 100%;
   overflow: auto;
-  background: #fff;
+  background: var(--u-surface-color);
   transition: margin 150ms ease-out;
 
   &:first-child,
@@ -63,7 +63,7 @@
 
   + .u-expansion-panel-label {
     margin-left: $u-expansion-panel-content-margin;
-    color: $u-text-low-contrast-light-theme;
+    color: var(--u-low-contrast-color);
   }
 }
 
@@ -87,6 +87,6 @@
 .u-expansion-toggle-icon {
   margin-left: auto;
   font-size: $u-expansion-panel-switch-size;
-  color: $u-text-low-contrast-light-theme;
+  color: var(--u-low-contrast-color);
   transition: transform 150ms;
 }

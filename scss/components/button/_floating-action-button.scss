@@ -147,13 +147,6 @@
   .u-floating-menu-label {
     margin-right: 0;
     margin-left: $u-floating-menu-label-margin;
-  }
-}
-
-@mixin u-floating-action-button-theme() {
-  .u-floating-menu-label {
-    @include inverted-mode($u-floating-menu-label-bg-light-theme, $u-floating-menu-label-bg-dark-theme) using ($color) {
-      background: $color;
-    }
+    background-color: var(--u-surface-color);
   }
 }
