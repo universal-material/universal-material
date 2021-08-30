@@ -35,7 +35,6 @@ export class TabBar {
           }
         }
 
-        console.log(tabFocusIndex);
         tabBar._tabMap[tabFocusIndex].focus();
       });
     }

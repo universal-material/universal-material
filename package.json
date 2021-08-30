@@ -1,6 +1,6 @@
 {
   "name": "@universal-material/core",
-  "version": "0.104.2",
+  "version": "0.114.1",
   "keywords": [
     "css",
     "sass",
@@ -25,6 +25,7 @@
     "start": "npm-run-all --parallel watch docs",
     "watch": "gulp default",
     "watch:sass": "gulp watch:sass",
+    "sass:docs": "gulp sass:docs",
     "docs": "http-server ./docs/dist -p 8081"
   },
   "main": "./js/dist/bundle/universal-material.umd.js",
@@ -36,7 +37,7 @@
     "url": "git+https://github.com/universal-material/universal-material.git"
   },
   "license": "MIT",
-  "homepage": "https://github.com/universal-material/universal-material#readme",
+  "homepage": "https://universal-material.github.io",
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.0",

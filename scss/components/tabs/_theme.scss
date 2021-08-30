@@ -6,18 +6,13 @@
   @each $color, $value in $u-theme-colors {
     @include apply-style-bg-once("tab-bar-#{$color}") {
       .u-tab-bar-#{$color} {
-        @include u-tab-bar-variant($color);
+        @include u-tab-bar-variant(var(--u-#{$color}-color));
       }
     }
   }
 }
 
 @mixin u-tab-bar-variant($color) {
-  .u-tab.active {
-    color: var(--u-#{$color}-color) !important;
-  }
-
-  .u-tab-indicator {
-    background-color: var(--u-#{$color}-color) !important;
-  }
+  --u-tab-bar-color: #{$color};
+  @extend %u-tab-bar-colored;
 }

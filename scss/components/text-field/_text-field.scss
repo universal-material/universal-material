@@ -187,6 +187,7 @@ button.u-text-input {
     }
 
     &::before {
+      z-index: 1;
       transform: scale3d(1, 1, 1);
     }
   }
@@ -479,6 +480,19 @@ button.u-text-input {
 .u-search-field-elevated {
   background-color: var(--u-surface-color);
   box-shadow: $u-search-field-elevated-box-shadow;
+
+  .u-text-input,
+  input.u-text-input,
+  .u-text-input input {
+    color: var(--u-mode-high-contrast-color);
+  }
+
+  .u-text-field-leading-icon,
+  .u-text-field-trailing-icon,
+  .u-text-input-suffix,
+  .u-text-input-prefix {
+    color: var(--u-mode-low-contrast-color);
+  }
 }
 
 %u-text-input-affix {
@@ -502,7 +516,8 @@ button.u-text-input {
 }
 
 .u-text-input,
-input.u-text-input {
+input.u-text-input,
+.u-text-input input {
   color: var(--u-high-contrast-color);
   border-color: var(--u-low-contrast-color);
 }

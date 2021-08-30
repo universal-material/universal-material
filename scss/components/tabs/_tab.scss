@@ -35,6 +35,16 @@
   }
 }
 
+%u-tab-bar-colored {
+  .u-tab.active {
+    color: var(--u-tab-bar-color);
+  }
+
+  .u-tab-indicator {
+    background-color: var(--u-tab-bar-color);
+  }
+}
+
 .u-tab-indicator {
   position: absolute;
   bottom: 0;

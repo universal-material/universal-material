@@ -58,6 +58,7 @@
   margin-right: $u-floating-menu-label-margin;
   font-family: $u-font-family-base;
   white-space: nowrap;
+  background-color: var(--u-surface-color);
   border-radius: $u-floating-menu-label-border-radius;
 }
 
@@ -66,8 +67,8 @@
   text-align: center;
 }
 
-.u-floating-menu:hover .u-floating-menu-toggle,
-.u-floating-menu-toggle:focus {
+.u-floating-menu:hover .u-floating-menu-toggle:not(.collapse) {
+  pointer-events: none;
   opacity: 0;
   transition-delay: 0ms;
 
@@ -76,8 +77,7 @@
   }
 }
 
-.u-floating-menu:hover .u-floating-menu-items,
-.u-floating-menu-toggle:focus + .u-floating-menu-items {
+.u-floating-menu:hover .u-floating-menu-toggle:not(.collapse) + .u-floating-menu-items {
   pointer-events: auto;
   opacity: 1;
 

@@ -676,7 +676,6 @@ var umd;
                             tabFocusIndex = 0;
                         }
                     }
-                    console.log(tabFocusIndex);
                     tabBar._tabMap[tabFocusIndex].focus();
                 });
             }

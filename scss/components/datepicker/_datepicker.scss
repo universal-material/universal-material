@@ -3,23 +3,55 @@
 @import "../../placeholders";
 @import "../../font";
 
+:root {
+  --u-datepicker-day-size: #{$u-datepicker-day-size};
+}
+
 .u-datepicker {
   display: inline-flex;
   flex-direction: column;
-  min-width: $u-datepicker-min-width;
-  height: $u-datepicker-height;
 }
 
 .u-datepicker-header {
+  @extend %u-bg-primary;
   display: flex;
-  padding: 0 8px;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 120px;
+  padding: 16px;
+}
+
+.u-datepicker-header-title {
+  @include umd-typography(caption);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.u-datepicker-header-date {
+  @include umd-typography(headline5);
+}
+
+.u-datepicker-body {
+  min-width: $u-datepicker-min-width;
+  padding: $u-datepicker-default-spacing;
+}
+
+.u-datepicker-navigation {
+  display: flex;
+  align-items: center;
+  min-height: $u-datepicker-day-size;
+}
+
+.u-datepicker-actions {
+  margin-top: 8px;
 }
 
 .u-datepicker-day {
   @extend %u-button-base;
 
-  width: $u-datepicker-day-width;
-  height: $u-datepicker-day-width;
+  flex-shrink: 0;
+  width: var(--u-datepicker-day-size);
+  height: var(--u-datepicker-day-size);
   font-weight: $u-font-weight-regular;
   background: transparent;
   border-radius: 50%;
@@ -28,14 +60,14 @@
 .u-datepicker-year-month-button {
   @extend %u-button-base;
 
-  width: $u-datepicker-year-month-button-height;
+  width: $u-datepicker-year-month-button-width;
   height: $u-datepicker-year-month-button-height;
   border-radius: $u-datepicker-year-month-button-height / 2;
 }
 
 .u-datepicker-weekdays {
   display: flex;
-  line-height: 24px;
+  line-height: var(--u-datepicker-day-size);
   text-align: center;
 }
 
@@ -43,12 +75,13 @@
   flex: 1;
   width: 1rem;
   font-weight: $u-font-weight-medium;
-  color: var(--u-low-contrast-color)
+  color: var(--u-low-contrast-color);
 }
 
-.u-datepicker-body {
-  height: 280px;
-  margin-top: 1rem;
+.u-datepicker-content {
+  height: calc(var(--u-datepicker-day-size) * 7);
+  min-height: ($u-datepicker-year-month-button-height-xs-landscape + $u-datepicker-default-spacing) * 6;
+  margin-top: 8px;
 }
 
 .u-datepicker-week {
@@ -65,7 +98,7 @@
 .u-datepicker-month-group {
   display: flex;
   justify-content: space-around;
-  margin-top: 8px;
+  margin-top: $u-datepicker-default-spacing;
 }
 
 .u-datepicker-day,
@@ -83,4 +116,31 @@
 
 .u-datepicker-current-day {
   border: 1px solid var(--u-low-contrast-color);
+}
+
+@include media-breakpoint-down(md) {
+  @media (orientation: landscape) {
+    :root {
+      --u-datepicker-day-size: #{$u-datepicker-day-size-xs-landscape};
+    }
+
+    .u-datepicker {
+      flex-direction: row;
+    }
+
+    .u-datepicker-year-month-button {
+      height: $u-datepicker-year-month-button-height-xs-landscape;
+    }
+
+    .u-datepicker-header {
+      justify-content: normal;
+      width: 142px;
+      height: auto;
+    }
+
+    .u-datepicker-header-date {
+      @include umd-typography(headline6);
+      font-weight: $u-font-weight-regular;
+    }
+  }
 }

@@ -10,6 +10,7 @@
 .u-toolbar {
   display: block;
   font-family: $u-font-family-base;
+  background-color: var(--u-toolbar-color);
 
   &,
   * {
@@ -82,8 +83,9 @@
 }
 
 .u-toolbar-default {
+  --u-toolbar-color: var(--u-surface-color);
+
   @extend %u-bg-light;
-  background-color: var(--u-surface-color);
 
   @at-root .u-dark-mode & {
     @extend %u-bg-dark;

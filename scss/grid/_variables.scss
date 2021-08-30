@@ -12,10 +12,10 @@ $grid-breakpoints: (
 ) !default;
 
 //Margin and guttters
-$margin-gutter-8dp: .5rem !default;
-$margin-gutter-16dp: 1rem !default;
-$margin-gutter-24dp: 1.5rem !default;
-$margin-gutter-40dp: 2.5rem !default;
+$margin-gutter-8dp: 8px !default;
+$margin-gutter-16dp: 16px !default;
+$margin-gutter-24dp: 24px !default;
+$margin-gutter-40dp: 40px !default;
 $margin-gutter-default: $margin-gutter-16dp !default;
 
 $margins-and-gutters: (

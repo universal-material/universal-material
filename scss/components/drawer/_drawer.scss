@@ -5,6 +5,10 @@
 @import "../../zindex";
 @import "../../mixins";
 
+:root {
+  --u-drawer-sidebar-width: #{$u-drawer-sidebar-width};
+}
+
 .u-drawer-backdrop {
   position: absolute;
   top: 0;
@@ -28,7 +32,7 @@
   left: 0;
   z-index: $zindex-sidebar;
   flex-shrink: 0;
-  width: $u-drawer-sidebar-width;
+  width: var(--u-drawer-sidebar-width);
   max-width: 85%;
   overflow-y: auto;
   transition: transform 375ms $awesome-cubic-bezier;
@@ -76,7 +80,7 @@
 
   .u-drawer {
     .u-toolbar-fixed {
-      right: $u-drawer-sidebar-width;
+      right: var(--u-drawer-sidebar-width);
       left: 0;
     }
   }
@@ -96,7 +100,7 @@
   @include media-breakpoint-up($breakpoint) {
     .u-drawer#{$infix}-permanent,
     .u-drawer#{$infix}-dismissible {
-      padding-left: $u-drawer-sidebar-width;
+      padding-left: var(--u-drawer-sidebar-width);
 
       &,
       &.u-drawer-end {
@@ -111,15 +115,15 @@
       }
 
       .u-toolbar-fixed {
-        left: $u-drawer-sidebar-width;
+        left: var(--u-drawer-sidebar-width);
       }
 
       &.u-drawer-end {
-        padding-right: $u-drawer-sidebar-width;
+        padding-right: var(--u-drawer-sidebar-width);
         padding-left: 0;
 
         .u-toolbar-fixed {
-          right: $u-drawer-sidebar-width;
+          right: var(--u-drawer-sidebar-width);
           left: 0;
         }
       }
@@ -170,7 +174,7 @@
       .u-drawer#{$infix}-dismissible,
       &.u-drawer#{$infix}-permanent,
       &.u-drawer#{$infix}-dismissible {
-        padding-right: $u-drawer-sidebar-width;
+        padding-right: var(--u-drawer-sidebar-width);
         padding-left: 0;
       }
 

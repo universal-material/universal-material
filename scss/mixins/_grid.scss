@@ -1,14 +1,25 @@
 @mixin make-margins($margins: $margins-and-gutters, $breakpoints: $grid-breakpoints) {
-  .u-container {
-    @each $breakpoint in map-keys($breakpoints) {
-      $infix: breakpoint-infix($breakpoint, $breakpoints);
+  @each $breakpoint in map-keys($breakpoints) {
+    $infix: breakpoint-infix($breakpoint, $breakpoints);
 
-      @include media-breakpoint-up($breakpoint, $breakpoints) {
-        @each $margin, $value in $margins {
-          &.u-margin#{$infix}-#{$margin} {
-            padding-right: $value;
-            padding-left: $value;
-          }
+    @include media-breakpoint-up($breakpoint, $breakpoints) {
+      @each $margin, $value in $margins {
+        .u-margin#{$infix}-#{$margin} {
+          --u-container-margin: #{$value};
+        }
+      }
+    }
+  }
+}
+
+@mixin make-gutters($gutters: $margins-and-gutters, $breakpoints: $grid-breakpoints) {
+  @each $breakpoint in map-keys($breakpoints) {
+    $infix: breakpoint-infix($breakpoint, $breakpoints);
+
+    @include media-breakpoint-up($breakpoint, $breakpoints) {
+      @each $gutter, $value in $gutters {
+        .u-gutter#{$infix}-#{$gutter} {
+          --u-container-gutter: #{$value};
         }
       }
     }
@@ -18,30 +29,8 @@
 @mixin make-row() {
   display: flex;
   flex-wrap: wrap;
-  margin-right: ($grid-gutter-width / -2);
-  margin-left: ($grid-gutter-width / -2);
-}
-
-@mixin make-gutters($gutters: $margins-and-gutters, $breakpoints: $grid-breakpoints) {
-  .u-row {
-    @each $breakpoint in map-keys($breakpoints) {
-      $infix: breakpoint-infix($breakpoint, $breakpoints);
-
-      @include media-breakpoint-up($breakpoint, $breakpoints) {
-        @each $gutter, $value in $gutters {
-          &.u-gutter#{$infix}-#{$gutter} {
-            margin-right: ($value / -2);
-            margin-left: ($value / -2);
-
-            > .u-col, >[class^=u-col-] {
-              padding-right: ($value / 2);
-              padding-left: ($value / 2);
-            }
-          }
-        }
-      }
-    }
-  }
+  margin-right: calc(var(--u-container-gutter) / -2);
+  margin-left: calc(var(--u-container-gutter) / -2);
 }
 
 @mixin make-col($size, $columns: $grid-columns) {

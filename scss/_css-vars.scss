@@ -4,16 +4,26 @@
   --u-bg-color: #{$u-bg-light};
   --u-surface-color: #{$u-light-surface};
   --u-mode-high-contrast-color: #{$u-text-high-contrast-light-theme};
+  --u-mode-low-contrast-color: #{$u-text-low-contrast-light-theme};
   --u-inverse-mode-high-contrast-color: #{$u-text-high-contrast-dark-theme};
+  --u-inverse-mode-low-contrast-color: #{$u-text-low-contrast-dark-theme};
   --u-high-contrast-color-light-mode: #{$u-text-high-contrast-light-theme};
   --u-high-contrast-color-dark-mode: #{$u-text-high-contrast-dark-theme};
+
+  @if $enable-grid-classes {
+    --u-container-width: #{$container-width};
+    --u-container-margin: #{$margin-gutter-default};
+    --u-container-gutter: #{$margin-gutter-default};
+  }
 }
 
 .u-dark-mode {
   --u-bg-color: #{$u-bg-dark};
   --u-surface-color: #{$u-dark-surface};
   --u-mode-high-contrast-color: #{$u-text-high-contrast-dark-theme};
+  --u-mode-low-contrast-color: #{$u-text-low-contrast-dark-theme};
   --u-inverse-mode-high-contrast-color: #{$u-text-high-contrast-light-theme};
+  --u-inverse-mode-low-contrast-color: #{$u-text-low-contrast-light-theme};
 }
 
 %u-bg-light,

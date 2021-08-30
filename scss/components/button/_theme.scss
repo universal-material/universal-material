@@ -23,9 +23,9 @@
     .u-btn-solid.u-btn-#{$color},
     .u-btn-raised.u-btn-#{$color},
     .u-btn-floating.u-btn-#{$color} {
-      @include apply-style-bg-once("btn-bg-#{$color}") {
-        @extend %u-bg-#{$color};
-      }
+      $button-text-color: if(is-dark-background($value), var(--u-high-contrast-color-dark-mode), var(--u-high-contrast-color-light-mode));
+      color: $button-text-color;
+      background-color: $value;
     }
   }
 
