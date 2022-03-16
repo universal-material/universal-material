@@ -6357,127 +6357,105 @@ mark,
   text-align: center;
 }
 
-.u-floating-menu:hover .u-floating-menu-toggle,
-.u-floating-menu-toggle:focus {
+.u-floating-menu:hover .u-floating-menu-toggle:not(.collapse) {
+  pointer-events: none;
   opacity: 0;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
 }
-.u-floating-menu:hover .u-floating-menu-toggle .u-btn-icon,
-.u-floating-menu-toggle:focus .u-btn-icon {
+.u-floating-menu:hover .u-floating-menu-toggle:not(.collapse) .u-btn-icon {
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
 }
 
-.u-floating-menu:hover .u-floating-menu-items,
-.u-floating-menu-toggle:focus + .u-floating-menu-items {
+.u-floating-menu:hover .u-floating-menu-toggle:not(.collapse) + .u-floating-menu-items {
   pointer-events: auto;
   opacity: 1;
 }
-.u-floating-menu:hover .u-floating-menu-items .u-floating-menu-item:nth-child(1),
-.u-floating-menu-toggle:focus + .u-floating-menu-items .u-floating-menu-item:nth-child(1) {
+.u-floating-menu:hover .u-floating-menu-toggle:not(.collapse) + .u-floating-menu-items .u-floating-menu-item:nth-child(1) {
   opacity: 1;
   -webkit-transition-delay: 100ms;
           transition-delay: 100ms;
 }
-.u-floating-menu:hover .u-floating-menu-items .u-floating-menu-item:nth-child(1) .u-btn-icon,
-.u-floating-menu-toggle:focus + .u-floating-menu-items .u-floating-menu-item:nth-child(1) .u-btn-icon {
+.u-floating-menu:hover .u-floating-menu-toggle:not(.collapse) + .u-floating-menu-items .u-floating-menu-item:nth-child(1) .u-btn-icon {
   -webkit-transition-delay: 100ms;
           transition-delay: 100ms;
   -webkit-transform: none;
           transform: none;
 }
-.u-floating-menu:hover .u-floating-menu-items .u-floating-menu-item:not(:nth-child(1)),
-.u-floating-menu-toggle:focus + .u-floating-menu-items .u-floating-menu-item:not(:nth-child(1)) {
+.u-floating-menu:hover .u-floating-menu-toggle:not(.collapse) + .u-floating-menu-items .u-floating-menu-item:not(:nth-child(1)) {
   -webkit-animation: floating-menu-item-appear 250ms;
           animation: floating-menu-item-appear 250ms;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
 }
-.u-floating-menu:hover .u-floating-menu-items .u-floating-menu-item:not(:nth-child(1)) .u-floating-menu-action,
-.u-floating-menu-toggle:focus + .u-floating-menu-items .u-floating-menu-item:not(:nth-child(1)) .u-floating-menu-action {
+.u-floating-menu:hover .u-floating-menu-toggle:not(.collapse) + .u-floating-menu-items .u-floating-menu-item:not(:nth-child(1)) .u-floating-menu-action {
   -webkit-animation: floating-menu-action-appear 250ms;
           animation: floating-menu-action-appear 250ms;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
 }
-.u-floating-menu:hover .u-floating-menu-items .u-floating-menu-item:nth-child(3n),
-.u-floating-menu-toggle:focus + .u-floating-menu-items .u-floating-menu-item:nth-child(3n) {
+.u-floating-menu:hover .u-floating-menu-toggle:not(.collapse) + .u-floating-menu-items .u-floating-menu-item:nth-child(3n) {
   -webkit-animation-delay: 75ms;
           animation-delay: 75ms;
 }
-.u-floating-menu:hover .u-floating-menu-items .u-floating-menu-item:nth-child(3n) .u-floating-menu-action,
-.u-floating-menu-toggle:focus + .u-floating-menu-items .u-floating-menu-item:nth-child(3n) .u-floating-menu-action {
+.u-floating-menu:hover .u-floating-menu-toggle:not(.collapse) + .u-floating-menu-items .u-floating-menu-item:nth-child(3n) .u-floating-menu-action {
   -webkit-animation-delay: 75ms;
           animation-delay: 75ms;
 }
-.u-floating-menu:hover .u-floating-menu-items .u-floating-menu-item:nth-child(4n),
-.u-floating-menu-toggle:focus + .u-floating-menu-items .u-floating-menu-item:nth-child(4n) {
+.u-floating-menu:hover .u-floating-menu-toggle:not(.collapse) + .u-floating-menu-items .u-floating-menu-item:nth-child(4n) {
   -webkit-animation-delay: 100ms;
           animation-delay: 100ms;
 }
-.u-floating-menu:hover .u-floating-menu-items .u-floating-menu-item:nth-child(4n) .u-floating-menu-action,
-.u-floating-menu-toggle:focus + .u-floating-menu-items .u-floating-menu-item:nth-child(4n) .u-floating-menu-action {
+.u-floating-menu:hover .u-floating-menu-toggle:not(.collapse) + .u-floating-menu-items .u-floating-menu-item:nth-child(4n) .u-floating-menu-action {
   -webkit-animation-delay: 100ms;
           animation-delay: 100ms;
 }
-.u-floating-menu:hover .u-floating-menu-items .u-floating-menu-item:nth-child(5n),
-.u-floating-menu-toggle:focus + .u-floating-menu-items .u-floating-menu-item:nth-child(5n) {
+.u-floating-menu:hover .u-floating-menu-toggle:not(.collapse) + .u-floating-menu-items .u-floating-menu-item:nth-child(5n) {
   -webkit-animation-delay: 125ms;
           animation-delay: 125ms;
 }
-.u-floating-menu:hover .u-floating-menu-items .u-floating-menu-item:nth-child(5n) .u-floating-menu-action,
-.u-floating-menu-toggle:focus + .u-floating-menu-items .u-floating-menu-item:nth-child(5n) .u-floating-menu-action {
+.u-floating-menu:hover .u-floating-menu-toggle:not(.collapse) + .u-floating-menu-items .u-floating-menu-item:nth-child(5n) .u-floating-menu-action {
   -webkit-animation-delay: 125ms;
           animation-delay: 125ms;
 }
-.u-floating-menu:hover .u-floating-menu-items .u-floating-menu-item:nth-child(6n),
-.u-floating-menu-toggle:focus + .u-floating-menu-items .u-floating-menu-item:nth-child(6n) {
+.u-floating-menu:hover .u-floating-menu-toggle:not(.collapse) + .u-floating-menu-items .u-floating-menu-item:nth-child(6n) {
   -webkit-animation-delay: 150ms;
           animation-delay: 150ms;
 }
-.u-floating-menu:hover .u-floating-menu-items .u-floating-menu-item:nth-child(6n) .u-floating-menu-action,
-.u-floating-menu-toggle:focus + .u-floating-menu-items .u-floating-menu-item:nth-child(6n) .u-floating-menu-action {
+.u-floating-menu:hover .u-floating-menu-toggle:not(.collapse) + .u-floating-menu-items .u-floating-menu-item:nth-child(6n) .u-floating-menu-action {
   -webkit-animation-delay: 150ms;
           animation-delay: 150ms;
 }
-.u-floating-menu:hover .u-floating-menu-items .u-floating-menu-item:nth-child(7n),
-.u-floating-menu-toggle:focus + .u-floating-menu-items .u-floating-menu-item:nth-child(7n) {
+.u-floating-menu:hover .u-floating-menu-toggle:not(.collapse) + .u-floating-menu-items .u-floating-menu-item:nth-child(7n) {
   -webkit-animation-delay: 175ms;
           animation-delay: 175ms;
 }
-.u-floating-menu:hover .u-floating-menu-items .u-floating-menu-item:nth-child(7n) .u-floating-menu-action,
-.u-floating-menu-toggle:focus + .u-floating-menu-items .u-floating-menu-item:nth-child(7n) .u-floating-menu-action {
+.u-floating-menu:hover .u-floating-menu-toggle:not(.collapse) + .u-floating-menu-items .u-floating-menu-item:nth-child(7n) .u-floating-menu-action {
   -webkit-animation-delay: 175ms;
           animation-delay: 175ms;
 }
-.u-floating-menu:hover .u-floating-menu-items .u-floating-menu-item:nth-child(8n),
-.u-floating-menu-toggle:focus + .u-floating-menu-items .u-floating-menu-item:nth-child(8n) {
+.u-floating-menu:hover .u-floating-menu-toggle:not(.collapse) + .u-floating-menu-items .u-floating-menu-item:nth-child(8n) {
   -webkit-animation-delay: 200ms;
           animation-delay: 200ms;
 }
-.u-floating-menu:hover .u-floating-menu-items .u-floating-menu-item:nth-child(8n) .u-floating-menu-action,
-.u-floating-menu-toggle:focus + .u-floating-menu-items .u-floating-menu-item:nth-child(8n) .u-floating-menu-action {
+.u-floating-menu:hover .u-floating-menu-toggle:not(.collapse) + .u-floating-menu-items .u-floating-menu-item:nth-child(8n) .u-floating-menu-action {
   -webkit-animation-delay: 200ms;
           animation-delay: 200ms;
 }
-.u-floating-menu:hover .u-floating-menu-items .u-floating-menu-item:nth-child(9n),
-.u-floating-menu-toggle:focus + .u-floating-menu-items .u-floating-menu-item:nth-child(9n) {
+.u-floating-menu:hover .u-floating-menu-toggle:not(.collapse) + .u-floating-menu-items .u-floating-menu-item:nth-child(9n) {
   -webkit-animation-delay: 225ms;
           animation-delay: 225ms;
 }
-.u-floating-menu:hover .u-floating-menu-items .u-floating-menu-item:nth-child(9n) .u-floating-menu-action,
-.u-floating-menu-toggle:focus + .u-floating-menu-items .u-floating-menu-item:nth-child(9n) .u-floating-menu-action {
+.u-floating-menu:hover .u-floating-menu-toggle:not(.collapse) + .u-floating-menu-items .u-floating-menu-item:nth-child(9n) .u-floating-menu-action {
   -webkit-animation-delay: 225ms;
           animation-delay: 225ms;
 }
-.u-floating-menu:hover .u-floating-menu-items .u-floating-menu-item:nth-child(10n),
-.u-floating-menu-toggle:focus + .u-floating-menu-items .u-floating-menu-item:nth-child(10n) {
+.u-floating-menu:hover .u-floating-menu-toggle:not(.collapse) + .u-floating-menu-items .u-floating-menu-item:nth-child(10n) {
   -webkit-animation-delay: 250ms;
           animation-delay: 250ms;
 }
-.u-floating-menu:hover .u-floating-menu-items .u-floating-menu-item:nth-child(10n) .u-floating-menu-action,
-.u-floating-menu-toggle:focus + .u-floating-menu-items .u-floating-menu-item:nth-child(10n) .u-floating-menu-action {
+.u-floating-menu:hover .u-floating-menu-toggle:not(.collapse) + .u-floating-menu-items .u-floating-menu-item:nth-child(10n) .u-floating-menu-action {
   -webkit-animation-delay: 250ms;
           animation-delay: 250ms;
 }
@@ -8993,6 +8971,7 @@ button.u-text-input:not(textarea) {
   transition: font-size 200ms, -webkit-transform 200ms;
   transition: transform 200ms, font-size 200ms;
   transition: transform 200ms, font-size 200ms, -webkit-transform 200ms;
+  z-index: 1;
 }
 .u-text-field.u-text-field-floating-label .u-text-input::-webkit-input-placeholder,
 .u-text-field.u-text-field-floating-label .u-text-input-placeholder,

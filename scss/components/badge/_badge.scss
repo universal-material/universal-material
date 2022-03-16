@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @import "variables";
 @import "../../colors";
 @import "../../mixins";
@@ -37,7 +39,7 @@
 
 @if (mixin_exists(u-buttons-theme)) {
 
-  $btn-badge-position: $u-badge-position + ($u-btn-borderless-size - $u-btn-icon-size) / 2;
+  $btn-badge-position: $u-badge-position + math.div($u-btn-borderless-size - $u-btn-icon-size, 2);
 
   .u-btn-borderless {
     .u-badge-top-left {

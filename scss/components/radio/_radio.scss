@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @import "variables";
 @import "../../font";
 @import "../../mixins";
@@ -49,8 +51,8 @@
       left: 50%;
       width: $u-radio-check-mark-size;
       height: $u-radio-check-mark-size;
-      margin-top: -$u-radio-check-mark-size / 2;
-      margin-left: -$u-radio-check-mark-size / 2;
+      margin-top: math.div(-$u-radio-check-mark-size, 2);
+      margin-left: math.div(-$u-radio-check-mark-size, 2);
       content: "";
       background: currentColor;
       border-radius: 50%;

@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @import "variables";
 @import "../../mixins";
 @import "../../placeholders";
@@ -62,7 +64,7 @@
 
   width: $u-datepicker-year-month-button-width;
   height: $u-datepicker-year-month-button-height;
-  border-radius: $u-datepicker-year-month-button-height / 2;
+  border-radius: math.div($u-datepicker-year-month-button-height, 2);
 }
 
 .u-datepicker-weekdays {

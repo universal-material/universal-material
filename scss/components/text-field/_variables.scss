@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @import "../../animations";
 @import "../../colors";
 @import "../../font";
@@ -71,7 +73,7 @@ $u-text-field-helper-text-color-dark-theme: $u-text-low-contrast-dark-theme !def
 
 $u-text-input-icon-color-light-theme: $u-text-low-contrast-light-theme !default;
 $u-text-input-icon-color-dark-theme: $u-text-low-contrast-dark-theme !default;
-$u-text-field-icon-bottom: $u-text-input-total-height / 2 !default;
+$u-text-field-icon-bottom: math.div($u-text-input-total-height, 2) !default;
 $u-text-field-icon-size: 1.5rem !default;
 $u-text-field-icon-margin: 8px !default;
 

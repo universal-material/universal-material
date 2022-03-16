@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @import "../../colors";
 
 //Progress
@@ -11,4 +13,4 @@ $u-spinner-color: $u-primary-color !default;
 $u-spinner-height: 3rem !default;
 $u-spinner-height-small: $u-spinner-height * .75 !default;
 $u-spinner-height-x-small: $u-spinner-height * .5 !default;
-$u-spinner-height-big: $u-spinner-height / 3 * 4 !default;
+$u-spinner-height-big: math.div($u-spinner-height, 3) * 4 !default;

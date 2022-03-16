@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @import "variables";
 @import "theme";
 @import "../../mixins";
@@ -63,7 +65,7 @@
       height: $u-switch-click-size;
       border-radius: 50%;
       transition: transform 300ms;
-      transform: translate3d(-($u-switch-click-size - $u-switch-toggle-size) / 2, -50%, 0);
+      transform: translate3d(math.div(-($u-switch-click-size - $u-switch-toggle-size), 2), -50%, 0);
 
       &::after {
         width: $u-switch-toggle-size;
@@ -79,7 +81,7 @@
     &.checked .u-check-indicator,
     input:checked ~ .u-selection-control .u-check-indicator {
       color: inherit;
-      transform: translate3d($u-switch-width - $u-switch-click-size + (($u-switch-click-size - $u-switch-toggle-size) / 2), -50%, 0);
+      transform: translate3d($u-switch-width - $u-switch-click-size + math.div($u-switch-click-size - $u-switch-toggle-size, 2), -50%, 0);
 
       &::after {
         background: currentColor !important;

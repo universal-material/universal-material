@@ -9307,6 +9307,7 @@ button.u-text-input:not(textarea) {
   transition: font-size 200ms, -webkit-transform 200ms;
   transition: transform 200ms, font-size 200ms;
   transition: transform 200ms, font-size 200ms, -webkit-transform 200ms;
+  z-index: 1;
 }
 .u-text-field.u-text-field-floating-label .u-text-input::-webkit-input-placeholder,
 .u-text-field.u-text-field-floating-label .u-text-input-placeholder,

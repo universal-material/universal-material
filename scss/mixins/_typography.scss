@@ -1,5 +1,7 @@
+@use "sass:math";
+
 @function umd-typography-get-letter-spacing_($tracking, $font-size) {
-  @return $tracking / ($font-size * 16) * 1em;
+  @return math.div($tracking, $font-size * 16) * 1em;
 }
 
 @mixin umd-typography($style) {

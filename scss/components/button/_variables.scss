@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @import "../../colors";
 @import "../../base-sizes";
 
@@ -21,7 +23,7 @@ $u-floating-action-area-margin: 1.25rem !default;
 $u-btn-floating-size: 3.5rem !default;
 $u-btn-floating-small-size: 2.5rem !default;
 $u-btn-floating-extended-height: 3rem !default;
-$u-btn-floating-extended-border-radius: $u-btn-floating-extended-height / 2 !default;
+$u-btn-floating-extended-border-radius: math.div($u-btn-floating-extended-height, 2) !default;
 $u-btn-floating-extended-padding: 20px !default;
 $u-btn-floating-extended-icon-margin: 12px !default;
 $u-floating-button-icon-size: $base-icon-size !default;

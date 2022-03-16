@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @import "variables";
 @import "../../font";
 @import "../../mixins";
@@ -133,8 +135,8 @@
 }
 
 .u-list-item-primary-content ~ .u-list-item-icon.u-btn-borderless {
-  margin-right: -$u-list-item-padding / 2;
-  margin-left: $u-list-item-padding / 2;
+  margin-right: math.div(-$u-list-item-padding, 2);
+  margin-left: math.div($u-list-item-padding, 2);
 }
 
 .u-list-item-primary-content {

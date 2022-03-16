@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @import "variables";
 @import "theme";
 @import "../../mixins";
@@ -9,11 +11,11 @@
   input[type="range"] {
     position: absolute;
     top: 50%;
-    left: -$u-slider-action-size / 2;
+    left: math.div(-$u-slider-action-size, 2);
     width: calc(100% + #{$u-slider-action-size}); /* Specific width is required for Firefox. */
     height: $u-slider-action-size;
     padding: 0;
-    margin-top: -$u-slider-action-size / 2;
+    margin-top: math.div(-$u-slider-action-size, 2);
     cursor: pointer;
     background: transparent; /* Otherwise white in Chrome */
     opacity: 0;
@@ -41,7 +43,7 @@
       }
 
       .u-slider-track {
-        margin-left: -($u-slider-disabled-thumb-margin + ($u-slider-thumb-size / 2));
+        margin-left: -($u-slider-disabled-thumb-margin + math.div($u-slider-thumb-size, 2));
       }
     }
   }
@@ -68,7 +70,7 @@
   justify-content: space-between;
   width: 100%;
   height: $u-slider-track-size;
-  margin-top: -$u-slider-track-size / 2;
+  margin-top: math.div(-$u-slider-track-size, 2);
 }
 
 .u-slider-track-marker {
@@ -84,7 +86,7 @@
   display: flex;
   width: 100%;
   height: $u-slider-track-size;
-  margin-top: -$u-slider-track-size / 2;
+  margin-top: math.div(-$u-slider-track-size, 2);
   overflow: hidden;
   pointer-events: none;
 
@@ -125,8 +127,8 @@
   left: 0;
   width: 100%;
   height: $u-slider-action-size;
-  margin-top: -$u-slider-action-size / 2;
-  margin-right: -$u-slider-action-size / 2;
+  margin-top: math.div(-$u-slider-action-size, 2);
+  margin-right: math.div(-$u-slider-action-size, 2);
   pointer-events: none;
 }
 
@@ -137,7 +139,7 @@
   &::before {
     position: absolute;
     top: 0;
-    right: -$u-slider-action-size / 2;
+    right: math.div(-$u-slider-action-size, 2);
     width: $u-slider-action-size;
     height: $u-slider-action-size;
     content: "";
@@ -151,10 +153,10 @@
   &::after {
     position: absolute;
     top: 50%;
-    right: -$u-slider-thumb-size / 2;
+    right: math.div(-$u-slider-thumb-size, 2);
     width: $u-slider-thumb-size;
     height: $u-slider-thumb-size;
-    margin-top: -$u-slider-thumb-size / 2;
+    margin-top: math.div(-$u-slider-thumb-size, 2);
     content: "";
     background: currentColor;
     border-radius: 50%;
@@ -216,12 +218,12 @@
 
     &::before {
       right: auto;
-      left: -$u-slider-action-size / 2;
+      left: math.div(-$u-slider-action-size, 2);
     }
 
     &::after {
       right: auto;
-      left: -$u-slider-thumb-size / 2;
+      left: math.div(-$u-slider-thumb-size, 2);
     }
   }
 

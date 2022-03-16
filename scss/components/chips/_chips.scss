@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @import "chip-base";
 @import "../../mixins";
 @import "../../theme";
@@ -51,8 +53,8 @@
     left: 50% !important;
     width: $u-chip-remove-hover-size;
     height: $u-chip-remove-hover-size;
-    margin-top: -$u-chip-remove-hover-size / 2;
-    margin-left: -$u-chip-remove-hover-size / 2;
+    margin-top: math.div(-$u-chip-remove-hover-size, 2);
+    margin-left: math.div(-$u-chip-remove-hover-size, 2);
     content: "";
     border-radius: 50% !important;
   }

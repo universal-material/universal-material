@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @import "variables";
 @import "../../font";
 
@@ -13,7 +15,7 @@
   overflow: hidden;
   font-family: $u-font-family-base;
   font-size: $u-chip-font-size;
-  border-radius: $u-chip-height / 2;
+  border-radius: math.div($u-chip-height, 2);
 
   &::before {
     position: absolute;
