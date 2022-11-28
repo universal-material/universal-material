@@ -61,10 +61,11 @@ export class Slider {
     if (disabled) {
       this._sliderElement.setAttribute('aria-disabled', disabled.toString());
       this._sliderInputElement.setAttribute('disabled', '');
-    } else {
-      this._sliderElement.removeAttribute('aria-disabled');
-      this._sliderInputElement.removeAttribute('disabled');
+      return;
     }
+
+    this._sliderElement.removeAttribute('aria-disabled');
+    this._sliderInputElement.removeAttribute('disabled');
   }
 
   static initializeSliders(): void {

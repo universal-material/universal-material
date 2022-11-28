@@ -94,7 +94,7 @@ var umd;
         return ConfirmDialogConfig;
     }(QuickDialogConfig));
     umd.ConfirmDialogConfig = ConfirmDialogConfig;
-    var confirmDialogTemplate = "\n<div class=\"u-dialog show\">\n  <div class=\"u-dialog-backdrop\"></div>\n  <div class=\"u-dialog-content\">\n    <div class=\"u-dialog-header\">\n      <div class=\"u-dialog-title\"></div>\n    </div>    \n    <div class=\"u-dialog-body\"></div>\n    <div class=\"u-dialog-actions\">\n      <button type=\"button\" class=\"u-btn-flat u-btn-primary\" cancelButton></button>\n      <button type=\"button\" class=\"u-btn-flat u-btn-primary\" confirmButton></button>\n    </div>\n  </div>\n</div>";
+    var confirmDialogTemplate = "\n<div class=\"u-dialog show\">\n  <div class=\"u-dialog-backdrop\"></div>\n  <div class=\"u-dialog-content\">\n    <div class=\"u-dialog-header\">\n      <div class=\"u-dialog-title\"></div>\n    </div>\n    <div class=\"u-dialog-body\"></div>\n    <div class=\"u-dialog-actions\">\n      <button type=\"button\" class=\"u-btn-text u-btn-primary\" cancelButton></button>\n      <button type=\"button\" class=\"u-btn-text u-btn-primary\" confirmButton></button>\n    </div>\n  </div>\n</div>";
     var ConfirmDialog = (function (_super) {
         __extends(ConfirmDialog, _super);
         function ConfirmDialog(message, config) {
@@ -334,10 +334,11 @@ var umd;
     umd.ProgressDialog = ProgressDialog;
     umd.RippleContainersSelector = [
         '.u-btn',
-        '.u-btn-flat',
-        '.u-btn-solid',
-        '.u-btn-raised',
-        '.u-btn-outline',
+        '.u-btn-text',
+        '.u-btn-filled',
+        '.u-btn-filled-tonal',
+        '.u-btn-elevated',
+        '.u-btn-outlined',
         '.u-btn-floating',
         '.u-btn-borderless',
         '.u-tab',
@@ -364,10 +365,6 @@ var umd;
         {
             selector: '.u-radio',
             subSelector: '.u-selection-control'
-        },
-        {
-            selector: '.u-switch',
-            subSelector: '.u-check-indicator'
         },
         {
             selector: '.u-checkbox',
@@ -536,11 +533,10 @@ var umd;
             if (disabled) {
                 this._sliderElement.setAttribute('aria-disabled', disabled.toString());
                 this._sliderInputElement.setAttribute('disabled', '');
+                return;
             }
-            else {
-                this._sliderElement.removeAttribute('aria-disabled');
-                this._sliderInputElement.removeAttribute('disabled');
-            }
+            this._sliderElement.removeAttribute('aria-disabled');
+            this._sliderInputElement.removeAttribute('disabled');
         };
         Slider.initializeSliders = function () {
             var sliders = document.querySelectorAll('.u-slider');
@@ -606,7 +602,7 @@ var umd;
         Snackbar.createButton = function (buttonDefinition) {
             var snackbarButton = document.createElement("button");
             snackbarButton.type = "button";
-            snackbarButton.className = "u-btn-flat u-btn-secondary";
+            snackbarButton.className = "u-btn-text";
             snackbarButton.innerText = buttonDefinition.text;
             new Ripple(snackbarButton);
             if (buttonDefinition.action) {

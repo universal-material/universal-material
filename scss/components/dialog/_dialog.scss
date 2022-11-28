@@ -133,7 +133,7 @@
 
 .u-dialog-scroll-bottom-divider .u-dialog-actions::before,
 .u-dialog-scroll-top-divider .u-dialog-header::before {
-  background: var(--u-divider-color);
+  background: var(--u-outline-color);
 }
 
 .u-dialog-header {
@@ -178,7 +178,8 @@
 
 @include media-breakpoint-up(md) {
   .u-dialog-content {
-    max-width: $u-dialog-desktop-max-width;
+    max-width: $u-dialog-desktop-max-size;
+    max-height: $u-dialog-desktop-max-size;
   }
 }
 

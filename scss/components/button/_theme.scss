@@ -8,9 +8,7 @@
 @mixin button-flat-theme($buttons-colors) {
 
   @each $color, $value in $buttons-colors {
-    .u-btn-flat.u-btn-#{$color},
-    .u-btn-outline.u-btn-#{$color},
-    .u-btn-outline-gray.u-btn-#{$color},
+
     .u-btn-borderless.u-btn-#{$color} {
       @include button-flat-variant($color);
     }
@@ -19,13 +17,14 @@
 
 @mixin u-buttons-theme {
 
-  @each $color, $value in $u-theme-colors {
-    .u-btn-solid.u-btn-#{$color},
-    .u-btn-raised.u-btn-#{$color},
-    .u-btn-floating.u-btn-#{$color} {
-      $button-text-color: if(is-dark-background($value), var(--u-high-contrast-color-dark-mode), var(--u-high-contrast-color-light-mode));
-      color: $button-text-color;
-      background-color: $value;
+  @each $color-name, $color-value in $u-theme-colors {
+    @if $color-name != "primary" {
+
+      .u-btn-filled.u-btn-#{$color-name},
+      .u-btn-floating.u-btn-#{$color-name} {
+        color: var(--u-on-#{$color-name}-color);
+        background-color: var(--u-#{$color-name}-color);
+      }
     }
   }
 

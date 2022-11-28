@@ -25,10 +25,10 @@
   }
 
   function mainContentScroll(e) {
-    if (e.target.scrollTop) {
-      appbar.classList.add('elevation-6dp');
+    if (window.scrollY) {
+      appbar.classList.add('u-toolbar-elevated');
     } else {
-      appbar.classList.remove('elevation-6dp');
+      appbar.classList.remove('u-toolbar-elevated');
     }
   }
 
@@ -43,7 +43,7 @@
 
   sidebarBackdrop.addEventListener("click", toggleSidebar);
 
-  document.getElementById("main-content").addEventListener("scroll", mainContentScroll);
+  window.addEventListener("scroll", mainContentScroll);
 
   umd.Ripple.initializeRipples();
   umd.TextField.initializeTextFields();

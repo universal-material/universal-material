@@ -6,16 +6,18 @@
 @import "../../placeholders";
 
 .u-card {
-  @extend %surface-background;
+  background: var(--u-surface-elevation-tint-1);
 
   font-family: $u-font-family-base;
   border-radius: $u-card-border-radius;
+}
+
+.u-card-elevated {
   box-shadow: $u-card-shadow;
 }
 
-.u-card-outline {
-  border: $u-card-outline-border;
-  box-shadow: none;
+.u-card-outlined {
+  border: $u-card-outlined-border;
 }
 
 .u-card-media {

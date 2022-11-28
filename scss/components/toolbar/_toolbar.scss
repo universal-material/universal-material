@@ -10,7 +10,8 @@
 .u-toolbar {
   display: block;
   font-family: $u-font-family-base;
-  background-color: var(--u-toolbar-color);
+  @extend %u-bg-surface;
+  transition: background-color 200ms !important;
 
   &,
   * {
@@ -79,17 +80,7 @@
 }
 
 .u-toolbar-elevated {
-  @include u-elevation(2);
-}
-
-.u-toolbar-default {
-  --u-toolbar-color: var(--u-surface-color);
-
-  @extend %u-bg-light;
-
-  @at-root .u-dark-mode & {
-    @extend %u-bg-dark;
-  }
+  @extend %u-elevation-surface-tint-2;
 }
 
 .rtl,

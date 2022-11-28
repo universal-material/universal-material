@@ -31,7 +31,7 @@
   }
 
   &.u-dialog-scroll-top-divider .u-dialog-header {
-    @include u-elevation(2);
+    @include u-elevation-shadow(2);
 
     &::before {
       content: none;

@@ -1,10 +1,13 @@
-$u-primary-color: #3f51b5 !default;
-$u-primary-variant-color: #303f9f !default;
-$u-secondary-color: #f50057 !default;
-$u-secondary-variant-color: #c51162 !default;
+
+
+$u-primary-color: #6750a4 !default;
+$u-secondary-color: #1D192B !default;
+$u-tertiary-color: #7d5260 !default;
 $u-success-color: #4caf50 !default;
 $u-warning-color: #fbc02d !default;
-$u-danger-color: #b00020 !default;
+$u-danger-color: #b3261e !default;
+$u-neutral-color: #5d5f5a !default;
+$u-neutral-variant-color: #5b6056 !default;
 
 $white:  #fff !default;
 $gray-100: #f5f5f5 !default;
@@ -18,40 +21,21 @@ $gray-800: #424242 !default;
 $gray-900: #212121 !default;
 $black:  #000 !default;
 
-$blue:    #2196f3 !default;
-$indigo:  #3f51b5 !default;
-$purple:  #9c27b0 !default;
-$pink:    #e91e63 !default;
-$red:     #f44336 !default;
-$orange:  #ff9800 !default;
-$yellow:  #ffeb3b !default;
-$green:   #4caf50 !default;
-$teal:    #009688 !default;
-$cyan:    #00bcd4 !default;
-
 $u-theme-colors: (
   primary: $u-primary-color, //Universal Material changes
-  primary-variant: $u-primary-variant-color,
   secondary: $u-secondary-color,
-  secondary-variant: $u-secondary-variant-color,
+  tertiary: $u-tertiary-color,
   success: $u-success-color,
   warning: $u-warning-color,
   danger: $u-danger-color
 ) !default;
 
-$u-toolbar-colors: (
-  primary: $u-primary-color, //Universal Material changes
-  primary-variant: $u-primary-variant-color,
-  secondary: $u-secondary-color,
-  secondary-variant: $u-secondary-variant-color
-) !default;
-
 $body-bg:       $gray-100 !default; //Universal Material changes
 $body-color:    rgba(#000, .87) !default;
 
-$u-bg-light:     $gray-100 !default; //Universal Material changes
+$u-bg-light:     var(--u-neutral-color-99) !default; //Universal Material changes
 $u-bg-light-ios: #efeff4 !default; //Universal Material changes
-$u-bg-dark:      #303030 !default; //Universal Material changes
+$u-bg-dark:      var(--u-neutral-color-10) !default; //Universal Material changes
 
 $u-body-color-light-theme:    $body-color !default; //Universal Material changes
 $u-body-color-dark-theme:    $white !default; //Universal Material changes

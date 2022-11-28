@@ -1,8 +1,22 @@
 :root {
+  --u-hover-state-layer-opacity: .08;
+  --u-focus-state-layer-opacity: .12;
+  --u-pressed-state-layer-opacity: .12;
+  --u-dragged-state-layer-opacity: .16;
+  --u-state-layer-color: currentColor;
+
   @include add-vars($u-bg-light-vars);
 
   --u-bg-color: #{$u-bg-light};
   --u-surface-color: #{$u-light-surface};
+  --u-surface-variant-color: #{$u-light-surface-variant};
+  --u-inverse-surface-color: #{$u-dark-surface};
+  --u-inverse-surface-variant-color: #{$u-dark-surface-variant};
+  --u-on-surface-color: #{$u-light-on-surface};
+  --u-on-surface-variant-color: #{$u-light-on-surface-variant};
+  --u-inverse-on-surface-color: #{$u-dark-on-surface};
+  --u-inverse-on-surface-variant-color: #{$u-dark-on-surface-variant};
+  --u-outline-color: #{$u-light-outline-color};
   --u-mode-high-contrast-color: #{$u-text-high-contrast-light-theme};
   --u-mode-low-contrast-color: #{$u-text-low-contrast-light-theme};
   --u-inverse-mode-high-contrast-color: #{$u-text-high-contrast-dark-theme};
@@ -20,6 +34,14 @@
 .u-dark-mode {
   --u-bg-color: #{$u-bg-dark};
   --u-surface-color: #{$u-dark-surface};
+  --u-surface-variant-color: #{$u-dark-surface-variant};
+  --u-inverse-surface-color: #{$u-light-surface};
+  --u-inverse-surface-variant-color: #{$u-light-surface-variant};
+  --u-on-surface-color: #{$u-dark-on-surface};
+  --u-on-surface-variant-color: #{$u-dark-on-surface-variant};
+  --u-inverse-on-surface-color: #{$u-light-on-surface};
+  --u-inverse-on-surface-variant-color: #{$u-light-on-surface-variant};
+  --u-outline-color: #{$u-dark-outline-color};
   --u-mode-high-contrast-color: #{$u-text-high-contrast-dark-theme};
   --u-mode-low-contrast-color: #{$u-text-low-contrast-dark-theme};
   --u-inverse-mode-high-contrast-color: #{$u-text-high-contrast-light-theme};

@@ -3,10 +3,9 @@
 $u-radio-label-font-size: 1rem !default;
 $u-radio-label-margin: .25rem !default;
 $u-radio-click-size: 2.5rem !default;
-$u-radio-disabled-opacity: .47 !default;
+$u-radio-disabled-opacity: .38 !default;
 
 $u-radio-border-width: .125rem !default;
-$u-radio-border: $u-radio-border-width solid currentColor !default;
 $u-radio-unchecked-opacity: .7 !default;
 $u-radio-size: 1.25rem !default;
 $u-radio-check-mark-size: math.div($u-radio-size, 2) !default;

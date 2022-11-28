@@ -11,23 +11,23 @@
       bottom: 0;
       left: 0;
       content: "";
-      background: currentColor;
+      background: var(--u-state-layer-color);
       border-radius: inherit;
       opacity: 0;
       transition: opacity 250ms linear;
     }
 
     &:active::before {
-      opacity: .2;
+      opacity: var(--u-focus-state-layer-opacity);
     }
 
     @include media-breakpoint-up(lg) {
       &:hover::before {
-        opacity: .12;
+        opacity: var(--u-hover-state-layer-opacity);
       }
 
       &:focus::before {
-        opacity: .12;
+        opacity: var(--u-focus-state-layer-opacity);
       }
     }
   }

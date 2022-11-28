@@ -270,10 +270,11 @@
 
   var RippleContainersSelector = [
       '.u-btn',
-      '.u-btn-flat',
-      '.u-btn-solid',
-      '.u-btn-raised',
-      '.u-btn-outline',
+      '.u-btn-text',
+      '.u-btn-filled',
+      '.u-btn-filled-tonal',
+      '.u-btn-elevated',
+      '.u-btn-outlined',
       '.u-btn-floating',
       '.u-btn-borderless',
       '.u-tab',
@@ -299,10 +300,6 @@
       {
           selector: '.u-radio',
           subSelector: '.u-selection-control'
-      },
-      {
-          selector: '.u-switch',
-          subSelector: '.u-check-indicator'
       },
       {
           selector: '.u-checkbox',
@@ -644,11 +641,10 @@
           if (disabled) {
               this._sliderElement.setAttribute('aria-disabled', disabled.toString());
               this._sliderInputElement.setAttribute('disabled', '');
+              return;
           }
-          else {
-              this._sliderElement.removeAttribute('aria-disabled');
-              this._sliderInputElement.removeAttribute('disabled');
-          }
+          this._sliderElement.removeAttribute('aria-disabled');
+          this._sliderInputElement.removeAttribute('disabled');
       };
       Slider.initializeSliders = function () {
           var sliders = document.querySelectorAll('.u-slider');

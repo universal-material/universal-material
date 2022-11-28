@@ -5,7 +5,5 @@
 .u-divider {
   width: 100%;
   height: $u-divider-height;
-  background-color: var(--u-divider-color);
+  background-color: var(--u-outline-color);
 }
-
-@include contrast-bg-var(--u-divider-color, $u-base-semi-transparent-color-light-theme, $u-base-semi-transparent-color-dark-theme)

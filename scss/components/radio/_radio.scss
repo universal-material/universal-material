@@ -6,6 +6,10 @@
 @import "../../placeholders";
 @import "../../theme";
 
+:root {
+  --u-radio-color: var(--u-on-surface-variant-color);
+}
+
 .u-radio {
   display: inline-flex;
   align-items: center;
@@ -40,10 +44,8 @@
     position: relative;
     width: $u-radio-size;
     height: $u-radio-size;
-    color: currentColor;
-    border: $u-radio-border;
+    border: $u-radio-border-width solid var(--u-radio-color);
     border-radius: 50%;
-    opacity: .7;
 
     &::before {
       position: absolute;
@@ -54,11 +56,16 @@
       margin-top: math.div(-$u-radio-check-mark-size, 2);
       margin-left: math.div(-$u-radio-check-mark-size, 2);
       content: "";
-      background: currentColor;
+      background: var(--u-radio-color);
       border-radius: 50%;
       transition: transform 250ms;
       transform: scale3d(0, 0, 1);
     }
+  }
+
+  &.checked .u-selection-control,
+  input:checked ~ .u-selection-control {
+    --u-radio-color: var(--u-primary-color);
   }
 
   &.checked .u-check-indicator,
@@ -72,30 +79,12 @@
 
   &.disabled .u-selection-control,
   input:disabled ~ .u-selection-control {
+    --u-radio-color: var(--u-on-surface-color);
+
     opacity: $u-radio-disabled-opacity;
-  }
-}
 
-@mixin u-radio-variant($color) {
-  &.checked:not(.disabled) .u-selection-control,
-  input:checked:not(:disabled) ~ .u-selection-control {
-    color: var(--u-#{$color}-color);
-  }
-}
-
-@mixin u-radio-theme {
-
-  .u-radio {
-    @each $color, $value in $u-theme-colors {
-      @include apply-style-bg-once("radio-#{$color}") {
-        @if $color == "primary" {
-          @include u-radio-variant($color);
-        } @else {
-          &.u-radio-#{$color} {
-            @include u-radio-variant($color);
-          }
-        }
-      }
+    &::before {
+      display: none;
     }
   }
 }

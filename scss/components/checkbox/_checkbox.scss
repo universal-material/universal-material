@@ -38,7 +38,7 @@
       height: $u-checkbox-size;
       content: "";
       border-radius: $u-checkbox-border-radius;
-      box-shadow: 0 0 0 $u-checkbox-border-width currentColor inset;
+      box-shadow: 0 0 0 $u-checkbox-border-width var(--u-on-surface-color) inset;
       opacity: $u-checkbox-unchecked-opacity;
       transition: box-shadow $u-checkbox-animation-step-duration $u-checkbox-animation-step-duration;
     }
@@ -67,7 +67,7 @@
       width: .75rem;
       height: .35rem;
       content: "";
-      border: .125rem solid var(--u-bg-color);
+      border: .125rem solid var(--u-on-primary-color);
       border-top-style: none;
       border-right-style: none;
       transform: rotate(-45deg);
@@ -77,7 +77,7 @@
   &.checked .u-selection-control,
   input:checked ~ .u-selection-control {
     &::after {
-      box-shadow: 0 0 0 math.div($u-checkbox-size, 2) currentColor inset;
+      box-shadow: 0 0 0 math.div($u-checkbox-size, 2) var(--u-primary-color) inset;
       opacity: 1;
       transition: box-shadow $u-checkbox-animation-step-duration;
     }
@@ -91,29 +91,18 @@
   &.disabled .u-selection-control,
   input:disabled ~ .u-selection-control {
     opacity: $u-checkbox-disabled-opacity;
+
+    &::before {
+      display: none;
+    }
   }
-}
 
-@mixin u-checkbox-variant($color) {
-  &.checked:not(.disabled) .u-selection-control,
-  input:checked:not(:disabled) ~ .u-selection-control {
-    color: var(--u-#{$color}-color);
-  }
-}
-
-@mixin u-checkbox-theme {
-
-  .u-checkbox {
-    @each $color, $value in $u-theme-colors {
-      @include apply-style-bg-once("checkbox-#{$color}") {
-        @if $color == "primary" {
-          @include u-checkbox-variant($color);
-        } @else {
-          &.u-checkbox-#{$color} {
-            @include u-checkbox-variant($color);
-          }
-        }
-      }
+  &.checked.disabled .u-selection-control,
+  input:checked:disabled ~ .u-selection-control {
+    &::after {
+      box-shadow: 0 0 0 math.div($u-checkbox-size, 2) var(--u-on-surface-color) inset;
+      opacity: 1;
+      transition: box-shadow $u-checkbox-animation-step-duration;
     }
   }
 }

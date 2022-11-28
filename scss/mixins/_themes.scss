@@ -17,18 +17,6 @@
     @include u-chip-theme;
   }
 
-  @if (mixin_exists(u-checkbox-theme)) {
-    @include u-checkbox-theme;
-  }
-
-  @if (mixin_exists(u-radio-theme)) {
-    @include u-radio-theme;
-  }
-
-  @if (mixin_exists(u-switch-theme)) {
-    @include u-switch-theme;
-  }
-
   @if (mixin_exists(u-slider-theme)) {
     @include u-slider-theme;
   }

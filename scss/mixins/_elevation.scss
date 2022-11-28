@@ -109,7 +109,7 @@ $u-elevation-opacity: 1 !default;
 }
 
 
-@mixin u-elevation($zValue, $color: $u-elevation-color, $opacity: $u-elevation-opacity) {
+@mixin u-elevation-shadow($zValue, $color: $u-elevation-color, $opacity: $u-elevation-opacity) {
   @if type-of($zValue) != number or not unitless($zValue) {
     @error "$zValue must be a unitless number";
   }

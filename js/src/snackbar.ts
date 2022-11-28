@@ -71,7 +71,7 @@ export class Snackbar {
 
     const snackbarButton = document.createElement("button") as HTMLButtonElement;
     snackbarButton.type = "button";
-    snackbarButton.className = "u-btn-flat u-btn-secondary";
+    snackbarButton.className = "u-btn-text";
     snackbarButton.innerText = buttonDefinition.text;
 
     new Ripple(snackbarButton);

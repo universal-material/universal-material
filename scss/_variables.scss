@@ -18,8 +18,17 @@ $text-muted: $u-text-low-contrast-light-theme !default;
 $u-bg-light-vars: () !default;
 $u-bg-dark-vars: () !default;
 
-$u-light-surface: $white !default;
-$u-dark-surface: $gray-800 !default;
+$u-light-surface: var(--u-neutral-color-99) !default;
+$u-light-on-surface: var(--u-neutral-color-10) !default;
+$u-light-surface-variant: var(--u-neutral-variant-color-90) !default;
+$u-light-on-surface-variant: var(--u-neutral-variant-color-30) !default;
+$u-dark-surface: var(--u-neutral-color-10) !default;
+$u-dark-on-surface: var(--u-neutral-color-90) !default;
+$u-dark-surface-variant: var(--u-neutral-variant-color-30) !default;
+$u-dark-on-surface-variant: var(--u-neutral-variant-color-80) !default;
+
+$u-light-outline-color: var(--u-neutral-variant-color-50) !default;
+$u-dark-outline-color: var(--u-neutral-variant-color-60) !default;
 
 $u-bg-placeholders: () !default;
 $u-unique-selector: () !default;

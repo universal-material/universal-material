@@ -1,8 +1,15 @@
 @import "../placeholders";
 
-
 .u-bg-transparent {
   background-color: transparent !important;
+}
+
+.u-bg-surface {
+  background-color: var(--u-surface-color) !important;
+}
+
+%u-bg-surface {
+  background-color: var(--u-surface-color);
 }
 
 .u-selectable-background {

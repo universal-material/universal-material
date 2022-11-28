@@ -44,7 +44,7 @@
   &.open {
 
     .u-drawer-content {
-      @include u-elevation(2);
+      @include u-elevation-shadow(2);
     }
 
     > .u-drawer-backdrop {
@@ -105,7 +105,7 @@
       &,
       &.u-drawer-end {
         .u-drawer-content {
-          @include u-elevation(0);
+          @include u-elevation-shadow(0);
           transform: none;
         }
       }
@@ -133,13 +133,13 @@
       transition: padding-left 375ms $awesome-cubic-bezier;
 
       .u-toolbar-fixed {
-        transition: left 375ms $awesome-cubic-bezier;
+        transition: left 375ms $awesome-cubic-bezier, background-color 200ms;
         will-change: left;
       }
 
       &.u-drawer-end {
         .u-toolbar-fixed {
-          transition: right 375ms $awesome-cubic-bezier;
+          transition: right 375ms $awesome-cubic-bezier, background-color 200ms;
           will-change: right;
         }
       }

@@ -4,8 +4,6 @@
 @import "../../mixins";
 @import "../../zindex";
 
-@include contrast-bg-var(--u-bg-snackbar, $u-snackbar-background-color-light-theme, $u-snackbar-background-color-dark-theme);
-
 .u-snackbar {
   position: fixed;
   right: $u-snackbar-margin;
@@ -15,7 +13,7 @@
   display: flex;
   align-items: center;
   min-height: $u-snackbar-height;
-  background-color: var(--u-bg-snackbar);
+  background-color: var(--u-inverse-surface-color);
   font-family: $u-font-family-base;
   font-size: $u-snackbar-font-size;
   border-radius: $u-snackbar-border-radius;
@@ -29,7 +27,8 @@
     box-sizing: border-box;
   }
 
-  .u-btn {
+  .u-btn-text {
+    color: var(--u-inverse-primary-color);
     margin: $u-snackbar-btn-margin;
   }
 
@@ -52,7 +51,7 @@
   margin: $u-snackbar-text-vertical-margin $u-snackbar-horizontal-padding;
   overflow: hidden;
   font-weight: $u-snackbar-font-weight;
-  color: var(--u-inverse-mode-high-contrast-color);
+  color: var(--u-inverse-on-surface-color);
 }
 
 

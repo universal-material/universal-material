@@ -1,12 +1,19 @@
+@use "sass:math";
+
 $u-switch-label-margin: .5rem !default;
 $u-switch-label-font-size: 1rem !default;
 $u-switch-click-size: 2.5rem !default;
-$u-switch-width: 2.25rem !default;
-$u-switch-height: .875rem !default;
-$u-switch-border-radius: .5rem !default;
-$u-switch-disabled-opacity: .47 !default;
+$u-switch-width: 3.25rem !default;
+$u-switch-height: 2rem !default;
+$u-switch-outline-width: .125rem !default;
+$u-switch-border-radius: math.div($u-switch-height, 2) !default;
+$u-switch-disabled-opacity: .12 !default;
 
-$u-switch-toggle-size: 1.25rem !default;
+$u-switch-toggle-size: $u-switch-height - ($u-switch-outline-width * 2) !default;
+$u-switch-toggle-real-size: 1rem !default;
+$u-switch-checked-toggle-real-size: 1.5rem !default;
+$u-switch-toggle-border-size: math.div($u-switch-toggle-size - $u-switch-toggle-real-size, 2) !default;
+$u-switch-checked-toggle-border-size: math.div($u-switch-toggle-size - $u-switch-checked-toggle-real-size, 2) !default;
 $u-switch-toggle-color-light-theme: #fafafa !default;
 $u-switch-toggle-color-dark-theme: #bdbdbd !default;
 $u-switch-toggle-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12) !default;

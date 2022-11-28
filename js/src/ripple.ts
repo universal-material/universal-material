@@ -1,10 +1,11 @@
 export const RippleContainersSelector =
   [
     '.u-btn',
-    '.u-btn-flat',
-    '.u-btn-solid',
-    '.u-btn-raised',
-    '.u-btn-outline',
+    '.u-btn-text',
+    '.u-btn-filled',
+    '.u-btn-filled-tonal',
+    '.u-btn-elevated',
+    '.u-btn-outlined',
     '.u-btn-floating',
     '.u-btn-borderless',
     '.u-tab',
@@ -31,10 +32,6 @@ export const RippleConfigMap = [
   {
     selector: '.u-radio',
     subSelector: '.u-selection-control'
-  },
-  {
-    selector: '.u-switch',
-    subSelector: '.u-check-indicator'
   },
   {
     selector: '.u-checkbox',

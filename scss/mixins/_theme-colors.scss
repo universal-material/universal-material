@@ -1,31 +1,114 @@
+@use "sass:color";
 @use "sass:list";
+@use "sass:map";
+
+$color-tones: 100, 99, 95, 90, 80, 70, 60, 50, 40, 30, 20, 10, 0;
+$surface-tint-opacity: (1: .05, 2: .08, 3: .11, 4: .12, 5: .14);
+
+@function generate-color-tones($color-name, $color-key-value) {
+  $color-tones-map: ();
+
+  @each $tone in $color-tones {
+    $color-value: color.change($color-key-value, $lightness: $tone * 1%);
+    $color-tones-map: map.merge($color-tones-map, ($tone: $color-value));
+  }
+
+  @return $color-tones-map;
+}
+
+@function get-color-tone-var($color-name, $tone) {
+  @return var(--u-#{$color-name}-color-#{$tone});
+}
+
+@mixin color-tones($color-name, $color-tones-map) {
+
+  @each $tone, $color-value in $color-tones-map {
+    --u-#{$color-name}-color-#{$tone}: #{$color-value};
+  }
+}
 
 @mixin create-color-vars() {
-  @each $color, $value in $u-theme-colors {
-    --u-#{$color}-color: #{$value};
+
+  $neutral-color-tones-map: generate-color-tones(neutral, $u-neutral-color);
+  @include color-tones(neutral, $neutral-color-tones-map);
+
+  $neutral-variant-color-tones-map: generate-color-tones(neutral-variant, $u-neutral-variant-color);
+  @include color-tones(neutral-variant, $neutral-variant-color-tones-map);
+
+  @each $color-name, $color-value in $u-theme-colors {
+
+    $color-tones-map: generate-color-tones($color-name, $color-value);
+    @include color-tones($color-name, $color-tones-map);
+
+    $light-color: get-color-tone-var(#{$color-name}, 40);
+    $dark-color: get-color-tone-var(#{$color-name}, 80);
+    $on-light-color: get-color-tone-var(#{$color-name}, 100);
+    $on-dark-color: get-color-tone-var(#{$color-name}, 20);
+    $light-container-color: get-color-tone-var(#{$color-name}, 90);
+    $dark-container-color: get-color-tone-var(#{$color-name}, 30);
+    $on-light-container-color: get-color-tone-var(#{$color-name}, 10);
+    $on-dark-container-color: get-color-tone-var(#{$color-name}, 90);
+
+    --u-#{$color-name}-color: #{$light-color};
+    --u-on-#{$color-name}-color: #{$on-light-color};
+    --u-#{$color-name}-container-color: #{$light-container-color};
+    --u-on-#{$color-name}-container-color: #{$on-light-container-color};
+
+    --u-inverse-#{$color-name}-color: #{$dark-color};
+    --u-inverse-on-#{$color-name}-color: #{$on-dark-color};
+    --u-inverse-#{$color-name}-container-color: #{$dark-container-color};
+    --u-inverse-on-#{$color-name}-container-color: #{$on-dark-container-color};
+
+    .u-dark-mode {
+      --u-#{$color-name}-color: #{$dark-color};
+      --u-on-#{$color-name}-color: #{$on-dark-color};
+      --u-#{$color-name}-container-color: #{$dark-container-color};
+      --u-on-#{$color-name}-container-color: #{$on-dark-container-color};
+
+      --u-inverse-#{$color-name}-color: #{$light-color};
+      --u-inverse-on-#{$color-name}-color: #{$on-light-color};
+      --u-inverse-#{$color-name}-container-color: #{$light-container-color};
+      --u-inverse-on-#{$color-name}-container-color: #{$on-light-container-color};
+    }
+
+    @if ($color-name == primary) {
+      $surface-color-light: map.get($neutral-color-tones-map, 99);
+      $surface-color-dark: map.get($neutral-color-tones-map, 10);
+      $surface-variant-color-light: map.get($neutral-variant-color-tones-map, 90);
+      $surface-variant-color-dark: map.get($neutral-variant-color-tones-map, 30);
+
+      @each $elevation, $opacity in $surface-tint-opacity {
+        $primary-color-light: map.get($color-tones-map, 40);
+        $primary-color-dark: map.get($color-tones-map, 80);
+
+        $weight: 100 * $opacity;
+
+        --u-surface-elevation-tint-#{$elevation}: #{color.mix($primary-color-light, $surface-color-light, $weight)};
+        --u-surface-variant-elevation-tint-#{$elevation}: #{color.mix($primary-color-light, $surface-variant-color-light, $weight)};
+
+        .u-dark-mode {
+          --u-surface-elevation-tint-#{$elevation}: #{color.mix($primary-color-dark, $surface-color-dark, $weight)};
+          --u-surface-variant-elevation-tint-#{$elevation}: #{color.mix($primary-color-dark, $surface-variant-color-dark, $weight)};
+        }
+      }
+    }
   }
 }
 @mixin create-color-background-placeholders() {
-  @each $color, $value in $u-theme-colors {
-    $selector: "%u-bg-#{$color}";
+  @each $color-name, $color-value in $u-theme-colors {
+    $selector: "%u-bg-#{$color-name}";
 
     @if list.index($u-bg-placeholders, $selector) == null {
       $u-bg-placeholders: list.append($u-bg-placeholders, $selector) !global;
 
-      @at-root %u-bg-#{$color} {
-        background-color: var(--u-#{$color}-color);
+      @at-root %u-bg-#{$color-name} {
+        color: var(--u-on-#{$color-name}-color);
+        background-color: var(--u-#{$color-name}-color);
       }
 
-      @at-root %u-bg-#{$color}-important {
-        background-color: var(--u-#{$color}-color) !important;
-      }
-    }
-
-    %u-bg-#{$color} {
-      @if (is-dark-background($value)) {
-        @extend %u-bg-dark;
-      } @else {
-        @extend %u-bg-light;
+      @at-root %u-bg-#{$color-name}-important {
+        color: var(--u-on-#{$color-name}-color) !important;
+        background-color: var(--u-#{$color-name}-color) !important;
       }
     }
   }

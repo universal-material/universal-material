@@ -3,15 +3,15 @@
 //Dialog
 $u-dialog-backdrop-bg: $black !default;
 $u-dialog-backdrop-opacity: .5 !default;
-$u-dialog-border-radius: .25rem !default;
+$u-dialog-border-radius: 28px !default;
 $u-dialog-padding: 24px !default;
-$u-dialog-header-padding: 17px 24px !default;
+$u-dialog-header-padding: 24px 24px 16px 24px !default;
 $u-dialog-title-line-height: 1.5 !default;
-$u-dialog-actions-padding: 8px !default;
+$u-dialog-actions-padding: 24px !default;
 $u-dialog-background-light-theme: #fff !default;
 $u-dialog-background-dark-theme: #424242 !default;
 $u-dialog-progress-margin: 24px !default;
 $u-dialog-min-width: 280px !default;
-$u-dialog-desktop-max-width: 580px !default;
+$u-dialog-desktop-max-size: 540px !default;
 
 $uwp-dialog-border-width: .0625rem !default;

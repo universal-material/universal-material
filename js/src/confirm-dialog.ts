@@ -21,11 +21,11 @@ const confirmDialogTemplate = `
   <div class="u-dialog-content">
     <div class="u-dialog-header">
       <div class="u-dialog-title"></div>
-    </div>    
+    </div>
     <div class="u-dialog-body"></div>
     <div class="u-dialog-actions">
-      <button type="button" class="u-btn-flat u-btn-primary" cancelButton></button>
-      <button type="button" class="u-btn-flat u-btn-primary" confirmButton></button>
+      <button type="button" class="u-btn-text u-btn-primary" cancelButton></button>
+      <button type="button" class="u-btn-text u-btn-primary" confirmButton></button>
     </div>
   </div>
 </div>`;

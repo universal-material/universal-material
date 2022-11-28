@@ -5,16 +5,6 @@
 
 @mixin u-toolbar-theme {
 
-  @each $color, $value in $u-theme-colors {
-    .u-toolbar-#{$color} {
-      --u-toolbar-color: var(--u-#{$color}-color);
-
-      @include apply-style-bg-once("toolbar-#{$color}") {
-        @extend %u-bg-#{$color};
-      }
-    }
-  }
-
   @if ($u-include-ios-styles) {
     .u-ios {
       @include ios-toolbar($u-theme-colors);
@@ -24,13 +14,13 @@
 
 @mixin u-toolbar-variant($background-color) {
 
-  $dark-background: is-dark-background($background-color);
+  //$dark-background: is-dark-background($background-color);
+  //
+  //--u-toolbar-color: #{$background-color};
 
-  --u-toolbar-color: #{$background-color};
-
-  @if ($dark-background) {
-    @extend %u-bg-dark;
-  } @else {
-    @extend %u-bg-light;
-  }
+  //@if ($dark-background) {
+  //  @extend %u-bg-dark;
+  //} @else {
+  //  @extend %u-bg-light;
+  //}
 }

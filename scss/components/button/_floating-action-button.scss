@@ -48,7 +48,7 @@
 }
 
 .u-floating-menu-label {
-  @include u-elevation(2);
+  @include u-elevation-shadow(2);
 
   display: flex;
   align-items: center;

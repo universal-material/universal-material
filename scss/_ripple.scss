@@ -18,9 +18,9 @@
 .u-ripple {
   top: 50%;
   left: 50%;
-  background: currentColor;
+  background: var(--u-state-layer-color);
   border-radius: 50%;
-  box-shadow: 0 0 4rem 4rem currentColor;
+  box-shadow: 0 0 4rem 4rem var(--u-state-layer-color);
   opacity: .2;
   transform: scale3d(0, 0, 1);
   will-change: transform;

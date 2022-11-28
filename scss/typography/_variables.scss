@@ -100,8 +100,7 @@ $typography-styles: (
     line-height: 2.25rem, // 36sp
     font-weight: $u-font-weight-medium,
     letter-spacing: umd-typography-get-letter-spacing_(1.25, .875),
-    text-decoration: none,
-    text-transform: uppercase
+    text-decoration: none
   ),
   overline: (
     font-size: .75rem, // 12sp

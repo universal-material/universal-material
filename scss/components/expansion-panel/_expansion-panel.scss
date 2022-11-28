@@ -5,7 +5,7 @@
 @import "../../placeholders";
 
 .u-expansion-panel {
-  @include u-elevation(2);
+  @include u-elevation-shadow(2);
 
   position: relative;
   width: 100%;

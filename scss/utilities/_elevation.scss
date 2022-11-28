@@ -2,7 +2,17 @@
 @import "../mixins";
 
 @for $i from 1 to 25 {
-  .u-elevation-z#{$i} {
-    @include u-elevation($i);
+  .u-elevation-shadow#{$i} {
+    @include u-elevation-shadow($i);
+  }
+}
+
+@for $elevation from 1 to 5 {
+  %u-elevation-surface-tint-#{$elevation} {
+    background-color: var(--u-surface-elevation-tint-#{$elevation}) !important;
+  }
+
+  .u-elevation-#{$elevation}.u-bg-surface {
+    @extend %u-elevation-surface-tint-#{$elevation};
   }
 }

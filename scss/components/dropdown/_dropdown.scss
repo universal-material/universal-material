@@ -8,7 +8,7 @@
 .u-dropdown-menu {
   @extend %surface-background;
 
-  @include u-elevation(2);
+  @include u-elevation-shadow(2);
 
   position: absolute;
   z-index: $zindex-dropdown;
