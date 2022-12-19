@@ -81,7 +81,6 @@
       break;
     }
   }
-
   function setExpandableMenus() {
     const nestedMenus = document.querySelectorAll('.nested-menu-items');
 
@@ -91,20 +90,45 @@
     }
   }
 
+  function setToggleButtons() {
+    const toggleButtons = document.querySelectorAll('.u-icon-toggle-btn');
+
+    for (const button of toggleButtons) {
+      const icon = button.firstElementChild;
+      button.addEventListener('click', () => {
+        if (button.classList.contains('selected')) {
+          button.classList.remove('selected');
+          icon.classList.remove('mdi-cards-heart');
+          icon.classList.add('mdi-cards-heart-outline');
+          return;
+        }
+
+        button.classList.add('selected');
+        icon.classList.add('mdi-cards-heart');
+        icon.classList.remove('mdi-cards-heart-outline');
+      });
+    }
+  }
+
   setActiveNavigationItem();
   setExpandableMenus();
+  setToggleButtons();
 })();
 
 function getHTML(who, deep){
-  if(!who || !who.tagName) return '';
-  let txt, ax, el = document.createElement("div");
+  if (!who || !who.tagName) return '';
+
+  let txt = '';
+  let ax = '';
+  let el = document.createElement("div");
   el.appendChild(who.cloneNode(false));
-  txt= el.innerHTML;
-  if(deep){
-    ax= txt.indexOf('>')+1;
-    txt= txt.substring(0, ax)+who.innerHTML+ txt.substring(ax);
+
+  if (deep) {
+    ax = txt.indexOf('>') + 1;
+    txt = txt.substring(0, ax) + who.innerHTML + txt.substring(ax);
   }
-  el= null;
+
+  el = null;
   return txt;
 }
 
@@ -112,8 +136,7 @@ function setExampleCodeText() {
   const exampleBoxHeaders = document.querySelectorAll('.example-box-header');
   for (let i = 0; i < exampleBoxHeaders.length; i++) {
     const exampleBoxHeader = exampleBoxHeaders[i];
-    let tagText = getHTML(exampleBoxHeader, true).replace('<div class="example-box-header">', '');
-    tagText = tagText.substring(0, tagText.length - 6).trim();
+    const tagText = exampleBoxHeader.innerHTML.trim();
 
     exampleBoxHeader.parentElement.getElementsByTagName('code')[0].innerText = tagText;
   }

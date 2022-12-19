@@ -89,11 +89,10 @@ var umd;
         function ChipField() {
         }
         ChipField.initializeChipFields = function () {
-            var _this = this;
             var chipFields = document.querySelectorAll('.u-chip-field');
             for (var i = 0; i < chipFields.length; i++) {
                 var chipField = chipFields[i];
-                new TextFieldBase(chipField, function () { return _this.isEmpty() && !!_this.element.querySelector('.u-chip'); });
+                new TextFieldBase(chipField, function () { return this.defaultIsEmpty() && !this.element.querySelector('.u-chip'); });
             }
         };
         return ChipField;
@@ -794,16 +793,19 @@ var umd;
         }
         TextFieldBase.prototype.setEmpty = function () {
             if (this.isEmpty()) {
-                this.element.classList.remove('empty');
+                this.element.classList.add('empty');
                 return;
             }
-            this.element.classList.add('empty');
+            this.element.classList.remove('empty');
         };
         TextFieldBase.prototype.isEmpty = function () {
             if (this.isEmptyOverride) {
                 return this.isEmptyOverride();
             }
-            return !!this.input.value;
+            return this.defaultIsEmpty();
+        };
+        TextFieldBase.prototype.defaultIsEmpty = function () {
+            return !this.input.value;
         };
         return TextFieldBase;
     }());

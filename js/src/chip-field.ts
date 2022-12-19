@@ -6,7 +6,7 @@ export class ChipField {
     for (let i = 0; i < chipFields.length; i++) {
       const chipField = chipFields[i];
       // @ts-ignore
-      new TextFieldBase(chipField, () => this.isEmpty() && !!this.element.querySelector('.u-chip'));
+      new TextFieldBase(chipField, function () { return this.defaultIsEmpty() && !this.element.querySelector('.u-chip') });
     }
   }
 }

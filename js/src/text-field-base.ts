@@ -53,11 +53,11 @@ export class TextFieldBase {
 
   setEmpty() {
     if (this.isEmpty()) {
-      this.element.classList.remove('empty');
+      this.element.classList.add('empty');
       return;
     }
 
-    this.element.classList.add('empty');
+    this.element.classList.remove('empty');
   }
 
   isEmpty(): boolean {
@@ -65,6 +65,10 @@ export class TextFieldBase {
       return this.isEmptyOverride();
     }
 
-    return !!this.input.value;
+    return this.defaultIsEmpty();
+  }
+
+  protected defaultIsEmpty(): boolean {
+    return !this.input.value;
   }
 }

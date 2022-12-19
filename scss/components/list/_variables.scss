@@ -5,31 +5,16 @@
 $u-list-vertical-margin: 8px !default;
 
 $u-list-icon-size: $base-icon-size !default;
-$u-list-icon-color-light-theme: $u-text-low-contrast-light-theme !default;
-$u-list-icon-color-dark-theme: $u-text-low-contrast-dark-theme !default;
-
 $u-list-avatar-size: $avatar-size !default;
-$u-list-icon-avatar-margin: 32px !default;
 
-$u-list-item-font-size: 1rem !default;
-$u-list-item-padding: 16px !default;
+$u-list-item-end-padding: 24px !default;
+$u-list-item-padding: 8px $u-list-item-end-padding 8px 16px !default;
+$u-list-item-content-margin: 16px;
 
-$u-list-item-min-height: 3rem !default;
-$u-list-item-side-padding: 16px !default;
-$u-list-item-with-icon-height: 3.5rem !default;
-$u-list-item-two-lines-height: 4.5rem !default;
-$u-list-item-three-lines-height: 5.5rem !default;
-
-$u-list-avatar-padding-top: .5rem !default;
+$u-list-item-min-height: 56px !default;
+$u-list-item-two-lines-min-height: 72px !default;
+$u-list-item-three-lines-min-height: 88px !default;
 
 $u-list-index-width: 3.5rem !default;
-$u-list-index-font-size: 1.25rem !default;
-
-$u-list-index-color-light-theme: $u-text-low-contrast-light-theme !default;
-$u-list-index-color-dark-theme: $u-text-low-contrast-dark-theme !default;
 
 $u-list-divider-height: $u-divider-height !default;
-$u-list-item-multi-line-line-height: 1.25rem !default;
-
-$u-list-item-color-light-theme: $u-text-high-contrast-light-theme !default;
-$u-list-item-color-dark-theme: $white !default;

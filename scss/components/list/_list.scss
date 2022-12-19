@@ -6,6 +6,7 @@
 @import "../../placeholders";
 
 .u-list {
+  background-color: var(--u-surface-color);
   padding-top: $u-list-vertical-margin;
   padding-bottom: $u-list-vertical-margin;
   margin: 0;
@@ -60,12 +61,8 @@
   align-items: center;
   min-height: $u-list-item-min-height;
   padding: $u-list-item-padding;
-  color: var(--u-high-contrast-color);
+  color: var(--u-on-surface);
   text-decoration: none;
-
-  @include hover-focus() {
-    color: var(--u-high-contrast-color);
-  }
 
   &:hover,
   &:focus,
@@ -74,20 +71,10 @@
     outline: 0;
   }
 
-  &.u-list-item-two-lines,
-  &.u-list-item-three-lines,
-  &.u-list-item-dynamic {
-    .u-list-item-primary-content {
-      display: block;
-      line-height: $u-list-item-multi-line-line-height;
-    }
-  }
-
   &.u-list-item-three-lines,
   &.u-list-item-dynamic {
     .u-list-item-icon,
-    .u-list-item-avatar,
-    .u-list-item-secondary-content {
+    .u-list-item-avatar {
       align-self: baseline;
     }
   }
@@ -95,6 +82,21 @@
   &.active {
     color: var(--u-primary-color) !important;
   }
+}
+
+.u-list-item-content {
+  width: 100%;
+}
+
+.u-list-headline {
+  @include umd-typography(body-l);
+  @include text-truncate();
+}
+
+.u-list-supporting-text {
+  @include umd-typography(body-m);
+  color: var(--u-on-surface-variant-color);
+  @include text-truncate();
 }
 
 .u-list-item-activity-icon {
@@ -117,43 +119,50 @@
 }
 
 .u-list-item-icon {
+  flex-shrink: 0;
   width: $u-list-icon-size;
+  height: $u-list-icon-size;
   min-width: $u-list-icon-size;
-  line-height: $u-list-item-font-size;
+  line-height: $u-list-icon-size;
 }
 
-.u-list-item-icon + .u-list-item-primary-content {
-  margin-left: $u-list-icon-avatar-margin;
+.u-list-item-two-lines {
+  min-height: $u-list-item-two-lines-min-height;
 }
 
-.u-list-item-avatar + .u-list-item-primary-content {
-  margin-left: $u-list-icon-avatar-margin;
-}
+.u-list-item-three-lines,
+.u-list-item-dynamic {
+  min-height: $u-list-item-three-lines-min-height;
 
-.u-list-item-primary-content ~ .u-list-item-icon {
-  margin-left: $u-list-item-padding;
-}
-
-.u-list-item-primary-content ~ .u-list-item-icon.u-icon-btn {
-  margin-right: math.div(-$u-list-item-padding, 2);
-  margin-left: math.div($u-list-item-padding, 2);
-}
-
-.u-list-item-primary-content {
-  display: flex;
-  flex-grow: 1;
-  align-items: center;
-  font-size: $u-list-item-font-size;
-  font-weight: $u-font-weight-regular;
-  line-height: $u-list-item-font-size;
-}
-
-.u-list-item-secondary-content {
-  margin-left: $u-list-item-padding;
-
-  .u-list-item-icon {
-    text-align: center;
+  .u-list-supporting-text {
+    white-space: normal;
   }
+}
+
+.u-list-item-three-lines {
+
+  .u-list-supporting-text {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+}
+
+.u-list-item-icon + .u-list-item-content {
+  margin-left: $u-list-item-content-margin;
+}
+
+.u-list-item-avatar + .u-list-item-content {
+  margin-left: $u-list-item-content-margin;
+}
+
+.u-list-item-content ~ .u-list-item-icon {
+  margin-left: $u-list-item-content-margin;
+}
+
+.u-list-item-content ~ .u-list-item-icon.u-icon-btn {
+  margin-right: math.div(-$u-list-item-end-padding, 2);
+  margin-left: math.div($u-list-item-end-padding, 2);
 }
 
 .u-list-item-hover {
@@ -178,6 +187,8 @@
 }
 
 .u-list-index {
+  @include umd-typography(title-l);
+
   position: sticky;
   top: 0;
   display: flex;
@@ -186,7 +197,6 @@
   min-width: $u-list-index-width;
   height: $u-list-item-min-height;
   padding: $u-list-item-padding;
-  font-size: $u-list-index-font-size;
   font-weight: $u-font-weight-medium;
   color: var(--u-primary-color);
 }
@@ -199,18 +209,18 @@
 
 .rtl,
 [dir="rtl"] {
-  .u-list-item-icon + .u-list-item-primary-content {
-    margin-right: $u-list-icon-avatar-margin;
+  .u-list-item-icon + .u-list-item-content {
+    margin-right: $u-list-item-content-margin;
     margin-left: 0;
   }
 
-  .u-list-item-avatar + .u-list-item-primary-content {
-    margin-right: $u-list-icon-avatar-margin;
+  .u-list-item-avatar + .u-list-item-content {
+    margin-right: $u-list-item-content-margin;
     margin-left: 0;
   }
 
-  .u-list-item-primary-content ~ .u-list-item-icon {
-    margin-right: $u-list-item-padding;
+  .u-list-item-content ~ .u-list-item-icon {
+    margin-right: $u-list-item-content-margin;
     margin-left: 0;
   }
 }
