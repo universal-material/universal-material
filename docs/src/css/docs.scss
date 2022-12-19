@@ -1,6 +1,3 @@
-$u-secondary-color: #ff4081;
-$u-primary-color: #3f51b5;
-
 @import "../../../scss/universal-material";
 
 .deep-purple-amber {
@@ -144,4 +141,14 @@ code {
   padding: 1rem !important;
   unicode-bidi: plaintext;
   background: transparent !important;
+}
+
+.nested-menu-items {
+  max-height: 0;
+  padding-left: 12px;
+  overflow: hidden;
+
+  &.expanded {
+    max-height: 500px;
+  }
 }

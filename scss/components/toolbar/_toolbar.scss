@@ -10,13 +10,17 @@
 .u-toolbar {
   display: block;
   font-family: $u-font-family-base;
-  @extend %u-bg-surface;
+  background-color: var(--u-surface-color);
   transition: background-color 200ms !important;
 
   &,
   * {
     box-sizing: border-box;
   }
+}
+
+.u-toolbar-transparent {
+  background-color: transparent;
 }
 
 .u-toolbar-row {
@@ -66,7 +70,7 @@
 }
 
 .u-toolbar-title {
-  @include umd-typography(headline6);
+  @include umd-typography(title-l);
   @include text-truncate;
   font-weight: $u-font-weight-regular;
 }

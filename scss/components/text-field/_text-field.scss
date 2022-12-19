@@ -82,9 +82,9 @@
   text-align: center;
 
   @if (mixin_exists(u-buttons-theme)) {
-    .u-btn-borderless {
-      margin-top: math.div(-($u-btn-borderless-size - $u-text-field-icon-size), 2);
-      margin-left: math.div(-($u-btn-borderless-size - $u-text-field-icon-size), 2);
+    .u-icon-btn {
+      margin-top: math.div(-($u-icon-btn-size - $u-text-field-icon-size), 2);
+      margin-left: math.div(-($u-icon-btn-size - $u-text-field-icon-size), 2);
     }
   }
 }
@@ -349,7 +349,7 @@ button.u-text-input {
     margin-bottom: 0;
     margin-left: $u-text-field-outline-padding - $u-text-field-outline-label-padding;
     line-height: $u-text-field-outline-label-line-height;
-    background: var(--u-bg-color);
+    background: var(--u-current-bg-color);
     transform: translate3d(0, math.div(-$u-text-field-outline-label-height, 2), 0);
   }
 
@@ -487,14 +487,14 @@ button.u-text-input {
   .u-text-input,
   input.u-text-input,
   .u-text-input input {
-    color: var(--u-mode-high-contrast-color);
+    color: var(--u-high-contrast-color);
   }
 
   .u-text-field-leading-icon,
   .u-text-field-trailing-icon,
   .u-text-input-suffix,
   .u-text-input-prefix {
-    color: var(--u-mode-low-contrast-color);
+    color: var(--u-low-contrast-color);
   }
 }
 

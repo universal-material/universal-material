@@ -99,8 +99,12 @@
   input:disabled ~ .u-selection-control {
     opacity: $u-switch-disabled-opacity;
 
-    .u-check-indicator::before {
-      display: none;
+    .u-check-indicator {
+      border-width: $u-switch-toggle-border-size;
+
+      &::before {
+        display: none;
+      }
     }
   }
 

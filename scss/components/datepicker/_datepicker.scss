@@ -24,13 +24,13 @@
 }
 
 .u-datepicker-header-title {
-  @include umd-typography(caption);
+  @include umd-typography(label-m);
   margin-bottom: 8px;
   text-transform: uppercase;
 }
 
 .u-datepicker-header-date {
-  @include umd-typography(headline5);
+  @include umd-typography(headline-l);
 }
 
 .u-datepicker-body {
@@ -141,7 +141,7 @@
     }
 
     .u-datepicker-header-date {
-      @include umd-typography(headline6);
+      @include umd-typography(headline-l);
       font-weight: $u-font-weight-regular;
     }
   }

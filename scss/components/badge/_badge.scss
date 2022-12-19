@@ -39,9 +39,9 @@
 
 @if (mixin_exists(u-buttons-theme)) {
 
-  $btn-badge-position: $u-badge-position + math.div($u-btn-borderless-size - $u-btn-icon-size, 2);
+  $btn-badge-position: $u-badge-position + math.div($u-icon-btn-size - $u-btn-icon-size, 2);
 
-  .u-btn-borderless {
+  .u-icon-btn {
     .u-badge-top-left {
       top: $btn-badge-position;
       left: $btn-badge-position;

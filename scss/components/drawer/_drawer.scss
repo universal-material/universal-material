@@ -24,14 +24,13 @@
 }
 
 .u-drawer-content {
-  @extend %surface-background;
-
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   z-index: $zindex-sidebar;
   flex-shrink: 0;
+  background: var(--u-surface-elevation-tint-1);
   width: var(--u-drawer-sidebar-width);
   max-width: 85%;
   overflow-y: auto;

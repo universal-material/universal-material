@@ -1,16 +1,18 @@
 export const RippleContainersSelector =
   [
-    '.u-btn',
-    '.u-btn-text',
-    '.u-btn-filled',
-    '.u-btn-filled-tonal',
-    '.u-btn-elevated',
-    '.u-btn-outlined',
-    '.u-btn-floating',
-    '.u-btn-borderless',
+    '.u-text-btn',
+    '.u-filled-btn',
+    '.u-filled-tonal-btn',
+    '.u-outlined-btn',
+    '.u-elevated-btn',
+    '.u-floating-btn',
+    '.u-icon-filled-btn',
+    '.u-icon-filled-tonal-btn',
+    '.u-icon-outlined-btn',
+    '.u-icon-btn',
     '.u-tab',
     '.u-dropdown-item',
-    '.u-chip-remove',
+    '.u-chip-icon.u-chip-icon-action',
     '.u-chip-hover',
     '.u-text-input.u-dropdown-toggle'
   ].join(',');

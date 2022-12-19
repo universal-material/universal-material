@@ -27,7 +27,7 @@
     box-sizing: border-box;
   }
 
-  .u-btn-text {
+  .u-text-btn {
     color: var(--u-inverse-primary-color);
     margin: $u-snackbar-btn-margin;
   }
@@ -51,7 +51,7 @@
   margin: $u-snackbar-text-vertical-margin $u-snackbar-horizontal-padding;
   overflow: hidden;
   font-weight: $u-snackbar-font-weight;
-  color: var(--u-inverse-on-surface-color);
+  color: var(--u-on-inverse-surface-color);
 }
 
 

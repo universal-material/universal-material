@@ -16,15 +16,4 @@
   font-family: $u-font-family-base;
   font-size: $u-chip-font-size;
   border-radius: math.div($u-chip-height, 2);
-
-  &::before {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    content: "";
-    background: currentColor;
-    opacity: .12;
-  }
 }

@@ -1,5 +1,4 @@
-@mixin u-bg-variant($parent, $color) {
-  #{$parent} {
-    background-color: $color !important;
-  }
+@mixin u-bg-variant($color-name, $light-mode-color, $dark-mode-color) {
+  background-color: $light-mode-color !important;
+
 }

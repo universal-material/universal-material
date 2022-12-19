@@ -9,15 +9,14 @@ $u-btn-height: 2.5rem !default;
 $u-btn-set-margin: 8px !default;
 $u-btn-border-radius: math.div($u-btn-height, 2) !default;
 
-$u-floating-action-area-margin: 1.25rem !default;
-$u-btn-floating-size: 3.5rem !default;
-$u-btn-floating-border-radius: 16px !default;
-$u-btn-floating-small-size: 2.5rem !default;
-$u-btn-floating-small-border-radius: 12px !default;
-$u-btn-floating-extended-height: 3rem !default;
-$u-btn-floating-extended-border-radius: math.div($u-btn-floating-extended-height, 2) !default;
-$u-btn-floating-extended-padding: 20px !default;
-$u-btn-floating-extended-icon-margin: 12px !default;
+$u-floating-action-area-margin: 16px !default;
+$u-floating-btn-size: 3.5rem !default;
+$u-floating-btn-border-radius: 16px !default;
+$u-floating-btn-small-size: 2.5rem !default;
+$u-floating-btn-small-border-radius: 12px !default;
+$u-floating-btn-extended-min-width: 80px !default;
+$u-floating-btn-extended-padding: 20px !default;
+$u-floating-btn-extended-icon-margin: 12px !default;
 $u-floating-button-icon-size: $base-icon-size !default;
 $u-floating-menu-label-height: 2rem !default;
 $u-floating-menu-label-padding: 12px !default;
@@ -26,11 +25,11 @@ $u-floating-menu-label-border-radius: 4px !default;
 $u-floating-menu-label-bg-light-theme: #fff !default;
 $u-floating-menu-label-bg-dark-theme: #424242 !default;
 
-$u-btn-borderless-font-size: $base-icon-size !default;
-$u-btn-borderless-size: 2.5rem !default;
-$u-btn-borderless-icon-size: 1.5rem !default;
+$u-icon-btn-font-size: $base-icon-size !default;
+$u-icon-btn-size: 2.5rem !default;
+$u-icon-btn-icon-size: 1.5rem !default;
 
-$u-btn-outline-border-width: .0625rem !default;
+$u-outlined-btn-border-width: .0625rem !default;
 
 $u-btn-icon-size: 1.125rem !default;
 $u-btn-icon-margin-start: -.5rem !default;

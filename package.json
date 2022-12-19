@@ -1,6 +1,6 @@
 {
   "name": "@universal-material/core",
-  "version": "0.115.0",
+  "version": "2.0.1-alpha.3",
   "keywords": [
     "css",
     "sass",
@@ -25,8 +25,9 @@
     "start": "npm-run-all --parallel watch docs",
     "watch": "gulp default",
     "watch:sass": "gulp watch:sass",
+    "watch:docs": "gulp watch:docs",
     "sass:docs": "gulp sass:docs",
-    "docs": "http-server ./docs/dist -p 8081"
+    "docs": "http-server ./docs/dist -p 8081 -o"
   },
   "main": "./js/dist/bundle/universal-material.umd.js",
   "sass": "./scss/universal-material.scss",
@@ -56,13 +57,13 @@
     "gulp-sourcemaps": "^2.6.4",
     "gulp-typescript": "^4.0.2",
     "gulp-uglify": "^3.0.1",
-    "http-server": "^0.11.1",
+    "http-server": "^14.1.1",
     "npm-run-all": "^4.1.5",
     "qunit": "^2.6.1",
     "rollup": "^2.3.2",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-typescript2": "^0.27.0",
-    "sass": "^1.49.9",
+    "sass": "^1.56.2",
     "stylelint": "^9.2.0",
     "stylelint-config-recommended-scss": "^3.2.0",
     "stylelint-config-standard": "^18.2.0",

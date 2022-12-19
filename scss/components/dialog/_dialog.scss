@@ -105,7 +105,7 @@
 }
 
 .u-dialog-body {
-  @include umd-typography(body1);
+  @include umd-typography(body-m);
   position: relative;
   padding: $u-dialog-padding;
   overflow-x: hidden;
@@ -133,7 +133,7 @@
 
 .u-dialog-scroll-bottom-divider .u-dialog-actions::before,
 .u-dialog-scroll-top-divider .u-dialog-header::before {
-  background: var(--u-outline-color);
+  background: var(--u-divider-color);
 }
 
 .u-dialog-header {
@@ -145,7 +145,7 @@
 }
 
 .u-dialog-title {
-  @include umd-typography(headline6);
+  @include umd-typography(headline-s);
 
   padding: $u-dialog-header-padding;
   line-height: 1.5;

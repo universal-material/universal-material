@@ -6,8 +6,6 @@
 @import "../../placeholders";
 
 .u-dropdown-menu {
-  @extend %surface-background;
-
   @include u-elevation-shadow(2);
 
   position: absolute;
@@ -15,6 +13,7 @@
   min-width: $u-dropdown-menu-min-width;
   padding-top: $u-dropdown-menu-padding;
   padding-bottom: $u-dropdown-menu-padding;
+  background: var(--u-surface-elevation-tint-2);
   overflow: hidden;
   font-family: $u-font-family-base;
   border-radius: $u-dropdown-menu-border-radius;
@@ -83,7 +82,7 @@
   height: $u-dropdown-item-height;
   padding: 0 $u-dropdown-item-padding;
   font-size: $u-dropdown-item-font-size;
-  color: var(--u-mode-high-contrast-color);
+  color: var(--u-high-contrast-color);
   text-decoration: none;
   cursor: pointer;
   background: none;
@@ -91,7 +90,7 @@
   outline: 0;
 
   @include hover-focus() {
-    color: var(--u-mode-high-contrast-color);
+    color: var(--u-high-contrast-color);
   }
 
   @extend %u-selectable-background-before;

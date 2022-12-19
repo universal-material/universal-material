@@ -1,5 +1,6 @@
 @import "../../font";
 
+$u-chip-padding: 16px !default;
 $u-chip-height: 2rem !default;
 $u-chip-border-radius: 8px !default;
 $u-chip-margin: 8px !default;
@@ -7,18 +8,15 @@ $u-chip-margin-vertical: 4px !default;
 $u-chip-background-color-light-theme: rgba(0, 0, 0, .12) !default;
 $u-chip-background-color-dark-theme: rgba(255, 255, 255, .1) !default;
 
-$u-chip-outline-border-color-light-theme: $u-chip-background-color-light-theme !default;
-$u-chip-outline-border-color-dark-theme: $u-chip-background-color-dark-theme !default;
 $u-chip-outline-border-width: .0625rem !default;
 
-$u-chip-remove-size: 1.125rem !default;
-$u-chip-remove-margin-start: -4px !default;
-$u-chip-remove-margin-end: 8px !default;
-$u-chip-remove-hover-size: 2.5rem !default;
+$u-chip-icon-size: 1.125rem !default;
+$u-chip-icon-margin: 8px !default;
+$u-chip-icon-hover-size: 2rem !default;
 
 $u-chip-avatar-size: 1.5rem !default;
 $u-chip-avatar-margin-start: 4px !default;
-$u-chip-avatar-margin-end: -4px !default;
+$u-chip-avatar-margin-end: 8px !default;
 $u-chip-avatar-font-size: 1rem !default;
 
 $u-chip-font-size: .8125rem !default;

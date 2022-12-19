@@ -27,7 +27,7 @@
         left: 0;
         height: $u-list-divider-height;
         content: "";
-        background: var(--u-outline-color);
+        background: var(--u-divider-color);
       }
     }
   }
@@ -134,7 +134,7 @@
   margin-left: $u-list-item-padding;
 }
 
-.u-list-item-primary-content ~ .u-list-item-icon.u-btn-borderless {
+.u-list-item-primary-content ~ .u-list-item-icon.u-icon-btn {
   margin-right: math.div(-$u-list-item-padding, 2);
   margin-left: math.div($u-list-item-padding, 2);
 }

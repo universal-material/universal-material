@@ -16,10 +16,6 @@ $surface-tint-opacity: (1: .05, 2: .08, 3: .11, 4: .12, 5: .14);
   @return $color-tones-map;
 }
 
-@function get-color-tone-var($color-name, $tone) {
-  @return var(--u-#{$color-name}-color-#{$tone});
-}
-
 @mixin color-tones($color-name, $color-tones-map) {
 
   @each $tone, $color-value in $color-tones-map {
@@ -40,35 +36,29 @@ $surface-tint-opacity: (1: .05, 2: .08, 3: .11, 4: .12, 5: .14);
     $color-tones-map: generate-color-tones($color-name, $color-value);
     @include color-tones($color-name, $color-tones-map);
 
-    $light-color: get-color-tone-var(#{$color-name}, 40);
-    $dark-color: get-color-tone-var(#{$color-name}, 80);
-    $on-light-color: get-color-tone-var(#{$color-name}, 100);
-    $on-dark-color: get-color-tone-var(#{$color-name}, 20);
-    $light-container-color: get-color-tone-var(#{$color-name}, 90);
-    $dark-container-color: get-color-tone-var(#{$color-name}, 30);
-    $on-light-container-color: get-color-tone-var(#{$color-name}, 10);
-    $on-dark-container-color: get-color-tone-var(#{$color-name}, 90);
+    $light-color: map.get($color-tones-map, 40);
+    $dark-color: map.get($color-tones-map, 80);
+    $on-light-color: map.get($color-tones-map, 100);
+    $on-dark-color: map.get($color-tones-map, 20);
+    $light-container-color: map.get($color-tones-map, 90);
+    $dark-container-color: map.get($color-tones-map, 30);
+    $on-light-container-color: map.get($color-tones-map, 10);
+    $on-dark-container-color: map.get($color-tones-map, 90);
 
     --u-#{$color-name}-color: #{$light-color};
     --u-on-#{$color-name}-color: #{$on-light-color};
+    --u-on-#{$color-name}-low-contrast-color: #{rgba($on-light-color, .87)};
     --u-#{$color-name}-container-color: #{$light-container-color};
     --u-on-#{$color-name}-container-color: #{$on-light-container-color};
-
-    --u-inverse-#{$color-name}-color: #{$dark-color};
-    --u-inverse-on-#{$color-name}-color: #{$on-dark-color};
-    --u-inverse-#{$color-name}-container-color: #{$dark-container-color};
-    --u-inverse-on-#{$color-name}-container-color: #{$on-dark-container-color};
+    --u-on-#{$color-name}-container-low-contrast-color: #{rgba($on-light-container-color, .87)};
 
     .u-dark-mode {
       --u-#{$color-name}-color: #{$dark-color};
       --u-on-#{$color-name}-color: #{$on-dark-color};
+      --u-on-#{$color-name}-low-contrast-color: #{rgba($on-dark-color, .87)};
       --u-#{$color-name}-container-color: #{$dark-container-color};
       --u-on-#{$color-name}-container-color: #{$on-dark-container-color};
-
-      --u-inverse-#{$color-name}-color: #{$light-color};
-      --u-inverse-on-#{$color-name}-color: #{$on-light-color};
-      --u-inverse-#{$color-name}-container-color: #{$light-container-color};
-      --u-inverse-on-#{$color-name}-container-color: #{$on-light-container-color};
+      --u-on-#{$color-name}-container-low-contrast-color: #{rgba($on-dark-container-color, .87)};
     }
 
     @if ($color-name == primary) {
@@ -81,7 +71,7 @@ $surface-tint-opacity: (1: .05, 2: .08, 3: .11, 4: .12, 5: .14);
         $primary-color-light: map.get($color-tones-map, 40);
         $primary-color-dark: map.get($color-tones-map, 80);
 
-        $weight: 100 * $opacity;
+        $weight: 100% * $opacity;
 
         --u-surface-elevation-tint-#{$elevation}: #{color.mix($primary-color-light, $surface-color-light, $weight)};
         --u-surface-variant-elevation-tint-#{$elevation}: #{color.mix($primary-color-light, $surface-variant-color-light, $weight)};
@@ -94,6 +84,7 @@ $surface-tint-opacity: (1: .05, 2: .08, 3: .11, 4: .12, 5: .14);
     }
   }
 }
+
 @mixin create-color-background-placeholders() {
   @each $color-name, $color-value in $u-theme-colors {
     $selector: "%u-bg-#{$color-name}";
@@ -104,11 +95,25 @@ $surface-tint-opacity: (1: .05, 2: .08, 3: .11, 4: .12, 5: .14);
       @at-root %u-bg-#{$color-name} {
         color: var(--u-on-#{$color-name}-color);
         background-color: var(--u-#{$color-name}-color);
+        --u-current-bg-color: var(--u-#{$color-name}-color);
+        --u-high-contrast-color: var(--u-on-#{$color-name}-color);
+        --u-low-contrast-color: var(--u-on-#{$color-name}-low-contrast-color);
       }
 
       @at-root %u-bg-#{$color-name}-important {
         color: var(--u-on-#{$color-name}-color) !important;
         background-color: var(--u-#{$color-name}-color) !important;
+        --u-current-bg-color: var(--u-#{$color-name}-color) !important;
+        --u-high-contrast-color: var(--u-on-#{$color-name}-color) !important;
+        --u-low-contrast-color: var(--u-on-#{$color-name}-low-contrast-color) !important;
+      }
+
+      @at-root %u-bg-#{$color-name}-container-important {
+        color: var(--u-on-#{$color-name}-container-color) !important;
+        background-color: var(--u-#{$color-name}-container-color) !important;
+        --u-current-bg-color: var(--u-#{$color-name}-container-color) !important;
+        --u-high-contrast-color: var(--u-on-#{$color-name}-container-color) !important;
+        --u-low-contrast-color: var(--u-on-#{$color-name}-container-low-contrast-color) !important;
       }
     }
   }

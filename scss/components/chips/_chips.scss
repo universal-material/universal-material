@@ -2,28 +2,41 @@
 
 @import "chip-base";
 @import "../../mixins";
-@import "../../theme";
 @import "../../placeholders";
 
 .u-chip {
   @extend %u-chip;
 
+  color: var(--u-on-surface-variant-color);
+  padding-left: calc($u-chip-padding - $u-chip-outline-border-width);
+  padding-right: calc($u-chip-padding - $u-chip-outline-border-width);
+  border: $u-chip-outline-border-width solid var(--u-outline-color);
   border-radius: $u-chip-border-radius;
-}
 
-@include contrast-bg-var(--u-chip-outline-border-color, $u-chip-outline-border-color-light-theme, $u-chip-outline-border-color-dark-theme);
+  &.disabled {
+    opacity: var(--u-disabled-state-label-opacity);
 
-.u-chip-outline {
-  border: $u-chip-outline-border-width solid var(--u-chip-outline-border-color);
-
-  &::before {
-    content: none;
+    &::before {
+      background: var(--u-on-surface-color);
+      opacity: var(--u-disabled-state-background-opacity);
+    }
   }
 }
 
+.u-chip-elevated {
+  @include u-elevation-shadow(1);
+  padding-left: $u-chip-padding;
+  padding-right: $u-chip-padding;
+  background: var(--u-surface-elevation-tint-1);
+  border: none;
+}
+
+.u-chip-selected {
+  background: var(--u-secondary-container-color);
+  color: var(--u-on-secondary-container-color);
+}
+
 .u-chip-label {
-  margin-right: $u-chip-label-margin;
-  margin-left: $u-chip-label-margin;
   font-weight: $u-font-weight-medium;
 }
 
@@ -31,34 +44,46 @@
   @include size($u-chip-avatar-size);
 
   margin-right: $u-chip-avatar-margin-end;
-  margin-left: $u-chip-avatar-margin-start;
+  margin-left: $u-chip-avatar-margin-start - $u-chip-padding;
   font-size: $u-chip-avatar-font-size;
   line-height: $u-chip-avatar-size;
   border-radius: 50%;
 }
 
-.u-chip-remove {
-  @extend %u-selectable-background-before;
-  margin-right: $u-chip-remove-margin-end;
-  margin-left: $u-chip-remove-margin-start;
-  font-size: $u-chip-remove-size;
-  line-height: $u-chip-remove-size;
+.u-chip-icon {
+  margin-right: $u-chip-icon-margin;
+  margin-left: $u-chip-icon-margin;
+  font-size: $u-chip-icon-size;
+  line-height: $u-chip-icon-size;
   text-align: center;
-  cursor: pointer;
 
-  @include size($u-chip-remove-size);
+  @include size($u-chip-icon-size);
+}
+
+.u-chip-leading-icon {
+  color: var(--u-primary-color);
+  margin-left: $u-chip-icon-margin - $u-chip-padding;
+}
+
+.u-chip-trailing-icon {
+  margin-right: $u-chip-icon-margin - $u-chip-padding;
+}
+
+.u-chip-icon-action {
+  @extend %u-selectable-background-before;
+  cursor: pointer;
 
   &::before,
   .u-ripple-wrapper {
     position: absolute;
     top: 50% !important;
     left: 50% !important;
-    width: $u-chip-remove-hover-size;
-    height: $u-chip-remove-hover-size;
-    margin-top: math.div(-$u-chip-remove-hover-size, 2);
-    margin-left: math.div(-$u-chip-remove-hover-size, 2);
+    width: $u-chip-icon-hover-size;
+    height: $u-chip-icon-hover-size;
+    margin-top: math.div(-$u-chip-icon-hover-size, 2);
+    margin-left: math.div(-$u-chip-icon-hover-size, 2);
     content: "";
-    border-radius: $u-chip-remove-hover-size !important;
+    border-radius: $u-chip-icon-hover-size !important;
   }
 }
 
@@ -117,28 +142,27 @@
   }
 
   .u-chip-avatar {
-    margin-right: $u-chip-avatar-margin-start;
+    margin-right: $u-chip-avatar-margin-start - $u-chip-padding;
     margin-left: $u-chip-avatar-margin-end;
   }
-}
 
-%u-chip-outline-colored {
-  &::before {
-    content: "";
+  .u-chip-leading-icon {
+    margin-right: $u-chip-icon-margin - $u-chip-padding;
+    margin-left: $u-chip-icon-margin;
   }
-}
 
-@mixin u-chip-theme {
+  .u-chip-trailing-icon {
+    margin-right: $u-chip-icon-margin;
+    margin-left: $u-chip-icon-margin - $u-chip-padding;
+  }
 
-  @each $color, $value in $u-theme-colors {
-    @at-root .u-chip-#{$color} {
-      @include apply-style-bg-once("chip-#{$color}") {
-        color: var(--u-#{$color}-color);
-      }
-    }
-
-    .u-chip-outline.u-chip-#{$color} {
-      @extend %u-chip-outline-colored;
+  .u-chip-icon-action {
+    &::before,
+    .u-ripple-wrapper {
+      left: auto !important;
+      right: 50% !important;
+      margin-left: 0;
+      margin-right: math.div(-$u-chip-icon-hover-size, 2);
     }
   }
 }

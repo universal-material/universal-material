@@ -1,32 +1,23 @@
 @import "variables";
 @import "../../mixins";
 
-@mixin button-flat-variant($color) {
-  color: var(--u-#{$color}-color);
-}
-
-@mixin button-flat-theme($buttons-colors) {
-
-  @each $color, $value in $buttons-colors {
-
-    .u-btn-borderless.u-btn-#{$color} {
-      @include button-flat-variant($color);
-    }
-  }
-}
-
 @mixin u-buttons-theme {
 
   @each $color-name, $color-value in $u-theme-colors {
     @if $color-name != "primary" {
 
-      .u-btn-filled.u-btn-#{$color-name},
-      .u-btn-floating.u-btn-#{$color-name} {
+      .u-filled-btn.u-btn-#{$color-name} {
         color: var(--u-on-#{$color-name}-color);
         background-color: var(--u-#{$color-name}-color);
       }
+
+      .u-floating-btn.u-btn-#{$color-name} {
+        background-color: var(--u-#{$color-name}-container-color);
+
+        .u-btn-icon {
+          color: var(--u-on-#{$color-name}-container-color);
+        }
+      }
     }
   }
-
-  @include button-flat-theme($u-theme-colors);
 }

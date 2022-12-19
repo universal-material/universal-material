@@ -13,10 +13,6 @@
     @include u-buttons-theme;
   }
 
-  @if (mixin_exists(u-chip-theme)) {
-    @include u-chip-theme;
-  }
-
   @if (mixin_exists(u-slider-theme)) {
     @include u-slider-theme;
   }

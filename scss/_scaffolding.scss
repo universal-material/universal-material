@@ -4,8 +4,8 @@ body {
 }
 
 body {
-  color: var(--u-high-contrast-color);
-  background-color: var(--u-bg-color);
+  color: var(--u-on-background);
+  background-color: var(--u-background);
 
   &.rtl {
     direction: rtl;

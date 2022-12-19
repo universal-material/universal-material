@@ -85,6 +85,20 @@ var umd;
         return QuickDialog;
     }());
     umd.QuickDialog = QuickDialog;
+    var ChipField = (function () {
+        function ChipField() {
+        }
+        ChipField.initializeChipFields = function () {
+            var _this = this;
+            var chipFields = document.querySelectorAll('.u-chip-field');
+            for (var i = 0; i < chipFields.length; i++) {
+                var chipField = chipFields[i];
+                new TextFieldBase(chipField, function () { return _this.isEmpty() && !!_this.element.querySelector('.u-chip'); });
+            }
+        };
+        return ChipField;
+    }());
+    umd.ChipField = ChipField;
     var ConfirmDialogConfig = (function (_super) {
         __extends(ConfirmDialogConfig, _super);
         function ConfirmDialogConfig() {
@@ -94,7 +108,7 @@ var umd;
         return ConfirmDialogConfig;
     }(QuickDialogConfig));
     umd.ConfirmDialogConfig = ConfirmDialogConfig;
-    var confirmDialogTemplate = "\n<div class=\"u-dialog show\">\n  <div class=\"u-dialog-backdrop\"></div>\n  <div class=\"u-dialog-content\">\n    <div class=\"u-dialog-header\">\n      <div class=\"u-dialog-title\"></div>\n    </div>\n    <div class=\"u-dialog-body\"></div>\n    <div class=\"u-dialog-actions\">\n      <button type=\"button\" class=\"u-btn-text u-btn-primary\" cancelButton></button>\n      <button type=\"button\" class=\"u-btn-text u-btn-primary\" confirmButton></button>\n    </div>\n  </div>\n</div>";
+    var confirmDialogTemplate = "\n<div class=\"u-dialog show\">\n  <div class=\"u-dialog-backdrop\"></div>\n  <div class=\"u-dialog-content\">\n    <div class=\"u-dialog-header\">\n      <div class=\"u-dialog-title\"></div>\n    </div>\n    <div class=\"u-dialog-body\"></div>\n    <div class=\"u-dialog-actions\">\n      <button type=\"button\" class=\"u-text-btn u-btn-primary\" cancelButton></button>\n      <button type=\"button\" class=\"u-text-btn u-btn-primary\" confirmButton></button>\n    </div>\n  </div>\n</div>";
     var ConfirmDialog = (function (_super) {
         __extends(ConfirmDialog, _super);
         function ConfirmDialog(message, config) {
@@ -333,17 +347,19 @@ var umd;
     }(QuickDialog));
     umd.ProgressDialog = ProgressDialog;
     umd.RippleContainersSelector = [
-        '.u-btn',
-        '.u-btn-text',
-        '.u-btn-filled',
-        '.u-btn-filled-tonal',
-        '.u-btn-elevated',
-        '.u-btn-outlined',
-        '.u-btn-floating',
-        '.u-btn-borderless',
+        '.u-text-btn',
+        '.u-filled-btn',
+        '.u-filled-tonal-btn',
+        '.u-outlined-btn',
+        '.u-elevated-btn',
+        '.u-floating-btn',
+        '.u-icon-filled-btn',
+        '.u-icon-filled-tonal-btn',
+        '.u-icon-outlined-btn',
+        '.u-icon-btn',
         '.u-tab',
         '.u-dropdown-item',
-        '.u-chip-remove',
+        '.u-chip-icon.u-chip-icon-action',
         '.u-chip-hover',
         '.u-text-input.u-dropdown-toggle'
     ].join(',');
@@ -602,7 +618,7 @@ var umd;
         Snackbar.createButton = function (buttonDefinition) {
             var snackbarButton = document.createElement("button");
             snackbarButton.type = "button";
-            snackbarButton.className = "u-btn-text";
+            snackbarButton.className = "u-text-btn";
             snackbarButton.innerText = buttonDefinition.text;
             new Ripple(snackbarButton);
             if (buttonDefinition.action) {
@@ -741,56 +757,65 @@ var umd;
         return TabBar;
     }());
     umd.TabBar = TabBar;
-    var TextField = (function () {
-        function TextField(element) {
+    var TextFieldBase = (function () {
+        function TextFieldBase(element, isEmptyOverride) {
             var _this = this;
             var input = element.querySelector('input, textarea');
-            if (input) {
-                input.addEventListener('focus', function () {
-                    element.classList.add('focus');
-                });
-                input.addEventListener('blur', function () {
-                    element.classList.remove('focus');
-                });
-                this.element = element;
-                var prototype = void 0;
-                if (input.nodeName.toLowerCase() === 'input') {
-                    prototype = HTMLInputElement.prototype;
-                }
-                else if (input.nodeName.toLowerCase() === 'textarea') {
-                    prototype = HTMLTextAreaElement.prototype;
-                }
-                if (!prototype)
-                    return;
-                input.addEventListener('input', function () {
-                    _this.setEmpty();
-                });
-                var descriptor_1 = Object.getOwnPropertyDescriptor(prototype, 'value');
-                var inputSetter_1 = descriptor_1.set;
-                descriptor_1.set = function (val) {
-                    Object.defineProperty(input, "value", { set: inputSetter_1 });
-                    input.value = val;
-                    _this.setEmpty();
-                    Object.defineProperty(input, "value", descriptor_1);
-                };
-                Object.defineProperty(input, "value", descriptor_1);
-                this.input = input;
-                this.setEmpty();
+            if (!input) {
+                return;
             }
+            if (isEmptyOverride) {
+                this.isEmptyOverride = isEmptyOverride.bind(this);
+            }
+            input.addEventListener('focus', function () { return element.classList.add('focus'); });
+            input.addEventListener('blur', function () { return element.classList.remove('focus'); });
+            this.element = element;
+            var prototype;
+            if (input.nodeName.toLowerCase() === 'input') {
+                prototype = HTMLInputElement.prototype;
+            }
+            else if (input.nodeName.toLowerCase() === 'textarea') {
+                prototype = HTMLTextAreaElement.prototype;
+            }
+            if (!prototype)
+                return;
+            input.addEventListener('input', function () { return _this.setEmpty(); });
+            var descriptor = Object.getOwnPropertyDescriptor(prototype, 'value');
+            var inputSetter = descriptor.set;
+            descriptor.set = function (val) {
+                Object.defineProperty(input, "value", { set: inputSetter });
+                input.value = val;
+                _this.setEmpty();
+                Object.defineProperty(input, "value", descriptor);
+            };
+            Object.defineProperty(input, "value", descriptor);
+            this.input = input;
+            this.setEmpty();
         }
-        TextField.prototype.setEmpty = function () {
-            if (this.input.value) {
+        TextFieldBase.prototype.setEmpty = function () {
+            if (this.isEmpty()) {
                 this.element.classList.remove('empty');
+                return;
             }
-            else {
-                this.element.classList.add('empty');
-            }
+            this.element.classList.add('empty');
         };
+        TextFieldBase.prototype.isEmpty = function () {
+            if (this.isEmptyOverride) {
+                return this.isEmptyOverride();
+            }
+            return !!this.input.value;
+        };
+        return TextFieldBase;
+    }());
+    umd.TextFieldBase = TextFieldBase;
+    var TextField = (function () {
+        function TextField() {
+        }
         TextField.initializeTextFields = function () {
-            var textFields = document.querySelectorAll('.u-text-field');
+            var textFields = document.querySelectorAll('.u-text-field:not(.u-chip-field)');
             for (var i = 0; i < textFields.length; i++) {
                 var textField = textFields[i];
-                new TextField(textField);
+                new TextFieldBase(textField);
             }
         };
         return TextField;

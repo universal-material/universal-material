@@ -4,7 +4,7 @@
 @import "../../placeholders";
 
 @mixin u-btn {
-  @include umd-typography(button);
+  @include umd-typography(label-l);
   position: relative; //Universal Material custom code
   display: inline-flex;
   align-items: center;

@@ -47,6 +47,7 @@
 
   umd.Ripple.initializeRipples();
   umd.TextField.initializeTextFields();
+  umd.ChipField.initializeChipFields();
   umd.Dropdown.initializeDropdowns();
   umd.TabBar.initializeTabBars();
   umd.Slider.initializeSliders();
@@ -68,14 +69,30 @@
 
     for (let i = 0; i < navItems.length; i++) {
       const navItem = navItems[i];
-      if (navItem.pathname === location.pathname) {
-        navItem.classList.add('active');
-        break;
+      if (navItem.pathname !== location.pathname) {
+        continue;
       }
+
+      navItem.classList.add('active');
+      if (navItem.parentElement.classList.contains('nested-menu-items')) {
+        navItem.parentElement.classList.add('expanded');
+      }
+
+      break;
+    }
+  }
+
+  function setExpandableMenus() {
+    const nestedMenus = document.querySelectorAll('.nested-menu-items');
+
+    for (const nestedMenu of nestedMenus) {
+      const nestedMenuToggle = nestedMenu.previousElementSibling;
+      nestedMenuToggle.addEventListener('click', () => nestedMenu.classList.toggle('expanded'));
     }
   }
 
   setActiveNavigationItem();
+  setExpandableMenus();
 })();
 
 function getHTML(who, deep){
