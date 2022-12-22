@@ -1,5 +1,4 @@
 @import "variables";
-@import "theme";
 @import "../../typography/variables";
 @import "../../mixins";
 @import "../../placeholders";
@@ -57,7 +56,7 @@
 }
 
 .u-elevated-btn {
-  background: var(--u-surface-elevation-tint-1);
+  @extend %u-elevation-surface-tint-1;
   color: var(--u-primary-color);
 }
 
@@ -300,6 +299,24 @@
   &:disabled {
     &::before {
       background: transparent;
+    }
+  }
+}
+
+@each $color-name in $u-theme-color-names {
+  @if $color-name != "primary" {
+
+    .u-filled-btn.u-btn-#{$color-name} {
+      color: var(--u-on-#{$color-name}-color);
+      background-color: var(--u-#{$color-name}-color);
+    }
+
+    .u-floating-btn.u-btn-#{$color-name} {
+      background-color: var(--u-#{$color-name}-container-color);
+
+      .u-btn-icon {
+        color: var(--u-on-#{$color-name}-container-color);
+      }
     }
   }
 }

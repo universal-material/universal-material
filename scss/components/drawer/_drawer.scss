@@ -24,15 +24,16 @@
 }
 
 .u-drawer-content {
+  @extend %u-elevation-surface-tint-1;
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   z-index: $zindex-sidebar;
   flex-shrink: 0;
-  background: var(--u-surface-elevation-tint-1);
   width: var(--u-drawer-sidebar-width);
   max-width: 85%;
+  background-color: var(--u-surface-color);
   overflow-y: auto;
   transition: transform 375ms $awesome-cubic-bezier;
   transform: translateX(-100%);

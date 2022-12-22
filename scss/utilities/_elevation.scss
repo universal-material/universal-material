@@ -7,12 +7,14 @@
   }
 }
 
-@for $elevation from 1 to 5 {
+$surface-tint-opacity: (1: 5%, 2: 8%, 3: 11%, 4: 12%, 5: 14%);
+
+@each $elevation, $opacity in $surface-tint-opacity {
   %u-elevation-surface-tint-#{$elevation} {
-    background-color: var(--u-surface-elevation-tint-#{$elevation}) !important;
+    background-image: linear-gradient(hsla(var(--u-primary-color-hsl) / $opacity), hsla(var(--u-primary-color-hsl) / $opacity)) !important;
   }
 
-  .u-elevation-#{$elevation}.u-bg-surface {
+  .u-elevation-tint#{$elevation} {
     @extend %u-elevation-surface-tint-#{$elevation};
   }
 }

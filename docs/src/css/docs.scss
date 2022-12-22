@@ -1,32 +1,32 @@
 @import "../../../scss/universal-material";
-
-.deep-purple-amber {
-  $u-theme-colors: (
-    primary: #673ab7,
-    secondary: #ffd740
-  ) !global;
-
-  @include u-create-theme;
-}
-
-.pink-blue-grey {
-  $u-theme-colors: (
-    primary: #e91e63,
-    secondary: #607d8b
-  ) !global;
-
-  @include u-create-theme;
-}
-
-.purple-green {
-  $u-theme-colors: (
-    primary: #9c27b0,
-    secondary: #69f0ae
-  ) !global;
-
-  @include u-create-theme;
-}
-
+//
+//.deep-purple-amber {
+//  $u-theme-colors: (
+//    primary: #673ab7,
+//    secondary: #ffd740
+//  ) !global;
+//
+//  @include u-create-theme;
+//}
+//
+//.pink-blue-grey {
+//  $u-theme-colors: (
+//    primary: #e91e63,
+//    secondary: #607d8b
+//  ) !global;
+//
+//  @include u-create-theme;
+//}
+//
+//.purple-green {
+//  $u-theme-colors: (
+//    primary: #9c27b0,
+//    secondary: #69f0ae
+//  ) !global;
+//
+//  @include u-create-theme;
+//}
+//
 .u-drawer-content {
   height: 100%;
   overflow: auto;
@@ -41,11 +41,11 @@
   padding-top: 56px;
 }
 
-//@include media-breakpoint-up(lg) {
-//  #app-bar {
-//    left: 256px;
-//  }
-//}
+@include media-breakpoint-up(lg) {
+  #app-bar {
+    left: var(--u-drawer-sidebar-width);
+  }
+}
 
 .example-box {
   display: flex;
@@ -94,7 +94,7 @@
 }
 
 .list-example-box-header {
-  background-color: var(--u-surface-elevation-tint-1);
+  @extend %u-elevation-surface-tint-1;
 
   .u-list {
     width: 300px;
@@ -108,7 +108,9 @@
   }
 }
 
-.u-card {
+.u-card-filled,
+.u-card-outlined,
+.u-card-elevated {
   margin-bottom: 8px;
 }
 

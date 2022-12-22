@@ -2,21 +2,36 @@
 @import "../../colors";
 @import "../../font";
 @import "../../mixins";
-@import "../../theme";
 @import "../../placeholders";
 
-.u-card {
-  background: var(--u-surface-elevation-tint-1);
-
+%u-card {
   font-family: $u-font-family-base;
   border-radius: $u-card-border-radius;
+  background-color: var(--u-surface-color);
+}
+
+.u-card-filled {
+  @extend %u-card;
+  background-color: var(--u-surface-variant-color);
+
+  &.u-selectable {
+    &:hover {
+      @extend %u-elevation-surface-tint-1;
+    }
+
+    &.dragging {
+      @extend %u-elevation-surface-tint-3;
+    }
+  }
 }
 
 .u-card-elevated {
+  @extend %u-card;
   box-shadow: $u-card-shadow;
 }
 
 .u-card-outlined {
+  @extend %u-card;
   border: $u-card-outlined-border;
 }
 
@@ -54,12 +69,8 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  color: #fff;
-  background-color: rgba(0, 0, 0, .6);
   border-bottom-right-radius: inherit;
   border-bottom-left-radius: inherit;
-
-  @extend .u-bg-dark;
 }
 
 .u-card-content {

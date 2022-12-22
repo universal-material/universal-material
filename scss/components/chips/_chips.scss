@@ -25,9 +25,9 @@
 
 .u-chip-elevated {
   @include u-elevation-shadow(1);
+  @extend %u-elevation-surface-tint-1;
   padding-left: $u-chip-padding;
   padding-right: $u-chip-padding;
-  background: var(--u-surface-elevation-tint-1);
   border: none;
 }
 
@@ -70,7 +70,7 @@
 }
 
 .u-chip-icon-action {
-  @extend %u-selectable-background-before;
+  @extend %u-selectable;
   cursor: pointer;
 
   &::before,
@@ -88,7 +88,7 @@
 }
 
 .u-chip-hover {
-  @extend %u-selectable-background-before;
+  @extend %u-selectable;
   position: absolute;
   top: 0;
   right: 0;

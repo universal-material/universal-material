@@ -15,6 +15,7 @@ export class TextFieldBase {
       this.isEmptyOverride = isEmptyOverride.bind(this);
     }
 
+    element.addEventListener('click', () => input.focus());
     input.addEventListener('focus', () => element.classList.add('focus'));
     input.addEventListener('blur', () => element.classList.remove('focus'));
 

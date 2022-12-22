@@ -7,8 +7,6 @@
 @import "../../placeholders";
 @import "../../theme";
 
-@include contrast-bg-var(--u-switch-toggle-color, $u-switch-toggle-color-light-theme, $u-switch-toggle-color-dark-theme);
-
 :root {
   --u-switch-background: var(--u-surface-variant-color);
 }
@@ -122,64 +120,6 @@
     .u-selection-control-label {
       margin-right: $u-switch-label-margin;
       margin-left: 0;
-    }
-  }
-}
-
-@if ($u-include-ios-styles) {
-  .u-ios {
-    .u-switch {
-      .u-selection-control {
-        position: relative;
-        width: $u-ios-switch-width;
-        height: $u-ios-switch-height;
-        color: $u-ios-switch-active-color;
-        border: $u-ios-switch-border-size solid $u-ios-switch-border-color-light-theme;
-        border-radius: $u-ios-switch-height / 2;
-        box-shadow: 0 0 0 0 $u-ios-switch-border-color-light-theme inset;
-        transition: box-shadow 350ms, border-color 150ms;
-
-        &::before {
-          position: absolute;
-          top: -$u-ios-switch-border-size;
-          right: -$u-ios-switch-border-size;
-          bottom: -$u-ios-switch-border-size;
-          left: -$u-ios-switch-border-size;
-          content: "";
-          border-radius: 1.625rem;
-          box-shadow: 0 0 0 0 currentColor inset;
-          opacity: 0;
-          transition: box-shadow 350ms, opacity 150ms;
-        }
-      }
-
-      .u-check-indicator {
-        display: block;
-        width: $u-ios-switch-thumb-size;
-        height: $u-ios-switch-thumb-size;
-        background: #fff;
-        border-radius: 50%;
-        box-shadow: $u-ios-switch-thumb-box-shadow-light-theme;
-        transition: transform 350ms;
-        will-change: transform;
-      }
-
-      &.checked .u-check-indicator,
-      input:checked ~ .u-selection-control .u-check-indicator {
-        transform: translate3d($u-ios-switch-width - $u-ios-switch-thumb-size -  (2 * $u-ios-switch-border-size), 0, 0);
-      }
-
-      &.checked .u-selection-control,
-      input:checked ~ .u-selection-control {
-        background: var(--u-primary-color);
-        border-color: currentColor;
-        box-shadow: 0 0 0 ($u-ios-switch-width / 2) $u-ios-switch-border-color-light-theme inset;
-
-        &::before {
-          box-shadow: 0 0 0 ($u-ios-switch-width / 2) currentColor inset;
-          opacity: 1;
-        }
-      }
     }
   }
 }

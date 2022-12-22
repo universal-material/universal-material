@@ -7,13 +7,14 @@
 
 .u-dropdown-menu {
   @include u-elevation-shadow(2);
+  @extend %u-elevation-surface-tint-2;
+  background-color: var(--u-surface-color);
 
   position: absolute;
   z-index: $zindex-dropdown;
   min-width: $u-dropdown-menu-min-width;
   padding-top: $u-dropdown-menu-padding;
   padding-bottom: $u-dropdown-menu-padding;
-  background: var(--u-surface-elevation-tint-2);
   overflow: hidden;
   font-family: $u-font-family-base;
   border-radius: $u-dropdown-menu-border-radius;
@@ -93,14 +94,7 @@
     color: var(--u-high-contrast-color);
   }
 
-  @extend %u-selectable-background-before;
-
-  &.active,
-  &:active {
-    &::before {
-      opacity: $u-dropdown-item-focus-background-opacity;
-    }
-  }
+  @extend %u-selectable;
 
   @include hover-focus {
     text-decoration: none;

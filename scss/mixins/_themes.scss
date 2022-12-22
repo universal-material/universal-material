@@ -17,14 +17,6 @@
     @include u-slider-theme;
   }
 
-  @if (mixin_exists(u-tab-theme)) {
-    @include u-tab-theme;
-  }
-
-  @if (mixin_exists(u-toolbar-theme)) {
-    @include u-toolbar-theme;
-  }
-
   @if (mixin_exists(u-text-theme)) {
     @include u-text-theme;
   }

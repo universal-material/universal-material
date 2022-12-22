@@ -12,8 +12,8 @@
   background-color: var(--u-surface-color);
 }
 
-.u-selectable-background {
-  @extend %u-selectable-background-before;
+.u-selectable {
+  @extend %u-selectable;
 }
 
 @include contrast-bg-var(--u-hover-color, $u-base-semi-transparent-color-light-theme, $u-base-semi-transparent-color-dark-theme);

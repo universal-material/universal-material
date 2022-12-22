@@ -766,6 +766,7 @@ var umd;
             if (isEmptyOverride) {
                 this.isEmptyOverride = isEmptyOverride.bind(this);
             }
+            element.addEventListener('click', function () { return input.focus(); });
             input.addEventListener('focus', function () { return element.classList.add('focus'); });
             input.addEventListener('blur', function () { return element.classList.remove('focus'); });
             this.element = element;

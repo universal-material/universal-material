@@ -15,7 +15,7 @@
   line-height: $step-circle-size;
   color: $step-circle-default-text-color;
   text-align: center;
-  background: $step-circle-background;
+  background-color: var(--u-outline-color);
   border-radius: 50%;
 }
 
@@ -48,8 +48,8 @@
   &.active,
   &.completed {
     .u-step-circle {
-      color: $step-circle-active-text-color;
-      background: $step-circle-active-background;
+      background-color: var(--u-primary-color);
+      color: var(--u-on-primary-color);
     }
   }
 
@@ -72,7 +72,7 @@
 
 .u-step-line {
   flex-grow: 1;
-  background-color: var(--u-divider-color);
+  background-color: var(--u-outline-variant-color);
 }
 
 .u-stepper {

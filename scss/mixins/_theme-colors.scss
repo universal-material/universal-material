@@ -18,8 +18,10 @@ $surface-tint-opacity: (1: .05, 2: .08, 3: .11, 4: .12, 5: .14);
 
 @mixin color-tones($color-name, $color-tones-map) {
 
+
   @each $tone, $color-value in $color-tones-map {
     --u-#{$color-name}-color-#{$tone}: #{$color-value};
+    --u-#{$color-name}-color-hsl-#{$tone}: #{color.hue($color-value)} #{color.saturation($color-value)} #{$tone * 1%};
   }
 }
 
@@ -45,7 +47,10 @@ $surface-tint-opacity: (1: .05, 2: .08, 3: .11, 4: .12, 5: .14);
     $on-light-container-color: map.get($color-tones-map, 10);
     $on-dark-container-color: map.get($color-tones-map, 90);
 
-    --u-#{$color-name}-color: #{$light-color};
+    --u-#{$color-name}-color-hs: #{color.hue($light-color)} #{color.saturation($light-color)};
+    --u-#{$color-name}-color-hsl: #{color.hue($light-color)} #{color.saturation($light-color)} 40%;
+    --u-#{$color-name}-color: hsl(var(--u-#{$color-name}-color-hsl));
+    //--u-#{$color-name}-color: #{$light-color};
     --u-on-#{$color-name}-color: #{$on-light-color};
     --u-on-#{$color-name}-low-contrast-color: #{rgba($on-light-color, .87)};
     --u-#{$color-name}-container-color: #{$light-container-color};
@@ -53,7 +58,10 @@ $surface-tint-opacity: (1: .05, 2: .08, 3: .11, 4: .12, 5: .14);
     --u-on-#{$color-name}-container-low-contrast-color: #{rgba($on-light-container-color, .87)};
 
     .u-dark-mode {
-      --u-#{$color-name}-color: #{$dark-color};
+      --u-#{$color-name}-color-l: 80%;
+      --u-#{$color-name}-color-hsl: #{color.hue($light-color)} #{color.saturation($light-color)} 80%;
+      --u-#{$color-name}-color: hsla(var(--u-#{$color-name}-color-hsl));
+      //--u-#{$color-name}-color: #{$dark-color};
       --u-on-#{$color-name}-color: #{$on-dark-color};
       --u-on-#{$color-name}-low-contrast-color: #{rgba($on-dark-color, .87)};
       --u-#{$color-name}-container-color: #{$dark-container-color};
@@ -67,20 +75,16 @@ $surface-tint-opacity: (1: .05, 2: .08, 3: .11, 4: .12, 5: .14);
       $surface-variant-color-light: map.get($neutral-variant-color-tones-map, 90);
       $surface-variant-color-dark: map.get($neutral-variant-color-tones-map, 30);
 
-      @each $elevation, $opacity in $surface-tint-opacity {
-        $primary-color-light: map.get($color-tones-map, 40);
-        $primary-color-dark: map.get($color-tones-map, 80);
-
-        $weight: 100% * $opacity;
-
-        --u-surface-elevation-tint-#{$elevation}: #{color.mix($primary-color-light, $surface-color-light, $weight)};
-        --u-surface-variant-elevation-tint-#{$elevation}: #{color.mix($primary-color-light, $surface-variant-color-light, $weight)};
-
-        .u-dark-mode {
-          --u-surface-elevation-tint-#{$elevation}: #{color.mix($primary-color-dark, $surface-color-dark, $weight)};
-          --u-surface-variant-elevation-tint-#{$elevation}: #{color.mix($primary-color-dark, $surface-variant-color-dark, $weight)};
-        }
-      }
+      //@each $elevation, $opacity in $surface-tint-opacity {
+      //
+      //  $weight: 100% * $opacity;
+      //
+      //  --u-surface-elevation-tint-#{$elevation}: #{color.mix($light-color, $surface-color-light, $weight)};
+      //
+      //  .u-dark-mode {
+      //    --u-surface-elevation-tint-#{$elevation}: #{color.mix($dark-color, $surface-color-dark, $weight)};
+      //  }
+      //}
     }
   }
 }

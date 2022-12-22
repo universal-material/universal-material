@@ -18,19 +18,22 @@ $text-muted: $u-text-low-contrast-light-theme !default;
 $u-bg-light-vars: () !default;
 $u-bg-dark-vars: () !default;
 
-$u-light-surface: var(--u-neutral-color-99) !default;
-$u-on-light-surface: var(--u-neutral-color-10) !default;
-$u-light-surface-variant: var(--u-neutral-variant-color-90) !default;
-$u-on-light-surface-variant: var(--u-neutral-variant-color-30) !default;
-$u-dark-surface: var(--u-neutral-color-10) !default;
-$u-on-dark-surface: var(--u-neutral-color-90) !default;
-$u-dark-surface-variant: var(--u-neutral-variant-color-30) !default;
-$u-on-dark-surface-variant: var(--u-neutral-variant-color-80) !default;
+$u-light-surface: var(--u-neutral-color-hsl-99) !default;
+$u-on-light-surface: var(--u-neutral-color-hsl-10) !default;
+$u-light-surface-variant: var(--u-neutral-variant-color-hsl-90) !default;
+$u-on-light-surface-variant: var(--u-neutral-variant-color-hsl-30) !default;
+$u-dark-surface: var(--u-neutral-color-hsl-10) !default;
+$u-on-dark-surface: var(--u-neutral-color-hsl-90) !default;
+$u-dark-surface-variant: var(--u-neutral-variant-color-hsl-30) !default;
+$u-on-dark-surface-variant: var(--u-neutral-variant-color-hsl-80) !default;
 
-$u-light-outline-color: var(--u-neutral-variant-color-50) !default;
-$u-light-outline-variant-color: var(--u-neutral-variant-color-80) !default;
-$u-dark-outline-color: var(--u-neutral-variant-color-60) !default;
-$u-dark-outline-variant-color: var(--u-neutral-variant-color-30) !default;
+$u-light-outline-color: var(--u-neutral-variant-color-hsl-50) !default;
+$u-light-outline-variant-color: var(--u-neutral-variant-color-hsl-80) !default;
+$u-dark-outline-color: var(--u-neutral-variant-color-hsl-60) !default;
+$u-dark-outline-variant-color: var(--u-neutral-variant-color-hsl-30) !default;
 
 $u-bg-placeholders: () !default;
 $u-unique-selector: () !default;
+
+$u-disabled-container-opacity: 4%;
+$u-disabled-item-opacity: 38%;

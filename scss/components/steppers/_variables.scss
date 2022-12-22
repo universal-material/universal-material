@@ -8,13 +8,7 @@ $stepper-padding: 1.5rem !default;
 $step-number-font-size: .75rem !default;
 
 $step-circle-size: $base-icon-size !default;
-$step-circle-background: rgba(0, 0, 0, .47) !default;
 $step-circle-default-text-color: #fff !default;
-$step-circle-active-background: $u-primary-color !default;
-$step-circle-active-text-color: get-text-color-by-background-color($step-circle-active-background, $u-text-low-contrast-light-theme) !default;
-
-$step-line-color-light-theme: $u-divider-color-light-theme !default;
-$step-line-color-dark-theme: $u-divider-color-dark-theme !default;
 
 $step-label-margin: 1rem !default;
 $step-label-disabled-color: $u-text-low-contrast-light-theme !default;

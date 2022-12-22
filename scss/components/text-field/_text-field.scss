@@ -2,9 +2,11 @@
 
 @import "variables";
 
-@include contrast-bg-var(--u-text-input-box-bg, $u-text-input-box-bg-light-theme, $u-text-input-box-bg-dark-theme);
-@include contrast-bg-var(--u-text-field-disabled-divider-color, $u-text-field-divider-color-disabled-light-theme, $u-text-field-divider-color-disabled-dark-theme);
-@include contrast-bg-var(--u-text-input-box-disabled-bg-light-theme, $u-text-input-box-disabled-bg-light-theme, $u-text-input-box-disabled-bg-dark-theme);
+:root {
+  --u-label-input-start: auto;
+  --u-label-input-span-leading-offset: 0;
+  --u-label-input-span-trailing-offset: 0;
+}
 
 .u-form-field {
   margin-bottom: $u-form-field-margin;
@@ -15,69 +17,103 @@
   }
 }
 
-.u-text-field-container {
+.u-text-field-supporting-text {
+  @include umd-typography(body-s);
+
   display: flex;
-  flex-direction: column;
-  font-family: $u-font-family-base;
-
-  &,
-  & * {
-    box-sizing: border-box;
-  }
-}
-
-.u-text-field-helper-text {
-  position: relative;
-  margin-top: $u-text-field-helper-text-margin;
+  margin-top: $u-text-field-supporting-text-margin;
+  padding-left: $u-text-input-padding;
+  padding-right: $u-text-input-padding;
   overflow: hidden;
-  font-size: $u-text-field-helper-text-font-size;
-  line-height: $u-text-field-helper-text-line-height;
-  color: var(--u-low-contrast-color)
+  color: var(--u-on-surface-variant-color)
 }
 
-.u-text-field-helper-text-invalid {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
+.u-text-field-supporting-text-item {
+  flex-shrink: 0;
 
-  &:only-child {
-    position: static;
-    display: none;
+  + .u-text-field-supporting-text-item {
+    padding-left: $u-text-input-padding;
   }
 }
 
-.u-text-field-helper-text-default,
-.u-text-field-helper-text-invalid {
-  display: inline-block;
-}
+.u-text-field {
+  position: relative;
+  display: grid;
+  align-items: center;
+  grid-template-columns: calc(#{$u-text-field-icon-size} + #{$u-text-field-icon-margin}) auto calc(#{$u-text-field-icon-size} + #{$u-text-field-icon-margin});
+  grid-template-rows: $u-text-field-label-line-height auto;
+  min-height: $u-text-field-box-height;
+  padding-top: $u-text-field-box-vertical-padding;
+  padding-bottom: $u-text-field-box-vertical-padding;
+  font-family: $u-font-family-base;
+  cursor: text;
+  z-index: 1;
 
-.u-text-field-helper-text-default:not(:only-child),
-.u-text-field-helper-text-invalid {
-  opacity: 0;
-  transition: transform 1ms 200ms, opacity 150ms;
-  transform: translate3d(0, -100%, 0);
-}
+  //&::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
 
-.u-text-field:not(.invalid) ~ .u-text-field-helper-text .u-text-field-helper-text-default,
-.u-text-field.invalid ~ .u-text-field-helper-text .u-text-field-helper-text-invalid {
-  opacity: 1;
-  transition: transform 200ms, opacity 150ms;
-  transform: translate3d(0, 0, 0);
+  &::after {
+    border-width: $u-text-field-border-width;
+    border-color: var(--u-on-surface-variant-color);
+  }
 
-  &:only-child {
-    display: inline-block;
+  &.focus {
+    &::after {
+      border-width: $u-text-field-focus-border-width;
+      border-color: var(--u-primary-color);
+    }
+
+    .u-text-field-label {
+      color: var(--u-primary-color);
+    }
+  }
+
+  &.invalid {
+    &::after  {
+      border-color: var(--u-error-color);
+    }
+
+    .u-text-input,
+    .u-text-field-label,
+    ~ .u-text-field-supporting-text,
+    .u-text-field-trailing-icon {
+      color: var(--u-error-color);
+    }
+  }
+
+  &.disabled {
+    cursor: default;
+
+    &::after  {
+      border-color: var(--u-on-surface-color);
+      opacity: .38;
+    }
+
+    .u-text-input,
+    .u-text-field-label,
+    ~ .u-text-field-supporting-text,
+    .u-text-field-leading-icon,
+    .u-text-field-trailing-icon {
+      color: var(--u-on-surface-color);
+      opacity: .38;
+    }
   }
 }
 
 .u-text-field-leading-icon,
 .u-text-field-trailing-icon {
-  position: absolute;
-  bottom: $u-text-field-icon-bottom;
   width: $u-text-field-icon-size;
   height: $u-text-field-icon-size;
-  margin-bottom: -.5em;
   font-size: $u-text-field-icon-size;
+  color: var(--u-on-surface-variant-color);
   line-height: 1em;
   text-align: center;
 
@@ -90,25 +126,26 @@
 }
 
 .u-text-field-leading-icon {
-  left: 0;
-
-  ~ .u-text-input {
-    padding-left: $u-text-input-padding + $u-text-field-icon-size;
-  }
+  grid-area: 1 / 1 / span 2;
+  justify-self: flex-end;
 }
 
 .u-text-field-trailing-icon {
-  right: 0;
-
-  ~ .u-text-input {
-    padding-right: $u-text-input-padding + $u-text-field-icon-size;
-  }
+  grid-area: 1 / 3 / span 2;
+  justify-self: flex-start;
 }
 
-.u-text-input input,
-.u-text-input textarea,
-.u-text-input button {
-  flex: 1;
+.u-text-input {
+  padding-right: $u-text-input-padding !important;
+  padding-left: $u-text-input-padding !important;
+  grid-area: 2 / var(--u-label-input-start) / auto / span calc(3 - var(--u-label-input-span-leading-offset) - var(--u-label-input-span-trailing-offset));
+}
+
+.u-text-input::placeholder,
+.u-text-input input::placeholder,
+.u-text-input textarea::placeholder,
+.u-text-input-placeholder {
+  color: var(--u-on-surface-variant-color);
 }
 
 .u-text-input input,
@@ -116,143 +153,62 @@
 input.u-text-input,
 textarea.u-text-input,
 button.u-text-input {
-  padding: 0;
+  @include umd-typography(body-l);
+  line-height: $u-text-input-line-height;
   background: transparent;
   border: none;
+  color: var(--u-on-surface-color);
+  width: 100%;
+  padding: 0;
 
   &:focus {
     outline: 0;
   }
 }
 
-.u-text-input,
-input.u-text-input,
-textarea.u-text-input,
-button.u-text-input {
-  display: flex;
-  align-items: center;
-  padding-top: $u-text-input-padding;
-  padding-bottom: $u-text-input-padding - $u-text-field-border-width;
-  padding-left: 0;
-  font-size: $u-text-input-font-size;
-  line-height: $u-text-input-line-height;
-  border-bottom: $u-text-input-border;
-  border-radius: inherit;
+.u-text-field-label {
+  @include umd-typography(body-l);
 
-  &:not(textarea) {
-    height: $u-text-input-height + $u-text-input-padding * 2;
+  padding-right: $u-text-label-padding;
+  padding-left: $u-text-label-padding;
+  position: absolute;
+  top: 0;
+  left: $u-text-label-left;
+  margin-bottom: 0;
+  line-height: $u-text-field-label-line-height;
+  grid-area: 1 / var(--u-label-input-start) / auto / span calc(3 - var(--u-label-input-span-leading-offset) - var(--u-label-input-span-trailing-offset));
+  color: var(--u-on-surface-variant-color);
+  transition: top 200ms, left 200ms, font-size 200ms;
+}
+
+.u-text-field.focus,
+.u-text-field:not(.empty) {
+  label,
+  .u-text-field-label {
+    @include umd-typography(body-s);
   }
 }
 
-.u-text-field {
-  position: relative;
-  display: flex;
-  flex-direction: column-reverse;
 
-  &,
-  & * {
-    box-sizing: border-box;
-  }
-
-  label {
-    align-self: flex-start;
-    height: $u-text-field-label-height;
-    margin-bottom: $u-text-field-label-margin;
-    font-size: $u-text-field-label-font-size;
-    line-height: $u-text-field-label-line-height;
-    color: var(--u-low-contrast-color);
-  }
-
-  &::before {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    height: $u-text-field-focus-border-width;
-    pointer-events: none;
-    content: "";
-    border-bottom: $u-text-field-focus-border-width solid currentColor;
-    transition: transform 350ms $awesome-cubic-bezier;
-    transform: scale3d(0, 1, 1);
-    will-change: transform;
-  }
-
-  &.focus {
-    color: var(--u-primary-color);
-  }
-
-  &.focus,
-  &.invalid {
-
-    label {
-      color: currentColor;
-    }
-
-    &::before {
-      z-index: 1;
-      transform: scale3d(1, 1, 1);
-    }
-  }
-
-  &.disabled .u-text-input,
-  input.u-text-input[disabled] {
-    border-bottom-style: dashed !important;
-  }
-
-  &.disabled {
-    label,
-    .u-text-field-leading-icon,
-    .u-text-field-trailing-icon,
-    + .u-text-field-helper-text {
-      &,
-      .u-text-field-helper-text-default {
-        color: var(--u-lower-contrast-color);
-      }
-    }
-  }
-
-  &.disabled .u-text-input,
-  .u-text-input:disabled {
-    color: var(--u-lower-contrast-color);
-    border-color: var(----u-text-field-disabled-divider-color);
-  }
-
-  &.invalid,
-  &.invalid .u-text-field-leading-icon,
-  &.invalid .u-text-field-trailing-icon,
-  & ~ .u-text-field-helper-text .u-text-field-helper-text-invalid {
-    color: var(--u-danger-color);
-  }
-
-  &:not(.disabled):hover {
-    .u-text-input:not(:disabled) {
-      border-color: var(--u-high-contrast-color);
-    }
-  }
+.u-text-field-leading-icon ~ .u-text-field-label,
+.u-text-field-leading-icon ~ .u-text-input {
+  --u-label-input-start: 2;
+  --u-label-input-span-leading-offset: 1;
 }
 
-.u-text-field.u-text-field-floating-label,
+
+.u-text-field-trailing-icon ~ .u-text-field-label,
+.u-text-field-trailing-icon ~ .u-text-input {
+  --u-label-input-span-trailing-offset: 1;
+}
+
 .u-text-field-box,
-.u-text-field-outline {
-  label {
-    transition: transform 200ms, font-size 200ms;
-    z-index: 1;
-  }
+.u-text-field-outlined {
 
-  .u-text-input::placeholder,
-  .u-text-input-placeholder {
-    transition: color 150ms;
-  }
-
-  .u-text-input * {
-    transition: opacity 150ms;
-  }
-
-  &.empty:not(.focus):not(.u-text-field-no-label) {
-    label {
-      font-size: $u-text-input-font-size;
+  &.empty:not(.focus):not(.u-text-field-hidden-label) {
+    .u-text-field-label {
       pointer-events: none;
-      transform: translate3d(0, math.div($u-text-field-label-height, 2) + $u-text-field-label-margin + math.div($u-text-input-height, 2) + $u-text-input-padding, 0);
+      top: math.div($u-text-field-label-line-height + $u-text-input-line-height, 2) - math.div($u-text-field-label-line-height, 2)
     }
 
     .u-text-input::placeholder,
@@ -261,7 +217,7 @@ button.u-text-input {
       transition: color 150ms 100ms;
     }
 
-    .u-text-input * {
+    .u-text-input {
       opacity: 0;
       transition: opacity 150ms 100ms;
     }
@@ -269,268 +225,93 @@ button.u-text-input {
 }
 
 .u-text-field-box {
-  background: var(--u-text-input-box-bg);
   border-radius: $u-text-field-box-border-radius;
+  background-color: var(--u-surface-variant-color);
 
+  //&::before {
+  //  //background-color: var(--u-surface-variant-color);
+  //  border-radius: $u-text-field-box-border-radius;
+  //}
 
-  label {
-    height: $u-text-field-box-label-height;
-    padding-left: $u-text-field-box-padding-horizontal;
-    margin-bottom: 0;
-    line-height: $u-text-field-box-label-line-height;
-  }
-
-  .u-text-input {
-    padding: $u-text-field-box-padding-top $u-text-field-box-padding-horizontal calc(#{$u-text-field-box-padding-bottom} - #{$u-text-field-border-width});
-    margin-top: -$u-text-field-box-label-height;
-
-    &:not(textarea) {
-      height: $u-text-field-box-height;
-    }
-  }
-
-  &.u-text-field-no-label {
-    .u-text-input {
-      padding-top: $u-text-field-box-no-label-padding-vertical;
-      padding-bottom: $u-text-field-box-no-label-padding-vertical;
-      margin-top: 0;
-    }
-  }
-
-  &.empty:not(.focus) {
-    label {
-      transform: translate3d(0, math.div($u-text-field-box-height, 2) - math.div($u-text-field-box-label-height, 2), 0) !important;
-    }
-  }
-
-  ~ .u-text-field-helper-text {
-    margin-right: $u-text-field-box-padding-horizontal;
-    margin-left: $u-text-field-box-padding-horizontal;
-  }
-
-  .u-text-field-leading-icon,
-  .u-text-field-trailing-icon {
-    bottom: 50%;
-  }
-
-  .u-text-field-leading-icon {
-    left: $u-text-field-icon-margin;
-
-    ~ .u-text-input,
-    ~ label {
-      padding-left: calc(#{$u-text-field-icon-margin + $u-text-field-box-padding-horizontal} + #{$u-text-field-icon-size});
-    }
-  }
-
-  .u-text-field-trailing-icon {
-    right: $u-text-field-icon-margin;
-
-    ~ .u-text-input,
-    ~ label {
-      padding-right: calc(#{$u-text-field-icon-margin + $u-text-field-box-padding-horizontal} + #{$u-text-field-icon-size});
-    }
+  &::after {
+    border-bottom-style: solid;
   }
 
   &.disabled {
-    background: var(--u-text-input-box-disabled-bg-light-theme);
-  }
-
-  &.disabled .u-text-input,
-  input.u-text-input[disabled] {
-    border-bottom-style: solid !important;
+    background-color: hsla(var(--u-on-surface-hsl-color) / $u-disabled-container-opacity);
+    //&::before  {
+    //  background-color: var(--u-on-surface-color);
+    //  opacity: .04;
+    //}
   }
 }
 
-.u-text-field-outline {
-  label {
-    height: $u-text-field-outline-label-height;
-    padding-right: $u-text-field-outline-label-padding;
-    padding-left: $u-text-field-outline-label-padding;
-    margin-bottom: 0;
-    margin-left: $u-text-field-outline-padding - $u-text-field-outline-label-padding;
-    line-height: $u-text-field-outline-label-line-height;
-    background: var(--u-current-bg-color);
-    transform: translate3d(0, math.div(-$u-text-field-outline-label-height, 2), 0);
-  }
+.u-text-field-outlined {
+  border-radius: $u-text-field-outline-border-radius;
 
-  .u-text-input {
-    padding: $u-text-field-outline-label-height $u-text-field-outline-padding calc(#{$u-text-field-outline-padding-bottom} - #{$u-text-field-border-width});
-    margin-top: -$u-text-field-outline-label-height;
-    border-color: transparent !important;
-
-    &:not(textarea) {
-      height: $u-text-field-outline-height;
-    }
-  }
-
-  &.u-text-field-no-label .u-text-input {
-    margin-top: 0;
-  }
-
-  &.empty:not(.focus) {
-    label {
-      transform: translate3d(0, math.div($u-text-field-outline-height, 2) - math.div($u-text-field-outline-label-height, 2), 0) !important;
-    }
-
-    .u-text-field-leading-icon ~ label {
-      transform: translate3d(calc(#{$u-text-field-icon-margin} + #{$u-text-field-icon-size}), math.div($u-text-field-outline-height, 2) - math.div($u-text-field-outline-label-height, 2), 0) !important;
-    }
-  }
-
-  &::before {
-    top: 0;
-    height: auto;
-    border: $u-text-field-border-width solid;
+  &::after {
     border-radius: $u-text-field-outline-border-radius;
-    transition: none;
-    transform: none;
+    border-style: solid;
+  }
+
+  .u-text-field-label,
+  .u-text-input {
+    grid-area: 1 / var(--u-label-input-start) / span 2 / span calc(3 - var(--u-label-input-span-leading-offset) - var(--u-label-input-span-trailing-offset));
+  }
+
+  .u-text-field-label {
+    background-color: var(--u-current-bg-color);
   }
 
   &.focus,
-  &.invalid {
-    &::before {
-      border-width: $u-text-field-focus-border-width;
+  &:not(.empty) {
+    .u-text-field-label {
+      top: calc(#{-$u-text-field-box-vertical-padding} - #{math.div($u-text-field-label-line-height, 2)});
+    }
+
+    .u-text-field-leading-icon ~ .u-text-field-label {
+      left: -$u-text-field-icon-size;
     }
   }
 
-  ~ .u-text-field-helper-text {
-    margin-right: $u-text-field-outline-padding;
-    margin-left: $u-text-field-outline-padding;
+  .u-text-input {
+    height: $u-text-field-label-line-height + $u-text-input-line-height;
   }
+}
 
-  .u-text-field-leading-icon,
-  .u-text-field-trailing-icon {
-    bottom: 50%;
-  }
+.u-text-field-hidden-label {
+  grid-template-rows: auto;
 
   .u-text-field-leading-icon {
-    left: $u-text-field-icon-margin;
-
-    ~ .u-text-input {
-      margin-left: calc(#{$u-text-field-icon-margin} + #{$u-text-field-icon-size});
-    }
+    grid-area: 1 / 1;
+    justify-self: flex-end;
   }
 
   .u-text-field-trailing-icon {
-    right: $u-text-field-icon-margin;
-
-    ~ .u-text-input,
-    ~ label {
-      margin-right: calc(#{$u-text-field-icon-margin} + #{$u-text-field-icon-size});
-    }
+    grid-area: 1 / 3;
   }
 
-  &:not(.focus):not(.invalid):not(.disabled) {
-    &::before {
-      border-color: var(--u-low-contrast-color);
-    }
-
-    &:hover::before {
-      border-color: var(--u-high-contrast-color);
-    }
+  .u-text-input {
+    padding-right: $u-text-input-padding !important;
+    padding-left: $u-text-input-padding !important;
+    grid-area: 1 / var(--u-label-input-start) / auto / span calc(3 - var(--u-label-input-span-leading-offset) - var(--u-label-input-span-trailing-offset));
   }
 
-  &.disabled::before {
-    border-color: var(--u-text-field-disabled-divider-color);
+  .u-text-field-label {
+    height: 0;
+    overflow: hidden;
   }
 }
 
 .u-search-field {
-  background-color: var(--u-text-input-box-bg);
+  @extend .u-text-field-hidden-label;
   border-radius: $u-search-field-border-radius;
 
   &::before {
-    content: none;
+    border-radius: $u-search-field-border-radius;
   }
 
-  .u-text-field-leading-icon,
-  .u-text-field-trailing-icon {
-    bottom: 50%;
-  }
-
-  .u-text-input {
-    height: $u-search-field-height;
-    padding: $u-search-field-elevated-padding;
-    border: none;
-  }
-
-  .u-text-field-leading-icon {
-    left: $u-text-field-icon-margin;
-
-    ~ .u-text-input {
-      margin-left: calc(#{$u-text-field-icon-margin} + #{$u-text-field-icon-size});
-    }
-  }
-
-  .u-text-field-trailing-icon {
-    right: $u-text-field-icon-margin;
-
-    ~ .u-text-input,
-    ~ label {
-      margin-right: calc(#{$u-text-field-icon-margin} + #{$u-text-field-icon-size});
-    }
-  }
-
-  &.disabled {
-    background: var(--u-text-input-box-disabled-bg-light-theme);
-
-    .u-text-input {
-      border: none !important
-    }
-  }
-}
-
-.u-search-field-elevated {
-  background-color: var(--u-surface-color);
-  box-shadow: $u-search-field-elevated-box-shadow;
-
-  .u-text-input,
-  input.u-text-input,
-  .u-text-input input {
-    color: var(--u-high-contrast-color);
-  }
-
-  .u-text-field-leading-icon,
-  .u-text-field-trailing-icon,
-  .u-text-input-suffix,
-  .u-text-input-prefix {
-    color: var(--u-low-contrast-color);
-  }
-}
-
-%u-text-input-affix {
-  flex-shrink: 0;
-  color: var(--u-low-contrast-color);
-}
-
-.u-text-input-suffix {
-  @extend %u-text-input-affix;
-  margin-left: $u-text-input-affix-margin;
-}
-
-.u-text-input-prefix {
-  @extend %u-text-input-affix;
-  margin-right: $u-text-input-affix-margin;
-}
-
-.u-text-field-leading-icon,
-.u-text-field-trailing-icon {
-  color: var(--u-low-contrast-color);
-}
-
-.u-text-input,
-input.u-text-input,
-.u-text-input input {
-  color: var(--u-high-contrast-color);
-  border-color: var(--u-low-contrast-color);
-}
-
-.u-text-input::placeholder,
-.u-text-input-placeholder {
-  &,
-  .u-text-field-floating-label.empty.u-text-field-no-label &,
-  .u-text-field-outline.empty.u-text-field-no-label &,
-  .u-text-field-box.empty.u-text-field-no-label & {
-    color: var(--u-lower-contrast-color);
+  &::after {
+    display: none;
   }
 }

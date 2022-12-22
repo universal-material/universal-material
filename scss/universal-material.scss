@@ -1,3 +1,5 @@
+@use "theme/theme";
+//
 @import "variables";
 @import "mixins";
 
@@ -9,13 +11,14 @@
 @import "grid/grid";
 @import "utilities/elevation";
 @import "icons";
-@import "placeholders";
-
+//@import "placeholders";
+//
 @import "components";
 @import "ripple";
-
-//Utilities
+//
+////Utilities
 @import "utilities";
 @import "css-vars";
 
-@include u-create-theme();
+@include theme.theme($u-theme-colors);
+//@include u-create-theme();

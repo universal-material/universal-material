@@ -28,7 +28,7 @@
         left: 0;
         height: $u-list-divider-height;
         content: "";
-        background: var(--u-divider-color);
+        background: var(--u-surface-variant-color);
       }
     }
   }
@@ -36,7 +36,7 @@
   &.u-list-selectable {
     .u-list-item {
       cursor: pointer;
-      @extend %u-selectable-background-before;
+      @extend %u-selectable;
     }
   }
 
@@ -166,7 +166,7 @@
 }
 
 .u-list-item-hover {
-  @extend %u-selectable-background-before;
+  @extend %u-selectable;
 
   position: absolute;
   top: 0;

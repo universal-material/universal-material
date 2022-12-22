@@ -1,5 +1,4 @@
 @import "variables";
-@import "theme";
 @import "../../grid/variables";
 @import "../../font";
 @import "../../mixins";
@@ -28,20 +27,10 @@
   color: var(--u-low-contrast-color);
   cursor: pointer;
   background-color: transparent;
-  @extend %u-selectable-background-before;
+  @extend %u-selectable;
 
   &.active {
-    color: var(--u-high-contrast-color);
-  }
-}
-
-%u-tab-bar-colored {
-  .u-tab.active {
-    color: var(--u-tab-bar-color);
-  }
-
-  .u-tab-indicator {
-    background-color: var(--u-tab-bar-color);
+    color: var(--u-primary-color);
   }
 }
 
@@ -50,7 +39,7 @@
   bottom: 0;
   height: $u-tab-indicator-height;
   content: "";
-  background-color: var(--u-high-contrast-color);
+  background-color: var(--u-primary-color);
   transition: left 200ms ease-out, width 200ms ease-out;
   will-change: left;
 }

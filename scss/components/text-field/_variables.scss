@@ -9,24 +9,21 @@ $u-form-field-margin: 24px !default;
 
 $u-text-field-label-height: .75rem !default;
 $u-text-field-label-font-size: .75rem !default;
-$u-text-field-label-line-height: $u-text-field-label-font-size !default;
+$u-text-field-label-line-height: 1rem !default;
+$u-text-input-line-height: 1.5rem !default;
 $u-text-field-label-margin: .25rem !default;
 $u-text-field-border-width: .0625rem !default;
 $u-text-field-focus-border-width: .125rem !default;
 
-$u-text-input-color-light-theme: $u-text-high-contrast-light-theme !default;
-$u-text-input-color-dark-theme: $u-text-high-contrast-dark-theme !default;
 $u-text-input-height: 1rem !default;
-$u-text-input-padding: .5rem !default;
-$u-text-input-total-height: $u-text-input-height + $u-text-input-padding * 2 !default;
+$u-text-input-padding: 16px !default;
+$u-text-label-padding: 4px !default;
+$u-text-label-left: 12px !default;
+//$u-text-input-total-height: $u-text-input-height + $u-text-input-padding * 2 !default;
 $u-text-input-border: $u-text-field-border-width solid !default;
 $u-text-input-font-size: 1rem !default;
 $u-text-input-font-weight: $u-font-weight-regular !default;
 $u-text-input-line-height: 1.5em !default;
-$u-text-input-placeholder-color-light-theme: $u-text-lower-contrast !default;
-$u-text-input-placeholder-color-dark-theme: $u-text-lower-contrast-dark-theme !default;
-$u-text-input-disabled-color-light-theme: $u-text-lower-contrast !default;
-$u-text-input-disabled-color-dark-theme: $u-text-lower-contrast-dark-theme !default;
 
 $u-text-field-box-horizontal-padding: .75rem !default;
 $u-text-field-box-label-height: 1.75rem !default;
@@ -35,12 +32,10 @@ $u-text-field-box-padding-horizontal: 12px !default;
 $u-text-field-box-padding-top: 1.5rem !default;
 $u-text-field-box-padding-bottom: 8px !default;
 $u-text-field-box-no-label-padding-vertical: 20px !default;
-$u-text-field-box-height: 3.5rem !default;
-$u-text-field-box-border-radius: .25rem .25rem 0 0 !default;
-$u-text-input-box-bg-light-theme: rgba(0, 0, 0, .06) !default;
-$u-text-input-box-bg-dark-theme: rgba(255, 255, 255, .1) !default;
-$u-text-input-box-disabled-bg-light-theme: rgba(0, 0, 0, .02) !default;
-$u-text-input-box-disabled-bg-dark-theme: rgba(255, 255, 255, .04) !default;
+$u-text-field-box-height: 48px !default;
+$u-text-field-box-border-radius: 4px 4px 0 0 !default;
+$u-text-field-box-vertical-padding: 8px;
+
 
 $u-text-field-outline-horizontal-padding: .75rem !default;
 $u-text-field-outline-height: 3.5rem !default;
@@ -48,39 +43,16 @@ $u-text-field-outline-label-height: 1.25rem !default;
 $u-text-field-outline-label-padding: .125rem !default;
 $u-text-field-outline-label-line-height: $u-text-field-outline-label-height !default;
 $u-text-field-outline-padding: .75rem !default;
-$u-text-field-outline-padding-bottom: 1.25rem !default;
-$u-text-field-outline-border-radius: .25rem !default;
+$u-text-field-outline-padding-bottom: 20px !default;
+$u-text-field-outline-border-radius: 4px !default;
 
 $u-search-field-height: 3rem !default;
 $u-search-field-border-radius: 4px !default;
-$u-search-field-elevated-box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12) !default;
-$u-search-field-elevated-bg-light-theme: #fff !default;
-$u-search-field-elevated-bg-dark-theme: #424242 !default;
-$u-search-field-elevated-padding: 1rem .75rem !default;
 
-$u-text-field-divider-color-light-theme: $u-color-low-contrast-light-theme !default;
-$u-text-field-divider-color-dark-theme: $u-color-low-contrast-dark-theme !default;
-$u-text-field-divider-color-hover-light-theme: $u-color-high-contrast-light-theme !default;
-$u-text-field-divider-color-hover-dark-theme: $u-color-high-contrast-dark-theme !default;
-$u-text-field-divider-color-disabled-light-theme: rgba(0, 0, 0, .2) !default;
-$u-text-field-divider-color-disabled-dark-theme: rgba(255, 255, 255, .05) !default;
+$u-text-field-supporting-text-font-size: .75rem !default;
+$u-text-field-supporting-text-line-height: 1em !default;
+$u-text-field-supporting-text-margin: 4px !default;
 
-$u-text-field-helper-text-font-size: .75rem !default;
-$u-text-field-helper-text-line-height: 1em !default;
-$u-text-field-helper-text-margin: .5rem !default;
-$u-text-field-helper-text-color-light-theme: $u-text-low-contrast-light-theme !default;
-$u-text-field-helper-text-color-dark-theme: $u-text-low-contrast-dark-theme !default;
-
-$u-text-input-icon-color-light-theme: $u-text-low-contrast-light-theme !default;
-$u-text-input-icon-color-dark-theme: $u-text-low-contrast-dark-theme !default;
-$u-text-field-icon-bottom: math.div($u-text-input-total-height, 2) !default;
+//$u-text-field-icon-bottom: math.div($u-text-input-total-height, 2) !default;
 $u-text-field-icon-size: 1.5rem !default;
-$u-text-field-icon-margin: 8px !default;
-
-$u-text-field-label-color-light-theme: $u-text-low-contrast-light-theme !default;
-$u-text-field-label-color-dark-theme: $u-text-low-contrast-dark-theme !default;
-
-
-$u-text-input-affix-margin: 4px !default;
-$u-text-input-affix-color-light-theme: $u-text-low-contrast-light-theme !default;
-$u-text-input-affix-color-dark-theme: $u-text-low-contrast-dark-theme !default;
+$u-text-field-icon-margin: 12px !default;

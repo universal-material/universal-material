@@ -18,7 +18,7 @@
   @include hide-native-input;
 
   .u-selection-control {
-    @extend %u-selectable-background-before;
+    @extend %u-selectable;
     display: inline-flex;
     flex-shrink: 0;
     justify-content: center;

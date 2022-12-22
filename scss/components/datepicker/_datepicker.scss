@@ -15,7 +15,8 @@
 }
 
 .u-datepicker-header {
-  @extend %u-bg-primary;
+  background-color: var(--u-primary-color);
+  color: var(--u-on-primary-color);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -108,7 +109,8 @@
   color: var(--u-high-contrast-color);
 
   &.active {
-    @extend %u-bg-primary;
+    background-color: var(--u-primary-color);
+    color: var(--u-on-primary-color);
   }
 }
 

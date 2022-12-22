@@ -2,102 +2,87 @@ extends ../layout
 
 block content
   h4.u-headline4.chapter-title Text fields
-  .u-text-field-container.u-form-field
-    .u-text-field
-      input.u-text-input(type="text" placeholder="Placeholder" id="text-field-standard" aria-describedby="standardHelper")
-      label(for="text-field-standard") Standard
-    small#standardHelper.u-text-field-helper-text Standard text field
 
-  .u-text-field-container.u-form-field
-    .u-text-field.u-text-field-floating-label
-      input.u-text-input(type="text" placeholder="Placeholder" id="text-field-floating-label" aria-describedby="standardWithFloatinglabelHelper")
-      label(for="text-field-floating-label") Standard floating label
-    small#standardWithFloatinglabelHelper.u-text-field-helper-text Standard text field with floating label
-
-  .u-text-field-container.u-form-field.disabled
-    .u-text-field.u-text-field-floating-label
-      input.u-text-input(type="text" placeholder="Placeholder" disabled aria-describedby="standardWithFloatinglabelHelper")
-      label(for="text-field-floating-label") Standard floating label
-
-  .u-text-field-container.u-form-field
+  .u-form-field
     .u-text-field.u-text-field-box
       .u-text-field-leading-icon
-        i.mdi.mdi-calendar
+        i.mdi.mdi-magnify
       .u-text-field-trailing-icon
-        i.mdi.mdi-eye
+        i.mdi.mdi-close-circle-outline
+      label.u-text-field-label(for="text-field-box") Text field box
       .u-text-input
         input(type="text" placeholder="Placeholder" id="text-field-box" aria-describedby="textFieldBox")
 
-      label(for="text-field-box") Text field box
-    small#textFieldBox.u-text-field-helper-text
-      .d-flex.position-relative
-        .flex-fill
-          span.u-text-field-helper-text-default Text field box
-          span.u-text-field-helper-text-invalid Error
-        span 0 / 10
+    .u-text-field-supporting-text
+      .u-text-field-supporting-text-item Supporting text
+      .u-text-field-supporting-text-item.ml-auto 0 / 10
 
-  .u-text-field-container.u-form-field
+  .u-form-field
     .u-text-field.u-text-field-box.disabled
       .u-text-field-leading-icon
-        i.mdi.mdi-calendar
+        i.mdi.mdi-magnify
       .u-text-field-trailing-icon
-        i.mdi.mdi-calendar
+        i.mdi.mdi-close-circle-outline
 
+      label.u-text-field-label Text field box
       input.u-text-input(type="text" placeholder="Placeholder" disabled aria-describedby="textFieldBox")
-      label Text field box
 
-  .u-text-field-container.u-form-field
-    .u-text-field.u-text-field-outline
+  .u-form-field
+    .u-text-field.u-text-field-outlined
       .u-text-field-leading-icon
-        i.mdi.mdi-calendar
+        i.mdi.mdi-magnify
       .u-text-field-trailing-icon
-        i.mdi.mdi-calendar
+        i.mdi.mdi-close-circle-outline
+      label.u-text-field-label(for="text-field-outline") Text field outline
       input.u-text-input(type="text" placeholder="Placeholder" id="text-field-outline" aria-describedby="textFieldOutline")
-      label(for="text-field-outline") Text field outline
-    small#textFieldOutline.u-text-field-helper-text Text field outline
+    small#textFieldOutline.u-text-field-supporting-text Text field outline
 
-  .u-text-field-container.u-form-field
-    .u-text-field.u-text-field-outline.disabled
+  .u-form-field
+    .u-text-field.u-text-field-outlined.disabled
       .u-text-field-leading-icon
-        i.mdi.mdi-calendar
+        i.mdi.mdi-magnify
       .u-text-field-trailing-icon
-        i.mdi.mdi-calendar
+        i.mdi.mdi-close-circle-outline
+      label.u-text-field-label(for="text-field-outline") Text field outline
       input.u-text-input(type="text" placeholder="Placeholder" disabled)
-      label(for="text-field-outline") Text field outline
 
-  .u-text-field-container.u-form-field
-    .u-text-field.u-search-field
+  .u-form-field
+    .u-text-field.u-text-field-box.u-search-field
       .u-text-field-leading-icon
-        i.mdi.mdi-calendar
+        i.mdi.mdi-magnify
       .u-text-field-trailing-icon
         button.u-icon-btn
           i.u-btn-icon.mdi.mdi-calendar
-      input.u-text-input(type="text" placeholder="Search" id="search-field")
 
-  .u-text-field-container.u-form-field
+      label.u-text-field-label(for="search-field") Label text
+      input.u-text-input(type="text" placeholder="Search" id="search-field" aria-describedby="searchField")
+    small#searchField.u-text-field-supporting-text Supporting text
+
+  .u-form-field
     .u-text-field.u-search-field.u-search-field-elevated
       .u-text-field-leading-icon
-        i.mdi.mdi-calendar
+        i.mdi.mdi-magnify
       .u-text-field-trailing-icon
         button.u-icon-btn
       input.u-text-input(type="text" placeholder="Search" id="search-field-elevated")
 
-  .u-text-field-container.u-form-field
+  .u-form-field
     .u-text-field.u-text-field-box
+      label.u-text-field-label(for="text-area-box") Text area box
       textarea.u-text-input(type="text" placeholder="Placeholder" id="text-area-box" aria-describedby="textAreaBox")
-      label(for="text-area-box") Text area box
-    small#textAreaBox.u-text-field-helper-text Text area box
+    small#textAreaBox.u-text-field-supporting-text Text area box
 
-  .u-text-field-container.u-form-field
-    .u-text-field.u-text-field-outline
+  .u-form-field
+    .u-text-field.u-text-field-outlined
+      label.u-text-field-label(for="text-area-outline") Text area outline
       textarea.u-text-input(type="text" placeholder="Placeholder" id="text-area-outline" aria-describedby="textAreaOutline")
-      label(for="text-area-outline") Text area outline
-    small#textAreaOutline.u-text-field-helper-text Text area outline
+    small#textAreaOutline.u-text-field-supporting-text Text area outline
 
-  .u-text-field-container.u-form-field
+  .u-form-field
     .u-text-field.u-text-field-box.u-dropdown
       .u-text-field-trailing-icon
         .u-dropdown-toggle-icon
+      label.u-text-field-label Dropdown
       button.u-text-input.u-dropdown-toggle(type="button" disabled)
         .u-text-input-placeholder No value
       .u-dropdown-menu.up.w-100
@@ -105,4 +90,3 @@ block content
           button.u-dropdown-item(type="button") Option A
           button.u-dropdown-item(type="button") Option B
           button.u-dropdown-item(type="button") Option C
-      label Dropdown

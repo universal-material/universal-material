@@ -17,7 +17,7 @@
     user-select: none;
     border: none; //Universal Material custom code
 
-    @extend %u-selectable-background-before;
+    @extend %u-selectable;
 
     // Share hover and focus styles
     @include hover-focus {

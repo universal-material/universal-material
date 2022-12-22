@@ -12,6 +12,6 @@
   @include u-button-base;
   @include u-bg-light;
   @include u-bg-dark;
-  @include u-surface-background();
-  @include u-selectable-background-before;
+  @include u-surface-background;
+  @include u-selectable;
 }
