@@ -1,7 +1,6 @@
 @import "variables";
 @import "../../font";
 @import "../../mixins";
-@import "../../placeholders";
 
 @mixin u-btn {
   @include umd-typography(label-l);

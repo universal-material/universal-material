@@ -2,7 +2,6 @@
 @import "../../colors";
 @import "../../font";
 @import "../../mixins";
-@import "../../placeholders";
 
 %u-card {
   font-family: $u-font-family-base;
@@ -27,7 +26,8 @@
 
 .u-card-elevated {
   @extend %u-card;
-  box-shadow: $u-card-shadow;
+  @include u-elevation-shadow(1);
+  @extend %u-elevation-surface-tint-1;
 }
 
 .u-card-outlined {
@@ -74,19 +74,12 @@
 }
 
 .u-card-content {
-  padding: $u-card-padding $u-card-padding;
+  padding: $u-card-padding;
 }
 
 @include u-extend-action-set("u-card");
 
 .u-card-actions {
   justify-content: flex-end;
-  padding: $u-card-actions-padding;
+  padding: $u-card-padding;
 }
-
-.u-card {
-  .u-text-field-outline label {
-    background-color: var(--u-surface-color);
-  }
-}
-

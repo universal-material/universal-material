@@ -9,8 +9,7 @@
   .u-container {
     width: 100%;
     max-width: var(--u-container-width);
-    padding-right: var(--u-container-margin);
-    padding-left: var(--u-container-margin);
+    padding-inline: var(--u-container-margin);
     margin-right: auto;
     margin-left: auto;
   }

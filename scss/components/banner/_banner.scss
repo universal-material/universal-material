@@ -1,6 +1,5 @@
 @import "variables";
 @import "../../font";
-@import "../../placeholders";
 
 .u-banner {
   display: block;
@@ -34,13 +33,5 @@
 
 .u-banner-actions {
   padding: $u-banner-actions-padding;
-  margin-left: auto;
-}
-
-.rtl,
-[dir="rtl"] {
-  .u-banner-actions {
-    margin-right: auto;
-    margin-left: 0;
-  }
+  margin-inline-start: auto;
 }

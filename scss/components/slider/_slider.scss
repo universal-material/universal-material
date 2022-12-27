@@ -1,7 +1,6 @@
 @use "sass:math";
 
 @import "variables";
-@import "theme";
 @import "../../mixins";
 
 .u-slider {
@@ -20,46 +19,67 @@
     background: transparent; /* Otherwise white in Chrome */
     opacity: 0;
     -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
-  }
 
-  input[type="range"]::-ms-tooltip {
-    display: none;
-  }
+    &::-webkit-slider-thumb {
+      position: relative;
+      top: 50%;
+      width: $u-slider-action-size;
+      height: $u-slider-action-size;
+      background: transparent;
+      -webkit-appearance: none;
+    }
 
-  input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-  }
+    &::-moz-range-thumb {
+      position: relative;
+      top: 50%;
+      width: $u-slider-action-size;
+      height: $u-slider-action-size;
+      background: transparent;
+      border: none;
+    }
 
-  input[type="range"]:focus {
-    outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
-  }
+    &:not(:disabled)::-webkit-slider-thumb,
+    &:not(:disabled)::-moz-range-thumb {
+      cursor: pointer;
+    }
 
-  input[type="range"]:disabled {
-    cursor: default;
+    &:focus {
+      outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
 
-    ~ .u-slider-track-container {
-      &::before {
-        width: ($u-slider-disabled-thumb-margin * 2) + $u-slider-thumb-size;
-      }
-
-      .u-slider-track {
-        margin-left: -($u-slider-disabled-thumb-margin + math.div($u-slider-thumb-size, 2));
+      &:not(:disabled) ~ .u-slider-thumb-container .u-slider-thumb::before {
+        opacity: var(--u-focus-state-layer-opacity);
       }
     }
-  }
 
-  &,
-  input[type="range"] {
+    &:hover:not(:disabled) ~ .u-slider-thumb-container .u-slider-thumb::before {
+      transform: scale3d(1, 1, 1);
+    }
+
     &:disabled {
+      cursor: default;
+
+      &::-webkit-slider-thumb,
+      &::-moz-range-thumb,
+      ~ .u-slider-thumb-container .u-slider-thumb::after {
+        cursor: default;
+      }
+
       ~ .u-slider-thumb-container .u-slider-thumb,
       ~ .u-slider-track-container {
         .u-slider-track,
         &::after {
-          background: $u-slider-disabled-color;
+          background-color: var(--u-on-surface-color);
+          opacity: var(--u-disabled-state-opacity);
         }
+      }
+
+      ~ .u-slider-track-container::after {
+        opacity: var(--u-disabled-state-background-opacity);
       }
     }
   }
+
+
 }
 
 .u-slider-track-marker-container {
@@ -96,7 +116,7 @@
     display: block;
     flex-shrink: 1;
     order: 1;
-    width: 0;
+    width: $u-slider-thumb-size;
     height: 100%;
     content: "";
     background: transparent;
@@ -112,15 +132,14 @@
     height: 100%;
     content: "";
     background: var(--u-surface-variant-color);
-    z-index: -1;
   }
 }
 
 .u-slider-track {
   flex-shrink: 0;
   height: 100%;
+  margin-inline-start: -(math.div($u-slider-thumb-size, 2));
   background: var(--u-primary-color);
-  transition: margin-left 150ms;
 }
 
 .u-slider-thumb-container {
@@ -130,7 +149,6 @@
   width: 100%;
   height: $u-slider-action-size;
   margin-top: math.div(-$u-slider-action-size, 2);
-  margin-right: math.div(-$u-slider-action-size, 2);
   pointer-events: none;
 }
 
@@ -163,48 +181,6 @@
     background: var(--u-primary-color);
     border-radius: 50%;
     transition: transform 150ms;
-  }
-}
-
-/* Special styling for WebKit/Blink */
-.u-slider {
-  input[type="range"]::-ms-track {
-    height: $u-slider-action-size;
-  }
-
-  input[type="range"]::-ms-thumb {
-    width: $u-slider-action-size;
-    height: $u-slider-action-size;
-  }
-
-  input[type="range"]::-webkit-slider-thumb {
-    position: relative;
-    top: 50%;
-    width: $u-slider-action-size;
-    height: $u-slider-action-size;
-    cursor: pointer;
-    background: transparent;
-    -webkit-appearance: none;
-  }
-
-  input[type="range"]::-moz-range-thumb {
-    position: relative;
-    top: 50%;
-    width: $u-slider-action-size;
-    height: $u-slider-action-size;
-    cursor: pointer;
-    background: transparent;
-    border: none;
-  }
-
-  input[type="range"] {
-    &:hover:not(:disabled) + .u-slider-thumb-container .u-slider-thumb::before {
-      transform: scale3d(1, 1, 1);
-    }
-
-    &:focus:not(:disabled) + .u-slider-thumb-container .u-slider-thumb::before {
-      opacity: var(--u-focus-state-layer-opacity);
-    }
   }
 }
 

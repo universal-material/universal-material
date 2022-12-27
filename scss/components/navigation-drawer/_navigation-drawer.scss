@@ -1,5 +1,11 @@
 @import "variables";
 
+.u-navigation-drawer-headline {
+  color: var(--u-on-surface-variant-color);
+  padding-inline: $u-drawer-list-item-padding + $u-drawer-list-item-margin;
+  margin-block: $u-drawer-divider-margin;
+}
+
 .u-navigation-drawer {
   .u-list {
     padding: 0;
@@ -8,14 +14,9 @@
 
   .u-list-item {
     min-height: $u-drawer-list-item-min-height;
-    padding: $u-drawer-list-item-padding;
-    margin: $u-drawer-list-item-margin;
+    padding-inline: $u-drawer-list-item-padding;
+    margin-inline: $u-drawer-list-item-margin;
     border-radius: $u-drawer-list-item-border-radius;
-  }
-
-  .u-divider {
-    margin-top: 0;
-    margin-bottom: 0;
   }
 
   ~ .u-drawer-backdrop {

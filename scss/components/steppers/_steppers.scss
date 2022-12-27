@@ -1,7 +1,6 @@
 @import "variables";
 @import "../../font";
 @import "../../colors";
-@import "../../placeholders";
 
 .u-step-indicator {
   display: flex;
@@ -20,10 +19,8 @@
 }
 
 .u-step-label {
-  font-size: $step-label-font-size;
-  font-weight: $step-label-font-weight;
-  line-height: $step-circle-size;
-  color: var(--u-low-contrast-color);
+  @include umd-typography(label-l);
+  color: var(--u-on-surface-variant-color);
 }
 
 .u-step-content {
@@ -33,15 +30,11 @@
 
 .u-step {
   display: flex;
+  align-items: center;
 
   &.active {
-    .u-step-label,
-    .u-step-circle {
-      font-weight: $step-label-active-font-weight;
-    }
-
     .u-step-label {
-      color: var(--u-high-contrast-color)
+      color: var(--u-on-surface-color)
     }
   }
 
@@ -55,7 +48,8 @@
 
   &.disabled {
     .u-step-label {
-      color: $step-label-disabled-color;
+      color: var(--u-on-surface-color);
+      opacity: var(--u-disabled-state-label-opacity);
     }
   }
 
@@ -103,6 +97,10 @@
 
 .u-vertical-stepper {
   flex-direction: column;
+
+  .u-step {
+    align-items: unset;
+  }
 
   .u-step:last-child .u-step-content {
     padding-bottom: 0;

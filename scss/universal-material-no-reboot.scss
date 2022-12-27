@@ -16,4 +16,6 @@
 @import "utilities";
 @import "css-vars";
 
-@include u-create-theme();
+@include theme($u-theme-colors);
+
+@forward "mixins/themes";

@@ -1,5 +1,3 @@
-@import "../placeholders";
-
 .u-bg-transparent {
   background-color: transparent !important;
 }
@@ -8,32 +6,17 @@
   background-color: var(--u-surface-color) !important;
 }
 
-%u-bg-surface {
-  background-color: var(--u-surface-color);
-}
-
 .u-selectable {
   @extend %u-selectable;
 }
 
-@include contrast-bg-var(--u-hover-color, $u-base-semi-transparent-color-light-theme, $u-base-semi-transparent-color-dark-theme);
+@each $color, $value in $u-theme-colors {
+  .u-bg-#{$color} {
+    @extend %u-bg-#{$color}-important;
+  }
 
-@mixin background-colors-theme {
-
-  @each $color, $value in $u-theme-colors {
-    .u-bg-#{$color} {
-      @include apply-style-bg-once("u-bg-#{$color}") {
-        @extend %u-bg-#{$color}-important;
-        background-color: var(--u-#{$color}-color) !important;
-      }
-    }
-
-    .u-bg-#{$color}-container {
-      @include apply-style-bg-once("u-bg-#{$color}-container") {
-        @extend %u-bg-#{$color}-container-important;
-        background-color: var(--u-#{$color}-container-color) !important;
-      }
-    }
+  .u-bg-#{$color}-container {
+    @extend %u-bg-#{$color}-container-important;
   }
 }
 

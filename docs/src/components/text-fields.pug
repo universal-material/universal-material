@@ -2,20 +2,23 @@ extends ../layout
 
 block content
   h4.u-headline4.chapter-title Text fields
+  .u-card-elevated.example-card
+    .u-card-content
+      .u-form-field
+        .u-text-field.u-text-field-box
+          .u-text-field-leading-icon
+            i.mdi.mdi-magnify
+          .u-text-field-trailing-icon
+            i.mdi.mdi-close-circle-outline
+          label.u-text-field-label(for="text-field-box") Text field box
+          .u-text-input
+            input(type="text" placeholder="Placeholder" id="text-field-box" aria-describedby="textFieldBox")
 
-  .u-form-field
-    .u-text-field.u-text-field-box
-      .u-text-field-leading-icon
-        i.mdi.mdi-magnify
-      .u-text-field-trailing-icon
-        i.mdi.mdi-close-circle-outline
-      label.u-text-field-label(for="text-field-box") Text field box
-      .u-text-input
-        input(type="text" placeholder="Placeholder" id="text-field-box" aria-describedby="textFieldBox")
-
-    .u-text-field-supporting-text
-      .u-text-field-supporting-text-item Supporting text
-      .u-text-field-supporting-text-item.ml-auto 0 / 10
+        .u-text-field-supporting-text
+          .u-text-field-supporting-text-item Supporting text
+          .u-text-field-supporting-text-item.ml-auto 0 / 10
+    pre.u-card-content.example-card-code
+      code.language-html
 
   .u-form-field
     .u-text-field.u-text-field-box.disabled

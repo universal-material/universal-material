@@ -14,3 +14,21 @@
     color: $u-body-color-dark-theme;
   }
 }
+
+@each $color-name in $u-theme-color-names {
+  %u-bg-#{$color-name}-important {
+    color: var(--u-on-#{$color-name}-color) !important;
+    background-color: var(--u-#{$color-name}-color) !important;
+    --u-current-bg-color: var(--u-#{$color-name}-color) !important;
+    --u-high-contrast-color: var(--u-on-#{$color-name}-color) !important;
+    --u-low-contrast-color: var(--u-on-#{$color-name}-low-contrast-color) !important;
+  }
+
+  %u-bg-#{$color-name}-container-important {
+    color: var(--u-on-#{$color-name}-container-color) !important;
+    background-color: var(--u-#{$color-name}-container-color) !important;
+    --u-current-bg-color: var(--u-#{$color-name}-container-color) !important;
+    --u-high-contrast-color: var(--u-on-#{$color-name}-container-color) !important;
+    --u-low-contrast-color: var(--u-on-#{$color-name}-container-low-contrast-color) !important;
+  }
+}

@@ -51,26 +51,11 @@
     .u-text#{$infix}-right  { text-align: right !important; }
 
     .u-text#{$infix}-start {
-      text-align: left !important;
       text-align: start !important;
     }
 
     .u-text#{$infix}-end {
-      text-align: right !important;
       text-align: end !important;
-    }
-
-    .rtl,
-    [dir="rtl"] {
-      .u-text#{$infix}-start {
-        text-align: right !important;
-        text-align: start !important;
-      }
-
-      .u-text#{$infix}-end {
-        text-align: left !important;
-        text-align: end !important;
-      }
     }
   }
 }

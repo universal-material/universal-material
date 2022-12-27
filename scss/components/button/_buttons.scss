@@ -1,7 +1,6 @@
 @import "variables";
 @import "../../typography/variables";
 @import "../../mixins";
-@import "../../placeholders";
 @import "button-base";
 
 @mixin u-all-buttons() {
@@ -35,7 +34,7 @@
 
   @include u-all-buttons() {
     &:not(:first-child) {
-      margin-left: $u-btn-set-margin;
+      margin-inline-start: $u-btn-set-margin;
     }
   }
 }
@@ -58,6 +57,7 @@
 .u-elevated-btn {
   @extend %u-elevation-surface-tint-1;
   color: var(--u-primary-color);
+  background-color: var(--u-surface-color);
 }
 
 .u-filled-btn,
@@ -109,15 +109,15 @@
   display: inline-block;
   width: $u-btn-icon-size;
   height: $u-btn-icon-size;
-  margin-right: $u-btn-icon-margin-end;
-  margin-left: $u-btn-icon-margin-start;
+  margin-inline-start: $u-btn-icon-margin-start;
+  margin-inline-end: $u-btn-icon-margin-end;
   font-size: $u-btn-icon-size;
   line-height: $u-btn-icon-size;
 }
 
 .u-btn-icon-end {
-  margin-right: $u-btn-icon-margin-start;
-  margin-left: $u-btn-icon-margin-end;
+  margin-inline-start: $u-btn-icon-margin-end;
+  margin-inline-end: $u-btn-icon-margin-start;
 }
 
 %u-icon-btn {
@@ -214,12 +214,11 @@
 .u-floating-btn-extended {
   width: auto;
   min-width: $u-floating-btn-extended-min-width;
-  padding-right: $u-floating-btn-extended-padding;
-  padding-left: $u-floating-btn-extended-padding;
+  padding-inline: $u-floating-btn-extended-padding;
 
   .u-btn-icon {
-    margin-right: $u-floating-btn-extended-icon-margin;
-    margin-left: $u-floating-btn-extended-icon-margin - $u-floating-btn-extended-padding;
+    margin-inline-start: $u-floating-btn-extended-icon-margin - $u-floating-btn-extended-padding;
+    margin-inline-end: $u-floating-btn-extended-icon-margin;
   }
 }
 
@@ -234,43 +233,6 @@
   color: var(--u-primary-color);
 }
 
-.rtl,
-[dir="rtl"] {
-  .u-btn-icon {
-    margin-right: $u-btn-icon-margin-start;
-    margin-left: $u-btn-icon-margin-end;
-  }
-
-  .u-btn-icon-end {
-    margin-right: $u-btn-icon-margin-end;
-    margin-left: $u-btn-icon-margin-start;
-  }
-
-  .u-floating-btn,
-  .u-icon-btn {
-    .u-btn-icon {
-      margin: 0;
-    }
-  }
-
-  .u-floating-btn-extended {
-    .u-btn-icon {
-      margin-right: $u-floating-btn-extended-icon-margin - $u-floating-btn-extended-padding;
-      margin-left: $u-floating-btn-extended-icon-margin;
-    }
-  }
-
-  .u-btn-set {
-    @include u-all-buttons() {
-      margin-left: 0;
-      &:not(:first-child) {
-        margin-right: $u-btn-set-margin;
-      }
-    }
-  }
-}
-
-
 @include u-all-buttons() {
   @extend %u-button-base;
   height: $u-btn-height;
@@ -282,10 +244,10 @@
     color: var(--u-on-surface-color) !important;
     box-shadow: none !important;
     opacity: var(--u-disabled-state-label-opacity);
-    background: transparent !important;
+    background-color: transparent !important;
 
     &::before {
-      background: var(--u-on-surface-color);
+      background-color: var(--u-on-surface-color);
       opacity: var(--u-disabled-state-background-opacity);
     }
   }

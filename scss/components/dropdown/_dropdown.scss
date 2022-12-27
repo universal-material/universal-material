@@ -3,7 +3,6 @@
 @import "../../font";
 @import "../../zindex";
 @import "../../mixins";
-@import "../../placeholders";
 
 .u-dropdown-menu {
   @include u-elevation-shadow(2);

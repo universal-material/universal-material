@@ -15,17 +15,6 @@ $u-action-margin: 8px !default;
   }
 
   .#{$name}-action:not(:first-child) {
-    margin-left: $u-action-margin;
-  }
-
-  .rtl,
-  [dir="rtl"] {
-    .#{$name}-action {
-      margin-left: 0;
-
-      &:not(:first-child) {
-        margin-right: $u-action-margin;
-      }
-    }
+    margin-inline-start: $u-action-margin;
   }
 }

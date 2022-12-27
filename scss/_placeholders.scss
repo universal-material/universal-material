@@ -1,6 +1,7 @@
 @import "placeholders/action-set";
 @import "placeholders/background";
 @import "placeholders/button-base";
+@import "placeholders/elavation";
 @import "placeholders/surface-background";
 @import "placeholders/selectable-background";
 @import "variables";
@@ -10,6 +11,7 @@
 
   @include u-action-set;
   @include u-button-base;
+  @include u-elevation-tint;
   @include u-bg-light;
   @include u-bg-dark;
   @include u-surface-background;

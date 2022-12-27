@@ -133,7 +133,7 @@ function getHTML(who, deep){
 }
 
 function setExampleCodeText() {
-  const exampleBoxHeaders = document.querySelectorAll('.example-box-header');
+  const exampleBoxHeaders = document.querySelectorAll('.example-box-header, .example-card .u-card-content:first-child');
   for (let i = 0; i < exampleBoxHeaders.length; i++) {
     const exampleBoxHeader = exampleBoxHeaders[i];
     const tagText = exampleBoxHeader.innerHTML.trim();

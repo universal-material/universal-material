@@ -1,23 +1,148 @@
-@use "sass:list";
+@use "sass:color";
+@use "sass:map";
 
-@import "../theme";
+@use "../colors";
+@use "../color-system/hct/hc";
+@use "../color-system/palettes/tonal-palette";
 
-@mixin u-create-theme {
+$color-tones: 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 95, 99, 100;
 
-  @include theme-colors();
-  @if (mixin_exists(background-colors-theme)) {
-    @include background-colors-theme;
+$_default-neutral-color: #939094;
+$_default-neutral-variant-color: #948f99;
+
+$included-default-neutral-colors: false;
+
+@mixin _color-tones-vars($key-color, $color-name) {
+  $hc: hc.from-color($key-color);
+
+  $light-color: tonal-palette.tone($hc, 40);
+  $on-light-color: tonal-palette.tone($hc, 100);
+  $on-light-container-color: tonal-palette.tone($hc, 10);
+  $dark-color: tonal-palette.tone($hc, 80);
+  $on-dark-color: tonal-palette.tone($hc, 20);
+  $on-dark-container-color: tonal-palette.tone($hc, 90);
+
+  --u-#{$color-name}-color: #{$light-color};
+  --u-#{$color-name}-container-color: #{tonal-palette.tone($hc, 90)};
+  --u-on-#{$color-name}-color: #{$on-light-color};
+  --u-on-#{$color-name}-container-color: #{$on-light-container-color};
+  --u-on-#{$color-name}-low-contrast-color: #{rgba($on-light-color, .87)};
+  --u-on-#{$color-name}-container-low-contrast-color: #{rgba($on-light-container-color, .87)};
+
+  &.u-dark-mode,
+  .u-dark-mode {
+
+    --u-#{$color-name}-color: #{$dark-color};
+    --u-#{$color-name}-container-color: #{tonal-palette.tone($hc, 30)};
+    --u-on-#{$color-name}-color: #{$on-dark-color};
+    --u-on-#{$color-name}-container-color: #{$on-dark-container-color};
+    --u-on-#{$color-name}-low-contrast-color: #{rgba($on-dark-color, .87)};
+    --u-on-#{$color-name}-container-low-contrast-color: #{rgba($on-dark-container-color, .87)};
   }
 
-  @if (mixin_exists(u-buttons-theme)) {
-    @include u-buttons-theme;
+  @if ($color-name == primary) {
+    $light-color-hue: color.hue($light-color);
+    $light-color-saturation: color.saturation($light-color);
+    $light-color-lightness: color.lightness($light-color);
+    --u-primary-color-hsl: #{$light-color-hue} #{$light-color-saturation} #{$light-color-lightness};
+    --u-inverse-#{$color-name}-color: #{tonal-palette.tone($hc, 80)};
+
+    .u-dark-mode {
+      $dark-color-hue: color.hue($dark-color);
+      $dark-color-saturation: color.saturation($dark-color);
+      $dark-color-darkness: color.lightness($dark-color);
+      --u-primary-color-hsl: #{$dark-color-hue} #{$dark-color-saturation} #{$dark-color-darkness};
+      --u-inverse-#{$color-name}-color: #{tonal-palette.tone($hc, 40)};
+    }
+  }
+}
+
+@mixin _include-neutral-color-dependent-vars($neutral-key-color) {
+  $hc: hc.from-color($neutral-key-color);
+  $on-surface-light-color: tonal-palette.tone($hc, 10);
+  $on-surface-light-color-hue: color.hue($on-surface-light-color);
+  $on-surface-light-color-saturation: color.saturation($on-surface-light-color);
+  $on-surface-light-color-lightness: color.lightness($on-surface-light-color);
+
+  --u-on-surface-hsl-color: #{$on-surface-light-color-hue} #{$on-surface-light-color-saturation} #{$on-surface-light-color-lightness};
+  --u-background-color: #{tonal-palette.tone($hc, 99)};
+  --u-on-background-color: #{tonal-palette.tone($hc, 10)};
+  --u-surface-color: #{tonal-palette.tone($hc, 99)};
+  --u-on-surface-color: #{$on-surface-light-color};
+  --u-inverse-surface-color: #{tonal-palette.tone($hc, 20)};
+  --u-on-inverse-surface-color: #{tonal-palette.tone($hc, 95)};
+  --u-shadow-color: #{tonal-palette.tone($hc, 0)};
+  --u-scrim-color: #{tonal-palette.tone($hc, 0)};
+
+  .u-dark-mode {
+    $on-surface-dark-color: tonal-palette.tone($hc, 90);
+    $on-surface-dark-color-hue: color.hue($on-surface-dark-color);
+    $on-surface-dark-color-saturation: color.saturation($on-surface-dark-color);
+    $on-surface-dark-color-darkness: color.lightness($on-surface-dark-color);
+
+    --u-on-surface-hsl-color: #{$on-surface-dark-color-hue} #{$on-surface-dark-color-saturation} #{$on-surface-dark-color-darkness};
+    --u-background-color: #{tonal-palette.tone($hc, 10)};
+    --u-on-background-color: #{tonal-palette.tone($hc, 90)};
+    --u-surface-color: #{tonal-palette.tone($hc, 10)};
+    --u-on-surface-color: #{$on-surface-dark-color};
+    --u-inverse-surface-color: #{tonal-palette.tone($hc, 90)};
+    --u-on-inverse-surface-color: #{tonal-palette.tone($hc, 20)};
+  }
+}
+
+@mixin _include-neutral-variant-color-dependent-vars($neutral-variant-key-color) {
+  $hc: hc.from-color($neutral-variant-key-color);
+
+  --u-surface-variant-color: #{tonal-palette.tone($hc, 90)};
+  --u-on-surface-variant-color: #{tonal-palette.tone($hc, 30)};
+  --u-outline-color: #{tonal-palette.tone($hc, 50)};
+  --u-outline-variant-color: #{tonal-palette.tone($hc, 80)};
+
+  .u-dark-mode {
+    --u-surface-variant-color: #{tonal-palette.tone($hc, 30)};
+    --u-on-surface-variant-color: #{tonal-palette.tone($hc, 80)};
+    --u-outline-color: #{tonal-palette.tone($hc, 60)};
+    --u-outline-variant-color: #{tonal-palette.tone($hc, 30)};
+  }
+}
+
+@mixin _color-vars($theme-colors, $neutral-color: null, $neutral-variant-color: null) {
+
+  @if (not $included-default-neutral-colors) {
+
+    @if ($neutral-color == null) {
+      $neutral-color: colors.$u-neutral-color;
+    }
+
+    @if ($neutral-variant-color == null) {
+      $neutral-variant-color: colors.$u-neutral-variant-color;
+    }
   }
 
-  @if (mixin_exists(u-slider-theme)) {
-    @include u-slider-theme;
+  $included-default-neutral-colors: true !global;
+
+  @each $color-name, $key-color in $theme-colors {
+    @include _color-tones-vars($key-color, $color-name);
   }
 
-  @if (mixin_exists(u-text-theme)) {
-    @include u-text-theme;
+  @if ($neutral-color != null) {
+    @include _include-neutral-color-dependent-vars($neutral-color);
+  }
+
+  @if ($neutral-variant-color != null) {
+    @include _include-neutral-variant-color-dependent-vars($neutral-variant-color);
+  }
+
+  @include u-elevation-tint-colors;
+}
+
+@mixin theme($theme-colors, $neutral-color: null, $neutral-variant-color: null) {
+
+  @if & {
+    @include _color-vars($theme-colors, $neutral-color, $neutral-variant-color);
+  } @else {
+    :root {
+      @include _color-vars($theme-colors, $neutral-color, $neutral-variant-color);
+    }
   }
 }

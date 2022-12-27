@@ -2,7 +2,6 @@
 @import "../../grid/variables";
 @import "../../font";
 @import "../../mixins";
-@import "../../placeholders";
 
 .u-tab-bar {
   position: relative;
@@ -21,8 +20,7 @@
   min-width: $u-tab-min-width;
   min-width: fit-content;
   max-width: $u-tab-max-width;
-  padding-right: $u-tab-horizontal-padding;
-  padding-left: $u-tab-horizontal-padding;
+  padding-inline: $u-tab-horizontal-padding;
   font-family: $u-font-family-base;
   color: var(--u-low-contrast-color);
   cursor: pointer;
@@ -39,9 +37,18 @@
   bottom: 0;
   height: $u-tab-indicator-height;
   content: "";
-  background-color: var(--u-primary-color);
+  padding-inline: $u-tab-horizontal-padding;
   transition: left 200ms ease-out, width 200ms ease-out;
   will-change: left;
+
+  &:before {
+    content: "";
+    display: block;
+    background-color: var(--u-primary-color);
+    border-top-left-radius: $u-tab-indicator-height;
+    border-top-right-radius: $u-tab-indicator-height;
+    height: 100%;
+  }
 }
 
 .u-tab-content {
@@ -54,7 +61,17 @@
   display: inline-block;
   font-size: $u-tab-font-size;
   font-weight: $u-tab-font-weight;
-  text-transform: uppercase;
+}
+
+.u-tab-bar.u-tab-bar-secondary {
+  .u-tab-indicator {
+    height: $u-tab-secondary-indicator-height;
+
+    &:before {
+      background-color: var(--u-primary-color);
+      border-radius: 0;
+    }
+  }
 }
 
 @include media-breakpoint-up(md) {

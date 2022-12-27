@@ -1,22 +1,19 @@
-@import "../../../scss/universal-material";
+@use "../../../scss/universal-material";
 //
-//.deep-purple-amber {
-//  $u-theme-colors: (
-//    primary: #673ab7,
-//    secondary: #ffd740
-//  ) !global;
-//
-//  @include u-create-theme;
-//}
-//
-//.pink-blue-grey {
-//  $u-theme-colors: (
-//    primary: #e91e63,
-//    secondary: #607d8b
-//  ) !global;
-//
-//  @include u-create-theme;
-//}
+.deep-purple-amber {
+  @include universal-material.theme((
+    primary: #673ab7,
+    secondary: #ffd740
+  ));
+}
+
+.pink-blue-grey {
+
+  @include universal-material.theme((
+    primary: #e91e63,
+    secondary: #607d8b
+  ));
+}
 //
 //.purple-green {
 //  $u-theme-colors: (
@@ -27,24 +24,9 @@
 //  @include u-create-theme;
 //}
 //
-.u-drawer-content {
-  height: 100%;
-  overflow: auto;
-  border-right: 1px solid rgba(0, 0, 0, .12);
-
-  .u-toolbar {
-    border-bottom: 1px solid rgba(0, 0, 0, .12);
-  }
-}
 
 #main-content {
   padding-top: 56px;
-}
-
-@include media-breakpoint-up(lg) {
-  #app-bar {
-    left: var(--u-drawer-sidebar-width);
-  }
 }
 
 .example-box {
@@ -54,20 +36,13 @@
   overflow: auto;
   background: #e0e0e0;
 
-  .u-floating-action-area {
-    position: static;
-  }
 
-  .u-floating-menu {
-    position: relative;
-    margin-top: 200px;
-  }
 }
 
 .example-box-header {
   padding: 1rem;
   margin-bottom: .5rem;
-  background: var(--u-inverse-high-contrast-color);
+  background: var(--u-surface-color);
 
   .u-toolbar {
     width: 100%;
@@ -81,10 +56,6 @@
 .limited-height {
   max-height: 300px;
   overflow: auto;
-}
-
-.example-box .u-chip-avatar {
-  background: rgba(0, 0, 0, .54);
 }
 
 .example-step-content {
@@ -104,7 +75,6 @@
 .menu-example {
   .example-box-header {
     height: 14rem;
-
   }
 }
 
@@ -155,7 +125,7 @@ code {
 
 .nested-menu-items {
   max-height: 0;
-  padding-left: 12px;
+  padding-inline-start: 12px;
   overflow: hidden;
 
   &.expanded {
@@ -163,8 +133,53 @@ code {
   }
 }
 
-.u-dark-mode {
-  .example-box {
-    background: #333;
+.example-card {
+
+  > .u-card-content:first-child {
+    padding: 36px;
   }
+
+  .u-floating-action-area {
+    position: static;
+  }
+
+  .u-floating-menu {
+    position: relative;
+    margin-top: 200px;
+  }
+
+  .u-chip-avatar {
+    background: rgba(0, 0, 0, .54);
+  }
+}
+
+.example-card-code {
+  background-color: var(--u-surface-variant-color);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+
+}
+
+::-webkit-scrollbar-thumb {
+  border: 2px solid transparent;
+  background-color: rgba(0,0,0,.47);
+  background-clip: content-box;
+  border-radius: 3px;
+}
+
+.u-dark-mode {
+  &::-webkit-scrollbar-thumb,
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(255,255,255,.47);
+  }
+}
+
+body {
+  overflow-y: auto;
+  overflow-y: overlay;
 }

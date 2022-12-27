@@ -13,7 +13,7 @@ export class Slider {
     this._sliderTrackMarker = _sliderElement.querySelector('.u-slider-track-marker') as HTMLInputElement;
     this._sliderThumb = _sliderElement.querySelector('.u-slider-thumb') as HTMLInputElement;
     this._sliderInputElement = _sliderElement.querySelector('input[type=range]');
-    this._sliderInputElement.addEventListener(window.navigator.userAgent.indexOf('Trident/') > -1 ? 'change' : 'input', () => this._setThumbAndTrack());
+    this._sliderInputElement.addEventListener('input', () => this._setThumbAndTrack());
 
     this._sliderInputElement.setAttribute('aria-hidden', 'true');
     this._sliderElement.setAttribute('role', 'slider');

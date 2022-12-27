@@ -1,13 +1,11 @@
 extends ../layout
 
 block content
-  h4.u-headline4.chapter-title Typography
+  h4.u-display-m.chapter-title Typography
 
-  h5.u-headline5.article-title Example
-  .example-box
-    .example-box-header
+  .u-card-elevated.example-card
+    .u-card-content
       include typography/example.html
-
-    pre
-      code.html
+    pre.u-card-content.example-card-code
+      code.language-html
 

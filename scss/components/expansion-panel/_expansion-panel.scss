@@ -2,7 +2,6 @@
 @import "../../colors";
 @import "../../font";
 @import "../../mixins";
-@import "../../placeholders";
 
 .u-expansion-panel {
   @include u-elevation-shadow(2);

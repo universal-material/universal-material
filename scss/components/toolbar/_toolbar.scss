@@ -2,14 +2,14 @@
 @import "../../zindex";
 @import "../../typography/variables";
 @import "../../mixins";
-@import "../../placeholders";
 @import "../../font";
 
 .u-toolbar {
   display: block;
   font-family: $u-font-family-base;
   background-color: var(--u-surface-color);
-  transition: background-color 200ms !important;
+  background-image: linear-gradient(var(--u-current-elevation-tint-color), var(--u-current-elevation-tint-color));
+  transition: --u-current-elevation-tint-color 200ms;
 
   &,
   * {
@@ -26,8 +26,7 @@
   flex-direction: row;
   align-items: center;
   height: $u-toolbar-height;
-  padding-right: $u-toolbar-row-padding;
-  padding-left: $u-toolbar-row-padding;
+  padding-inline: $u-toolbar-row-padding;
 }
 
 @include u-extend-action-set("u-toolbar");

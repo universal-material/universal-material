@@ -1,0 +1,24 @@
+@mixin u-elevation-tint {
+  @property --u-current-elevation-tint-color {
+    syntax: "<color>";
+    initial-value: transparent;
+    inherits: false;
+  }
+
+  @each $elevation, $opacity in $u-surface-tint-opacity {
+    @property --u-elevation-tint#{$elevation}-color {
+      syntax: "<color>";
+      initial-value: hsla(var(--u-primary-color-hsl) / #{$opacity});
+      inherits: false;
+    }
+
+    %u-elevation-surface-tint-#{$elevation} {
+      @extend %u-elevation-tint;
+      --u-current-elevation-tint-color: var(--u-elevation-tint#{$elevation}-color);
+    }
+  }
+
+  %u-elevation-tint {
+    background-image: linear-gradient(var(--u-current-elevation-tint-color), var(--u-current-elevation-tint-color));
+  }
+}

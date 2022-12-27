@@ -7,11 +7,8 @@
 //Text fields
 $u-form-field-margin: 24px !default;
 
-$u-text-field-label-height: .75rem !default;
-$u-text-field-label-font-size: .75rem !default;
 $u-text-field-label-line-height: 1rem !default;
 $u-text-input-line-height: 1.5rem !default;
-$u-text-field-label-margin: .25rem !default;
 $u-text-field-border-width: .0625rem !default;
 $u-text-field-focus-border-width: .125rem !default;
 
@@ -19,40 +16,17 @@ $u-text-input-height: 1rem !default;
 $u-text-input-padding: 16px !default;
 $u-text-label-padding: 4px !default;
 $u-text-label-left: 12px !default;
-//$u-text-input-total-height: $u-text-input-height + $u-text-input-padding * 2 !default;
-$u-text-input-border: $u-text-field-border-width solid !default;
-$u-text-input-font-size: 1rem !default;
-$u-text-input-font-weight: $u-font-weight-regular !default;
 $u-text-input-line-height: 1.5em !default;
 
-$u-text-field-box-horizontal-padding: .75rem !default;
-$u-text-field-box-label-height: 1.75rem !default;
-$u-text-field-box-label-line-height: $u-text-field-box-label-height !default;
-$u-text-field-box-padding-horizontal: 12px !default;
-$u-text-field-box-padding-top: 1.5rem !default;
-$u-text-field-box-padding-bottom: 8px !default;
-$u-text-field-box-no-label-padding-vertical: 20px !default;
 $u-text-field-box-height: 48px !default;
 $u-text-field-box-border-radius: 4px 4px 0 0 !default;
 $u-text-field-box-vertical-padding: 8px;
 
-
-$u-text-field-outline-horizontal-padding: .75rem !default;
-$u-text-field-outline-height: 3.5rem !default;
-$u-text-field-outline-label-height: 1.25rem !default;
-$u-text-field-outline-label-padding: .125rem !default;
-$u-text-field-outline-label-line-height: $u-text-field-outline-label-height !default;
-$u-text-field-outline-padding: .75rem !default;
-$u-text-field-outline-padding-bottom: 20px !default;
 $u-text-field-outline-border-radius: 4px !default;
 
-$u-search-field-height: 3rem !default;
 $u-search-field-border-radius: 4px !default;
 
-$u-text-field-supporting-text-font-size: .75rem !default;
-$u-text-field-supporting-text-line-height: 1em !default;
 $u-text-field-supporting-text-margin: 4px !default;
 
-//$u-text-field-icon-bottom: math.div($u-text-input-total-height, 2) !default;
 $u-text-field-icon-size: 1.5rem !default;
 $u-text-field-icon-margin: 12px !default;

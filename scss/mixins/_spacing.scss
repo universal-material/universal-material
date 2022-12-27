@@ -8,11 +8,6 @@
   margin-bottom: $bottom;
 }
 
-@mixin horizontal-padding($size) {
-  padding-right: $size;
-  padding-left: $size;
-}
-
 @mixin vertical-padding($top, $bottom: $top) {
   padding-top: $top;
   padding-bottom: $bottom;

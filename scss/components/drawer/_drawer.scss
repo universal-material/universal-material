@@ -34,19 +34,25 @@
   width: var(--u-drawer-sidebar-width);
   max-width: 85%;
   background-color: var(--u-surface-color);
-  overflow-y: auto;
+  border-start-end-radius: $u-drawer-border-radius;
+  border-end-end-radius: $u-drawer-border-radius;
+  overflow-y: hidden;
   transition: transform 375ms $awesome-cubic-bezier;
   transform: translateX(-100%);
 }
 
+.u-drawer-scrollable-container {
+  height: 100%;
+  overflow-y: auto;
+}
+
 .u-drawer {
 
+  .u-divider {
+    margin-block: $u-drawer-divider-margin;
+  }
+
   &.open {
-
-    .u-drawer-content {
-      @include u-elevation-shadow(2);
-    }
-
     > .u-drawer-backdrop {
       pointer-events: auto;
       opacity: $u-drawer-backdrop-opacity;
@@ -66,6 +72,10 @@
       right: 0;
       left: auto;
       transform: translateX(100%);
+      border-start-end-radius: 0;
+      border-end-end-radius: 0;
+      border-start-start-radius: $u-drawer-border-radius;
+      border-end-start-radius: $u-drawer-border-radius;
     }
   }
 }
@@ -76,13 +86,6 @@
     right: 0;
     left: auto;
     transform: translateX(100%);
-  }
-
-  .u-drawer {
-    .u-toolbar-fixed {
-      right: var(--u-drawer-sidebar-width);
-      left: 0;
-    }
   }
 
   &.u-drawer-end {
@@ -100,12 +103,16 @@
   @include media-breakpoint-up($breakpoint) {
     .u-drawer#{$infix}-permanent,
     .u-drawer#{$infix}-dismissible {
-      padding-left: var(--u-drawer-sidebar-width);
+      padding-inline-start: var(--u-drawer-sidebar-width);
+
+      .u-drawer-content {
+        border-radius: 0;
+        background-image: none;
+      }
 
       &,
       &.u-drawer-end {
         .u-drawer-content {
-          @include u-elevation-shadow(0);
           transform: none;
         }
       }
@@ -119,8 +126,7 @@
       }
 
       &.u-drawer-end {
-        padding-right: var(--u-drawer-sidebar-width);
-        padding-left: 0;
+        padding-inline: 0 var(--u-drawer-sidebar-width);
 
         .u-toolbar-fixed {
           right: var(--u-drawer-sidebar-width);
@@ -130,22 +136,22 @@
     }
 
     .u-drawer#{$infix}-dismissible {
-      transition: padding-left 375ms $awesome-cubic-bezier;
+      transition: padding-inline-start 375ms $awesome-cubic-bezier;
 
       .u-toolbar-fixed {
-        transition: left 375ms $awesome-cubic-bezier, background-color 200ms;
+        transition: left 375ms $awesome-cubic-bezier, --u-current-elevation-tint-color 200ms;
         will-change: left;
       }
 
       &.u-drawer-end {
         .u-toolbar-fixed {
-          transition: right 375ms $awesome-cubic-bezier, background-color 200ms;
+          transition: right 375ms $awesome-cubic-bezier, background-image 200ms;
           will-change: right;
         }
       }
 
       &.dismiss {
-        padding-left: 0;
+        padding-inline-start: 0;
 
         .u-drawer-content {
           transform: translateX(-100%);
@@ -156,7 +162,7 @@
         }
 
         &.u-drawer-end {
-          padding-right: 0;
+          padding-inline-end: 0;
 
           .u-drawer-content {
             transform: translateX(100%);
@@ -171,25 +177,22 @@
 
     .rtl {
       .u-drawer#{$infix}-permanent,
-      .u-drawer#{$infix}-dismissible,
-      &.u-drawer#{$infix}-permanent,
-      &.u-drawer#{$infix}-dismissible {
-        padding-right: var(--u-drawer-sidebar-width);
-        padding-left: 0;
+      .u-drawer#{$infix}-dismissible {
+        .u-toolbar-fixed {
+          right: var(--u-drawer-sidebar-width);
+          left: 0;
+        }
       }
 
       .u-drawer#{$infix}-dismissible,
       &.u-drawer#{$infix}-dismissible {
-        transition: padding-right 375ms $awesome-cubic-bezier;
-
         .u-toolbar-fixed {
           transition: right 375ms $awesome-cubic-bezier;
           will-change: right;
         }
 
         &.dismiss {
-          padding-right: 0;
-          padding-left: 0;
+          padding-inline: 0;
 
           .u-drawer-content {
             transform: translateX(100%);

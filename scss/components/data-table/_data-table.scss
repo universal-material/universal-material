@@ -26,7 +26,7 @@
   th {
     font-size: $u-data-table-column-header-font-size;
     font-weight: $u-data-table-column-header-font-weight;
-    color: var(--u-low-contrast-color);
+    color: var(--u-on-surface-variant-color);
     text-align: initial;
   }
 
@@ -45,8 +45,7 @@
 
   th,
   td {
-    @include horizontal-padding($u-data-table-horizontal-padding);
-
+    padding-inline: $u-data-table-horizontal-padding;
     vertical-align: top;
 
     &.no-vertical-padding {
@@ -67,18 +66,20 @@
   height: $u-data-table-card-footer-height;
   font-size: $u-data-table-card-footer-font-size;
   font-weight: $u-data-table-card-footer-font-weight;
-  color: $u-data-table-card-footer-font-color;
+  color: var(--u-on-surface-variant-color);
   border-top: $u-data-table-border;
-
-  @include horizontal-padding($u-data-table-horizontal-padding);
+  padding-inline: $u-data-table-horizontal-padding;
 
   .u-data-table-actions {
     margin-left: 2rem;
   }
 }
 
-.u-data-table-hover tbody tr {
-  &:hover {
-    background-color: var(--u-hover-color);
+.u-data-table-hover tr {
+
+  position: relative;
+  td {
+    position: static;
+    @extend %u-selectable;
   }
 }

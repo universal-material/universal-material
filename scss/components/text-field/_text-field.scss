@@ -22,8 +22,7 @@
 
   display: flex;
   margin-top: $u-text-field-supporting-text-margin;
-  padding-left: $u-text-input-padding;
-  padding-right: $u-text-input-padding;
+  padding-inline: $u-text-input-padding;
   overflow: hidden;
   color: var(--u-on-surface-variant-color)
 }
@@ -32,7 +31,7 @@
   flex-shrink: 0;
 
   + .u-text-field-supporting-text-item {
-    padding-left: $u-text-input-padding;
+    padding-inline-start: $u-text-input-padding;
   }
 }
 
@@ -94,7 +93,7 @@
 
     &::after  {
       border-color: var(--u-on-surface-color);
-      opacity: .38;
+      opacity: var(--u-disabled-state-opacity);
     }
 
     .u-text-input,
@@ -103,7 +102,7 @@
     .u-text-field-leading-icon,
     .u-text-field-trailing-icon {
       color: var(--u-on-surface-color);
-      opacity: .38;
+      opacity: var(--u-disabled-state-opacity);
     }
   }
 }
@@ -136,8 +135,7 @@
 }
 
 .u-text-input {
-  padding-right: $u-text-input-padding !important;
-  padding-left: $u-text-input-padding !important;
+  padding-inline: $u-text-input-padding !important;
   grid-area: 2 / var(--u-label-input-start) / auto / span calc(3 - var(--u-label-input-span-leading-offset) - var(--u-label-input-span-trailing-offset));
 }
 
@@ -169,8 +167,7 @@ button.u-text-input {
 .u-text-field-label {
   @include umd-typography(body-l);
 
-  padding-right: $u-text-label-padding;
-  padding-left: $u-text-label-padding;
+  padding-inline: $u-text-label-padding;
   position: absolute;
   top: 0;
   left: $u-text-label-left;
@@ -292,8 +289,7 @@ button.u-text-input {
   }
 
   .u-text-input {
-    padding-right: $u-text-input-padding !important;
-    padding-left: $u-text-input-padding !important;
+    padding-inline: $u-text-input-padding !important;
     grid-area: 1 / var(--u-label-input-start) / auto / span calc(3 - var(--u-label-input-span-leading-offset) - var(--u-label-input-span-trailing-offset));
   }
 

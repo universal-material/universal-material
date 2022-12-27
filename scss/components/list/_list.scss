@@ -3,12 +3,10 @@
 @import "variables";
 @import "../../font";
 @import "../../mixins";
-@import "../../placeholders";
 
 .u-list {
   background-color: var(--u-surface-color);
-  padding-top: $u-list-vertical-margin;
-  padding-bottom: $u-list-vertical-margin;
+  padding-block: $u-list-vertical-margin;
   margin: 0;
   font-family: $u-font-family-base;
 
@@ -60,7 +58,8 @@
   flex-wrap: nowrap;
   align-items: center;
   min-height: $u-list-item-min-height;
-  padding: $u-list-item-padding;
+  padding-block: $u-list-item-block-padding;
+  padding-inline: $u-list-item-inline-padding;
   color: var(--u-on-surface);
   text-decoration: none;
 
@@ -149,20 +148,20 @@
 }
 
 .u-list-item-icon + .u-list-item-content {
-  margin-left: $u-list-item-content-margin;
+  margin-inline-start: $u-list-item-content-margin;
 }
 
 .u-list-item-avatar + .u-list-item-content {
-  margin-left: $u-list-item-content-margin;
+  margin-inline-start: $u-list-item-content-margin;
 }
 
 .u-list-item-content ~ .u-list-item-icon {
-  margin-left: $u-list-item-content-margin;
+  margin-inline-start: $u-list-item-content-margin;
 }
 
 .u-list-item-content ~ .u-list-item-icon.u-icon-btn {
-  margin-right: math.div(-$u-list-item-end-padding, 2);
-  margin-left: math.div($u-list-item-end-padding, 2);
+  margin-inline-start: math.div($u-list-item-end-padding, 2);
+  margin-inline-end: math.div(-$u-list-item-end-padding, 2);
 }
 
 .u-list-item-hover {
@@ -196,31 +195,16 @@
   width: $u-list-index-width;
   min-width: $u-list-index-width;
   height: $u-list-item-min-height;
-  padding: $u-list-item-padding;
+  padding-block: $u-list-item-block-padding;
+  padding-inline: $u-list-item-inline-padding;
   font-weight: $u-font-weight-medium;
   color: var(--u-primary-color);
 }
 
 .u-list-section {
-  padding: $u-list-item-padding;
+
+  padding-block: $u-list-item-block-padding;
+  padding-inline: $u-list-item-inline-padding;
   line-height: 1;
   color: var(--u-low-contrast-color);
-}
-
-.rtl,
-[dir="rtl"] {
-  .u-list-item-icon + .u-list-item-content {
-    margin-right: $u-list-item-content-margin;
-    margin-left: 0;
-  }
-
-  .u-list-item-avatar + .u-list-item-content {
-    margin-right: $u-list-item-content-margin;
-    margin-left: 0;
-  }
-
-  .u-list-item-content ~ .u-list-item-icon {
-    margin-right: $u-list-item-content-margin;
-    margin-left: 0;
-  }
 }

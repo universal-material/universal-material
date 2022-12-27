@@ -5,13 +5,36 @@
 }
 
 @mixin umd-typography($style) {
-  $style-props: map-get($typography-styles, $style);
 
   @if not map-has-key($typography-styles, $style) {
     @error "Invalid style specified! #{$style} doesn't exist. Choose one of #{map-keys($typography-styles)}";
   }
 
+  $style-props: map-get($typography-styles, $style);
+
   @each $key, $value in $style-props {
     #{$key}: $value;
+  }
+}
+
+
+@mixin typography($style) {
+  @if not map-has-key($typography-styles, $style) {
+    @error "Invalid style specified! #{$style} doesn't exist. Choose one of #{map-keys($typography-styles)}";
+  }
+
+  font-size: var(--u-typo-#{style}-font-size);
+  line-height: var(--u-typo-#{style}-line-height);
+  letter-spacing: var(--u-typo-#{style}-letter-spacing);
+  font-weight: var(--u-typo-#{style}-font-weight);
+}
+
+@mixin typography-vars() {
+
+  @each $style in map-keys($typography-styles) {
+    $style-props: map-get($typography-styles, $style);
+    @each $key, $value in $style-props {
+      --u-typo-#{$style}-#{$key}: #{$value};
+    }
   }
 }

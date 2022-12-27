@@ -2,14 +2,12 @@
 
 @import "chip-base";
 @import "../../mixins";
-@import "../../placeholders";
 
 .u-chip {
   @extend %u-chip;
 
   color: var(--u-on-surface-variant-color);
-  padding-left: calc($u-chip-padding - $u-chip-outline-border-width);
-  padding-right: calc($u-chip-padding - $u-chip-outline-border-width);
+  padding-inline: calc($u-chip-padding - $u-chip-outline-border-width);
   border: $u-chip-outline-border-width solid var(--u-outline-color);
   border-radius: $u-chip-border-radius;
 
@@ -26,8 +24,7 @@
 .u-chip-elevated {
   @include u-elevation-shadow(1);
   @extend %u-elevation-surface-tint-1;
-  padding-left: $u-chip-padding;
-  padding-right: $u-chip-padding;
+  padding-inline: $u-chip-padding;
   border: none;
 }
 
@@ -43,16 +40,16 @@
 .u-chip-avatar {
   @include size($u-chip-avatar-size);
 
-  margin-right: $u-chip-avatar-margin-end;
-  margin-left: $u-chip-avatar-margin-start - $u-chip-padding;
+  margin-inline-start: $u-chip-avatar-margin-start - $u-chip-padding;
+  margin-inline-end: $u-chip-avatar-margin-end;
   font-size: $u-chip-avatar-font-size;
   line-height: $u-chip-avatar-size;
   border-radius: 50%;
 }
 
 .u-chip-icon {
-  margin-right: $u-chip-icon-margin;
-  margin-left: $u-chip-icon-margin;
+  margin-inline-start: $u-chip-icon-margin;
+  margin-inline-end: $u-chip-icon-margin;
   font-size: $u-chip-icon-size;
   line-height: $u-chip-icon-size;
   text-align: center;
@@ -62,11 +59,11 @@
 
 .u-chip-leading-icon {
   color: var(--u-primary-color);
-  margin-left: $u-chip-icon-margin - $u-chip-padding;
+  margin-inline-start: $u-chip-icon-margin - $u-chip-padding;
 }
 
 .u-chip-trailing-icon {
-  margin-right: $u-chip-icon-margin - $u-chip-padding;
+  margin-inline-end: $u-chip-icon-margin - $u-chip-padding;
 }
 
 .u-chip-icon-action {
@@ -131,38 +128,5 @@
   .u-chip-set {
     margin-top: -12px;
     margin-bottom: -12px;
-  }
-}
-
-.rtl,
-[dir="rtl"] {
-  .u-chip {
-    margin-right: 0;
-    margin-left: $u-chip-margin;
-  }
-
-  .u-chip-avatar {
-    margin-right: $u-chip-avatar-margin-start - $u-chip-padding;
-    margin-left: $u-chip-avatar-margin-end;
-  }
-
-  .u-chip-leading-icon {
-    margin-right: $u-chip-icon-margin - $u-chip-padding;
-    margin-left: $u-chip-icon-margin;
-  }
-
-  .u-chip-trailing-icon {
-    margin-right: $u-chip-icon-margin;
-    margin-left: $u-chip-icon-margin - $u-chip-padding;
-  }
-
-  .u-chip-icon-action {
-    &::before,
-    .u-ripple-wrapper {
-      left: auto !important;
-      right: 50% !important;
-      margin-left: 0;
-      margin-right: math.div(-$u-chip-icon-hover-size, 2);
-    }
   }
 }
