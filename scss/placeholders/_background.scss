@@ -15,7 +15,7 @@
   }
 }
 
-@each $color-name in $u-theme-color-names {
+@each $color-name, $color-value in $u-theme-colors {
   %u-bg-#{$color-name}-important {
     color: var(--u-on-#{$color-name}-color) !important;
     background-color: var(--u-#{$color-name}-color) !important;

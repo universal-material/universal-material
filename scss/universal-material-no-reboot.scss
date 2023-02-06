@@ -17,5 +17,3 @@
 @import "css-vars";
 
 @include theme($u-theme-colors);
-
-@forward "mixins/themes";

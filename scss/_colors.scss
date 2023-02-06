@@ -30,8 +30,6 @@ $u-theme-colors: (
   error: $u-error-color
 ) !default;
 
-$u-theme-color-names: (primary, secondary, tertiary, success, warning, error) !default;
-
 $body-bg:       $gray-100 !default; //Universal Material changes
 $body-color:    rgba(#000, .87) !default;
 

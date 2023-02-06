@@ -265,7 +265,7 @@
   }
 }
 
-@each $color-name in $u-theme-color-names {
+@each $color-name, $color-value in $u-theme-colors {
   @if $color-name != "primary" {
 
     .u-filled-btn.u-btn-#{$color-name} {

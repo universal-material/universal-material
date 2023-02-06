@@ -8,12 +8,36 @@
   --u-label-input-span-trailing-offset: 0;
 }
 
+.u-form-field-selection {
+  .u-text-field {
+    cursor: pointer;
+  }
+}
+
 .u-form-field {
   margin-bottom: $u-form-field-margin;
 
   &,
   & * {
     box-sizing: border-box;
+  }
+
+  &.u-form-field-selection {
+    .u-text-field.focus {
+      .u-text-field-state {
+        &::before {
+          opacity: var(--u-focus-state-layer-opacity);
+        }
+      }
+    }
+  }
+
+  &:not(.u-form-field-selection) {
+    .u-text-field.focus {
+      .u-text-field-state {
+        pointer-events: none;
+      }
+    }
   }
 }
 
@@ -35,6 +59,26 @@
   }
 }
 
+.u-text-field-state {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+
+  &::before {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    content: '';
+    background-color: var(--u-on-surface-color);
+    opacity: 0;
+    transition: 200ms opacity;
+  }
+}
+
 .u-text-field {
   position: relative;
   display: grid;
@@ -46,7 +90,6 @@
   padding-bottom: $u-text-field-box-vertical-padding;
   font-family: $u-font-family-base;
   cursor: text;
-  z-index: 1;
 
   //&::before,
   &::after {
@@ -56,7 +99,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
+    pointer-events: none;
   }
 
   &::after {
@@ -116,11 +159,9 @@
   line-height: 1em;
   text-align: center;
 
-  @if (mixin_exists(u-buttons-theme)) {
-    .u-icon-btn {
-      margin-top: math.div(-($u-icon-btn-size - $u-text-field-icon-size), 2);
-      margin-left: math.div(-($u-icon-btn-size - $u-text-field-icon-size), 2);
-    }
+  .u-icon-btn {
+    margin-top: math.div(-($u-icon-btn-size - $u-text-field-icon-size), 2);
+    margin-left: math.div(-($u-icon-btn-size - $u-text-field-icon-size), 2);
   }
 }
 
@@ -137,6 +178,16 @@
 .u-text-input {
   padding-inline: $u-text-input-padding !important;
   grid-area: 2 / var(--u-label-input-start) / auto / span calc(3 - var(--u-label-input-span-leading-offset) - var(--u-label-input-span-trailing-offset));
+
+  button.u-dropdown-toggle {
+    border: none;
+    outline: 0;
+    background: transparent;
+    padding: 0;
+    width: 100%;
+    display: block;
+    text-align: start;
+  }
 }
 
 .u-text-input::placeholder,
@@ -150,7 +201,8 @@
 .u-text-input textarea,
 input.u-text-input,
 textarea.u-text-input,
-button.u-text-input {
+button.u-text-input,
+.u-text-input-value {
   @include umd-typography(body-l);
   line-height: $u-text-input-line-height;
   background: transparent;

@@ -37,29 +37,26 @@
   bottom: $u-badge-position;
 }
 
-@if (mixin_exists(u-buttons-theme)) {
+$btn-badge-position: $u-badge-position + math.div($u-icon-btn-size - $u-btn-icon-size, 2);
 
-  $btn-badge-position: $u-badge-position + math.div($u-icon-btn-size - $u-btn-icon-size, 2);
+.u-icon-btn {
+  .u-badge-top-left {
+    top: $btn-badge-position;
+    left: $btn-badge-position;
+  }
 
-  .u-icon-btn {
-    .u-badge-top-left {
-      top: $btn-badge-position;
-      left: $btn-badge-position;
-    }
+  .u-badge-top-right {
+    top: $btn-badge-position;
+    right: $btn-badge-position;
+  }
 
-    .u-badge-top-right {
-      top: $btn-badge-position;
-      right: $btn-badge-position;
-    }
+  .u-badge-bottom-left {
+    bottom: $btn-badge-position;
+    left: $btn-badge-position;
+  }
 
-    .u-badge-bottom-left {
-      bottom: $btn-badge-position;
-      left: $btn-badge-position;
-    }
-
-    .u-badge-bottom-right {
-      right: $btn-badge-position;
-      bottom: $btn-badge-position;
-    }
+  .u-badge-bottom-right {
+    right: $btn-badge-position;
+    bottom: $btn-badge-position;
   }
 }

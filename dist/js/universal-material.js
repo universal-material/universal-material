@@ -2,10 +2,12 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
-    }
+    };
     return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
         extendStatics(d, b);
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
@@ -45,7 +47,7 @@ var umd;
                 }
             };
             this._template = template;
-            this._config = __assign({}, QuickDialogConfig.default, config);
+            this._config = __assign(__assign({}, QuickDialogConfig.default), config);
             if (beforeCreateDialog)
                 beforeCreateDialog();
             this._createDialog();
@@ -111,7 +113,7 @@ var umd;
     var ConfirmDialog = (function (_super) {
         __extends(ConfirmDialog, _super);
         function ConfirmDialog(message, config) {
-            var _this = _super.call(this, confirmDialogTemplate, __assign({}, ConfirmDialogConfig.default, { _message: message }, config)) || this;
+            var _this = _super.call(this, confirmDialogTemplate, __assign(__assign(__assign({}, ConfirmDialogConfig.default), { _message: message }), config)) || this;
             _this._message = message;
             return _this;
         }
@@ -148,18 +150,6 @@ var umd;
         return ConfirmDialog;
     }(QuickDialog));
     umd.ConfirmDialog = ConfirmDialog;
-    (function () {
-        if (typeof window['CustomEvent'] === "function")
-            return;
-        function CustomEvent(event, params) {
-            params = params || { bubbles: false, cancelable: false, detail: undefined };
-            var evt = document.createEvent('CustomEvent');
-            evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
-            return evt;
-        }
-        CustomEvent.prototype = window['Event'].prototype;
-        window['CustomEvent'] = CustomEvent;
-    })();
     var DialogConfig = (function () {
         function DialogConfig() {
         }
@@ -200,7 +190,7 @@ var umd;
                 _this._showing = false;
                 _this.addAnimationEndEvents();
             };
-            this._dialogConfig = __assign({}, DialogConfig.default, dialogConfig);
+            this._dialogConfig = __assign(__assign({}, DialogConfig.default), dialogConfig);
             this._dialogBodyElement = this._dialogElement.querySelector('.u-dialog-body');
             if (this._dialogBodyElement) {
                 this._setBodyDividers();
@@ -272,7 +262,7 @@ var umd;
             this._dropdownMenu = _dropdownElement.querySelector('.u-dropdown-menu');
             if (!this._dropdownToggle || !this._dropdownToggle)
                 return;
-            this._dropdownConfig = __assign({}, DropdownConfig.default, dropdownConfig);
+            this._dropdownConfig = __assign(__assign({}, DropdownConfig.default), dropdownConfig);
             this._attachEvents();
         }
         Dropdown.attach = function (element, dropdownConfig) {
@@ -318,7 +308,7 @@ var umd;
         function ProgressDialogConfig() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
-        ProgressDialogConfig.default = __assign({}, QuickDialogConfig.default, { closeOnBackdropClick: false, closeOnEsc: false });
+        ProgressDialogConfig.default = __assign(__assign({}, QuickDialogConfig.default), { closeOnBackdropClick: false, closeOnEsc: false });
         return ProgressDialogConfig;
     }(QuickDialogConfig));
     umd.ProgressDialogConfig = ProgressDialogConfig;
@@ -326,7 +316,7 @@ var umd;
     var ProgressDialog = (function (_super) {
         __extends(ProgressDialog, _super);
         function ProgressDialog(message, config) {
-            var _this = _super.call(this, progressDialogTemplate, __assign({}, ProgressDialogConfig.default, { _message: message }, config)) || this;
+            var _this = _super.call(this, progressDialogTemplate, __assign(__assign(__assign({}, ProgressDialogConfig.default), { _message: message }), config)) || this;
             _this._message = message;
             return _this;
         }
@@ -512,7 +502,7 @@ var umd;
             this._sliderTrackMarker = _sliderElement.querySelector('.u-slider-track-marker');
             this._sliderThumb = _sliderElement.querySelector('.u-slider-thumb');
             this._sliderInputElement = _sliderElement.querySelector('input[type=range]');
-            this._sliderInputElement.addEventListener(window.navigator.userAgent.indexOf('Trident/') > -1 ? 'change' : 'input', function () { return _this._setThumbAndTrack(); });
+            this._sliderInputElement.addEventListener('input', function () { return _this._setThumbAndTrack(); });
             this._sliderInputElement.setAttribute('aria-hidden', 'true');
             this._sliderElement.setAttribute('role', 'slider');
             this._sliderElement.setAttribute('aria-valuemin', this._sliderInputElement.min);
@@ -541,8 +531,8 @@ var umd;
             var offset = max - min;
             value -= min;
             var position = value * 100 / offset;
-            this._sliderThumb.style.width = position + "%";
-            this._sliderTrack.style.width = position + "%";
+            this._sliderThumb.style.width = "".concat(position, "%");
+            this._sliderTrack.style.width = "".concat(position, "%");
         };
         Slider.prototype.setDisabled = function (disabled) {
             if (disabled) {

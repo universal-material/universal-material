@@ -80,10 +80,14 @@
   color: var(--u-lower-contrast-color) !important;
 }
 
-@mixin u-text-theme {
-  @each $color, $value in $u-theme-colors {
-    @include apply-style-bg-once("text-#{$color}") {
-      @include text-emphasis-variant(".u-text-#{$color}", $color);
-    }
+@each $color-name, $color-value in $u-theme-colors {
+
+  .u-text-#{$color-name} {
+    color: var(--u-#{$color-name}-color) !important;
+  }
+
+  .u-text-on-#{$color-name} {
+    color: var(--u-on-#{$color-name}-color) !important;
   }
 }
+
