@@ -3,9 +3,13 @@
 @import "../../font";
 @import "../../mixins";
 
+:root {
+  --u-card-border-radius: #{$u-card-border-radius};
+}
+
 %u-card {
   font-family: $u-font-family-base;
-  border-radius: $u-card-border-radius;
+  border-radius: var(--u-card-border-radius);
   background-color: var(--u-surface-color);
 }
 

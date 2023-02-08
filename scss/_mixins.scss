@@ -1,5 +1,4 @@
 //Utilities
-@import "mixins/background";
 @import "mixins/background-variant";
 @import "mixins/breakpoints";
 @import "mixins/elevation";
@@ -8,16 +7,15 @@
 @import "mixins/hover";
 @import "mixins/css-vars";
 
+@import "mixins/text-bg";
 @import "mixins/text-color";
 @import "mixins/text-truncate";
 
-@import "mixins/buttons";
 @import "mixins/selection-controls";
 @import "mixins/typography";
 @import "mixins/important";
 
 // Theme
-@import "mixins/theme-colors";
 @import "mixins/apply-style-bg-once";
 
 // Layout

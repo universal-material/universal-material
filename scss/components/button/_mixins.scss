@@ -1,0 +1,14 @@
+@mixin u-button-color-variant($color-name) {
+  .u-filled-btn.u-btn-#{$color-name} {
+    color: var(--u-on-#{$color-name}-color);
+    background-color: var(--u-#{$color-name}-color);
+  }
+
+  .u-floating-btn.u-btn-#{$color-name} {
+    background-color: var(--u-#{$color-name}-container-color);
+
+    .u-btn-icon {
+      color: var(--u-on-#{$color-name}-container-color);
+    }
+  }
+}

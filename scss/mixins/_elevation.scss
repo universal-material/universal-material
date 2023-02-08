@@ -136,8 +136,8 @@ $u-elevation-opacity: 1 !default;
   transition: u-elevation-transition-property-value($duration, $easing);
 }
 
-@mixin u-elevation-tint-colors {
+@mixin _elevation-tint-opacity-vars {
   @each $elevation, $opacity in variables.$u-surface-tint-opacity {
-    --u-elevation-tint#{$elevation}-color: hsla(var(--u-primary-color-hsl) / #{$opacity});
+    --u-elevation-tint#{$elevation}-opacity: #{$opacity};
   }
 }

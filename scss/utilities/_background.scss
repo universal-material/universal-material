@@ -6,17 +6,25 @@
   background-color: var(--u-surface-color) !important;
 }
 
+.u-bg-surface-variant {
+  background-color: var(--u-surface-variant-color) !important;
+}
+
+.u-bg-body {
+  background-color: var(--u-background-color) !important;
+}
+
 .u-selectable {
   @extend %u-selectable;
 }
 
-@each $color, $value in $u-theme-colors {
-  .u-bg-#{$color} {
-    @extend %u-bg-#{$color}-important;
+@each $color-name, $color-value in $u-theme-colors {
+  .u-bg-#{$color-name} {
+    background-color: var(--u-#{$color-name}-color) !important;
   }
 
-  .u-bg-#{$color}-container {
-    @extend %u-bg-#{$color}-container-important;
+  .u-bg-#{$color-name}-container {
+    background-color: var(--u-#{$color-name}-container-color) !important;
   }
 }
 

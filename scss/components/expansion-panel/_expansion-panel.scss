@@ -62,7 +62,7 @@
 
   + .u-expansion-panel-label {
     margin-left: $u-expansion-panel-content-margin;
-    color: var(--u-low-contrast-color);
+    color: var(--u-low-emphasis-color);
   }
 }
 
@@ -86,6 +86,6 @@
 .u-expansion-toggle-icon {
   margin-left: auto;
   font-size: $u-expansion-panel-switch-size;
-  color: var(--u-low-contrast-color);
+  color: var(--u-low-emphasis-color);
   transition: transform 150ms;
 }

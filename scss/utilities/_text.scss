@@ -66,18 +66,18 @@
   }
 }
 
-@include contrast-bg-var(--u-lower-contrast-color, $u-text-lower-contrast-light-theme, $u-text-lower-contrast-dark-theme);
+@include contrast-bg-var(--u-lower-emphasis-color, $u-text-lower-contrast-light-theme, $u-text-lower-contrast-dark-theme);
 
-.u-text-high-contrast {
-  color: var(--u-high-contrast-color) !important;
+.u-text-high-emphasis {
+  color: var(--u-high-emphasis-color) !important;
 }
 
-.u-text-low-contrast {
-  color: var(--u-low-contrast-color) !important;
+.u-text-low-emphasis {
+  color: var(--u-low-emphasis-color) !important;
 }
 
-.u-text-lower-contrast {
-  color: var(--u-lower-contrast-color) !important;
+.u-text-lower-emphasis {
+  color: var(--u-lower-emphasis-color) !important;
 }
 
 @each $color-name, $color-value in $u-theme-colors {
@@ -88,6 +88,10 @@
 
   .u-text-on-#{$color-name} {
     color: var(--u-on-#{$color-name}-color) !important;
+  }
+
+  .u-text-on-#{$color-name}-container {
+    color: var(--u-on-#{$color-name}-container-color) !important;
   }
 }
 

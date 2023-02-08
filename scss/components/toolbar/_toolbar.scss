@@ -4,6 +4,11 @@
 @import "../../mixins";
 @import "../../font";
 
+:root {
+  --u-app-bar-top-height: #{$u-toolbar-height};
+  --u-app-bar-top-inline-padding: #{$u-toolbar-row-inline-padding};
+}
+
 .u-toolbar {
   display: block;
   font-family: $u-font-family-base;
@@ -25,8 +30,8 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: $u-toolbar-height;
-  padding-inline: $u-toolbar-row-padding;
+  height: var(--u-app-bar-top-height);
+  padding-inline: var(--u-app-bar-top-inline-padding);
 }
 
 @include u-extend-action-set("u-toolbar");
@@ -41,7 +46,7 @@
 
   .u-toolbar-actions {
     margin-right: $u-toolbar-section-margin;
-    margin-left: -$u-toolbar-row-padding;
+    margin-left: -$u-toolbar-row-inline-padding;
   }
 }
 
@@ -51,7 +56,7 @@
   margin-left: auto;
 
   .u-toolbar-actions {
-    margin-right: -$u-toolbar-row-padding;
+    margin-right: -$u-toolbar-row-inline-padding;
     margin-left: $u-toolbar-section-margin;
   }
 }
@@ -88,7 +93,7 @@
 [dir="rtl"] {
   .u-toolbar-start {
     .u-toolbar-actions {
-      margin-right: -$u-toolbar-row-padding;
+      margin-right: -$u-toolbar-row-inline-padding;
       margin-left: $u-toolbar-section-margin;
     }
   }
@@ -112,7 +117,7 @@
 
     .u-toolbar-actions {
       margin-right: $u-toolbar-section-margin;
-      margin-left: -$u-toolbar-row-padding;
+      margin-left: -$u-toolbar-row-inline-padding;
     }
   }
 }

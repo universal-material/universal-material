@@ -77,7 +77,7 @@
   flex: 1;
   width: 1rem;
   font-weight: $u-font-weight-medium;
-  color: var(--u-low-contrast-color);
+  color: var(--u-low-emphasis-color);
 }
 
 .u-datepicker-content {
@@ -105,7 +105,7 @@
 
 .u-datepicker-day,
 .u-datepicker-year-month-button {
-  color: var(--u-high-contrast-color);
+  color: var(--u-high-emphasis-color);
 
   &.active {
     background-color: var(--u-primary-color);
@@ -114,11 +114,11 @@
 }
 
 .u-datepicker-day-outside-month {
-  color: var(--u-lower-contrast-color);
+  color: var(--u-lower-emphasis-color);
 }
 
 .u-datepicker-current-day {
-  border: 1px solid var(--u-low-contrast-color);
+  border: 1px solid var(--u-low-emphasis-color);
 }
 
 @include media-breakpoint-down(md) {

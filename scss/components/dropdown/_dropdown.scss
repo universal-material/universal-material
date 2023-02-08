@@ -82,7 +82,7 @@
   height: $u-dropdown-item-height;
   padding: 0 $u-dropdown-item-padding;
   font-size: $u-dropdown-item-font-size;
-  color: var(--u-high-contrast-color);
+  color: var(--u-high-emphasis-color);
   text-decoration: none;
   cursor: pointer;
   background: none;
@@ -90,7 +90,7 @@
   outline: 0;
 
   @include hover-focus() {
-    color: var(--u-high-contrast-color);
+    color: var(--u-high-emphasis-color);
   }
 
   @extend %u-selectable;

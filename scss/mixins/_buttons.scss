@@ -1,7 +1,0 @@
-@mixin button-borderless-variant($color) {
-  color: $color;
-}
-
-@mixin button-solid-variant($background) {
-  @include background-and-text-color($background);
-}

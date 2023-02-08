@@ -287,7 +287,7 @@ button.u-text-input,
   }
 
   &.disabled {
-    background-color: hsla(var(--u-on-surface-hsl-color) / $u-disabled-container-opacity);
+    background-color: rgba(var(--u-on-surface-color-rgb), $u-disabled-container-opacity);
     //&::before  {
     //  background-color: var(--u-on-surface-color);
     //  opacity: .04;

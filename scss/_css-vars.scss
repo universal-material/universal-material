@@ -7,10 +7,17 @@
   --u-disabled-state-background-opacity: .12;
   --u-disabled-state-label-opacity: .57;
   --u-disabled-state-opacity: .38;
+  --u-high-emphasis-opacity: 1;
+  --u-low-emphasis-opacity: .75;
+  --u-lower-emphasis-opacity: .5;
 
   --u-current-bg-color: var(--u-background-color);
-  --u-high-contrast-color: var(--u-on-surface-color);
-  --u-low-contrast-color: var(--u-on-surface-variant-color);
+  --u-on-current-color-rgb: var(--u-on-background-color-rgb);
+  --u-high-emphasis-color: rgba(var(--u-on-current-color-rgb), var(--u-high-emphasis-opacity));
+  --u-low-emphasis-color: rgba(var(--u-on-current-color-rgb), var(--u-low-emphasis-opacity));
+  --u-lower-emphasis-color: rgba(var(--u-on-current-color-rgb), var(--u-lower-emphasis-opacity));
+
+  @include _elevation-tint-opacity-vars;
 
   @if $enable-grid-classes {
     --u-container-width: #{$container-width};
@@ -21,6 +28,7 @@
 
 .u-dark-mode {
   --u-current-bg-color: var(--u-background-color);
-  --u-high-contrast-color: var(--u-on-surface-color);
-  --u-low-contrast-color: var(--u-on-surface-variant-color);
+  --u-high-emphasis-color: rgba(var(--u-on-background-color-rgb), var(--u-high-emphasis-opacity));
+  --u-low-emphasis-color: rgba(var(--u-on-background-color-rgb), var(--u-low-emphasis-opacity));
+  --u-lower-emphasis-color: rgba(var(--u-on-background-color-rgb), var(--u-lower-emphasis-opacity));
 }

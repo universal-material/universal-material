@@ -1,0 +1,29 @@
+extends ../layout
+
+block content
+  h4.u-headline4.chapter-title Colors
+
+  h5.u-headline5.article-title Text
+  .u-card-elevated.example-card
+    .u-card-content
+      include colors/text-colors.html
+
+    pre.u-card-content.example-card-code
+      code.language-html
+
+  h5.u-headline5.article-title Background
+  .u-card-elevated.example-card
+    .u-card-content
+      include colors/background-colors.html
+
+    pre.u-card-content.example-card-code
+      code.language-html
+
+  h5.u-headline5.article-title Background & text
+  .u-card-elevated.example-card
+    .u-card-content
+      include colors/background-and-text-colors.html
+
+    pre.u-card-content.example-card-code
+      code.language-html
+

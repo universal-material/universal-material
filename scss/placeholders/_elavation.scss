@@ -8,7 +8,7 @@
   @each $elevation, $opacity in $u-surface-tint-opacity {
     @property --u-elevation-tint#{$elevation}-color {
       syntax: "<color>";
-      initial-value: hsla(var(--u-primary-color-hsl) / #{$opacity});
+      initial-value: rgba(var(--u-primary-color-rgb), var(--u-elevation-tint#{$elevation}-opacity));
       inherits: false;
     }
 

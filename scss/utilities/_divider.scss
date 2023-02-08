@@ -3,7 +3,9 @@
 @import "../theme";
 
 .u-divider {
+  --u-divider-opacity: 1;
+  --u-divider-color: var(--u-outline-variant-color-rgb);
   width: 100%;
   height: $u-divider-height;
-  background-color: var(--u-outline-variant-color);
+  background-color: rgba(var(--u-divider-color), var(--u-divider-opacity));
 }

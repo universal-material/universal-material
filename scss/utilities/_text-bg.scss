@@ -1,0 +1,22 @@
+.u-text-bg-surface {
+  @include u-text-bg-variant(surface);
+}
+
+.u-text-bg-surface-variant {
+  @include u-text-bg-variant(surface-variant);
+}
+
+.u-text-bg-body {
+  @include u-text-bg-variant(background);
+}
+
+@each $color-name, $color-value in $u-theme-colors {
+
+  .u-text-bg-#{$color-name} {
+    @include u-text-bg-variant($color-name);
+  }
+
+  .u-text-bg-#{$color-name}-container {
+    @include u-text-bg-variant(#{$color-name}-container);
+  }
+}

@@ -22,7 +22,7 @@
   max-width: $u-tab-max-width;
   padding-inline: $u-tab-horizontal-padding;
   font-family: $u-font-family-base;
-  color: var(--u-low-contrast-color);
+  color: var(--u-low-emphasis-color);
   cursor: pointer;
   background-color: transparent;
   @extend %u-selectable;

@@ -1,6 +1,7 @@
 {
   "name": "@universal-material/core",
-  "version": "2.0.1-alpha.12",
+  "version": "2.0.1-alpha.13",
+  "type": "module",
   "keywords": [
     "css",
     "sass",
@@ -18,20 +19,23 @@
   "files": [
     "dist/",
     "scss/",
-    "js/dist/",
     "README.md"
   ],
   "scripts": {
     "start": "npm-run-all --parallel watch docs",
-    "watch": "gulp default",
-    "watch:sass": "gulp watch:sass",
-    "watch:docs": "gulp watch:docs",
-    "sass:docs": "gulp sass:docs",
+    "watch": "gulp -f gulpfile.cjs default",
+    "watch:sass": "gulp -f gulpfile.cjs watch:sass",
+    "watch:docs": "gulp -f gulpfile.cjs watch:docs",
+    "build:sass": "gulp -f gulpfile.cjs sass",
+    "build:scripts": "gulp -f gulpfile.cjs scripts && unbuild",
+    "build": "npm-run-all --parallel build:scripts build:sass",
+    "sass:docs": "gulp -f gulpfile.cjs sass:docs",
     "docs": "http-server ./docs/dist -p 8081 -o"
   },
-  "main": "./js/dist/bundle/universal-material.umd.js",
+  "main": "./dist/js/lib/index.cjs",
+  "module": "./dist/js/lib/index.mjs",
+  "typings": "./dist/js/lib/index.d.ts",
   "sass": "./scss/universal-material.scss",
-  "typings": "./js/dist/typings/index.d.ts",
   "author": "https://github.com/universal-material/universal-material/graphs/contributors",
   "repository": {
     "type": "git",
@@ -39,30 +43,44 @@
   },
   "license": "MIT",
   "homepage": "https://universal-material.github.io",
+  "unbuild": {
+    "entries": [
+      "./js/src/lib/index"
+    ],
+    "outDir": "./dist/js/lib",
+    "clean": true,
+    "declaration": true,
+    "rollup": {
+      "emitCJS": true
+    }
+  },
   "devDependencies": {
     "@babel/core": "^7.20.7",
     "@babel/preset-env": "^7.20.2",
     "@babel/register": "^7.18.9",
+    "@types/node": "^12.11.1",
     "find-parent-dir": "^0.3.0",
     "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^4.0.0",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-clone": "^2.0.1",
     "gulp-concat": "^2.6.1",
+    "gulp-copy": "^4.0.1",
     "gulp-debug": "^4.0.0",
+    "gulp-header": "^2.0.9",
     "gulp-insert": "^0.5.0",
-    "gulp-notify": "^3.0.0",
-    "gulp-pug": "^3.3.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-replace": "^1.0.0",
+    "gulp-notify": "^4.0.0",
+    "gulp-pug": "^5.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-replace": "^1.1.4",
     "gulp-sass": "^5.1.0",
-    "gulp-sourcemaps": "^2.6.4",
-    "gulp-typescript": "^4.0.2",
-    "gulp-uglify": "^3.0.1",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-typescript": "^5.0.1",
+    "gulp-uglify": "^3.0.2",
     "http-server": "^14.1.1",
+    "merge-stream": "^2.0.0",
     "npm-run-all": "^4.1.5",
     "qunit": "^2.6.1",
-    "rollup": "^2.3.2",
-    "rollup-plugin-babel": "^4.4.0",
-    "rollup-plugin-typescript2": "^0.27.0",
     "sass": "^1.57.1",
     "stylelint": "^9.2.0",
     "stylelint-config-recommended-scss": "^3.2.0",
@@ -71,6 +89,14 @@
     "stylelint-scss": "^3.0.0",
     "ts-loader": "^9.4.2",
     "tsc": "^2.0.4",
-    "typescript": "^4.9.4"
+    "tslib": "^2.5.0",
+    "typescript": "~4.9.5",
+    "unbuild": "^1.1.1"
+  },
+  "dependencies": {
+    "@importantimport/material-color-utilities": "^0.2.1-alpha.0"
+  },
+  "peerDependencies": {
+    "@importantimport/material-color-utilities": "^0.2.1-alpha.0"
   }
 }

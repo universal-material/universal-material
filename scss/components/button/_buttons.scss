@@ -2,6 +2,7 @@
 @import "../../typography/variables";
 @import "../../mixins";
 @import "button-base";
+@import "./mixins";
 
 @mixin u-all-buttons() {
   .u-elevated-btn,
@@ -267,18 +268,6 @@
 
 @each $color-name, $color-value in $u-theme-colors {
   @if $color-name != "primary" {
-
-    .u-filled-btn.u-btn-#{$color-name} {
-      color: var(--u-on-#{$color-name}-color);
-      background-color: var(--u-#{$color-name}-color);
-    }
-
-    .u-floating-btn.u-btn-#{$color-name} {
-      background-color: var(--u-#{$color-name}-container-color);
-
-      .u-btn-icon {
-        color: var(--u-on-#{$color-name}-container-color);
-      }
-    }
+    @include u-button-color-variant($color-name);
   }
 }

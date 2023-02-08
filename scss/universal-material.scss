@@ -18,4 +18,6 @@
 @import "utilities";
 @import "css-vars";
 
-@include theme($u-theme-colors);
+@if $include-default-theme {
+  @include theme($u-theme-colors);
+}

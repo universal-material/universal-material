@@ -106,7 +106,7 @@
 .u-list-item-avatar {
   position: relative;
   font-size: $u-list-icon-size;
-  color: var(--u-low-contrast-color);
+  color: var(--u-low-emphasis-color);
 }
 
 .u-list-item-avatar {
@@ -206,5 +206,5 @@
   padding-block: $u-list-item-block-padding;
   padding-inline: $u-list-item-inline-padding;
   line-height: 1;
-  color: var(--u-low-contrast-color);
+  color: var(--u-low-emphasis-color);
 }
