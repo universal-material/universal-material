@@ -1,6 +1,6 @@
 {
   "name": "@universal-material/core",
-  "version": "2.0.1-alpha.13",
+  "version": "2.0.1-alpha.25",
   "type": "module",
   "keywords": [
     "css",
@@ -22,7 +22,7 @@
     "README.md"
   ],
   "scripts": {
-    "start": "npm-run-all --parallel watch docs",
+    "start": "npm-run-all --parallel watch:docs docs",
     "watch": "gulp -f gulpfile.cjs default",
     "watch:sass": "gulp -f gulpfile.cjs watch:sass",
     "watch:docs": "gulp -f gulpfile.cjs watch:docs",

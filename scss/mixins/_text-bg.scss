@@ -1,22 +1,18 @@
 @mixin _current-color-vars($current-color-rgb) {
-  --u-on-current-color-rgb: #{$current-color-rgb} !important;
-  --u-high-emphasis-color: rgba(var(--u-on-current-color-rgb), var(--u-high-emphasis-opacity)) !important;
-  --u-low-emphasis-color: rgba(var(--u-on-current-color-rgb), var(--u-low-emphasis-opacity)) !important;
-  --u-lower-emphasis-color: rgba(var(--u-on-current-color-rgb), var(--u-lower-emphasis-opacity)) !important;
+  --u-current-text-color-rgb: #{$current-color-rgb} !important;
+  --u-high-emphasis-color: rgba(var(--u-current-text-color-rgb), var(--u-high-emphasis-opacity)) !important;
+  --u-low-emphasis-color: rgba(var(--u-current-text-color-rgb), var(--u-low-emphasis-opacity)) !important;
+  --u-lower-emphasis-color: rgba(var(--u-current-text-color-rgb), var(--u-lower-emphasis-opacity)) !important;
 }
 
 @mixin u-text-bg-variant($color-name) {
-  background-color: var(--u-#{$color-name}-color) !important;
-  color: var(--u-high-emphasis-color) !important;
   @include _current-color-vars(var(--u-on-#{$color-name}-color-rgb));
 
-  .u-text-btn,
-  .u-icon-btn {
-    color: var(--u-high-emphasis-color) !important;
-  }
+  background-color: var(--u-#{$color-name}-color) !important;
+  color: var(--u-high-emphasis-color) !important;
 
   .u-divider {
     --u-divider-opacity: .2;
-    --u-divider-color: var(--u-on-current-color-rgb);
+    --u-divider-color: var(--u-current-text-color-rgb);
   }
 }

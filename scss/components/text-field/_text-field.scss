@@ -6,6 +6,14 @@
   --u-label-input-start: auto;
   --u-label-input-span-leading-offset: 0;
   --u-label-input-span-trailing-offset: 0;
+
+  --u-text-field-outline-border-radius: #{$u-text-field-outline-border-radius};
+  --u-text-field-box-border-radius: #{$u-text-field-box-border-radius};
+  --u-text-field-horizontal-padding: #{$u-text-field-horizontal-padding};
+
+  --u-text-field-border-width: #{$u-text-field-border-width};
+  --u-text-field-border-color: var(--u-on-surface-variant-color-rgb);
+  --u-text-field-border-opacity: 1;
 }
 
 .u-form-field-selection {
@@ -83,11 +91,10 @@
   position: relative;
   display: grid;
   align-items: center;
-  grid-template-columns: calc(#{$u-text-field-icon-size} + #{$u-text-field-icon-margin}) auto calc(#{$u-text-field-icon-size} + #{$u-text-field-icon-margin});
+  grid-template-columns: calc(#{$u-text-field-icon-size} + var(--u-text-field-horizontal-padding)) auto calc(#{$u-text-field-icon-size} + var(--u-text-field-horizontal-padding));
   grid-template-rows: $u-text-field-label-line-height auto;
   min-height: $u-text-field-box-height;
-  padding-top: $u-text-field-box-vertical-padding;
-  padding-bottom: $u-text-field-box-vertical-padding;
+  padding-block: $u-text-field-box-vertical-padding;
   font-family: $u-font-family-base;
   cursor: text;
 
@@ -103,15 +110,13 @@
   }
 
   &::after {
-    border-width: $u-text-field-border-width;
-    border-color: var(--u-on-surface-variant-color);
+    border-width: var(--u-text-field-border-width);
+    border-color: rgba(var(--u-text-field-border-color), var(--u-text-field-border-opacity));
   }
 
   &.focus {
-    &::after {
-      border-width: $u-text-field-focus-border-width;
-      border-color: var(--u-primary-color);
-    }
+    --u-text-field-border-width: #{$u-text-field-focus-border-width};
+    --u-text-field-border-color: var(--u-primary-color-rgb);
 
     .u-text-field-label {
       color: var(--u-primary-color);
@@ -119,9 +124,7 @@
   }
 
   &.invalid {
-    &::after  {
-      border-color: var(--u-error-color);
-    }
+    --u-text-field-border-color: var(--u-error-color-rgb);
 
     .u-text-input,
     .u-text-field-label,
@@ -133,11 +136,8 @@
 
   &.disabled {
     cursor: default;
-
-    &::after  {
-      border-color: var(--u-on-surface-color);
-      opacity: var(--u-disabled-state-opacity);
-    }
+    --u-text-field-border-color: var(--u-on-surface-color-rgb);
+    --u-text-field-border-opacity: var(--u-disabled-state-opacity);
 
     .u-text-input,
     .u-text-field-label,
@@ -216,13 +216,21 @@ button.u-text-input,
   }
 }
 
+.u-text-input-value {
+  &:empty {
+    &::before {
+      content: '\00a0';
+    }
+  }
+}
+
 .u-text-field-label {
   @include umd-typography(body-l);
 
   padding-inline: $u-text-label-padding;
   position: absolute;
   top: 0;
-  left: $u-text-label-left;
+  left: var(--u-text-field-horizontal-padding);
   margin-bottom: 0;
   line-height: $u-text-field-label-line-height;
   grid-area: 1 / var(--u-label-input-start) / auto / span calc(3 - var(--u-label-input-span-leading-offset) - var(--u-label-input-span-trailing-offset));
@@ -274,7 +282,7 @@ button.u-text-input,
 }
 
 .u-text-field-box {
-  border-radius: $u-text-field-box-border-radius;
+  border-radius: var(--u-text-field-box-border-radius);
   background-color: var(--u-surface-variant-color);
 
   //&::before {
@@ -296,11 +304,21 @@ button.u-text-input,
 }
 
 .u-text-field-outlined {
-  border-radius: $u-text-field-outline-border-radius;
+  border-radius: var(--u-text-field-outline-border-radius);
 
   &::after {
-    border-radius: $u-text-field-outline-border-radius;
+    border-radius: var(--u-text-field-outline-border-radius);
     border-style: solid;
+    clip-path: polygon(
+        0 0,
+        calc(var(--u-text-field-label-half-width) + var(--u-text-field-horizontal-padding)) 0,
+        calc(var(--u-text-field-label-half-width) + var(--u-text-field-horizontal-padding)) var(--u-text-field-border-width),
+        calc(var(--u-text-field-label-half-width) + var(--u-text-field-horizontal-padding)) var(--u-text-field-border-width),
+        calc(var(--u-text-field-label-half-width) + var(--u-text-field-horizontal-padding)) 0,
+        100% 0,
+        100% 100%,
+        0 100%);
+    transition: clip-path 100ms;
   }
 
   .u-text-field-label,
@@ -308,8 +326,18 @@ button.u-text-input,
     grid-area: 1 / var(--u-label-input-start) / span 2 / span calc(3 - var(--u-label-input-span-leading-offset) - var(--u-label-input-span-trailing-offset));
   }
 
-  .u-text-field-label {
-    background-color: var(--u-current-bg-color);
+  &.focus {
+    &::after {
+      clip-path: polygon(
+          0 0,
+          var(--u-text-field-horizontal-padding) 0,
+          var(--u-text-field-horizontal-padding) var(--u-text-field-border-width),
+          calc(var(--u-text-field-label-width) + var(--u-text-field-horizontal-padding)) var(--u-text-field-border-width),
+          calc(var(--u-text-field-label-width) + var(--u-text-field-horizontal-padding)) 0,
+          100% 0,
+          100% 100%,
+          0 100%);
+    }
   }
 
   &.focus,

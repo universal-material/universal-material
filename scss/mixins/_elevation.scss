@@ -141,3 +141,13 @@ $u-elevation-opacity: 1 !default;
     --u-elevation-tint#{$elevation}-opacity: #{$opacity};
   }
 }
+
+@mixin _elevation-tint-color-vars {
+  @each $elevation, $opacity in variables.$u-surface-tint-opacity {
+    --u-elevation-tint#{$elevation}-color: rgba(var(--u-primary-color-rgb), var(--u-elevation-tint#{$elevation}-opacity));
+  }
+}
+
+@mixin u-elevation-tint($level) {
+  --u-current-elevation-tint-color: var(--u-elevation-tint#{$level}-color);
+}

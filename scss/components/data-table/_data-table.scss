@@ -12,21 +12,19 @@
   }
 
   thead th {
-    padding-top: $u-data-table-column-header-vertical-padding;
-    padding-bottom: $u-data-table-column-header-vertical-padding;
+    padding-block: $u-data-table-column-header-vertical-padding;
     line-height: $u-data-table-column-header-line-height;
   }
 
   td,
   tbody th {
-    padding-top: $u-data-table-column-vertical-padding;
-    padding-bottom: $u-data-table-column-vertical-padding;
+    padding-block: $u-data-table-column-vertical-padding;
   }
 
   th {
     font-size: $u-data-table-column-header-font-size;
     font-weight: $u-data-table-column-header-font-weight;
-    color: var(--u-on-surface-variant-color);
+    color: var(--u-low-emphasis-color);
     text-align: initial;
   }
 
@@ -49,8 +47,7 @@
     vertical-align: top;
 
     &.no-vertical-padding {
-      padding-top: 0;
-      padding-bottom: 0;
+      padding-block: 0;
     }
   }
 
@@ -66,7 +63,7 @@
   height: $u-data-table-card-footer-height;
   font-size: $u-data-table-card-footer-font-size;
   font-weight: $u-data-table-card-footer-font-weight;
-  color: var(--u-on-surface-variant-color);
+  color: var(--u-low-emphasis-color);
   border-top: $u-data-table-border;
   padding-inline: $u-data-table-horizontal-padding;
 

@@ -1,10 +1,5 @@
 @use "sass:map";
 
-@mixin contrast-bg-var($name, $value-to-light-bg, $value-to-dark-bg) {
-  $u-bg-light-vars: map.merge($u-bg-light-vars, ($name: $value-to-light-bg)) !global;
-  $u-bg-dark-vars: map.merge($u-bg-dark-vars, ($name: $value-to-dark-bg)) !global;
-}
-
 @mixin add-vars($map) {
   @each $var, $value in $map {
     #{$var}: #{$value};

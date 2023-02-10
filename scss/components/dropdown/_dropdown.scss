@@ -4,6 +4,10 @@
 @import "../../zindex";
 @import "../../mixins";
 
+:root {
+  --u-dropdown-menu-border-radius: #{$u-dropdown-menu-border-radius};
+}
+
 .u-dropdown-menu {
   @include u-elevation-shadow(2);
   @extend %u-elevation-surface-tint-2;
@@ -12,11 +16,10 @@
   position: absolute;
   z-index: $zindex-dropdown;
   min-width: $u-dropdown-menu-min-width;
-  padding-top: $u-dropdown-menu-padding;
-  padding-bottom: $u-dropdown-menu-padding;
+  padding-block: $u-dropdown-menu-padding;
   overflow: hidden;
   font-family: $u-font-family-base;
-  border-radius: $u-dropdown-menu-border-radius;
+  border-radius: var(--u-dropdown-menu-border-radius);
   opacity: 0;
   transition: transform 350ms $awesome-cubic-bezier 350ms, opacity 350ms;
   transform: scale3d(0, 0, 1);

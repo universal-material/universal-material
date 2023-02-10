@@ -5,6 +5,8 @@
 
 :root {
   --u-card-border-radius: #{$u-card-border-radius};
+  --u-card-padding: #{$u-card-padding};
+  --u-card-outlined-border: #{$u-card-outlined-border};
 }
 
 %u-card {
@@ -36,7 +38,7 @@
 
 .u-card-outlined {
   @extend %u-card;
-  border: $u-card-outlined-border;
+  border: var(--u-card-outlined-border);
 }
 
 .u-card-media {
@@ -78,12 +80,12 @@
 }
 
 .u-card-content {
-  padding: $u-card-padding;
+  padding: var(--u-card-padding);
 }
 
 @include u-extend-action-set("u-card");
 
 .u-card-actions {
   justify-content: flex-end;
-  padding: $u-card-padding;
+  padding: var(--u-card-padding);
 }

@@ -11,7 +11,7 @@
   font-size: $u-badge-font-size;
   font-weight: $u-badge-font-weight;
   line-height: $u-badge-size;
-  color: get-text-color-by-background-color($u-secondary-color);
+  color: var(--u-on-secondary-color);
   text-align: center;
   background-color: $u-secondary-color;
   border-radius: 50%;

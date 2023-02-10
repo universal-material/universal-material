@@ -38,9 +38,21 @@ html
                 .u-list-item-content
                   span Typography
 
-              a.u-list-item(href="/utilities/colors.html")
+              .u-list-item
                 .u-list-item-content
-                  span Color
+                  span Colors
+                .u-list-item-icon.mdi.mdi-chevron-down
+
+              .nested-menu-items
+                a.u-list-item(href="/utilities/text-colors.html")
+                  .u-list-item-content
+                    span Text
+                a.u-list-item(href="/utilities/background-colors.html")
+                  .u-list-item-content
+                    span Background
+                a.u-list-item(href="/utilities/text-and-background-colors.html")
+                  .u-list-item-content
+                    span Text and background
 
               .u-list-item
                 .u-list-item-content
@@ -121,6 +133,15 @@ html
               .u-toolbar-title Material
             .u-toolbar-end
               .u-toolbar-actions
+                span.u-dropdown.u-toolbar-action
+                  button.u-icon-btn.u-dropdown-toggle
+                    i.u-btn-icon.mdi.mdi-theme-light-dark
+                  .u-dropdown-menu.down-start
+                    .u-dropdown-content
+                      button.u-dropdown-item(href='#', onclick="setThemeMode(ThemeMode.Auto)") System
+                      button.u-dropdown-item(href='#', onclick="setThemeMode(ThemeMode.Light)") Light
+                      button.u-dropdown-item(href='#', onclick="setThemeMode(ThemeMode.Dark)") Dark
+
                 a.u-toolbar-action.u-icon-btn(href="/angular", title="Universal Material Angular")
                   i.u-btn-icon.mdi.mdi-angular
                 button.u-toolbar-action.u-icon-btn#rtl-toggle(type="button", title="Rtl")

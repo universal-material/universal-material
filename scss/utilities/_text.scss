@@ -28,7 +28,7 @@
 
 .u-text-white { color: $white !important; }
 
-.u-text-body { color: $body-color !important; }
+.u-text-body { color: var(--u-on-background-color) !important; }
 .u-text-muted { color: $text-muted !important; }
 
 .u-text-black-50 { color: rgba($black, .5) !important; }
@@ -66,7 +66,46 @@
   }
 }
 
-@include contrast-bg-var(--u-lower-emphasis-color, $u-text-lower-contrast-light-theme, $u-text-lower-contrast-dark-theme);
+@each $color-name, $color-value in $u-theme-colors {
+
+  .u-text-#{$color-name} {
+    @include _current-color-vars(var(--u-#{$color-name}-color-rgb));
+    color: var(--u-high-emphasis-color) !important;
+  }
+
+  .u-text-on-#{$color-name} {
+    @include _current-color-vars(var(--u-#{$color-name}-color-rgb));
+    color: var(--u-high-emphasis-color) !important;
+  }
+
+  .u-text-on-#{$color-name}-container {
+    @include _current-color-vars(var(--u-#{$color-name}-color-rgb));
+    color: var(--u-high-emphasis-color) !important;
+  }
+}
+
+@each $color-name, $color-value in $u-common-colors {
+
+  .u-text-#{$color-name} {
+    @include _current-color-vars(var(--u-#{$color-name}-color-rgb));
+    color: var(--u-high-emphasis-color) !important;
+  }
+}
+
+.u-text-light-mode {
+  @include u-text-light-vars;
+  color: var(--u-high-emphasis-color) !important;
+}
+
+.u-text-dark-mode {
+  @include u-text-dark-vars;
+  color: var(--u-high-emphasis-color) !important;
+}
+
+.u-text-inverse-mode {
+  @include u-text-inverse-vars;
+  color: var(--u-high-emphasis-color) !important;
+}
 
 .u-text-high-emphasis {
   color: var(--u-high-emphasis-color) !important;
@@ -79,19 +118,3 @@
 .u-text-lower-emphasis {
   color: var(--u-lower-emphasis-color) !important;
 }
-
-@each $color-name, $color-value in $u-theme-colors {
-
-  .u-text-#{$color-name} {
-    color: var(--u-#{$color-name}-color) !important;
-  }
-
-  .u-text-on-#{$color-name} {
-    color: var(--u-on-#{$color-name}-color) !important;
-  }
-
-  .u-text-on-#{$color-name}-container {
-    color: var(--u-on-#{$color-name}-container-color) !important;
-  }
-}
-

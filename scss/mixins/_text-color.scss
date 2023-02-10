@@ -1,31 +1,20 @@
 @use "sass:math";
 
-@function is-dark-background($background-color) {
-  //http://stackoverflow.com/questions/11867545/change-text-color-based-on-brightness-of-the-covered-background-area
-  $r: red($background-color);
-  $g: green($background-color);
-  $b: blue($background-color);
-
-  $o: round(math.div($r * 299 + $g * 587 + $b * 114, 1000));
-
-  @if $o > 125 {
-    @return false;
-  }
-  @else {
-    @return true;
-  }
+@mixin u-text-light-vars() {
+  --u-high-emphasis-color: rgba(var(--u-on-light-background-color-rgb), var(--u-high-emphasis-opacity)) !important;
+  --u-low-emphasis-color: rgba(var(--u-on-light-background-color-rgb), var(--u-low-emphasis-opacity)) !important;
+  --u-lower-emphasis-color: rgba(var(--u-on-light-background-color-rgb), var(--u-lower-emphasis-opacity)) !important;
 }
 
-@function get-text-color-by-background-color($background-color, $light-text-color: $body-color) {
-  @if is-dark-background($background-color) {
-    @return #fff;
-  }
-  @else {
-    @return $light-text-color;
-  }
+@mixin u-text-dark-vars() {
+  --u-high-emphasis-color: rgba(var(--u-on-dark-background-color-rgb), var(--u-high-emphasis-opacity)) !important;
+  --u-low-emphasis-color: rgba(var(--u-on-dark-background-color-rgb), var(--u-low-emphasis-opacity)) !important;
+  --u-lower-emphasis-color: rgba(var(--u-on-dark-background-color-rgb), var(--u-lower-emphasis-opacity)) !important;
 }
 
-@mixin background-and-text-color($background-color) {
-  color: get-text-color-by-background-color($background-color);
-  background-color: $background-color;
+
+@mixin u-text-inverse-vars() {
+  --u-high-emphasis-color: rgba(var(--u-on-inverse-background-color-rgb), var(--u-high-emphasis-opacity)) !important;
+  --u-low-emphasis-color: rgba(var(--u-on-inverse-background-color-rgb), var(--u-low-emphasis-opacity)) !important;
+  --u-lower-emphasis-color: rgba(var(--u-on-inverse-background-color-rgb), var(--u-lower-emphasis-opacity)) !important;
 }

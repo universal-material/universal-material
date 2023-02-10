@@ -3,13 +3,17 @@
 @import "chip-base";
 @import "../../mixins";
 
+:root {
+  --u-chip-border-radius: #{$u-chip-border-radius};
+}
+
 .u-chip {
   @extend %u-chip;
 
   color: var(--u-on-surface-variant-color);
   padding-inline: calc($u-chip-padding - $u-chip-outline-border-width);
   border: $u-chip-outline-border-width solid var(--u-outline-color);
-  border-radius: $u-chip-border-radius;
+  border-radius: var(--u-chip-border-radius);
 
   &.disabled {
     opacity: var(--u-disabled-state-label-opacity);

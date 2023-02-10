@@ -1,0 +1,5 @@
+@use "sass:color";
+
+@function get-comma-separated-rgb($color) {
+  @return #{color.red($color)},#{color.green($color)},#{color.blue($color)};
+}

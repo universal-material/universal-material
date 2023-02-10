@@ -153,3 +153,8 @@ exports.default = gulp.parallel(
   exports['pug:docs'],
   exports['sass:docs'],
   exports['watch'])
+
+exports.docs = gulp.parallel(
+  exports['pug:docs'],
+  exports['sass:docs'],
+  exports['watch:docs'])

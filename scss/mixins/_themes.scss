@@ -32,6 +32,7 @@ $included-default-neutral-colors: false;
   @include _color-vars($color-name, tonal-palette.tone($hc, 40));
   @if ($color-name == primary) {
     --u-inverse-primary-color: #{tonal-palette.tone($hc, 80)};
+    @include _elevation-tint-color-vars();
   }
 
   @include _color-vars(on-#{$color-name}, tonal-palette.tone($hc, 100));
@@ -46,6 +47,7 @@ $included-default-neutral-colors: false;
 
     @if ($color-name == primary) {
       --u-inverse-primary-color: #{tonal-palette.tone($hc, 40)};
+      @include _elevation-tint-color-vars();
     }
 
     @include _color-vars(on-#{$color-name}, tonal-palette.tone($hc, 20));
@@ -59,38 +61,111 @@ $included-default-neutral-colors: false;
 @mixin _include-neutral-color-dependent-vars($neutral-key-color) {
   $hc: hc.from-color($neutral-key-color);
 
-  @include _color-vars(background, tonal-palette.tone($hc, 99));
-  @include _color-vars(on-background, tonal-palette.tone($hc, 10));
-  @include _color-vars(surface, tonal-palette.tone($hc, 99));
-  @include _color-vars(on-surface, tonal-palette.tone($hc, 10));
-  @include _color-vars(inverse-surface, tonal-palette.tone($hc, 10));
-  @include _color-vars(on-inverse-surface, tonal-palette.tone($hc, 90));
   @include _color-vars(shadow, tonal-palette.tone($hc, 0));
   @include _color-vars(scrim, tonal-palette.tone($hc, 0));
 
+  @include _color-vars(light-background, tonal-palette.tone($hc, 99));
+  @include _color-vars(dark-background, tonal-palette.tone($hc, 10));
+
+  @include _color-vars(on-light-background, tonal-palette.tone($hc, 10));
+  @include _color-vars(on-dark-background, tonal-palette.tone($hc, 90));
+
+  @include _color-vars(light-surface, tonal-palette.tone($hc, 99));
+  @include _color-vars(dark-surface, tonal-palette.tone($hc, 10));
+
+  @include _color-vars(on-light-surface, tonal-palette.tone($hc, 10));
+  @include _color-vars(on-dark-surface, tonal-palette.tone($hc, 90));
+
+  --u-background-color: var(--u-light-background-color);
+  --u-background-color-rgb: var(--u-light-background-color-rgb);
+  --u-on-background-color: var(--u-on-light-background-color);
+  --u-on-background-color-rgb: var(--u-on-light-background-color-rgb);
+  --u-surface-color: var(--u-light-surface-color);
+  --u-surface-color-rgb: var(--u-light-surface-color-rgb);
+  --u-on-surface-color: var(--u-on-light-surface-color);
+  --u-on-surface-color-rgb: var(--u-on-light-surface-color-rgb);
+
+  --u-inverse-background-color: var(--u-dark-background-color);
+  --u-inverse-background-color-rgb: var(--u-dark-background-color-rgb);
+  --u-on-inverse-background-color: var(--u-on-dark-background-color);
+  --u-on-inverse-background-color-rgb: var(--u-on-dark-background-color-rgb);
+  --u-inverse-surface-color: var(--u-dark-surface-color);
+  --u-inverse-surface-color-rgb: var(--u-dark-surface-color-rgb);
+  --u-on-inverse-surface-color: var(--u-on-dark-surface-color);
+  --u-on-inverse-surface-color-rgb: var(--u-on-dark-surface-color-rgb);
+
   .u-dark-mode {
-    @include _color-vars(background, tonal-palette.tone($hc, 10));
-    @include _color-vars(on-background, tonal-palette.tone($hc, 90));
-    @include _color-vars(surface, tonal-palette.tone($hc, 10));
-    @include _color-vars(on-surface, tonal-palette.tone($hc, 90));
-    @include _color-vars(inverse-surface, tonal-palette.tone($hc, 90));
-    @include _color-vars(on-inverse-surface, tonal-palette.tone($hc, 20));
+    --u-background-color: var(--u-dark-background-color);
+    --u-background-color-rgb: var(--u-dark-background-color-rgb);
+    --u-on-background-color: var(--u-on-dark-background-color);
+    --u-on-background-color-rgb: var(--u-on-dark-background-color-rgb);
+    --u-surface-color: var(--u-dark-surface-color);
+    --u-surface-color-rgb: var(--u-dark-surface-color-rgb);
+    --u-on-surface-color: var(--u-on-dark-surface-color);
+    --u-on-surface-color-rgb: var(--u-on-dark-surface-color-rgb);
+
+    --u-inverse-background-color: var(--u-light-background-color);
+    --u-inverse-background-color-rgb: var(--u-light-background-color-rgb);
+    --u-on-inverse-background-color: var(--u-on-light-background-color);
+    --u-on-inverse-background-color-rgb: var(--u-on-light-background-color-rgb);
+    --u-inverse-surface-color: var(--u-light-surface-color);
+    --u-inverse-surface-color-rgb: var(--u-light-surface-color-rgb);
+    --u-on-inverse-surface-color: var(--u-on-light-surface-color);
+    --u-on-inverse-surface-color-rgb: var(--u-on-light-surface-color-rgb);
   }
 }
 
 @mixin _include-neutral-variant-color-dependent-vars($neutral-variant-key-color) {
   $hc: hc.from-color($neutral-variant-key-color);
 
-  @include _color-vars(surface-variant, tonal-palette.tone($hc, 90));
-  @include _color-vars(on-surface-variant, tonal-palette.tone($hc, 30));
-  @include _color-vars(outline, tonal-palette.tone($hc, 50));
-  @include _color-vars(outline-variant, tonal-palette.tone($hc, 80));
+  @include _color-vars(light-surface-variant, tonal-palette.tone($hc, 90));
+  @include _color-vars(dark-surface-variant, tonal-palette.tone($hc, 30));
+
+  @include _color-vars(on-light-surface-variant, tonal-palette.tone($hc, 30));
+  @include _color-vars(on-dark-surface-variant, tonal-palette.tone($hc, 80));
+
+  @include _color-vars(light-outline, tonal-palette.tone($hc, 50));
+  @include _color-vars(dark-outline, tonal-palette.tone($hc, 60));
+
+  @include _color-vars(light-outline-variant, tonal-palette.tone($hc, 80));
+  @include _color-vars(dark-outline-variant, tonal-palette.tone($hc, 30));
+
+  --u-surface-variant-color: var(--u-light-surface-variant-color);
+  --u-surface-variant-color-rgb: var(--u-light-surface-variant-color-rgb);
+  --u-on-surface-variant-color: var(--u-on-light-surface-variant-color);
+  --u-on-surface-variant-color-rgb: var(--u-on-light-surface-variant-color-rgb);
+  --u-outline-color: var(--u-light-outline-color);
+  --u-outline-color-rgb: var(--u-light-outline-color-rgb);
+  --u-outline-variant-color: var(--u-light-outline-variant-color);
+  --u-outline-variant-color-rgb: var(--u-light-outline-variant-color-rgb);
+
+  --u-inverse-surface-variant-color: var(--u-dark-surface-variant-color);
+  --u-inverse-surface-variant-color-rgb: var(--u-dark-surface-variant-color-rgb);
+  --u-on-inverse-surface-variant-color: var(--u-on-dark-surface-variant-color);
+  --u-on-inverse-surface-variant-color-rgb: var(--u-on-dark-surface-variant-color-rgb);
+  --u-inverse-outline-color: var(--u-dark-outline-color);
+  --u-inverse-outline-color-rgb: var(--u-dark-outline-color-rgb);
+  --u-inverse-outline-variant-color: var(--u-dark-outline-variant-color);
+  --u-inverse-outline-variant-color-rgb: var(--u-dark-outline-variant-color-rgb);
 
   .u-dark-mode {
-    @include _color-vars(surface-variant, tonal-palette.tone($hc, 30));
-    @include _color-vars(on-surface-variant, tonal-palette.tone($hc, 80));
-    @include _color-vars(outline, tonal-palette.tone($hc, 60));
-    @include _color-vars(outline-variant, tonal-palette.tone($hc, 30));
+    --u-surface-variant-color: var(--u-dark-surface-variant-color);
+    --u-surface-variant-color-rgb: var(--u-dark-surface-variant-color-rgb);
+    --u-on-surface-variant-color: var(--u-on-dark-surface-variant-color);
+    --u-on-surface-variant-color-rgb: var(--u-on-dark-surface-variant-color-rgb);
+    --u-outline-color: var(--u-dark-outline-color);
+    --u-outline-color-rgb: var(--u-dark-outline-color-rgb);
+    --u-outline-variant-color: var(--u-dark-outline-variant-color);
+    --u-outline-variant-color-rgb: var(--u-dark-outline-variant-color-rgb);
+
+    --u-inverse-surface-variant-color: var(--u-light-surface-variant-color);
+    --u-inverse-surface-variant-color-rgb: var(--u-light-surface-variant-color-rgb);
+    --u-on-inverse-surface-variant-color: var(--u-on-light-surface-variant-color);
+    --u-on-inverse-surface-variant-color-rgb: var(--u-on-light-surface-variant-color-rgb);
+    --u-inverse-outline-color: var(--u-light-outline-color);
+    --u-inverse-outline-color-rgb: var(--u-light-outline-color-rgb);
+    --u-inverse-outline-variant-color: var(--u-light-outline-variant-color);
+    --u-inverse-outline-variant-color-rgb: var(--u-light-outline-variant-color-rgb);
   }
 }
 

@@ -1,3 +1,9 @@
+const ThemeMode = {
+  Auto: 0,
+  Light: 1,
+  Dark: 2
+};
+
 (function () {
 
   setExampleCodeText();
@@ -133,13 +139,40 @@ function getHTML(who, deep){
 }
 
 function setExampleCodeText() {
-  const exampleBoxHeaders = document.querySelectorAll('.example-box-header, .example-card .u-card-content:first-child');
+  const exampleBoxHeaders = document.querySelectorAll('.example-box-header, .example-card > .u-card-content:first-child');
   for (let i = 0; i < exampleBoxHeaders.length; i++) {
     const exampleBoxHeader = exampleBoxHeaders[i];
     const tagText = exampleBoxHeader.innerHTML.trim();
 
-    exampleBoxHeader.parentElement.getElementsByTagName('code')[0].innerText = tagText;
+    exampleBoxHeader.parentElement.getElementsByTagName('code')[0].innerHTML = tagText
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&apos;');
   }
 }
 
-hljs.initHighlightingOnLoad();
+hljs.highlightAll();
+
+let currentThemeMode = parseInt(localStorage.currentThemeMode, 10) || 0;
+
+function setThemeMode(mode) {
+  currentThemeMode = mode;
+  localStorage.currentThemeMode = mode;
+  applyThemeMode();
+}
+
+function applyThemeMode() {
+  const darkMode = currentThemeMode === ThemeMode.Dark ||
+    currentThemeMode  === ThemeMode.Auto && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+  if (!darkMode) {
+    document.body.classList.remove('u-dark-mode');
+    return;
+  }
+
+  document.body.classList.add('u-dark-mode');
+}
+
+applyThemeMode();

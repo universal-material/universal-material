@@ -6,12 +6,32 @@
   background-color: var(--u-surface-color) !important;
 }
 
+.u-bg-inverse-surface {
+  background-color: var(--u-inverse-surface-color) !important;
+}
+
 .u-bg-surface-variant {
   background-color: var(--u-surface-variant-color) !important;
 }
 
+.u-bg-inverse-surface-variant {
+  background-color: var(--u-inverse-surface-variant-color) !important;
+}
+
 .u-bg-body {
   background-color: var(--u-background-color) !important;
+}
+
+.u-bg-inverse-mode {
+  background-color: var(--u-inverse-background-color) !important;
+}
+
+.u-bg-light-mode {
+  background-color: var(--u-light-background-color) !important;
+}
+
+.u-bg-dark-mode {
+  background-color: var(--u-dark-background-color) !important;
 }
 
 .u-selectable {
@@ -28,10 +48,8 @@
   }
 }
 
-.u-bg-light {
-  @extend %u-bg-light;
-}
-
-.u-bg-dark {
-  @extend %u-bg-dark;
+@each $color-name, $color-value in $u-common-colors {
+  .u-bg-#{$color-name} {
+    background-color: var(--u-#{$color-name}-color) !important;
+  }
 }

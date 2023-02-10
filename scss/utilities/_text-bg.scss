@@ -1,15 +1,3 @@
-.u-text-bg-surface {
-  @include u-text-bg-variant(surface);
-}
-
-.u-text-bg-surface-variant {
-  @include u-text-bg-variant(surface-variant);
-}
-
-.u-text-bg-body {
-  @include u-text-bg-variant(background);
-}
-
 @each $color-name, $color-value in $u-theme-colors {
 
   .u-text-bg-#{$color-name} {
@@ -19,4 +7,36 @@
   .u-text-bg-#{$color-name}-container {
     @include u-text-bg-variant(#{$color-name}-container);
   }
+}
+
+.u-text-bg-surface {
+  @include u-text-bg-variant(surface);
+}
+
+.u-text-bg-inverse-surface {
+  @include u-text-bg-variant(inverse-surface);
+}
+
+.u-text-bg-surface-variant {
+  @include u-text-bg-variant(surface-variant);
+}
+
+.u-text-bg-inverse-surface-variant {
+  @include u-text-bg-variant(inverse-surface-variant);
+}
+
+.u-text-bg-body {
+  @include u-text-bg-variant(background);
+}
+
+.u-text-bg-inverse-mode {
+  @include u-text-bg-variant(inverse-background);
+}
+
+.u-text-bg-light-mode {
+  @include u-text-bg-variant(light-background);
+}
+
+.u-text-bg-dark-mode {
+  @include u-text-bg-variant(dark-background);
 }

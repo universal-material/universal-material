@@ -103,11 +103,25 @@ export class ThemeBuilder {
     return CssVarBuilder
       .create()
       .add('background', this.neutralColorPalette.tone(99))
+      .add('light-background', this.neutralColorPalette.tone(99))
+      .add('dark-background', this.neutralColorPalette.tone(10))
+      .add('inverse-background', this.neutralColorPalette.tone(10))
+
       .add('on-background', this.neutralColorPalette.tone(10))
+      .add('on-light-background', this.neutralColorPalette.tone(10))
+      .add('on-dark-background', this.neutralColorPalette.tone(90))
+      .add('on-inverse-background', this.neutralColorPalette.tone(90))
+
       .add('surface', this.neutralColorPalette.tone(99))
-      .add('on-surface', this.neutralColorPalette.tone(10))
+      .add('light-surface', this.neutralColorPalette.tone(99))
+      .add('dark-surface', this.neutralColorPalette.tone(10))
       .add('inverse-surface', this.neutralColorPalette.tone(10))
+
+      .add('on-surface', this.neutralColorPalette.tone(10))
+      .add('on-light-surface', this.neutralColorPalette.tone(10))
+      .add('on-dark-surface', this.neutralColorPalette.tone(90))
       .add('on-inverse-surface', this.neutralColorPalette.tone(90))
+
       .add('shadow', this.neutralColorPalette.tone(0))
       .add('scrim', this.neutralColorPalette.tone(0))
       .build();
@@ -117,21 +131,53 @@ export class ThemeBuilder {
     return CssVarBuilder
       .create()
       .add('background', this.neutralColorPalette.tone(10))
+      .add('inverse-background', this.neutralColorPalette.tone(99))
       .add('on-background', this.neutralColorPalette.tone(90))
+      .add('on-inverse-background', this.neutralColorPalette.tone(10))
       .add('surface', this.neutralColorPalette.tone(10))
-      .add('on-surface', this.neutralColorPalette.tone(90))
       .add('inverse-surface', this.neutralColorPalette.tone(99))
+      .add('on-surface', this.neutralColorPalette.tone(90))
       .add('on-inverse-surface', this.neutralColorPalette.tone(10))
       .build();
   }
 
-  private getNeultralVariantVariables(surfaceVariantTone: number, onSurfaceVariantTone: number, outlineTone: number, outlineVariantTone: number): string {
+  private getLightNeultralVariantVariables(): string {
     return CssVarBuilder
       .create()
-      .add('surface-variant', this.neutralVariantColorPalette.tone(surfaceVariantTone))
-      .add('on-surface-variant', this.neutralVariantColorPalette.tone(onSurfaceVariantTone))
-      .add('outline', this.neutralVariantColorPalette.tone(outlineTone))
-      .add('outline-variant', this.neutralVariantColorPalette.tone(outlineVariantTone))
+      .add('surface-variant', this.neutralVariantColorPalette.tone(90))
+      .add('light-surface-variant', this.neutralVariantColorPalette.tone(90))
+      .add('dark-surface-variant', this.neutralVariantColorPalette.tone(30))
+      .add('inverse-surface-variant', this.neutralVariantColorPalette.tone(30))
+
+      .add('on-surface-variant', this.neutralVariantColorPalette.tone(30))
+      .add('on-light-surface-variant', this.neutralVariantColorPalette.tone(30))
+      .add('on-dark-surface-variant', this.neutralVariantColorPalette.tone(80))
+      .add('on-inverse-surface-variant', this.neutralVariantColorPalette.tone(80))
+
+      .add('outline', this.neutralVariantColorPalette.tone(50))
+      .add('light-outline', this.neutralVariantColorPalette.tone(50))
+      .add('dark-outline', this.neutralVariantColorPalette.tone(60))
+      .add('inverse-outline', this.neutralVariantColorPalette.tone(60))
+
+      .add('outline-variant', this.neutralVariantColorPalette.tone(80))
+      .add('light-outline-variant', this.neutralVariantColorPalette.tone(80))
+      .add('dark-outline-variant', this.neutralVariantColorPalette.tone(30))
+      .add('inverse-outline-variant', this.neutralVariantColorPalette.tone(30))
+
+      .build()
+  }
+
+  private getDarkNeultralVariantVariables(): string {
+    return CssVarBuilder
+      .create()
+      .add('surface-variant', this.neutralVariantColorPalette.tone(30))
+      .add('inverse-surface-variant', this.neutralVariantColorPalette.tone(90))
+      .add('on-surface-variant', this.neutralVariantColorPalette.tone(80))
+      .add('on-inverse-surface-variant', this.neutralVariantColorPalette.tone(30))
+      .add('outline', this.neutralVariantColorPalette.tone(60))
+      .add('inverse-outline', this.neutralVariantColorPalette.tone(50))
+      .add('outline-variant', this.neutralVariantColorPalette.tone(30))
+      .add('inverse-outline-variant', this.neutralVariantColorPalette.tone(80))
       .build()
   }
 
@@ -170,7 +216,7 @@ export class ThemeBuilder {
     }
 
     if (this.neutralVariantColorPalette) {
-      variables += this.getNeultralVariantVariables(90, 30, 50 , 80);
+      variables += this.getLightNeultralVariantVariables();
     }
 
     return variables;
@@ -188,7 +234,7 @@ export class ThemeBuilder {
     }
 
     if (this.neutralVariantColorPalette) {
-      variables += this.getNeultralVariantVariables(30, 80, 60, 30);
+      variables += this.getDarkNeultralVariantVariables();
     }
 
     return variables;

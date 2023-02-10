@@ -11,11 +11,8 @@ $placeholders-already-imported: false !default;
 $text-muted: var(--u-low-emphasis-color) !default;
 $include-default-theme: true !default;
 
-$u-bg-light-vars: () !default;
-$u-bg-dark-vars: () !default;
-
 $u-unique-selector: () !default;
 
-$u-disabled-container-opacity: .4;
+$u-disabled-container-opacity: .04;
 
 $u-surface-tint-opacity: (1: .05, 2: .08, 3: .11, 4: .12, 5: .14) !default;

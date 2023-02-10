@@ -11,11 +11,16 @@
   --u-low-emphasis-opacity: .75;
   --u-lower-emphasis-opacity: .5;
 
-  --u-current-bg-color: var(--u-background-color);
-  --u-on-current-color-rgb: var(--u-on-background-color-rgb);
-  --u-high-emphasis-color: rgba(var(--u-on-current-color-rgb), var(--u-high-emphasis-opacity));
-  --u-low-emphasis-color: rgba(var(--u-on-current-color-rgb), var(--u-low-emphasis-opacity));
-  --u-lower-emphasis-color: rgba(var(--u-on-current-color-rgb), var(--u-lower-emphasis-opacity));
+  --u-current-text-color-rgb: var(--u-on-background-color-rgb);
+  --u-high-emphasis-color: rgba(var(--u-current-text-color-rgb), var(--u-high-emphasis-opacity));
+  --u-low-emphasis-color: rgba(var(--u-current-text-color-rgb), var(--u-low-emphasis-opacity));
+  --u-lower-emphasis-color: rgba(var(--u-current-text-color-rgb), var(--u-lower-emphasis-opacity));
+
+  @each $color-name, $color-value in $u-common-colors {
+    --u-#{$color-name}-color: #{$color-value};
+    --u-#{$color-name}-color-rgb: #{get-comma-separated-rgb($color-value)};
+  }
+
 
   @include _elevation-tint-opacity-vars;
 
@@ -27,7 +32,7 @@
 }
 
 .u-dark-mode {
-  --u-current-bg-color: var(--u-background-color);
+  --u-current-text-color-rgb: var(--u-on-background-color-rgb);
   --u-high-emphasis-color: rgba(var(--u-on-background-color-rgb), var(--u-high-emphasis-opacity));
   --u-low-emphasis-color: rgba(var(--u-on-background-color-rgb), var(--u-low-emphasis-opacity));
   --u-lower-emphasis-color: rgba(var(--u-on-background-color-rgb), var(--u-lower-emphasis-opacity));

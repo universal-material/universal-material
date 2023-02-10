@@ -1,10 +1,9 @@
-
-
 $u-primary-color: #6750a4 !default;
 $u-secondary-color: #958da5 !default;
 $u-tertiary-color: #b58392 !default;
 $u-success-color: #4caf50 !default;
-$u-warning-color: #fbc02d !default;
+$u-info-color: #00bcd4 !default;
+$u-warning-color: #ffee58 !default;
 $u-error-color: #b3261e !default;
 $u-neutral-color: #939094 !default;
 $u-neutral-variant-color: #948f99 !default;
@@ -25,48 +24,14 @@ $u-theme-colors: (
   primary: $u-primary-color, //Universal Material changes
   secondary: $u-secondary-color,
   tertiary: $u-tertiary-color,
-  success: $u-success-color,
-  warning: $u-warning-color,
   error: $u-error-color
 ) !default;
 
+$u-common-colors: (
+  success: $u-success-color,
+  info: $u-info-color,
+  warning: $u-warning-color,
+);
+
 $body-bg:       $gray-100 !default; //Universal Material changes
 $body-color:    rgba(#000, .87) !default;
-
-$u-bg-light:     var(--u-neutral-color-99) !default; //Universal Material changes
-$u-bg-light-ios: #efeff4 !default; //Universal Material changes
-$u-bg-dark:      var(--u-neutral-color-10) !default; //Universal Material changes
-
-$u-body-color-light-theme:    $body-color !default; //Universal Material changes
-$u-body-color-dark-theme:    $white !default; //Universal Material changes
-
-$u-color-high-contrast-light-theme: rgba(0, 0, 0, .87) !default;
-$u-color-high-contrast-dark-theme: $white !default;
-
-$u-color-lower-contrast-light-theme: rgba(0, 0, 0, .42) !default;
-$u-color-low-contrast-light-theme: rgba(0, 0, 0, .42) !default;
-$u-color-low-contrast-dark-theme: rgba(255, 255, 255, .7) !default;
-
-$u-base-semi-transparent-color-light-theme: rgba(0, 0, 0, .12) !default;
-$u-base-semi-transparent-color-dark-theme: rgba(255, 255, 255, .12) !default;
-
-$u-divider-color-light-theme: $u-base-semi-transparent-color-light-theme !default;
-$u-divider-color-dark-theme: $u-base-semi-transparent-color-dark-theme !default;
-
-$base-hover-background-color: $u-base-semi-transparent-color-light-theme !default;
-$base-active-background-color: rgba(0, 0, 0, .2) !default;
-
-$hover-background-light-theme: rgba(0, 0, 0, .06) !default;
-$hover-background-dark-theme: rgba(204, 204, 204, .1) !default;
-
-$focus-background-light-theme: rgba(0, 0, 0, .12) !default;
-$focus-background-dark-theme: rgba(204, 204, 204, .25) !default;
-
-$u-text-high-contrast-light-theme: $body-color !default;
-$u-text-high-contrast-dark-theme: $white !default;
-$u-text-low-contrast-light-theme: rgba(0, 0, 0, .54) !default;
-$u-text-low-contrast-dark-theme: rgba(255, 255, 255, .7) !default;
-$u-text-lower-contrast: rgba(0, 0, 0, .42) !default;
-$u-text-lower-contrast-light-theme: rgba(0, 0, 0, .42) !default;
-$u-text-lower-contrast-dark-theme: rgba(255, 255, 255, .5) !default;
-

@@ -9,13 +9,13 @@
 }
 
 .u-datepicker {
+  @include u-elevation-tint(3);
   display: inline-flex;
   flex-direction: column;
+  background-color: var(--u-surface-color);
 }
 
 .u-datepicker-header {
-  background-color: var(--u-primary-color);
-  color: var(--u-on-primary-color);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
